@@ -1,0 +1,17 @@
+{
+  "name": "earthkeeper-sync",
+  "version": "1.0.0",
+  "description": "Data sync script for Earthkeeper — pulls schools, hospitals and universities into Supabase",
+  "main": "sync.js",
+  "scripts": {
+    "sync": "node sync.js",
+    "sync:london": "REGIONS=london node sync.js",
+    "sync:somerset": "REGIONS=somerset node sync.js",
+    "sync:herts": "REGIONS=hertfordshire node sync.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "csv-parse": "^5.5.3",
+    "node-fetch": "^3.3.2"
+  }
+}
