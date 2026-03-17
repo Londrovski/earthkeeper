@@ -1,0 +1,17 @@
+{
+  "name": "earthkeeper",
+  "version": "1.0.0",
+  "description": "Earthkeeper data sync",
+  "type": "module",
+  "scripts": {
+    "sync": "node sync/sync.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "csv-parse": "^5.5.3",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
