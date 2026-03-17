@@ -1,7 +1,8 @@
 {
   "name": "earthkeeper-sync",
   "version": "1.0.0",
-  "description": "Data sync script for Earthkeeper — pulls schools, hospitals and universities into Supabase",
+  "description": "Data sync for Earthkeeper",
+  "type": "module",
   "main": "sync.js",
   "scripts": {
     "sync": "node sync.js",
