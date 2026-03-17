@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthkeeper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<style>
+:root {
+  --gold:#C9A84C;--gold-l:#E8D5A0;--gold-p:#FAF6EC;
+  --sage:#6B7B5E;--ink:#1C1C1C;--soft:#8A8A8A;
+  --cream:#F8F4EE;--cream-d:#EDE8DF;--white:#fff;
+  --red:#C44B4B;--blue:#3D6FAF;--violet:#7B5EA7;
+  --bd:rgba(201,168,76,.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* header */
+header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;flex-shrink:0;gap:16px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
+.logo em{color:var(--gold);font-style:italic}
+.hstats{display:flex;gap:20px;font-size:11px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
+.hstats strong{color:var(--gold);font-size:15px;display:block;letter-spacing:0}
+.hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:5px 12px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.06em;cursor:pointer;border-radius:2px;text-transform:uppercase;transition:all .2s}
+.hbtn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
+
+/* layout */
+.body{display:flex;flex:1;overflow:hidden}
+
+/* sidebar */
+.sidebar{width:300px;flex-shrink:0;background:var(--white);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
+.sidebar.collapsed{width:0;opacity:0}
+.tabs{display:flex;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.tab{flex:1;padding:11px 4px;font-family:'Jost',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.07em;background:none;border:none;cursor:pointer;color:var(--soft);border-bottom:2px solid transparent;transition:all .2s}
+.tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.panel{display:none;flex-direction:column;flex:1;overflow:hidden}
+.panel.on{display:flex}
+
+/* filters */
+.frow{padding:12px 14px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.frow label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);display:block;margin-bottom:7px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:20px;font-size:10px;cursor:pointer;border:1px solid;transition:all .15s;font-family:'Jost',sans-serif}
+.chip-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
+.chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
+.chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
+.chip.cleared{border-color:var(--gold);color:var(--gold)}.chip.cleared.on{background:var(--gold);color:var(--ink)}
+.srow{padding:8px 14px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.sinput{width:100%;padding:7px 10px;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:12px;outline:none;background:var(--cream)}
+.sinput:focus{border-color:var(--gold)}
+
+/* list */
+.llist{flex:1;overflow-y:auto}
+.llist::-webkit-scrollbar{width:3px}
+.llist::-webkit-scrollbar-thumb{background:var(--cream-d)}
+.litem{padding:9px 14px;cursor:pointer;border-bottom:1px solid var(--cream-d);transition:background .12s;display:flex;align-items:flex-start;gap:9px}
+.litem:hover{background:var(--cream)}
+.litem.sel{background:var(--gold-p);border-left:3px solid var(--gold);padding-left:11px}
+.ldot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.linfo{flex:1;min-width:0}
+.lname{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.litem.done .lname{text-decoration:line-through;opacity:.55}
+.lmeta{font-size:10px;color:var(--soft);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbadge{font-size:9px;background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l);padding:1px 6px;border-radius:10px;flex-shrink:0;align-self:center}
+
+/* map */
+#map{flex:1}
+.mwrap{position:relative;flex:1;display:flex}
+.mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:14px}
+.mload h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:26px}
+.dots{display:flex;gap:6px}
+.dots span{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
+.dots span:nth-child(2){animation-delay:.2s}
+.dots span:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+.msub{font-size:12px;color:var(--soft);letter-spacing:.04em}
+
+/* popup */
+.leaflet-popup-content-wrapper{border-radius:4px!important;box-shadow:0 4px 20px rgba(0,0,0,.12)!important}
+.leaflet-popup-content{margin:0!important}
+.pop{padding:14px 16px;min-width:220px;max-width:260px}
+.pop-type{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:3px}
+.pop-type.hospital{color:var(--red)}.pop-type.school{color:var(--blue)}.pop-type.university{color:var(--violet)}
+.pop-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.pop-addr{font-size:11px;color:var(--soft);margin-bottom:12px;line-height:1.4}
+.pop-status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:12px;font-size:11px;margin-bottom:10px}
+.pop-status.pending{background:var(--cream-d);color:var(--soft)}
+.pop-status.cleared{background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l)}
+.btn-clear{display:block;width:100%;padding:9px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-clear:hover{background:var(--sage)}
+.btn-clear.cleared{background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l)}
+
+/* map overlays */
+.legend{position:absolute;bottom:20px;left:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:9px 12px;z-index:400;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.leg-title{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:6px}
+.leg-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px;color:var(--ink)}
+.leg-dot{width:9px;height:9px;border-radius:50%}
+.progress{position:absolute;top:12px;right:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:10px 14px;z-index:400;min-width:185px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.prog-title{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:7px}
+.prog-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.prog-label{font-size:10px;color:var(--ink);width:68px;flex-shrink:0}
+.prog-track{flex:1;height:3px;background:var(--cream-d);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;transition:width .4s}
+.prog-count{font-size:10px;color:var(--soft);min-width:30px;text-align:right}
+.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 4px 4px 0;width:18px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:9px}
+.tog:hover{background:var(--cream)}
+.empty{padding:20px;text-align:center;font-size:12px;color:var(--soft);line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Earth<em>keeper</em></div>
+  <div class="hstats">
+    <div><strong id="s-total">—</strong>locations</div>
+    <div><strong id="s-cleared">0</strong>cleared</div>
+    <div><strong id="s-pct">0%</strong>done</div>
+  </div>
+  <div style="display:flex;gap:6px">
+    <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
+    <button class="hbtn" onclick="exportCSV()">↓ Export</button>
+  </div>
+</header>
+
+<div class="body">
+  <div class="sidebar" id="sidebar">
+    <div class="tabs">
+      <button class="tab on"  onclick="switchTab('locs',this)">Locations</button>
+      <button class="tab"     onclick="switchTab('stats',this)">Stats</button>
+    </div>
+
+    <div class="panel on" id="tab-locs">
+      <div class="frow">
+        <label>Show</label>
+        <div class="chips">
+          <div class="chip hospital on" onclick="toggleFilter('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
+          <div class="chip school on"   onclick="toggleFilter('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
+          <div class="chip university on" onclick="toggleFilter('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Universities</div>
+          <div class="chip cleared"     onclick="toggleFilter('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
+        </div>
+      </div>
+      <div class="srow">
+        <input class="sinput" type="text" placeholder="Search…" id="search" oninput="renderList()">
+      </div>
+      <div class="llist" id="llist"><div class="empty">Loading locations…</div></div>
+    </div>
+
+    <div class="panel" id="tab-stats">
+      <div style="padding:16px;font-size:12px;color:var(--soft);line-height:1.8;overflow-y:auto;flex:1" id="stats-panel">
+        Loading stats…
+      </div>
+    </div>
+  </div>
+
+  <div class="mwrap">
+    <div id="map"></div>
+
+    <div class="mload" id="mload">
+      <h2>Earthkeeper</h2>
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="msub" id="mload-msg">Connecting to database…</div>
+    </div>
+
+    <button class="tog" id="tog" onclick="toggleSidebar()">‹</button>
+
+    <div class="legend">
+      <div class="leg-title">Legend</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cleared ✦</div>
+    </div>
+
+    <div class="progress">
+      <div class="prog-title">Progress</div>
+      <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">—</div></div>
+      <div class="prog-row"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
+      <div class="prog-row"><div class="prog-label">Universities</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">—</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ── replace with your values or set via Netlify env vars
+const SUPABASE_URL      = 'https://veceljqhdrtlodbofqug.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlY2VsanFoZHJ0bG9kYm9mcXVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODY3MDAsImV4cCI6MjA4OTM2MjcwMH0.N-fdE2n7ruSVUPGiS7rZg7sIYpGCK3i2MbxRrQBx1XA'
+
+const { createClient } = supabase
+const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+// ── STATE ──
+let locations  = []
+let progressMap = {}   // location_id -> { cleared, cleared_date }
+let markers    = {}
+let selectedId = null
+let sidebarOpen = true
+let filters    = { hospital:true, school:true, university:true, cleared:false }
+let map
+
+// ── MAP ──
+function initMap() {
+  map = L.map('map').setView([51.5, -0.1], 10)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution:'© OpenStreetMap contributors © CARTO',
+    subdomains:'abcd', maxZoom:19
+  }).addTo(map)
+}
+
+function makeIcon(type, cleared) {
+  const c = cleared ? '#C9A84C'
+    : type==='hospital' ? '#C44B4B'
+    : type==='school'   ? '#3D6FAF'
+    :                     '#7B5EA7'
+  return L.divIcon({
+    html:`<div style="width:16px;height:16px;border-radius:50% 50% 50% 0;background:${c};transform:rotate(-45deg);border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.28)"></div>`,
+    iconSize:[16,16],iconAnchor:[8,16],popupAnchor:[0,-18],className:''
+  })
+}
+
+function renderMarkers() {
+  Object.values(markers).forEach(m => map.removeLayer(m))
+  markers = {}
+  for (const loc of locations) {
+    if (!loc.lat || !loc.lng) continue
+    if (!visible(loc)) continue
+    const cleared = !!progressMap[loc.id]?.cleared
+    const m = L.marker([loc.lat, loc.lng], { icon: makeIcon(loc.type, cleared) }).addTo(map)
+    m.on('click', () => selectLoc(loc.id))
+    markers[loc.id] = m
+  }
+}
+
+function visible(loc) {
+  if (filters.cleared) return !!progressMap[loc.id]?.cleared
+  return filters[loc.type] !== false
+}
+
+// ── DATA LOAD ──
+async function loadData() {
+  setMsg('Loading locations from database…')
+
+  // Load all active locations (paginate if > 1000)
+  let allLocs = []
+  let from = 0
+  const PAGE = 1000
+  while (true) {
+    const { data, error } = await db
+      .from('locations')
+      .select('id,name,type,sub_type,address,postcode,lat,lng,region')
+      .eq('active', true)
+      .range(from, from + PAGE - 1)
+    if (error) { setMsg('Error loading locations: ' + error.message); return }
+    allLocs = allLocs.concat(data)
+    if (data.length < PAGE) break
+    from += PAGE
+    setMsg(`Loaded ${allLocs.length} locations…`)
+  }
+
+  locations = allLocs
+  setMsg('Loading your progress…')
+
+  // Load progress
+  const { data: prog } = await db.from('progress').select('location_id,cleared,cleared_date')
+  if (prog) {
+    for (const p of prog) progressMap[p.location_id] = p
+  }
+
+  setMsg('Drawing map…')
+  hideLoader()
+  renderMarkers()
+  renderList()
+  updateStats()
+}
+
+// ── LIST ──
+function renderList() {
+  const el = document.getElementById('llist')
+  const q  = document.getElementById('search').value.toLowerCase()
+  const cols = { hospital:'var(--red)', school:'var(--blue)', university:'var(--violet)' }
+
+  const vis = locations.filter(l => {
+    if (!visible(l)) return false
+    if (q && !l.name.toLowerCase().includes(q) && !(l.address||'').toLowerCase().includes(q)) return false
+    return true
+  })
+
+  if (!vis.length) { el.innerHTML = '<div class="empty">No locations match</div>'; return }
+
+  el.innerHTML = vis.map(l => {
+    const cl = !!progressMap[l.id]?.cleared
+    const col = cl ? 'var(--gold)' : (cols[l.type] || '#888')
+    return `<div class="litem ${cl?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
+      <div class="ldot" style="background:${col}"></div>
+      <div class="linfo">
+        <div class="lname">${l.name}</div>
+        <div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div>
+      </div>
+      ${cl ? '<div class="lbadge">✦</div>' : ''}
+    </div>`
+  }).join('')
+}
+
+// ── SELECT ──
+function selectLoc(id) {
+  selectedId = id
+  const loc = locations.find(l => l.id === id)
+  if (!loc) return
+  renderList()
+  const m = markers[id]
+  if (m) {
+    map.panTo([loc.lat, loc.lng])
+    m.bindPopup(buildPopup(loc), { maxWidth:270, minWidth:240 }).openPopup()
+  }
+}
+
+// ── POPUP ──
+function buildPopup(loc) {
+  const prog = progressMap[loc.id]
+  const cleared = !!prog?.cleared
+  const dateStr = prog?.cleared_date
+    ? new Date(prog.cleared_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    : null
+  return `<div class="pop">
+    <div class="pop-type ${loc.type}">${loc.type.toUpperCase()}</div>
+    <div class="pop-name">${loc.name}</div>
+    <div class="pop-addr">${loc.address||loc.postcode||''}</div>
+    <div class="pop-status ${cleared?'cleared':'pending'}">
+      ${cleared ? `✦ Cleared ${dateStr ? '· '+dateStr : ''}` : '○ Pending'}
+    </div>
+    <button class="btn-clear ${cleared?'cleared':''}" onclick="toggleCleared('${loc.id}')">
+      ${cleared ? '✦ Mark as Uncleared' : 'Mark as Cleared  ✦'}
+    </button>
+  </div>`
+}
+
+// ── CLEAR / UNCLEAR ──
+async function toggleCleared(id) {
+  const loc = locations.find(l => l.id === id)
+  if (!loc) return
+  const current = !!progressMap[id]?.cleared
+  const newCleared = !current
+  const today = new Date().toISOString().slice(0,10)
+
+  // Optimistic update
+  progressMap[id] = { cleared: newCleared, cleared_date: newCleared ? today : null }
+  if (markers[id]) markers[id].setIcon(makeIcon(loc.type, newCleared))
+
+  // Re-render popup
+  markers[id]?.closePopup()
+  setTimeout(() => markers[id]?.bindPopup(buildPopup(loc),{maxWidth:270,minWidth:240}).openPopup(), 50)
+
+  renderList()
+  updateStats()
+
+  // Persist to Supabase
+  const { error } = await db.from('progress').upsert({
+    location_id: id,
+    cleared: newCleared,
+    cleared_date: newCleared ? today : null,
+    updated_at: new Date().toISOString()
+  }, { onConflict: 'location_id' })
+
+  if (error) console.error('Progress save error:', error.message)
+}
+
+// ── STATS ──
+function updateStats() {
+  const total   = locations.length
+  const cleared = Object.values(progressMap).filter(p => p.cleared).length
+  const pct     = total ? Math.round(cleared/total*100) : 0
+
+  document.getElementById('s-total').textContent   = total.toLocaleString()
+  document.getElementById('s-cleared').textContent = cleared
+  document.getElementById('s-pct').textContent     = pct + '%'
+
+  for (const [type, pgId, pgTxt] of [
+    ['hospital','pg-h','pg-ht'],
+    ['school','pg-s','pg-st'],
+    ['university','pg-u','pg-ut']
+  ]) {
+    const tot = locations.filter(l => l.type===type).length
+    const cl  = locations.filter(l => l.type===type && progressMap[l.id]?.cleared).length
+    const p   = tot ? Math.round(cl/tot*100) : 0
+    document.getElementById(pgId).style.width = p + '%'
+    document.getElementById(pgTxt).textContent = `${cl}/${tot}`
+  }
+
+  // Stats tab
+  const byRegion = {}
+  for (const l of locations) {
+    const r = l.region || 'unknown'
+    if (!byRegion[r]) byRegion[r] = { total:0, cleared:0 }
+    byRegion[r].total++
+    if (progressMap[l.id]?.cleared) byRegion[r].cleared++
+  }
+  const sp = document.getElementById('stats-panel')
+  sp.innerHTML = Object.entries(byRegion)
+    .sort((a,b) => b[1].total - a[1].total)
+    .map(([r,v]) => `<div style="margin-bottom:12px">
+      <div style="font-weight:500;color:var(--ink);text-transform:capitalize;margin-bottom:3px">${r}</div>
+      <div>${v.cleared} / ${v.total} cleared (${Math.round(v.cleared/v.total*100)}%)</div>
+    </div>`).join('')
+}
+
+// ── FILTERS ──
+function toggleFilter(type, el) {
+  if (type === 'cleared') {
+    filters.cleared = !filters.cleared
+    el.classList.toggle('on', filters.cleared)
+  } else {
+    filters[type] = !filters[type]
+    el.classList.toggle('on', filters[type])
+  }
+  renderMarkers()
+  renderList()
+}
+
+// ── SIDEBAR ──
+let sbOpen = true
+function toggleSidebar() {
+  sbOpen = !sbOpen
+  document.getElementById('sidebar').classList.toggle('collapsed', !sbOpen)
+  document.getElementById('tog').textContent = sbOpen ? '‹' : '›'
+}
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'))
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'))
+  btn.classList.add('on')
+  document.getElementById('tab-'+name).classList.add('on')
+}
+
+// ── EXPORT ──
+function exportCSV() {
+  const rows = [['id','name','type','sub_type','address','postcode','region','cleared','cleared_date']]
+  for (const l of locations) {
+    const p = progressMap[l.id] || {}
+    rows.push([l.id, l.name, l.type, l.sub_type||'', l.address||'', l.postcode||'', l.region||'', p.cleared?'TRUE':'FALSE', p.cleared_date||''])
+  }
+  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n')
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}))
+  a.download = 'earthkeeper-progress.csv'
+  a.click()
+}
+
+// ── LOADER ──
+function setMsg(m) { document.getElementById('mload-msg').textContent = m }
+function hideLoader() { document.getElementById('mload').style.display = 'none' }
+
+// ── BOOT ──
+initMap()
+loadData()
+</script>
+</body>
+</html>
