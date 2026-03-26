@@ -20,8 +20,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden}
 
-/* ── LOGIN SCREEN ── */
-#login-screen{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:0}
+/* LOGIN */
+#login-screen{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:9999}
 .login-box{background:var(--cream);border-radius:6px;padding:36px 40px;width:320px;text-align:center}
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:.12em;color:var(--ink);margin-bottom:4px}
 .login-logo em{color:var(--gold);font-style:italic}
@@ -34,18 +34,21 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);heig
 .login-btn:hover{background:#2a2a2a}
 .login-err{font-size:11px;color:var(--red);margin-top:10px;min-height:16px}
 
-/* ── MAIN APP ── */
+/* APP */
+#app{display:none;flex-direction:column;height:100vh}
 header{background:var(--ink);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;flex-shrink:0;gap:16px}
 .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
 .logo em{color:var(--gold);font-style:italic}
-.huser{font-size:11px;color:var(--soft);display:flex;align-items:center;gap:10px}
+.huser{font-size:11px;color:var(--soft);display:flex;align-items:center;gap:8px}
 .huser strong{color:var(--gold-l)}
-.huser button{background:none;border:1px solid rgba(201,168,76,.2);color:var(--soft);padding:3px 8px;font-family:'Jost',sans-serif;font-size:10px;cursor:pointer;border-radius:2px;letter-spacing:.05em}
-.hstats{display:flex;gap:20px;font-size:11px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
+.huser button{background:none;border:1px solid rgba(201,168,76,.2);color:var(--soft);padding:3px 8px;font-family:'Jost',sans-serif;font-size:10px;cursor:pointer;border-radius:2px}
+.hstats{display:flex;gap:16px;font-size:11px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
 .hstats strong{color:var(--gold);font-size:15px;display:block;letter-spacing:0}
 .hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:5px 12px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.06em;cursor:pointer;border-radius:2px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
 .body{display:flex;flex:1;overflow:hidden}
+
+/* SIDEBAR */
 .sidebar{width:310px;flex-shrink:0;background:var(--white);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0}
 .tabs{display:flex;border-bottom:1px solid var(--cream-d);flex-shrink:0}
@@ -82,45 +85,50 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
 .litem.done .lname{text-decoration:line-through;opacity:.5}
 .lmeta{font-size:10px;color:var(--soft);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lbadge{font-size:9px;padding:1px 6px;border-radius:10px;flex-shrink:0;align-self:center;border:1px solid;white-space:nowrap}
+
+/* DETAIL PANEL — replaces popup, lives at bottom of sidebar */
+.detail{flex-shrink:0;border-top:2px solid var(--bd);background:var(--white);display:none;flex-direction:column}
+.detail.on{display:flex}
+.detail-head{padding:12px 14px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.detail-close{background:none;border:none;font-size:16px;color:var(--soft);cursor:pointer;line-height:1;padding:0;flex-shrink:0;margin-top:2px}
+.detail-close:hover{color:var(--ink)}
+.detail-type{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:2px}
+.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.3;color:var(--ink)}
+.detail-addr{font-size:10px;color:var(--soft);margin-top:2px}
+.detail-body{padding:10px 14px 14px}
+.detail-cleared{font-size:11px;padding:6px 10px;border-radius:5px;margin-bottom:10px;line-height:1.5}
+.tool-label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:5px}
+.tool-btns{display:flex;gap:6px;margin-bottom:8px}
+.tool-btn{flex:1;padding:7px 8px;border:1.5px solid;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em}
+.tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.sel{background:var(--omega);color:#fff}
+.tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.sel{background:var(--jewel);color:#fff}
+.btn-mark{display:block;width:100%;padding:9px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-mark:hover{background:var(--sage)}
+.btn-unmark{display:block;width:100%;padding:7px;margin-top:6px;background:none;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:10px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+.btn-unmark:hover{border-color:var(--red);color:var(--red)}
+
+/* MAP */
 #map{flex:1}
 .mwrap{position:relative;flex:1;display:flex}
 .mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:14px}
 .mload h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:26px}
 .dots{display:flex;gap:6px}
 .dots span{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
-.dots span:nth-child(2){animation-delay:.2s}
-.dots span:nth-child(3){animation-delay:.4s}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
-.msub{font-size:12px;color:var(--soft);letter-spacing:.04em;text-align:center;max-width:280px}
-.leaflet-popup-content-wrapper{border-radius:4px!important;box-shadow:0 4px 20px rgba(0,0,0,.14)!important}
-.leaflet-popup-content{margin:0!important}
-.pop{padding:14px 16px;min-width:240px;max-width:280px}
-.pop-type{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:3px}
-.pop-type.hospital{color:var(--red)}.pop-type.school{color:var(--blue)}.pop-type.university{color:var(--violet)}
-.pop-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);margin-bottom:2px;line-height:1.3}
-.pop-addr{font-size:11px;color:var(--soft);margin-bottom:10px;line-height:1.4}
-.pop-cleared-info{font-size:11px;padding:6px 10px;border-radius:6px;margin-bottom:10px;line-height:1.6}
-.tool-row{margin-bottom:10px}
-.tool-row label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);display:block;margin-bottom:5px}
-.tool-btns{display:flex;gap:6px}
-.tool-btn{flex:1;padding:7px 8px;border:1.5px solid;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em}
-.tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.on{background:var(--omega);color:#fff}
-.tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.on{background:var(--jewel);color:#fff}
-.btn-mark{display:block;width:100%;padding:9px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.btn-mark:hover{background:var(--sage)}
-.btn-unmark{display:block;width:100%;padding:7px;margin-top:6px;background:none;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:10px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
-.btn-unmark:hover{border-color:var(--red);color:var(--red)}
+.msub{font-size:12px;color:var(--soft);text-align:center;max-width:280px}
 .legend{position:absolute;bottom:20px;left:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:9px 12px;z-index:400;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .leg-title{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:6px}
-.leg-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px;color:var(--ink)}
+.leg-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px}
 .leg-dot{width:9px;height:9px;border-radius:50%}
-.progress{position:absolute;top:12px;right:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:10px 14px;z-index:400;min-width:185px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.progress{position:absolute;top:12px;right:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:10px 14px;z-index:400;min-width:180px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .prog-title{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:7px}
 .prog-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
-.prog-label{font-size:10px;color:var(--ink);width:68px;flex-shrink:0}
+.prog-label{font-size:10px;width:64px;flex-shrink:0}
 .prog-track{flex:1;height:3px;background:var(--cream-d);border-radius:2px;overflow:hidden}
 .prog-fill{height:100%;border-radius:2px;transition:width .4s}
-.prog-count{font-size:10px;color:var(--soft);min-width:30px;text-align:right}
+.prog-count{font-size:10px;color:var(--soft);min-width:28px;text-align:right}
 .tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 4px 4px 0;width:18px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:9px}
 .tog:hover{background:var(--cream)}
 .empty{padding:20px;text-align:center;font-size:12px;color:var(--soft);line-height:1.7}
@@ -129,14 +137,14 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
 </head>
 <body>
 
-<!-- ── LOGIN SCREEN ── -->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">Earth<em>keeper</em></div>
     <div class="login-sub">Energy clearing tracker</div>
     <div class="login-field">
       <label>Your full name</label>
-      <input type="text" id="login-name" placeholder="e.g. James Morris" autocomplete="name">
+      <input type="text" id="login-name" placeholder="e.g. Anthony Gorman" autocomplete="name">
     </div>
     <div class="login-field">
       <label>Password</label>
@@ -147,9 +155,8 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
   </div>
 </div>
 
-<!-- ── MAIN APP (hidden until login) ── -->
-<div id="app" style="display:none;flex-direction:column;flex:1;height:100vh">
-
+<!-- APP -->
+<div id="app">
 <header>
   <div class="logo">Earth<em>keeper</em></div>
   <div class="hstats">
@@ -158,7 +165,7 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
     <div><strong id="s-pct">0%</strong>done</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
-    <div class="huser"><strong id="h-username"></strong> <button onclick="logout()">Sign out</button></div>
+    <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
     <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
     <button class="hbtn" onclick="exportCSV()">↓ Export</button>
   </div>
@@ -171,34 +178,23 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
       <button class="tab"    onclick="switchTab('log',this)">Log</button>
     </div>
 
+    <!-- LOCATIONS PANEL -->
     <div class="panel on" id="tab-locs">
       <div class="frow">
         <div class="frow-label">Places</div>
         <div class="chips">
-          <div class="chip hospital on" onclick="togglePlace('hospital',this)">
-            <span class="chip-dot" style="background:var(--red)"></span>Hospitals
-          </div>
-          <div class="chip school on" onclick="togglePlace('school',this)">
-            <span class="chip-dot" style="background:var(--blue)"></span>Schools
-          </div>
-          <div class="chip university on" onclick="togglePlace('university',this)">
-            <span class="chip-dot" style="background:var(--violet)"></span>Unis
-          </div>
+          <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
+          <div class="chip school on"   onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
+          <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
         </div>
       </div>
       <div class="frow">
         <div class="frow-label">Show</div>
         <div class="chips">
-          <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
-          <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)">
-            <span class="chip-dot" style="background:var(--gold)"></span>Cleared
-          </div>
-          <div class="chip show-omega" id="chip-omega" onclick="setShow('omega',this)">
-            <span class="chip-dot" style="background:var(--omega)"></span>Omega
-          </div>
-          <div class="chip show-jewel" id="chip-jewel" onclick="setShow('jewel',this)">
-            <span class="chip-dot" style="background:var(--jewel)"></span>Jewel
-          </div>
+          <div class="chip show-all on" id="chip-all"     onclick="setShow('all',this)">All</div>
+          <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
+          <div class="chip show-omega"   id="chip-omega"   onclick="setShow('omega',this)"><span class="chip-dot" style="background:var(--omega)"></span>Omega</div>
+          <div class="chip show-jewel"   id="chip-jewel"   onclick="setShow('jewel',this)"><span class="chip-dot" style="background:var(--jewel)"></span>Jewel</div>
         </div>
       </div>
       <div class="rsel">
@@ -224,8 +220,22 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
         <input class="sinput" type="text" placeholder="Search locations…" id="search" oninput="renderList()">
       </div>
       <div class="llist" id="llist"><div class="empty">Loading London…</div></div>
+
+      <!-- DETAIL PANEL — no more popups -->
+      <div class="detail" id="detail">
+        <div class="detail-head">
+          <div>
+            <div class="detail-type" id="d-type"></div>
+            <div class="detail-name" id="d-name"></div>
+            <div class="detail-addr" id="d-addr"></div>
+          </div>
+          <button class="detail-close" onclick="closeDetail()">✕</button>
+        </div>
+        <div class="detail-body" id="d-body"></div>
+      </div>
     </div>
 
+    <!-- LOG PANEL -->
     <div class="panel" id="tab-log">
       <div id="log-list" style="flex:1;overflow-y:auto"></div>
     </div>
@@ -255,82 +265,63 @@ header{background:var(--ink);padding:0 20px;display:flex;align-items:center;just
     </div>
   </div>
 </div>
+</div><!-- #app -->
 
-</div><!-- end #app -->
-
-<div class="saving" id="saving" style="opacity:0">Saving…</div>
+<div class="saving" id="saving" style="opacity:0"></div>
 
 <script>
-const REPO_OWNER  = 'Londrovski'
-const REPO_NAME   = 'earthkeeper'
-const DATA_BRANCH = 'main'
+// ── CONFIG — embedded so private repo works ──
+const GITHUB_TOKEN   = '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'
+const PASSWORD_HASH  = '74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
+const REPO_OWNER     = 'Londrovski'
+const REPO_NAME      = 'earthkeeper'
+const DATA_BRANCH    = 'main'
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${DATA_BRANCH}/data`
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 // ── STATE ──
-let locations    = []
-let progress     = {}
-let progressSha  = null
-let markers      = {}
-let selectedId   = null
+let locations   = []
+let progress    = {}
+let progressSha = null
+let markers     = {}
+let selectedId  = null
 let map
 let placesFilter = { hospital:true, school:true, university:true }
 let showFilter   = 'all'
 let currentTool  = 'omega'
-let githubToken  = null
-let currentUser  = null   // full name of logged-in person
+let currentUser  = null
 
 // ── LOGIN ──
 async function doLogin() {
   const name = document.getElementById('login-name').value.trim()
   const pw   = document.getElementById('login-pw').value
   const err  = document.getElementById('login-err')
-
   if (!name) { err.textContent = 'Please enter your name'; return }
   if (!pw)   { err.textContent = 'Please enter the password'; return }
-
   err.textContent = 'Checking…'
-
-  try {
-    // Fetch config (works on private repo only if token already known — on first load it's public until you make it private)
-    const res = await fetch(`${RAW_BASE}/config.json?_=${Date.now()}`)
-    if (!res.ok) throw new Error('Could not load config')
-    const cfg = await res.json()
-
-    // Hash the entered password and compare
-    const hash = await sha256(pw)
-    if (hash !== cfg.password_hash) {
-      err.textContent = 'Incorrect password'
-      document.getElementById('login-pw').value = ''
-      return
-    }
-
-    // Login success
-    githubToken = cfg.github_token === 'PASTE_YOUR_TOKEN_HERE' ? null : cfg.github_token
-    currentUser = name
-    sessionStorage.setItem('ek_user', name)
-
-    document.getElementById('login-screen').style.display = 'none'
-    const app = document.getElementById('app')
-    app.style.display = 'flex'
-    document.getElementById('h-username').textContent = name
-    err.textContent = ''
-
-    await bootApp()
-  } catch(e) {
-    err.textContent = 'Login error: ' + e.message
+  const hash = await sha256(pw)
+  if (hash !== PASSWORD_HASH) {
+    err.textContent = 'Incorrect password'
+    document.getElementById('login-pw').value = ''
+    return
   }
+  currentUser = name
+  sessionStorage.setItem('ek_user', name)
+  document.getElementById('login-screen').style.display = 'none'
+  document.getElementById('app').style.display = 'flex'
+  document.getElementById('h-username').textContent = name
+  err.textContent = ''
+  bootApp()
 }
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('')
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')
 }
 
 function logout() {
   sessionStorage.removeItem('ek_user')
   currentUser = null
-  githubToken = null
   document.getElementById('login-name').value = ''
   document.getElementById('login-pw').value = ''
   document.getElementById('login-screen').style.display = 'flex'
@@ -339,24 +330,19 @@ function logout() {
 
 // ── MAP ──
 function initMap() {
-  map = L.map('map').setView([51.5, -0.1], 10)
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution:'© OpenStreetMap contributors © CARTO',
-    subdomains:'abcd', maxZoom:19
+  map = L.map('map').setView([51.5,-0.1],10)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+    attribution:'© OpenStreetMap contributors © CARTO',subdomains:'abcd',maxZoom:19
   }).addTo(map)
 }
 
-function toolColor(tool) {
-  return tool==='omega' ? '#2E7D52' : tool==='jewel' ? '#8B2FC9' : '#C9A84C'
-}
+function toolColor(t) { return t==='omega'?'#2E7D52':t==='jewel'?'#8B2FC9':'#C9A84C' }
 
 function makeIcon(type, cleared, tool) {
-  const c = cleared ? toolColor(tool)
-    : type==='hospital' ? '#C44B4B'
-    : type==='school'   ? '#3D6FAF' : '#7B5EA7'
+  const c = cleared ? toolColor(tool) : type==='hospital'?'#C44B4B':type==='school'?'#3D6FAF':'#7B5EA7'
   return L.divIcon({
     html:`<div style="width:16px;height:16px;border-radius:50% 50% 50% 0;background:${c};transform:rotate(-45deg);border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.28)"></div>`,
-    iconSize:[16,16], iconAnchor:[8,16], popupAnchor:[0,-18], className:''
+    iconSize:[16,16],iconAnchor:[8,16],className:''
   })
 }
 
@@ -371,170 +357,172 @@ function locVisible(loc) {
 }
 
 function renderMarkers() {
-  Object.values(markers).forEach(m => map.removeLayer(m))
+  Object.values(markers).forEach(m=>map.removeLayer(m))
   markers = {}
   for (const loc of locations) {
-    if (!loc.lat || !loc.lng || !locVisible(loc)) continue
+    if (!loc.lat||!loc.lng||!locVisible(loc)) continue
     const p = progress[loc.id]
     const m = L.marker([loc.lat,loc.lng],{icon:makeIcon(loc.type,!!p,p?.tool)}).addTo(map)
-    m.on('click', () => selectLoc(loc.id))
+    m.on('click',()=>selectLoc(loc.id))
     markers[loc.id] = m
   }
 }
 
-// ── LOAD REGION ──
+// ── REGION ──
 async function loadRegion(region) {
   if (!region) return
+  closeDetail()
   setMsg(`Loading ${region}…`)
-  document.getElementById('mload').style.display = 'flex'
+  document.getElementById('mload').style.display='flex'
   try {
-    const res = await fetch(`${RAW_BASE}/locations-${region}.json?_=${Date.now()}`)
+    const res = await fetch(`${RAW_BASE}/locations-${region}.json?_=${Date.now()}`,{
+      headers:{ Authorization:`token ${GITHUB_TOKEN}` }
+    })
     if (!res.ok) throw new Error(`No data for "${region}" yet`)
     locations = await res.json()
-    hideLoader()
-    renderMarkers(); renderList(); updateStats()
+    hideLoader(); renderMarkers(); renderList(); updateStats()
     const pts = locations.filter(l=>l.lat&&l.lng)
     if (pts.length) {
-      const lats=pts.map(l=>l.lat), lngs=pts.map(l=>l.lng)
-      map.flyToBounds([[Math.min(...lats),Math.min(...lngs)],[Math.max(...lats),Math.max(...lngs)]],
-        {padding:[40,40],maxZoom:12,duration:1})
+      const lats=pts.map(l=>l.lat),lngs=pts.map(l=>l.lng)
+      map.flyToBounds([[Math.min(...lats),Math.min(...lngs)],[Math.max(...lats),Math.max(...lngs)]],{padding:[40,40],maxZoom:12,duration:1})
     }
   } catch(e) {
     setMsg(e.message); setTimeout(hideLoader,3000); locations=[]; renderList()
   }
 }
 
-// ── LOAD PROGRESS ──
+// ── PROGRESS ──
 async function loadProgress() {
   try {
-    const headers = githubToken ? { Authorization:`token ${githubToken}` } : {}
-    const res = await fetch(`${API_BASE}/progress.json`, { headers })
+    const res = await fetch(`${API_BASE}/progress.json`,{headers:{Authorization:`token ${GITHUB_TOKEN}`}})
     if (res.ok) {
       const meta = await res.json()
       progressSha = meta.sha
       progress = JSON.parse(atob(meta.content.replace(/\n/g,'')))
     }
-  } catch(e) { progress = {} }
+  } catch(e) { progress={} }
 }
 
-// ── SAVE PROGRESS ──
 async function saveProgress() {
-  if (!githubToken) { showSaving('⚠ No token in config — clearings saved locally only'); return }
   showSaving('Saving…')
   try {
     const body = {
-      message: `${currentUser} — ${new Date().toISOString().slice(0,10)}`,
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),
-      branch: DATA_BRANCH
+      message:`${currentUser} — ${new Date().toISOString().slice(0,10)}`,
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),
+      branch:DATA_BRANCH
     }
     if (progressSha) body.sha = progressSha
     const res = await fetch(`${API_BASE}/progress.json`,{
       method:'PUT',
-      headers:{Authorization:`token ${githubToken}`,'Content-Type':'application/json'},
+      headers:{Authorization:`token ${GITHUB_TOKEN}`,'Content-Type':'application/json'},
       body:JSON.stringify(body)
     })
-    if (res.ok) {
-      const data = await res.json()
-      progressSha = data.content.sha
-      showSaving('✓ Saved')
-    } else {
-      const err = await res.json()
-      showSaving('Save failed: '+err.message)
-    }
-  } catch(e) { showSaving('Save error') }
-  setTimeout(()=>document.getElementById('saving').style.opacity='0', 2000)
+    if (res.ok) { progressSha=(await res.json()).content.sha; showSaving('✓ Saved') }
+    else { const e=await res.json(); showSaving('Save failed: '+e.message) }
+  } catch(e) { showSaving('Error saving') }
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',2000)
 }
 
-function showSaving(msg) {
-  const el = document.getElementById('saving')
-  el.textContent = msg; el.style.opacity = '1'
-}
+function showSaving(msg) { const e=document.getElementById('saving'); e.textContent=msg; e.style.opacity='1' }
 
 // ── LIST ──
 function renderList() {
   const el = document.getElementById('llist')
-  const q = document.getElementById('search').value.toLowerCase()
+  const q  = document.getElementById('search').value.toLowerCase()
   const TC = {hospital:'var(--red)',school:'var(--blue)',university:'var(--violet)'}
-  const vis = locations.filter(l => {
+  const vis = locations.filter(l=>{
     if (!locVisible(l)) return false
-    if (q && !l.name.toLowerCase().includes(q) && !(l.address||'').toLowerCase().includes(q)) return false
+    if (q&&!l.name.toLowerCase().includes(q)&&!(l.address||'').toLowerCase().includes(q)) return false
     return true
   })
-  if (!vis.length) { el.innerHTML=`<div class="empty">${locations.length?'No matches':'Select a region'}</div>`; return }
-  el.innerHTML = vis.map(l => {
-    const p = progress[l.id]
+  if (!vis.length) { el.innerHTML=`<div class="empty">${locations.length?'No matches':'Select a region above'}</div>`; return }
+  el.innerHTML = vis.map(l=>{
+    const p   = progress[l.id]
     const col = p ? toolColor(p.tool) : TC[l.type]
     const badge = p ? `<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}44;background:${toolColor(p.tool)}18">${p.tool}</div>` : ''
     return `<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
       <div class="ldot" style="background:${col}"></div>
-      <div class="linfo">
-        <div class="lname">${l.name}</div>
-        <div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div>
-      </div>${badge}
+      <div class="linfo"><div class="lname">${l.name}</div><div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div></div>
+      ${badge}
     </div>`
   }).join('')
 }
 
-// ── SELECT ──
+// ── SELECT — opens detail panel, no popup ──
 function selectLoc(id) {
   selectedId = id
   const loc = locations.find(l=>l.id===id)
   if (!loc) return
   renderList()
-  const m = markers[id]
-  if (m) { map.panTo([loc.lat,loc.lng]); m.bindPopup(buildPopup(loc),{maxWidth:290,minWidth:260}).openPopup() }
+  if (loc.lat&&loc.lng) map.panTo([loc.lat,loc.lng])
+  renderDetail(loc)
+  // highlight marker briefly
+  if (markers[id]) {
+    const orig = markers[id].getIcon()
+    markers[id].setZIndexOffset(1000)
+    setTimeout(()=>{ if(markers[id]) markers[id].setZIndexOffset(0) }, 2000)
+  }
 }
 
-// ── POPUP ──
-function buildPopup(loc) {
+// ── DETAIL PANEL ──
+function renderDetail(loc) {
+  const panel = document.getElementById('detail')
   const p = progress[loc.id]
   const cleared = !!p
 
-  const clearedInfo = cleared ? (() => {
-    const d = new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+  // header
+  const typeEl = document.getElementById('d-type')
+  typeEl.textContent = loc.type
+  typeEl.className = 'detail-type ' + loc.type
+  document.getElementById('d-name').textContent = loc.name
+  document.getElementById('d-addr').textContent = loc.address || loc.postcode || ''
+
+  // body
+  const body = document.getElementById('d-body')
+  if (cleared) {
+    const d   = new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
     const col = toolColor(p.tool)
     const who = p.user ? ` · ${p.user}` : ''
-    return `<div class="pop-cleared-info" style="background:${col}18;border:1px solid ${col}44;color:${col}">
-      ✦ <strong>${p.tool.charAt(0).toUpperCase()+p.tool.slice(1)}</strong> · ${d}${who}
-    </div>`
-  })() : ''
-
-  const toolSelect = !cleared ? `
-    <div class="tool-row">
-      <label>Energy tool</label>
-      <div class="tool-btns">
-        <button class="tool-btn omega ${currentTool==='omega'?'on':''}" onclick="selectTool('omega','${loc.id}')">Omega</button>
-        <button class="tool-btn jewel ${currentTool==='jewel'?'on':''}" onclick="selectTool('jewel','${loc.id}')">Jewel</button>
+    body.innerHTML = `
+      <div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">
+        ✦ Cleared with <strong>${cap(p.tool)}</strong> · ${d}${who}
       </div>
-    </div>
-    <button class="btn-mark" onclick="markCleared('${loc.id}')">
-      Mark cleared with ${currentTool.charAt(0).toUpperCase()+currentTool.slice(1)} ✦
-    </button>
-  ` : `<button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
+      <button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
+  } else {
+    body.innerHTML = `
+      <div class="tool-label">Energy tool</div>
+      <div class="tool-btns">
+        <button class="tool-btn omega ${currentTool==='omega'?'sel':''}" id="tbtn-omega" onclick="selectTool('omega')">Omega</button>
+        <button class="tool-btn jewel ${currentTool==='jewel'?'sel':''}" id="tbtn-jewel" onclick="selectTool('jewel')">Jewel</button>
+      </div>
+      <button class="btn-mark" id="btn-mark-confirm" onclick="markCleared('${loc.id}')">
+        Mark cleared with ${cap(currentTool)} ✦
+      </button>`
+  }
 
-  return `<div class="pop">
-    <div class="pop-type ${loc.type}">${loc.type}</div>
-    <div class="pop-name">${loc.name}</div>
-    <div class="pop-addr">${loc.address||loc.postcode||''}</div>
-    ${clearedInfo}${toolSelect}
-  </div>`
+  panel.classList.add('on')
 }
 
-function selectTool(tool, locId) {
+function closeDetail() {
+  selectedId = null
+  document.getElementById('detail').classList.remove('on')
+  renderList()
+}
+
+function selectTool(tool) {
   currentTool = tool
-  const loc = locations.find(l=>l.id===locId)
-  if (loc && markers[locId]) markers[locId].setPopupContent(buildPopup(loc))
+  document.getElementById('tbtn-omega')?.classList.toggle('sel', tool==='omega')
+  document.getElementById('tbtn-jewel')?.classList.toggle('sel', tool==='jewel')
+  const btn = document.getElementById('btn-mark-confirm')
+  if (btn) btn.textContent = `Mark cleared with ${cap(tool)} ✦`
 }
 
 async function markCleared(id) {
   const loc = locations.find(l=>l.id===id)
   if (!loc) return
   progress[id] = { tool:currentTool, date:new Date().toISOString().slice(0,10), user:currentUser }
-  if (markers[id]) {
-    markers[id].setIcon(makeIcon(loc.type,true,currentTool))
-    markers[id].closePopup()
-    setTimeout(()=>markers[id]?.bindPopup(buildPopup(loc),{maxWidth:290,minWidth:260}).openPopup(),60)
-  }
+  if (markers[id]) markers[id].setIcon(makeIcon(loc.type,true,currentTool))
+  renderDetail(loc)
   renderList(); updateStats(); renderLog()
   await saveProgress()
 }
@@ -543,25 +531,24 @@ async function unmarkCleared(id) {
   const loc = locations.find(l=>l.id===id)
   if (!loc) return
   delete progress[id]
-  if (markers[id]) {
-    markers[id].setIcon(makeIcon(loc.type,false))
-    markers[id].closePopup()
-    setTimeout(()=>markers[id]?.bindPopup(buildPopup(loc),{maxWidth:290,minWidth:260}).openPopup(),60)
-  }
+  if (markers[id]) markers[id].setIcon(makeIcon(loc.type,false))
+  renderDetail(loc)
   renderList(); updateStats(); renderLog()
   await saveProgress()
 }
+
+function cap(s) { return s ? s.charAt(0).toUpperCase()+s.slice(1) : '' }
 
 // ── LOG ──
 function renderLog() {
   const el = document.getElementById('log-list')
   const entries = Object.entries(progress)
-    .map(([id,p])=>{ const loc=locations.find(l=>l.id===id); return {id,...p,name:loc?.name||id,type:loc?.type||''} })
+    .map(([id,p])=>{ const l=locations.find(x=>x.id===id); return {id,...p,name:l?.name||id,type:l?.type||''} })
     .sort((a,b)=>b.date.localeCompare(a.date))
-  if (!entries.length) { el.innerHTML='<div class="empty">No clearings recorded yet</div>'; return }
-  el.innerHTML = entries.map(e => {
+  if (!entries.length) { el.innerHTML='<div class="empty">No clearings yet</div>'; return }
+  el.innerHTML = entries.map(e=>{
     const col = toolColor(e.tool)
-    const d = new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    const d   = new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
     const who = e.user ? `<span style="color:var(--gold)">${e.user}</span> · ` : ''
     return `<div style="padding:9px 14px;border-bottom:1px solid var(--cream-d)">
       <div style="display:flex;align-items:center;gap:7px;margin-bottom:2px">
@@ -575,17 +562,17 @@ function renderLog() {
 
 // ── STATS ──
 function updateStats() {
-  const total=locations.length
-  const cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length
-  const pct=total?Math.round(cleared/total*100):0
-  document.getElementById('s-total').textContent=total.toLocaleString()
-  document.getElementById('s-cleared').textContent=cleared
-  document.getElementById('s-pct').textContent=pct+'%'
-  for(const [type,pgId,pgTxt] of [['hospital','pg-h','pg-ht'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]) {
-    const tot=locations.filter(l=>l.type===type).length
-    const cl=locations.filter(l=>l.type===type&&progress[l.id]).length
-    document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
-    document.getElementById(pgTxt).textContent=`${cl}/${tot}`
+  const total   = locations.length
+  const cleared = Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length
+  const pct     = total ? Math.round(cleared/total*100) : 0
+  document.getElementById('s-total').textContent   = total.toLocaleString()
+  document.getElementById('s-cleared').textContent = cleared
+  document.getElementById('s-pct').textContent     = pct+'%'
+  for (const [type,pgId,pgTxt] of [['hospital','pg-h','pg-ht'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]) {
+    const tot = locations.filter(l=>l.type===type).length
+    const cl  = locations.filter(l=>l.type===type&&progress[l.id]).length
+    document.getElementById(pgId).style.width = (tot?Math.round(cl/tot*100):0)+'%'
+    document.getElementById(pgTxt).textContent = `${cl}/${tot}`
   }
 }
 
@@ -609,9 +596,9 @@ function switchTab(name,btn) {
 // ── EXPORT ──
 function exportCSV() {
   const rows=[['id','name','type','address','postcode','tool','date','cleared_by']]
-  for(const [id,p] of Object.entries(progress)) {
-    const loc=locations.find(l=>l.id===id)||{}
-    rows.push([id,loc.name||'',loc.type||'',loc.address||'',loc.postcode||'',p.tool,p.date,p.user||''])
+  for (const [id,p] of Object.entries(progress)) {
+    const l=locations.find(x=>x.id===id)||{}
+    rows.push([id,l.name||'',l.type||'',l.address||'',l.postcode||'',p.tool,p.date,p.user||''])
   }
   const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n')
   const a=document.createElement('a')
@@ -624,7 +611,7 @@ function exportCSV() {
 function setMsg(m) { document.getElementById('mload-msg').textContent=m }
 function hideLoader() { document.getElementById('mload').style.display='none' }
 
-// ── BOOT (after login) ──
+// ── BOOT ──
 async function bootApp() {
   initMap()
   setMsg('Loading progress…')
@@ -634,22 +621,14 @@ async function bootApp() {
   renderLog()
 }
 
-// ── AUTO-LOGIN if session still active ──
+// Auto-login if session active
 const savedUser = sessionStorage.getItem('ek_user')
 if (savedUser) {
-  // Re-fetch config silently to restore token
-  fetch(`${RAW_BASE}/config.json?_=${Date.now()}`)
-    .then(r=>r.json())
-    .then(cfg=>{
-      githubToken = cfg.github_token==='PASTE_YOUR_TOKEN_HERE' ? null : cfg.github_token
-      currentUser = savedUser
-      document.getElementById('login-screen').style.display='none'
-      const app=document.getElementById('app')
-      app.style.display='flex'
-      document.getElementById('h-username').textContent=savedUser
-      bootApp()
-    })
-    .catch(()=>{/* stay on login screen */})
+  currentUser = savedUser
+  document.getElementById('login-screen').style.display='none'
+  document.getElementById('app').style.display='flex'
+  document.getElementById('h-username').textContent=savedUser
+  bootApp()
 }
 </script>
 </body>
