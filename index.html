@@ -8,31 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <style>
-:root {
+:root{
   --gold:#C9A84C;--gold-l:#E8D5A0;--gold-p:#FAF6EC;
   --sage:#6B7B5E;--ink:#1C1C1C;--soft:#8A8A8A;
   --cream:#F8F4EE;--cream-d:#EDE8DF;--white:#fff;
   --red:#C44B4B;--blue:#3D6FAF;--violet:#7B5EA7;
+  --omega:#2E7D52;--jewel:#8B2FC9;
   --bd:rgba(201,168,76,.2);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden}
-
-/* header */
-header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;flex-shrink:0;gap:16px}
+header{background:var(--ink);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;flex-shrink:0;gap:16px}
 .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
 .logo em{color:var(--gold);font-style:italic}
 .hstats{display:flex;gap:20px;font-size:11px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
 .hstats strong{color:var(--gold);font-size:15px;display:block;letter-spacing:0}
 .hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:5px 12px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.06em;cursor:pointer;border-radius:2px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
-
-/* layout */
 .body{display:flex;flex:1;overflow:hidden}
-
-/* sidebar */
 .sidebar{width:300px;flex-shrink:0;background:var(--white);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0}
 .tabs{display:flex;border-bottom:1px solid var(--cream-d);flex-shrink:0}
@@ -40,8 +34,6 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 .tab.on{color:var(--gold);border-bottom-color:var(--gold)}
 .panel{display:none;flex-direction:column;flex:1;overflow:hidden}
 .panel.on{display:flex}
-
-/* filters */
 .frow{padding:12px 14px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
 .frow label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);display:block;margin-bottom:7px}
 .chips{display:flex;gap:5px;flex-wrap:wrap}
@@ -50,12 +42,12 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 .chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
 .chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
 .chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
-.chip.cleared{border-color:var(--gold);color:var(--gold)}.chip.cleared.on{background:var(--gold);color:var(--ink)}
+.chip.cleared-f{border-color:var(--gold);color:var(--gold)}.chip.cleared-f.on{background:var(--gold);color:var(--ink)}
 .srow{padding:8px 14px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
 .sinput{width:100%;padding:7px 10px;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:12px;outline:none;background:var(--cream)}
 .sinput:focus{border-color:var(--gold)}
-
-/* list */
+.rsel{padding:8px 14px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.rsel select{width:100%;padding:6px 10px;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:12px;background:var(--cream);outline:none;cursor:pointer}
 .llist{flex:1;overflow-y:auto}
 .llist::-webkit-scrollbar{width:3px}
 .llist::-webkit-scrollbar-thumb{background:var(--cream-d)}
@@ -67,9 +59,7 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 .lname{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .litem.done .lname{text-decoration:line-through;opacity:.55}
 .lmeta{font-size:10px;color:var(--soft);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lbadge{font-size:9px;background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l);padding:1px 6px;border-radius:10px;flex-shrink:0;align-self:center}
-
-/* map */
+.lbadge{font-size:9px;padding:1px 6px;border-radius:10px;flex-shrink:0;align-self:center;border:1px solid}
 #map{flex:1}
 .mwrap{position:relative;flex:1;display:flex}
 .mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:14px}
@@ -79,24 +69,28 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 .dots span:nth-child(2){animation-delay:.2s}
 .dots span:nth-child(3){animation-delay:.4s}
 @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
-.msub{font-size:12px;color:var(--soft);letter-spacing:.04em}
-
-/* popup */
+.msub{font-size:12px;color:var(--soft);letter-spacing:.04em;text-align:center;max-width:280px}
 .leaflet-popup-content-wrapper{border-radius:4px!important;box-shadow:0 4px 20px rgba(0,0,0,.12)!important}
 .leaflet-popup-content{margin:0!important}
-.pop{padding:14px 16px;min-width:220px;max-width:260px}
+.pop{padding:14px 16px;min-width:240px;max-width:280px}
 .pop-type{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:3px}
 .pop-type.hospital{color:var(--red)}.pop-type.school{color:var(--blue)}.pop-type.university{color:var(--violet)}
-.pop-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);margin-bottom:3px;line-height:1.3}
-.pop-addr{font-size:11px;color:var(--soft);margin-bottom:12px;line-height:1.4}
-.pop-status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:12px;font-size:11px;margin-bottom:10px}
-.pop-status.pending{background:var(--cream-d);color:var(--soft)}
-.pop-status.cleared{background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l)}
-.btn-clear{display:block;width:100%;padding:9px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.btn-clear:hover{background:var(--sage)}
-.btn-clear.cleared{background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l)}
-
-/* map overlays */
+.pop-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);margin-bottom:2px;line-height:1.3}
+.pop-addr{font-size:11px;color:var(--soft);margin-bottom:10px;line-height:1.4}
+.pop-cleared-info{font-size:11px;padding:5px 10px;border-radius:6px;margin-bottom:10px;background:var(--gold-p);color:var(--gold);border:1px solid var(--gold-l)}
+.tool-row{margin-bottom:10px}
+.tool-row label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);display:block;margin-bottom:5px}
+.tool-btns{display:flex;gap:6px}
+.tool-btn{flex:1;padding:7px 8px;border:1.5px solid;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em}
+.tool-btn.omega{border-color:var(--omega);color:var(--omega)}
+.tool-btn.omega.on{background:var(--omega);color:#fff}
+.tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}
+.tool-btn.jewel.on{background:var(--jewel);color:#fff}
+.btn-mark{display:block;width:100%;padding:9px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-mark:hover{background:var(--sage)}
+.btn-mark:disabled{opacity:.4;cursor:default}
+.btn-unmark{display:block;width:100%;padding:7px;margin-top:6px;background:none;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:10px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+.btn-unmark:hover{border-color:var(--red);color:var(--red)}
 .legend{position:absolute;bottom:20px;left:12px;background:#fff;border:1px solid var(--cream-d);border-radius:4px;padding:9px 12px;z-index:400;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .leg-title{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:6px}
 .leg-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px;color:var(--ink)}
@@ -111,6 +105,15 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 .tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 4px 4px 0;width:18px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:9px}
 .tog:hover{background:var(--cream)}
 .empty{padding:20px;text-align:center;font-size:12px;color:var(--soft);line-height:1.7}
+.saving{position:fixed;bottom:16px;right:16px;background:var(--ink);color:var(--gold-l);padding:8px 14px;border-radius:3px;font-size:11px;z-index:9999;transition:opacity .3s;pointer-events:none}
+/* setup tab */
+.setup-body{padding:14px;font-size:12px;overflow-y:auto;flex:1}
+.setup-body h3{font-size:13px;font-weight:500;margin-bottom:8px}
+.setup-body p{color:var(--soft);margin-bottom:10px;line-height:1.6}
+.setup-body input{width:100%;padding:7px 9px;border:1px solid var(--cream-d);border-radius:3px;font-family:'Jost',sans-serif;font-size:12px;outline:none;background:var(--cream);margin-bottom:6px}
+.setup-body input:focus{border-color:var(--gold)}
+.setup-body button{width:100%;padding:8px;background:var(--gold);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;letter-spacing:.06em}
+.setup-body .status{margin-top:8px;font-size:11px;color:var(--soft)}
 </style>
 </head>
 <body>
@@ -131,10 +134,12 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
-      <button class="tab on"  onclick="switchTab('locs',this)">Locations</button>
-      <button class="tab"     onclick="switchTab('stats',this)">Stats</button>
+      <button class="tab on" onclick="switchTab('locs',this)">Locations</button>
+      <button class="tab"    onclick="switchTab('log',this)">Log</button>
+      <button class="tab"    onclick="switchTab('setup',this)">Setup</button>
     </div>
 
+    <!-- LOCATIONS TAB -->
     <div class="panel on" id="tab-locs">
       <div class="frow">
         <label>Show</label>
@@ -142,18 +147,65 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
           <div class="chip hospital on" onclick="toggleFilter('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
           <div class="chip school on"   onclick="toggleFilter('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
           <div class="chip university on" onclick="toggleFilter('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Universities</div>
-          <div class="chip cleared"     onclick="toggleFilter('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
+          <div class="chip cleared-f"   onclick="toggleFilter('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
         </div>
+      </div>
+      <div class="rsel">
+        <select id="region-select" onchange="loadRegion(this.value)">
+          <option value="">— Select region —</option>
+          <option value="london">London</option>
+          <option value="somerset">Somerset &amp; Bristol</option>
+          <option value="hertfordshire">Hertfordshire</option>
+          <option value="sussex">Sussex</option>
+          <option value="kent">Kent</option>
+          <option value="essex">Essex</option>
+          <option value="surrey">Surrey</option>
+          <option value="hampshire">Hampshire</option>
+          <option value="berkshire">Berkshire</option>
+          <option value="oxfordshire">Oxfordshire</option>
+          <option value="cambridgeshire">Cambridgeshire</option>
+          <option value="yorkshire">Yorkshire</option>
+          <option value="northeast">North East</option>
+          <option value="other-england">Rest of England</option>
+        </select>
       </div>
       <div class="srow">
         <input class="sinput" type="text" placeholder="Search…" id="search" oninput="renderList()">
       </div>
-      <div class="llist" id="llist"><div class="empty">Loading locations…</div></div>
+      <div class="llist" id="llist">
+        <div class="empty">Select a region above to load locations</div>
+      </div>
     </div>
 
-    <div class="panel" id="tab-stats">
-      <div style="padding:16px;font-size:12px;color:var(--soft);line-height:1.8;overflow-y:auto;flex:1" id="stats-panel">
-        Loading stats…
+    <!-- LOG TAB -->
+    <div class="panel" id="tab-log">
+      <div id="log-list" style="flex:1;overflow-y:auto;padding:6px 0"></div>
+    </div>
+
+    <!-- SETUP TAB -->
+    <div class="panel" id="tab-setup">
+      <div class="setup-body">
+        <h3>GitHub token</h3>
+        <p>To save your progress back to GitHub, you need a Personal Access Token with repo write access. This is stored only in your browser.</p>
+        <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx">
+        <button onclick="saveToken()">Save token</button>
+        <div class="status" id="token-status"></div>
+
+        <div style="margin-top:20px;padding-top:14px;border-top:1px solid var(--cream-d)">
+          <h3>How to create a token</h3>
+          <p>1. Go to github.com → Settings → Developer settings → Personal access tokens → Tokens (classic)</p>
+          <p>2. Click "Generate new token (classic)"</p>
+          <p>3. Give it a name like "Earthkeeper"</p>
+          <p>4. Tick the "repo" scope</p>
+          <p>5. Generate and copy the token here</p>
+        </div>
+
+        <div style="margin-top:20px;padding-top:14px;border-top:1px solid var(--cream-d)">
+          <h3>Data storage</h3>
+          <p>All location data lives in your GitHub repo at <code style="font-size:10px;background:var(--cream);padding:1px 4px;border-radius:2px">data/locations-[region].json</code></p>
+          <p>Your progress lives at <code style="font-size:10px;background:var(--cream);padding:1px 4px;border-radius:2px">data/progress.json</code></p>
+          <p>This will never expire or pause — it's just files in your repo.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -164,7 +216,7 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
     <div class="mload" id="mload">
       <h2>Earthkeeper</h2>
       <div class="dots"><span></span><span></span><span></span></div>
-      <div class="msub" id="mload-msg">Connecting to database…</div>
+      <div class="msub" id="mload-msg">Loading…</div>
     </div>
 
     <button class="tog" id="tog" onclick="toggleSidebar()">‹</button>
@@ -174,7 +226,8 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
       <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
       <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
       <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
-      <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cleared ✦</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--omega)"></div>Omega ✦</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--jewel)"></div>Jewel ✦</div>
     </div>
 
     <div class="progress">
@@ -186,34 +239,55 @@ header{background:var(--ink);color:var(--cream);padding:0 20px;display:flex;alig
   </div>
 </div>
 
-<script>
-// ── CONFIG ── replace with your values or set via Netlify env vars
-const SUPABASE_URL      = 'https://veceljqhdrtlodbofqug.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlY2VsanFoZHJ0bG9kYm9mcXVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODY3MDAsImV4cCI6MjA4OTM2MjcwMH0.N-fdE2n7ruSVUPGiS7rZg7sIYpGCK3i2MbxRrQBx1XA'
+<div class="saving" id="saving" style="opacity:0">Saving…</div>
 
-const { createClient } = supabase
-const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+<script>
+// ── CONFIG ──
+const REPO_OWNER = 'Londrovski'
+const REPO_NAME  = 'earthkeeper'
+const DATA_BRANCH = 'main'
+const RAW_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${DATA_BRANCH}/data`
+const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 // ── STATE ──
-let locations  = []
-let progressMap = {}   // location_id -> { cleared, cleared_date }
-let markers    = {}
-let selectedId = null
-let sidebarOpen = true
-let filters    = { hospital:true, school:true, university:true, cleared:false }
+let locations   = []
+let progress    = {}   // id -> { tool, date }
+let progressSha = null // GitHub file SHA for updates
+let markers     = {}
+let selectedId  = null
 let map
+let filters     = { hospital:true, school:true, university:true, cleared:false }
+let currentTool = 'omega'  // default tool
+let pendingId   = null     // location awaiting tool selection in popup
+
+// ── TOKEN ──
+function getToken() { return localStorage.getItem('ek_token') || '' }
+function saveToken() {
+  const t = document.getElementById('token-input').value.trim()
+  if (!t) return
+  localStorage.setItem('ek_token', t)
+  document.getElementById('token-status').textContent = '✓ Token saved'
+  setTimeout(() => document.getElementById('token-status').textContent = '', 2000)
+}
 
 // ── MAP ──
 function initMap() {
-  map = L.map('map').setView([51.5, -0.1], 10)
+  map = L.map('map').setView([51.5, -0.1], 9)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution:'© OpenStreetMap contributors © CARTO',
     subdomains:'abcd', maxZoom:19
   }).addTo(map)
 }
 
-function makeIcon(type, cleared) {
-  const c = cleared ? '#C9A84C'
+function toolColor(tool) {
+  if (tool === 'omega') return '#2E7D52'
+  if (tool === 'jewel') return '#8B2FC9'
+  return '#C9A84C'
+}
+
+function makeIcon(type, cleared, tool) {
+  const c = cleared
+    ? toolColor(tool)
     : type==='hospital' ? '#C44B4B'
     : type==='school'   ? '#3D6FAF'
     :                     '#7B5EA7'
@@ -229,60 +303,123 @@ function renderMarkers() {
   for (const loc of locations) {
     if (!loc.lat || !loc.lng) continue
     if (!visible(loc)) continue
-    const cleared = !!progressMap[loc.id]?.cleared
-    const m = L.marker([loc.lat, loc.lng], { icon: makeIcon(loc.type, cleared) }).addTo(map)
+    const p = progress[loc.id]
+    const m = L.marker([loc.lat, loc.lng], { icon: makeIcon(loc.type, !!p, p?.tool) }).addTo(map)
     m.on('click', () => selectLoc(loc.id))
     markers[loc.id] = m
   }
 }
 
 function visible(loc) {
-  if (filters.cleared) return !!progressMap[loc.id]?.cleared
+  if (filters.cleared) return !!progress[loc.id]
   return filters[loc.type] !== false
 }
 
-// ── DATA LOAD ──
-async function loadData() {
-  setMsg('Loading locations from database…')
+// ── LOAD REGION DATA ──
+async function loadRegion(region) {
+  if (!region) return
+  setMsg(`Loading ${region}…`)
+  document.getElementById('mload').style.display = 'flex'
 
-  // Load all active locations (paginate if > 1000)
-  let allLocs = []
-  let from = 0
-  const PAGE = 1000
-  while (true) {
-    const { data, error } = await db
-      .from('locations')
-      .select('id,name,type,sub_type,address,postcode,lat,lng,region')
-      .eq('active', true)
-      .range(from, from + PAGE - 1)
-    if (error) { setMsg('Error loading locations: ' + error.message); return }
-    allLocs = allLocs.concat(data)
-    if (data.length < PAGE) break
-    from += PAGE
-    setMsg(`Loaded ${allLocs.length} locations…`)
+  try {
+    const res = await fetch(`${RAW_BASE}/locations-${region}.json?_=${Date.now()}`)
+    if (!res.ok) throw new Error(`No data for ${region} yet`)
+    const data = await res.json()
+    locations = data
+    hideLoader()
+    renderMarkers()
+    renderList()
+    updateStats()
+
+    // Fly map to region
+    const withCoords = locations.filter(l => l.lat && l.lng)
+    if (withCoords.length) {
+      const lats = withCoords.map(l => l.lat)
+      const lngs = withCoords.map(l => l.lng)
+      map.flyToBounds([
+        [Math.min(...lats), Math.min(...lngs)],
+        [Math.max(...lats), Math.max(...lngs)]
+      ], { padding:[40,40], maxZoom:12, duration:1 })
+    }
+  } catch(e) {
+    setMsg(`${e.message}. Upload location data for this region first.`)
+    setTimeout(hideLoader, 3000)
   }
+}
 
-  locations = allLocs
-  setMsg('Loading your progress…')
-
-  // Load progress
-  const { data: prog } = await db.from('progress').select('location_id,cleared,cleared_date')
-  if (prog) {
-    for (const p of prog) progressMap[p.location_id] = p
+// ── LOAD PROGRESS ──
+async function loadProgress() {
+  try {
+    // Fetch with SHA (for updates later)
+    const res = await fetch(`${API_BASE}/progress.json`, {
+      headers: getToken() ? { Authorization: `token ${getToken()}` } : {}
+    })
+    if (res.ok) {
+      const meta = await res.json()
+      progressSha = meta.sha
+      const content = atob(meta.content.replace(/\n/g,''))
+      progress = JSON.parse(content)
+    }
+  } catch(e) {
+    // progress file not found or inaccessible — start empty
+    progress = {}
   }
+}
 
-  setMsg('Drawing map…')
-  hideLoader()
-  renderMarkers()
-  renderList()
-  updateStats()
+// ── SAVE PROGRESS ──
+async function saveProgress() {
+  const token = getToken()
+  if (!token) {
+    console.warn('No GitHub token — progress not saved to repo. Go to Setup tab.')
+    return
+  }
+  showSaving()
+  try {
+    const body = {
+      message: `Update progress — ${new Date().toISOString().slice(0,10)}`,
+      content: btoa(JSON.stringify(progress, null, 2)),
+      branch: DATA_BRANCH
+    }
+    if (progressSha) body.sha = progressSha
+    const res = await fetch(`${API_BASE}/progress.json`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    if (res.ok) {
+      const data = await res.json()
+      progressSha = data.content.sha
+      hideSaving()
+    } else {
+      const err = await res.json()
+      console.error('GitHub save failed:', err.message)
+      hideSaving()
+    }
+  } catch(e) {
+    console.error('Save error:', e)
+    hideSaving()
+  }
+}
+
+function showSaving() {
+  const el = document.getElementById('saving')
+  el.textContent = 'Saving to GitHub…'
+  el.style.opacity = '1'
+}
+function hideSaving() {
+  const el = document.getElementById('saving')
+  el.textContent = '✓ Saved'
+  setTimeout(() => el.style.opacity = '0', 1200)
 }
 
 // ── LIST ──
 function renderList() {
   const el = document.getElementById('llist')
-  const q  = document.getElementById('search').value.toLowerCase()
-  const cols = { hospital:'var(--red)', school:'var(--blue)', university:'var(--violet)' }
+  const q = document.getElementById('search').value.toLowerCase()
+  const TOOL_COLORS = { hospital:'var(--red)', school:'var(--blue)', university:'var(--violet)' }
 
   const vis = locations.filter(l => {
     if (!visible(l)) return false
@@ -290,18 +427,22 @@ function renderList() {
     return true
   })
 
-  if (!vis.length) { el.innerHTML = '<div class="empty">No locations match</div>'; return }
+  if (!vis.length) { el.innerHTML = '<div class="empty">No matches</div>'; return }
 
   el.innerHTML = vis.map(l => {
-    const cl = !!progressMap[l.id]?.cleared
-    const col = cl ? 'var(--gold)' : (cols[l.type] || '#888')
-    return `<div class="litem ${cl?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
+    const p = progress[l.id]
+    const col = p ? toolColor(p.tool) : (TOOL_COLORS[l.type] || '#888')
+    const badgeStyle = p
+      ? `background:${toolColor(p.tool)}22;color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}44`
+      : ''
+    const badge = p ? `<div class="lbadge" style="${badgeStyle}">${p.tool}</div>` : ''
+    return `<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
       <div class="ldot" style="background:${col}"></div>
       <div class="linfo">
         <div class="lname">${l.name}</div>
         <div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div>
       </div>
-      ${cl ? '<div class="lbadge">✦</div>' : ''}
+      ${badge}
     </div>`
   }).join('')
 }
@@ -315,66 +456,127 @@ function selectLoc(id) {
   const m = markers[id]
   if (m) {
     map.panTo([loc.lat, loc.lng])
-    m.bindPopup(buildPopup(loc), { maxWidth:270, minWidth:240 }).openPopup()
+    m.bindPopup(buildPopup(loc), { maxWidth:290, minWidth:260 }).openPopup()
   }
 }
 
 // ── POPUP ──
 function buildPopup(loc) {
-  const prog = progressMap[loc.id]
-  const cleared = !!prog?.cleared
-  const dateStr = prog?.cleared_date
-    ? new Date(prog.cleared_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-    : null
+  const p = progress[loc.id]
+  const cleared = !!p
+
+  let clearedInfo = ''
+  if (cleared) {
+    const d = new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    clearedInfo = `<div class="pop-cleared-info">
+      ✦ Cleared with <strong>${p.tool.charAt(0).toUpperCase()+p.tool.slice(1)}</strong> on ${d}
+    </div>`
+  }
+
+  const toolSelect = !cleared ? `
+    <div class="tool-row">
+      <label>Energy tool</label>
+      <div class="tool-btns">
+        <button class="tool-btn omega ${currentTool==='omega'?'on':''}" onclick="selectTool('omega','${loc.id}')">Omega</button>
+        <button class="tool-btn jewel ${currentTool==='jewel'?'on':''}" onclick="selectTool('jewel','${loc.id}')">Jewel</button>
+      </div>
+    </div>
+    <button class="btn-mark" onclick="markCleared('${loc.id}')">
+      Mark cleared with ${currentTool.charAt(0).toUpperCase()+currentTool.slice(1)} ✦
+    </button>
+  ` : `
+    <button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>
+  `
+
   return `<div class="pop">
     <div class="pop-type ${loc.type}">${loc.type.toUpperCase()}</div>
     <div class="pop-name">${loc.name}</div>
     <div class="pop-addr">${loc.address||loc.postcode||''}</div>
-    <div class="pop-status ${cleared?'cleared':'pending'}">
-      ${cleared ? `✦ Cleared ${dateStr ? '· '+dateStr : ''}` : '○ Pending'}
-    </div>
-    <button class="btn-clear ${cleared?'cleared':''}" onclick="toggleCleared('${loc.id}')">
-      ${cleared ? '✦ Mark as Uncleared' : 'Mark as Cleared  ✦'}
-    </button>
+    ${clearedInfo}
+    ${toolSelect}
   </div>`
 }
 
-// ── CLEAR / UNCLEAR ──
-async function toggleCleared(id) {
+function selectTool(tool, locId) {
+  currentTool = tool
+  // Re-render popup to show updated selection
+  const loc = locations.find(l => l.id === locId)
+  if (loc && markers[locId]) {
+    markers[locId].setPopupContent(buildPopup(loc))
+  }
+}
+
+async function markCleared(id) {
   const loc = locations.find(l => l.id === id)
   if (!loc) return
-  const current = !!progressMap[id]?.cleared
-  const newCleared = !current
   const today = new Date().toISOString().slice(0,10)
 
-  // Optimistic update
-  progressMap[id] = { cleared: newCleared, cleared_date: newCleared ? today : null }
-  if (markers[id]) markers[id].setIcon(makeIcon(loc.type, newCleared))
+  progress[id] = { tool: currentTool, date: today }
 
-  // Re-render popup
-  markers[id]?.closePopup()
-  setTimeout(() => markers[id]?.bindPopup(buildPopup(loc),{maxWidth:270,minWidth:240}).openPopup(), 50)
+  // Update marker
+  if (markers[id]) {
+    markers[id].setIcon(makeIcon(loc.type, true, currentTool))
+    markers[id].closePopup()
+    setTimeout(() => markers[id]?.bindPopup(buildPopup(loc), {maxWidth:290,minWidth:260}).openPopup(), 50)
+  }
 
   renderList()
   updateStats()
+  renderLog()
+  await saveProgress()
+}
 
-  // Persist to Supabase
-  const { error } = await db.from('progress').upsert({
-    location_id: id,
-    cleared: newCleared,
-    cleared_date: newCleared ? today : null,
-    updated_at: new Date().toISOString()
-  }, { onConflict: 'location_id' })
+async function unmarkCleared(id) {
+  const loc = locations.find(l => l.id === id)
+  if (!loc) return
+  delete progress[id]
 
-  if (error) console.error('Progress save error:', error.message)
+  if (markers[id]) {
+    markers[id].setIcon(makeIcon(loc.type, false))
+    markers[id].closePopup()
+    setTimeout(() => markers[id]?.bindPopup(buildPopup(loc), {maxWidth:290,minWidth:260}).openPopup(), 50)
+  }
+
+  renderList()
+  updateStats()
+  renderLog()
+  await saveProgress()
+}
+
+// ── LOG ──
+function renderLog() {
+  const el = document.getElementById('log-list')
+  const entries = Object.entries(progress)
+    .map(([id, p]) => {
+      const loc = locations.find(l => l.id === id)
+      return { id, ...p, name: loc?.name || id, type: loc?.type || '' }
+    })
+    .sort((a, b) => b.date.localeCompare(a.date))
+
+  if (!entries.length) {
+    el.innerHTML = '<div class="empty">No clearings recorded yet</div>'
+    return
+  }
+
+  const TOOL_COLORS = { omega: '#2E7D52', jewel: '#8B2FC9' }
+  el.innerHTML = entries.map(e => {
+    const col = TOOL_COLORS[e.tool] || '#C9A84C'
+    const d = new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    return `<div style="padding:9px 14px;border-bottom:1px solid var(--cream-d)">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:2px">
+        <div style="width:7px;height:7px;border-radius:50%;background:${col};flex-shrink:0"></div>
+        <span style="font-size:12px;font-weight:500">${e.name}</span>
+      </div>
+      <div style="font-size:10px;color:var(--soft);padding-left:14px">${d} · ${e.tool} · ${e.type}</div>
+    </div>`
+  }).join('')
 }
 
 // ── STATS ──
 function updateStats() {
   const total   = locations.length
-  const cleared = Object.values(progressMap).filter(p => p.cleared).length
+  const cleared = Object.keys(progress).filter(id => locations.find(l => l.id === id)).length
   const pct     = total ? Math.round(cleared/total*100) : 0
-
   document.getElementById('s-total').textContent   = total.toLocaleString()
   document.getElementById('s-cleared').textContent = cleared
   document.getElementById('s-pct').textContent     = pct + '%'
@@ -385,27 +587,11 @@ function updateStats() {
     ['university','pg-u','pg-ut']
   ]) {
     const tot = locations.filter(l => l.type===type).length
-    const cl  = locations.filter(l => l.type===type && progressMap[l.id]?.cleared).length
+    const cl  = locations.filter(l => l.type===type && progress[l.id]).length
     const p   = tot ? Math.round(cl/tot*100) : 0
-    document.getElementById(pgId).style.width = p + '%'
+    document.getElementById(pgId).style.width = p+'%'
     document.getElementById(pgTxt).textContent = `${cl}/${tot}`
   }
-
-  // Stats tab
-  const byRegion = {}
-  for (const l of locations) {
-    const r = l.region || 'unknown'
-    if (!byRegion[r]) byRegion[r] = { total:0, cleared:0 }
-    byRegion[r].total++
-    if (progressMap[l.id]?.cleared) byRegion[r].cleared++
-  }
-  const sp = document.getElementById('stats-panel')
-  sp.innerHTML = Object.entries(byRegion)
-    .sort((a,b) => b[1].total - a[1].total)
-    .map(([r,v]) => `<div style="margin-bottom:12px">
-      <div style="font-weight:500;color:var(--ink);text-transform:capitalize;margin-bottom:3px">${r}</div>
-      <div>${v.cleared} / ${v.total} cleared (${Math.round(v.cleared/v.total*100)}%)</div>
-    </div>`).join('')
 }
 
 // ── FILTERS ──
@@ -428,7 +614,6 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('collapsed', !sbOpen)
   document.getElementById('tog').textContent = sbOpen ? '‹' : '›'
 }
-
 function switchTab(name, btn) {
   document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'))
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'))
@@ -438,15 +623,15 @@ function switchTab(name, btn) {
 
 // ── EXPORT ──
 function exportCSV() {
-  const rows = [['id','name','type','sub_type','address','postcode','region','cleared','cleared_date']]
-  for (const l of locations) {
-    const p = progressMap[l.id] || {}
-    rows.push([l.id, l.name, l.type, l.sub_type||'', l.address||'', l.postcode||'', l.region||'', p.cleared?'TRUE':'FALSE', p.cleared_date||''])
+  const rows = [['id','name','type','address','postcode','tool','date']]
+  for (const [id, p] of Object.entries(progress)) {
+    const loc = locations.find(l => l.id === id) || {}
+    rows.push([id, loc.name||'', loc.type||'', loc.address||'', loc.postcode||'', p.tool, p.date])
   }
   const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n')
   const a = document.createElement('a')
   a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}))
-  a.download = 'earthkeeper-progress.csv'
+  a.download = `earthkeeper-${new Date().toISOString().slice(0,10)}.csv`
   a.click()
 }
 
@@ -455,8 +640,19 @@ function setMsg(m) { document.getElementById('mload-msg').textContent = m }
 function hideLoader() { document.getElementById('mload').style.display = 'none' }
 
 // ── BOOT ──
-initMap()
-loadData()
+async function boot() {
+  initMap()
+  setMsg('Loading your progress…')
+  await loadProgress()
+  hideLoader()
+  updateStats()
+  renderLog()
+  // Pre-fill token input if saved
+  const tok = getToken()
+  if (tok) document.getElementById('token-input').value = tok
+}
+
+boot()
 </script>
 </body>
 </html>
