@@ -78,7 +78,9 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .sinput{width:100%;padding:11px 14px;border:1.5px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:16px;outline:none;background:var(--white)}
 .sinput:focus{border-color:var(--gold)}
 
-.llist{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+/* List — zero height when empty, grows with results */
+.llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex-shrink:0}
+.llist:empty{height:0;display:none}
 .llist::-webkit-scrollbar{width:4px}
 .llist::-webkit-scrollbar-thumb{background:var(--cream-d)}
 .litem{padding:14px 22px;cursor:pointer;border-bottom:1px solid var(--cream-d);transition:background .12s;display:flex;align-items:flex-start;gap:13px}
@@ -91,19 +93,27 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .lmeta{font-size:14px;color:var(--soft);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lbadge{font-size:12px;padding:3px 10px;border-radius:12px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
 
+/* Desktop detail panel */
 .detail{flex-shrink:0;border-top:2px solid var(--bd);background:var(--white);display:none;flex-direction:column}
 .detail.on{display:flex}
+
+/* Detail header — name/type left, maps button right */
 .detail-head{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.detail-close{background:none;border:none;font-size:24px;color:var(--soft);cursor:pointer;line-height:1;padding:0;flex-shrink:0;margin-top:2px}
+.detail-head-left{flex:1;min-width:0}
+.detail-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.detail-close{background:none;border:none;font-size:24px;color:var(--soft);cursor:pointer;line-height:1;padding:0}
 .detail-close:hover{color:var(--ink)}
+/* Google Maps square button */
+.gmaps-btn{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:8px;background:var(--white);border:1.5px solid var(--cream-d);text-decoration:none;cursor:pointer;transition:all .15s;flex-shrink:0}
+.gmaps-btn:hover{border-color:#4285F4;background:#f0f4ff}
+.gmaps-btn svg{width:24px;height:24px}
+
 .detail-type{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:4px}
 .detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}
 .detail-name{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.3;color:var(--ink)}
 .detail-addr{font-size:14px;color:var(--soft);margin-top:4px}
 .detail-body{padding:14px 22px 20px}
-.detail-cleared{font-size:15px;padding:10px 14px;border-radius:6px;margin-bottom:10px;line-height:1.5}
-.detail-gmaps{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--blue);text-decoration:none;margin-bottom:14px;padding:5px 0}
-.detail-gmaps:hover{text-decoration:underline}
+.detail-cleared{font-size:15px;padding:10px 14px;border-radius:6px;margin-bottom:12px;line-height:1.5}
 .tool-label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:8px}
 .tool-btns{display:flex;gap:10px;margin-bottom:12px}
 .tool-btn{flex:1;padding:12px 8px;border:2px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
@@ -127,7 +137,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 6px 6px 0;width:24px;height:56px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:12px}
 .tog:hover{background:var(--cream)}
 
-/* Desktop map overlays */
 .map-overlays{position:absolute;top:16px;right:16px;z-index:400;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
 .progress{background:#ffffffee;border:1px solid var(--cream-d);border-radius:6px;padding:14px 20px;min-width:220px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .prog-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:10px}
@@ -141,14 +150,14 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .leg-item{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:14px}
 .leg-dot{width:13px;height:13px;border-radius:50%}
 
-/* Location button */
-.locate-btn{position:absolute;bottom:24px;right:16px;z-index:400;background:#ffffffee;border:1px solid var(--cream-d);border-radius:6px;padding:10px 14px;cursor:pointer;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:background .15s}
+/* Locate button — bottom left on desktop (away from legend), bottom left on mobile */
+.locate-btn{position:absolute;bottom:24px;left:16px;z-index:400;background:#ffffffee;border:1px solid var(--cream-d);border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:background .15s}
 .locate-btn:hover{background:#fff}
 
 .empty{padding:28px;text-align:center;font-size:15px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold-l);padding:12px 18px;border-radius:5px;font-size:14px;z-index:9999;transition:opacity .4s;pointer-events:none}
 
-/* Hide Leaflet zoom on mobile */
+/* MOBILE */
 @media(max-width:700px){
   .leaflet-control-zoom{display:none!important}
   header{height:50px;padding:0 14px}
@@ -159,54 +168,58 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
   #app{flex-direction:column}
   .body{flex-direction:column;flex:1;overflow:hidden}
   .mwrap{flex:1;min-height:0;position:relative}
-  .sidebar{width:100%!important;opacity:1!important;height:50vh;flex-shrink:0;border-right:none;border-top:2px solid var(--bd)}
-  .sidebar.collapsed{height:48px;overflow:hidden}
+
+  /* Sidebar = bottom dock, only as tall as its content (tabs + filters + search) */
+  .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:2px solid var(--bd);height:auto;overflow:visible}
+  .sidebar.collapsed{height:44px;overflow:hidden}
+
+  /* llist is always zero height on mobile — results appear in fixed detail sheet */
+  .llist{height:0!important;overflow:hidden!important;display:none!important}
+
   .tabs{background:var(--ink)}
-  .tab{color:rgba(255,255,255,.5);font-size:11px;padding:12px 4px;border-bottom-color:transparent;border-bottom-width:3px;margin-bottom:-3px}
+  .tab{color:rgba(255,255,255,.5);font-size:11px;padding:11px 4px;border-bottom-color:transparent;border-bottom-width:3px;margin-bottom:-3px}
   .tab.on{background:var(--white);color:var(--ink);border-bottom-color:var(--gold);font-size:12px}
-  .frow{padding:8px 12px}
-  .frow-label{font-size:10px;margin-bottom:6px}
+  .frow{padding:7px 12px}
+  .frow-label{font-size:10px;margin-bottom:5px}
   .chip{font-size:11px;padding:4px 9px;border-width:1.5px;gap:4px}
   .chip-dot{width:6px;height:6px}
-  .rsel{padding:6px 12px}
-  .rsel select{font-size:13px;padding:7px 10px}
-  .srow{padding:6px 12px}
-  .sinput{font-size:13px;padding:7px 10px;border-width:1px}
-  .litem{padding:8px 12px;gap:9px}
-  .ldot{width:10px;height:10px}
-  .lname{font-size:13px}
-  .lmeta{font-size:11px}
-  .lbadge{font-size:10px;padding:2px 7px}
-  /* Detail: fixed overlay */
-  .detail{position:fixed;bottom:0;left:0;right:0;max-height:50vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,.18);z-index:800;-webkit-overflow-scrolling:touch}
+  .rsel{padding:5px 12px}
+  .rsel select{font-size:13px;padding:6px 10px}
+  .srow{padding:5px 12px}
+  .sinput{font-size:13px;padding:6px 10px;border-width:1px}
+
+  /* Detail: always position:fixed at bottom — totally independent of sidebar */
+  .detail{position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;max-height:48vh;overflow-y:auto;border-radius:14px 14px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.18);z-index:800;-webkit-overflow-scrolling:touch;border-top:none!important}
   .detail.on{display:flex}
   .detail-head{padding:12px 14px 0}
   .detail-close{font-size:18px}
+  .gmaps-btn{width:36px;height:36px;border-radius:6px}
+  .gmaps-btn svg{width:20px;height:20px}
   .detail-type{font-size:10px}
-  .detail-name{font-size:18px}
-  .detail-addr{font-size:12px}
-  .detail-body{padding:10px 14px 14px}
+  .detail-name{font-size:17px}
+  .detail-addr{font-size:11px}
+  .detail-body{padding:10px 14px 16px}
   .detail-cleared{font-size:12px;padding:7px 10px;margin-bottom:8px}
-  .detail-gmaps{font-size:12px;margin-bottom:10px}
   .tool-label{font-size:11px;margin-bottom:6px}
-  .tool-btns{gap:7px;margin-bottom:9px}
+  .tool-btns{gap:7px;margin-bottom:8px}
   .tool-btn{padding:9px 5px;font-size:13px;border-width:1.5px}
   .btn-mark{padding:10px;font-size:13px}
   .btn-unmark{padding:8px;font-size:12px;margin-top:7px;border-width:1.5px}
+
   .tog{display:none}
-  /* Mobile overlays: stacked right, progress on top then legend below */
   .map-overlays{top:8px;right:8px;gap:6px}
-  .progress{min-width:150px;padding:8px 12px}
-  .prog-title{font-size:9px;margin-bottom:6px}
-  .prog-row{gap:6px;margin-bottom:5px}
-  .prog-label{font-size:11px;width:56px}
+  .progress{min-width:140px;padding:7px 11px}
+  .prog-title{font-size:9px;margin-bottom:5px}
+  .prog-row{gap:6px;margin-bottom:4px}
+  .prog-label{font-size:10px;width:52px}
   .prog-track{height:3px}
-  .prog-count{font-size:10px}
-  .legend{padding:7px 10px}
-  .leg-title{font-size:9px;margin-bottom:5px}
-  .leg-item{font-size:11px;gap:5px;margin-bottom:3px}
-  .leg-dot{width:8px;height:8px}
-  .locate-btn{bottom:16px;right:8px;padding:8px 11px;font-size:16px}
+  .prog-count{font-size:9px;min-width:28px}
+  .legend{padding:6px 9px}
+  .leg-title{font-size:9px;margin-bottom:4px}
+  .leg-item{font-size:10px;gap:5px;margin-bottom:3px}
+  .leg-dot{width:7px;height:7px}
+  /* Locate button on mobile: bottom-left of map, above where detail would sit */
+  .locate-btn{bottom:12px;left:12px;width:40px;height:40px;font-size:18px}
   .saving{bottom:12px;right:12px;font-size:11px;padding:8px 12px}
 }
 </style>
@@ -252,7 +265,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
       <button class="tab on" onclick="switchTab('locs',this)">Locations</button>
       <button class="tab"    onclick="switchTab('log',this)">Log</button>
     </div>
-
     <div class="panel on" id="tab-locs">
       <div class="frow">
         <div class="frow-label">Places</div>
@@ -294,20 +306,30 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
       <div class="srow">
         <input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off">
       </div>
+      <!-- List: hidden on mobile, used on desktop only -->
       <div class="llist" id="llist"></div>
+      <!-- Desktop detail panel (inside sidebar) -->
       <div class="detail" id="detail">
         <div class="detail-head">
-          <div>
+          <div class="detail-head-left">
             <div class="detail-type" id="d-type"></div>
             <div class="detail-name" id="d-name"></div>
             <div class="detail-addr" id="d-addr"></div>
           </div>
-          <button class="detail-close" onclick="closeDetail()">✕</button>
+          <div class="detail-head-right">
+            <button class="detail-close" onclick="closeDetail()">✕</button>
+            <a class="gmaps-btn" id="d-gmaps" href="#" target="_blank" rel="noopener" title="Open in Google Maps">
+              <!-- Google Maps pin SVG -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#4285F4"/>
+                <path d="M12 6.5c-1.38 0-2.5 1.12-2.5 2.5S10.62 11.5 12 11.5s2.5-1.12 2.5-2.5S13.38 6.5 12 6.5z" fill="#1565C0"/>
+              </svg>
+            </a>
+          </div>
         </div>
         <div class="detail-body" id="d-body"></div>
       </div>
     </div>
-
     <div class="panel" id="tab-log">
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch"></div>
     </div>
@@ -321,8 +343,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
       <div class="msub" id="mload-msg">Loading…</div>
     </div>
     <button class="tog" id="tog" onclick="toggleSidebar()">‹</button>
-
-    <!-- Progress + Legend stacked in top-right -->
     <div class="map-overlays">
       <div class="progress">
         <div class="prog-title">Progress</div>
@@ -340,8 +360,7 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
         <div class="leg-item"><div class="leg-dot" style="background:#fff;border:2px solid var(--mg)"></div>MG ✦</div>
       </div>
     </div>
-
-    <!-- Locate me button -->
+    <!-- Locate me — lives on the map, always visible -->
     <button class="locate-btn" onclick="locateMe()" title="Show my location">📍</button>
   </div>
 </div>
@@ -356,7 +375,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
   100%{box-shadow:0 0 0 0   rgba(201,168,76,0), 0 2px 6px rgba(0,0,0,.28)}
 }
 .marker-selected div{animation:markerGlow .8s ease-out infinite!important;border-width:3px!important}
-/* Sparkly cleared marker glow */
 @keyframes clearedGlow{
   0%,100%{filter:drop-shadow(0 0 2px rgba(255,255,255,.8))}
   50%{filter:drop-shadow(0 0 6px rgba(255,255,255,1))}
@@ -371,7 +389,7 @@ const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents
 
 let locations=[], progress={}, progressSha=null, markers={}, selectedId=null, map
 let placesFilter={hospital:true,school:true,university:true}, showFilter='all', currentTool='omega', currentUser=null
-let locationMarker=null  // live location marker
+let locationMarker=null
 
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 function toolColor(t){return t==='omega'?'#7B3FB5':t==='jewel'?'#C44B4B':t==='mg'?'#1A56B0':'#C9A84C'}
@@ -399,25 +417,22 @@ async function doLogin(e){
 async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
 function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
 
+function isMobile(){return window.innerWidth<=700}
+
 function initMap(){
   map=L.map('map',{tap:false,zoomControl:true}).setView([51.5,-0.1],10)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap contributors © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map)
 }
 
-// Cleared markers: white fill with coloured border matching the tool
-// Uncleared: solid colour fill
 function makeIcon(type,cleared,tool,selected){
-  const typeColor = type==='hospital'?'#C44B4B':type==='school'?'#3D6FAF':'#7B5EA7'
-  const tc = toolColor(tool)
-  const fill = cleared ? '#ffffff' : typeColor
-  const border = cleared ? tc : '#ffffff'
-  const borderW = cleared ? 3 : 2
-  const sz = window.innerWidth>700 ? 22 : 18
-  const sparkle = cleared ? `animation:clearedGlow 1.5s ease-in-out infinite;` : ''
-  const glowCls = selected ? 'marker-selected' : ''
+  const typeColor=type==='hospital'?'#C44B4B':type==='school'?'#3D6FAF':'#7B5EA7'
+  const tc=toolColor(tool)
+  const fill=cleared?'#ffffff':typeColor, border=cleared?tc:'#ffffff', borderW=cleared?3:2
+  const sz=isMobile()?18:22
+  const sparkle=cleared?'animation:clearedGlow 1.5s ease-in-out infinite;':''
   return L.divIcon({
     html:`<div style="width:${sz}px;height:${sz}px;border-radius:50% 50% 50% 0;background:${fill};transform:rotate(-45deg);border:${borderW}px solid ${border};box-shadow:0 2px 6px rgba(0,0,0,.28);${sparkle}"></div>`,
-    iconSize:[sz,sz],iconAnchor:[sz/2,sz],className:glowCls
+    iconSize:[sz,sz],iconAnchor:[sz/2,sz],className:selected?'marker-selected':''
   })
 }
 
@@ -447,23 +462,17 @@ function setSelectedMarker(id){
   if(id&&markers[id]){const loc=locations.find(l=>l.id===id);if(loc){const p=progress[loc.id];markers[id].setIcon(makeIcon(loc.type,!!p,p?.tool,true));markers[id].setZIndexOffset(1000)}}
 }
 
-// Live location
 function locateMe(){
-  if(!navigator.geolocation){alert('Geolocation not supported on this device');return}
+  if(!navigator.geolocation){alert('Geolocation not supported');return}
   navigator.geolocation.getCurrentPosition(pos=>{
-    const {latitude:lat,longitude:lng}=pos.coords
-    if(locationMarker) map.removeLayer(locationMarker)
-    locationMarker = L.marker([lat,lng],{
-      icon:L.divIcon({
-        html:`<div style="width:16px;height:16px;border-radius:50%;background:#4285F4;border:3px solid white;box-shadow:0 0 0 3px rgba(66,133,244,.3)"></div>`,
-        iconSize:[16,16],iconAnchor:[8,8],className:''
-      }),zIndexOffset:2000
+    const{latitude:lat,longitude:lng}=pos.coords
+    if(locationMarker)map.removeLayer(locationMarker)
+    locationMarker=L.marker([lat,lng],{
+      icon:L.divIcon({html:`<div style="width:16px;height:16px;border-radius:50%;background:#4285F4;border:3px solid white;box-shadow:0 0 0 3px rgba(66,133,244,.3)"></div>`,iconSize:[16,16],iconAnchor:[8,8],className:''}),
+      zIndexOffset:2000
     }).addTo(map)
     map.setView([lat,lng],14)
-  },err=>{
-    const msg=err.code===1?'Location permission denied':'Could not get location'
-    alert(msg)
-  },{enableHighAccuracy:true,timeout:10000})
+  },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
 async function ghGet(path){const res=await fetch(`${API_BASE}/${path}`,{headers:GH_HEADERS});if(!res.ok)throw new Error(`GitHub ${res.status}`);const meta=await res.json();return JSON.parse(atob(meta.content.replace(/\n/g,'')))}
@@ -500,7 +509,6 @@ function showSaving(msg){const e=document.getElementById('saving');e.textContent
 function renderList(){
   const el=document.getElementById('llist')
   const q=document.getElementById('search').value.toLowerCase().trim()
-  // No query — empty, no hint
   if(!q){el.innerHTML='';return}
   const TC={hospital:'var(--red)',school:'var(--blue)',university:'var(--violet)'}
   const vis=locations.filter(l=>{
@@ -510,9 +518,8 @@ function renderList(){
   if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
   el.innerHTML=vis.map(l=>{
     const p=progress[l.id]
-    // Cleared: white dot with tool-colour border; uncleared: solid type colour
-    const dotBg = p ? '#ffffff' : TC[l.type]
-    const dotBorder = p ? `border:2px solid ${toolColor(p.tool)}` : 'border:2px solid transparent'
+    const dotBg=p?'#ffffff':TC[l.type]
+    const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:'border:2px solid transparent'
     const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}66;background:${toolColor(p.tool)}14">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
     return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
       <div class="ldot" style="background:${dotBg};${dotBorder}"></div>
@@ -523,28 +530,40 @@ function renderList(){
 }
 
 function selectLoc(id){
-  // Fix for panel-toggle bug: ensure sidebar is open before showing detail
-  if(document.getElementById('sidebar').classList.contains('collapsed')){
-    sbOpen=true
-    document.getElementById('sidebar').classList.remove('collapsed')
-    document.getElementById('tog').textContent='‹'
-  }
   setSelectedMarker(id); selectedId=id
   const loc=locations.find(l=>l.id===id); if(!loc)return
   renderList()
   if(loc.lat&&loc.lng){
-    if(window.innerWidth<=700){
+    if(isMobile()){
+      // On mobile: pan so pin sits in the centre of the visible map area
+      // Map is flex:1, detail overlay is ~48vh fixed at bottom
+      // Visible map centre = mapTop + (mapHeight - detailHeight)/2
+      const mapEl=document.getElementById('map')
+      const detailEl=document.getElementById('detail')
+      const detailH=detailEl.classList.contains('on') ? detailEl.offsetHeight : 0
+      const visibleH=mapEl.offsetHeight - detailH
+      const targetY=mapEl.offsetHeight/2 - visibleH/2  // pixels to shift down from centre
       map.panTo([loc.lat,loc.lng],{animate:false})
-      const offset=Math.round(document.getElementById('map').offsetHeight*0.30)
-      map.panBy([0,offset],{animate:true,duration:0.25})
+      // Shift map down so pin appears above detail sheet, centred in visible zone
+      const shiftPx=detailH>0 ? Math.round(detailH/2) : 0
+      if(shiftPx>0) map.panBy([0,shiftPx],{animate:true,duration:0.25})
     }else{
       map.panTo([loc.lat,loc.lng])
     }
   }
   renderDetail(loc)
-  if(window.innerWidth<=700&&document.getElementById('tab-log').classList.contains('on')){
+  // On mobile, detail is fixed so we don't need the sidebar open
+  if(isMobile()&&document.getElementById('tab-log').classList.contains('on')){
     switchTab('locs',document.querySelectorAll('.tab')[0])
   }
+}
+
+function setGmapsLink(loc){
+  const btn=document.getElementById('d-gmaps'); if(!btn)return
+  const q=encodeURIComponent(`${loc.name} ${loc.address||loc.postcode||''}`)
+  btn.href=loc.lat&&loc.lng
+    ?`https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`
+    :`https://www.google.com/maps/search/?api=1&query=${q}`
 }
 
 function renderDetail(loc){
@@ -552,23 +571,23 @@ function renderDetail(loc){
   const typeEl=document.getElementById('d-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
   document.getElementById('d-name').textContent=loc.name
   document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
+  setGmapsLink(loc)
   const body=document.getElementById('d-body')
-
-  // Google Maps link
-  const query=encodeURIComponent(`${loc.name} ${loc.address||loc.postcode||''}`)
-  const gmapsUrl=loc.lat&&loc.lng
-    ? `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`
-    : `https://www.google.com/maps/search/?api=1&query=${query}`
-  const gmapsLink=`<a class="detail-gmaps" href="${gmapsUrl}" target="_blank" rel="noopener">🗺 Open in Google Maps</a>`
-
   if(cleared){
     const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?` · ${p.user}`:''
-    body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div>${gmapsLink}<button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
+    body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
   }else{
     const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="tbtn-${t}" onclick="selectTool('${t}')">${TOOL_NAMES[t]}</button>`).join('')
-    body.innerHTML=`<div class="tool-label">Energy tool</div><div class="tool-btns">${toolBtns}</div><button class="btn-mark" id="btn-mark-confirm" onclick="markCleared('${loc.id}')">Mark cleared with ${TOOL_NAMES[currentTool]} ✦</button>${gmapsLink}`
+    body.innerHTML=`<div class="tool-label">Energy tool</div><div class="tool-btns">${toolBtns}</div><button class="btn-mark" id="btn-mark-confirm" onclick="markCleared('${loc.id}')">Mark cleared with ${TOOL_NAMES[currentTool]} ✦</button>`
   }
   document.getElementById('detail').classList.add('on')
+  // After detail opens on mobile, re-pan so pin is above it
+  if(isMobile()&&loc.lat&&loc.lng){
+    requestAnimationFrame(()=>{
+      const detailH=document.getElementById('detail').offsetHeight||0
+      if(detailH>0) map.panBy([0,Math.round(detailH/2)],{animate:true,duration:0.25})
+    })
+  }
 }
 
 function closeDetail(){
@@ -622,6 +641,8 @@ function openFromLog(id){
   document.getElementById('d-addr').textContent='Load the region to see full details'
   const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?` · ${p.user}`:''
   document.getElementById('d-body').innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkCleared('${id}')">↩ Mark as not cleared</button>`
+  // set gmaps link with just id
+  const btn2=document.getElementById('d-gmaps');if(btn2)btn2.href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(id)}`
   document.getElementById('detail').classList.add('on')
 }
 
@@ -642,10 +663,6 @@ function toggleSidebar(){
   sbOpen=!sbOpen
   document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen)
   document.getElementById('tog').textContent=sbOpen?'‹':'›'
-  // On mobile, closing the sidebar hides the detail panel too
-  if(!sbOpen && window.innerWidth<=700){
-    document.getElementById('detail').classList.remove('on')
-  }
 }
 function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
 
