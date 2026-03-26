@@ -19,6 +19,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
+
+/* LOGIN */
 #login-screen{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:9999}
 .login-box{background:var(--cream);border-radius:8px;padding:40px 44px;width:340px;text-align:center}
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.12em;color:var(--ink);margin-bottom:6px}
@@ -31,30 +33,38 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);heig
 .login-btn{width:100%;padding:13px;background:var(--ink);color:var(--gold-l);border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:background .2s}
 .login-btn:hover{background:#2a2a2a}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
+
+/* APP */
 #app{display:none;flex-direction:column;height:100vh}
-header{background:var(--ink);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:58px;flex-shrink:0;gap:16px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
+header{background:var(--ink);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:68px;flex-shrink:0;gap:20px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
 .logo em{color:var(--gold);font-style:italic}
-.huser{font-size:13px;color:var(--soft);display:flex;align-items:center;gap:10px}
-.huser strong{color:var(--gold-l);font-size:14px}
-.huser button{background:none;border:1px solid rgba(201,168,76,.25);color:var(--soft);padding:4px 10px;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;border-radius:3px}
-.hstats{display:flex;gap:20px;font-size:12px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
-.hstats strong{color:var(--gold);font-size:18px;display:block;letter-spacing:0}
-.hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:6px 14px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.06em;cursor:pointer;border-radius:3px;text-transform:uppercase;transition:all .2s}
+.huser{font-size:15px;color:var(--soft);display:flex;align-items:center;gap:12px}
+.huser strong{color:var(--gold-l);font-size:16px}
+.huser button{background:none;border:1px solid rgba(201,168,76,.25);color:var(--soft);padding:5px 12px;font-family:'Jost',sans-serif;font-size:13px;cursor:pointer;border-radius:4px}
+.hstats{display:flex;gap:28px;font-size:14px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
+.hstats strong{color:var(--gold);font-size:22px;display:block;letter-spacing:0}
+.hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:8px 18px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
+
 .body{display:flex;flex:1;overflow:hidden}
 .sidebar{width:33.333%;flex-shrink:0;background:var(--white);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0;pointer-events:none}
-.tabs{display:flex;border-bottom:2px solid var(--cream-d);flex-shrink:0;background:var(--cream)}
-.tab{flex:1;padding:14px 6px;font-family:'Jost',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:3px solid transparent;margin-bottom:-2px}
-.tab.on{background:var(--white);color:var(--ink);font-weight:500;border-bottom-color:var(--gold);font-size:13px}
+
+/* Tabs */
+.tabs{display:flex;border-bottom:3px solid var(--cream-d);flex-shrink:0;background:var(--cream)}
+.tab{flex:1;padding:18px 8px;font-family:'Jost',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.08em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:4px solid transparent;margin-bottom:-3px}
+.tab.on{background:var(--white);color:var(--ink);font-weight:500;border-bottom-color:var(--gold);font-size:15px}
+
 .panel{display:none;flex-direction:column;flex:1;overflow:hidden}
 .panel.on{display:flex}
-.frow{padding:12px 18px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
-.frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px;font-weight:500}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none}
-.chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* Filters */
+.frow{padding:16px 22px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.frow-label{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:10px;font-weight:500}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:24px;font-size:14px;cursor:pointer;border:2px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none}
+.chip-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
 .chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
 .chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
@@ -63,69 +73,84 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
 .chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
 .chip.show-jewel{border-color:var(--jewel);color:var(--jewel)}.chip.show-jewel.on{background:var(--jewel);color:#fff}
 .chip.show-mg{border-color:var(--mg);color:var(--mg)}.chip.show-mg.on{background:var(--mg);color:#fff}
-.rsel{padding:10px 18px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
-.rsel select{width:100%;padding:8px 12px;border:1px solid var(--cream-d);border-radius:4px;font-family:'Jost',sans-serif;font-size:14px;background:var(--cream);outline:none;cursor:pointer}
-.srow{padding:8px 18px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
-.sinput{width:100%;padding:8px 12px;border:1px solid var(--cream-d);border-radius:4px;font-family:'Jost',sans-serif;font-size:14px;outline:none;background:var(--cream)}
+
+.rsel{padding:12px 22px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.rsel select{width:100%;padding:11px 14px;border:1px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:16px;background:var(--cream);outline:none;cursor:pointer}
+.srow{padding:12px 22px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
+.sinput{width:100%;padding:11px 14px;border:1.5px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:16px;outline:none;background:var(--white)}
 .sinput:focus{border-color:var(--gold)}
+
+/* Search hint — shown when no query typed yet */
+.search-hint{padding:32px 22px;text-align:center;font-size:15px;color:var(--soft);line-height:1.9}
+.search-hint strong{color:var(--ink);font-weight:500;display:block;font-size:17px;margin-bottom:6px}
+
+/* Location list */
 .llist{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .llist::-webkit-scrollbar{width:4px}
 .llist::-webkit-scrollbar-thumb{background:var(--cream-d)}
-.litem{padding:11px 18px;cursor:pointer;border-bottom:1px solid var(--cream-d);transition:background .12s;display:flex;align-items:flex-start;gap:10px}
+.litem{padding:14px 22px;cursor:pointer;border-bottom:1px solid var(--cream-d);transition:background .12s;display:flex;align-items:flex-start;gap:13px}
 .litem:hover{background:var(--cream)}
-.litem.sel{background:var(--gold-p);border-left:4px solid var(--gold);padding-left:14px}
-.ldot{width:11px;height:11px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.litem.sel{background:var(--gold-p);border-left:5px solid var(--gold);padding-left:17px}
+.ldot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:4px}
 .linfo{flex:1;min-width:0}
-.lname{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lname{font-size:17px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .litem.done .lname{text-decoration:line-through;opacity:.5}
-.lmeta{font-size:12px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lbadge{font-size:10px;padding:2px 8px;border-radius:10px;flex-shrink:0;align-self:center;border:1px solid;white-space:nowrap;font-weight:500}
+.lmeta{font-size:14px;color:var(--soft);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbadge{font-size:12px;padding:3px 10px;border-radius:12px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
+
+/* Detail panel */
 .detail{flex-shrink:0;border-top:2px solid var(--bd);background:var(--white);display:none;flex-direction:column}
 .detail.on{display:flex}
-.detail-head{padding:14px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.detail-close{background:none;border:none;font-size:20px;color:var(--soft);cursor:pointer;line-height:1;padding:0;flex-shrink:0;margin-top:2px}
+.detail-head{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.detail-close{background:none;border:none;font-size:24px;color:var(--soft);cursor:pointer;line-height:1;padding:0;flex-shrink:0;margin-top:2px}
 .detail-close:hover{color:var(--ink)}
-.detail-type{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:3px}
+.detail-type{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:4px}
 .detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}
-.detail-name{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.3;color:var(--ink)}
-.detail-addr{font-size:12px;color:var(--soft);margin-top:3px}
-.detail-body{padding:12px 18px 16px}
-.detail-cleared{font-size:13px;padding:8px 12px;border-radius:5px;margin-bottom:12px;line-height:1.5}
-.tool-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:6px}
-.tool-btns{display:flex;gap:8px;margin-bottom:10px}
-.tool-btn{flex:1;padding:9px 6px;border:2px solid;border-radius:4px;font-family:'Jost',sans-serif;font-size:13px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.3;color:var(--ink)}
+.detail-addr{font-size:14px;color:var(--soft);margin-top:4px}
+.detail-body{padding:14px 22px 20px}
+.detail-cleared{font-size:15px;padding:10px 14px;border-radius:6px;margin-bottom:14px;line-height:1.5}
+.tool-label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:8px}
+.tool-btns{display:flex;gap:10px;margin-bottom:12px}
+.tool-btn{flex:1;padding:12px 8px;border:2px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
 .tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.sel{background:var(--omega);color:#fff}
 .tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.sel{background:var(--jewel);color:#fff}
 .tool-btn.mg{border-color:var(--mg);color:var(--mg)}.tool-btn.mg.sel{background:var(--mg);color:#fff}
-.btn-mark{display:block;width:100%;padding:11px;background:var(--ink);color:var(--cream);border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-mark{display:block;width:100%;padding:14px;background:var(--ink);color:var(--cream);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
 .btn-mark:hover{background:var(--sage)}
-.btn-unmark{display:block;width:100%;padding:9px;margin-top:8px;background:none;border:1.5px solid var(--cream-d);border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+.btn-unmark{display:block;width:100%;padding:11px;margin-top:10px;background:none;border:2px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
 .btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
+
+/* Map */
 #map{flex:1}
 .mwrap{position:relative;flex:1;display:flex;flex-direction:column}
-.mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:16px}
-.mload h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:30px}
-.dots{display:flex;gap:7px}
-.dots span{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
+.mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:18px}
+.mload h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:34px}
+.dots{display:flex;gap:8px}
+.dots span{width:10px;height:10px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
 .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
-.msub{font-size:13px;color:var(--soft);text-align:center;max-width:300px}
-.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 4px 4px 0;width:20px;height:48px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:10px}
+.msub{font-size:15px;color:var(--soft);text-align:center;max-width:320px}
+.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#fff;border:1px solid var(--cream-d);border-left:none;border-radius:0 6px 6px 0;width:24px;height:56px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:12px}
 .tog:hover{background:var(--cream)}
-.legend{position:absolute;bottom:20px;left:12px;background:#ffffffee;border:1px solid var(--cream-d);border-radius:4px;padding:10px 14px;z-index:400;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.leg-title{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:7px}
-.leg-item{display:flex;align-items:center;gap:7px;margin-bottom:5px;font-size:12px}
-.leg-dot{width:10px;height:10px;border-radius:50%}
-.progress{position:absolute;top:12px;right:12px;background:#ffffffee;border:1px solid var(--cream-d);border-radius:4px;padding:11px 16px;z-index:400;min-width:190px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.prog-title{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:8px}
-.prog-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.prog-label{font-size:12px;width:70px;flex-shrink:0}
-.prog-track{flex:1;height:4px;background:var(--cream-d);border-radius:2px;overflow:hidden}
-.prog-fill{height:100%;border-radius:2px;transition:width .4s}
-.prog-count{font-size:11px;color:var(--soft);min-width:32px;text-align:right}
-.empty{padding:24px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
-.saving{position:fixed;bottom:20px;right:20px;background:var(--ink);color:var(--gold-l);padding:10px 16px;border-radius:4px;font-size:12px;z-index:9999;transition:opacity .4s;pointer-events:none}
 
+/* Map overlays — bigger on desktop */
+.legend{position:absolute;bottom:24px;left:16px;background:#ffffffee;border:1px solid var(--cream-d);border-radius:6px;padding:14px 18px;z-index:400;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.leg-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:9px}
+.leg-item{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:14px}
+.leg-dot{width:13px;height:13px;border-radius:50%}
+.progress{position:absolute;top:16px;right:16px;background:#ffffffee;border:1px solid var(--cream-d);border-radius:6px;padding:14px 20px;z-index:400;min-width:220px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.prog-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:10px}
+.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.prog-label{font-size:14px;width:80px;flex-shrink:0}
+.prog-track{flex:1;height:5px;background:var(--cream-d);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;transition:width .4s}
+.prog-count{font-size:13px;color:var(--soft);min-width:36px;text-align:right}
+
+.empty{padding:28px;text-align:center;font-size:15px;color:var(--soft);line-height:1.8}
+.saving{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold-l);padding:12px 18px;border-radius:5px;font-size:14px;z-index:9999;transition:opacity .4s;pointer-events:none}
+
+/* MOBILE */
 @media(max-width:700px){
   header{height:50px;padding:0 14px}
   .logo{font-size:20px}
@@ -135,33 +160,50 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
   #app{flex-direction:column}
   .body{flex-direction:column;flex:1;overflow:hidden}
   .mwrap{flex:1;min-height:0;position:relative}
-  .sidebar{width:100%!important;opacity:1!important;height:50vh;flex-shrink:0;border-right:none;border-top:2px solid var(--bd);flex-direction:column}
+  .sidebar{width:100%!important;opacity:1!important;height:50vh;flex-shrink:0;border-right:none;border-top:2px solid var(--bd)}
   .sidebar.collapsed{height:48px;overflow:hidden}
   .tabs{background:var(--ink)}
-  .tab{color:rgba(255,255,255,.5);font-size:11px;padding:12px 4px;border-bottom-color:transparent}
-  .tab.on{background:var(--white);color:var(--ink);border-bottom-color:var(--gold)}
+  .tab{color:rgba(255,255,255,.5);font-size:11px;padding:12px 4px;border-bottom-color:transparent;border-bottom-width:3px;margin-bottom:-3px}
+  .tab.on{background:var(--white);color:var(--ink);border-bottom-color:var(--gold);font-size:12px}
   .frow{padding:8px 12px}
   .frow-label{font-size:10px;margin-bottom:6px}
-  .chip{font-size:11px;padding:4px 9px}
+  .chip{font-size:11px;padding:4px 9px;border-width:1.5px;gap:4px}
+  .chip-dot{width:6px;height:6px}
   .rsel{padding:6px 12px}
-  .rsel select{font-size:13px;padding:6px 10px}
+  .rsel select{font-size:13px;padding:7px 10px}
   .srow{padding:6px 12px}
-  .sinput{font-size:13px;padding:6px 10px}
-  .litem{padding:8px 12px}
+  .sinput{font-size:13px;padding:7px 10px;border-width:1px}
+  .litem{padding:8px 12px;gap:9px}
+  .ldot{width:10px;height:10px}
   .lname{font-size:13px}
   .lmeta{font-size:11px}
-  /* Detail: fixed overlay at bottom, but only covers BOTTOM of screen — not the map */
+  .lbadge{font-size:10px;padding:2px 7px}
+  .search-hint{padding:20px 14px;font-size:13px}
+  .search-hint strong{font-size:14px}
   .detail{position:fixed;bottom:0;left:0;right:0;max-height:45vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,.18);z-index:800;-webkit-overflow-scrolling:touch}
   .detail.on{display:flex}
+  .detail-head{padding:12px 14px 0}
+  .detail-close{font-size:18px}
+  .detail-type{font-size:10px}
+  .detail-name{font-size:18px}
+  .detail-addr{font-size:12px}
+  .detail-body{padding:10px 14px 14px}
+  .detail-cleared{font-size:12px;padding:7px 10px;margin-bottom:10px}
+  .tool-label{font-size:11px;margin-bottom:6px}
+  .tool-btns{gap:7px;margin-bottom:9px}
+  .tool-btn{padding:9px 5px;font-size:13px}
+  .btn-mark{padding:10px;font-size:13px}
+  .btn-unmark{padding:8px;font-size:12px;margin-top:7px}
   .tog{display:none}
   .legend{bottom:auto;top:8px;left:8px;padding:7px 10px}
   .leg-title{font-size:9px;margin-bottom:5px}
   .leg-item{font-size:11px;gap:5px;margin-bottom:3px}
   .leg-dot{width:8px;height:8px}
-  .progress{top:8px;right:8px;min-width:160px;padding:8px 12px}
+  .progress{top:8px;right:8px;min-width:150px;padding:8px 12px}
   .prog-title{font-size:9px;margin-bottom:6px}
   .prog-row{gap:6px;margin-bottom:5px}
-  .prog-label{font-size:11px;width:60px}
+  .prog-label{font-size:11px;width:56px}
+  .prog-track{height:3px}
   .prog-count{font-size:10px}
   .saving{bottom:12px;right:12px;font-size:11px;padding:8px 12px}
 }
@@ -196,18 +238,20 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
     <div><strong id="s-cleared">0</strong>cleared</div>
     <div><strong id="s-pct">0%</strong>done</div>
   </div>
-  <div style="display:flex;align-items:center;gap:10px">
+  <div style="display:flex;align-items:center;gap:12px">
     <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
     <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
     <button class="hbtn" onclick="exportCSV()">↓ Export</button>
   </div>
 </header>
+
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
       <button class="tab on" onclick="switchTab('locs',this)">Locations</button>
       <button class="tab"    onclick="switchTab('log',this)">Log</button>
     </div>
+
     <div class="panel on" id="tab-locs">
       <div class="frow">
         <div class="frow-label">Places</div>
@@ -247,9 +291,11 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
         </select>
       </div>
       <div class="srow">
-        <input class="sinput" type="text" placeholder="Search locations…" id="search" oninput="renderList()">
+        <input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off">
       </div>
-      <div class="llist" id="llist"><div class="empty">Loading London…</div></div>
+      <!-- List — only shown when search has content -->
+      <div class="llist" id="llist"></div>
+      <!-- Detail panel -->
       <div class="detail" id="detail">
         <div class="detail-head">
           <div>
@@ -262,10 +308,12 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
         <div class="detail-body" id="d-body"></div>
       </div>
     </div>
+
     <div class="panel" id="tab-log">
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch"></div>
     </div>
   </div>
+
   <div class="mwrap">
     <div id="map"></div>
     <div class="mload" id="mload">
@@ -298,7 +346,7 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
 <style>
 @keyframes markerGlow{
   0%  {box-shadow:0 0 0 0   rgba(201,168,76,.9),0 2px 6px rgba(0,0,0,.28)}
-  50% {box-shadow:0 0 0 12px rgba(201,168,76,0), 0 2px 6px rgba(0,0,0,.28)}
+  50% {box-shadow:0 0 0 14px rgba(201,168,76,0), 0 2px 6px rgba(0,0,0,.28)}
   100%{box-shadow:0 0 0 0   rgba(201,168,76,0), 0 2px 6px rgba(0,0,0,.28)}
 }
 .marker-selected div{animation:markerGlow .8s ease-out infinite!important;border-color:var(--gold)!important;border-width:3px!important}
@@ -307,39 +355,35 @@ header{background:var(--ink);padding:0 24px;display:flex;align-items:center;just
 <script>
 const GITHUB_TOKEN  = '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'
 const PASSWORD_HASH = '74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
-const REPO_OWNER = 'Londrovski', REPO_NAME = 'earthkeeper', DATA_BRANCH = 'main'
-const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
+const REPO_OWNER='Londrovski', REPO_NAME='earthkeeper', DATA_BRANCH='main'
+const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 let locations=[], progress={}, progressSha=null, markers={}, selectedId=null, map
-let placesFilter={hospital:true,school:true,university:true}, showFilter='all', currentTool='omega', currentUser=null, saveQueued=false
+let placesFilter={hospital:true,school:true,university:true}, showFilter='all', currentTool='omega', currentUser=null
 
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 function toolColor(t){return t==='omega'?'#7B3FB5':t==='jewel'?'#C44B4B':t==='mg'?'#1A56B0':'#C9A84C'}
 const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
 
 // Save reliability
-let saveQueued2=false
-function queueSave(){saveQueued2=true}
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued2){saveProgress();saveQueued2=false}})
-window.addEventListener('pagehide',()=>{if(saveQueued2)saveProgress()})
+let saveQueued=false
+function queueSave(){saveQueued=true}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
+window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
 
 async function doLogin(e){
   e.preventDefault()
-  const name=document.getElementById('login-name').value.trim()
-  const pw=document.getElementById('login-pw').value
-  const err=document.getElementById('login-err')
+  const name=document.getElementById('login-name').value.trim(), pw=document.getElementById('login-pw').value, err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
   err.textContent='Checking…'
   const hash=await sha256(pw)
   if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
-  currentUser=name
-  sessionStorage.setItem('ek_user',name)
+  currentUser=name; sessionStorage.setItem('ek_user',name)
   document.getElementById('login-screen').style.display='none'
   document.getElementById('app').style.display='flex'
   document.getElementById('h-username').textContent=name
-  err.textContent=''
-  bootApp()
+  err.textContent=''; bootApp()
 }
 async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
 function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
@@ -351,7 +395,8 @@ function initMap(){
 
 function makeIcon(type,cleared,tool,selected){
   const c=cleared?toolColor(tool):type==='hospital'?'#C44B4B':type==='school'?'#3D6FAF':'#7B5EA7'
-  return L.divIcon({html:`<div style="width:18px;height:18px;border-radius:50% 50% 50% 0;background:${c};transform:rotate(-45deg);border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.28)"></div>`,iconSize:[18,18],iconAnchor:[9,18],className:selected?'marker-selected':''})
+  const sz=window.innerWidth>700?22:18
+  return L.divIcon({html:`<div style="width:${sz}px;height:${sz}px;border-radius:50% 50% 50% 0;background:${c};transform:rotate(-45deg);border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.28)"></div>`,iconSize:[sz,sz],iconAnchor:[sz/2,sz],className:selected?'marker-selected':''})
 }
 
 function locVisible(loc){
@@ -371,8 +416,7 @@ function renderMarkers(){
     if(!loc.lat||!loc.lng||!locVisible(loc))continue
     const p=progress[loc.id]
     const m=L.marker([loc.lat,loc.lng],{icon:makeIcon(loc.type,!!p,p?.tool,loc.id===selectedId)}).addTo(map)
-    m.on('click',()=>selectLoc(loc.id))
-    markers[loc.id]=m
+    m.on('click',()=>selectLoc(loc.id)); markers[loc.id]=m
   }
 }
 
@@ -385,10 +429,10 @@ async function ghGet(path){const res=await fetch(`${API_BASE}/${path}`,{headers:
 
 async function loadRegion(region){
   if(!region)return
-  closeDetail();setMsg(`Loading ${region}…`);document.getElementById('mload').style.display='flex'
+  closeDetail(); setMsg(`Loading ${region}…`); document.getElementById('mload').style.display='flex'
   try{
     locations=await ghGet(`locations-${region}.json`)
-    hideLoader();renderMarkers();renderList();updateStats()
+    hideLoader(); renderMarkers(); renderList(); updateStats()
     const pts=locations.filter(l=>l.lat&&l.lng)
     if(pts.length){const lats=pts.map(l=>l.lat),lngs=pts.map(l=>l.lng);map.flyToBounds([[Math.min(...lats),Math.min(...lngs)],[Math.max(...lats),Math.max(...lngs)]],{padding:[40,40],maxZoom:12,duration:1})}
   }catch(e){setMsg(`No data for "${region}" yet`);setTimeout(hideLoader,3000);locations=[];renderList()}
@@ -412,31 +456,44 @@ async function saveProgress(){
 }
 function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
 
+// ── RENDER LIST — only shows results when query is typed ──
 function renderList(){
-  const el=document.getElementById('llist'),q=document.getElementById('search').value.toLowerCase()
+  const el=document.getElementById('llist')
+  const q=document.getElementById('search').value.toLowerCase().trim()
+
+  // No query — show hint, hide list
+  if(!q){
+    el.innerHTML=`<div class="search-hint"><strong>Search to find a location</strong>Type a name or address above to find hospitals, schools and universities on the map</div>`
+    return
+  }
+
   const TC={hospital:'var(--red)',school:'var(--blue)',university:'var(--violet)'}
-  const vis=locations.filter(l=>{if(!locVisible(l))return false;if(q&&!l.name.toLowerCase().includes(q)&&!(l.address||'').toLowerCase().includes(q))return false;return true})
-  if(!vis.length){el.innerHTML=`<div class="empty">${locations.length?'No matches':'Select a region above'}</div>`;return}
+  const vis=locations.filter(l=>{
+    if(!locVisible(l))return false
+    return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
+  })
+
+  if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
+
   el.innerHTML=vis.map(l=>{
     const p=progress[l.id],col=p?toolColor(p.tool):TC[l.type]
     const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}44;background:${toolColor(p.tool)}18">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
-    return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')"><div class="ldot" style="background:${col}"></div><div class="linfo"><div class="lname">${l.name}</div><div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div></div>${badge}</div>`
+    return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
+      <div class="ldot" style="background:${col}"></div>
+      <div class="linfo"><div class="lname">${l.name}</div><div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div></div>
+      ${badge}
+    </div>`
   }).join('')
 }
 
 function selectLoc(id){
-  setSelectedMarker(id);selectedId=id
-  const loc=locations.find(l=>l.id===id);if(!loc)return
+  setSelectedMarker(id); selectedId=id
+  const loc=locations.find(l=>l.id===id); if(!loc)return
   renderList()
   if(loc.lat&&loc.lng){
-    const isMobile=window.innerWidth<=700
-    if(isMobile){
-      // Pan to pin first, then nudge map UP so pin sits in upper portion of map
-      // well above the 45vh detail overlay at the bottom of the screen
+    if(window.innerWidth<=700){
       map.panTo([loc.lat,loc.lng],{animate:false})
-      const mapEl=document.getElementById('map')
-      // Shift up by ~30% of the map element height so pin is in top third
-      const offset=Math.round(mapEl.offsetHeight*0.30)
+      const offset=Math.round(document.getElementById('map').offsetHeight*0.30)
       map.panBy([0,offset],{animate:true,duration:0.25})
     }else{
       map.panTo([loc.lat,loc.lng])
@@ -450,7 +507,7 @@ function selectLoc(id){
 
 function renderDetail(loc){
   const p=progress[loc.id],cleared=!!p
-  const typeEl=document.getElementById('d-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
+  const typeEl=document.getElementById('d-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
   document.getElementById('d-name').textContent=loc.name
   document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
   const body=document.getElementById('d-body')
@@ -466,26 +523,25 @@ function renderDetail(loc){
 
 function closeDetail(){
   if(selectedId){setSelectedMarker(null);selectedId=null}
-  document.getElementById('detail').classList.remove('on');renderList()
+  document.getElementById('detail').classList.remove('on'); renderList()
 }
 function selectTool(tool){
-  currentTool=tool
-  TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('btn-mark-confirm');if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
+  currentTool=tool; TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
+  const btn=document.getElementById('btn-mark-confirm'); if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
 }
 async function markCleared(id){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
+  const loc=locations.find(l=>l.id===id); if(!loc)return
   progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
   if(markers[id])markers[id].setIcon(makeIcon(loc.type,true,currentTool,true))
-  renderDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
+  renderDetail(loc); renderList(); updateStats(); renderLog()
+  await saveProgress(); queueSave()
 }
 async function unmarkCleared(id){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
+  const loc=locations.find(l=>l.id===id); if(!loc)return
   delete progress[id]
   if(markers[id])markers[id].setIcon(makeIcon(loc.type,false,null,id===selectedId))
-  renderDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
+  renderDetail(loc); renderList(); updateStats(); renderLog()
+  await saveProgress(); queueSave()
 }
 
 function renderLog(){
@@ -494,7 +550,13 @@ function renderLog(){
   if(!entries.length){el.innerHTML='<div class="empty">No clearings yet</div>';return}
   el.innerHTML=entries.map(e=>{
     const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
-    return`<div style="padding:11px 18px;border-bottom:1px solid var(--cream-d);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="width:9px;height:9px;border-radius:50%;background:${col};flex-shrink:0"></div><span style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.name}</span></div><div style="font-size:12px;color:var(--soft);padding-left:17px">${who}${d} · ${TOOL_NAMES[e.tool]||e.tool} · ${e.type}</div></div>`
+    return`<div style="padding:14px 22px;border-bottom:1px solid var(--cream-d);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div style="width:11px;height:11px;border-radius:50%;background:${col};flex-shrink:0"></div>
+        <span style="font-size:16px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.name}</span>
+      </div>
+      <div style="font-size:13px;color:var(--soft);padding-left:21px">${who}${d} · ${TOOL_NAMES[e.tool]||e.tool} · ${e.type}</div>
+    </div>`
   }).join('')
 }
 
@@ -502,8 +564,8 @@ function openFromLog(id){
   switchTab('locs',document.querySelectorAll('.tab')[0])
   const loc=locations.find(l=>l.id===id)
   if(loc){selectLoc(id);return}
-  const p=progress[id];if(!p)return
-  document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
+  const p=progress[id]; if(!p)return
+  document.getElementById('d-type').textContent=''; document.getElementById('d-type').className='detail-type'
   document.getElementById('d-name').textContent=p.name||id
   document.getElementById('d-addr').textContent='Load the region to see full details'
   const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?` · ${p.user}`:''
@@ -513,10 +575,10 @@ function openFromLog(id){
 
 function updateStats(){
   const total=locations.length,cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length,pct=total?Math.round(cleared/total*100):0
-  document.getElementById('s-total').textContent=total.toLocaleString();document.getElementById('s-cleared').textContent=cleared;document.getElementById('s-pct').textContent=pct+'%'
+  document.getElementById('s-total').textContent=total.toLocaleString(); document.getElementById('s-cleared').textContent=cleared; document.getElementById('s-pct').textContent=pct+'%'
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]){
     const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
-    document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%';document.getElementById(pgTxt).textContent=`${cl}/${tot}`
+    document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'; document.getElementById(pgTxt).textContent=`${cl}/${tot}`
   }
 }
 
@@ -538,9 +600,9 @@ function setMsg(m){document.getElementById('mload-msg').textContent=m}
 function hideLoader(){document.getElementById('mload').style.display='none'}
 
 async function bootApp(){
-  initMap();setMsg('Loading progress…');await loadProgress()
+  initMap(); setMsg('Loading progress…'); await loadProgress()
   document.getElementById('region-select').value='london'
-  await loadRegion('london');renderLog()
+  await loadRegion('london'); renderLog()
 }
 
 const savedUser=sessionStorage.getItem('ek_user')
