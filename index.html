@@ -270,19 +270,16 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
         <select id="region-select" onchange="loadRegion(this.value)">
           <option value="">— Select region —</option>
           <option value="london" selected>London</option>
-          <option value="somerset">Somerset &amp; Bristol</option>
-          <option value="hertfordshire">Hertfordshire</option>
-          <option value="sussex">Sussex</option>
-          <option value="kent">Kent</option>
-          <option value="essex">Essex</option>
-          <option value="surrey">Surrey</option>
-          <option value="hampshire">Hampshire</option>
-          <option value="berkshire">Berkshire</option>
-          <option value="oxfordshire">Oxfordshire</option>
-          <option value="cambridgeshire">Cambridgeshire</option>
+          <option value="southeast">South East</option>
+          <option value="southwest">South West</option>
+          <option value="eastengland">East of England</option>
+          <option value="eastmidlands">East Midlands</option>
+          <option value="westmidlands">West Midlands</option>
           <option value="yorkshire">Yorkshire</option>
+          <option value="northwest">North West</option>
           <option value="northeast">North East</option>
-          <option value="other-england">Rest of England</option>
+          <option value="wales">Wales</option>
+          <option value="scotland">Scotland</option>
         </select>
       </div>
       <div class="srow">
@@ -429,15 +426,12 @@ function updateLocateBtnPosition(){
   btn.style.bottom=(12+panelH+(panelH>0?10:0))+'px'
 }
 
-// Pan so that lat/lng sits centred in the visible map area above any open panel
-function panToVisible(lat, lng, zoom){
+function panToVisible(lat,lng,zoom){
   if(!isMobile()){
     if(zoom) map.setView([lat,lng],zoom)
     else map.panTo([lat,lng])
     return
   }
-  // On mobile: set position (instant), then nudge up so the point sits in the
-  // middle of the visible strip above the detail panel
   requestAnimationFrame(()=>{
     const panel=document.getElementById('mobile-detail')
     const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
@@ -500,33 +494,46 @@ function locateMe(){
       icon:L.divIcon({html:`<div style="width:16px;height:16px;border-radius:50%;background:#4285F4;border:3px solid white;box-shadow:0 0 0 3px rgba(66,133,244,.3)"></div>`,iconSize:[16,16],iconAnchor:[8,8],className:''}),
       zIndexOffset:2000
     }).addTo(map)
-    // Centre dot in the visible map area (above detail panel on mobile)
-    if(isMobile()){
-      requestAnimationFrame(()=>{
-        const panel=document.getElementById('mobile-detail')
-        const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
-        const offset=Math.round(detailH/2)
-        map.setView([lat,lng],14,{animate:false})
-        if(offset>0) map.panBy([0,offset],{animate:true,duration:0.3})
-      })
-    } else {
-      map.setView([lat,lng],14)
-    }
+    panToVisible(lat,lng,14)
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
-async function ghGet(path){const res=await fetch(`${API_BASE}/${path}`,{headers:GH_HEADERS});if(!res.ok)throw new Error(`GitHub ${res.status}`);const meta=await res.json();return JSON.parse(atob(meta.content.replace(/\n/g,'')))}
+async function ghGet(path){
+  const res=await fetch(`${API_BASE}/${path}`,{headers:GH_HEADERS})
+  if(!res.ok) throw new Error(`GitHub ${res.status}`)
+  const meta=await res.json()
+  return JSON.parse(atob(meta.content.replace(/\n/g,'')))
+}
+
+// Try to fetch a file; return [] silently if it doesn't exist yet
+async function ghGetOptional(path){
+  try{ return await ghGet(path) }
+  catch(e){ return [] }
+}
 
 async function loadRegion(region){
   if(!region)return
   closeMobileDetail(); closeDetail()
   setMsg(`Loading ${region}…`); document.getElementById('mload').style.display='flex'
   try{
-    locations=await ghGet(`locations-${region}.json`)
+    // Fetch all 3 types in parallel — missing files return [] gracefully
+    const [hospitals, schools, universities] = await Promise.all([
+      ghGetOptional(`hospitals-${region}.json`),
+      ghGetOptional(`schools-${region}.json`),
+      ghGetOptional(`universities-${region}.json`)
+    ])
+    locations = [...hospitals, ...schools, ...universities]
     hideLoader(); renderMarkers(); renderList(); updateStats()
     const pts=locations.filter(l=>l.lat&&l.lng)
-    if(pts.length){const lats=pts.map(l=>l.lat),lngs=pts.map(l=>l.lng);map.flyToBounds([[Math.min(...lats),Math.min(...lngs)],[Math.max(...lats),Math.max(...lngs)]],{padding:[40,40],maxZoom:12,duration:1})}
-  }catch(e){setMsg(`No data for "${region}" yet`);setTimeout(hideLoader,3000);locations=[];renderList()}
+    if(pts.length){
+      const lats=pts.map(l=>l.lat), lngs=pts.map(l=>l.lng)
+      map.flyToBounds([[Math.min(...lats),Math.min(...lngs)],[Math.max(...lats),Math.max(...lngs)]],{padding:[40,40],maxZoom:12,duration:1})
+    } else {
+      setMsg(`No data for "${region}" yet`); setTimeout(hideLoader,3000)
+    }
+  }catch(e){
+    setMsg(`Error loading ${region}`); setTimeout(hideLoader,3000); locations=[]; renderList()
+  }
 }
 
 async function loadProgress(){
@@ -579,7 +586,7 @@ function selectLoc(id){
   setSelectedMarker(id); selectedId=id
   const loc=locations.find(l=>l.id===id); if(!loc)return
   renderList()
-  if(loc.lat&&loc.lng) panToVisible(loc.lat, loc.lng, null)
+  if(loc.lat&&loc.lng) panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
     renderMobileDetail(loc)
     if(document.getElementById('tab-log').classList.contains('on')){
