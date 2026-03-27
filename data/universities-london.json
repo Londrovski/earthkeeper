@@ -39,7 +39,6 @@
   {"id":"uni-richmond","type":"university","name":"Richmond American University London","lat":51.4454,"lng":-0.3036,"address":"Queens Rd, Richmond TW10 6JP"},
   {"id":"uni-bimm","type":"university","name":"BIMM University","lat":51.5278,"lng":-0.0998,"address":"25 Worship St, London EC2A 2DX"},
   {"id":"uni-northeastern","type":"university","name":"Northeastern University London","lat":51.5221,"lng":-0.0877,"address":"Devon House, London EC2A 1NT"},
-  {"id":"uni-aru-london","type":"university","name":"Anglia Ruskin University (London campus)","lat":51.5155,"lng":-0.0874,"address":"Bishop's Square, London E1"},
   {"id":"uni-londonfilm","type":"university","name":"London Film School","lat":51.5137,"lng":-0.1283,"address":"24 Shelton St, London WC2H 9JN"},
   {"id":"uni-spjain","type":"university","name":"S P Jain London School of Management","lat":51.5293,"lng":-0.1425,"address":"London NW1 5LS"},
   {"id":"uni-lsa","type":"university","name":"The London School of Architecture","lat":51.5370,"lng":-0.1073,"address":"Unit 10, N1 6AR"},
@@ -49,5 +48,10 @@
   {"id":"uni-nationalcircus","type":"university","name":"National Centre for Circus Arts","lat":51.5275,"lng":-0.1045,"address":"Coronet St, London EC1R 4TN"},
   {"id":"uni-centralballet","type":"university","name":"Central School of Ballet","lat":51.5275,"lng":-0.1045,"address":"London EC1R 1PX"},
   {"id":"uni-walbrook","type":"university","name":"Walbrook Institute London","lat":51.5123,"lng":-0.0912,"address":"London EC4N 8AF"},
-  {"id":"uni-asu","type":"university","name":"ASU London","lat":51.5130,"lng":-0.0830,"address":"London EC2A"}
+  {"id":"uni-asu","type":"university","name":"ASU London","lat":51.5130,"lng":-0.0830,"address":"London EC2A"},
+  {"id":"uni-aa","type":"university","name":"Architectural Association School of Architecture","lat":51.5165,"lng":-0.1307,"address":"36 Bedford Square, London WC1B 3ES"},
+  {"id":"uni-escp","type":"university","name":"ESCP Business School","lat":51.5265,"lng":-0.0889,"address":"527 Finchley Rd, London NW3 7BG"},
+  {"id":"uni-hult","type":"university","name":"Hult International Business School","lat":51.5185,"lng":-0.1090,"address":"35 Commercial Rd, London E1 1LD"},
+  {"id":"uni-multiverse","type":"university","name":"Multiverse","lat":51.5130,"lng":-0.0890,"address":"London EC2A"},
+  {"id":"uni-nit","type":"university","name":"National Institute of Teaching","lat":51.5155,"lng":-0.0874,"address":"London E1"}
 ]
