@@ -68,7 +68,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .srow{padding:12px 22px;border-bottom:1px solid var(--cream-d);flex-shrink:0}
 .sinput{width:100%;padding:11px 14px;border:1.5px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:16px;outline:none;background:var(--white)}
 .sinput:focus{border-color:var(--gold)}
-/* llist takes remaining space in the panel, scrolls within it */
 .llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
 .llist::-webkit-scrollbar{width:4px}
 .llist::-webkit-scrollbar-thumb{background:var(--cream-d)}
@@ -155,7 +154,9 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
   .mwrap{flex:1;min-height:0;position:relative}
   .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:2px solid var(--bd);height:auto;overflow:visible}
   .sidebar.collapsed{height:44px;overflow:hidden}
-  .llist{height:0!important;flex:none!important;overflow:hidden!important;display:none!important}
+  /* llist hidden by default on mobile; shown only when search has text */
+  .llist{display:none!important;flex:none!important}
+  .llist.active{display:block!important;max-height:40vh;overflow-y:auto!important}
   .sidebar .detail{display:none!important}
   .tabs{background:var(--ink)}
   .tab{color:rgba(255,255,255,.5);font-size:11px;padding:11px 4px;border-bottom-color:transparent;border-bottom-width:3px;margin-bottom:-3px}
@@ -555,6 +556,8 @@ function showSaving(msg){const e=document.getElementById('saving');e.textContent
 function renderList(){
   const el=document.getElementById('llist')
   const q=document.getElementById('search').value.toLowerCase().trim()
+  // On mobile: show the list only when there's a search query
+  el.classList.toggle('active', !!q)
   if(!q){el.innerHTML='';return}
   const TC={hospital:'var(--red)',school:'var(--blue)',university:'var(--violet)'}
   const vis=locations.filter(l=>{
@@ -586,6 +589,9 @@ function selectLoc(id){
   renderList()
   if(loc.lat&&loc.lng) panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
+    // Clear search so list hides, then show detail panel
+    document.getElementById('search').value=''
+    renderList()
     renderMobileDetail(loc)
     if(document.getElementById('tab-log').classList.contains('on')){
       switchTab('locs',document.querySelectorAll('.tab')[0])
