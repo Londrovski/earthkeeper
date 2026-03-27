@@ -429,24 +429,23 @@ function updateLocateBtnPosition(){
   btn.style.bottom=(12+panelH+(panelH>0?10:0))+'px'
 }
 
-// Helper: pan to a lat/lng and then shift upward on mobile so the point
-// sits in the visible map area (above the detail panel if open)
+// Pan so that lat/lng sits centred in the visible map area above any open panel
 function panToVisible(lat, lng, zoom){
   if(!isMobile()){
     if(zoom) map.setView([lat,lng],zoom)
     else map.panTo([lat,lng])
     return
   }
-  // Mobile: setView first (no animation), then panBy upward to centre in visible zone
-  const panel=document.getElementById('mobile-detail')
-  const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
-  const mapEl=document.getElementById('map')
-  const mapH=mapEl.offsetHeight||window.innerHeight/2
-  // visibleH = map height minus detail panel; offset = shift up by half detailH
-  const offset=Math.round(detailH/2)
-  if(zoom) map.setView([lat,lng],zoom,{animate:false})
-  else map.panTo([lat,lng],{animate:false})
-  if(offset>0) map.panBy([0,offset],{animate:true,duration:0.3})
+  // On mobile: set position (instant), then nudge up so the point sits in the
+  // middle of the visible strip above the detail panel
+  requestAnimationFrame(()=>{
+    const panel=document.getElementById('mobile-detail')
+    const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
+    const offset=Math.round(detailH/2)
+    if(zoom) map.setView([lat,lng],zoom,{animate:false})
+    else map.panTo([lat,lng],{animate:false})
+    if(offset>0) map.panBy([0,offset],{animate:true,duration:0.3})
+  })
 }
 
 function initMap(){
@@ -501,8 +500,18 @@ function locateMe(){
       icon:L.divIcon({html:`<div style="width:16px;height:16px;border-radius:50%;background:#4285F4;border:3px solid white;box-shadow:0 0 0 3px rgba(66,133,244,.3)"></div>`,iconSize:[16,16],iconAnchor:[8,8],className:''}),
       zIndexOffset:2000
     }).addTo(map)
-    // Use panToVisible so on mobile the dot centres in visible map area
-    panToVisible(lat, lng, 14)
+    // Centre dot in the visible map area (above detail panel on mobile)
+    if(isMobile()){
+      requestAnimationFrame(()=>{
+        const panel=document.getElementById('mobile-detail')
+        const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
+        const offset=Math.round(detailH/2)
+        map.setView([lat,lng],14,{animate:false})
+        if(offset>0) map.panBy([0,offset],{animate:true,duration:0.3})
+      })
+    } else {
+      map.setView([lat,lng],14)
+    }
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
