@@ -1,0 +1,17 @@
+{
+  "name": "Earthkeeper",
+  "short_name": "Earthkeeper",
+  "description": "Energy clearing location tracker for the UK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D2416",
+  "theme_color": "#122D1C",
+  "icons": [
+    {
+      "src": "Earthkeeper.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
