@@ -13,5 +13,6 @@
   {"id":"uni-hartpury","type":"university","name":"Hartpury University","lat":51.8897,"lng":-2.2756,"address":"Hartpury House, Gloucester GL19 3BE"},
   {"id":"uni-bournemouth","type":"university","name":"Bournemouth University","lat":50.7420,"lng":-1.8990,"address":"Fern Barrow, Poole BH12 5BB"},
   {"id":"uni-aub","type":"university","name":"Arts University Bournemouth","lat":50.7589,"lng":-1.9133,"address":"Wallisdown, Poole BH12 5HH"},
-  {"id":"uni-hsu","type":"university","name":"Health Sciences University","lat":50.7225,"lng":-1.8792,"address":"Bournemouth BH1 4EQ"}
+  {"id":"uni-hsu","type":"university","name":"Health Sciences University","lat":50.7225,"lng":-1.8792,"address":"Bournemouth BH1 4EQ"},
+  {"id":"uni-norland","type":"university","name":"Norland College","lat":51.3865,"lng":-2.3870,"address":"Norland Place, Bath BA1 6PH"}
 ]
