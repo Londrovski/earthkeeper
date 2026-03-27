@@ -1,12 +1,11 @@
 [
-  {"id":"uni-10007811","type":"university","name":"Bishop Grosseteste University","postcode":"LN1 3DY","lat":53.228,"lng":-0.539,"address":""},
-  {"id":"uni-10007138","type":"university","name":"University of Northampton","postcode":"NN1 5PH","lat":52.246,"lng":-0.889,"address":""},
-  {"id":"uni-10007851","type":"university","name":"University of Derby","postcode":"DE22 1GB","lat":52.921,"lng":-1.479,"address":""},
-  {"id":"uni-10007151","type":"university","name":"University of Lincoln","postcode":"LN6 7TS","lat":53.2271,"lng":-0.5406,"address":""},
-  {"id":"uni-10001883","type":"university","name":"De Montfort University","postcode":"LE1 9BH","lat":52.6288,"lng":-1.1352,"address":""},
-  {"id":"uni-10004797","type":"university","name":"Nottingham Trent University","postcode":"NG1 4BU","lat":52.954,"lng":-1.157,"address":""},
-  {"id":"uni-10007796","type":"university","name":"University of Leicester","postcode":"LE1 7RH","lat":52.6214,"lng":-1.1255,"address":""},
-  {"id":"uni-10004113","type":"university","name":"Loughborough University","postcode":"LE11 3TU","lat":52.7648,"lng":-1.2335,"address":""},
-  {"id":"uni-10007154","type":"university","name":"University of Nottingham","postcode":"NG7 2RD","lat":52.9382,"lng":-1.1971,"address":""},
-  {"id":"uni-extra-Emmanuel_Theological","type":"university","name":"Emmanuel Theological College","postcode":"LE2 1TU","lat":52.6288,"lng":-1.1352,"address":""}
+  {"id":"uni-nottingham","type":"university","name":"University of Nottingham","lat":52.9382,"lng":-1.1971,"address":"University Park, Nottingham NG7 2RD"},
+  {"id":"uni-ntu","type":"university","name":"Nottingham Trent University","lat":52.9540,"lng":-1.1570,"address":"Burton St, Nottingham NG1 4BU"},
+  {"id":"uni-leicester","type":"university","name":"University of Leicester","lat":52.6214,"lng":-1.1255,"address":"University Rd, Leicester LE1 7RH"},
+  {"id":"uni-dmu","type":"university","name":"De Montfort University","lat":52.6288,"lng":-1.1352,"address":"The Gateway, Leicester LE1 9BH"},
+  {"id":"uni-loughborough","type":"university","name":"Loughborough University","lat":52.7648,"lng":-1.2335,"address":"Epinal Way, Loughborough LE11 3TU"},
+  {"id":"uni-lincoln","type":"university","name":"University of Lincoln","lat":53.2271,"lng":-0.5406,"address":"Brayford Pool, Lincoln LN6 7TS"},
+  {"id":"uni-derby","type":"university","name":"University of Derby","lat":52.9210,"lng":-1.4790,"address":"Kedleston Rd, Derby DE22 1GB"},
+  {"id":"uni-northampton","type":"university","name":"University of Northampton","lat":52.2460,"lng":-0.8890,"address":"Waterside Campus, Northampton NN1 5PH"},
+  {"id":"uni-bishopgrosseteste","type":"university","name":"Bishop Grosseteste University","lat":53.2280,"lng":-0.5390,"address":"Newport, Lincoln LN1 3DY"}
 ]

@@ -1,8 +1,7 @@
 [
-  {"id":"uni-10001282","type":"university","name":"Northumbria University","postcode":"NE1 8ST","lat":54.9778,"lng":-1.6131,"address":""},
-  {"id":"uni-10007159","type":"university","name":"University of Sunderland","postcode":"SR1 3SD","lat":54.9058,"lng":-1.382,"address":""},
-  {"id":"uni-10007161","type":"university","name":"Teesside University","postcode":"TS1 3BA","lat":54.574,"lng":-1.232,"address":""},
-  {"id":"uni-10007143","type":"university","name":"Durham University","postcode":"DH1 3LE","lat":54.7753,"lng":-1.5849,"address":""},
-  {"id":"uni-10007799","type":"university","name":"Newcastle University","postcode":"NE1 7RU","lat":54.9787,"lng":-1.6147,"address":""},
-  {"id":"uni-10004747","type":"university","name":"St Hild College","postcode":"DH1 4SY","lat":54.7753,"lng":-1.5849,"address":""}
+  {"id":"uni-durham","type":"university","name":"Durham University","lat":54.7753,"lng":-1.5849,"address":"The Palatine Centre, Durham DH1 3LE"},
+  {"id":"uni-newcastle","type":"university","name":"Newcastle University","lat":54.9787,"lng":-1.6147,"address":"King's Gate, Newcastle NE1 7RU"},
+  {"id":"uni-northumbria","type":"university","name":"Northumbria University","lat":54.9778,"lng":-1.6131,"address":"Ellison Place, Newcastle NE1 8ST"},
+  {"id":"uni-sunderland","type":"university","name":"University of Sunderland","lat":54.9058,"lng":-1.3820,"address":"Edinburgh Building, Sunderland SR1 3SD"},
+  {"id":"uni-teesside","type":"university","name":"Teesside University","lat":54.5740,"lng":-1.2320,"address":"Middlesbrough TS1 3BA"}
 ]

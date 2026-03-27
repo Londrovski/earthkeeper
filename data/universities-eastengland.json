@@ -1,16 +1,12 @@
 [
-  {"id":"uni-10007773","type":"university","name":"The Open University","postcode":"MK7 6AA","lat":52.0241,"lng":-0.7087,"address":""},
-  {"id":"uni-10007822","type":"university","name":"Cranfield University","postcode":"MK43 0AL","lat":52.0722,"lng":-0.6276,"address":""},
-  {"id":"uni-10000975","type":"university","name":"Buckinghamshire New University","postcode":"HP11 2JZ","lat":51.6297,"lng":-0.7482,"address":""},
-  {"id":"uni-10007152","type":"university","name":"University of Bedfordshire","postcode":"LU1 3JU","lat":51.8793,"lng":-0.4201,"address":""},
-  {"id":"uni-10000291","type":"university","name":"Anglia Ruskin University","postcode":"CB1 1PT","lat":52.2024,"lng":0.1302,"address":""},
-  {"id":"uni-10007147","type":"university","name":"University of Hertfordshire","postcode":"AL10 9AB","lat":51.751,"lng":-0.243,"address":""},
-  {"id":"uni-10007788","type":"university","name":"University of Cambridge","postcode":"CB2 1TN","lat":52.2054,"lng":0.1132,"address":""},
-  {"id":"uni-10007789","type":"university","name":"University of East Anglia","postcode":"NR4 7TJ","lat":52.6212,"lng":1.2386,"address":""},
-  {"id":"uni-10007791","type":"university","name":"University of Essex","postcode":"CO4 3SQ","lat":51.8779,"lng":0.9412,"address":""},
-  {"id":"uni-10007779","type":"university","name":"Royal Veterinary College","postcode":"AL9 7TA","lat":51.7114,"lng":-0.2147,"address":""},
-  {"id":"uni-10004775","type":"university","name":"Norwich University of the Arts","postcode":"NR2 4SN","lat":52.6311,"lng":1.299,"address":""},
-  {"id":"uni-10014001","type":"university","name":"University of Suffolk","postcode":"IP4 1QJ","lat":52.056,"lng":1.149,"address":""},
-  {"id":"uni-10004511","type":"university","name":"National Film and Television School","postcode":"HP9 1LG","lat":51.628,"lng":-0.6113,"address":""},
-  {"id":"uni-10068157","type":"university","name":"University Centre Peterborough","postcode":"PE1 1LX","lat":52.57,"lng":-0.246,"address":""}
+  {"id":"uni-cambridge","type":"university","name":"University of Cambridge","lat":52.2054,"lng":0.1132,"address":"The Old Schools, Trinity Lane, Cambridge CB2 1TN"},
+  {"id":"uni-openuni","type":"university","name":"The Open University","lat":52.0241,"lng":-0.7087,"address":"Walton Hall, Milton Keynes MK7 6AA"},
+  {"id":"uni-uea","type":"university","name":"University of East Anglia","lat":52.6212,"lng":1.2386,"address":"Norwich Research Park, Norwich NR4 7TJ"},
+  {"id":"uni-essex","type":"university","name":"University of Essex","lat":51.8779,"lng":0.9412,"address":"Wivenhoe Park, Colchester CO4 3SQ"},
+  {"id":"uni-hertfordshire","type":"university","name":"University of Hertfordshire","lat":51.7510,"lng":-0.2430,"address":"College Lane, Hatfield AL10 9AB"},
+  {"id":"uni-angliaru","type":"university","name":"Anglia Ruskin University","lat":52.2024,"lng":0.1302,"address":"East Rd, Cambridge CB1 1PT"},
+  {"id":"uni-bedfordshire","type":"university","name":"University of Bedfordshire","lat":51.8793,"lng":-0.4201,"address":"Park Square, Luton LU1 3JU"},
+  {"id":"uni-cranfield","type":"university","name":"Cranfield University","lat":52.0722,"lng":-0.6276,"address":"Cranfield, Bedford MK43 0AL"},
+  {"id":"uni-suffolk","type":"university","name":"University of Suffolk","lat":52.0560,"lng":1.1490,"address":"Waterfront Building, Ipswich IP4 1QJ"},
+  {"id":"uni-norwich-arts","type":"university","name":"Norwich University of the Arts","lat":52.6311,"lng":1.2990,"address":"Francis House, Norwich NR2 4SN"}
 ]
