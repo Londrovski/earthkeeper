@@ -19,7 +19,6 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
-
 #login-screen{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:9999}
 .login-box{background:var(--cream);border-radius:8px;padding:40px 44px;width:340px;text-align:center}
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.12em;color:var(--ink);margin-bottom:6px}
@@ -32,7 +31,6 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);heig
 .login-btn{width:100%;padding:13px;background:var(--ink);color:var(--gold-l);border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:background .2s}
 .login-btn:hover{background:#2a2a2a}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
-
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--ink);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:68px;flex-shrink:0;gap:20px}
 .logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
@@ -44,7 +42,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .hstats strong{color:var(--gold);font-size:22px;display:block;letter-spacing:0}
 .hbtn{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold-l);padding:8px 18px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
-
 .body{display:flex;flex:1;overflow:hidden}
 .sidebar{width:33.333%;flex-shrink:0;background:var(--white);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0;pointer-events:none}
@@ -84,8 +81,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .litem.done .lname{text-decoration:line-through;opacity:.5}
 .lmeta{font-size:14px;color:var(--soft);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lbadge{font-size:12px;padding:3px 10px;border-radius:12px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
-
-/* Detail panel */
 .detail{flex-shrink:0;border-top:2px solid var(--bd);background:var(--white);display:none;flex-direction:column}
 .detail.on{display:flex}
 .detail-head{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -112,15 +107,12 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .btn-mark:hover{background:var(--sage)}
 .btn-unmark{display:block;width:100%;padding:11px;margin-top:10px;background:none;border:2px solid var(--cream-d);border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
 .btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
-
-/* Log date filter */
 .log-filter{padding:12px 22px;border-bottom:1px solid var(--cream-d);flex-shrink:0;display:flex;gap:10px;align-items:center}
 .log-filter label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);white-space:nowrap}
 .log-date-input{flex:1;padding:7px 10px;border:1px solid var(--cream-d);border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:var(--cream);color:var(--ink)}
 .log-date-input:focus{border-color:var(--gold)}
 .log-clear-btn{background:none;border:1px solid var(--cream-d);border-radius:5px;padding:6px 10px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;white-space:nowrap}
 .log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
-
 #map{flex:1}
 .mwrap{position:relative;flex:1;display:flex;flex-direction:column}
 .mload{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:18px}
@@ -144,19 +136,13 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 .leg-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:9px}
 .leg-item{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:14px}
 .leg-dot{width:13px;height:13px;border-radius:50%}
-
-/* Find Me — desktop: absolute inside mwrap */
 .locate-btn{position:absolute;bottom:24px;left:16px;z-index:410;background:#ffffffee;border:1px solid var(--cream-d);border-radius:8px;padding:9px 14px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.12);transition:all .15s}
 .locate-btn:hover{background:#fff;border-color:var(--gold)}
 .locate-btn span{font-size:18px;line-height:1}
-
 .empty{padding:28px;text-align:center;font-size:15px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold-l);padding:12px 18px;border-radius:5px;font-size:14px;z-index:9999;transition:opacity .4s;pointer-events:none}
-
-/* Mobile detail — hidden globally, shown via media query */
 #mobile-detail{display:none}
 
-/* MOBILE */
 @media(max-width:700px){
   .leaflet-control-zoom{display:none!important}
   header{height:50px;padding:0 14px}
@@ -198,33 +184,10 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
   .leg-title{font-size:9px;margin-bottom:4px}
   .leg-item{font-size:10px;gap:5px;margin-bottom:3px}
   .leg-dot{width:7px;height:7px}
-
-  /* Find Me on mobile: FIXED so it floats above everything always */
-  .locate-btn{
-    position:fixed!important;
-    bottom:12px;
-    left:12px;
-    z-index:820;  /* above mobile-detail (810) */
-    padding:7px 11px;
-    font-size:12px;
-    gap:5px;
-    transition:bottom .25s ease;
-  }
+  .locate-btn{position:fixed!important;bottom:12px;left:12px;z-index:820;padding:7px 11px;font-size:12px;gap:5px;transition:bottom .25s ease}
   .locate-btn span{font-size:16px}
-
   .saving{bottom:12px;right:12px;font-size:11px;padding:8px 12px}
-
-  /* Mobile detail sheet */
-  #mobile-detail{
-    display:none;
-    position:fixed;bottom:0;left:0;right:0;
-    max-height:50vh;overflow-y:auto;
-    border-radius:14px 14px 0 0;
-    box-shadow:0 -4px 24px rgba(0,0,0,.2);
-    z-index:810;background:var(--white);
-    -webkit-overflow-scrolling:touch;
-    flex-direction:column
-  }
+  #mobile-detail{display:none;position:fixed;bottom:0;left:0;right:0;max-height:50vh;overflow-y:auto;border-radius:14px 14px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.2);z-index:810;background:var(--white);-webkit-overflow-scrolling:touch;flex-direction:column}
   #mobile-detail.on{display:flex}
   #mobile-detail .detail-head{padding:12px 14px 0}
   #mobile-detail .detail-head-right{gap:8px}
@@ -278,7 +241,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
     <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
   </div>
 </header>
-
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
@@ -345,10 +307,7 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
         <div class="detail-body" id="d-body"></div>
       </div>
     </div>
-
-    <!-- LOG PANEL -->
     <div class="panel" id="tab-log">
-      <!-- Date filter -->
       <div class="log-filter">
         <label>From</label>
         <input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
@@ -359,7 +318,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch"></div>
     </div>
   </div>
-
   <div class="mwrap">
     <div id="map"></div>
     <div class="mload" id="mload">
@@ -392,7 +350,6 @@ header{background:var(--ink);padding:0 28px;display:flex;align-items:center;just
 </div>
 </div>
 
-<!-- MOBILE DETAIL — body level, z-index 810 -->
 <div id="mobile-detail">
   <div class="detail-head">
     <div class="detail-head-left">
@@ -464,13 +421,32 @@ function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document
 
 function isMobile(){return window.innerWidth<=700}
 
-// Find Me button: on mobile shift above the detail panel
 function updateLocateBtnPosition(){
   if(!isMobile())return
   const btn=document.getElementById('locate-btn')
   const panel=document.getElementById('mobile-detail')
   const panelH=panel.classList.contains('on')?(panel.offsetHeight||0):0
   btn.style.bottom=(12+panelH+(panelH>0?10:0))+'px'
+}
+
+// Helper: pan to a lat/lng and then shift upward on mobile so the point
+// sits in the visible map area (above the detail panel if open)
+function panToVisible(lat, lng, zoom){
+  if(!isMobile()){
+    if(zoom) map.setView([lat,lng],zoom)
+    else map.panTo([lat,lng])
+    return
+  }
+  // Mobile: setView first (no animation), then panBy upward to centre in visible zone
+  const panel=document.getElementById('mobile-detail')
+  const detailH=panel.classList.contains('on')?(panel.offsetHeight||0):0
+  const mapEl=document.getElementById('map')
+  const mapH=mapEl.offsetHeight||window.innerHeight/2
+  // visibleH = map height minus detail panel; offset = shift up by half detailH
+  const offset=Math.round(detailH/2)
+  if(zoom) map.setView([lat,lng],zoom,{animate:false})
+  else map.panTo([lat,lng],{animate:false})
+  if(offset>0) map.panBy([0,offset],{animate:true,duration:0.3})
 }
 
 function initMap(){
@@ -525,7 +501,8 @@ function locateMe(){
       icon:L.divIcon({html:`<div style="width:16px;height:16px;border-radius:50%;background:#4285F4;border:3px solid white;box-shadow:0 0 0 3px rgba(66,133,244,.3)"></div>`,iconSize:[16,16],iconAnchor:[8,8],className:''}),
       zIndexOffset:2000
     }).addTo(map)
-    map.setView([lat,lng],14)
+    // Use panToVisible so on mobile the dot centres in visible map area
+    panToVisible(lat, lng, 14)
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
@@ -593,10 +570,7 @@ function selectLoc(id){
   setSelectedMarker(id); selectedId=id
   const loc=locations.find(l=>l.id===id); if(!loc)return
   renderList()
-  if(loc.lat&&loc.lng){
-    if(isMobile()){map.panTo([loc.lat,loc.lng],{animate:false})}
-    else{map.panTo([loc.lat,loc.lng])}
-  }
+  if(loc.lat&&loc.lng) panToVisible(loc.lat, loc.lng, null)
   if(isMobile()){
     renderMobileDetail(loc)
     if(document.getElementById('tab-log').classList.contains('on')){
@@ -658,8 +632,7 @@ function renderMobileDetail(loc){
 function closeMobileDetail(){
   if(selectedId){setSelectedMarker(null);selectedId=null}
   document.getElementById('mobile-detail').classList.remove('on')
-  currentMobileLoc=null; renderList()
-  updateLocateBtnPosition()
+  currentMobileLoc=null; renderList(); updateLocateBtnPosition()
 }
 
 function selectToolMobile(tool){
@@ -701,7 +674,6 @@ async function unmarkCleared(id){
   await saveProgress(); queueSave()
 }
 
-// ── LOG with date filter ──
 function clearLogFilter(){
   document.getElementById('log-from').value=''
   document.getElementById('log-to').value=''
@@ -712,19 +684,12 @@ function renderLog(){
   const el=document.getElementById('log-list')
   const fromVal=document.getElementById('log-from')?.value||''
   const toVal=document.getElementById('log-to')?.value||''
-
   let entries=Object.entries(progress)
     .map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l?.name||id,type:l?.type||''}})
     .sort((a,b)=>b.date.localeCompare(a.date))
-
-  // Apply date filters
   if(fromVal) entries=entries.filter(e=>e.date>=fromVal)
   if(toVal)   entries=entries.filter(e=>e.date<=toVal)
-
-  if(!entries.length){
-    el.innerHTML=`<div class="empty">${fromVal||toVal?'No clearings in that date range':'No clearings yet'}</div>`
-    return
-  }
+  if(!entries.length){el.innerHTML=`<div class="empty">${fromVal||toVal?'No clearings in that date range':'No clearings yet'}</div>`;return}
   el.innerHTML=entries.map(e=>{
     const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
     return`<div style="padding:14px 22px;border-bottom:1px solid var(--cream-d);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')">
@@ -776,11 +741,7 @@ function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classLis
 function setShow(mode,el){showFilter=mode;document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-omega,.chip.show-jewel,.chip.show-mg').forEach(c=>c.classList.remove('on'));el.classList.add('on');renderMarkers();renderList()}
 
 let sbOpen=true
-function toggleSidebar(){
-  sbOpen=!sbOpen
-  document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen)
-  document.getElementById('tog').textContent=sbOpen?'‹':'›'
-}
+function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›'}
 function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
 
 function setMsg(m){document.getElementById('mload-msg').textContent=m}
