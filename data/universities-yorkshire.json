@@ -10,5 +10,6 @@
   {"id":"uni-leedstrinity","type":"university","name":"Leeds Trinity University","lat":53.8601,"lng":-1.6510,"address":"Brownberrie Lane, Horsforth LS18 5HD"},
   {"id":"uni-yorkstjohn","type":"university","name":"York St John University","lat":53.9632,"lng":-1.0735,"address":"Lord Mayor's Walk, York YO31 7EX"},
   {"id":"uni-leedsarts","type":"university","name":"Leeds Arts University","lat":53.8175,"lng":-1.5440,"address":"Blenheim Walk, Leeds LS2 9AQ"},
-  {"id":"uni-nscd","type":"university","name":"Northern School of Contemporary Dance","lat":53.8175,"lng":-1.5440,"address":"98 Chapeltown Rd, Leeds LS7 4BH"}
+  {"id":"uni-nscd","type":"university","name":"Northern School of Contemporary Dance","lat":53.8175,"lng":-1.5440,"address":"98 Chapeltown Rd, Leeds LS7 4BH"},
+  {"id":"uni-luminate","type":"university","name":"Luminate Education Group","lat":53.7978,"lng":-1.5443,"address":"Quarry Hill, Leeds LS2 7PD"}
 ]
