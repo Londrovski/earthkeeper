@@ -12,5 +12,6 @@
   {"id":"uni-ucbirmingham","type":"university","name":"University College Birmingham","lat":52.4796,"lng":-1.9017,"address":"Summer Row, Birmingham B3 1JB"},
   {"id":"uni-harperadams","type":"university","name":"Harper Adams University","lat":52.7757,"lng":-2.4244,"address":"Newport, Shropshire TF10 8NB"},
   {"id":"uni-arden","type":"university","name":"Arden University","lat":52.4085,"lng":-1.5081,"address":"Millennium Point, Coventry CV3 4FJ"},
-  {"id":"uni-nmite","type":"university","name":"New Model Institute for Technology and Engineering","lat":52.0566,"lng":-2.7160,"address":"Hereford HR4 0BE"}
+  {"id":"uni-nmite","type":"university","name":"New Model Institute for Technology and Engineering","lat":52.0566,"lng":-2.7160,"address":"Hereford HR4 0BE"},
+  {"id":"uni-warwickshirecollege","type":"university","name":"Warwickshire College","lat":52.2877,"lng":-1.5843,"address":"Warwick New Rd, Leamington Spa CV32 5JE"}
 ]
