@@ -14,5 +14,7 @@
   {"id":"uni-bournemouth","type":"university","name":"Bournemouth University","lat":50.7420,"lng":-1.8990,"address":"Fern Barrow, Poole BH12 5BB"},
   {"id":"uni-aub","type":"university","name":"Arts University Bournemouth","lat":50.7589,"lng":-1.9133,"address":"Wallisdown, Poole BH12 5HH"},
   {"id":"uni-hsu","type":"university","name":"Health Sciences University","lat":50.7225,"lng":-1.8792,"address":"Bournemouth BH1 4EQ"},
-  {"id":"uni-norland","type":"university","name":"Norland College","lat":51.3865,"lng":-2.3870,"address":"Norland Place, Bath BA1 6PH"}
+  {"id":"uni-norland","type":"university","name":"Norland College","lat":51.3865,"lng":-2.3870,"address":"Norland Place, Bath BA1 6PH"},
+  {"id":"uni-cornwall","type":"university","name":"Cornwall College","lat":50.3956,"lng":-5.0713,"address":"Trevenson Rd, Pool, Redruth TR15 3RD"},
+  {"id":"uni-dyson","type":"university","name":"Dyson Institute of Engineering and Technology","lat":51.5195,"lng":-2.1461,"address":"Tetbury Hill, Malmesbury SN16 0RP"}
 ]
