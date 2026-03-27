@@ -1,1 +1,8 @@
-[{"id":"uni-10001282","type":"university","name":"University of Northumbria at Newcastle","postcode":"NE1 8ST","lat":54.9778,"lng":-1.6131,"address":""},{"id":"uni-10007159","type":"university","name":"The University of Sunderland","postcode":"SR1 3SD","lat":54.9058,"lng":-1.382,"address":""},{"id":"uni-10007161","type":"university","name":"Teesside University","postcode":"TS1 3BA","lat":54.574,"lng":-1.232,"address":""},{"id":"uni-10007143","type":"university","name":"University of Durham","postcode":"DH1 3LE","lat":54.7753,"lng":-1.5849,"address":""},{"id":"uni-10007799","type":"university","name":"Newcastle University","postcode":"NE1 7RU","lat":54.9787,"lng":-1.6147,"address":""},{"id":"uni-10004747","type":"university","name":"St Hild College","postcode":"DH1 4SY","lat":54.7753,"lng":-1.5849,"address":""}]
+[
+  {"id":"uni-10001282","type":"university","name":"Northumbria University","postcode":"NE1 8ST","lat":54.9778,"lng":-1.6131,"address":""},
+  {"id":"uni-10007159","type":"university","name":"University of Sunderland","postcode":"SR1 3SD","lat":54.9058,"lng":-1.382,"address":""},
+  {"id":"uni-10007161","type":"university","name":"Teesside University","postcode":"TS1 3BA","lat":54.574,"lng":-1.232,"address":""},
+  {"id":"uni-10007143","type":"university","name":"Durham University","postcode":"DH1 3LE","lat":54.7753,"lng":-1.5849,"address":""},
+  {"id":"uni-10007799","type":"university","name":"Newcastle University","postcode":"NE1 7RU","lat":54.9787,"lng":-1.6147,"address":""},
+  {"id":"uni-10004747","type":"university","name":"St Hild College","postcode":"DH1 4SY","lat":54.7753,"lng":-1.5849,"address":""}
+]

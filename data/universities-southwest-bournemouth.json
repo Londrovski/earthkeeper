@@ -1,0 +1,5 @@
+[
+  {"id":"uni-10000824","type":"university","name":"Bournemouth University","postcode":"BH12 5BB","lat":50.742,"lng":-1.899,"address":""},
+  {"id":"uni-10000385","type":"university","name":"Arts University Bournemouth","postcode":"BH12 5HH","lat":50.7589,"lng":-1.9133,"address":""},
+  {"id":"uni-10000163","type":"university","name":"Health Sciences University","postcode":"BH1 4EQ","lat":50.7225,"lng":-1.8792,"address":""}
+]
