@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Earthkeeper</title>
-<!-- PWA / home screen icon -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#122D1C">
 <link rel="apple-touch-icon" href="Earthkeeper.png">
@@ -34,6 +33,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
+
+/* Lighten the dark map tiles by ~half using brightness filter */
+.leaflet-tile-pane{filter:brightness(1.8)}
 
 /* ===== LOGIN ===== */
 #login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
@@ -514,8 +516,8 @@ function panToVisible(lat,lng,zoom){
 
 function initMap(){
   map=L.map('map',{tap:false,zoomControl:true,preferCanvas:true}).setView([51.5,-0.1],10)
-  /* dark_matter_lite — half as dark as full dark_all, no overlay needed */
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_matter_lite/{z}/{x}/{y}{r}.png',{
+  /* dark_all tiles brightened to ~half darkness via CSS filter on .leaflet-tile-pane */
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
     attribution:'© OpenStreetMap contributors © CARTO',
     subdomains:'abcd',
     maxZoom:19
