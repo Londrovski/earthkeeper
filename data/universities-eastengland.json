@@ -8,5 +8,6 @@
   {"id":"uni-bedfordshire","type":"university","name":"University of Bedfordshire","lat":51.8793,"lng":-0.4201,"address":"Park Square, Luton LU1 3JU"},
   {"id":"uni-cranfield","type":"university","name":"Cranfield University","lat":52.0722,"lng":-0.6276,"address":"Cranfield, Bedford MK43 0AL"},
   {"id":"uni-suffolk","type":"university","name":"University of Suffolk","lat":52.0560,"lng":1.1490,"address":"Waterfront Building, Ipswich IP4 1QJ"},
-  {"id":"uni-norwich-arts","type":"university","name":"Norwich University of the Arts","lat":52.6311,"lng":1.2990,"address":"Francis House, Norwich NR2 4SN"}
+  {"id":"uni-norwich-arts","type":"university","name":"Norwich University of the Arts","lat":52.6311,"lng":1.2990,"address":"Francis House, Norwich NR2 4SN"},
+  {"id":"uni-ashridge","type":"university","name":"Ashridge Executive Education","lat":51.8012,"lng":-0.5629,"address":"Ashridge House, Berkhamsted HP4 1NS"}
 ]
