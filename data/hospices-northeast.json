@@ -1,3 +1,90 @@
 [
-  {"id":"hosp-hospitalofgod","type":"hospice","name":"Hospital of God","lat":54.6427,"lng":-1.2438,"address":"Greatham, Hartlepool TS25 2HS"}
+  {
+    "id": "hospice-1106214874",
+    "type": "hospice",
+    "name": "St Oswald's Hospice",
+    "lat": 55.008563,
+    "lng": -1.624699,
+    "address": "Regent Avenue, Gosforth, Newcastle Upon Tyne, Tyne and Wear"
+  },
+  {
+    "id": "hospice-1110985653",
+    "type": "hospice",
+    "name": "Teesside Hospice",
+    "lat": 54.553823,
+    "lng": -1.2498,
+    "address": "1 Northgate Road, Linthorpe, Middlesbrough, Cleveland"
+  },
+  {
+    "id": "hospice-1113000508",
+    "type": "hospice",
+    "name": "Butterwick Hospice Stockton",
+    "lat": 54.580344,
+    "lng": -1.347804,
+    "address": "Middlefield Road, Hardwick, Stockton On Tees, Cleveland"
+  },
+  {
+    "id": "hospice-1113000544",
+    "type": "hospice",
+    "name": "Butterwick Hospice Bishop Auckland",
+    "lat": 54.650807,
+    "lng": -1.6854,
+    "address": "Woodhouse Lane, Bishop Auckland, County Durham"
+  },
+  {
+    "id": "hospice-1114396298",
+    "type": "hospice",
+    "name": "Alice House Hospice",
+    "lat": 54.704049,
+    "lng": -1.224422,
+    "address": "Wells Avenue, Hartlepool, Cleveland"
+  },
+  {
+    "id": "hospice-1118937316",
+    "type": "hospice",
+    "name": "St Teresa's Hospice",
+    "lat": 54.529085,
+    "lng": -1.567062,
+    "address": "91 Woodland Road, Darlington, County Durham"
+  },
+  {
+    "id": "hospice-1119399770",
+    "type": "hospice",
+    "name": "Marie Curie Hospice Newcastle",
+    "lat": 54.968352,
+    "lng": -1.643722,
+    "address": "Marie Curie Drive, Elswick, Newcastle Upon Tyne, Tyne and Wear"
+  },
+  {
+    "id": "hospice-1119611260",
+    "type": "hospice",
+    "name": "St Cuthbert's Hospice Durham",
+    "lat": 54.763883,
+    "lng": -1.593656,
+    "address": "Park House Road, Merry Oaks, Durham, County Durham"
+  },
+  {
+    "id": "hospice-13216526832",
+    "type": "hospice",
+    "name": "Tynedale Hospice at Home",
+    "lat": 54.980094,
+    "lng": -2.084788,
+    "address": "Beaufront Park, Anick Road, Hexham, Northumberland"
+  },
+  {
+    "id": "hospice-17299530728",
+    "type": "hospice",
+    "name": "HOSPICECARE Northumberland",
+    "lat": 55.401581,
+    "lng": -1.698249,
+    "address": "Greensfield Industrial Estate, Willowburn Avenue, Alnwick"
+  },
+  {
+    "id": "hospice-R0B0U",
+    "type": "hospice",
+    "name": "St Benedict's Hospice Sunderland",
+    "lat": 54.862355,
+    "lng": -1.368362,
+    "address": "St Benedict's Way, Ryhope, Sunderland"
+  }
 ]

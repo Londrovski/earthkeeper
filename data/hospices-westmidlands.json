@@ -1,5 +1,194 @@
 [
-  {"id":"hosp-acorns-birmingham","type":"hospice","name":"Acorns Children's Hospice (Birmingham)","lat":52.4237,"lng":-1.9391,"address":"103 Oak Tree Lane, Selly Oak, Birmingham B29 6HZ"},
-  {"id":"hosp-acorns-walsall","type":"hospice","name":"Acorns Children's Hospice (Walsall)","lat":52.5634,"lng":-1.9697,"address":"Walstead Rd, Walsall WS5 4NL"},
-  {"id":"hosp-acorns-worcester","type":"hospice","name":"Acorns Children's Hospice (Worcester)","lat":52.1643,"lng":-2.1898,"address":"350 Bath Rd, Worcester WR5 3EZ"}
+  {
+    "id": "hospice-1111024120",
+    "type": "hospice",
+    "name": "The Mary Stevens Hospice",
+    "lat": 52.444503,
+    "lng": -2.137481,
+    "address": "221 Hagley Road, Oldswinford, Stourbridge, West Midlands"
+  },
+  {
+    "id": "hospice-1111363415",
+    "type": "hospice",
+    "name": "Primrose Hospice",
+    "lat": 52.320582,
+    "lng": -2.044198,
+    "address": "St Godwalds Road, Bromsgrove, Worcestershire"
+  },
+  {
+    "id": "hospice-1111401938",
+    "type": "hospice",
+    "name": "Katharine House Hospice Stafford",
+    "lat": 52.811005,
+    "lng": -2.093463,
+    "address": "Weston Road, Stafford, Staffordshire"
+  },
+  {
+    "id": "hospice-1112735884",
+    "type": "hospice",
+    "name": "KEMP Hospice",
+    "lat": 52.390473,
+    "lng": -2.263979,
+    "address": "41 Mason Road, Kidderminster, Worcestershire"
+  },
+  {
+    "id": "hospice-1113884204",
+    "type": "hospice",
+    "name": "Acorns Children's Hospice Birmingham",
+    "lat": 52.43511,
+    "lng": -1.93826,
+    "address": "103 Oak Tree Lane, Selly Oak, Birmingham, West Midlands"
+  },
+  {
+    "id": "hospice-1113884227",
+    "type": "hospice",
+    "name": "Acorns Children's Hospice Worcester",
+    "lat": 52.170383,
+    "lng": -2.213515,
+    "address": "350 Bath Road, Worcester, Worcestershire"
+  },
+  {
+    "id": "hospice-1113884248",
+    "type": "hospice",
+    "name": "Acorns Children's Hospice Walsall",
+    "lat": 52.564921,
+    "lng": -1.975919,
+    "address": "Walstead Road, Walsall, West Midlands"
+  },
+  {
+    "id": "hospice-111396654933",
+    "type": "hospice",
+    "name": "Birmingham Hospice Selly Park",
+    "lat": 52.439472,
+    "lng": -1.926736,
+    "address": "176 Raddlebarn Road, Birmingham, West Midlands"
+  },
+  {
+    "id": "hospice-1115840640",
+    "type": "hospice",
+    "name": "Douglas Macmillan Hospice",
+    "lat": 52.970571,
+    "lng": -2.150544,
+    "address": "Barlaston Road, Blurton, Stoke On Trent, Staffordshire"
+  },
+  {
+    "id": "hospice-1116533115",
+    "type": "hospice",
+    "name": "St Michael's Hospice Hereford",
+    "lat": 52.061571,
+    "lng": -2.631449,
+    "address": "Bartestree, Hereford, Herefordshire"
+  },
+  {
+    "id": "hospice-1121504160",
+    "type": "hospice",
+    "name": "Severn Hospice Shrewsbury",
+    "lat": 52.720353,
+    "lng": -2.802403,
+    "address": "Bicton, Shrewsbury, Shropshire"
+  },
+  {
+    "id": "hospice-1121504600",
+    "type": "hospice",
+    "name": "Severn Hospice Telford",
+    "lat": 52.715004,
+    "lng": -2.514498,
+    "address": "Apley Castle, Telford, Shropshire"
+  },
+  {
+    "id": "hospice-1121827815",
+    "type": "hospice",
+    "name": "St Richard's Hospice Worcester",
+    "lat": 52.185328,
+    "lng": -2.179652,
+    "address": "Wildwood Drive, Worcester, Worcestershire"
+  },
+  {
+    "id": "hospice-1129284270",
+    "type": "hospice",
+    "name": "St Giles Hospice Whittington",
+    "lat": 52.671208,
+    "lng": -1.762968,
+    "address": "Fisherwick Road, Whittington, Lichfield, Staffordshire"
+  },
+  {
+    "id": "hospice-1129536667",
+    "type": "hospice",
+    "name": "Hope House Children's Hospice",
+    "lat": 52.841408,
+    "lng": -3.066275,
+    "address": "Nant Lane, Morda, Oswestry, Shropshire"
+  },
+  {
+    "id": "hospice-1130198567",
+    "type": "hospice",
+    "name": "The Shakespeare Hospice",
+    "lat": 52.19372,
+    "lng": -1.73119,
+    "address": "Church Lane, Shottery, Stratford Upon Avon, Warwickshire"
+  },
+  {
+    "id": "hospice-1144202823",
+    "type": "hospice",
+    "name": "Warwick Myton Hospice",
+    "lat": 52.28263,
+    "lng": -1.558661,
+    "address": "Myton Lane, Warwick, Warwickshire"
+  },
+  {
+    "id": "hospice-1144202893",
+    "type": "hospice",
+    "name": "Rugby Myton Hospice",
+    "lat": 52.361672,
+    "lng": -1.252456,
+    "address": "Barby Road, Rugby, Warwickshire"
+  },
+  {
+    "id": "hospice-1144202912",
+    "type": "hospice",
+    "name": "Coventry Myton Hospice",
+    "lat": 52.420671,
+    "lng": -1.444078,
+    "address": "Clifford Bridge Road, Coventry, West Midlands"
+  },
+  {
+    "id": "hospice-1207037058",
+    "type": "hospice",
+    "name": "Mary Ann Evans Hospice",
+    "lat": 52.511933,
+    "lng": -1.478719,
+    "address": "Eliot Way, George Eliot Hospital Site, Nuneaton, Warwickshire"
+  },
+  {
+    "id": "hospice-1228956014",
+    "type": "hospice",
+    "name": "Zoe's Place Baby Hospice Coventry",
+    "lat": 52.454908,
+    "lng": -1.51003,
+    "address": "Easter Way, Ash Green, Coventry"
+  },
+  {
+    "id": "hospice-14941629932",
+    "type": "hospice",
+    "name": "Birmingham Hospice Erdington",
+    "lat": 52.527366,
+    "lng": -1.823556,
+    "address": "Grange Road, Erdington, Birmingham"
+  },
+  {
+    "id": "hospice-1570827374",
+    "type": "hospice",
+    "name": "Marie Curie Midlands",
+    "lat": 52.41197,
+    "lng": -1.761491,
+    "address": "Marsh Lane, Solihull, West Midlands"
+  },
+  {
+    "id": "hospice-RBK83",
+    "type": "hospice",
+    "name": "Goscote Hospice Walsall",
+    "lat": 52.613628,
+    "lng": -1.976395,
+    "address": "Goscote Lane, Walsall"
+  }
 ]

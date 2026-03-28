@@ -1,3 +1,106 @@
 [
-  {"id":"hosp-rainbows","type":"hospice","name":"Rainbows Children's Hospice","lat":52.7648,"lng":-1.1856,"address":"Lark Rise, Loughborough LE11 2HS"}
+  {
+    "id": "hospice-1108961040",
+    "type": "hospice",
+    "name": "Treetops Hospice",
+    "lat": 52.917238,
+    "lng": -1.322309,
+    "address": "Derby Road, Risley, Derby, Derbyshire"
+  },
+  {
+    "id": "hospice-1109940901",
+    "type": "hospice",
+    "name": "Nottinghamshire Hospice",
+    "lat": 52.971778,
+    "lng": -1.140145,
+    "address": "384 Woodborough Road, Nottingham, Nottinghamshire"
+  },
+  {
+    "id": "hospice-1113514582",
+    "type": "hospice",
+    "name": "Dove Cottage Day Hospice",
+    "lat": 52.886697,
+    "lng": -0.880551,
+    "address": "Canal Lane, Stathern, Melton Mowbray, Leicestershire"
+  },
+  {
+    "id": "hospice-1117287258",
+    "type": "hospice",
+    "name": "Lakelands Hospice",
+    "lat": 52.470844,
+    "lng": -0.712501,
+    "address": "Butland Road, Oakley Vale, Corby, Northamptonshire"
+  },
+  {
+    "id": "hospice-1120960209",
+    "type": "hospice",
+    "name": "LOROS Leicestershire and Rutland Hospice",
+    "lat": 52.653038,
+    "lng": -1.168062,
+    "address": "Groby Road, Leicester, Leicestershire"
+  },
+  {
+    "id": "hospice-1121816895",
+    "type": "hospice",
+    "name": "Ashgate Hospice",
+    "lat": 53.240417,
+    "lng": -1.479632,
+    "address": "Ashgate Road, Old Brampton, Chesterfield, Derbyshire"
+  },
+  {
+    "id": "hospice-1122038149",
+    "type": "hospice",
+    "name": "Rainbows Children's Hospice",
+    "lat": 52.746104,
+    "lng": -1.215814,
+    "address": "Lark Rise, Loughborough, Leicestershire"
+  },
+  {
+    "id": "hospice-1122264967",
+    "type": "hospice",
+    "name": "Blythe House Hospice",
+    "lat": 53.321902,
+    "lng": -1.924148,
+    "address": "Eccles Fold Road, Chapel-en-le-Frith, High Peak, Derbyshire"
+  },
+  {
+    "id": "hospice-1133292286",
+    "type": "hospice",
+    "name": "Beaumond House Hospice",
+    "lat": 53.073465,
+    "lng": -0.809172,
+    "address": "32 London Road, Newark, Nottinghamshire"
+  },
+  {
+    "id": "hospice-1140658893",
+    "type": "hospice",
+    "name": "St Barnabas Hospice Lincoln",
+    "lat": 53.238307,
+    "lng": -0.53188,
+    "address": "36 Nettleham Road, Lincoln, Lincolnshire"
+  },
+  {
+    "id": "hospice-124872478074",
+    "type": "hospice",
+    "name": "Bassetlaw Hospice",
+    "lat": 53.325592,
+    "lng": -0.950991,
+    "address": "North Road, Retford, Nottinghamshire"
+  },
+  {
+    "id": "hospice-RHAG4",
+    "type": "hospice",
+    "name": "John Eastwood Hospice",
+    "lat": 53.13315,
+    "lng": -1.234516,
+    "address": "Mansfield Road, Sutton In Ashfield, Nottinghamshire"
+  },
+  {
+    "id": "hospice-RY583",
+    "type": "hospice",
+    "name": "The Butterfly Hospice Boston",
+    "lat": 52.989976,
+    "lng": -0.015616,
+    "address": "Rowan Way, Boston, Lincolnshire"
+  }
 ]
