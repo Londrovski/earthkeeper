@@ -1,0 +1,7 @@
+[
+  {"id":"hosp-rachelhouse","type":"hospice","name":"CHAS Rachel House","lat":56.2044,"lng":-3.4298,"address":"Avenue Rd, Kinross KY13 8FX"},
+  {"id":"hosp-robinhouse","type":"hospice","name":"CHAS Robin House","lat":56.0026,"lng":-4.5726,"address":"Balloch G83 8LX"},
+  {"id":"hosp-oaks-elgin","type":"hospice","name":"The Oaks, Elgin","lat":57.6441,"lng":-3.3108,"address":"Morriston Rd, Elgin IV30 6NP"},
+  {"id":"hosp-roxburghe","type":"hospice","name":"Roxburghe House","lat":57.1454,"lng":-2.1170,"address":"Westburn Rd, Aberdeen AB25 2XJ"},
+  {"id":"hosp-strathcarron","type":"hospice","name":"Strathcarron Hospice","lat":56.0211,"lng":-3.8886,"address":"Randolph Hill, Denny FK6 6HJ"}
+]

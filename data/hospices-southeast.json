@@ -1,0 +1,8 @@
+[
+  {"id":"hosp-earlmountbatten","type":"hospice","name":"Earl Mountbatten Hospice","lat":50.6938,"lng":-1.2966,"address":"Halberry Lane, Newport, Isle of Wight PO30 2ER"},
+  {"id":"hosp-naomihouse","type":"hospice","name":"Naomi House Children's Hospice","lat":51.1027,"lng":-1.3196,"address":"Stockbridge Rd, Sutton Scotney, Winchester SO21 3JE"},
+  {"id":"hosp-helendouglas","type":"hospice","name":"Helen & Douglas House","lat":51.7398,"lng":-1.2117,"address":"14A Magdalen Rd, Oxford OX4 1RW"},
+  {"id":"hosp-sobellhouse","type":"hospice","name":"Sobell House Hospice","lat":51.7631,"lng":-1.2198,"address":"Churchill Hospital, Old Rd, Oxford OX3 7LE"},
+  {"id":"hosp-demelza","type":"hospice","name":"Demelza Hospice Care for Children","lat":51.3318,"lng":0.6897,"address":"Rook Lane, Bobbing, Sittingbourne ME9 8DZ"},
+  {"id":"hosp-southernhospice","type":"hospice","name":"Southern Hospice Group","lat":50.9295,"lng":-0.5426,"address":"Nightingale Ave, Horsham RH12 2JL"}
+]

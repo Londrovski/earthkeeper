@@ -1,0 +1,6 @@
+[
+  {"id":"hosp-chsw","type":"hospice","name":"Children's Hospice South West","lat":50.9521,"lng":-4.0803,"address":"Little Bridge Place, Fremington, Barnstaple EX31 2PZ"},
+  {"id":"hosp-cornwallhospice","type":"hospice","name":"Cornwall Hospice Care","lat":50.2161,"lng":-5.2893,"address":"Foundry Hill, St Austell PL25 5EW"},
+  {"id":"hosp-northdevon","type":"hospice","name":"North Devon Hospice","lat":51.0671,"lng":-4.0594,"address":"Deer Park, Newport, Barnstaple EX32 0HU"},
+  {"id":"hosp-prospect","type":"hospice","name":"Prospect Hospice","lat":51.5563,"lng":-1.7697,"address":"Moormead Rd, Wroughton, Swindon SN4 9BY"}
+]

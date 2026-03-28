@@ -1,0 +1,5 @@
+[
+  {"id":"hosp-stanns","type":"hospice","name":"St Ann's Hospice","lat":53.3867,"lng":-2.2491,"address":"St Ann's Rd North, Heald Green, Cheadle SK8 3SZ"},
+  {"id":"hosp-trinitybpp","type":"hospice","name":"Trinity Hospice, Blackpool","lat":53.8282,"lng":-3.0428,"address":"Low Moor Rd, Bispham, Blackpool FY2 0BG"},
+  {"id":"hosp-clairehouse","type":"hospice","name":"Claire House Children's Hospice","lat":53.3437,"lng":-3.0752,"address":"Clatterbridge Rd, Bebington, Wirral CH63 4JD"}
+]

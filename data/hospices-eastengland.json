@@ -1,0 +1,5 @@
+[
+  {"id":"hosp-farleigh","type":"hospice","name":"Farleigh Hospice","lat":51.7368,"lng":0.4793,"address":"North Court Rd, Broomfield, Chelmsford CM1 7LH"},
+  {"id":"hosp-keech","type":"hospice","name":"Keech Hospice Care","lat":51.9019,"lng":-0.4134,"address":"Great Bramingham Lane, Luton LU3 3NT"},
+  {"id":"hosp-peace","type":"hospice","name":"Peace Hospice","lat":51.6568,"lng":-0.3966,"address":"Peace Drive, Watford WD17 3PH"}
+]

@@ -1,0 +1,6 @@
+[
+  {"id":"hosp-northlondon","type":"hospice","name":"North London Hospice","lat":51.6097,"lng":-0.1358,"address":"47 Woodside Ave, London N12 8TT"},
+  {"id":"hosp-royaltrinity","type":"hospice","name":"Royal Trinity Hospice","lat":51.4635,"lng":-0.1499,"address":"30 Clapham Common North Side, London SW4 0RN"},
+  {"id":"hosp-stchristophers","type":"hospice","name":"St Christopher's Hospice","lat":51.4155,"lng":-0.0619,"address":"51-59 Lawrie Park Rd, Sydenham SE26 6DZ"},
+  {"id":"hosp-havens","type":"hospice","name":"Havens Hospices","lat":51.5527,"lng":0.6934,"address":"Wensley Rd, Rochford SS4 1RG"}
+]

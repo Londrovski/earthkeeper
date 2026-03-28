@@ -1,0 +1,6 @@
+[
+  {"id":"hosp-bluebellwood","type":"hospice","name":"Bluebell Wood Children's Hospice","lat":53.4487,"lng":-1.3168,"address":"Cramfit Rd, North Anston, Sheffield S25 4AJ"},
+  {"id":"hosp-kirkwood","type":"hospice","name":"Kirkwood Hospice","lat":53.6371,"lng":-1.7709,"address":"21 Albany Rd, Dalton, Huddersfield HD5 9UY"},
+  {"id":"hosp-overgate","type":"hospice","name":"Overgate Hospice","lat":53.6878,"lng":-1.8503,"address":"30 Park Rd, Elland HX5 9HZ"},
+  {"id":"hosp-martinhouse","type":"hospice","name":"Martin House Hospice","lat":53.8970,"lng":-1.3380,"address":"Grove Rd, Boston Spa, Wetherby LS23 6TX"}
+]

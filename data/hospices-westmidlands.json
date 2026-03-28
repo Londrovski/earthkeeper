@@ -1,0 +1,5 @@
+[
+  {"id":"hosp-acorns-birmingham","type":"hospice","name":"Acorns Children's Hospice (Birmingham)","lat":52.4237,"lng":-1.9391,"address":"103 Oak Tree Lane, Selly Oak, Birmingham B29 6HZ"},
+  {"id":"hosp-acorns-walsall","type":"hospice","name":"Acorns Children's Hospice (Walsall)","lat":52.5634,"lng":-1.9697,"address":"Walstead Rd, Walsall WS5 4NL"},
+  {"id":"hosp-acorns-worcester","type":"hospice","name":"Acorns Children's Hospice (Worcester)","lat":52.1643,"lng":-2.1898,"address":"350 Bath Rd, Worcester WR5 3EZ"}
+]
