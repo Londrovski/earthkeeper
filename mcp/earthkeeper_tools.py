@@ -1,16 +1,18 @@
 from fastmcp import FastMCP
 import subprocess
-import sys
 import os
 
 mcp = FastMCP("Earthkeeper Tools")
+
+PYTHON = r"C:\Users\james\AppData\Local\Programs\Python\Python311\python.exe"
 
 @mcp.tool
 def run_python(code: str) -> str:
     """Run Python code on this machine and return the output."""
     result = subprocess.run(
-        [sys.executable, "-c", code],
-        capture_output=True, text=True, timeout=120
+        [PYTHON, "-c", code],
+        capture_output=True, text=True, timeout=120,
+        creationflags=subprocess.CREATE_NO_WINDOW
     )
     output = result.stdout
     if result.stderr:
@@ -21,8 +23,9 @@ def run_python(code: str) -> str:
 def run_python_file(filepath: str) -> str:
     """Run a Python script file and return the output."""
     result = subprocess.run(
-        [sys.executable, filepath],
-        capture_output=True, text=True, timeout=300
+        [PYTHON, filepath],
+        capture_output=True, text=True, timeout=300,
+        creationflags=subprocess.CREATE_NO_WINDOW
     )
     output = result.stdout
     if result.stderr:
@@ -52,8 +55,9 @@ def list_files(directory: str) -> str:
 def pip_install(package: str) -> str:
     """Install a Python package."""
     result = subprocess.run(
-        [sys.executable, "-m", "pip", "install", package],
-        capture_output=True, text=True, timeout=120
+        [PYTHON, "-m", "pip", "install", package],
+        capture_output=True, text=True, timeout=120,
+        creationflags=subprocess.CREATE_NO_WINDOW
     )
     return result.stdout + result.stderr
 
