@@ -1,1 +1,1131 @@
-SEE_BELOW
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Earthkeeper</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#122D1C">
+<link rel="apple-touch-icon" href="Earthkeeper-circular.png">
+<link rel="icon" type="image/png" href="Earthkeeper-circular.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+:root{
+  --forest:#0D2416;--forest-m:#122D1C;--gold:#C9A84C;--gold-l:#E8D5A0;--gold-d:#A87C28;
+  --gold-glow:rgba(201,168,76,.18);--bd:rgba(201,168,76,.18);--ink:#E8D5A0;--ink-d:#F5EDD8;
+  --soft:rgba(232,213,160,.55);--soft-d:rgba(232,213,160,.35);--input-bg:rgba(13,36,22,.5);
+  --hover:rgba(201,168,76,.08);--sel:rgba(201,168,76,.12);
+  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
+  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.maplibregl-map{position:absolute;inset:0}
+.maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right{display:none}
+.maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2)!important;border-radius:6px!important}
+.maplibregl-ctrl-group button{width:32px;height:32px}
+.maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15)!important}
+.maplibregl-canvas{cursor:default}
+#login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
+.login-box{background:rgba(18,45,28,.95);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+.login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
+.login-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.14em;color:var(--gold-l);margin-bottom:4px}
+.login-logo em{color:var(--gold);font-style:italic}
+.login-sub{font-size:12px;color:var(--soft);letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px}
+.login-field{margin-bottom:14px;text-align:left}
+.login-field label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);display:block;margin-bottom:6px}
+.login-field input{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:15px;background:var(--input-bg);outline:none;color:var(--ink-d);caret-color:var(--gold)}
+.login-field input::placeholder{color:var(--soft-d)}
+.login-field input:focus{border-color:var(--gold)}
+.login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
+.login-btn:hover{background:var(--gold)}
+.login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
+#app{display:none;flex-direction:column;height:100vh}
+header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
+.header-brand{display:flex;align-items:center;gap:12px}
+.header-seal{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.header-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
+.logo em{color:var(--gold);font-style:italic}
+.huser{font-size:14px;color:var(--soft);display:flex;align-items:center;gap:12px}
+.huser strong{color:var(--gold-l);font-size:15px}
+.huser button{background:none;border:1px solid var(--bd);color:var(--soft);padding:5px 12px;font-family:'Jost',sans-serif;font-size:12px;cursor:pointer;border-radius:4px;transition:all .15s}
+.huser button:hover{border-color:var(--gold);color:var(--gold-l)}
+.hstats{display:flex;gap:24px;font-size:13px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
+.hstats strong{color:var(--gold);font-size:20px;display:block;letter-spacing:0}
+.hbtn{background:none;border:1px solid var(--bd);color:var(--gold-l);padding:7px 16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
+.hbtn:hover{background:var(--gold-glow);border-color:var(--gold)}
+.body{display:flex;flex:1;overflow:hidden}
+.sidebar{width:33.333%;flex-shrink:0;background:rgba(18,45,28,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
+.sidebar.collapsed{width:0;opacity:0;pointer-events:none}
+.tabs{display:flex;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.75)}
+.tab{flex:1;padding:16px 8px;font-family:'Jost',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--gold);font-weight:500;border-bottom-color:var(--gold)}
+.panel{display:none;flex-direction:column;flex:1;overflow:hidden;min-height:0}
+.panel.on{display:flex}
+.frow{padding:14px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:9px;font-weight:500}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:20px;font-size:13px;cursor:pointer;border:1.5px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none;color:var(--soft)}
+.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
+.chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
+.chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
+.chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
+.chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
+.chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
+.chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
+.chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
+.chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
+.chip.show-jewel{border-color:var(--jewel);color:var(--jewel)}.chip.show-jewel.on{background:var(--jewel);color:#fff}
+.chip.show-mg{border-color:var(--mg);color:var(--mg)}.chip.show-mg.on{background:var(--mg);color:#fff}
+.rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
+.rsel select option{background:#1A3D28;color:var(--ink-d)}
+.srow{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.sinput{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;outline:none;background:rgba(13,36,22,.25);color:var(--ink-d);caret-color:var(--gold)}
+.sinput::placeholder{color:var(--soft-d)}
+.sinput:focus{border-color:var(--gold)}
+.llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
+.llist::-webkit-scrollbar{width:3px}
+.llist::-webkit-scrollbar-thumb{background:var(--bd)}
+.litem{padding:12px 20px;cursor:pointer;border-bottom:1px solid var(--bd);transition:background .12s;display:flex;align-items:flex-start;gap:12px}
+.litem:hover{background:var(--hover)}
+.litem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
+.ldot{width:13px;height:13px;border-radius:50%;flex-shrink:0;margin-top:4px;border:2px solid transparent}
+.linfo{flex:1;min-width:0}
+.lname{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-d)}
+.litem.done .lname{text-decoration:line-through;opacity:.45}
+.lmeta{font-size:13px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbadge{font-size:11px;padding:2px 9px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
+.detail{flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);display:none;flex-direction:column;max-height:50%}
+.detail.on{display:flex}
+.detail-head{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.detail-head-left{flex:1;min-width:0}
+.detail-head-right{display:flex;flex-direction:row;align-items:center;gap:9px;flex-shrink:0}
+.detail-close{background:none;border:none;font-size:22px;color:var(--soft);cursor:pointer;line-height:1;padding:0;transition:color .15s}
+.detail-close:hover{color:var(--gold)}
+.gmaps-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;background:rgba(201,168,76,.1);border:1px solid var(--bd);text-decoration:none;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--gold);white-space:nowrap}
+.gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
+.gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
+.detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
+.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.3;color:var(--gold-l)}
+.detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
+.detail-body{padding:12px 20px 18px;overflow-y:auto}
+.detail-cleared{font-size:14px;padding:10px 13px;border-radius:6px;margin-bottom:11px;line-height:1.5}
+.tool-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
+.tool-btns{display:flex;gap:9px;margin-bottom:11px}
+.tool-btn{flex:1;padding:11px 6px;border:1.5px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
+.tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.sel{background:var(--omega);color:#fff}
+.tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.sel{background:var(--jewel);color:#fff}
+.tool-btn.mg{border-color:var(--mg);color:var(--mg)}.tool-btn.mg.sel{background:var(--mg);color:#fff}
+.btn-mark{display:block;width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-weight:500}
+.btn-mark:hover{background:var(--gold)}
+.btn-unmark{display:block;width:100%;padding:10px;margin-top:9px;background:none;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s}
+.btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
+.log-filter{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;display:flex;gap:9px;align-items:center;background:rgba(18,45,28,.18)}
+.log-filter label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
+.log-date-input{flex:1;padding:6px 9px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:rgba(13,36,22,.3);color:var(--ink)}
+.log-date-input:focus{border-color:var(--gold)}
+.log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 9px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;transition:all .15s}
+.log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
+#map{flex:1;position:relative}
+.mwrap{position:relative;flex:1;display:flex;flex-direction:column}
+.mload{position:absolute;inset:0;background:rgba(13,36,22,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:18px}
+.dots{display:flex;gap:8px}
+.dots span{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+.msub{font-size:14px;color:var(--soft);text-align:center;max-width:300px}
+.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:rgba(13,36,22,.7);border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
+.tog:hover{background:rgba(18,45,28,.9)}
+.map-overlays{position:absolute;top:14px;right:14px;z-index:400;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
+.progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:13px 18px;min-width:210px}
+.prog-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:9px}
+.prog-row{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.prog-label{font-size:13px;width:74px;flex-shrink:0;color:var(--ink)}
+.prog-track{flex:1;height:4px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;transition:width .4s}
+.prog-count{font-size:12px;color:var(--soft);min-width:34px;text-align:right}
+.legend{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:12px 16px}
+.leg-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
+.leg-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--ink)}
+.leg-dot{width:12px;height:12px;border-radius:50%}
+.locate-btn{position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.7);backdrop-filter:blur(8px);border:1px solid var(--bd);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--gold-l);transition:all .15s}
+.locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
+.locate-btn span{font-size:17px;line-height:1}
+.empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
+.saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
+#mobile-detail{display:none}
+@media(max-width:700px){
+  header{height:48px;padding:0 12px}
+  .header-seal{width:32px;height:32px}
+  .logo{font-size:18px}
+  .hstats{display:none}
+  .huser strong{font-size:11px}
+  .hbtn{font-size:10px;padding:4px 9px}
+  #app{flex-direction:column}
+  .body{flex-direction:column;flex:1;overflow:hidden}
+  .mwrap{flex:1;min-height:0;position:relative}
+  .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:1px solid var(--bd);height:auto;overflow:visible;background:rgba(13,36,22,.7)}
+  .sidebar.collapsed{height:40px;overflow:hidden}
+  .llist{display:none!important;flex:none!important}
+  .llist.active{display:block!important;max-height:40vh;overflow-y:auto!important}
+  .sidebar .detail{display:none!important}
+  .tabs{background:rgba(18,45,28,.75)}
+  .tab{color:var(--soft-d);font-size:10px;padding:10px 4px;border-bottom-color:transparent;border-bottom-width:2px;margin-bottom:-1px}
+  .tab.on{color:var(--gold);border-bottom-color:var(--gold);font-size:11px}
+  .frow{padding:6px 11px}
+  .frow-label{font-size:9px;margin-bottom:4px}
+  .chip{font-size:10px;padding:3px 8px;border-width:1px;gap:3px}
+  .chip-dot{width:5px;height:5px}
+  .rsel{padding:4px 11px}
+  .rsel select{font-size:12px;padding:5px 9px}
+  .srow{padding:4px 11px}
+  .sinput{font-size:12px;padding:6px 9px;border-width:1px}
+  .log-filter{padding:6px 11px;gap:6px}
+  .log-filter label{font-size:9px}
+  .log-date-input{font-size:11px;padding:4px 7px}
+  .log-clear-btn{font-size:10px;padding:4px 7px}
+  .tog{display:none}
+  .map-overlays{top:7px;right:7px;gap:5px}
+  .progress{min-width:130px;padding:6px 10px}
+  .prog-title{font-size:8px;margin-bottom:4px}
+  .prog-row{gap:5px;margin-bottom:3px}
+  .prog-label{font-size:9px;width:48px}
+  .prog-track{height:3px}
+  .prog-count{font-size:8px;min-width:26px}
+  .legend{padding:5px 8px}
+  .leg-title{font-size:8px;margin-bottom:3px}
+  .leg-item{font-size:9px;gap:4px;margin-bottom:2px}
+  .leg-dot{width:7px;height:7px}
+  .locate-btn{position:fixed!important;bottom:11px;left:11px;z-index:820;padding:6px 10px;font-size:11px;gap:4px;transition:bottom .25s ease}
+  .locate-btn span{font-size:15px}
+  .saving{bottom:11px;right:11px;font-size:11px;padding:7px 11px}
+  #mobile-detail{display:none;position:fixed;bottom:0;left:0;right:0;max-height:50vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch;flex-direction:column}
+  #mobile-detail.on{display:flex}
+  #mobile-detail .detail-head{padding:11px 13px 0}
+  #mobile-detail .detail-head-right{gap:7px}
+  #mobile-detail .detail-close{font-size:17px}
+  #mobile-detail .gmaps-btn{font-size:11px;padding:5px 8px}
+  #mobile-detail .gmaps-btn svg{width:12px;height:12px}
+  #mobile-detail .detail-type{font-size:9px}
+  #mobile-detail .detail-name{font-size:16px}
+  #mobile-detail .detail-addr{font-size:11px}
+  #mobile-detail .detail-body{padding:9px 13px 14px}
+  #mobile-detail .detail-cleared{font-size:12px;padding:7px 10px;margin-bottom:7px}
+  #mobile-detail .tool-label{font-size:10px;margin-bottom:5px}
+  #mobile-detail .tool-btns{gap:6px;margin-bottom:7px}
+  #mobile-detail .tool-btn{padding:8px 4px;font-size:12px;border-width:1.5px}
+  #mobile-detail .btn-mark{padding:9px;font-size:12px}
+  #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:6px}
+}
+#pg-row-s,#pg-row-gp{display:none}
+.gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
+.gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
+.gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
+.gtype-btn.gp{border-color:var(--green);color:var(--green)}.gtype-btn.gp.on{background:var(--green);color:#fff}
+.district-list{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
+.district-list::-webkit-scrollbar{width:3px}
+.district-list::-webkit-scrollbar-thumb{background:var(--bd)}
+.ditem{padding:12px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s}
+.ditem:hover{background:var(--hover)}
+.ditem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
+.ditem-name{font-size:15px;font-weight:500;color:var(--ink-d);margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
+.ditem-bar-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
+.ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
+.ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
+.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:44%}
+.district-detail.on{display:flex}
+.district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.district-detail-body{padding:11px 20px 16px;overflow-y:auto}
+</style>
+</head>
+<body>
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
+    <div class="login-logo">Earth<em>keeper</em></div>
+    <div class="login-sub">Energy clearing tracker</div>
+    <form autocomplete="on" onsubmit="doLogin(event)">
+      <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
+      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="••••••" autocomplete="current-password"></div>
+      <button type="submit" class="login-btn">Enter</button>
+    </form>
+    <div class="login-err" id="login-err"></div>
+  </div>
+</div>
+<div id="app">
+<header>
+  <div class="header-brand">
+    <div class="header-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
+    <div class="logo">Earth<em>keeper</em></div>
+  </div>
+  <div class="hstats" id="hstats-main">
+    <div><strong id="s-total">—</strong>locations</div>
+    <div><strong id="s-cleared">0</strong>cleared</div>
+    <div><strong id="s-pct">0%</strong>done</div>
+  </div>
+  <div class="hstats" id="hstats-district" style="display:none">
+    <div id="hd-name" style="font-size:13px;color:var(--gold-l);text-transform:none;letter-spacing:.02em;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+    <div><strong id="hd-total">-</strong>in district</div>
+    <div><strong id="hd-cleared">0</strong>cleared</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
+    <button class="hbtn" id="home-btn" onclick="goHome()" style="display:none">⌂ Home</button>
+    <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
+  </div>
+</header>
+<div class="body">
+  <div class="sidebar" id="sidebar">
+    <div class="tabs">
+      <button class="tab on" id="tab-btn-locs" onclick="switchTab('locs',this)">Locations</button>
+      <button class="tab" id="tab-btn-groups" onclick="switchTab('groups',this)">Groups</button>
+      <button class="tab" id="tab-btn-log" onclick="switchTab('log',this)">Log</button>
+    </div>
+    <div class="panel on" id="tab-locs">
+      <div class="frow">
+        <div class="frow-label">Places</div>
+        <div class="chips">
+          <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
+          <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
+          <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
+          <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
+          <div class="chip school" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
+          <div class="chip gp" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="frow-label">Show</div>
+        <div class="chips">
+          <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
+          <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
+          <div class="chip show-omega" id="chip-omega" onclick="setShow('omega',this)"><span class="chip-dot" style="background:var(--omega)"></span>Omega</div>
+          <div class="chip show-jewel" id="chip-jewel" onclick="setShow('jewel',this)"><span class="chip-dot" style="background:var(--jewel)" ></span>Jewel</div>
+          <div class="chip show-mg" id="chip-mg" onclick="setShow('mg',this)"><span class="chip-dot" style="background:var(--mg)"></span>MG</div>
+        </div>
+      </div>
+      <div class="rsel">
+        <select id="region-select" onchange="loadRegion(this.value)">
+          <option value="all" selected>— All regions —</option>
+          <option value="london">London</option>
+          <option value="southeast">South East</option>
+          <option value="southwest">South West</option>
+          <option value="eastengland">East of England</option>
+          <option value="eastmidlands">East Midlands</option>
+          <option value="westmidlands">West Midlands</option>
+          <option value="yorkshire">Yorkshire</option>
+          <option value="northwest">North West</option>
+          <option value="northeast">North East</option>
+          <option value="wales">Wales</option>
+          <option value="scotland">Scotland</option>
+        </select>
+      </div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
+      <div class="llist" id="llist"></div>
+      <div class="detail" id="detail">
+        <div class="detail-head">
+          <div class="detail-head-left">
+            <div class="detail-type" id="d-type"></div>
+            <div class="detail-name" id="d-name"></div>
+            <div class="detail-addr" id="d-addr"></div>
+          </div>
+          <div class="detail-head-right">
+            <a class="gmaps-btn" id="d-gmaps" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#C9A84C"/></svg>
+              Go To
+            </a>
+            <button class="detail-close" onclick="closeDetail()">x</button>
+          </div>
+        </div>
+        <div class="detail-body" id="d-body"></div>
+      </div>
+    </div>
+    <div class="panel" id="tab-groups">
+      <div class="gtype-row">
+        <button class="gtype-btn school on" id="gtype-school" onclick="toggleGroupType('school',this)"><span class="chip-dot" style="background:var(--blue);display:inline-block;margin-right:4px"></span>Schools</button>
+        <button class="gtype-btn gp on" id="gtype-gp" onclick="toggleGroupType('gp',this)"><span class="chip-dot" style="background:var(--green);display:inline-block;margin-right:4px"></span>GPs</button>
+      </div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search districts..." id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
+      <div class="district-list" id="district-list"><div class="empty">Loading districts...</div></div>
+      <div class="district-detail" id="district-detail">
+        <div class="district-detail-head">
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold-l)" id="dd-name"></div>
+          </div>
+          <button class="detail-close" onclick="closeDistrictDetail()">x</button>
+        </div>
+        <div class="district-detail-body" id="dd-body"></div>
+      </div>
+    </div>
+    <div class="panel" id="tab-log">
+      <div class="log-filter">
+        <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
+        <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
+        <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
+      </div>
+      <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
+    </div>
+  </div>
+  <div class="mwrap">
+    <div id="map"></div>
+    <div class="mload" id="mload">
+      <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;margin-bottom:8px">
+        <img src="Earthkeeper-circular.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="msub" id="mload-msg">Loading...</div>
+    </div>
+    <button class="tog" id="tog" onclick="toggleSidebar()">&#x2039;</button>
+    <div class="map-overlays">
+      <div class="progress">
+        <div class="prog-title">Progress</div>
+        <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">-</div></div>
+        <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">-</div></div>
+        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">-</div></div>
+        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
+        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">-</div></div>
+        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">-</div></div>
+      </div>
+      <div class="legend">
+        <div class="leg-title">Legend</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>GP Surgery</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared</div>
+      </div>
+    </div>
+    <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>&#x1F4CD;</span>Find Me</button>
+
+  </div>
+</div>
+</div>
+<div id="mobile-detail">
+  <div class="detail-head">
+    <div class="detail-head-left">
+      <div class="detail-type" id="md-type"></div>
+      <div class="detail-name" id="md-name"></div>
+      <div class="detail-addr" id="md-addr"></div>
+    </div>
+    <div class="detail-head-right">
+      <a class="gmaps-btn" id="md-gmaps" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#C9A84C"/></svg>
+        Go To
+      </a>
+      <button class="detail-close" onclick="closeMobileDetail()">x</button>
+    </div>
+  </div>
+  <div class="detail-body" id="md-body"></div>
+</div>
+<div class="saving" id="saving" style="opacity:0"></div>
+<script>
+const GITHUB_TOKEN='ghp_L6bjIVKf5NJvUhPx'+''9LQkD0biLYCV123TtV2y'
+const PASSWORD_HASH='74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
+const REPO_OWNER='Londrovski',REPO_NAME='earthkeeper',DATA_BRANCH='main'
+const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
+const RAW_BASE=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data`
+
+const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland']
+const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8',gp:'#4A9B6F'}
+const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
+const GOLD='#C9A84C'
+function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
+function toolColor(t){return TOOL_COLORS[t]||GOLD}
+const TOOLS=['omega','jewel','mg'],TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
+const TOOL_ORDER=['omega','jewel','mg']
+function toolLevel(t){const i=TOOL_ORDER.indexOf(t);return i<0?-1:i}
+function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
+
+let locations=[],progress={},progressSha=null,groupProgress={},groupProgressSha=null,selectedId=null,map,mapReady=false
+let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false}
+let showFilter='all',currentTool='omega',currentUser=null,locationMarker=null
+let selectedDistrictCode=null,districts=[],districtMap={}
+let groupTypes=new Set(['school','gp'])
+const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
+
+let saveQueued=false
+function queueSave(){saveQueued=true}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
+window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
+
+async function doLogin(e){
+  e.preventDefault()
+  const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
+  if(!name){err.textContent='Please enter your name';return}
+  if(!pw){err.textContent='Please enter the password';return}
+  err.textContent='Checking...'
+  const hash=await sha256(pw)
+  if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
+  currentUser=name;sessionStorage.setItem('ek_user',name)
+  document.getElementById('login-screen').style.display='none'
+  document.getElementById('app').style.display='flex'
+  document.getElementById('h-username').textContent=name
+  err.textContent='';bootApp()
+}
+async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
+function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
+
+function isMobile(){return window.innerWidth<=700}
+function updateLocateBtnPosition(){
+  if(!isMobile())return
+  const btn=document.getElementById('locate-btn'),panel=document.getElementById('mobile-detail')
+  const panelH=panel.classList.contains('on')?(panel.offsetHeight||0):0
+  btn.style.bottom=(11+panelH+(panelH>0?10:0))+'px'
+}
+function gmapsUrl(loc){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.name+(loc.address?', '+loc.address:''))}`}
+
+function effectiveTool(loc){
+  const ind=progress[loc.id]
+  const grp=groupProgress[(loc.districtCode||'')+':'+loc.type]
+  if(!ind&&!grp)return null
+  if(ind&&!grp)return ind.tool
+  if(!ind&&grp)return grp.tool
+  return higherTool(ind.tool,grp.tool)
+}
+function isEffectivelyCleared(loc){
+  return !!(progress[loc.id]||groupProgress[(loc.districtCode||'')+':'+loc.type])
+}
+
+function initMap(){
+  map=new maplibregl.Map({
+    container:'map',
+    style:{version:8,sources:{carto:{type:'raster',
+      tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+             'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+             'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
+      tileSize:256,attribution:'(c) OpenStreetMap contributors (c) CARTO'}},
+      layers:[{id:'carto-tiles',type:'raster',source:'carto'}]},
+    center:[-1.5,53.5],zoom:5.5,attributionControl:false
+  })
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right')
+  map.on('load',()=>{
+    mapReady=true
+    map.addSource('locations',{type:'geojson',data:emptyFC()})
+    map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
+    map.addSource('selected',{type:'geojson',data:emptyFC()})
+    map.addSource('districts-src',{type:'geojson',data:emptyFC()})
+    map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
+      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.10)','rgba(255,255,255,0.01)']
+    }})
+    map.addLayer({id:'district-glow',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':GOLD,
+      'line-width':['case',['boolean',['feature-state','cleared'],false],8,0],
+      'line-blur':6,
+      'line-opacity':['case',['boolean',['feature-state','cleared'],false],0.5,0]
+    }})
+    map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.25)'],
+      'line-width':['case',['boolean',['feature-state','cleared'],false],1.5,0.6]
+    }})
+    map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':'rgba(255,255,255,0.75)',
+      'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
+    }})
+    map.on('click','district-fill',e=>{if(e.features.length)selectDistrict(e.features[0].properties.code)})
+    map.on('mouseenter','district-fill',()=>{map.getCanvas().style.cursor='pointer'})
+    map.on('mouseleave','district-fill',()=>{map.getCanvas().style.cursor=''})
+    map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
+      filter:['==',['get','cleared'],false],
+      paint:{
+        'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?3:4,9,isMobile()?5:7,13,isMobile()?7:9],
+        'circle-color':['case',
+          ['==',['get','type'],'hospital'],'#E07050',
+          ['==',['get','type'],'school'],'#5B9BD5',
+          ['==',['get','type'],'hospice'],'#3DBFA8',
+          ['==',['get','type'],'prison'],'#C4722A',
+          ['==',['get','type'],'gp'],'#4A9B6F',
+          '#9B78C8'],
+        'circle-opacity':0.55,'circle-stroke-width':1,'circle-stroke-color':'rgba(255,255,255,0.2)','circle-pitch-alignment':'map'
+      }
+    })
+    map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,9,9,14,13,20],
+      'circle-color':GOLD,'circle-opacity':0.12,'circle-blur':0.7,'circle-pitch-alignment':'map'
+    }})
+    map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?5:6,9,isMobile()?8:10,13,isMobile()?10:13],
+      'circle-color':GOLD,'circle-opacity':1,'circle-stroke-width':2,
+      'circle-stroke-color':['case',
+        ['==',['get','tool'],'omega'],'#9B5ED4',
+        ['==',['get','tool'],'jewel'],'#E07050',
+        ['==',['get','tool'],'mg'],'#4A85C9',
+        'rgba(255,255,255,0.6)'],
+      'circle-pitch-alignment':'map'
+    }})
+    map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,11,9,16,13,22],
+      'circle-color':'transparent','circle-stroke-width':2.5,
+      'circle-stroke-color':'rgba(255,255,255,0.85)','circle-opacity':0,'circle-stroke-opacity':1,'circle-pitch-alignment':'map'
+    }})
+    const clickLayers=['dots-cleared','dots-uncleared']
+    clickLayers.forEach(l=>{
+      map.on('click',l,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
+      map.on('mouseenter',l,()=>{map.getCanvas().style.cursor='pointer'})
+      map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
+    })
+    map.on('click',e=>{
+      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
+    })
+    refreshMapData()
+  })
+}
+
+function emptyFC(){return{type:'FeatureCollection',features:[]}}
+function locToFeature(loc){
+  const tool=effectiveTool(loc),cleared=isEffectivelyCleared(loc)
+  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared,tool:tool||null}}
+}
+function refreshMapData(){
+  if(!mapReady)return
+  const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
+  const cleared=visible.filter(l=>isEffectivelyCleared(l))
+  const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
+  map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
+  map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
+  map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
+}
+function setSelectedId(id){selectedId=id;refreshMapData()}
+
+function locVisible(loc){
+  if(!placesFilter[loc.type])return false
+  if(showFilter==='all')return true
+  if(showFilter==='cleared')return isEffectivelyCleared(loc)
+  const etool=effectiveTool(loc)
+  if(showFilter==='omega')return etool==='omega'
+  if(showFilter==='jewel')return etool==='jewel'
+  if(showFilter==='mg')return etool==='mg'
+  return true
+}
+
+function panToVisible(lat,lng,zoom){
+  if(!map)return
+  if(zoom){map.flyTo({center:[lng,lat],zoom,duration:600});return}
+  if(isMobile()){
+    const panel=document.getElementById('mobile-detail')
+    const offset=panel.classList.contains('on')?(panel.offsetHeight||0)/2:0
+    map.easeTo({center:[lng,lat],offset:[0,offset],duration:400})
+  }else{map.easeTo({center:[lng,lat],duration:300})}
+}
+function fitBounds(locs){
+  const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
+  const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
+  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:{top:60,bottom:60,left:60,right:60},maxZoom:12,duration:800})
+}
+
+function locateMe(){
+  if(!navigator.geolocation){alert('Geolocation not supported');return}
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const{latitude:lat,longitude:lng}=pos.coords
+    if(locationMarker)locationMarker.remove()
+    const el=document.createElement('div')
+    el.style.cssText='width:14px;height:14px;border-radius:50%;background:#C9A84C;border:2.5px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.35)'
+    locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
+    panToVisible(lat,lng,11)
+  },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
+}
+
+async function ghGet(path){
+  const res=await fetch(RAW_BASE+'/'+path)
+  if(!res.ok)throw new Error('Fetch '+res.status)
+  return await res.json()
+}
+async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
+
+async function fetchRegion(region){
+  const[hospitals,schools,universities,hospices,prisons,gps]=await Promise.all([
+    ghGetOptional('hospitals-'+region+'.json'),
+    ghGetOptional('schools-'+region+'.json'),
+    ghGetOptional('universities-'+region+'.json'),
+    ghGetOptional('hospices-'+region+'.json'),
+    ghGetOptional('prisons-'+region+'.json'),
+    ghGetOptional('gps-'+region+'.json')
+  ])
+  return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
+}
+
+async function loadAll(){
+  closeMobileDetail();closeDetail();setSelectedId(null)
+  setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
+  try{
+    const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
+    locations=allArrays.flat()
+    hideLoader();refreshMapData();renderList();updateStats()
+    fitBounds(locations.filter(l=>placesFilter[l.type]))
+  }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
+}
+
+async function loadRegion(value){
+  if(value==='all'){await loadAll();return}
+  closeMobileDetail();closeDetail();setSelectedId(null)
+  setMsg('Loading '+value+'...');document.getElementById('mload').style.display='flex'
+  try{
+    locations=await fetchRegion(value)
+    hideLoader();refreshMapData();renderList();updateStats()
+    if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
+    else{setMsg('No data for "'+value+'" yet');setTimeout(hideLoader,3000)}
+  }catch(e){setMsg('Error loading '+value);setTimeout(hideLoader,3000);locations=[];renderList()}
+}
+
+async function loadProgress(){
+  try{
+    const res=await fetch(RAW_BASE+'/progress.json?t='+Date.now())
+    if(res.ok)progress=await res.json()
+    const sha=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
+    if(sha.ok){const m=await sha.json();progressSha=m.sha}
+  }catch(e){progress={}}
+}
+async function loadGroupProgress(){
+  try{
+    const res=await fetch(RAW_BASE+'/group-progress.json?t='+Date.now())
+    if(res.ok)groupProgress=await res.json()
+    const sha=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
+    if(sha.ok){const m=await sha.json();groupProgressSha=m.sha}
+  }catch(e){groupProgress={}}
+}
+async function saveProgress(){
+  showSaving('Saving...')
+  try{
+    const body={message:(currentUser||'user')+' - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
+    if(progressSha)body.sha=progressSha
+    const res=await fetch(API_BASE+'/progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){progressSha=(await res.json()).content.sha;showSaving('Saved')}
+    else{const e=await res.json();showSaving('Save failed: '+e.message)}
+  }catch(e){showSaving('Error saving')}
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
+}
+async function saveGroupProgress(){
+  showSaving('Saving...')
+  try{
+    const body={message:(currentUser||'user')+' groups - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
+    if(groupProgressSha)body.sha=groupProgressSha
+    const res=await fetch(API_BASE+'/group-progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('Saved')}
+    else{const e=await res.json();showSaving('Save failed: '+e.message)}
+  }catch(e){showSaving('Error saving')}
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
+}
+function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
+
+async function loadDistricts(){
+  try{
+    const res=await fetch(RAW_BASE+'/districts.geojson')
+    if(!res.ok){console.warn('Districts fetch failed',res.status);return}
+    const geojson=await res.json()
+    geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
+    districts=geojson.features
+    if(mapReady&&map.getSource('districts-src'))map.getSource('districts-src').setData(geojson)
+    buildDistrictMap()
+    renderDistrictList()
+    updateDistrictStates()
+  }catch(e){console.warn('Districts load failed',e)}
+}
+
+function buildDistrictMap(){
+  districtMap={}
+  districts.forEach(f=>{districtMap[f.properties.code]={name:f.properties.name,code:f.properties.code,fid:f.id,schools:[],gps:[]}})
+  locations.forEach(loc=>{
+    if(!loc.districtCode||!districtMap[loc.districtCode])return
+    if(loc.type==='school')districtMap[loc.districtCode].schools.push(loc)
+    if(loc.type==='gp')districtMap[loc.districtCode].gps.push(loc)
+  })
+}
+
+function updateDistrictStates(){
+  if(!mapReady||!districts.length||!map.getSource('districts-src'))return
+  districts.forEach(f=>{
+    const code=f.properties.code
+    const cleared=!!(groupProgress[code+':school']||groupProgress[code+':gp'])
+    const selected=code===selectedDistrictCode
+    try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
+  })
+}
+
+function toggleGroupType(type,el){
+  if(groupTypes.has(type)){if(groupTypes.size>1)groupTypes.delete(type)}
+  else{groupTypes.add(type)}
+  el.classList.toggle('on',groupTypes.has(type))
+  renderDistrictList();updateDistrictStates()
+}
+
+function renderDistrictList(){
+  const el=document.getElementById('district-list')
+  const q=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').toLowerCase().trim()
+  let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
+  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading...')+'</div>';return}
+  entries.sort((a,b)=>a.name.localeCompare(b.name))
+  el.innerHTML=entries.map(d=>{
+    const isSel=d.code===selectedDistrictCode
+    let bars=''
+    if(groupTypes.has('school')&&d.schools.length){
+      const grp=groupProgress[d.code+':school'],tot=d.schools.length
+      const eff=grp?tot:d.schools.filter(l=>progress[l.id]).length
+      bars+='<div style="margin-bottom:3px"><div class="ditem-bar-label"><span style="color:var(--blue)">Schools</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--blue);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
+    }
+    if(groupTypes.has('gp')&&d.gps.length){
+      const grp=groupProgress[d.code+':gp'],tot=d.gps.length
+      const eff=grp?tot:d.gps.filter(l=>progress[l.id]).length
+      bars+='<div><div class="ditem-bar-label"><span style="color:var(--green)">GPs</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--green);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
+    }
+    if(!bars)return ''
+    const sg=groupProgress[d.code+':school'],gg=groupProgress[d.code+':gp']
+    const badges=(sg?'<span class="dbadge" style="color:'+toolColor(sg.tool)+';border-color:'+toolColor(sg.tool)+'66;background:'+toolColor(sg.tool)+'14;margin-left:4px">S:'+TOOL_NAMES[sg.tool]+'</span>':'')+
+      (gg?'<span class="dbadge" style="color:'+toolColor(gg.tool)+';border-color:'+toolColor(gg.tool)+'66;background:'+toolColor(gg.tool)+'14;margin-left:4px">GP:'+TOOL_NAMES[gg.tool]+'</span>':'')
+    return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)"><div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+bars+'</div>'
+  }).filter(Boolean).join('')
+}
+
+function selectDistrict(code){
+  selectedDistrictCode=code
+  renderDistrictList();updateDistrictStates()
+  const d=districtMap[code];if(!d)return
+  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
+  if(allLocs.length)fitBounds(allLocs)
+  renderDistrictDetail(code)
+}
+
+function renderDistrictDetail(code){
+  const d=districtMap[code];if(!d)return
+  document.getElementById('dd-type').textContent=''
+  document.getElementById('dd-name').textContent=d.name
+  const body=document.getElementById('dd-body');body.innerHTML=''
+  updateDistrictStats(code)
+  const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
+  if(!activeTypes.length){const msg=document.createElement('div');msg.className='empty';msg.textContent='No data for this district';body.appendChild(msg)}
+  activeTypes.forEach(function(gtype){
+    const locs=gtype==='school'?d.schools:d.gps
+    const total=locs.length,indCleared=locs.filter(function(l){return progress[l.id]}).length
+    const grp=groupProgress[code+':'+gtype]
+    const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
+    const typeLabel=gtype==='school'?'Schools':'GP Surgeries'
+    const typeShort=gtype==='school'?'Schools':'GPs'
+    const section=document.createElement('div');section.style.cssText='border-top:1px solid var(--bd);padding:11px 0'
+    const heading=document.createElement('div');heading.style.cssText='font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:'+typeCol+';margin-bottom:8px;font-weight:500'
+    heading.textContent=typeLabel;section.appendChild(heading)
+    if(grp){
+      const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+      const col=toolColor(grp.tool),who=grp.user?' - '+grp.user:''
+      const cleared=document.createElement('div');cleared.className='detail-cleared'
+      cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
+      cleared.innerHTML='Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> - '+dt+who
+      section.appendChild(cleared)
+      const info=document.createElement('div');info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
+      info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total';section.appendChild(info)
+      const btn=document.createElement('button');btn.className='btn-unmark';btn.style.marginBottom='4px'
+      btn.textContent='Remove clearing'
+      btn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype);section.appendChild(btn)
+    }else{
+      const info=document.createElement('div');info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
+      info.textContent=indCleared+' of '+total+' individually cleared';section.appendChild(info)
+      const lbl=document.createElement('div');lbl.className='tool-label';lbl.textContent='Clear to level';section.appendChild(lbl)
+      const btnRow=document.createElement('div');btnRow.className='tool-btns'
+      TOOLS.forEach(function(t){
+        const b=document.createElement('button');b.className='tool-btn '+t+(currentTool===t?' sel':'')
+        b.id='gtbtn-'+gtype+'-'+t;b.textContent=TOOL_NAMES[t]
+        b.onclick=(function(tt,gt){return function(){selectGroupTool(tt,gt)}})(t,gtype);btnRow.appendChild(b)
+      })
+      section.appendChild(btnRow)
+      const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
+      markBtn.textContent='Clear all '+typeShort+' in '+d.name+' - '+TOOL_NAMES[currentTool]
+      markBtn.onclick=(function(gt){return function(){markGroupCleared(code,gt)}})(gtype);section.appendChild(markBtn)
+    }
+    // Expandable location list
+    const listWrap=document.createElement('div');listWrap.style.cssText='margin-top:8px'
+    const listToggle=document.createElement('button')
+    listToggle.style.cssText='width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--bd);padding:8px 0;font-family:'Jost',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center'
+    const arrowId='lt-arrow-'+gtype+'-'+code
+    listToggle.innerHTML='<span>'+typeLabel+' ('+total+')</span><span id="'+arrowId+'">+</span>'
+    const listContainer=document.createElement('div')
+    listContainer.style.cssText='display:none;max-height:220px;overflow-y:auto'
+    let listOpen=false
+    listToggle.onclick=function(){
+      listOpen=!listOpen
+      const arr=document.getElementById(arrowId);if(arr)arr.textContent=listOpen?'-':'+'
+      if(listOpen&&!listContainer.children.length){
+        locs.slice().sort(function(a,b){return a.name.localeCompare(b.name)}).forEach(function(loc){
+          const p=progress[loc.id],grpC=!!groupProgress[code+':'+gtype]
+          const isCleared=!!(p||grpC)
+          const row=document.createElement('div')
+          row.style.cssText='padding:6px 4px;border-bottom:1px solid rgba(201,168,76,.08);display:flex;align-items:center;gap:8px;cursor:pointer;border-radius:4px'
+          row.onmouseover=function(){this.style.background='var(--hover)'}
+          row.onmouseout=function(){this.style.background=''}
+          row.onclick=function(){switchTab('locs',document.getElementById('tab-btn-locs'));setTimeout(function(){selectLoc(loc.id)},150)}
+          const dot=document.createElement('div')
+          dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;background:'+(isCleared?GOLD:typeColor(loc.type))
+          const nameEl=document.createElement('div')
+          nameEl.style.cssText='font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:'+(isCleared?'var(--gold)':'var(--ink)')+(isCleared?';text-decoration:line-through;opacity:.55':'')
+          nameEl.textContent=loc.name
+          row.appendChild(dot);row.appendChild(nameEl)
+          listContainer.appendChild(row)
+        })
+      }
+      listContainer.style.display=listOpen?'block':'none'
+    }
+    listWrap.appendChild(listToggle);listWrap.appendChild(listContainer)
+    section.appendChild(listWrap)
+    body.appendChild(section)
+  })
+  document.getElementById('district-detail').classList.add('on')
+}
+
+function closeDistrictDetail(){
+  document.getElementById('district-detail').classList.remove('on')
+  selectedDistrictCode=null;renderDistrictList();updateDistrictStates();updateDistrictStats(null)
+}
+function selectGroupTool(tool,gtype){
+  currentTool=tool
+  TOOLS.forEach(function(t){var b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  var btn=document.getElementById('btn-group-mark-'+gtype)
+  if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
+    const sgt_label=gtype==='school'?'Schools':'GPs'
+    btn.textContent='Clear all '+sgt_label+' in '+districtMap[selectedDistrictCode].name+' - '+TOOL_NAMES[tool]
+}
+async function markGroupCleared(code,gtype){
+  const gt=gtype||[...groupTypes][0]
+  groupProgress[code+':'+gt]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+async function unmarkGroupCleared(code,gtype){
+  const gt=gtype||[...groupTypes][0]
+  delete groupProgress[code+':'+gt]
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+
+function renderList(){
+  const el=document.getElementById('llist'),q=document.getElementById('search').value.toLowerCase().trim()
+  el.classList.toggle('active',!!q)
+  if(!q){el.innerHTML='';return}
+  const vis=locations.filter(l=>{
+    if(!locVisible(l))return false
+    return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
+  })
+  if(!vis.length){el.innerHTML='<div class="empty">No matches for "'+q+'"</div>';return}
+  el.innerHTML=vis.map(l=>{
+    const p=progress[l.id],dotBg=p?GOLD:typeColor(l.type)
+    const dotBorder=p?'border:2px solid '+toolColor(p.tool):'border:2px solid transparent'
+    const badge=p?'<div class="lbadge" style="color:'+toolColor(p.tool)+';border-color:'+toolColor(p.tool)+'66;background:'+toolColor(p.tool)+'14">'+TOOL_NAMES[p.tool]+'</div>':''
+    return'<div class="litem '+(p?'done':'')+' '+(selectedId===l.id?'sel':'')+' " onclick="selectLoc(\'' + l.id + '\')"><div class="ldot" style="background:'+dotBg+';'+dotBorder+'"></div><div class="linfo"><div class="lname">'+l.name+'</div><div class="lmeta">'+l.type+' - '+(l.address||l.postcode||'')+'</div></div>'+badge+'</div>'
+  }).join('')
+}
+
+function selectLoc(id){
+  setSelectedId(id)
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  renderList()
+  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+  if(isMobile()){
+    document.getElementById('search').value='';renderList();renderMobileDetail(loc)
+  }else{renderDetail(loc)}
+}
+
+function renderDetail(loc){
+  const p=progress[loc.id],cleared=!!p
+  const typeEl=document.getElementById('d-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
+  document.getElementById('d-name').textContent=loc.name
+  document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
+  document.getElementById('d-gmaps').href=gmapsUrl(loc)
+  const body=document.getElementById('d-body')
+  if(cleared){
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkCleared(\'' + loc.id + '\')">Mark as not cleared</button>'
+  }else{
+    const toolBtns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+' " id="tbtn-'+t+'" onclick="selectTool(\'' + t + '\')">'+TOOL_NAMES[t]+'</button>').join('')
+    body.innerHTML='<div class="tool-label">Energy tool</div><div class="tool-btns">'+toolBtns+'</div><button class="btn-mark" id="btn-mark-confirm" onclick="markCleared(\'' + loc.id + '\')" >Mark cleared with '+TOOL_NAMES[currentTool]+'</button>'
+  }
+  document.getElementById('detail').classList.add('on')
+}
+function closeDetail(){
+  if(selectedId&&!isMobile())setSelectedId(null)
+  document.getElementById('detail').classList.remove('on');renderList()
+}
+function renderMobileDetail(loc){
+  const p=progress[loc.id],cleared=!!p
+  const typeEl=document.getElementById('md-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
+  document.getElementById('md-name').textContent=loc.name
+  document.getElementById('md-addr').textContent=loc.address||loc.postcode||''
+  document.getElementById('md-gmaps').href=gmapsUrl(loc)
+  const body=document.getElementById('md-body')
+  if(cleared){
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkClearedMobile(\'' + loc.id + '\')">Mark as not cleared</button>'
+  }else{
+    const toolBtns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+' " id="md-tbtn-'+t+'" onclick="selectToolMobile(\'' + t + '\')">'+TOOL_NAMES[t]+'</button>').join('')
+    body.innerHTML='<div class="tool-label">Energy tool</div><div class="tool-btns">'+toolBtns+'</div><button class="btn-mark" id="md-btn-mark" onclick="markClearedMobile(\'' + loc.id + '\')" >Mark cleared with '+TOOL_NAMES[currentTool]+'</button>'
+  }
+  const panel=document.getElementById('mobile-detail');panel.classList.add('on')
+  requestAnimationFrame(()=>{
+    const detailH=panel.offsetHeight||0
+    if(detailH>0&&loc.lat&&loc.lng)map.easeTo({center:[loc.lng,loc.lat],offset:[0,Math.round(detailH/2)],duration:250})
+    updateLocateBtnPosition()
+  })
+}
+function closeMobileDetail(){
+  if(selectedId)setSelectedId(null)
+  document.getElementById('mobile-detail').classList.remove('on')
+  renderList();updateLocateBtnPosition()
+}
+function selectTool(tool){
+  currentTool=tool
+  TOOLS.forEach(t=>{const b=document.getElementById('tbtn-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  const btn=document.getElementById('btn-mark-confirm');if(btn)btn.textContent='Mark cleared with '+TOOL_NAMES[tool]
+}
+function selectToolMobile(tool){
+  currentTool=tool
+  TOOLS.forEach(t=>{const b=document.getElementById('md-tbtn-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  const btn=document.getElementById('md-btn-mark');if(btn)btn.textContent='Mark cleared with '+TOOL_NAMES[tool]
+}
+async function markCleared(id){
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+  refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
+}
+async function unmarkCleared(id){
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  delete progress[id];refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
+}
+async function markClearedMobile(id){
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+  refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
+}
+async function unmarkClearedMobile(id){
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  delete progress[id];refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
+}
+
+function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList();updateStats()}
+function setShow(mode,el){
+  showFilter=mode
+  document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-omega,.chip.show-jewel,.chip.show-mg').forEach(c=>c.classList.remove('on'))
+  el.classList.add('on');refreshMapData();renderList()
+}
+function updateStats(){
+  const visLocs=locations.filter(l=>placesFilter[l.type])
+  const total=visLocs.length,cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
+  const pct=total?Math.round(cleared/total*100):0
+  document.getElementById('s-total').textContent=total.toLocaleString()
+  document.getElementById('s-cleared').textContent=cleared
+  document.getElementById('s-pct').textContent=pct+'%'
+  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
+    const tot=locations.filter(l=>l.type===type).length
+    const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
+    document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
+    document.getElementById(pgTxt).textContent=tot?cl+'/'+tot:'-'
+  }
+}
+
+function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
+function renderLog(){
+  const el=document.getElementById('log-list'),fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||'',toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
+  let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l&&l.name||id,type:l&&l.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
+  if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
+  if(toVal)entries=entries.filter(e=>e.date<=toVal)
+  if(!entries.length){el.innerHTML='<div class="empty">'+(fromVal||toVal?'No clearings in that date range':'No clearings yet')+'</div>';return}
+  el.innerHTML=entries.map(e=>{
+    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
+    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background=\'var(--hover)\'" onmouseout="this.style.background=\'\'" onclick="openFromLog(\'' + e.id + '\')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+col+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.type+'</div></div>'
+  }).join('')
+}
+function openFromLog(id){
+  switchTab('locs',document.getElementById('tab-btn-locs'))
+  const loc=locations.find(l=>l.id===id)
+  if(loc){selectLoc(id);return}
+  const p=progress[id];if(!p)return
+  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?' - '+p.user:''
+  const html='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div>'
+  document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
+  document.getElementById('d-name').textContent=p.name||id
+  document.getElementById('d-addr').textContent='Load the region to see full details'
+  document.getElementById('d-gmaps').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name||id)
+  document.getElementById('d-body').innerHTML=html
+  document.getElementById('detail').classList.add('on')
+}
+
+let sbOpen=true
+function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'<':'>';setTimeout(()=>map&&map.resize(),320)}
+function switchTab(name,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
+  btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
+  const inGroups=name==='groups'
+  if(mapReady){
+    ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
+    ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')})
+  }
+  const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
+  if(pgS)pgS.style.display=inGroups?'flex':'none'
+  if(pgGp)pgGp.style.display=inGroups?'flex':'none'
+  if(inGroups){renderDistrictList();updateDistrictStates()}
+  updateStats()
+}
+
+function updateDistrictStats(code){
+  const main=document.getElementById('hstats-main')
+  const dist=document.getElementById('hstats-district')
+  const hb=document.getElementById('home-btn')
+  if(!code||!districtMap[code]){
+    if(main)main.style.display='flex'
+    if(dist)dist.style.display='none'
+    if(hb)hb.style.display='none'
+    return
+  }
+  const d=districtMap[code]
+  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
+  const total=allLocs.length
+  const cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
+  document.getElementById('hd-name').textContent=d.name
+  document.getElementById('hd-total').textContent=total.toLocaleString()
+  document.getElementById('hd-cleared').textContent=cleared
+  if(main)main.style.display='none'
+  if(dist)dist.style.display='flex'
+  if(hb)hb.style.display=''
+}
+
+function goHome(){
+  selectedDistrictCode=null
+  updateDistrictStats(null)
+  document.getElementById('district-detail').classList.remove('on')
+  if(document.getElementById('tab-groups').classList.contains('on')){
+    renderDistrictList();updateDistrictStates()
+    if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+  }else{
+    document.getElementById('region-select').value='all'
+    loadAll()
+    if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+  }
+}
+
+
+function setMsg(m){document.getElementById('mload-msg').textContent=m}
+function hideLoader(){document.getElementById('mload').style.display='none'}
+
+async function bootApp(){
+  initMap()
+  setMsg('Loading progress...')
+  await Promise.all([loadProgress(),loadGroupProgress()])
+  await loadAll()
+  await loadDistricts()
+  renderLog()
+}
+
+const savedUser=sessionStorage.getItem('ek_user')
+if(savedUser){currentUser=savedUser;document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('h-username').textContent=savedUser;bootApp()}
+</script>
+</body>
+</html>
