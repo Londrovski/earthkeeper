@@ -272,8 +272,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
-      <button class="tab on" onclick="switchTab('locs',this)">Locations</button>
-      <button class="tab" onclick="switchTab('log',this)">Log</button>
+      <button class="tab on" id="tab-btn-locs" onclick="switchTab('locs',this)">Locations</button>
+      <button class="tab" id="tab-btn-groups" onclick="switchTab('groups',this)">Groups</button>
+      <button class="tab" id="tab-btn-log" onclick="switchTab('log',this)">Log</button>
     </div>
     <div class="panel on" id="tab-locs">
       <div class="frow">
@@ -332,6 +333,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         </div>
         <div class="detail-body" id="d-body"></div>
       </div>
+    </div>
+    <div class="panel" id="tab-groups">
+      <div class="empty">Groups coming soon</div>
     </div>
     <div class="panel" id="tab-log">
       <div class="log-filter">
