@@ -236,6 +236,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:6px}
 }
 
+/* Hide school/gp progress rows on load (shown on Groups tab) */
+#pg-row-s,#pg-row-gp{display:none}
 /* ── Groups panel ── */
 .gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
 .gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
@@ -302,11 +304,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="frow-label">Places</div>
         <div class="chips">
           <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
-          <div class="chip school on" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
+          <div class="chip school" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
           <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
           <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
-          <div class="chip gp on" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
+          <div class="chip gp" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
         </div>
       </div>
       <div class="frow">
@@ -357,8 +359,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     </div>
     <div class="panel" id="tab-groups">
       <div class="gtype-row">
-        <button class="gtype-btn school on" id="gtype-school" onclick="setGroupType('school',this)">Schools</button>
-        <button class="gtype-btn gp" id="gtype-gp" onclick="setGroupType('gp',this)">GPs</button>
+        <button class="gtype-btn school on" id="gtype-school" onclick="toggleGroupType('school',this)"><span class="chip-dot" style="background:var(--blue);display:inline-block;margin-right:4px"></span>Schools</button>
+        <button class="gtype-btn gp on" id="gtype-gp" onclick="toggleGroupType('gp',this)"><span class="chip-dot" style="background:var(--green);display:inline-block;margin-right:4px"></span>GPs</button>
       </div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search districts…" id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
       <div class="district-list" id="district-list"><div class="empty">Loading districts…</div></div>
@@ -414,6 +416,16 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
     </div>
     <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>📍</span>Find Me</button>
+    <div id="map-district-popup" style="display:none;position:absolute;bottom:22px;right:14px;z-index:410;background:rgba(13,36,22,.92);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:14px 16px;min-width:220px;max-width:280px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:2px" id="mpop-type"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold-l)" id="mpop-name"></div>
+        </div>
+        <button class="detail-close" onclick="closeMapPopup()" style="margin-left:8px">✕</button>
+      </div>
+      <div id="mpop-body"></div>
+    </div>
   </div>
 </div>
 </div>
@@ -457,9 +469,9 @@ function toolLevel(t){const i=TOOL_ORDER.indexOf(t);return i<0?-1:i}
 function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
 
 let locations=[], progress={}, progressSha=null, groupProgress={}, groupProgressSha=null, selectedId=null, map, mapReady=false
-let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true,gp:true}
+let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
-let groupType='school', selectedDistrictCode=null, districts=[], districtMap={}
+let selectedDistrictCode=null, districts=[], districtMap={}
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 
 let saveQueued=false
@@ -515,17 +527,26 @@ function initMap(){
     map.addSource('selected',{type:'geojson',data:emptyFC()})
     map.addSource('districts-src',{type:'geojson',data:emptyFC()})
     // District fill and outline — hidden until Groups tab active
+    // Cleared district: warm gold fill glow
     map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
-      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.07)','rgba(255,255,255,0.01)'],
-      'fill-outline-color':'transparent'
+      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.10)','rgba(255,255,255,0.01)'],
+      'fill-antialias':true
     }})
+    // Outer glow: blurred wide line for cleared
+    map.addLayer({id:'district-glow',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':GOLD,
+      'line-width':['case',['boolean',['feature-state','cleared'],false],8,0],
+      'line-blur':6,
+      'line-opacity':['case',['boolean',['feature-state','cleared'],false],0.5,0]
+    }})
+    // Crisp outline
     map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.22)'],
-      'line-width':['case',['boolean',['feature-state','cleared'],false],2,0.7],
-      'line-blur':['case',['boolean',['feature-state','cleared'],false],1,0]
+      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.25)'],
+      'line-width':['case',['boolean',['feature-state','cleared'],false],1.5,0.6]
     }})
+    // Selected highlight
     map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':'rgba(255,255,255,0.7)',
+      'line-color':'rgba(255,255,255,0.75)',
       'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
     }})
     map.on('click','district-fill',e=>{if(e.features.length)selectDistrict(e.features[0].properties.code)})
@@ -650,7 +671,7 @@ function locateMe(){
     const el=document.createElement('div')
     el.style.cssText='width:14px;height:14px;border-radius:50%;background:#C9A84C;border:2.5px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.35)'
     locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
-    panToVisible(lat,lng,14)
+    panToVisible(lat,lng,11)
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
@@ -840,14 +861,19 @@ function setShow(mode,el){
 }
 
 function updateStats(){
-  const total=locations.length,cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length,pct=total?Math.round(cleared/total*100):0
+  // Header stats: only count types that are currently filtered on
+  const visLocs=locations.filter(l=>placesFilter[l.type])
+  const total=visLocs.length
+  const cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
+  const pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString()
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-pct').textContent=pct+'%'
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut'],['gp','pg-gp','pg-gpt']]){
-    const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
+    const tot=locations.filter(l=>l.type===type).length
+    const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
-    document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
+    document.getElementById(pgTxt).textContent=tot?cl+'/'+tot:'—'
   }
 }
 
@@ -901,11 +927,17 @@ function switchTab(name,btn){
   document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
   if(mapReady){
-    ['district-fill','district-line','district-selected'].forEach(id=>{
+    ['district-fill','district-glow','district-line','district-selected'].forEach(id=>{
       if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')
     })
   }
+  // Show/hide school+GP progress rows based on tab
+  const pgS=document.getElementById('pg-row-s')
+  const pgGp=document.getElementById('pg-row-gp')
+  if(pgS)pgS.style.display=inGroups?'flex':'none'
+  if(pgGp)pgGp.style.display=inGroups?'flex':'none'
   if(inGroups){renderDistrictList();updateDistrictStates()}
+  updateStats()
 }
 
 
@@ -994,17 +1026,22 @@ function updateDistrictStates(){
   if(!mapReady||!districts.length||!map.getSource('districts-src'))return
   districts.forEach(f=>{
     const code=f.properties.code
-    const cleared=!!(groupProgress[code+':'+groupType])
+    const cleared=!!(groupProgress[code+':school']||groupProgress[code+':gp'])
     const selected=code===selectedDistrictCode
     try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
   })
 }
 
 // ── Groups UI ──────────────────────────────────────────────────────────────
-function setGroupType(type,el){
-  groupType=type
-  document.querySelectorAll('.gtype-btn').forEach(b=>b.classList.remove('on'))
-  el.classList.add('on')
+// groupTypes is now a Set for multi-select
+let groupTypes=new Set(['school','gp'])
+function toggleGroupType(type,el){
+  if(groupTypes.has(type)){
+    if(groupTypes.size>1)groupTypes.delete(type) // keep at least one
+  }else{
+    groupTypes.add(type)
+  }
+  el.classList.toggle('on',groupTypes.has(type))
   renderDistrictList()
   updateDistrictStates()
 }
@@ -1012,27 +1049,43 @@ function setGroupType(type,el){
 function renderDistrictList(){
   const el=document.getElementById('district-list')
   const q=(document.getElementById('group-search')?.value||'').toLowerCase().trim()
-  const col=groupType==='school'?'var(--blue)':'var(--green)'
-  const label=groupType==='school'?'Schools':'GPs'
   let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
   if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading…')+'</div>';return}
   entries.sort((a,b)=>a.name.localeCompare(b.name))
   el.innerHTML=entries.map(d=>{
-    const grpKey=d.code+':'+groupType
-    const grp=groupProgress[grpKey]
-    const locs=groupType==='school'?d.schools:d.gps
-    const total=locs.length
-    const indCleared=locs.filter(l=>progress[l.id]).length
-    const effCleared=grp?total:indCleared
-    const pct=total?Math.round(effCleared/total*100):0
     const isSel=d.code===selectedDistrictCode
-    const badge=grp?'<span class="dbadge" style="color:'+toolColor(grp.tool)+';border-color:'+toolColor(grp.tool)+'66;background:'+toolColor(grp.tool)+'14">'+TOOL_NAMES[grp.tool]+'</span>':''
+    let bars=''
+    // Show a bar for each active group type
+    if(groupTypes.has('school')&&d.schools.length){
+      const grp=groupProgress[d.code+':school']
+      const tot=d.schools.length
+      const eff=grp?tot:d.schools.filter(l=>progress[l.id]).length
+      const pct=Math.round(eff/tot*100)
+      bars+='<div style="margin-bottom:3px">'+
+        '<div class="ditem-bar-label"><span style="color:var(--blue)">Schools</span><span>'+eff+' / '+tot+'</span></div>'+
+        '<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--blue);width:'+pct+'%"></div></div>'+
+      '</div>'
+    }
+    if(groupTypes.has('gp')&&d.gps.length){
+      const grp=groupProgress[d.code+':gp']
+      const tot=d.gps.length
+      const eff=grp?tot:d.gps.filter(l=>progress[l.id]).length
+      const pct=Math.round(eff/tot*100)
+      bars+='<div>'+
+        '<div class="ditem-bar-label"><span style="color:var(--green)">GPs</span><span>'+eff+' / '+tot+'</span></div>'+
+        '<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--green);width:'+pct+'%"></div></div>'+
+      '</div>'
+    }
+    if(!bars)return ''
+    const schoolGrp=groupProgress[d.code+':school']
+    const gpGrp=groupProgress[d.code+':gp']
+    const badges=(schoolGrp?'<span class="dbadge" style="color:'+toolColor(schoolGrp.tool)+';border-color:'+toolColor(schoolGrp.tool)+'66;background:'+toolColor(schoolGrp.tool)+'14;margin-left:4px">S:'+TOOL_NAMES[schoolGrp.tool]+'</span>':'')+
+      (gpGrp?'<span class="dbadge" style="color:'+toolColor(gpGrp.tool)+';border-color:'+toolColor(gpGrp.tool)+'66;background:'+toolColor(gpGrp.tool)+'14;margin-left:4px">GP:'+TOOL_NAMES[gpGrp.tool]+'</span>':'')
     return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)">'+
-      '<div class="ditem-name"><span>'+d.name+'</span>'+badge+'</div>'+
-      '<div class="ditem-bar-label"><span>'+label+'</span><span>'+effCleared+' / '+total+'</span></div>'+
-      '<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:'+col+';width:'+pct+'%"></div></div>'+
+      '<div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+
+      bars+
     '</div>'
-  }).join('')
+  }).filter(Boolean).join('')
 }
 
 function selectDistrict(code){
@@ -1040,69 +1093,160 @@ function selectDistrict(code){
   renderDistrictList()
   updateDistrictStates()
   const d=districtMap[code];if(!d)return
-  const locs=groupType==='school'?d.schools:d.gps
-  if(locs.length)fitBounds(locs)
+  // Fit bounds to all locations in this district
+  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
+  if(allLocs.length)fitBounds(allLocs)
+  // Update sidebar detail
   renderDistrictDetail(code)
+  // Update map popup
+  renderMapPopup(code)
+}
+
+function renderMapPopup(code){
+  const d=districtMap[code];if(!d)return
+  const popup=document.getElementById('map-district-popup')
+  popup.style.display='block'
+  document.getElementById('mpop-name').textContent=d.name
+
+  const body=document.getElementById('mpop-body')
+  body.innerHTML=''
+
+  const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
+  activeTypes.forEach(gtype=>{
+    const locs=gtype==='school'?d.schools:d.gps
+    const total=locs.length
+    const indCleared=locs.filter(l=>progress[l.id]).length
+    const grp=groupProgress[code+':'+gtype]
+    const effCleared=grp?total:indCleared
+    const pct=total?Math.round(effCleared/total*100):0
+    const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
+    const typeLabel=gtype==='school'?'Schools':'GPs'
+
+    const row=document.createElement('div')
+    row.style.cssText='margin-bottom:8px'
+
+    if(grp){
+      const col=toolColor(grp.tool)
+      row.innerHTML='<div style="font-size:11px;color:'+typeCol+';text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">'+typeLabel+'</div>'+
+        '<div style="font-size:12px;color:'+col+';margin-bottom:5px">✦ '+TOOL_NAMES[grp.tool]+' ('+effCleared+'/'+total+')</div>'
+      const btn=document.createElement('button')
+      btn.className='btn-unmark'
+      btn.style.cssText='padding:6px;font-size:11px;margin-bottom:0'
+      btn.textContent='↩ Remove clearing'
+      btn.onclick=(()=>{const gt=gtype;return ()=>{unmarkGroupCleared(code,gt);renderMapPopup(code)}})()
+      row.appendChild(btn)
+    }else{
+      row.innerHTML='<div style="font-size:11px;color:'+typeCol+';text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">'+typeLabel+' — '+indCleared+'/'+total+'</div>'
+      const btnRow=document.createElement('div')
+      btnRow.style.cssText='display:flex;gap:5px;margin-bottom:3px'
+      TOOLS.forEach(t=>{
+        const b=document.createElement('button')
+        b.className='tool-btn '+t+(currentTool===t?' sel':'')
+        b.id='mpop-tbtn-'+gtype+'-'+t
+        b.style.cssText='padding:6px 3px;font-size:11px'
+        b.textContent=TOOL_NAMES[t]
+        b.onclick=(()=>{const tt=t,gt=gtype;return ()=>{currentTool=tt;renderMapPopup(code)}})()
+        btnRow.appendChild(b)
+      })
+      row.appendChild(btnRow)
+      const markBtn=document.createElement('button')
+      markBtn.className='btn-mark'
+      markBtn.style.cssText='padding:8px;font-size:11px;margin-bottom:0'
+      markBtn.textContent='Clear '+typeLabel+' to '+TOOL_NAMES[currentTool]+' ✶'
+      markBtn.onclick=(()=>{const gt=gtype;return ()=>{markGroupCleared(code,gt);renderMapPopup(code)}})()
+      row.appendChild(markBtn)
+    }
+    body.appendChild(row)
+  })
+}
+
+function closeMapPopup(){
+  document.getElementById('map-district-popup').style.display='none'
+  selectedDistrictCode=null
+  renderDistrictList()
+  updateDistrictStates()
 }
 
 function renderDistrictDetail(code){
   const d=districtMap[code];if(!d)return
-  const grpKey=code+':'+groupType
-  const grp=groupProgress[grpKey]
-  const locs=groupType==='school'?d.schools:d.gps
-  const total=locs.length
-  const indCleared=locs.filter(l=>progress[l.id]).length
-  const typeLabel=groupType==='school'?'Schools':'GP Surgeries'
-  const typeCol=groupType==='school'?'var(--blue)':'var(--green)'
-  document.getElementById('dd-type').textContent=typeLabel
-  document.getElementById('dd-type').style.color=typeCol
+  document.getElementById('dd-type').textContent=''
   document.getElementById('dd-name').textContent=d.name
   const body=document.getElementById('dd-body')
   body.innerHTML=''
-  if(grp){
-    const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-    const col=toolColor(grp.tool),who=grp.user?' · '+grp.user:''
-    const cleared=document.createElement('div')
-    cleared.className='detail-cleared'
-    cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col
-    cleared.innerHTML='✦ Group cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who
-    body.appendChild(cleared)
-    const info=document.createElement('div')
-    info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:10px'
-    info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total'
-    body.appendChild(info)
-    const btn=document.createElement('button')
-    btn.className='btn-unmark'
-    btn.textContent='↩ Remove group clearing'
-    btn.onclick=()=>unmarkGroupCleared(code)
-    body.appendChild(btn)
-  }else{
-    const info=document.createElement('div')
-    info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:11px'
-    info.textContent=indCleared+' of '+total+' individually cleared'
-    body.appendChild(info)
-    const lbl=document.createElement('div')
-    lbl.className='tool-label'
-    lbl.textContent='Clear entire district to level'
-    body.appendChild(lbl)
-    const btnRow=document.createElement('div')
-    btnRow.className='tool-btns'
-    TOOLS.forEach(t=>{
-      const b=document.createElement('button')
-      b.className='tool-btn '+t+(currentTool===t?' sel':'')
-      b.id='gtbtn-'+t
-      b.textContent=TOOL_NAMES[t]
-      b.onclick=()=>selectGroupTool(t)
-      btnRow.appendChild(b)
-    })
-    body.appendChild(btnRow)
-    const markBtn=document.createElement('button')
-    markBtn.className='btn-mark'
-    markBtn.id='btn-group-mark'
-    markBtn.textContent='Clear '+d.name+' — '+TOOL_NAMES[currentTool]+' ✶'
-    markBtn.onclick=()=>markGroupCleared(code)
-    body.appendChild(markBtn)
+
+  // Render a section for each active group type
+  const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
+  if(!activeTypes.length){
+    const msg=document.createElement('div')
+    msg.className='empty'
+    msg.textContent='No data for this district'
+    body.appendChild(msg)
   }
+  activeTypes.forEach(gtype=>{
+    const locs=gtype==='school'?d.schools:d.gps
+    const total=locs.length
+    const indCleared=locs.filter(l=>progress[l.id]).length
+    const grp=groupProgress[code+':'+gtype]
+    const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
+    const typeLabel=gtype==='school'?'Schools':'GP Surgeries'
+
+    const section=document.createElement('div')
+    section.style.cssText='border-top:1px solid var(--bd);padding:11px 0;margin-bottom:0'
+
+    const heading=document.createElement('div')
+    heading.style.cssText='font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:'+typeCol+';margin-bottom:8px;font-weight:500'
+    heading.textContent=typeLabel
+    section.appendChild(heading)
+
+    if(grp){
+      const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+      const col=toolColor(grp.tool),who=grp.user?' · '+grp.user:''
+      const cleared=document.createElement('div')
+      cleared.className='detail-cleared'
+      cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
+      cleared.innerHTML='✦ Group cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who
+      section.appendChild(cleared)
+      const info=document.createElement('div')
+      info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
+      info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total'
+      section.appendChild(info)
+      const btn=document.createElement('button')
+      btn.className='btn-unmark'
+      btn.style.marginBottom='4px'
+      btn.textContent='↩ Remove '+typeLabel+' clearing'
+      btn.onclick=(()=>{const g=gtype;return ()=>unmarkGroupCleared(code,g)})()
+      section.appendChild(btn)
+    }else{
+      const info=document.createElement('div')
+      info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
+      info.textContent=indCleared+' of '+total+' individually cleared'
+      section.appendChild(info)
+      const lbl=document.createElement('div')
+      lbl.className='tool-label'
+      lbl.textContent='Clear '+typeLabel+' to level'
+      section.appendChild(lbl)
+      const btnRow=document.createElement('div')
+      btnRow.className='tool-btns'
+      TOOLS.forEach(t=>{
+        const b=document.createElement('button')
+        b.className='tool-btn '+t+(currentTool===t?' sel':'')
+        b.id='gtbtn-'+gtype+'-'+t
+        b.textContent=TOOL_NAMES[t]
+        b.onclick=(()=>{const tt=t,gt=gtype;return ()=>selectGroupTool(tt,gt)})()
+        btnRow.appendChild(b)
+      })
+      section.appendChild(btnRow)
+      const markBtn=document.createElement('button')
+      markBtn.className='btn-mark'
+      markBtn.id='btn-group-mark-'+gtype
+      markBtn.style.marginBottom='4px'
+      markBtn.textContent='Clear '+d.name+' '+typeLabel+' — '+TOOL_NAMES[currentTool]+' ✶'
+      markBtn.onclick=(()=>{const gt=gtype;return ()=>markGroupCleared(code,gt)})()
+      section.appendChild(markBtn)
+    }
+    body.appendChild(section)
+  })
+
   document.getElementById('district-detail').classList.add('on')
 }
 
@@ -1113,22 +1257,30 @@ function closeDistrictDetail(){
   updateDistrictStates()
 }
 
-function selectGroupTool(tool){
+function selectGroupTool(tool,gtype){
   currentTool=tool
-  TOOLS.forEach(t=>document.getElementById('gtbtn-'+t)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('btn-group-mark')
+  // Update all tool buttons for this gtype
+  const gt=gtype||[...groupTypes][0]
+  TOOLS.forEach(t=>{
+    const b=document.getElementById('gtbtn-'+gt+'-'+t)
+    if(b)b.classList.toggle('sel',t===tool)
+  })
+  const btn=document.getElementById('btn-group-mark-'+gt)
   if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
-    btn.textContent='Clear '+districtMap[selectedDistrictCode].name+' — '+TOOL_NAMES[tool]+' ✦'
+    btn.textContent='Clear '+districtMap[selectedDistrictCode].name+' '+
+      (gt==='school'?'Schools':'GPs')+' — '+TOOL_NAMES[tool]+' ✶'
 }
 
-async function markGroupCleared(code){
-  groupProgress[code+':'+groupType]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+async function markGroupCleared(code,gtype){
+  const gt=gtype||[...groupTypes][0]
+  groupProgress[code+':'+gt]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
   refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
   await saveGroupProgress()
 }
 
-async function unmarkGroupCleared(code){
-  delete groupProgress[code+':'+groupType]
+async function unmarkGroupCleared(code,gtype){
+  const gt=gtype||[...groupTypes][0]
+  delete groupProgress[code+':'+gt]
   refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
   await saveGroupProgress()
 }
