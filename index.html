@@ -842,7 +842,7 @@ function renderDistrictDetail(code){
     // Expandable location list
     const listWrap=document.createElement('div');listWrap.style.cssText='margin-top:8px'
     const listToggle=document.createElement('button')
-    listToggle.style.cssText='width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--bd);padding:8px 0;font-family:'Jost',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center'
+    listToggle.style.cssText="width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--bd);padding:8px 0;font-family:Jost,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center"
     const arrowId='lt-arrow-'+gtype+'-'+code
     listToggle.innerHTML='<span>'+typeLabel+' ('+total+')</span><span id="'+arrowId+'">+</span>'
     const listContainer=document.createElement('div')
@@ -886,9 +886,10 @@ function selectGroupTool(tool,gtype){
   currentTool=tool
   TOOLS.forEach(function(t){var b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
   var btn=document.getElementById('btn-group-mark-'+gtype)
-  if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
-    const sgt_label=gtype==='school'?'Schools':'GPs'
+  if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode]){
+    var sgt_label=gtype==='school'?'Schools':'GPs'
     btn.textContent='Clear all '+sgt_label+' in '+districtMap[selectedDistrictCode].name+' - '+TOOL_NAMES[tool]
+  }
 }
 async function markGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
