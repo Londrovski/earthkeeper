@@ -14,20 +14,10 @@
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
 :root{
-  --forest:#0D2416;
-  --forest-m:#122D1C;
-  --gold:#C9A84C;
-  --gold-l:#E8D5A0;
-  --gold-d:#A87C28;
-  --gold-glow:rgba(201,168,76,.18);
-  --bd:rgba(201,168,76,.18);
-  --ink:#E8D5A0;
-  --ink-d:#F5EDD8;
-  --soft:rgba(232,213,160,.55);
-  --soft-d:rgba(232,213,160,.35);
-  --input-bg:rgba(13,36,22,.5);
-  --hover:rgba(201,168,76,.08);
-  --sel:rgba(201,168,76,.12);
+  --forest:#0D2416;--forest-m:#122D1C;--gold:#C9A84C;--gold-l:#E8D5A0;--gold-d:#A87C28;
+  --gold-glow:rgba(201,168,76,.18);--bd:rgba(201,168,76,.18);--ink:#E8D5A0;--ink-d:#F5EDD8;
+  --soft:rgba(232,213,160,.55);--soft-d:rgba(232,213,160,.35);--input-bg:rgba(13,36,22,.5);
+  --hover:rgba(201,168,76,.08);--sel:rgba(201,168,76,.12);
   --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
   --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
 }
@@ -35,9 +25,9 @@
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
 .maplibregl-map{position:absolute;inset:0}
 .maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right{display:none}
-.maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2) !important;border-radius:6px !important}
+.maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2)!important;border-radius:6px!important}
 .maplibregl-ctrl-group button{width:32px;height:32px}
-.maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15) !important}
+.maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15)!important}
 .maplibregl-canvas{cursor:default}
 #login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
 .login-box{background:rgba(18,45,28,.95);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,.5)}
@@ -73,76 +63,102 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .sidebar{width:33.333%;flex-shrink:0;background:rgba(18,45,28,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0;pointer-events:none}
 .tabs{display:flex;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.75)}
-.tab{flex:1;padding:16px 8px;font-family:'Jost',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab{flex:1;padding:14px 6px;font-family:'Jost',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab.on{color:var(--gold);font-weight:500;border-bottom-color:var(--gold)}
 .panel{display:none;flex-direction:column;flex:1;overflow:hidden;min-height:0}
 .panel.on{display:flex}
-.frow{padding:14px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:9px;font-weight:500}
-.chips{display:flex;gap:7px;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:20px;font-size:13px;cursor:pointer;border:1.5px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none;color:var(--soft)}
-.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.frow{padding:12px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:8px;font-weight:500}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none}
+.chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
-.chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
 .chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
 .chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
 .chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
+.chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
 .chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
 .chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
 .chip.show-jewel{border-color:var(--jewel);color:var(--jewel)}.chip.show-jewel.on{background:var(--jewel);color:#fff}
 .chip.show-mg{border-color:var(--mg);color:var(--mg)}.chip.show-mg.on{background:var(--mg);color:#fff}
-.rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
+.rsel{padding:8px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.rsel select{width:100%;padding:9px 11px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
 .rsel select option{background:#1A3D28;color:var(--ink-d)}
-.srow{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.sinput{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;outline:none;background:rgba(13,36,22,.25);color:var(--ink-d);caret-color:var(--gold)}
+.srow{padding:8px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.sinput{width:100%;padding:9px 12px;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;outline:none;background:rgba(13,36,22,.25);color:var(--ink-d);caret-color:var(--gold)}
 .sinput::placeholder{color:var(--soft-d)}
 .sinput:focus{border-color:var(--gold)}
 .llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
 .llist::-webkit-scrollbar{width:3px}
 .llist::-webkit-scrollbar-thumb{background:var(--bd)}
-.litem{padding:12px 20px;cursor:pointer;border-bottom:1px solid var(--bd);transition:background .12s;display:flex;align-items:flex-start;gap:12px}
+.litem{padding:11px 18px;cursor:pointer;border-bottom:1px solid var(--bd);transition:background .12s;display:flex;align-items:flex-start;gap:11px}
 .litem:hover{background:var(--hover)}
-.litem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
-.ldot{width:13px;height:13px;border-radius:50%;flex-shrink:0;margin-top:4px;border:2px solid transparent}
+.litem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:15px}
+.ldot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:4px;border:2px solid transparent}
 .linfo{flex:1;min-width:0}
-.lname{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-d)}
+.lname{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-d)}
 .litem.done .lname{text-decoration:line-through;opacity:.45}
-.lmeta{font-size:13px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lbadge{font-size:11px;padding:2px 9px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
+.lmeta{font-size:12px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbadge{font-size:11px;padding:2px 8px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
 .detail{flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);display:none;flex-direction:column;max-height:50%}
 .detail.on{display:flex}
-.detail-head{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.detail-head{padding:14px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:11px}
 .detail-head-left{flex:1;min-width:0}
-.detail-head-right{display:flex;flex-direction:row;align-items:center;gap:9px;flex-shrink:0}
-.detail-close{background:none;border:none;font-size:22px;color:var(--soft);cursor:pointer;line-height:1;padding:0;transition:color .15s}
+.detail-head-right{display:flex;flex-direction:row;align-items:center;gap:8px;flex-shrink:0}
+.detail-close{background:none;border:none;font-size:20px;color:var(--soft);cursor:pointer;line-height:1;padding:0;transition:color .15s}
 .detail-close:hover{color:var(--gold)}
-.gmaps-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;background:rgba(201,168,76,.1);border:1px solid var(--bd);text-decoration:none;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--gold);white-space:nowrap}
+.gmaps-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;background:rgba(201,168,76,.1);border:1px solid var(--bd);text-decoration:none;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--gold);white-space:nowrap}
 .gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
-.gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
-.detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
+.gmaps-btn svg{width:13px;height:13px;flex-shrink:0}
+.detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:3px}
 .detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
-.detail-name{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.3;color:var(--gold-l)}
-.detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
-.detail-body{padding:12px 20px 18px;overflow-y:auto}
-.detail-cleared{font-size:14px;padding:10px 13px;border-radius:6px;margin-bottom:11px;line-height:1.5}
-.tool-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
-.tool-btns{display:flex;gap:9px;margin-bottom:11px}
-.tool-btn{flex:1;padding:11px 6px;border:1.5px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.3;color:var(--gold-l)}
+.detail-addr{font-size:12px;color:var(--soft);margin-top:3px}
+.detail-body{padding:11px 18px 16px;overflow-y:auto}
+.detail-cleared{font-size:13px;padding:9px 12px;border-radius:6px;margin-bottom:10px;line-height:1.5}
+.tool-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:7px}
+.tool-btns{display:flex;gap:8px;margin-bottom:10px}
+.tool-btn{flex:1;padding:10px 5px;border:1.5px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
 .tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.sel{background:var(--omega);color:#fff}
 .tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.sel{background:var(--jewel);color:#fff}
 .tool-btn.mg{border-color:var(--mg);color:var(--mg)}.tool-btn.mg.sel{background:var(--mg);color:#fff}
-.btn-mark{display:block;width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-weight:500}
+.btn-mark{display:block;width:100%;padding:12px;background:var(--gold-d);color:var(--forest);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-weight:500}
 .btn-mark:hover{background:var(--gold)}
-.btn-unmark{display:block;width:100%;padding:10px;margin-top:9px;background:none;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s}
+.btn-unmark{display:block;width:100%;padding:9px;margin-top:8px;background:none;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s}
 .btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
-.log-filter{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;display:flex;gap:9px;align-items:center;background:rgba(18,45,28,.18)}
+
+/* Groups panel */
+.groups-filter{padding:10px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:7px;align-items:center}
+.groups-filter label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
+.gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
+.gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
+.gtype-btn.gp{border-color:var(--green);color:var(--green)}.gtype-btn.gp.on{background:var(--green);color:#fff}
+.gsearch{padding:8px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
+.district-list{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
+.district-list::-webkit-scrollbar{width:3px}
+.district-list::-webkit-scrollbar-thumb{background:var(--bd)}
+.district-item{padding:12px 18px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s}
+.district-item:hover{background:var(--hover)}
+.district-item.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:15px}
+.district-name{font-size:15px;font-weight:500;color:var(--ink-d);margin-bottom:4px}
+.district-bars{display:flex;gap:8px}
+.district-bar-wrap{flex:1}
+.district-bar-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
+.district-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
+.district-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.district-badge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500;white-space:nowrap;display:inline-block}
+.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:45%}
+.district-detail.on{display:flex}
+.district-detail-head{padding:13px 18px 0;display:flex;align-items:flex-start;justify-content:space-between}
+.district-detail-body{padding:11px 18px 14px;overflow-y:auto}
+
+.log-filter{padding:10px 18px;border-bottom:1px solid var(--bd);flex-shrink:0;display:flex;gap:8px;align-items:center;background:rgba(18,45,28,.18)}
 .log-filter label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
-.log-date-input{flex:1;padding:6px 9px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:rgba(13,36,22,.3);color:var(--ink)}
+.log-date-input{flex:1;padding:6px 8px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:12px;outline:none;background:rgba(13,36,22,.3);color:var(--ink)}
 .log-date-input:focus{border-color:var(--gold)}
-.log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 9px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;transition:all .15s}
+.log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 8px;font-family:'Jost',sans-serif;font-size:11px;color:var(--soft);cursor:pointer;transition:all .15s}
 .log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
 #map{flex:1;position:relative}
 .mwrap{position:relative;flex:1;display:flex;flex-direction:column}
@@ -155,21 +171,21 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:rgba(13,36,22,.7);border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
 .tog:hover{background:rgba(18,45,28,.9)}
 .map-overlays{position:absolute;top:14px;right:14px;z-index:400;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
-.progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:13px 18px;min-width:210px}
-.prog-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:9px}
-.prog-row{display:flex;align-items:center;gap:9px;margin-bottom:7px}
-.prog-label{font-size:13px;width:74px;flex-shrink:0;color:var(--ink)}
+.progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:12px 16px;min-width:200px}
+.prog-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
+.prog-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.prog-label{font-size:12px;width:70px;flex-shrink:0;color:var(--ink)}
 .prog-track{flex:1;height:4px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
 .prog-fill{height:100%;border-radius:2px;transition:width .4s}
-.prog-count{font-size:12px;color:var(--soft);min-width:34px;text-align:right}
-.legend{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:12px 16px}
-.leg-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
-.leg-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--ink)}
-.leg-dot{width:12px;height:12px;border-radius:50%}
+.prog-count{font-size:11px;color:var(--soft);min-width:32px;text-align:right}
+.legend{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:11px 15px}
+.leg-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:7px}
+.leg-item{display:flex;align-items:center;gap:7px;margin-bottom:5px;font-size:12px;color:var(--ink)}
+.leg-dot{width:11px;height:11px;border-radius:50%}
 .locate-btn{position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.7);backdrop-filter:blur(8px);border:1px solid var(--bd);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--gold-l);transition:all .15s}
 .locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
 .locate-btn span{font-size:17px;line-height:1}
-.empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
+.empty{padding:24px;text-align:center;font-size:13px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
 #mobile-detail{display:none}
 @media(max-width:700px){
@@ -185,55 +201,53 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:1px solid var(--bd);height:auto;overflow:visible;background:rgba(13,36,22,.7)}
   .sidebar.collapsed{height:40px;overflow:hidden}
   .llist{display:none!important;flex:none!important}
-  .llist.active{display:block!important;max-height:40vh;overflow-y:auto!important}
-  .sidebar .detail{display:none!important}
+  .llist.active{display:block!important;max-height:35vh;overflow-y:auto!important}
+  .district-list{max-height:35vh}
+  .sidebar .detail,.sidebar .district-detail{display:none!important}
   .tabs{background:rgba(18,45,28,.75)}
-  .tab{color:var(--soft-d);font-size:10px;padding:10px 4px;border-bottom-color:transparent;border-bottom-width:2px;margin-bottom:-1px}
-  .tab.on{color:var(--gold);border-bottom-color:var(--gold);font-size:11px}
-  .frow{padding:6px 11px}
-  .frow-label{font-size:9px;margin-bottom:4px}
-  .chip{font-size:10px;padding:3px 8px;border-width:1px;gap:3px}
+  .tab{color:var(--soft-d);font-size:9px;padding:10px 3px;border-bottom-color:transparent;border-bottom-width:2px;margin-bottom:-1px}
+  .tab.on{color:var(--gold);border-bottom-color:var(--gold);font-size:10px}
+  .frow{padding:5px 10px}
+  .frow-label{font-size:9px;margin-bottom:3px}
+  .chip{font-size:9px;padding:3px 7px;border-width:1px;gap:3px}
   .chip-dot{width:5px;height:5px}
-  .rsel{padding:4px 11px}
-  .rsel select{font-size:12px;padding:5px 9px}
-  .srow{padding:4px 11px}
-  .sinput{font-size:12px;padding:6px 9px;border-width:1px}
-  .log-filter{padding:6px 11px;gap:6px}
-  .log-filter label{font-size:9px}
-  .log-date-input{font-size:11px;padding:4px 7px}
-  .log-clear-btn{font-size:10px;padding:4px 7px}
+  .rsel{padding:3px 10px}
+  .rsel select{font-size:12px;padding:5px 8px}
+  .srow,.gsearch{padding:3px 10px}
+  .sinput{font-size:12px;padding:5px 8px;border-width:1px}
+  .groups-filter{padding:5px 10px;gap:5px}
+  .gtype-btn{font-size:9px;padding:3px 9px}
   .tog{display:none}
-  .map-overlays{top:7px;right:7px;gap:5px}
-  .progress{min-width:130px;padding:6px 10px}
-  .prog-title{font-size:8px;margin-bottom:4px}
-  .prog-row{gap:5px;margin-bottom:3px}
-  .prog-label{font-size:9px;width:48px}
+  .map-overlays{top:6px;right:6px;gap:4px}
+  .progress{min-width:120px;padding:5px 9px}
+  .prog-title{font-size:8px;margin-bottom:3px}
+  .prog-row{gap:4px;margin-bottom:2px}
+  .prog-label{font-size:8px;width:44px}
   .prog-track{height:3px}
-  .prog-count{font-size:8px;min-width:26px}
-  .legend{padding:5px 8px}
-  .leg-title{font-size:8px;margin-bottom:3px}
-  .leg-item{font-size:9px;gap:4px;margin-bottom:2px}
+  .prog-count{font-size:8px;min-width:24px}
+  .legend{padding:4px 7px}
+  .leg-title{font-size:8px;margin-bottom:2px}
+  .leg-item{font-size:8px;gap:4px;margin-bottom:2px}
   .leg-dot{width:7px;height:7px}
   .locate-btn{position:fixed!important;bottom:11px;left:11px;z-index:820;padding:6px 10px;font-size:11px;gap:4px;transition:bottom .25s ease}
   .locate-btn span{font-size:15px}
   .saving{bottom:11px;right:11px;font-size:11px;padding:7px 11px}
   #mobile-detail{display:none;position:fixed;bottom:0;left:0;right:0;max-height:50vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch;flex-direction:column}
   #mobile-detail.on{display:flex}
-  #mobile-detail .detail-head{padding:11px 13px 0}
-  #mobile-detail .detail-head-right{gap:7px}
-  #mobile-detail .detail-close{font-size:17px}
-  #mobile-detail .gmaps-btn{font-size:11px;padding:5px 8px}
-  #mobile-detail .gmaps-btn svg{width:12px;height:12px}
+  #mobile-detail .detail-head{padding:10px 12px 0}
+  #mobile-detail .detail-head-right{gap:6px}
+  #mobile-detail .detail-close{font-size:16px}
+  #mobile-detail .gmaps-btn{font-size:10px;padding:4px 7px}
   #mobile-detail .detail-type{font-size:9px}
-  #mobile-detail .detail-name{font-size:16px}
+  #mobile-detail .detail-name{font-size:15px}
   #mobile-detail .detail-addr{font-size:11px}
-  #mobile-detail .detail-body{padding:9px 13px 14px}
-  #mobile-detail .detail-cleared{font-size:12px;padding:7px 10px;margin-bottom:7px}
+  #mobile-detail .detail-body{padding:8px 12px 12px}
+  #mobile-detail .detail-cleared{font-size:12px;padding:7px 10px;margin-bottom:6px}
   #mobile-detail .tool-label{font-size:10px;margin-bottom:5px}
-  #mobile-detail .tool-btns{gap:6px;margin-bottom:7px}
-  #mobile-detail .tool-btn{padding:8px 4px;font-size:12px;border-width:1.5px}
-  #mobile-detail .btn-mark{padding:9px;font-size:12px}
-  #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:6px}
+  #mobile-detail .tool-btns{gap:5px;margin-bottom:6px}
+  #mobile-detail .tool-btn{padding:7px 4px;font-size:11px;border-width:1.5px}
+  #mobile-detail .btn-mark{padding:8px;font-size:12px}
+  #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:5px}
 }
 </style>
 </head>
@@ -272,19 +286,20 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
-      <button class="tab on" onclick="switchTab('locs',this)">Locations</button>
-      <button class="tab" onclick="switchTab('log',this)">Log</button>
+      <button class="tab on" id="tab-btn-locs" onclick="switchTab('locs',this)">Locations</button>
+      <button class="tab" id="tab-btn-groups" onclick="switchTab('groups',this)">Groups</button>
+      <button class="tab" id="tab-btn-log" onclick="switchTab('log',this)">Log</button>
     </div>
+
+    <!-- LOCATIONS PANEL -->
     <div class="panel on" id="tab-locs">
       <div class="frow">
-        <div class="frow-label">Places</div>
+        <div class="frow-label">Individual clearings</div>
         <div class="chips">
           <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
-          <div class="chip school on" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
           <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
           <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
-          <div class="chip gp on" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
         </div>
       </div>
       <div class="frow">
@@ -313,7 +328,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <option value="scotland">Scotland</option>
         </select>
       </div>
-      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off"></div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search locations…" id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
         <div class="detail-head">
@@ -333,6 +348,29 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="detail-body" id="d-body"></div>
       </div>
     </div>
+
+    <!-- GROUPS PANEL -->
+    <div class="panel" id="tab-groups">
+      <div class="groups-filter">
+        <label>Show</label>
+        <button class="gtype-btn school on" id="gtype-school" onclick="setGroupType('school',this)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:4px;vertical-align:middle"></span>Schools</button>
+        <button class="gtype-btn gp" id="gtype-gp" onclick="setGroupType('gp',this)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:4px;vertical-align:middle"></span>GPs</button>
+      </div>
+      <div class="gsearch"><input class="sinput" type="text" placeholder="Search districts…" id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
+      <div class="district-list" id="district-list"></div>
+      <div class="district-detail" id="district-detail">
+        <div class="district-detail-head">
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:3px" id="dd-type"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold-l)" id="dd-name"></div>
+          </div>
+          <button class="detail-close" onclick="closeDistrictDetail()">✕</button>
+        </div>
+        <div class="district-detail-body" id="dd-body"></div>
+      </div>
+    </div>
+
+    <!-- LOG PANEL -->
     <div class="panel" id="tab-log">
       <div class="log-filter">
         <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
@@ -342,6 +380,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
   </div>
+
   <div class="mwrap">
     <div id="map"></div>
     <div class="mload" id="mload">
@@ -353,22 +392,22 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     </div>
     <button class="tog" id="tog" onclick="toggleSidebar()">‹</button>
     <div class="map-overlays">
-      <div class="progress">
+      <div class="progress" id="progress-box">
         <div class="prog-title">Progress</div>
         <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">—</div></div>
         <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">—</div></div>
         <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">—</div></div>
-        <div class="prog-row"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
         <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">—</div></div>
-        <div class="prog-row"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">—</div></div>
+        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
+        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">—</div></div>
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>GP Surgery</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared ✦</div>
       </div>
@@ -407,15 +446,29 @@ const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents
 const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland']
 const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8',gp:'#4A9B6F'}
 const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
+// Tool hierarchy: index = level (higher = stronger)
+const TOOL_ORDER=['omega','jewel','mg']
 const GOLD='#C9A84C'
 function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
 function toolColor(t){return TOOL_COLORS[t]||GOLD}
+function toolLevel(t){const i=TOOL_ORDER.indexOf(t);return i<0?-1:i}
+function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
 const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
 
-let locations=[], progress={}, progressSha=null, selectedId=null, map, mapReady=false
-let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true,gp:true}
+// Individual locations filter — only the 4 individual types
+const INDIVIDUAL_TYPES=new Set(['hospital','hospice','university','prison'])
+const GROUP_TYPES=new Set(['school','gp'])
+
+let locations=[], progress={}, progressSha=null
+let groupProgress={}, groupProgressSha=null
+let selectedId=null, map, mapReady=false, districts=[]
+let placesFilter={hospital:true,hospice:true,university:true,prison:true,school:true,gp:true}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
+let groupType='school', selectedDistrictCode=null
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
+
+// District lookup: code -> {name, schools:[], gps:[]}
+let districtMap={}
 
 let saveQueued=false
 function queueSave(){saveQueued=true}
@@ -448,6 +501,19 @@ function updateLocateBtnPosition(){
 }
 function gmapsUrl(loc){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.name+(loc.address?', '+loc.address:''))}`}
 
+// ── Effective tool level for a location (max of individual + group floor) ──
+function effectiveTool(loc){
+  const ind=progress[loc.id]
+  const grp=groupProgress[loc.districtCode+':'+loc.type]
+  if(!ind&&!grp)return null
+  if(ind&&!grp)return ind.tool
+  if(!ind&&grp)return grp.tool
+  return higherTool(ind.tool,grp.tool)
+}
+function isEffectivelyCleared(loc){
+  return !!(progress[loc.id]||groupProgress[loc.districtCode+':'+loc.type])
+}
+
 function initMap(){
   map=new maplibregl.Map({
     container:'map',
@@ -468,8 +534,26 @@ function initMap(){
     map.addSource('locations',{type:'geojson',data:emptyFC()})
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
+    map.addSource('districts-src',{type:'geojson',data:emptyFC()})
 
-    // Uncleared: coloured by type, slightly dimmed
+    // District fill (groups tab)
+    map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
+      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.08)','rgba(255,255,255,0.02)'],
+      'fill-outline-color':'transparent'
+    }})
+    // District outline
+    map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.25)'],
+      'line-width':['case',['boolean',['feature-state','cleared'],false],2,0.8],
+      'line-blur':['case',['boolean',['feature-state','cleared'],false],1,0]
+    }})
+    // Selected district highlight
+    map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':'rgba(255,255,255,0.7)',
+      'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
+    }})
+
+    // Dots
     map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
       filter:['==',['get','cleared'],false],
       paint:{
@@ -481,28 +565,17 @@ function initMap(){
           ['==',['get','type'],'prison'],  '#C4722A',
           ['==',['get','type'],'gp'],      '#4A9B6F',
           '#9B78C8'],
-        'circle-opacity':0.55,
-        'circle-stroke-width':1,
-        'circle-stroke-color':'rgba(255,255,255,0.2)',
+        'circle-opacity':0.55,'circle-stroke-width':1,'circle-stroke-color':'rgba(255,255,255,0.2)',
         'circle-pitch-alignment':'map'
       }
     })
-
-    // Cleared: soft gold glow
     map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,9,9,14,13,20],
-      'circle-color':GOLD,
-      'circle-opacity':0.12,
-      'circle-blur':0.7,
-      'circle-pitch-alignment':'map'
+      'circle-color':GOLD,'circle-opacity':0.12,'circle-blur':0.7,'circle-pitch-alignment':'map'
     }})
-
-    // Cleared: solid gold dot
     map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?5:6,9,isMobile()?8:10,13,isMobile()?10:13],
-      'circle-color':GOLD,
-      'circle-opacity':1,
-      'circle-stroke-width':2,
+      'circle-color':GOLD,'circle-opacity':1,'circle-stroke-width':2,
       'circle-stroke-color':['case',
         ['==',['get','tool'],'omega'],'#9B5ED4',
         ['==',['get','tool'],'jewel'],'#E07050',
@@ -510,15 +583,10 @@ function initMap(){
         'rgba(255,255,255,0.6)'],
       'circle-pitch-alignment':'map'
     }})
-
-    // Selected ring
     map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,11,9,16,13,22],
-      'circle-color':'transparent',
-      'circle-stroke-width':2.5,
-      'circle-stroke-color':'rgba(255,255,255,0.85)',
-      'circle-opacity':0,
-      'circle-stroke-opacity':1,
+      'circle-color':'transparent','circle-stroke-width':2.5,
+      'circle-stroke-color':'rgba(255,255,255,0.85)','circle-opacity':0,'circle-stroke-opacity':1,
       'circle-pitch-alignment':'map'
     }})
 
@@ -528,38 +596,100 @@ function initMap(){
       map.on('mouseenter',l,()=>{map.getCanvas().style.cursor='pointer'})
       map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
     })
+    map.on('click','district-fill',e=>{
+      if(e.features.length){const code=e.features[0].properties.code;selectDistrict(code)}
+    })
+    map.on('mouseenter','district-fill',()=>{map.getCanvas().style.cursor='pointer'})
+    map.on('mouseleave','district-fill',()=>{map.getCanvas().style.cursor=''})
     map.on('click',e=>{
-      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
+      const hits=map.queryRenderedFeatures(e.point,{layers:clickLayers})
+      if(!hits.length){setSelectedId(null);closeDetail();closeMobileDetail()}
     })
     refreshMapData()
   })
 }
 
 function emptyFC(){return{type:'FeatureCollection',features:[]}}
+
 function locToFeature(loc){
-  const p=progress[loc.id]
-  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared:!!p,tool:p?.tool||null}}
+  const tool=effectiveTool(loc)
+  const cleared=isEffectivelyCleared(loc)
+  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},
+    properties:{id:loc.id,type:loc.type,cleared,tool}}
 }
+
 function refreshMapData(){
   if(!mapReady)return
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
-  const cleared=visible.filter(l=>progress[l.id])
+  const cleared=visible.filter(l=>isEffectivelyCleared(l))
   const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
   map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
   map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
 }
+
 function setSelectedId(id){selectedId=id;refreshMapData()}
 
 function locVisible(loc){
   if(!placesFilter[loc.type])return false
-  const p=progress[loc.id]
+  const cleared=isEffectivelyCleared(loc)
   if(showFilter==='all')return true
-  if(showFilter==='cleared')return!!p
-  if(showFilter==='omega')return p?.tool==='omega'
-  if(showFilter==='jewel')return p?.tool==='jewel'
-  if(showFilter==='mg')return p?.tool==='mg'
+  if(showFilter==='cleared')return cleared
+  const tool=effectiveTool(loc)
+  if(showFilter==='omega')return tool==='omega'
+  if(showFilter==='jewel')return tool==='jewel'
+  if(showFilter==='mg')return tool==='mg'
   return true
+}
+
+// ── District layer toggling ──
+function showDistrictLayer(show){
+  if(!mapReady)return
+  const v=show?'visible':'none'
+  ['district-fill','district-line','district-selected'].forEach(id=>{
+    if(map.getLayer(id))map.setLayoutProperty(id,'visibility',v)
+  })
+}
+
+function updateDistrictStates(){
+  if(!mapReady||!districts.length)return
+  districts.forEach(f=>{
+    const code=f.properties.code
+    const cleared=!!(groupProgress[code+':'+groupType])
+    const selected=code===selectedDistrictCode
+    try{
+      map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})
+    }catch(e){}
+  })
+}
+
+async function loadDistricts(){
+  try{
+    const res=await fetch(`${API_BASE}/districts.geojson`,{headers:GH_HEADERS})
+    if(!res.ok)return
+    const meta=await res.json()
+    const geojson=JSON.parse(atob(meta.content.replace(/\n/g,'')))
+    // Add numeric IDs for feature state
+    geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
+    districts=geojson.features
+    if(mapReady)map.getSource('districts-src').setData(geojson)
+    buildDistrictMap()
+    renderDistrictList()
+  }catch(e){console.warn('Districts failed',e)}
+}
+
+function buildDistrictMap(){
+  districtMap={}
+  districts.forEach(f=>{
+    districtMap[f.properties.code]={name:f.properties.name,schools:[],gps:[],id:f.id}
+  })
+  // Assign locations to districts
+  locations.forEach(loc=>{
+    if(loc.districtCode&&districtMap[loc.districtCode]){
+      if(loc.type==='school')districtMap[loc.districtCode].schools.push(loc)
+      if(loc.type==='gp')districtMap[loc.districtCode].gps.push(loc)
+    }
+  })
 }
 
 function panToVisible(lat,lng,zoom){
@@ -597,6 +727,53 @@ async function ghGet(path){
 }
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
+// Assign district codes to locations by postcode prefix matching
+// We do a simple lookup: match postcode to district via a prebuilt index
+let postcodeDistrictIndex={}
+function buildPostcodeIndex(){
+  // Build from locations themselves grouped by postcode prefix + district
+  // Districts carry lat/lng centroids — we use a bounding approach
+  // For now: assign via point-in-polygon approximation using district centroids
+  // Simple approach: nearest district centroid by postcode area
+  postcodeDistrictIndex={}
+  districts.forEach(f=>{
+    const code=f.properties.code
+    // Use the LAT/LONG centroid from the original data if available
+  })
+}
+
+// Assign districtCode to each location using a point-in-polygon test
+// We use a ray-casting algorithm on the district polygons
+function pointInPolygon(point, polygon){
+  const [px,py]=point
+  let inside=false
+  for(let i=0,j=polygon.length-1;i<polygon.length;j=i++){
+    const [xi,yi]=polygon[i],[xj,yj]=polygon[j]
+    if(((yi>py)!==(yj>py))&&(px<(xj-xi)*(py-yi)/(yj-yi)+xi))inside=!inside
+  }
+  return inside
+}
+
+function assignDistrictCodes(){
+  if(!districts.length)return
+  locations.forEach(loc=>{
+    if(!loc.lat||!loc.lng)return
+    const pt=[loc.lng,loc.lat]
+    for(const f of districts){
+      const geom=f.geometry
+      let found=false
+      const rings=geom.type==='Polygon'?[geom.coordinates]:geom.coordinates
+      for(const poly of rings){
+        if(pointInPolygon(pt,poly[0])){found=true;break}
+      }
+      if(found){loc.districtCode=f.properties.code;break}
+    }
+  })
+  buildDistrictMap()
+  renderDistrictList()
+  updateDistrictStates()
+}
+
 async function fetchRegion(region){
   const[hospitals,schools,universities,hospices,prisons,gps]=await Promise.all([
     ghGetOptional(`hospitals-${region}.json`),
@@ -615,6 +792,7 @@ async function loadAll(){
   try{
     const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
     locations=allArrays.flat()
+    if(districts.length)assignDistrictCodes()
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations)
   }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
@@ -626,6 +804,7 @@ async function loadRegion(value){
   setMsg(`Loading ${value}…`);document.getElementById('mload').style.display='flex'
   try{
     locations=await fetchRegion(value)
+    if(districts.length)assignDistrictCodes()
     hideLoader();refreshMapData();renderList();updateStats()
     if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
     else{setMsg(`No data for "${value}" yet`);setTimeout(hideLoader,3000)}
@@ -639,6 +818,13 @@ async function loadProgress(){
   }catch(e){progress={}}
 }
 
+async function loadGroupProgress(){
+  try{
+    const res=await fetch(`${API_BASE}/group-progress.json`,{headers:GH_HEADERS})
+    if(res.ok){const meta=await res.json();groupProgressSha=meta.sha;groupProgress=JSON.parse(atob(meta.content.replace(/\n/g,'')))}
+  }catch(e){groupProgress={}}
+}
+
 async function saveProgress(){
   showSaving('Saving…')
   try{
@@ -650,20 +836,157 @@ async function saveProgress(){
   }catch(e){showSaving('Error saving')}
   setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
 }
+
+async function saveGroupProgress(){
+  showSaving('Saving…')
+  try{
+    const body={message:`${currentUser||'user'} groups — ${new Date().toISOString().slice(0,10)}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
+    if(groupProgressSha)body.sha=groupProgressSha
+    const res=await fetch(`${API_BASE}/group-progress.json`,{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('✓ Saved')}
+    else{const e=await res.json();showSaving('Save failed: '+e.message)}
+  }catch(e){showSaving('Error saving')}
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
+}
+
 function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
 
+// ── Groups tab ──
+function setGroupType(type,el){
+  groupType=type
+  document.querySelectorAll('.gtype-btn').forEach(b=>b.classList.remove('on'))
+  el.classList.add('on')
+  renderDistrictList()
+  updateDistrictStates()
+}
+
+function renderDistrictList(){
+  const el=document.getElementById('district-list')
+  const q=document.getElementById('group-search').value.toLowerCase().trim()
+  const entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
+  const typeColor=groupType==='school'?'#5B9BD5':'#4A9B6F'
+
+  if(!entries.length){el.innerHTML='<div class="empty">Loading districts…</div>';return}
+
+  entries.sort((a,b)=>a.name.localeCompare(b.name))
+  el.innerHTML=entries.map(d=>{
+    const code=Object.keys(districtMap).find(k=>districtMap[k]===d)
+    if(!code)return''
+    const grpKey=code+':'+groupType
+    const grp=groupProgress[grpKey]
+    const locs=groupType==='school'?d.schools:d.gps
+    const total=locs.length
+    const indCleared=locs.filter(l=>progress[l.id]).length
+    const allCleared=grp?total:indCleared
+    const pct=total?Math.round(allCleared/total*100):0
+    const isSel=code===selectedDistrictCode
+
+    const badge=grp?`<div class="district-badge" style="color:${toolColor(grp.tool)};border-color:${toolColor(grp.tool)}66;background:${toolColor(grp.tool)}14">${TOOL_NAMES[grp.tool]||grp.tool}</div>`:''
+
+    return`<div class="district-item ${isSel?'sel':''}" onclick="selectDistrict('${code}')">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+        <div class="district-name">${d.name}</div>${badge}
+      </div>
+      <div class="district-bar-wrap">
+        <div class="district-bar-label">
+          <span>${total?groupType==='school'?'Schools':'GPs':'No data'}</span>
+          <span>${indCleared}${grp?' + group':''} / ${total}</span>
+        </div>
+        <div class="district-bar-track"><div class="district-bar-fill" style="background:${typeColor};width:${pct}%"></div></div>
+      </div>
+    </div>`
+  }).join('')
+}
+
+function selectDistrict(code){
+  selectedDistrictCode=code
+  renderDistrictList()
+  updateDistrictStates()
+  // Fly to district centroid
+  const d=districtMap[code]
+  if(!d)return
+  const locs=groupType==='school'?d.schools:d.gps
+  if(locs.length)fitBounds(locs)
+  renderDistrictDetail(code)
+}
+
+function renderDistrictDetail(code){
+  const d=districtMap[code]
+  if(!d)return
+  const grpKey=code+':'+groupType
+  const grp=groupProgress[grpKey]
+  const locs=groupType==='school'?d.schools:d.gps
+  const total=locs.length
+  const indCleared=locs.filter(l=>progress[l.id]).length
+  const typeLabel=groupType==='school'?'Schools':'GP Surgeries'
+  const typeCol=groupType==='school'?'var(--blue)':'var(--green)'
+
+  document.getElementById('dd-type').textContent=typeLabel
+  document.getElementById('dd-type').style.color=typeCol
+  document.getElementById('dd-name').textContent=d.name
+
+  let html=''
+  if(grp){
+    const d2=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    const col=toolColor(grp.tool),who=grp.user?\` · ${grp.user}`:''
+    html+=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Group cleared to <strong>${TOOL_NAMES[grp.tool]||grp.tool}</strong> · ${d2}${who}</div>`
+    html+=`<div style="font-size:12px;color:var(--soft);margin-bottom:10px">${indCleared} individual clearings · ${total-indCleared} relying on group floor</div>`
+    html+=`<button class="btn-unmark" onclick="unmarkGroupCleared('${code}')">↩ Remove group clearing</button>`
+  }else{
+    html+=`<div style="font-size:13px;color:var(--soft);margin-bottom:12px">${indCleared} of ${total} individually cleared</div>`
+    html+=`<div class="tool-label">Clear entire district to level</div>`
+    const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="gtbtn-${t}" onclick="selectGroupTool('${t}')">${TOOL_NAMES[t]}</button>`).join('')
+    html+=`<div class="tool-btns">${toolBtns}</div>`
+    html+=`<button class="btn-mark" id="btn-group-mark" onclick="markGroupCleared('${code}')">Clear ${d.name} — ${TOOL_NAMES[currentTool]} ✦</button>`
+  }
+  document.getElementById('dd-body').innerHTML=html
+  document.getElementById('district-detail').classList.add('on')
+}
+
+function closeDistrictDetail(){
+  document.getElementById('district-detail').classList.remove('on')
+  selectedDistrictCode=null
+  renderDistrictList()
+  updateDistrictStates()
+}
+
+function selectGroupTool(tool){
+  currentTool=tool
+  TOOLS.forEach(t=>document.getElementById(`gtbtn-${t}`)?.classList.toggle('sel',t===tool))
+  const btn=document.getElementById('btn-group-mark')
+  if(btn&&selectedDistrictCode){
+    const d=districtMap[selectedDistrictCode]
+    if(d)btn.textContent=`Clear ${d.name} — ${TOOL_NAMES[tool]} ✦`
+  }
+}
+
+async function markGroupCleared(code){
+  groupProgress[code+':'+groupType]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+
+async function unmarkGroupCleared(code){
+  delete groupProgress[code+':'+groupType]
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+
+// ── Locations tab ──
 function renderList(){
   const el=document.getElementById('llist'),q=document.getElementById('search').value.toLowerCase().trim()
   el.classList.toggle('active',!!q)
   if(!q){el.innerHTML='';return}
+  // Only show individual types in locations tab
   const vis=locations.filter(l=>{
+    if(!INDIVIDUAL_TYPES.has(l.type))return false
     if(!locVisible(l))return false
-    return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
+    return l.name.toLowerCase().includes(q)||(l.address||''). toLowerCase().includes(q)||(l.postcode||''). toLowerCase().includes(q)
   })
   if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
   el.innerHTML=vis.map(l=>{
     const p=progress[l.id],dotBg=p?GOLD:typeColor(l.type)
-    const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:'border:2px solid transparent'
+    const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:('border:2px solid transparent')
     const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}66;background:${toolColor(p.tool)}14">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
     return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
       <div class="ldot" style="background:${dotBg};${dotBorder}"></div>
@@ -678,9 +1001,18 @@ function selectLoc(id){
   const loc=locations.find(l=>l.id===id);if(!loc)return
   renderList()
   if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+  // If it's a group type, switch to groups tab and select district
+  if(GROUP_TYPES.has(loc.type)&&loc.districtCode){
+    groupType=loc.type
+    document.querySelectorAll('.gtype-btn').forEach(b=>b.classList.remove('on'))
+    document.getElementById(`gtype-${loc.type}`)?.classList.add('on')
+    switchTab('groups',document.getElementById('tab-btn-groups'))
+    selectDistrict(loc.districtCode)
+    return
+  }
   if(isMobile()){
     document.getElementById('search').value='';renderList();renderMobileDetail(loc)
-    if(document.getElementById('tab-log').classList.contains('on'))switchTab('locs',document.querySelectorAll('.tab')[0])
+    if(document.getElementById('tab-log').classList.contains('on'))switchTab('locs',document.getElementById('tab-btn-locs'))
   }else{renderDetail(loc)}
 }
 
@@ -692,7 +1024,7 @@ function renderDetail(loc){
   document.getElementById('d-gmaps').href=gmapsUrl(loc)
   const body=document.getElementById('d-body')
   if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?` · ${p.user}`:''
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?\` · ${p.user}`:''
     body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
   }else{
     const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="tbtn-${t}" onclick="selectTool('${t}')">${TOOL_NAMES[t]}</button>`).join('')
@@ -713,7 +1045,7 @@ function renderMobileDetail(loc){
   document.getElementById('md-gmaps').href=gmapsUrl(loc)
   const body=document.getElementById('md-body')
   if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?` · ${p.user}`:''
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?\` · ${p.user}`:''
     body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkClearedMobile('${loc.id}')">↩ Mark as not cleared</button>`
   }else{
     const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="md-tbtn-${t}" onclick="selectToolMobile('${t}')">${TOOL_NAMES[t]}</button>`).join('')
@@ -775,12 +1107,19 @@ function setShow(mode,el){
 }
 
 function updateStats(){
-  const total=locations.length,cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length,pct=total?Math.round(cleared/total*100):0
+  const indivLocs=locations.filter(l=>INDIVIDUAL_TYPES.has(l.type))
+  const groupLocs=locations.filter(l=>GROUP_TYPES.has(l.type))
+  const total=locations.length
+  const indCleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length
+  const grpCleared=groupLocs.filter(l=>isEffectivelyCleared(l)).length
+  const cleared=indCleared+grpCleared
+  const pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString()
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-pct').textContent=pct+'%'
-  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut'],['gp','pg-gp','pg-gpt']]){
-    const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
+  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
+    const tot=locations.filter(l=>l.type===type).length
+    const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
     document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
   }
@@ -795,22 +1134,22 @@ function renderLog(){
   if(!entries.length){el.innerHTML=`<div class="empty">${fromVal||toVal?'No clearings in that date range':'No clearings yet'}</div>`;return}
   el.innerHTML=entries.map(e=>{
     const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
-    return`<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')">
-      <div style="display:flex;align-items:center;gap:9px;margin-bottom:3px">
-        <div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid ${col};flex-shrink:0"></div>
-        <span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">${e.name}</span>
+    return`<div style="padding:12px 18px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+        <div style="width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid ${col};flex-shrink:0"></div>
+        <span style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">${e.name}</span>
       </div>
-      <div style="font-size:12px;color:var(--soft);padding-left:19px">${who}${d} · ${TOOL_NAMES[e.tool]||e.tool} · ${e.type}</div>
+      <div style="font-size:11px;color:var(--soft);padding-left:17px">${who}${d} · ${TOOL_NAMES[e.tool]||e.tool} · ${e.type}</div>
     </div>`
   }).join('')
 }
 function openFromLog(id){
-  switchTab('locs',document.querySelectorAll('.tab')[0])
+  switchTab('locs',document.getElementById('tab-btn-locs'))
   const loc=locations.find(l=>l.id===id)
   if(loc){selectLoc(id);return}
   const p=progress[id];if(!p)return
-  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?` · ${p.user}`:''
-  const fallbackHtml=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="${isMobile()?'unmarkClearedMobile':'unmarkCleared'}('${id}')">↩ Mark as not cleared</button>`
+  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?\` · ${p.user}`:''
+  const fallbackHtml=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div>`
   const gUrl=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name||id)}`
   if(isMobile()){
     document.getElementById('md-type').textContent='';document.getElementById('md-type').className='detail-type'
@@ -829,7 +1168,17 @@ function openFromLog(id){
 
 let sbOpen=true
 function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›';setTimeout(()=>map&&map.resize(),320)}
-function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
+
+function switchTab(name,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
+  btn.classList.add('on')
+  document.getElementById('tab-'+name).classList.add('on')
+  // Show/hide district layer
+  const inGroups=name==='groups'
+  showDistrictLayer(inGroups)
+  if(inGroups){renderDistrictList();updateDistrictStates()}
+}
 
 function setMsg(m){document.getElementById('mload-msg').textContent=m}
 function hideLoader(){document.getElementById('mload').style.display='none'}
@@ -837,8 +1186,9 @@ function hideLoader(){document.getElementById('mload').style.display='none'}
 async function bootApp(){
   initMap()
   setMsg('Loading progress…')
-  await loadProgress()
-  await loadAll()
+  await Promise.all([loadProgress(),loadGroupProgress()])
+  // Load districts in parallel with location data
+  const [,] = await Promise.all([loadAll(),loadDistricts()])
   renderLog()
 }
 
