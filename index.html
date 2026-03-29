@@ -361,8 +361,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(255,255,255,0.15)"></div>Uncleared</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#C9A84C;box-shadow:0 0 8px rgba(201,168,76,.9)"></div>Cleared ✦</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared ✦</div>
       </div>
     </div>
     <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>📍</span>Find Me</button>
@@ -461,30 +465,36 @@ function initMap(){
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
 
-    // ── Uncleared: tiny, near-invisible white specks ──────────────────────
+    // Uncleared: normal coloured dots, slightly reduced opacity
     map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
       filter:['==',['get','cleared'],false],
       paint:{
-        'circle-radius':['interpolate',['linear'],['zoom'],5,1.5,9,3,13,5],
-        'circle-color':'#ffffff',
-        'circle-opacity':0.18,   // very dim — just a hint
-        'circle-stroke-width':0,
+        'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?3:4,9,isMobile()?5:7,13,isMobile()?7:9],
+        'circle-color':['case',
+          ['==',['get','type'],'hospital'],'#E07050',
+          ['==',['get','type'],'school'],  '#5B9BD5',
+          ['==',['get','type'],'hospice'], '#3DBFA8',
+          ['==',['get','type'],'prison'],  '#C4722A',
+          '#9B78C8'],
+        'circle-opacity':0.55,   // dimmed but still coloured
+        'circle-stroke-width':1,
+        'circle-stroke-color':'rgba(255,255,255,0.2)',
         'circle-pitch-alignment':'map'
       }
     })
 
-    // ── Cleared outer glow: big soft gold halo ────────────────────────────
+    // Cleared: soft gold glow underneath
     map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,14,9,22,13,32],
+      'circle-radius':['interpolate',['linear'],['zoom'],5,9,9,14,13,20],
       'circle-color':GOLD,
-      'circle-opacity':0.22,
-      'circle-blur':0.65,
+      'circle-opacity':0.12,
+      'circle-blur':0.7,
       'circle-pitch-alignment':'map'
     }})
 
-    // ── Cleared dot: solid bright gold, prominent ─────────────────────────
+    // Cleared: solid gold dot, noticeably larger and full opacity
     map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,5,9,8,13,12],
+      'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?5:6,9,isMobile()?8:10,13,isMobile()?10:13],
       'circle-color':GOLD,
       'circle-opacity':1,
       'circle-stroke-width':2,
@@ -492,16 +502,16 @@ function initMap(){
         ['==',['get','tool'],'omega'],'#9B5ED4',
         ['==',['get','tool'],'jewel'],'#E07050',
         ['==',['get','tool'],'mg'],   '#4A85C9',
-        'rgba(255,255,255,0.7)'],
+        'rgba(255,255,255,0.6)'],
       'circle-pitch-alignment':'map'
     }})
 
-    // ── Selected ring ─────────────────────────────────────────────────────
+    // Selected ring
     map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,11,9,16,13,22],
       'circle-color':'transparent',
       'circle-stroke-width':2.5,
-      'circle-stroke-color':'rgba(255,255,255,0.9)',
+      'circle-stroke-color':'rgba(255,255,255,0.85)',
       'circle-opacity':0,
       'circle-stroke-opacity':1,
       'circle-pitch-alignment':'map'
