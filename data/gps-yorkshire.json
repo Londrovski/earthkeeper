@@ -1,0 +1,4835 @@
+[
+  {
+    "id": "gp-b86068",
+    "type": "gp",
+    "name": "Abbey Grange Medical Practice",
+    "address": "Abbey Medical Centre, Leeds",
+    "postcode": "LS5 3JN",
+    "lat": 53.818319,
+    "lng": -1.601585
+  },
+  {
+    "id": "gp-b83620",
+    "type": "gp",
+    "name": "Addingham Surgery",
+    "address": "Addingham Medical Centre, Ilkley",
+    "postcode": "LS29 0LZ",
+    "lat": 53.943698,
+    "lng": -1.881427
+  },
+  {
+    "id": "gp-b86051",
+    "type": "gp",
+    "name": "Aire Valley Surgery",
+    "address": "Silver Lane Surgery, Leeds",
+    "postcode": "LS19 7JN",
+    "lat": 53.866228,
+    "lng": -1.684874
+  },
+  {
+    "id": "gp-b86070",
+    "type": "gp",
+    "name": "Aireborough Family Practice",
+    "address": "1 Suffolk Court, Leeds",
+    "postcode": "LS19 7JN",
+    "lat": 53.866228,
+    "lng": -1.684874
+  },
+  {
+    "id": "gp-b86039",
+    "type": "gp",
+    "name": "Allerton Medical Centre",
+    "address": "6 Montreal Avenue, Leeds",
+    "postcode": "LS7 4LF",
+    "lat": 53.826937,
+    "lng": -1.533884
+  },
+  {
+    "id": "gp-b87044",
+    "type": "gp",
+    "name": "Alverthorpe",
+    "address": "Balne Lane, Wakefield",
+    "postcode": "WF2 0DP",
+    "lat": 53.685476,
+    "lng": -1.518486
+  },
+  {
+    "id": "gp-b86008",
+    "type": "gp",
+    "name": "Alwoodley Medical Centre",
+    "address": "Saxon Mount, Leeds",
+    "postcode": "LS17 5DT",
+    "lat": 53.847039,
+    "lng": -1.551688
+  },
+  {
+    "id": "gp-b82609",
+    "type": "gp",
+    "name": "Ampleforth Surgery",
+    "address": "Back Lane, York",
+    "postcode": "YO62 4EF",
+    "lat": 54.200491,
+    "lng": -1.102977
+  },
+  {
+    "id": "gp-b86096",
+    "type": "gp",
+    "name": "Arthington Medical Centre",
+    "address": "5 Moor Road, Leeds",
+    "postcode": "LS10 2JJ",
+    "lat": 53.772153,
+    "lng": -1.533216
+  },
+  {
+    "id": "gp-b87021",
+    "type": "gp",
+    "name": "Ash Grove",
+    "address": "Ash Grove Medical Centre, Knottingley",
+    "postcode": "WF11 0JA",
+    "lat": 53.70504,
+    "lng": -1.245559
+  },
+  {
+    "id": "gp-b83062",
+    "type": "gp",
+    "name": "Ashcroft Surgery",
+    "address": "Newlands Way, Bradford",
+    "postcode": "BD10 0JE",
+    "lat": 53.823809,
+    "lng": -1.711352
+  },
+  {
+    "id": "gp-b86055",
+    "type": "gp",
+    "name": "Ashfield Medical Centre",
+    "address": "15 Austhorpe Road, Leeds",
+    "postcode": "LS15 8BA",
+    "lat": 53.807471,
+    "lng": -1.44935
+  },
+  {
+    "id": "gp-b86623",
+    "type": "gp",
+    "name": "Ashton View Medical Ctr",
+    "address": "7 Ashton View, Leeds",
+    "postcode": "LS8 5BS",
+    "lat": 53.809527,
+    "lng": -1.515746
+  },
+  {
+    "id": "gp-c85003",
+    "type": "gp",
+    "name": "Ashville Medical Centre Pms Practice",
+    "address": "Oaks Park Primary Care Centre, Barnsley",
+    "postcode": "S70 3NE",
+    "lat": 53.543091,
+    "lng": -1.456902
+  },
+  {
+    "id": "gp-b83641",
+    "type": "gp",
+    "name": "Ashwell Medical Centre",
+    "address": "Ashwell Road, Bradford",
+    "postcode": "BD8 9DP",
+    "lat": 53.8038,
+    "lng": -1.778616
+  },
+  {
+    "id": "gp-b82063",
+    "type": "gp",
+    "name": "Ayton And Snainton Medical Practice",
+    "address": "The Surgery, Scarborough",
+    "postcode": "YO13 9JF",
+    "lat": 54.246064,
+    "lng": -0.493657
+  },
+  {
+    "id": "gp-b83022",
+    "type": "gp",
+    "name": "Baildon Medical Practice",
+    "address": "10 Newton Way, Shipley",
+    "postcode": "BD17 5NH",
+    "lat": 53.853081,
+    "lng": -1.768931
+  },
+  {
+    "id": "gp-b84016",
+    "type": "gp",
+    "name": "Bankfield Surgery",
+    "address": "15 Huddersfield Road, Elland",
+    "postcode": "HX5 9BA",
+    "lat": 53.686346,
+    "lng": -1.835148
+  },
+  {
+    "id": "gp-c81662",
+    "type": "gp",
+    "name": "Barlborough Medical Practice",
+    "address": "The Old Malthouse, Chesterfield",
+    "postcode": "S43 4TY",
+    "lat": 53.289549,
+    "lng": -1.28447
+  },
+  {
+    "id": "gp-c88091",
+    "type": "gp",
+    "name": "Barnsley Road Surgery",
+    "address": "899 Barnsley Road, Sheffield",
+    "postcode": "S5 0QJ",
+    "lat": 53.425106,
+    "lng": -1.456929
+  },
+  {
+    "id": "gp-b85008",
+    "type": "gp",
+    "name": "Batley Health Centre Surgery",
+    "address": "Health Centre, Batley",
+    "postcode": "WF17 5ED",
+    "lat": 53.715344,
+    "lng": -1.636484
+  },
+  {
+    "id": "gp-c88046",
+    "type": "gp",
+    "name": "Beauchief Medical Practice",
+    "address": "23 Abbey Lane, Sheffield",
+    "postcode": "S8 0BJ",
+    "lat": 53.339102,
+    "lng": -1.483118
+  },
+  {
+    "id": "gp-b82069",
+    "type": "gp",
+    "name": "Beech House Surgery",
+    "address": "1 Ash Tree Road, Knaresborough",
+    "postcode": "HG5 0UB",
+    "lat": 54.010851,
+    "lng": -1.465898
+  },
+  {
+    "id": "gp-b86655",
+    "type": "gp",
+    "name": "Beech Tree Medical Centre",
+    "address": "178 Henconner Lane, Leeds",
+    "postcode": "LS13 4JH",
+    "lat": 53.797099,
+    "lng": -1.621416
+  },
+  {
+    "id": "gp-b82041",
+    "type": "gp",
+    "name": "Beech Tree Surgery",
+    "address": "68 Doncaster Road, Selby",
+    "postcode": "YO8 9AJ",
+    "lat": 53.774959,
+    "lng": -1.080535
+  },
+  {
+    "id": "gp-b84613",
+    "type": "gp",
+    "name": "Beechwood Medical Centre",
+    "address": "60A Keighley Road, Halifax",
+    "postcode": "HX2 8AL",
+    "lat": 53.743259,
+    "lng": -1.88117
+  },
+  {
+    "id": "gp-b86667",
+    "type": "gp",
+    "name": "Beeston Village Surgery",
+    "address": "6B Town Street, Leeds",
+    "postcode": "LS11 8PN",
+    "lat": 53.772431,
+    "lng": -1.569156
+  },
+  {
+    "id": "gp-b86081",
+    "type": "gp",
+    "name": "Bellbrooke Surgery",
+    "address": "Bellbrooke Avenue, Leeds",
+    "postcode": "LS9 6AU",
+    "lat": 53.808932,
+    "lng": -1.50652
+  },
+  {
+    "id": "gp-b83657",
+    "type": "gp",
+    "name": "Bevan Community Benefit Society",
+    "address": "Bevan House Primary Care, Bradford",
+    "postcode": "BD1 3LS",
+    "lat": 53.795581,
+    "lng": -1.753353
+  },
+  {
+    "id": "gp-b83660",
+    "type": "gp",
+    "name": "Bilton Medical Centre",
+    "address": "120 City Road, Bradford",
+    "postcode": "BD8 8JT",
+    "lat": 53.798364,
+    "lng": -1.769535
+  },
+  {
+    "id": "gp-b83014",
+    "type": "gp",
+    "name": "Bingley Medical Practice",
+    "address": "Canalside Health Care Centre, Bingley",
+    "postcode": "BD16 4RP",
+    "lat": 53.846951,
+    "lng": -1.827832
+  },
+  {
+    "id": "gp-b85634",
+    "type": "gp",
+    "name": "Birkby Health Centre",
+    "address": "37 Norwood Road, Huddersfield",
+    "postcode": "HD2 2YD",
+    "lat": 53.663291,
+    "lng": -1.799614
+  },
+  {
+    "id": "gp-c88025",
+    "type": "gp",
+    "name": "Birley Health Centre",
+    "address": "120 Birley Lane, Sheffield",
+    "postcode": "S12 3BP",
+    "lat": 53.340317,
+    "lng": -1.396985
+  },
+  {
+    "id": "gp-b85025",
+    "type": "gp",
+    "name": "Blackburn Rd.Medical Ctr.",
+    "address": "Blackburn Road, Batley",
+    "postcode": "WF17 9PL",
+    "lat": 53.731363,
+    "lng": -1.664721
+  },
+  {
+    "id": "gp-c87616",
+    "type": "gp",
+    "name": "Blyth Road Medical Centre",
+    "address": "8 Blyth Road, Rotherham",
+    "postcode": "S66 8JD",
+    "lat": 53.42225,
+    "lng": -1.20365
+  },
+  {
+    "id": "gp-b83041",
+    "type": "gp",
+    "name": "Bowling Hall Med Practice",
+    "address": "Rooley Lane, Bradford",
+    "postcode": "BD4 7SS",
+    "lat": 53.772829,
+    "lng": -1.730893
+  },
+  {
+    "id": "gp-b83032",
+    "type": "gp",
+    "name": "Bradford Moor Practice",
+    "address": "Barkerend Health Centre, Bradford",
+    "postcode": "BD3 8QH",
+    "lat": 53.797849,
+    "lng": -1.721853
+  },
+  {
+    "id": "gp-b83051",
+    "type": "gp",
+    "name": "Bradford Student Health Service",
+    "address": "Laisteridge Lane, Bradford",
+    "postcode": "BD5 0HR",
+    "lat": 53.785338,
+    "lng": -1.768362
+  },
+  {
+    "id": "gp-b86104",
+    "type": "gp",
+    "name": "Bramley Village Health & Wellbeing Ctr",
+    "address": "16 Highfield Road, Leeds",
+    "postcode": "LS13 2BL",
+    "lat": 53.807827,
+    "lng": -1.623035
+  },
+  {
+    "id": "gp-b84007",
+    "type": "gp",
+    "name": "Brig Royd Surgery",
+    "address": "Hirstwood, Sowerby Bridge",
+    "postcode": "HX6 4BN",
+    "lat": 53.675586,
+    "lng": -1.939473
+  },
+  {
+    "id": "gp-c87009",
+    "type": "gp",
+    "name": "Brinsworth Medical Centre",
+    "address": "171 Bawtry Road, Rotherham",
+    "postcode": "S60 5ND",
+    "lat": 53.407855,
+    "lng": -1.380688
+  },
+  {
+    "id": "gp-b82088",
+    "type": "gp",
+    "name": "Brook Square Surgery",
+    "address": "Trafalgar House, Scarborough",
+    "postcode": "YO12 7AS",
+    "lat": 54.281806,
+    "lng": -0.409345
+  },
+  {
+    "id": "gp-b85014",
+    "type": "gp",
+    "name": "Brookroyd House",
+    "address": "Brookroyd Surgery, Heckmondwike",
+    "postcode": "WF16 0HH",
+    "lat": 53.70724,
+    "lng": -1.678183
+  },
+  {
+    "id": "gp-c87012",
+    "type": "gp",
+    "name": "Broom Lane Medical Centre",
+    "address": "70 Broom Lane, Rotherham",
+    "postcode": "S60 3EW",
+    "lat": 53.417402,
+    "lng": -1.332311
+  },
+  {
+    "id": "gp-c88028",
+    "type": "gp",
+    "name": "Broomhill Surgery",
+    "address": "5 Lawson Road, Sheffield",
+    "postcode": "S10 5BU",
+    "lat": 53.378235,
+    "lng": -1.505584
+  },
+  {
+    "id": "gp-c88011",
+    "type": "gp",
+    "name": "Buchanan Road Surgery",
+    "address": "72 Buchanan Road, Sheffield",
+    "postcode": "S5 8AL",
+    "lat": 53.422895,
+    "lng": -1.470998
+  },
+  {
+    "id": "gp-c85017",
+    "type": "gp",
+    "name": "Burleigh Medical Centre",
+    "address": "Burleigh Street, Barnsley",
+    "postcode": "S70 1DR",
+    "lat": 53.549543,
+    "lng": -1.476757
+  },
+  {
+    "id": "gp-b86069",
+    "type": "gp",
+    "name": "Burley Park Medical Centre",
+    "address": "273 Burley Road, Leeds",
+    "postcode": "LS4 2EL",
+    "lat": 53.807558,
+    "lng": -1.57976
+  },
+  {
+    "id": "gp-c88048",
+    "type": "gp",
+    "name": "Burngreave Surgery",
+    "address": "Spital Street Health Centre, Sheffield",
+    "postcode": "S3 9LB",
+    "lat": 53.390867,
+    "lng": -1.460493
+  },
+  {
+    "id": "gp-b86030",
+    "type": "gp",
+    "name": "Burton Croft Surgery",
+    "address": "1 Shire Oak Street, Leeds",
+    "postcode": "LS6 2AF",
+    "lat": 53.820823,
+    "lng": -1.576924
+  },
+  {
+    "id": "gp-b85004",
+    "type": "gp",
+    "name": "Calder View Surgery",
+    "address": "Dewsbury Health Centre, Dewsbury",
+    "postcode": "WF13 1HN",
+    "lat": 53.689759,
+    "lng": -1.634887
+  },
+  {
+    "id": "gp-c81649",
+    "type": "gp",
+    "name": "Calow And Brimington Practice",
+    "address": "Brimington&Calow Med Prac, Chesterfield",
+    "postcode": "S43 1DD",
+    "lat": 53.257867,
+    "lng": -1.396118
+  },
+  {
+    "id": "gp-b81104",
+    "type": "gp",
+    "name": "Campus Health Centre",
+    "address": "Raines House, Hull",
+    "postcode": "HU5 2EG",
+    "lat": 53.768814,
+    "lng": -0.368372
+  },
+  {
+    "id": "gp-b84618",
+    "type": "gp",
+    "name": "Caritas Group Practice",
+    "address": "Woodside Surgery, Halifax",
+    "postcode": "HX3 6EL",
+    "lat": 53.73022,
+    "lng": -1.866944
+  },
+  {
+    "id": "gp-c88082",
+    "type": "gp",
+    "name": "Carrfield Medical Centre",
+    "address": "Carrfield Street, Sheffield",
+    "postcode": "S8 9SG",
+    "lat": 53.358636,
+    "lng": -1.465061
+  },
+  {
+    "id": "gp-c88016",
+    "type": "gp",
+    "name": "Carterknowle & Dore Medical Practice",
+    "address": "1 Carter Knowle Road, Sheffield",
+    "postcode": "S7 2DW",
+    "lat": 53.353454,
+    "lng": -1.488728
+  },
+  {
+    "id": "gp-c81638",
+    "type": "gp",
+    "name": "Castle Street Medical Centre",
+    "address": "Castle Street, Chesterfield",
+    "postcode": "S44 6PP",
+    "lat": 53.229627,
+    "lng": -1.293753
+  },
+  {
+    "id": "gp-b87025",
+    "type": "gp",
+    "name": "Castleford Medical Practice",
+    "address": "Welbeck Street, Castleford",
+    "postcode": "WF10 1DP",
+    "lat": 53.724668,
+    "lng": -1.356178
+  },
+  {
+    "id": "gp-c88010",
+    "type": "gp",
+    "name": "Chapelgreen Practice",
+    "address": "1 Bevan Way, Sheffield",
+    "postcode": "S35 1RN",
+    "lat": 53.459173,
+    "lng": -1.479041
+  },
+  {
+    "id": "gp-b87020",
+    "type": "gp",
+    "name": "Chapelthorpe",
+    "address": "Standbridge Lane, Wakefield",
+    "postcode": "WF2 7GP",
+    "lat": 53.644775,
+    "lng": -1.506727
+  },
+  {
+    "id": "gp-b86108",
+    "type": "gp",
+    "name": "Chapeltown Family Surgery",
+    "address": "Spencer Place, Leeds",
+    "postcode": "LS7 4BB",
+    "lat": 53.811448,
+    "lng": -1.526204
+  },
+  {
+    "id": "gp-c88032",
+    "type": "gp",
+    "name": "Charnock Health Primary Care Centre",
+    "address": "White Lane, Sheffield",
+    "postcode": "S12 3GH",
+    "lat": 53.343014,
+    "lng": -1.420738
+  },
+  {
+    "id": "gp-c81067",
+    "type": "gp",
+    "name": "Chatsworth Road Medical Centre",
+    "address": "Storrs Road, Chesterfield",
+    "postcode": "S40 3PY",
+    "lat": 53.231374,
+    "lng": -1.467337
+  },
+  {
+    "id": "gp-b85655",
+    "type": "gp",
+    "name": "Cherry Tree Surgery",
+    "address": "132 Upper Commercial Street, Batley",
+    "postcode": "WF17 5DH",
+    "lat": 53.714761,
+    "lng": -1.636641
+  },
+  {
+    "id": "gp-b86032",
+    "type": "gp",
+    "name": "Chevin Medical Practice",
+    "address": "3 Bridge Street, Otley",
+    "postcode": "LS21 1BQ",
+    "lat": 53.906768,
+    "lng": -1.693687
+  },
+  {
+    "id": "gp-b82059",
+    "type": "gp",
+    "name": "Church Avenue Medical Group",
+    "address": "The Surgery, Harrogate",
+    "postcode": "HG1 4HG",
+    "lat": 54.006036,
+    "lng": -1.535762
+  },
+  {
+    "id": "gp-b82032",
+    "type": "gp",
+    "name": "Church Lane Surgery",
+    "address": "Church Lane, York",
+    "postcode": "YO51 9BD",
+    "lat": 54.093564,
+    "lng": -1.393648
+  },
+  {
+    "id": "gp-b84011",
+    "type": "gp",
+    "name": "Church Lane Surgery",
+    "address": "24 Church Lane, Brighouse",
+    "postcode": "HD6 1AT",
+    "lat": 53.703079,
+    "lng": -1.782551
+  },
+  {
+    "id": "gp-b81074",
+    "type": "gp",
+    "name": "City Health Practice Ltd",
+    "address": "225 New Bridge Road, Hull",
+    "postcode": "HU9 2LR",
+    "lat": 53.756562,
+    "lng": -0.306823
+  },
+  {
+    "id": "gp-b86002",
+    "type": "gp",
+    "name": "City View Medical Practice",
+    "address": "Beeston Hill Community Health Ctr, Leeds",
+    "postcode": "LS11 8LH",
+    "lat": 53.778323,
+    "lng": -1.555879
+  },
+  {
+    "id": "gp-b83628",
+    "type": "gp",
+    "name": "Clarendon Medical Centre",
+    "address": "Royal Standard House, Bradford",
+    "postcode": "BD1 3DN",
+    "lat": 53.79914,
+    "lng": -1.757689
+  },
+  {
+    "id": "gp-c81056",
+    "type": "gp",
+    "name": "Clay Cross Medical Centre",
+    "address": "Bridge Street, Chesterfield",
+    "postcode": "S45 9NG",
+    "lat": 53.168103,
+    "lng": -1.412204
+  },
+  {
+    "id": "gp-b85021",
+    "type": "gp",
+    "name": "Cleckheaton Group Practice",
+    "address": "Cross Church Street, Cleckheaton",
+    "postcode": "BD19 3RQ",
+    "lat": 53.724067,
+    "lng": -1.710624
+  },
+  {
+    "id": "gp-b81054",
+    "type": "gp",
+    "name": "Clifton House Medical Centre",
+    "address": "263-265 Beverley Road, Hull",
+    "postcode": "HU5 2ST",
+    "lat": 53.759516,
+    "lng": -0.34971
+  },
+  {
+    "id": "gp-c87017",
+    "type": "gp",
+    "name": "Clifton Medical Centre",
+    "address": "Rotherham Health Village, Rotherham",
+    "postcode": "S65 1DA",
+    "lat": 53.430016,
+    "lng": -1.352433
+  },
+  {
+    "id": "gp-c88069",
+    "type": "gp",
+    "name": "Clover Group Practice",
+    "address": "Darnall Primary Care Centre, Sheffield",
+    "postcode": "S9 4QH",
+    "lat": 53.384852,
+    "lng": -1.40885
+  },
+  {
+    "id": "gp-c88084",
+    "type": "gp",
+    "name": "Clover North Darnall Health Centre",
+    "address": "2 York Road, Darnall, Sheffield",
+    "postcode": "S9 5DH",
+    "lat": 53.388221,
+    "lng": -1.410397
+  },
+  {
+    "id": "gp-b87003",
+    "type": "gp",
+    "name": "College Lane Surgery",
+    "address": "Barnsley Road, Pontefract",
+    "postcode": "WF7 7HZ",
+    "lat": 53.644591,
+    "lng": -1.336295
+  },
+  {
+    "id": "gp-b86010",
+    "type": "gp",
+    "name": "Collingham Church View Surgery",
+    "address": "School Lane, Wetherby",
+    "postcode": "LS22 5BQ",
+    "lat": 53.908116,
+    "lng": -1.409
+  },
+  {
+    "id": "gp-b85054",
+    "type": "gp",
+    "name": "Colne Valley Group Practice",
+    "address": "West Wing, Ground Floor, Huddersfield",
+    "postcode": "HD7 5JN",
+    "lat": 53.622538,
+    "lng": -1.879904
+  },
+  {
+    "id": "gp-b86103",
+    "type": "gp",
+    "name": "Conway Medical Centre",
+    "address": "51-53 Conway Place, Leeds",
+    "postcode": "LS8 5DE",
+    "lat": 53.811136,
+    "lng": -1.51348
+  },
+  {
+    "id": "gp-b85619",
+    "type": "gp",
+    "name": "Cook Lane Surgery",
+    "address": "Cook Lane, Heckmondwike",
+    "postcode": "WF16 9JG",
+    "lat": 53.710499,
+    "lng": -1.676765
+  },
+  {
+    "id": "gp-c81096",
+    "type": "gp",
+    "name": "Crag'S Health Care",
+    "address": "Craggs Health Care, Worksop",
+    "postcode": "S80 4DY",
+    "lat": 53.260161,
+    "lng": -1.223721
+  },
+  {
+    "id": "gp-b86017",
+    "type": "gp",
+    "name": "Craven Road Medical Practice",
+    "address": "60 Craven Road, Leeds",
+    "postcode": "LS6 2RX",
+    "lat": 53.814117,
+    "lng": -1.547255
+  },
+  {
+    "id": "gp-b85614",
+    "type": "gp",
+    "name": "Croft Medical Centre",
+    "address": "5 Cobcroft Road, Huddersfield",
+    "postcode": "HD2 2RU",
+    "lat": 53.659977,
+    "lng": -1.785435
+  },
+  {
+    "id": "gp-b87028",
+    "type": "gp",
+    "name": "Crofton And Sharlston Med Prac",
+    "address": "Slack Lane, Wakefield",
+    "postcode": "WF4 1HJ",
+    "lat": 53.65659,
+    "lng": -1.427044
+  },
+  {
+    "id": "gp-c88079",
+    "type": "gp",
+    "name": "Crookes Practice",
+    "address": "203 School Road, Sheffield",
+    "postcode": "S10 1GN",
+    "lat": 53.383668,
+    "lng": -1.502229
+  },
+  {
+    "id": "gp-b86033",
+    "type": "gp",
+    "name": "Crossley Street Surgery",
+    "address": "Crossley Street, Wetherby",
+    "postcode": "LS22 6RT",
+    "lat": 53.930296,
+    "lng": -1.388933
+  },
+  {
+    "id": "gp-c87030",
+    "type": "gp",
+    "name": "Crown Street Surgery",
+    "address": "17 Crown Street, Mexborough",
+    "postcode": "S64 8NB",
+    "lat": 53.487728,
+    "lng": -1.314616
+  },
+  {
+    "id": "gp-c88648",
+    "type": "gp",
+    "name": "Crystal Peaks Medical Centre",
+    "address": "The Medical Centre, Sheffield",
+    "postcode": "S20 7HZ",
+    "lat": 53.342917,
+    "lng": -1.354427
+  },
+  {
+    "id": "gp-b85010",
+    "type": "gp",
+    "name": "Dalton Surgery",
+    "address": "364A Wakefield Road, Huddersfield",
+    "postcode": "HD5 8DY",
+    "lat": 53.644613,
+    "lng": -1.75104
+  },
+  {
+    "id": "gp-b82021",
+    "type": "gp",
+    "name": "Dalton Terrace Surgery",
+    "address": "Glentworth, York",
+    "postcode": "YO24 4DB",
+    "lat": 53.952276,
+    "lng": -1.096911
+  },
+  {
+    "id": "gp-c85614",
+    "type": "gp",
+    "name": "Darton Health Centre Practice",
+    "address": "The Health Centre, Barnsley",
+    "postcode": "S75 5HQ",
+    "lat": 53.586094,
+    "lng": -1.530009
+  },
+  {
+    "id": "gp-b85002",
+    "type": "gp",
+    "name": "Dearne Valley Health Centre",
+    "address": "Wakefield Road, Huddersfield",
+    "postcode": "HD8 9JL",
+    "lat": 53.588365,
+    "lng": -1.626485
+  },
+  {
+    "id": "gp-c88074",
+    "type": "gp",
+    "name": "Deepcar Medical Centre",
+    "address": "271 Manchester Road, Sheffield",
+    "postcode": "S36 2RA",
+    "lat": 53.48021,
+    "lng": -1.578341
+  },
+  {
+    "id": "gp-b81097",
+    "type": "gp",
+    "name": "Delta Healthcare",
+    "address": "Park Primary Health Care Centre, Hull",
+    "postcode": "HU9 3JA",
+    "lat": 53.764302,
+    "lng": -0.292842
+  },
+  {
+    "id": "gp-b82025",
+    "type": "gp",
+    "name": "Derwent Practice",
+    "address": "Norton Road, Malton",
+    "postcode": "YO17 9RF",
+    "lat": 54.1326,
+    "lng": -0.797739
+  },
+  {
+    "id": "gp-c88076",
+    "type": "gp",
+    "name": "Devonshire Green Medical Centre",
+    "address": "126 Devonshire Street, Sheffield",
+    "postcode": "S3 7SF",
+    "lat": 53.379527,
+    "lng": -1.477593
+  },
+  {
+    "id": "gp-b86019",
+    "type": "gp",
+    "name": "Diamond Medical Group",
+    "address": "Rutland Lodge, Leeds",
+    "postcode": "LS7 3RA",
+    "lat": 53.827031,
+    "lng": -1.546721
+  },
+  {
+    "id": "gp-c87002",
+    "type": "gp",
+    "name": "Dinnington Group Practice",
+    "address": "Anston Medical Centre, Sheffield",
+    "postcode": "S25 4DB",
+    "lat": 53.357222,
+    "lng": -1.223599
+  },
+  {
+    "id": "gp-c88087",
+    "type": "gp",
+    "name": "Dovercourt Group Practice",
+    "address": "Dovercourt Surgery, Sheffield",
+    "postcode": "S2 5FX",
+    "lat": 53.374952,
+    "lng": -1.441799
+  },
+  {
+    "id": "gp-b81100",
+    "type": "gp",
+    "name": "Dr Ac Milner",
+    "address": "Anlaby Surgery, Hull",
+    "postcode": "HU10 6QJ",
+    "lat": 53.748515,
+    "lng": -0.43434
+  },
+  {
+    "id": "gp-b86003",
+    "type": "gp",
+    "name": "Dr G Lees & Partners",
+    "address": "Armley Moor Medical Centre, Leeds",
+    "postcode": "LS12 3HD",
+    "lat": 53.796441,
+    "lng": -1.593443
+  },
+  {
+    "id": "gp-b83653",
+    "type": "gp",
+    "name": "Dr Gilkar",
+    "address": "392 Little Horton Lane, Bradford",
+    "postcode": "BD5 0NX",
+    "lat": 53.782437,
+    "lng": -1.764887
+  },
+  {
+    "id": "gp-b81616",
+    "type": "gp",
+    "name": "Dr Gt Hendow'S Practice",
+    "address": "Bransholme South Hth Ctr, Hull",
+    "postcode": "HU7 4DW",
+    "lat": 53.787428,
+    "lng": -0.321368
+  },
+  {
+    "id": "gp-b85611",
+    "type": "gp",
+    "name": "Dr Handa & Partner",
+    "address": "34 Fartown Green Road, Huddersfield",
+    "postcode": "HD2 1AE",
+    "lat": 53.663224,
+    "lng": -1.776884
+  },
+  {
+    "id": "gp-b83025",
+    "type": "gp",
+    "name": "Dr I M Raja & Partner",
+    "address": "392 Little Horton Lane, Bradford",
+    "postcode": "BD5 0NX",
+    "lat": 53.782437,
+    "lng": -1.764887
+  },
+  {
+    "id": "gp-b83622",
+    "type": "gp",
+    "name": "Dr Ia Gilkar & Partners",
+    "address": "Kensington Street Health Centre, Bradford",
+    "postcode": "BD8 9LB",
+    "lat": 53.801125,
+    "lng": -1.785538
+  },
+  {
+    "id": "gp-b81040",
+    "type": "gp",
+    "name": "Dr Jad Weir & Partners",
+    "address": "Marfleet Group Practice, Hull",
+    "postcode": "HU9 5HH",
+    "lat": 53.756006,
+    "lng": -0.265996
+  },
+  {
+    "id": "gp-b85650",
+    "type": "gp",
+    "name": "Dr Mahmood & Partners",
+    "address": "Netherfield Road, Dewsbury",
+    "postcode": "WF13 3JY",
+    "lat": 53.677829,
+    "lng": -1.661589
+  },
+  {
+    "id": "gp-b81666",
+    "type": "gp",
+    "name": "Dr Mitchell",
+    "address": "15 School Lane, North Ferriby",
+    "postcode": "HU14 3DB",
+    "lat": 53.720769,
+    "lng": -0.503586
+  },
+  {
+    "id": "gp-b86005",
+    "type": "gp",
+    "name": "Dr N Dumphy & Partners",
+    "address": "12 Oakley Terrace, Leeds",
+    "postcode": "LS11 5HT",
+    "lat": 53.774132,
+    "lng": -1.545514
+  },
+  {
+    "id": "gp-c87031",
+    "type": "gp",
+    "name": "Dr Raolu'S Practice",
+    "address": "Braithwell Road, Rotherham",
+    "postcode": "S66 8JE",
+    "lat": 53.423549,
+    "lng": -1.204348
+  },
+  {
+    "id": "gp-b86642",
+    "type": "gp",
+    "name": "Dr S Hussain",
+    "address": "Church Street Surgery, Leeds",
+    "postcode": "LS10 2PE",
+    "lat": 53.779422,
+    "lng": -1.525866
+  },
+  {
+    "id": "gp-b86044",
+    "type": "gp",
+    "name": "Dr S Hutchinson & Partners, Iw&H M Prac",
+    "address": "Iveson Approach, Leeds",
+    "postcode": "LS16 6FR",
+    "lat": 53.846647,
+    "lng": -1.603993
+  },
+  {
+    "id": "gp-b86094",
+    "type": "gp",
+    "name": "Dr S M Chen & Partner",
+    "address": "The Gables Surgery, Pudsey",
+    "postcode": "LS28 9AW",
+    "lat": 53.801254,
+    "lng": -1.651928
+  },
+  {
+    "id": "gp-b86075",
+    "type": "gp",
+    "name": "Dr T P Fox & Partners",
+    "address": "Colton Mill Medical Centre, Leeds",
+    "postcode": "LS15 9JH",
+    "lat": 53.791966,
+    "lng": -1.431929
+  },
+  {
+    "id": "gp-b86678",
+    "type": "gp",
+    "name": "Drighlington Medical Centre",
+    "address": "Station Road, Bradford",
+    "postcode": "BD11 1JU",
+    "lat": 53.75543,
+    "lng": -1.663453
+  },
+  {
+    "id": "gp-c81025",
+    "type": "gp",
+    "name": "Dronfield Medical Practice",
+    "address": "High Street, Dronfield",
+    "postcode": "S18 1PY",
+    "lat": 53.302375,
+    "lng": -1.475083
+  },
+  {
+    "id": "gp-b81631",
+    "type": "gp",
+    "name": "Drs Raut And Thoufeeq",
+    "address": "Highlands Health Centre, Hull",
+    "postcode": "HU7 5DD",
+    "lat": 53.805614,
+    "lng": -0.326549
+  },
+  {
+    "id": "gp-b81069",
+    "type": "gp",
+    "name": "Drs Reddy And Nunn",
+    "address": "Bridlington Medical Centre, Bridlington",
+    "postcode": "YO16 4LZ",
+    "lat": 54.084715,
+    "lng": -0.201064
+  },
+  {
+    "id": "gp-c88030",
+    "type": "gp",
+    "name": "Duke Medical Centre",
+    "address": "28 Talbot Road, Sheffield",
+    "postcode": "S2 2TD",
+    "lat": 53.378532,
+    "lng": -1.455868
+  },
+  {
+    "id": "gp-c88045",
+    "type": "gp",
+    "name": "Dykes Hall Medical Centre",
+    "address": "156 Dykes Hall Road, Sheffield",
+    "postcode": "S6 4GQ",
+    "lat": 53.405158,
+    "lng": -1.506025
+  },
+  {
+    "id": "gp-b82053",
+    "type": "gp",
+    "name": "Dyneley House Surgery",
+    "address": "Newmarket Street, Skipton",
+    "postcode": "BD23 2HZ",
+    "lat": 53.960508,
+    "lng": -2.014249
+  },
+  {
+    "id": "gp-c88088",
+    "type": "gp",
+    "name": "East Bank Medical Centre",
+    "address": "555 East Bank Road, Sheffield",
+    "postcode": "S2 2AG",
+    "lat": 53.358385,
+    "lng": -1.439581
+  },
+  {
+    "id": "gp-b86043",
+    "type": "gp",
+    "name": "East Park Medical Centre",
+    "address": "5-7 East Park Road, Leeds",
+    "postcode": "LS9 9JD",
+    "lat": 53.793184,
+    "lng": -1.514948
+  },
+  {
+    "id": "gp-b81645",
+    "type": "gp",
+    "name": "East Park Practice",
+    "address": "Wilberforce Health Centre, Hull",
+    "postcode": "HU1 3SA",
+    "lat": 53.746241,
+    "lng": -0.342102
+  },
+  {
+    "id": "gp-b82024",
+    "type": "gp",
+    "name": "Eastfield Medical Centre",
+    "address": "14 High Street, Scarborough",
+    "postcode": "YO11 3LJ",
+    "lat": 54.238911,
+    "lng": -0.397567
+  },
+  {
+    "id": "gp-b82060",
+    "type": "gp",
+    "name": "Eastgate Medical Group",
+    "address": "31B York Place, Knaresborough",
+    "postcode": "HG5 0AD",
+    "lat": 54.006811,
+    "lng": -1.462821
+  },
+  {
+    "id": "gp-b81004",
+    "type": "gp",
+    "name": "Eastgate Medical Group, Hornsea",
+    "address": "37 Eastgate, Hornsea",
+    "postcode": "HU18 1LP",
+    "lat": 53.915298,
+    "lng": -0.168259
+  },
+  {
+    "id": "gp-b87604",
+    "type": "gp",
+    "name": "Eastmoor Health Centre",
+    "address": "Windhill Road, Wakefield",
+    "postcode": "WF1 4SD",
+    "lat": 53.69002,
+    "lng": -1.476866
+  },
+  {
+    "id": "gp-c88039",
+    "type": "gp",
+    "name": "Ecclesfield Group Pract",
+    "address": "96A Mill Road, Sheffield",
+    "postcode": "S35 9XQ",
+    "lat": 53.444839,
+    "lng": -1.465501
+  },
+  {
+    "id": "gp-b85020",
+    "type": "gp",
+    "name": "Eightlands Surgery",
+    "address": "Wellington Road, Dewsbury",
+    "postcode": "WF13 1HN",
+    "lat": 53.689759,
+    "lng": -1.634887
+  },
+  {
+    "id": "gp-c88049",
+    "type": "gp",
+    "name": "Elm Lane Surgery",
+    "address": "104 Elm Lane, Sheffield",
+    "postcode": "S5 7TW",
+    "lat": 53.421627,
+    "lng": -1.46069
+  },
+  {
+    "id": "gp-b85006",
+    "type": "gp",
+    "name": "Elmwood Family Doctors",
+    "address": "Huddersfield Road, Holmfirth",
+    "postcode": "HD9 3TR",
+    "lat": 53.57846,
+    "lng": -1.783717
+  },
+  {
+    "id": "gp-b82081",
+    "type": "gp",
+    "name": "Elvington Medical Practice",
+    "address": "Elvington Surgery, York",
+    "postcode": "YO41 4DY",
+    "lat": 53.925017,
+    "lng": -0.948837
+  },
+  {
+    "id": "gp-c81095",
+    "type": "gp",
+    "name": "Emmett Carr Surgery",
+    "address": "Abbey Place, Sheffield",
+    "postcode": "S21 3TY",
+    "lat": 53.294997,
+    "lng": -1.324798
+  },
+  {
+    "id": "gp-b82018",
+    "type": "gp",
+    "name": "Escrick Surgery",
+    "address": "4 Main Street, York",
+    "postcode": "YO19 6LE",
+    "lat": 53.879893,
+    "lng": -1.047722
+  },
+  {
+    "id": "gp-b82086",
+    "type": "gp",
+    "name": "Esk Valley Medical Practice",
+    "address": "Briar Hill, Whitby",
+    "postcode": "YO21 2PA",
+    "lat": 54.46833,
+    "lng": -0.90789
+  },
+  {
+    "id": "gp-c81092",
+    "type": "gp",
+    "name": "Evelyn Medical Centre",
+    "address": "Marsh Avenue, Hope Valley",
+    "postcode": "S33 6RJ",
+    "lat": 53.348861,
+    "lng": -1.747924
+  },
+  {
+    "id": "gp-c81039",
+    "type": "gp",
+    "name": "Eyam Surgery",
+    "address": "The Surgery, Hope Valley",
+    "postcode": "S32 5QH",
+    "lat": 53.284081,
+    "lng": -1.673925
+  },
+  {
+    "id": "gp-c88053",
+    "type": "gp",
+    "name": "Falkland House Surgery",
+    "address": "2A Falkland Road, Sheffield",
+    "postcode": "S11 7PL",
+    "lat": 53.359746,
+    "lng": -1.514422
+  },
+  {
+    "id": "gp-b86648",
+    "type": "gp",
+    "name": "Family Doctors",
+    "address": "5 Austhorpe View, Leeds",
+    "postcode": "LS15 8NN",
+    "lat": 53.798264,
+    "lng": -1.440969
+  },
+  {
+    "id": "gp-c81655",
+    "type": "gp",
+    "name": "Family Friendly Surgery",
+    "address": "Welbeck Road, Chesterfield",
+    "postcode": "S44 6DE",
+    "lat": 53.230289,
+    "lng": -1.288663
+  },
+  {
+    "id": "gp-c88021",
+    "type": "gp",
+    "name": "Far Lane Medical Centre",
+    "address": "1 Far Lane, Sheffield",
+    "postcode": "S6 4FA",
+    "lat": 53.409335,
+    "lng": -1.507692
+  },
+  {
+    "id": "gp-b83016",
+    "type": "gp",
+    "name": "Farrow Medical Centre",
+    "address": "177 Otley Road, Bradford",
+    "postcode": "BD3 0HX",
+    "lat": 53.802525,
+    "lng": -1.743124
+  },
+  {
+    "id": "gp-b85051",
+    "type": "gp",
+    "name": "Fieldhead Surgery",
+    "address": "Fieldhead, Huddersfield",
+    "postcode": "HD7 4QQ",
+    "lat": 53.641358,
+    "lng": -1.854229
+  },
+  {
+    "id": "gp-b82037",
+    "type": "gp",
+    "name": "Filey Surgery",
+    "address": "Station Avenue, Filey",
+    "postcode": "YO14 9AE",
+    "lat": 54.210105,
+    "lng": -0.29036
+  },
+  {
+    "id": "gp-c88035",
+    "type": "gp",
+    "name": "Firth Park Surgery",
+    "address": "398-402 Firth Park Road, Sheffield",
+    "postcode": "S5 6HH",
+    "lat": 53.417569,
+    "lng": -1.445921
+  },
+  {
+    "id": "gp-c88008",
+    "type": "gp",
+    "name": "Forge Health Group",
+    "address": "Pitsmoor Surgery, Sheffield",
+    "postcode": "S3 9DL",
+    "lat": 53.399239,
+    "lng": -1.46532
+  },
+  {
+    "id": "gp-b86106",
+    "type": "gp",
+    "name": "Foundry Lane Surgery",
+    "address": "95 Moresdale Lane, Leeds",
+    "postcode": "LS14 6GG",
+    "lat": 53.810682,
+    "lng": -1.471844
+  },
+  {
+    "id": "gp-c88009",
+    "type": "gp",
+    "name": "Foxhill Medical Centre",
+    "address": "160 Fox Hill Crescent, Sheffield",
+    "postcode": "S6 1GA",
+    "lat": 53.429929,
+    "lng": -1.501328
+  },
+  {
+    "id": "gp-b87011",
+    "type": "gp",
+    "name": "Friarwood Surgery",
+    "address": "Carleton Glen, Pontefract",
+    "postcode": "WF8 1SU",
+    "lat": 53.688271,
+    "lng": -1.307201
+  },
+  {
+    "id": "gp-b83627",
+    "type": "gp",
+    "name": "Frizinghall Medical Centre",
+    "address": "274 Keighley Road, Bradford",
+    "postcode": "BD9 4LH",
+    "lat": 53.818873,
+    "lng": -1.7736
+  },
+  {
+    "id": "gp-b82100",
+    "type": "gp",
+    "name": "Front Street Surgery",
+    "address": "14 Front Street, Acomb, York",
+    "postcode": "YO24 3BZ",
+    "lat": 53.954421,
+    "lng": -1.126931
+  },
+  {
+    "id": "gp-b86048",
+    "type": "gp",
+    "name": "Garforth Medical Centre",
+    "address": "Church Lane, Leeds",
+    "postcode": "LS25 1HB",
+    "lat": 53.792314,
+    "lng": -1.387446
+  },
+  {
+    "id": "gp-c85016",
+    "type": "gp",
+    "name": "Garland House Surgery",
+    "address": "Garland House, Barnsley",
+    "postcode": "S73 9JX",
+    "lat": 53.533842,
+    "lng": -1.370691
+  },
+  {
+    "id": "gp-c87622",
+    "type": "gp",
+    "name": "Gateway Primary Care",
+    "address": "The Gate, Rotherham",
+    "postcode": "S65 1DA",
+    "lat": 53.430016,
+    "lng": -1.352433
+  },
+  {
+    "id": "gp-b86036",
+    "type": "gp",
+    "name": "Gibson Lane Practice",
+    "address": "Gibson Lane, Leeds",
+    "postcode": "LS25 7JN",
+    "lat": 53.771369,
+    "lng": -1.36786
+  },
+  {
+    "id": "gp-b81041",
+    "type": "gp",
+    "name": "Gilberdyke Health Centre",
+    "address": "The Health Centre, Brough",
+    "postcode": "HU15 2UL",
+    "lat": 53.754538,
+    "lng": -0.731672
+  },
+  {
+    "id": "gp-b86101",
+    "type": "gp",
+    "name": "Gildersome Health Centre",
+    "address": "Finkle Lane, Leeds",
+    "postcode": "LS27 7HL",
+    "lat": 53.75657,
+    "lng": -1.629304
+  },
+  {
+    "id": "gp-c88019",
+    "type": "gp",
+    "name": "Gleadless Medical Centre",
+    "address": "636 Gleadless Road, Sheffield",
+    "postcode": "S14 1PQ",
+    "lat": 53.356551,
+    "lng": -1.451325
+  },
+  {
+    "id": "gp-c85001",
+    "type": "gp",
+    "name": "Goldthorpe Medical Centre Pms Practice",
+    "address": "Goldthorpe Green, Rotherham",
+    "postcode": "S63 9EH",
+    "lat": 53.52812,
+    "lng": -1.310932
+  },
+  {
+    "id": "gp-b81119",
+    "type": "gp",
+    "name": "Goodheart Surgery",
+    "address": "Bransholme Health Centre, Hull",
+    "postcode": "HU7 4DW",
+    "lat": 53.787428,
+    "lng": -0.321368
+  },
+  {
+    "id": "gp-b83034",
+    "type": "gp",
+    "name": "Grange Medical Centre",
+    "address": "1 Horton Grange Road, Bradford",
+    "postcode": "BD7 3AH",
+    "lat": 53.78762,
+    "lng": -1.777441
+  },
+  {
+    "id": "gp-b83019",
+    "type": "gp",
+    "name": "Grange Park Surgery",
+    "address": "Grange Road, Ilkley",
+    "postcode": "LS29 7HG",
+    "lat": 53.91271,
+    "lng": -1.748112
+  },
+  {
+    "id": "gp-c87603",
+    "type": "gp",
+    "name": "Greasbrough Medical Centre",
+    "address": "Munsbrough Rise, Rotherham",
+    "postcode": "S61 4RB",
+    "lat": 53.452698,
+    "lng": -1.37165
+  },
+  {
+    "id": "gp-c88077",
+    "type": "gp",
+    "name": "Green Cross Group Practice",
+    "address": "The Health Care Surgery, Sheffield",
+    "postcode": "S5 8GS",
+    "lat": 53.421719,
+    "lng": -1.487866
+  },
+  {
+    "id": "gp-b81101",
+    "type": "gp",
+    "name": "Greengates Medical Group",
+    "address": "Greenwood Avenue Surgery, Beverley",
+    "postcode": "HU17 0HB",
+    "lat": 53.844362,
+    "lng": -0.418502
+  },
+  {
+    "id": "gp-b85060",
+    "type": "gp",
+    "name": "Greenhead Family Doctors",
+    "address": "15 Wentworth Street, Huddersfield",
+    "postcode": "HD1 5PX",
+    "lat": 53.649463,
+    "lng": -1.792009
+  },
+  {
+    "id": "gp-c87020",
+    "type": "gp",
+    "name": "Greenside Surgery",
+    "address": "Greenside, Rotherham",
+    "postcode": "S61 4PT",
+    "lat": 53.453248,
+    "lng": -1.370181
+  },
+  {
+    "id": "gp-c88054",
+    "type": "gp",
+    "name": "Grenoside Surgery",
+    "address": "60 Greno Crescent, Sheffield",
+    "postcode": "S35 8NX",
+    "lat": 53.438313,
+    "lng": -1.496578
+  },
+  {
+    "id": "gp-c88652",
+    "type": "gp",
+    "name": "Greystones Medical Centre",
+    "address": "33 Greystones Road, Sheffield",
+    "postcode": "S11 7BJ",
+    "lat": 53.363853,
+    "lng": -1.510002
+  },
+  {
+    "id": "gp-c85018",
+    "type": "gp",
+    "name": "Grimethorpe Surgery",
+    "address": "The Grimethorpe Centre, Barnsley",
+    "postcode": "S72 7NZ",
+    "lat": 53.57363,
+    "lng": -1.378982
+  },
+  {
+    "id": "gp-b85018",
+    "type": "gp",
+    "name": "Grove House Surgery",
+    "address": "Soothill Lane, Batley",
+    "postcode": "WF17 5SS",
+    "lat": 53.711758,
+    "lng": -1.624773
+  },
+  {
+    "id": "gp-b86038",
+    "type": "gp",
+    "name": "Guiseley And Yeadon Medical Practice",
+    "address": "Yeadon Health Centre, Leeds",
+    "postcode": "LS19 7PS",
+    "lat": 53.865309,
+    "lng": -1.684136
+  },
+  {
+    "id": "gp-b82106",
+    "type": "gp",
+    "name": "Hackness Road Surgery",
+    "address": "19 Hackness Road, Scarborough",
+    "postcode": "YO12 5SD",
+    "lat": 54.295164,
+    "lng": -0.443895
+  },
+  {
+    "id": "gp-b83054",
+    "type": "gp",
+    "name": "Haigh Hall Medical Practice",
+    "address": "Haigh Hall Road, Bradford",
+    "postcode": "BD10 9AZ",
+    "lat": 53.831134,
+    "lng": -1.715252
+  },
+  {
+    "id": "gp-c88036",
+    "type": "gp",
+    "name": "Handsworth Medical Practice",
+    "address": "432 Handsworth Road, Sheffield",
+    "postcode": "S13 9BZ",
+    "lat": 53.371708,
+    "lng": -1.383406
+  },
+  {
+    "id": "gp-b86061",
+    "type": "gp",
+    "name": "Harehills Corner Surgery",
+    "address": "209 Roundhay Road, Leeds",
+    "postcode": "LS8 4HQ",
+    "lat": 53.815705,
+    "lng": -1.518819
+  },
+  {
+    "id": "gp-c88059",
+    "type": "gp",
+    "name": "Harold Street Medical Centre",
+    "address": "2 Harold Street, Sheffield",
+    "postcode": "S6 3QW",
+    "lat": 53.393202,
+    "lng": -1.49293
+  },
+  {
+    "id": "gp-b81075",
+    "type": "gp",
+    "name": "Hastings Medical Centre",
+    "address": "919 Spring Bank West, Hull",
+    "postcode": "HU5 5BE",
+    "lat": 53.749862,
+    "lng": -0.393433
+  },
+  {
+    "id": "gp-b86672",
+    "type": "gp",
+    "name": "Hawthorn Surgery",
+    "address": "Wortley Beck Hc, Leeds",
+    "postcode": "LS12 5SG",
+    "lat": 53.782464,
+    "lng": -1.601121
+  },
+  {
+    "id": "gp-b81085",
+    "type": "gp",
+    "name": "Haxby Group Hull",
+    "address": "Kingswood Healthcare Centre, Hull",
+    "postcode": "HU7 3JQ",
+    "lat": 53.802041,
+    "lng": -0.352901
+  },
+  {
+    "id": "gp-b82026",
+    "type": "gp",
+    "name": "Haxby Group Practice",
+    "address": "Haxby & Wigginton Health Centre, York",
+    "postcode": "YO32 2LL",
+    "lat": 54.019338,
+    "lng": -1.081921
+  },
+  {
+    "id": "gp-b82038",
+    "type": "gp",
+    "name": "Haxby Group Scarborough",
+    "address": "Lawrence House Med Ctr, Scarborough",
+    "postcode": "YO11 1UB",
+    "lat": 54.277326,
+    "lng": -0.409732
+  },
+  {
+    "id": "gp-b85055",
+    "type": "gp",
+    "name": "Healds Road Surgery",
+    "address": "Healds Road, Dewsbury",
+    "postcode": "WF13 4HT",
+    "lat": 53.700127,
+    "lng": -1.651641
+  },
+  {
+    "id": "gp-b87030",
+    "type": "gp",
+    "name": "Health Care First Partnership",
+    "address": "Pinfold Surgery, Leeds",
+    "postcode": "LS26 9AA",
+    "lat": 53.73679,
+    "lng": -1.393589
+  },
+  {
+    "id": "gp-b84004",
+    "type": "gp",
+    "name": "Hebden Bridge Group Practice",
+    "address": "Valley Medical Centre, Hebden Bridge",
+    "postcode": "HX7 7BZ",
+    "lat": 53.743686,
+    "lng": -2.011563
+  },
+  {
+    "id": "gp-c88073",
+    "type": "gp",
+    "name": "Heeley Green Surgery",
+    "address": "302 Gleadless Road, Sheffield",
+    "postcode": "S2 3AJ",
+    "lat": 53.358494,
+    "lng": -1.461517
+  },
+  {
+    "id": "gp-b82068",
+    "type": "gp",
+    "name": "Helmsley Surgery",
+    "address": "Carlton Road, York",
+    "postcode": "YO62 5HD",
+    "lat": 54.249254,
+    "lng": -1.056429
+  },
+  {
+    "id": "gp-b87018",
+    "type": "gp",
+    "name": "Henry Moore Clinic",
+    "address": "26 Smawthorne Lane, Castleford",
+    "postcode": "WF10 4EN",
+    "lat": 53.720794,
+    "lng": -1.354494
+  },
+  {
+    "id": "gp-c85024",
+    "type": "gp",
+    "name": "High Street Practice",
+    "address": "48 High Street, Barnsley",
+    "postcode": "S71 4RF",
+    "lat": 53.597943,
+    "lng": -1.458316
+  },
+  {
+    "id": "gp-c87018",
+    "type": "gp",
+    "name": "High Street Surgery",
+    "address": "High Street, Rotherham",
+    "postcode": "S62 6LW",
+    "lat": 53.459642,
+    "lng": -1.344031
+  },
+  {
+    "id": "gp-b86004",
+    "type": "gp",
+    "name": "Highfield Surgery",
+    "address": "Holtdale Approach, Leeds",
+    "postcode": "LS16 7RX",
+    "lat": 53.855755,
+    "lng": -1.607723
+  },
+  {
+    "id": "gp-c85010",
+    "type": "gp",
+    "name": "Hill Brow Surgery Pms Practice",
+    "address": "Hill Brow Surgery, Barnsley",
+    "postcode": "S75 6FH",
+    "lat": 53.58717,
+    "lng": -1.509014
+  },
+  {
+    "id": "gp-b86011",
+    "type": "gp",
+    "name": "Hillfoot Surgery",
+    "address": "126 Owlcotes Road, Pudsey",
+    "postcode": "LS28 7QR",
+    "lat": 53.799868,
+    "lng": -1.687421
+  },
+  {
+    "id": "gp-b81025",
+    "type": "gp",
+    "name": "Holderness Health",
+    "address": "Queen Street, Withernsea",
+    "postcode": "HU19 2PZ",
+    "lat": 53.728739,
+    "lng": 0.034928
+  },
+  {
+    "id": "gp-c88052",
+    "type": "gp",
+    "name": "Hollies Medical Centre",
+    "address": "20 St. Andrews Road, Sheffield",
+    "postcode": "S11 9AL",
+    "lat": 53.363188,
+    "lng": -1.494818
+  },
+  {
+    "id": "gp-c85023",
+    "type": "gp",
+    "name": "Hollygreen Practice",
+    "address": "Goldthope Centre, Rotherham",
+    "postcode": "S63 9EH",
+    "lat": 53.52812,
+    "lng": -1.310932
+  },
+  {
+    "id": "gp-b83045",
+    "type": "gp",
+    "name": "Hollyns Health & Wellbeing",
+    "address": "4 Glenholme Park, Bradford",
+    "postcode": "BD14 6NF",
+    "lat": 53.77918,
+    "lng": -1.814543
+  },
+  {
+    "id": "gp-b87022",
+    "type": "gp",
+    "name": "Homestead",
+    "address": "Homestead Medical Centre, Wakefield",
+    "postcode": "WF2 9PE",
+    "lat": 53.682286,
+    "lng": -1.518749
+  },
+  {
+    "id": "gp-b85022",
+    "type": "gp",
+    "name": "Honley Surgery",
+    "address": "Marsh Gardens, Holmfirth",
+    "postcode": "HD9 6AG",
+    "lat": 53.602401,
+    "lng": -1.791937
+  },
+  {
+    "id": "gp-b83035",
+    "type": "gp",
+    "name": "Horton Park Medical Practice",
+    "address": "Horton Park Centre, Bradford",
+    "postcode": "BD7 3EG",
+    "lat": 53.785175,
+    "lng": -1.772794
+  },
+  {
+    "id": "gp-c85022",
+    "type": "gp",
+    "name": "Hoyland Medical Practice",
+    "address": "The Hoyland Centre, Barnsley",
+    "postcode": "S74 9AF",
+    "lat": 53.499839,
+    "lng": -1.437721
+  },
+  {
+    "id": "gp-c85020",
+    "type": "gp",
+    "name": "Huddersfield Road Surgery",
+    "address": "6 Huddersfield Road, Barnsley",
+    "postcode": "S70 2LT",
+    "lat": 53.558183,
+    "lng": -1.485633
+  },
+  {
+    "id": "gp-b81008",
+    "type": "gp",
+    "name": "Hull Family Practice",
+    "address": "Morrill Street Health Centre, Hull",
+    "postcode": "HU9 2LJ",
+    "lat": 53.754966,
+    "lng": -0.30901
+  },
+  {
+    "id": "gp-b81006",
+    "type": "gp",
+    "name": "Humber Primary Care",
+    "address": "Providence Place, Bridlington",
+    "postcode": "YO15 2QW",
+    "lat": 54.085967,
+    "lng": -0.186837
+  },
+  {
+    "id": "gp-b82628",
+    "type": "gp",
+    "name": "Hunmanby Surgery",
+    "address": "Hungate Lane, Filey",
+    "postcode": "YO14 0NN",
+    "lat": 54.180205,
+    "lng": -0.319466
+  },
+  {
+    "id": "gp-b86025",
+    "type": "gp",
+    "name": "Hyde Park Surgery",
+    "address": "Woodsley Road, Leeds",
+    "postcode": "LS6 1SG",
+    "lat": 53.806841,
+    "lng": -1.567726
+  },
+  {
+    "id": "gp-b83624",
+    "type": "gp",
+    "name": "I G Medical",
+    "address": "Ilkley Moor Medical Practice, Ilkley",
+    "postcode": "LS29 8TH",
+    "lat": 53.923573,
+    "lng": -1.816052
+  },
+  {
+    "id": "gp-b83018",
+    "type": "gp",
+    "name": "Idle Medical Centre",
+    "address": "440 Highfield Road, Bradford",
+    "postcode": "BD10 8RU",
+    "lat": 53.836184,
+    "lng": -1.734151
+  },
+  {
+    "id": "gp-b83002",
+    "type": "gp",
+    "name": "Ilkley & Wharfedale Medical Practice",
+    "address": "Springs Medical Centre, Ilkley",
+    "postcode": "LS29 8TQ",
+    "lat": 53.923319,
+    "lng": -1.814804
+  },
+  {
+    "id": "gp-c81084",
+    "type": "gp",
+    "name": "Inspire Health - Avenue House Surgery",
+    "address": "109 Saltergate, Chesterfield",
+    "postcode": "S40 1LE",
+    "lat": 53.23805,
+    "lng": -1.433572
+  },
+  {
+    "id": "gp-b81112",
+    "type": "gp",
+    "name": "James Alexander Family Practice",
+    "address": "Bransholme Health Centre, Hull",
+    "postcode": "HU7 4DW",
+    "lat": 53.787428,
+    "lng": -0.321368
+  },
+  {
+    "id": "gp-c88050",
+    "type": "gp",
+    "name": "Jaunty Springs Health Centre",
+    "address": "53 Jaunty Way, Sheffield",
+    "postcode": "S12 3DZ",
+    "lat": 53.347684,
+    "lng": -1.417896
+  },
+  {
+    "id": "gp-b82098",
+    "type": "gp",
+    "name": "Jorvik Gillygate Practice",
+    "address": "Woolpack House, York",
+    "postcode": "YO1 7NP",
+    "lat": 53.959151,
+    "lng": -1.077864
+  },
+  {
+    "id": "gp-b84010",
+    "type": "gp",
+    "name": "Keighley Road Surgery",
+    "address": "Keighley Road, Halifax",
+    "postcode": "HX2 9LL",
+    "lat": 53.754254,
+    "lng": -1.893909
+  },
+  {
+    "id": "gp-b83052",
+    "type": "gp",
+    "name": "Kensington Partnership",
+    "address": "Whitefield Place, Bradford",
+    "postcode": "BD8 9LB",
+    "lat": 53.801125,
+    "lng": -1.785538
+  },
+  {
+    "id": "gp-c81091",
+    "type": "gp",
+    "name": "Killamarsh Medical Practice",
+    "address": "209 Sheffield Road, Sheffield",
+    "postcode": "S21 1DX",
+    "lat": 53.325026,
+    "lng": -1.321458
+  },
+  {
+    "id": "gp-b84021",
+    "type": "gp",
+    "name": "King Cross Practice",
+    "address": "King Cross Surgery, Halifax",
+    "postcode": "HX1 3LW",
+    "lat": 53.715323,
+    "lng": -1.880203
+  },
+  {
+    "id": "gp-b81653",
+    "type": "gp",
+    "name": "King Street Medical Centre",
+    "address": "168 King Street, Cottingham",
+    "postcode": "HU16 5QJ",
+    "lat": 53.784219,
+    "lng": -0.41375
+  },
+  {
+    "id": "gp-b87039",
+    "type": "gp",
+    "name": "King'S Medical Practice",
+    "address": "King Edward Street, Normanton",
+    "postcode": "WF6 2AZ",
+    "lat": 53.70066,
+    "lng": -1.419616
+  },
+  {
+    "id": "gp-b81011",
+    "type": "gp",
+    "name": "Kingston Health (Hull)",
+    "address": "Wheeler Street, Hull",
+    "postcode": "HU3 5QE",
+    "lat": 53.742031,
+    "lng": -0.384664
+  },
+  {
+    "id": "gp-c85623",
+    "type": "gp",
+    "name": "Kingswell Surgery Pms Practice",
+    "address": "40 Shrewsbury Road, Sheffield",
+    "postcode": "S36 6DY",
+    "lat": 53.525795,
+    "lng": -1.628195
+  },
+  {
+    "id": "gp-b82014",
+    "type": "gp",
+    "name": "Kingswood Surgery",
+    "address": "14 Wetherby Road, Harrogate",
+    "postcode": "HG2 7SA",
+    "lat": 53.99151,
+    "lng": -1.517057
+  },
+  {
+    "id": "gp-b86092",
+    "type": "gp",
+    "name": "Kippax Hall Surgery",
+    "address": "54 High Street, Leeds",
+    "postcode": "LS25 7AB",
+    "lat": 53.766557,
+    "lng": -1.368964
+  },
+  {
+    "id": "gp-b85026",
+    "type": "gp",
+    "name": "Kirkburton Health Centre",
+    "address": "5A Shelley Lane, Huddersfield",
+    "postcode": "HD8 0SJ",
+    "lat": 53.608447,
+    "lng": -1.701151
+  },
+  {
+    "id": "gp-b82077",
+    "type": "gp",
+    "name": "Kirkbymoorside Surgery",
+    "address": "Tinley Garth, York",
+    "postcode": "YO62 6AR",
+    "lat": 54.269418,
+    "lng": -0.933988
+  },
+  {
+    "id": "gp-b85640",
+    "type": "gp",
+    "name": "Kirkgate Surgery",
+    "address": "3 Kirkgate, Batley",
+    "postcode": "WF17 9HE",
+    "lat": 53.732234,
+    "lng": -1.667625
+  },
+  {
+    "id": "gp-b86109",
+    "type": "gp",
+    "name": "Kirkstall Lane Medical Centre",
+    "address": "216 Kirkstall Lane, Leeds",
+    "postcode": "LS6 3DS",
+    "lat": 53.816958,
+    "lng": -1.587336
+  },
+  {
+    "id": "gp-c87004",
+    "type": "gp",
+    "name": "Kiveton Park Medical Practice",
+    "address": "Kiveton Park Primary Care, Sheffield",
+    "postcode": "S26 6QU",
+    "lat": 53.339305,
+    "lng": -1.270122
+  },
+  {
+    "id": "gp-b82042",
+    "type": "gp",
+    "name": "Lambert Medical Centre",
+    "address": "Chapel Street, Thirsk",
+    "postcode": "YO7 1LU",
+    "lat": 54.231693,
+    "lng": -1.342399
+  },
+  {
+    "id": "gp-b87036",
+    "type": "gp",
+    "name": "Langthwaite Surgery",
+    "address": "Church View Health Centre, Pontefract",
+    "postcode": "WF9 3AP",
+    "lat": 53.589935,
+    "lng": -1.309912
+  },
+  {
+    "id": "gp-c84001",
+    "type": "gp",
+    "name": "Larwood Surgery",
+    "address": "56 Larwood Avenue, Worksop",
+    "postcode": "S81 0HH",
+    "lat": 53.31904,
+    "lng": -1.105879
+  },
+  {
+    "id": "gp-b81635",
+    "type": "gp",
+    "name": "Laurbel Surgery",
+    "address": "14 Main Road, Hull",
+    "postcode": "HU11 4AR",
+    "lat": 53.778483,
+    "lng": -0.257026
+  },
+  {
+    "id": "gp-b86086",
+    "type": "gp",
+    "name": "Laurel Bank Surgery",
+    "address": "216 Kirkstall Lane, Leeds",
+    "postcode": "LS6 3DS",
+    "lat": 53.816958,
+    "lng": -1.587336
+  },
+  {
+    "id": "gp-b86012",
+    "type": "gp",
+    "name": "Leeds City Medical Practice",
+    "address": "123 Cemetery Road, Leeds",
+    "postcode": "LS11 8LH",
+    "lat": 53.778323,
+    "lng": -1.555879
+  },
+  {
+    "id": "gp-b86110",
+    "type": "gp",
+    "name": "Leeds Student Medical Practice",
+    "address": "4 Blenheim Court, Leeds",
+    "postcode": "LS2 9AE",
+    "lat": 53.807827,
+    "lng": -1.549843
+  },
+  {
+    "id": "gp-b86064",
+    "type": "gp",
+    "name": "Leigh View Medical Practice",
+    "address": "Leigh View Medical Centre, Wakefield",
+    "postcode": "WF3 1RQ",
+    "lat": 53.728574,
+    "lng": -1.558358
+  },
+  {
+    "id": "gp-b85031",
+    "type": "gp",
+    "name": "Lepton And Kirkheaton Surgeries",
+    "address": "Highgate Lane, Huddersfield",
+    "postcode": "HD8 0HH",
+    "lat": 53.633772,
+    "lng": -1.710605
+  },
+  {
+    "id": "gp-b81034",
+    "type": "gp",
+    "name": "Leven & Beeford Medical Practice",
+    "address": "29 High Stile, Beverley",
+    "postcode": "HU17 5NL",
+    "lat": 53.890908,
+    "lng": -0.31295
+  },
+  {
+    "id": "gp-b83038",
+    "type": "gp",
+    "name": "Leylands Lane Medical Practice",
+    "address": "81 Leylands Lane, Bradford",
+    "postcode": "BD9 5PZ",
+    "lat": 53.812597,
+    "lng": -1.792542
+  },
+  {
+    "id": "gp-b86675",
+    "type": "gp",
+    "name": "Lincoln Green Medical Centre",
+    "address": "Burmantofts Health Centre, Leeds",
+    "postcode": "LS9 7TA",
+    "lat": 53.802114,
+    "lng": -1.5252
+  },
+  {
+    "id": "gp-b85027",
+    "type": "gp",
+    "name": "Lindley Group Practice Ltd",
+    "address": "62 Acre Street, Huddersfield",
+    "postcode": "HD3 3DY",
+    "lat": 53.654322,
+    "lng": -1.817449
+  },
+  {
+    "id": "gp-b83008",
+    "type": "gp",
+    "name": "Ling House Medical Centre",
+    "address": "49 Scott Street, Keighley",
+    "postcode": "BD21 2JH",
+    "lat": 53.868351,
+    "lng": -1.910396
+  },
+  {
+    "id": "gp-b86042",
+    "type": "gp",
+    "name": "Lingwell Croft Surgery",
+    "address": "16 Shelldrake Drive, Leeds",
+    "postcode": "LS10 3NB",
+    "lat": 53.749986,
+    "lng": -1.535053
+  },
+  {
+    "id": "gp-b84612",
+    "type": "gp",
+    "name": "Lister Lane Surgery",
+    "address": "30 Lister Lane, Halifax",
+    "postcode": "HX1 5AX",
+    "lat": 53.722588,
+    "lng": -1.865498
+  },
+  {
+    "id": "gp-b85612",
+    "type": "gp",
+    "name": "Liversedge Medical Centre",
+    "address": "Valley Road, Liversedge",
+    "postcode": "WF15 6DF",
+    "lat": 53.712863,
+    "lng": -1.690655
+  },
+  {
+    "id": "gp-b85641",
+    "type": "gp",
+    "name": "Lockwood Surgery",
+    "address": "3 Meltham Road, Huddersfield",
+    "postcode": "HD1 3XH",
+    "lat": 53.632167,
+    "lng": -1.795663
+  },
+  {
+    "id": "gp-b86020",
+    "type": "gp",
+    "name": "Lofthouse Surgery",
+    "address": "2 Church Farm Close, Wakefield",
+    "postcode": "WF3 3SA",
+    "lat": 53.729459,
+    "lng": -1.495385
+  },
+  {
+    "id": "gp-b84623",
+    "type": "gp",
+    "name": "Longroyde Surgery",
+    "address": "38 Castle Avenue, Brighouse",
+    "postcode": "HD6 3HT",
+    "lat": 53.694061,
+    "lng": -1.79073
+  },
+  {
+    "id": "gp-b83029",
+    "type": "gp",
+    "name": "Low Moor Surgery",
+    "address": "29 The Plantations, Bradford",
+    "postcode": "BD12 0TH",
+    "lat": 53.753865,
+    "lng": -1.7699
+  },
+  {
+    "id": "gp-c85028",
+    "type": "gp",
+    "name": "Lundwood Medical Centre Pms Practice",
+    "address": "Pontefract Road, Barnsley",
+    "postcode": "S71 5PN",
+    "lat": 53.557729,
+    "lng": -1.43854
+  },
+  {
+    "id": "gp-b87008",
+    "type": "gp",
+    "name": "Lupset Health Centre",
+    "address": "George-A-Green Court, Wakefield",
+    "postcode": "WF2 8FE",
+    "lat": 53.672429,
+    "lng": -1.524008
+  },
+  {
+    "id": "gp-c88044",
+    "type": "gp",
+    "name": "Manchester Road Surgery",
+    "address": "484 Manchester Road, Sheffield",
+    "postcode": "S10 5PN",
+    "lat": 53.38059,
+    "lng": -1.521086
+  },
+  {
+    "id": "gp-c88090",
+    "type": "gp",
+    "name": "Manor And Park Group Practice",
+    "address": "204 Harborough Avenue, Sheffield",
+    "postcode": "S2 1QU",
+    "lat": 53.373705,
+    "lng": -1.427161
+  },
+  {
+    "id": "gp-c87620",
+    "type": "gp",
+    "name": "Manor Field Surgery",
+    "address": "Maltby Services Centre, Rotherham",
+    "postcode": "S66 8JE",
+    "lat": 53.423549,
+    "lng": -1.204348
+  },
+  {
+    "id": "gp-b83012",
+    "type": "gp",
+    "name": "Manor Medical Practice",
+    "address": "Girlington Health Centre, Bradford",
+    "postcode": "BD8 9PB",
+    "lat": 53.802973,
+    "lng": -1.788186
+  },
+  {
+    "id": "gp-b86015",
+    "type": "gp",
+    "name": "Manor Park Surgery",
+    "address": "Bellmount Close, Leeds",
+    "postcode": "LS13 2UP",
+    "lat": 53.814092,
+    "lng": -1.628918
+  },
+  {
+    "id": "gp-b81042",
+    "type": "gp",
+    "name": "Manor Road Surgery",
+    "address": "Manor Road, Beverley",
+    "postcode": "HU17 7BZ",
+    "lat": 53.845293,
+    "lng": -0.432573
+  },
+  {
+    "id": "gp-b86009",
+    "type": "gp",
+    "name": "Manston Surgery",
+    "address": "Crossgates Medical Centre, Leeds",
+    "postcode": "LS15 8BZ",
+    "lat": 53.804226,
+    "lng": -1.451366
+  },
+  {
+    "id": "gp-c87029",
+    "type": "gp",
+    "name": "Market Surgery",
+    "address": "Warehouse Lane, Rotherham",
+    "postcode": "S63 7RA",
+    "lat": 53.502744,
+    "lng": -1.345959
+  },
+  {
+    "id": "gp-b81009",
+    "type": "gp",
+    "name": "Market Weighton Group Practice",
+    "address": "Wolds House, York",
+    "postcode": "YO43 3FF",
+    "lat": 53.864923,
+    "lng": -0.674793
+  },
+  {
+    "id": "gp-b85623",
+    "type": "gp",
+    "name": "Marsh Surgery",
+    "address": "Doctors Surgery, Huddersfield",
+    "postcode": "HD1 4LE",
+    "lat": 53.65174,
+    "lng": -1.804101
+  },
+  {
+    "id": "gp-b82030",
+    "type": "gp",
+    "name": "Masham & Kirkby Malzeard Surgery",
+    "address": "9 Market Place, Ripon",
+    "postcode": "HG4 4DZ",
+    "lat": 54.221894,
+    "lng": -1.656043
+  },
+  {
+    "id": "gp-c81611",
+    "type": "gp",
+    "name": "Matlock And Ashover Practice",
+    "address": "Milken Lane, Chesterfield",
+    "postcode": "S45 0BA",
+    "lat": 53.166544,
+    "lng": -1.471056
+  },
+  {
+    "id": "gp-b87012",
+    "type": "gp",
+    "name": "Maybush Medical Centre",
+    "address": "Belle Isle Health Park, Wakefield",
+    "postcode": "WF1 5PN",
+    "lat": 53.670273,
+    "lng": -1.489249
+  },
+  {
+    "id": "gp-c88015",
+    "type": "gp",
+    "name": "Meadowgreen Health Centre",
+    "address": "1 Dyche Close, Sheffield",
+    "postcode": "S8 8DJ",
+    "lat": 53.323279,
+    "lng": -1.464032
+  },
+  {
+    "id": "gp-b86059",
+    "type": "gp",
+    "name": "Meanwood Health Centre",
+    "address": "548 Meanwood Road, Leeds",
+    "postcode": "LS6 4JN",
+    "lat": 53.827183,
+    "lng": -1.565816
+  },
+  {
+    "id": "gp-b85032",
+    "type": "gp",
+    "name": "Meltham Group Practice",
+    "address": "1 The Cobbles, Holmfirth",
+    "postcode": "HD9 5QQ",
+    "lat": 53.594316,
+    "lng": -1.849419
+  },
+  {
+    "id": "gp-b85016",
+    "type": "gp",
+    "name": "Meltham Road Surgery",
+    "address": "9 Meltham Road, Huddersfield",
+    "postcode": "HD1 3UP",
+    "lat": 53.631812,
+    "lng": -1.798053
+  },
+  {
+    "id": "gp-c86005",
+    "type": "gp",
+    "name": "Mexborough Health Centre",
+    "address": "Health Centre, Mexborough",
+    "postcode": "S64 0BY",
+    "lat": 53.494256,
+    "lng": -1.279796
+  },
+  {
+    "id": "gp-b87001",
+    "type": "gp",
+    "name": "Middlestown",
+    "address": "Middlestown Medical Centre, Wakefield",
+    "postcode": "WF4 4PA",
+    "lat": 53.650561,
+    "lng": -1.600565
+  },
+  {
+    "id": "gp-c88095",
+    "type": "gp",
+    "name": "Mill Road Surgery",
+    "address": "98A Mill Road, Sheffield",
+    "postcode": "S35 9XQ",
+    "lat": 53.444839,
+    "lng": -1.465501
+  },
+  {
+    "id": "gp-b82002",
+    "type": "gp",
+    "name": "Millfield Surgery",
+    "address": "Millfield Lane, York",
+    "postcode": "YO61 3JR",
+    "lat": 54.125422,
+    "lng": -1.192506
+  },
+  {
+    "id": "gp-b85019",
+    "type": "gp",
+    "name": "Mirfield Health Centre",
+    "address": "Doctor Lane, Mirfield",
+    "postcode": "WF14 8DU",
+    "lat": 53.67573,
+    "lng": -1.696725
+  },
+  {
+    "id": "gp-b83033",
+    "type": "gp",
+    "name": "Modality Partnership (Awc)",
+    "address": "Heathcliffe Mews, Keighley",
+    "postcode": "BD22 8DH",
+    "lat": 53.831336,
+    "lng": -1.954886
+  },
+  {
+    "id": "gp-b81048",
+    "type": "gp",
+    "name": "Modality Partnership (Hull)",
+    "address": "Alexandra Health Care Centre, Hull",
+    "postcode": "HU5 2NT",
+    "lat": 53.765008,
+    "lng": -0.356261
+  },
+  {
+    "id": "gp-c85622",
+    "type": "gp",
+    "name": "Monk Bretton Health Centre Practice",
+    "address": "Monk Bretton Health Centre, Barnsley",
+    "postcode": "S71 2EQ",
+    "lat": 53.566626,
+    "lng": -1.451891
+  },
+  {
+    "id": "gp-b83661",
+    "type": "gp",
+    "name": "Moor Park Medical Practice",
+    "address": "Barkerend Health Centre, Bradford",
+    "postcode": "BD3 8QH",
+    "lat": 53.797849,
+    "lng": -1.721853
+  },
+  {
+    "id": "gp-b86658",
+    "type": "gp",
+    "name": "Moorfield House Surgery",
+    "address": "11 Wakefield Road, Leeds",
+    "postcode": "LS25 1AN",
+    "lat": 53.795779,
+    "lng": -1.390235
+  },
+  {
+    "id": "gp-b83056",
+    "type": "gp",
+    "name": "Moorside Surgery",
+    "address": "370 Dudley Hill Road, Bradford",
+    "postcode": "BD2 3AA",
+    "lat": 53.809599,
+    "lng": -1.730902
+  },
+  {
+    "id": "gp-c87016",
+    "type": "gp",
+    "name": "Morthen Road Surgery",
+    "address": "2 Morthen Road, Rotherham",
+    "postcode": "S66 1EU",
+    "lat": 53.420708,
+    "lng": -1.280737
+  },
+  {
+    "id": "gp-c88078",
+    "type": "gp",
+    "name": "Mosborough Health Centre",
+    "address": "Doctors Surgery, Sheffield",
+    "postcode": "S20 5BQ",
+    "lat": 53.325238,
+    "lng": -1.364873
+  },
+  {
+    "id": "gp-b82013",
+    "type": "gp",
+    "name": "Moss Healthcare Harrogate",
+    "address": "28 Kings Road, Harrogate",
+    "postcode": "HG1 5JP",
+    "lat": 53.995554,
+    "lng": -1.542163
+  },
+  {
+    "id": "gp-b85041",
+    "type": "gp",
+    "name": "Mount Pleasant Med Centre",
+    "address": "69 Purlwell Lane, Batley",
+    "postcode": "WF17 7PF",
+    "lat": 53.707051,
+    "lng": -1.637298
+  },
+  {
+    "id": "gp-b86018",
+    "type": "gp",
+    "name": "Mulberry Street Medical Practice",
+    "address": "18 Mulberry Street, Pudsey",
+    "postcode": "LS28 7XP",
+    "lat": 53.794754,
+    "lng": -1.663975
+  },
+  {
+    "id": "gp-b82080",
+    "type": "gp",
+    "name": "My Health Group",
+    "address": "Southfields Road, York",
+    "postcode": "YO32 5UA",
+    "lat": 54.038966,
+    "lng": -1.034657
+  },
+  {
+    "id": "gp-c88034",
+    "type": "gp",
+    "name": "Nethergreen Surgery",
+    "address": "34-36 Nethergreen Road, Sheffield",
+    "postcode": "S11 7EJ",
+    "lat": 53.368136,
+    "lng": -1.52662
+  },
+  {
+    "id": "gp-b83611",
+    "type": "gp",
+    "name": "New Otley Road Medical Practice",
+    "address": "Hillside Bridge, Bradford",
+    "postcode": "BD3 0BS",
+    "lat": 53.798241,
+    "lng": -1.740296
+  },
+  {
+    "id": "gp-b87027",
+    "type": "gp",
+    "name": "New Southgate Surgery",
+    "address": "Buxton Place, Wakefield",
+    "postcode": "WF1 3JQ",
+    "lat": 53.692779,
+    "lng": -1.504152
+  },
+  {
+    "id": "gp-b85036",
+    "type": "gp",
+    "name": "New Street & Netherton Group Practice",
+    "address": "21 New Street, Huddersfield",
+    "postcode": "HD3 4LB",
+    "lat": 53.637558,
+    "lng": -1.828713
+  },
+  {
+    "id": "gp-c81015",
+    "type": "gp",
+    "name": "Newbold Surgery",
+    "address": "3 Windermere Road, Chesterfield",
+    "postcode": "S41 8DU",
+    "lat": 53.256108,
+    "lng": -1.450707
+  },
+  {
+    "id": "gp-c84024",
+    "type": "gp",
+    "name": "Newgate Medical Group",
+    "address": "Health Centre, Worksop",
+    "postcode": "S80 1HP",
+    "lat": 53.301085,
+    "lng": -1.123405
+  },
+  {
+    "id": "gp-b87033",
+    "type": "gp",
+    "name": "Newland Surgery",
+    "address": "Newland Lane, Normanton",
+    "postcode": "WF6 1QD",
+    "lat": 53.695164,
+    "lng": -1.42425
+  },
+  {
+    "id": "gp-b85037",
+    "type": "gp",
+    "name": "Newsome Surgery Limited",
+    "address": "1 Church Lane, Huddersfield",
+    "postcode": "HD4 6JE",
+    "lat": 53.628938,
+    "lng": -1.78408
+  },
+  {
+    "id": "gp-b86666",
+    "type": "gp",
+    "name": "Newton Surgery",
+    "address": "305 Chapeltown Road, Leeds",
+    "postcode": "LS7 3JT",
+    "lat": 53.821577,
+    "lng": -1.533001
+  },
+  {
+    "id": "gp-b82004",
+    "type": "gp",
+    "name": "Nidderdale Group Practice",
+    "address": "Feastfield Medical Centre, Harrogate",
+    "postcode": "HG3 5AT",
+    "lat": 54.086629,
+    "lng": -1.760943
+  },
+  {
+    "id": "gp-c88006",
+    "type": "gp",
+    "name": "Norfolk Park Health Centre",
+    "address": "227 Park Grange Road, Sheffield",
+    "postcode": "S2 3TA",
+    "lat": 53.363621,
+    "lng": -1.448439
+  },
+  {
+    "id": "gp-b81082",
+    "type": "gp",
+    "name": "North Beverley Medical Centre",
+    "address": "Pighill Lane, Beverley",
+    "postcode": "HU17 7JY",
+    "lat": 53.858015,
+    "lng": -0.439017
+  },
+  {
+    "id": "gp-b82008",
+    "type": "gp",
+    "name": "North House Surgery",
+    "address": "North Street, Ripon",
+    "postcode": "HG4 1HL",
+    "lat": 54.139059,
+    "lng": -1.524007
+  },
+  {
+    "id": "gp-b85009",
+    "type": "gp",
+    "name": "North Road Suite,Ravensthorpe Health Ctr",
+    "address": "Ravensthorpe Health Centre, Dewsbury",
+    "postcode": "WF13 3JY",
+    "lat": 53.677829,
+    "lng": -1.661589
+  },
+  {
+    "id": "gp-c81055",
+    "type": "gp",
+    "name": "North Wingfield Medical Centre",
+    "address": "Medical Centre, Chesterfield",
+    "postcode": "S42 5ND",
+    "lat": 53.184331,
+    "lng": -1.387725
+  },
+  {
+    "id": "gp-b87007",
+    "type": "gp",
+    "name": "Northgate Surgery",
+    "address": "Northgate, Pontefract",
+    "postcode": "WF8 1NF",
+    "lat": 53.693983,
+    "lng": -1.309439
+  },
+  {
+    "id": "gp-c88014",
+    "type": "gp",
+    "name": "Norwood Medical Centre",
+    "address": "360 Herries Road, Sheffield",
+    "postcode": "S5 7HD",
+    "lat": 53.413102,
+    "lng": -1.46987
+  },
+  {
+    "id": "gp-b86089",
+    "type": "gp",
+    "name": "Nova Scotia Medical Cntr",
+    "address": "22A Leeds Road, Castleford",
+    "postcode": "WF10 2DP",
+    "lat": 53.747577,
+    "lng": -1.372993
+  },
+  {
+    "id": "gp-b83031",
+    "type": "gp",
+    "name": "Oak Glen Surgery",
+    "address": "Eldwick & Gilstead Health Centre, Bingley",
+    "postcode": "BD16 3PA",
+    "lat": 53.854799,
+    "lng": -1.816352
+  },
+  {
+    "id": "gp-c81070",
+    "type": "gp",
+    "name": "Oakhill Medical Practice",
+    "address": "Oakhill Road, Dronfield",
+    "postcode": "S18 2EJ",
+    "lat": 53.30568,
+    "lng": -1.45831
+  },
+  {
+    "id": "gp-b85610",
+    "type": "gp",
+    "name": "Oaklands Health Centre",
+    "address": "161 Huddersfield Road, Holmfirth",
+    "postcode": "HD9 3TQ",
+    "lat": 53.578311,
+    "lng": -1.785787
+  },
+  {
+    "id": "gp-b86022",
+    "type": "gp",
+    "name": "Oakwood Lane Medical Practice",
+    "address": "2 Amberton Terrace, Leeds",
+    "postcode": "LS8 3BZ",
+    "lat": 53.819764,
+    "lng": -1.493725
+  },
+  {
+    "id": "gp-b81051",
+    "type": "gp",
+    "name": "Old Fire Station Surgery",
+    "address": "The Old Fire-Station, Beverley",
+    "postcode": "HU17 8JW",
+    "lat": 53.840887,
+    "lng": -0.435185
+  },
+  {
+    "id": "gp-b81018",
+    "type": "gp",
+    "name": "Orchard 2000 Group",
+    "address": "480 Hall Road, Hull",
+    "postcode": "HU6 9BS",
+    "lat": 53.786392,
+    "lng": -0.370028
+  },
+  {
+    "id": "gp-b87002",
+    "type": "gp",
+    "name": "Orchard Croft",
+    "address": "Cluntergate, Wakefield",
+    "postcode": "WF4 5BY",
+    "lat": 53.660017,
+    "lng": -1.549843
+  },
+  {
+    "id": "gp-b87031",
+    "type": "gp",
+    "name": "Ossett Surgery",
+    "address": "Ossett Health Village, Ossett",
+    "postcode": "WF5 8DF",
+    "lat": 53.681484,
+    "lng": -1.58312
+  },
+  {
+    "id": "gp-c88040",
+    "type": "gp",
+    "name": "Oughtibridge Surgery",
+    "address": "Church Street, Sheffield",
+    "postcode": "S35 0FW",
+    "lat": 53.435165,
+    "lng": -1.543083
+  },
+  {
+    "id": "gp-b86006",
+    "type": "gp",
+    "name": "Oulton Medical Centre",
+    "address": "Quarry Hill, Leeds",
+    "postcode": "LS26 8SZ",
+    "lat": 53.752509,
+    "lng": -1.449446
+  },
+  {
+    "id": "gp-b87013",
+    "type": "gp",
+    "name": "Outwood Park Medical Centre",
+    "address": "Potovens Lane, Wakefield",
+    "postcode": "WF1 2PE",
+    "lat": 53.710959,
+    "lng": -1.512287
+  },
+  {
+    "id": "gp-b85042",
+    "type": "gp",
+    "name": "Paddock And Longwood Family Practice",
+    "address": "Speedwell Surgery, Huddersfield",
+    "postcode": "HD1 4TS",
+    "lat": 53.642134,
+    "lng": -1.805461
+  },
+  {
+    "id": "gp-c88051",
+    "type": "gp",
+    "name": "Page Hall Medical Centre",
+    "address": "101 Owler Lane, Sheffield",
+    "postcode": "S4 8GB",
+    "lat": 53.40731,
+    "lng": -1.447348
+  },
+  {
+    "id": "gp-b86093",
+    "type": "gp",
+    "name": "Park Edge Practice",
+    "address": "Asket Drive, Leeds",
+    "postcode": "LS14 1HX",
+    "lat": 53.82521,
+    "lng": -1.483041
+  },
+  {
+    "id": "gp-b83659",
+    "type": "gp",
+    "name": "Park Grange Medical Centre",
+    "address": "141 Woodhead Road, Bradford",
+    "postcode": "BD7 2BL",
+    "lat": 53.789415,
+    "lng": -1.775929
+  },
+  {
+    "id": "gp-b87006",
+    "type": "gp",
+    "name": "Park Green Surgery",
+    "address": "Langthwaite Road, Pontefract",
+    "postcode": "WF9 3AP",
+    "lat": 53.589935,
+    "lng": -1.309912
+  },
+  {
+    "id": "gp-b86052",
+    "type": "gp",
+    "name": "Park Road & Menston",
+    "address": "44 Park Road, Leeds",
+    "postcode": "LS20 8AR",
+    "lat": 53.871759,
+    "lng": -1.711386
+  },
+  {
+    "id": "gp-b82036",
+    "type": "gp",
+    "name": "Park Street",
+    "address": "The Surgery, Ripon",
+    "postcode": "HG4 2AX",
+    "lat": 54.136385,
+    "lng": -1.527191
+  },
+  {
+    "id": "gp-b81619",
+    "type": "gp",
+    "name": "Park View Surgery",
+    "address": "87 Beverley Road, Hessle",
+    "postcode": "HU13 9AJ",
+    "lat": 53.729809,
+    "lng": -0.435838
+  },
+  {
+    "id": "gp-c87013",
+    "type": "gp",
+    "name": "Parkgate Medical Centre",
+    "address": "Netherfield Lane, Rotherham",
+    "postcode": "S62 6AW",
+    "lat": 53.455473,
+    "lng": -1.3428
+  },
+  {
+    "id": "gp-b83010",
+    "type": "gp",
+    "name": "Parklands Medical Practice",
+    "address": "30 Buttershaw Lane, Bradford",
+    "postcode": "BD6 2DD",
+    "lat": 53.76104,
+    "lng": -1.78107
+  },
+  {
+    "id": "gp-b85001",
+    "type": "gp",
+    "name": "Parkview Surgery",
+    "address": "Greenside, Cleckheaton",
+    "postcode": "BD19 5AP",
+    "lat": 53.722222,
+    "lng": -1.713167
+  },
+  {
+    "id": "gp-b87602",
+    "type": "gp",
+    "name": "Patience Lane Surgery",
+    "address": "Patience Lane, Normanton",
+    "postcode": "WF6 2JZ",
+    "lat": 53.703819,
+    "lng": -1.43369
+  },
+  {
+    "id": "gp-b83629",
+    "type": "gp",
+    "name": "Peel Park Surgery",
+    "address": "17 Lowther Street, Bradford",
+    "postcode": "BD2 4RA",
+    "lat": 53.806806,
+    "lng": -1.731907
+  },
+  {
+    "id": "gp-c85004",
+    "type": "gp",
+    "name": "Penistone Group Pms Practice",
+    "address": "19 High Street, Sheffield",
+    "postcode": "S36 6BR",
+    "lat": 53.523259,
+    "lng": -1.630781
+  },
+  {
+    "id": "gp-b82033",
+    "type": "gp",
+    "name": "Pickering Medical Practice",
+    "address": "Southgate, Pickering",
+    "postcode": "YO18 8BL",
+    "lat": 54.244956,
+    "lng": -0.781447
+  },
+  {
+    "id": "gp-b83614",
+    "type": "gp",
+    "name": "Picton Medical Centre",
+    "address": "Whetley Medical Centre, Bradford",
+    "postcode": "BD8 9DW",
+    "lat": 53.803583,
+    "lng": -1.777949
+  },
+  {
+    "id": "gp-b84013",
+    "type": "gp",
+    "name": "Plane Trees Group Practice",
+    "address": "51 Sandbeds Road, Halifax",
+    "postcode": "HX2 0QL",
+    "lat": 53.730463,
+    "lng": -1.894439
+  },
+  {
+    "id": "gp-b81036",
+    "type": "gp",
+    "name": "Pocklington Group Practice",
+    "address": "The Beckside Centre, York",
+    "postcode": "YO42 2BS",
+    "lat": 53.92375,
+    "lng": -0.780688
+  },
+  {
+    "id": "gp-c88007",
+    "type": "gp",
+    "name": "Porter Brook Medical Centre",
+    "address": "9 Sunderland Street, Sheffield",
+    "postcode": "S11 8HN",
+    "lat": 53.370511,
+    "lng": -1.483594
+  },
+  {
+    "id": "gp-b82074",
+    "type": "gp",
+    "name": "Posterngate Surgery",
+    "address": "Portholme Road, Selby",
+    "postcode": "YO8 4QH",
+    "lat": 53.781019,
+    "lng": -1.069112
+  },
+  {
+    "id": "gp-b83026",
+    "type": "gp",
+    "name": "Primrose Surgery",
+    "address": "Hillside Bridge Health Care Centre, Bradford",
+    "postcode": "BD3 0BS",
+    "lat": 53.798241,
+    "lng": -1.740296
+  },
+  {
+    "id": "gp-b82005",
+    "type": "gp",
+    "name": "Priory Medical Group",
+    "address": "Priory Medical Centre, York",
+    "postcode": "YO24 3WX",
+    "lat": 53.949333,
+    "lng": -1.129247
+  },
+  {
+    "id": "gp-b86024",
+    "type": "gp",
+    "name": "Priory View Medical Centre",
+    "address": "2A Green Lane, Leeds",
+    "postcode": "LS12 1HU",
+    "lat": 53.79165,
+    "lng": -1.575153
+  },
+  {
+    "id": "gp-b84014",
+    "type": "gp",
+    "name": "Rastrick Health Centre",
+    "address": "Chapel Croft, Rastrick, Brighouse",
+    "postcode": "HD6 3NA",
+    "lat": 53.688832,
+    "lng": -1.792179
+  },
+  {
+    "id": "gp-c87024",
+    "type": "gp",
+    "name": "Rawmarsh Health Centre",
+    "address": "Customer Services Centre, Rotherham",
+    "postcode": "S62 6AE",
+    "lat": 53.457264,
+    "lng": -1.338314
+  },
+  {
+    "id": "gp-c88085",
+    "type": "gp",
+    "name": "Richmond Medical Centre",
+    "address": "462 Richmond Road, Sheffield",
+    "postcode": "S13 8NA",
+    "lat": 53.360977,
+    "lng": -1.408504
+  },
+  {
+    "id": "gp-b82010",
+    "type": "gp",
+    "name": "Ripon Spa Surgery",
+    "address": "Park Street, Ripon",
+    "postcode": "HG4 2BE",
+    "lat": 54.136178,
+    "lng": -1.527086
+  },
+  {
+    "id": "gp-b87005",
+    "type": "gp",
+    "name": "Riverside Medical Centre",
+    "address": "Savile Road, Castleford",
+    "postcode": "WF10 1PH",
+    "lat": 53.728003,
+    "lng": -1.358022
+  },
+  {
+    "id": "gp-b86014",
+    "type": "gp",
+    "name": "Robin Lane Health And Wellbeing Centre",
+    "address": "Robin Lane, Pudsey",
+    "postcode": "LS28 7DE",
+    "lat": 53.795025,
+    "lng": -1.661316
+  },
+  {
+    "id": "gp-b83042",
+    "type": "gp",
+    "name": "Rooley Lane Med. Centre",
+    "address": "Rooley Lane, Bradford",
+    "postcode": "BD4 7SS",
+    "lat": 53.772829,
+    "lng": -1.730893
+  },
+  {
+    "id": "gp-b85058",
+    "type": "gp",
+    "name": "Rose Medical Practice",
+    "address": "140 Fitzwilliam Street, Huddersfield",
+    "postcode": "HD1 5PU",
+    "lat": 53.648843,
+    "lng": -1.791906
+  },
+  {
+    "id": "gp-c81045",
+    "type": "gp",
+    "name": "Royal Primary Care Chesterfield West",
+    "address": "Chesterfield Med Ptnrship, Chesterfield",
+    "postcode": "S40 4AA",
+    "lat": 53.23846,
+    "lng": -1.438541
+  },
+  {
+    "id": "gp-c81008",
+    "type": "gp",
+    "name": "Royal Primary Care Clay Cross",
+    "address": "Eldon Street, Chesterfield",
+    "postcode": "S45 9NR",
+    "lat": 53.167502,
+    "lng": -1.414351
+  },
+  {
+    "id": "gp-c85005",
+    "type": "gp",
+    "name": "Royston Group Practice",
+    "address": "The Surgery, Barnsley",
+    "postcode": "S71 4QW",
+    "lat": 53.600022,
+    "lng": -1.451021
+  },
+  {
+    "id": "gp-c88062",
+    "type": "gp",
+    "name": "Rustlings Road Medical Centre",
+    "address": "105 Rustlings Road, Sheffield",
+    "postcode": "S11 7AB",
+    "lat": 53.367762,
+    "lng": -1.511866
+  },
+  {
+    "id": "gp-b84003",
+    "type": "gp",
+    "name": "Rydings Hall Surgery",
+    "address": "Rydings Hall, Brighouse",
+    "postcode": "HD6 1AT",
+    "lat": 53.703079,
+    "lng": -1.782551
+  },
+  {
+    "id": "gp-b85645",
+    "type": "gp",
+    "name": "Savile Town Medical Ctr.",
+    "address": "Scarborough Street, Dewsbury",
+    "postcode": "WF12 9AY",
+    "lat": 53.682244,
+    "lng": -1.625808
+  },
+  {
+    "id": "gp-b82054",
+    "type": "gp",
+    "name": "Scarborough Medical Group",
+    "address": "Danes Dyke Surgery, Scarborough",
+    "postcode": "YO12 6UA",
+    "lat": 54.296459,
+    "lng": -0.441218
+  },
+  {
+    "id": "gp-b82097",
+    "type": "gp",
+    "name": "Scott Road Medical Centre",
+    "address": "Scott Road, Selby",
+    "postcode": "YO8 4BL",
+    "lat": 53.785036,
+    "lng": -1.074821
+  },
+  {
+    "id": "gp-c88083",
+    "type": "gp",
+    "name": "Selborne Road Medical Centre",
+    "address": "1 Selborne Road, Sheffield",
+    "postcode": "S10 5ND",
+    "lat": 53.378856,
+    "lng": -1.518955
+  },
+  {
+    "id": "gp-b86016",
+    "type": "gp",
+    "name": "Shaftesbury Medical Ctr.",
+    "address": "78 Osmondthorpe Lane, Leeds",
+    "postcode": "LS9 9EF",
+    "lat": 53.800277,
+    "lng": -1.497846
+  },
+  {
+    "id": "gp-c87608",
+    "type": "gp",
+    "name": "Shakespeare Road Surgery",
+    "address": "50 Shakespeare Road, Rotherham",
+    "postcode": "S65 1QY",
+    "lat": 53.439179,
+    "lng": -1.3415
+  },
+  {
+    "id": "gp-c88060",
+    "type": "gp",
+    "name": "Sharrow Lane Medical Centre",
+    "address": "129 Sharrow Lane, Sheffield",
+    "postcode": "S11 8AN",
+    "lat": 53.367116,
+    "lng": -1.482298
+  },
+  {
+    "id": "gp-c88622",
+    "type": "gp",
+    "name": "Sheffield Medical Centre",
+    "address": "Spital Street Health Centre, Sheffield",
+    "postcode": "S3 9LB",
+    "lat": 53.390867,
+    "lng": -1.460493
+  },
+  {
+    "id": "gp-b85005",
+    "type": "gp",
+    "name": "Shepley Primary Care Limited",
+    "address": "25 Jos Lane, Huddersfield",
+    "postcode": "HD8 8DJ",
+    "lat": 53.585743,
+    "lng": -1.712202
+  },
+  {
+    "id": "gp-b82031",
+    "type": "gp",
+    "name": "Sherburn Group Practice",
+    "address": "Beech Grove, Leeds",
+    "postcode": "LS25 6ED",
+    "lat": 53.798612,
+    "lng": -1.253523
+  },
+  {
+    "id": "gp-b82011",
+    "type": "gp",
+    "name": "Sherburn Surgery",
+    "address": "50 St. Hildas Street, Malton",
+    "postcode": "YO17 8PH",
+    "lat": 54.181744,
+    "lng": -0.531499
+  },
+  {
+    "id": "gp-b83063",
+    "type": "gp",
+    "name": "Shipley Medical Practice-Affinity Care",
+    "address": "Shipley Medical Practice, Shipley",
+    "postcode": "BD18 3EG",
+    "lat": 53.83263,
+    "lng": -1.781411
+  },
+  {
+    "id": "gp-c88070",
+    "type": "gp",
+    "name": "Shiregreen Medical Centre",
+    "address": "492 Bellhouse Road, Sheffield",
+    "postcode": "S5 0RG",
+    "lat": 53.430083,
+    "lng": -1.440597
+  },
+  {
+    "id": "gp-b85652",
+    "type": "gp",
+    "name": "Sidings Healthcare Centre",
+    "address": "Saville Healthcare Centre, Dewsbury",
+    "postcode": "WF12 9QU",
+    "lat": 53.681539,
+    "lng": -1.633202
+  },
+  {
+    "id": "gp-b85061",
+    "type": "gp",
+    "name": "Skelmanthorpe Family Doctors",
+    "address": "Commercial Road, Huddersfield",
+    "postcode": "HD8 9DA",
+    "lat": 53.59162,
+    "lng": -1.650689
+  },
+  {
+    "id": "gp-b85059",
+    "type": "gp",
+    "name": "Slaithwaite Health Centre",
+    "address": "New Street, Huddersfield",
+    "postcode": "HD7 5AB",
+    "lat": 53.623561,
+    "lng": -1.878389
+  },
+  {
+    "id": "gp-b82101",
+    "type": "gp",
+    "name": "Sleights And Sandsend Medical Practice",
+    "address": "Churchfield Surgery, Whitby",
+    "postcode": "YO22 5DP",
+    "lat": 54.45202,
+    "lng": -0.659661
+  },
+  {
+    "id": "gp-c88026",
+    "type": "gp",
+    "name": "Sloan Medical Centre",
+    "address": "2 Little London Road, Sheffield",
+    "postcode": "S8 0YH",
+    "lat": 53.358273,
+    "lng": -1.47641
+  },
+  {
+    "id": "gp-c88023",
+    "type": "gp",
+    "name": "Sothall & Beighton Health Centres",
+    "address": "24 Eckington Road, Sheffield",
+    "postcode": "S20 1HQ",
+    "lat": 53.337895,
+    "lng": -1.340221
+  },
+  {
+    "id": "gp-b86035",
+    "type": "gp",
+    "name": "South Bank Surgery",
+    "address": "Hunslet Health Centre, Leeds",
+    "postcode": "LS10 2PT",
+    "lat": 53.77991,
+    "lng": -1.526513
+  },
+  {
+    "id": "gp-b82073",
+    "type": "gp",
+    "name": "South Milford Surgery",
+    "address": "High Street, Leeds",
+    "postcode": "LS25 5AA",
+    "lat": 53.779296,
+    "lng": -1.249176
+  },
+  {
+    "id": "gp-b86028",
+    "type": "gp",
+    "name": "South Queen Medical Centre",
+    "address": "South Queen St Medical Centre, Leeds",
+    "postcode": "LS27 9EW",
+    "lat": 53.742198,
+    "lng": -1.598788
+  },
+  {
+    "id": "gp-c88086",
+    "type": "gp",
+    "name": "Southey Green Medical Ctr",
+    "address": "281 Southey Green Road, Sheffield",
+    "postcode": "S5 7QB",
+    "lat": 53.419051,
+    "lng": -1.477666
+  },
+  {
+    "id": "gp-b86034",
+    "type": "gp",
+    "name": "Spa Surgery",
+    "address": "205 High St, Wetherby",
+    "postcode": "LS23 6PY",
+    "lat": 53.903657,
+    "lng": -1.343052
+  },
+  {
+    "id": "gp-b84012",
+    "type": "gp",
+    "name": "Spring Hall Group Practice",
+    "address": "173C Spring Hall Lane, Halifax",
+    "postcode": "HX1 4JG",
+    "lat": 53.721043,
+    "lng": -1.892931
+  },
+  {
+    "id": "gp-b82057",
+    "type": "gp",
+    "name": "Springbank Surgery",
+    "address": "York Road, York",
+    "postcode": "YO26 8BN",
+    "lat": 54.004037,
+    "lng": -1.299166
+  },
+  {
+    "id": "gp-c81001",
+    "type": "gp",
+    "name": "Springs Health Centre",
+    "address": "The Springs Health Centre, Chesterfield",
+    "postcode": "S43 4PL",
+    "lat": 53.27774,
+    "lng": -1.265531
+  },
+  {
+    "id": "gp-b81027",
+    "type": "gp",
+    "name": "St Andrews Surgery",
+    "address": "Elliot Chappell Health Centre, Hull",
+    "postcode": "HU3 4BB",
+    "lat": 53.735566,
+    "lng": -0.361958
+  },
+  {
+    "id": "gp-c87005",
+    "type": "gp",
+    "name": "St Ann'S Medical Centre",
+    "address": "Rotherham Health Village, Rotherham",
+    "postcode": "S65 1DA",
+    "lat": 53.430016,
+    "lng": -1.352433
+  },
+  {
+    "id": "gp-c85619",
+    "type": "gp",
+    "name": "St George'S Medical Centre Pms Practice",
+    "address": "Roundhouse Medical Centre, Barnsley",
+    "postcode": "S71 1RY",
+    "lat": 53.579078,
+    "lng": -1.482827
+  },
+  {
+    "id": "gp-c81647",
+    "type": "gp",
+    "name": "St Lawrence Road Surgery",
+    "address": "17-19 St. Lawrence Road, Chesterfield",
+    "postcode": "S42 5LH",
+    "lat": 53.180151,
+    "lng": -1.38783
+  },
+  {
+    "id": "gp-b86100",
+    "type": "gp",
+    "name": "St Martins Practice",
+    "address": "St. Martins Surgery, Leeds",
+    "postcode": "LS7 4HZ",
+    "lat": 53.822131,
+    "lng": -1.532144
+  },
+  {
+    "id": "gp-b87009",
+    "type": "gp",
+    "name": "St Thomas Road Surgery",
+    "address": "St. Thomas Road, Pontefract",
+    "postcode": "WF7 5HE",
+    "lat": 53.674908,
+    "lng": -1.355937
+  },
+  {
+    "id": "gp-c87007",
+    "type": "gp",
+    "name": "Stag Medical Centre",
+    "address": "162 Wickersley Road, Rotherham",
+    "postcode": "S60 4JW",
+    "lat": 53.418227,
+    "lng": -1.319133
+  },
+  {
+    "id": "gp-b84009",
+    "type": "gp",
+    "name": "Stainland Road Medical Centre",
+    "address": "70 Stainland Road, Halifax",
+    "postcode": "HX4 8BD",
+    "lat": 53.685862,
+    "lng": -1.857377
+  },
+  {
+    "id": "gp-b87019",
+    "type": "gp",
+    "name": "Stanley",
+    "address": "Stanley Health Centre, Wakefield",
+    "postcode": "WF3 4HS",
+    "lat": 53.713764,
+    "lng": -1.476239
+  },
+  {
+    "id": "gp-b87032",
+    "type": "gp",
+    "name": "Station Lane",
+    "address": "Station Lane Medical Centre, Pontefract",
+    "postcode": "WF7 6JL",
+    "lat": 53.68116,
+    "lng": -1.358643
+  },
+  {
+    "id": "gp-b84001",
+    "type": "gp",
+    "name": "Station Road Surgery",
+    "address": "Station Road, Sowerby Bridge",
+    "postcode": "HX6 3AB",
+    "lat": 53.707126,
+    "lng": -1.910782
+  },
+  {
+    "id": "gp-c88037",
+    "type": "gp",
+    "name": "Steel City General Practice",
+    "address": "148 Baslow Road, Sheffield",
+    "postcode": "S17 4DR",
+    "lat": 53.316325,
+    "lng": -1.531066
+  },
+  {
+    "id": "gp-b82079",
+    "type": "gp",
+    "name": "Stillington Surgery",
+    "address": "The Surgery, York",
+    "postcode": "YO61 1LL",
+    "lat": 54.103631,
+    "lng": -1.108937
+  },
+  {
+    "id": "gp-b82067",
+    "type": "gp",
+    "name": "Stockwell Road Surgery",
+    "address": "21 Stockwell Road, Knaresborough",
+    "postcode": "HG5 0JY",
+    "lat": 54.012014,
+    "lng": -1.466768
+  },
+  {
+    "id": "gp-c88022",
+    "type": "gp",
+    "name": "Stonecroft Medical Centre",
+    "address": "871 Gleadless Road, Sheffield",
+    "postcode": "S12 2LJ",
+    "lat": 53.345562,
+    "lng": -1.425314
+  },
+  {
+    "id": "gp-b82016",
+    "type": "gp",
+    "name": "Strayside Health",
+    "address": "Mowbray Square Medical Centre, Harrogate",
+    "postcode": "HG1 5AR",
+    "lat": 53.996369,
+    "lng": -1.529799
+  },
+  {
+    "id": "gp-b87015",
+    "type": "gp",
+    "name": "Stuart Road",
+    "address": "The Surgery, Pontefract",
+    "postcode": "WF8 4PQ",
+    "lat": 53.69345,
+    "lng": -1.315279
+  },
+  {
+    "id": "gp-c81089",
+    "type": "gp",
+    "name": "Stubley Medical Centre",
+    "address": "7 Stubley Drive, Dronfield",
+    "postcode": "S18 8QY",
+    "lat": 53.304986,
+    "lng": -1.488542
+  },
+  {
+    "id": "gp-b83009",
+    "type": "gp",
+    "name": "Sunnybank & Cowgill Medical Practice",
+    "address": "Town Gate, Bradford",
+    "postcode": "BD12 9NG",
+    "lat": 53.737934,
+    "lng": -1.768001
+  },
+  {
+    "id": "gp-c87008",
+    "type": "gp",
+    "name": "Swallownest Health Centre",
+    "address": "Worksop Road, Sheffield",
+    "postcode": "S26 4WD",
+    "lat": 53.363014,
+    "lng": -1.316887
+  },
+  {
+    "id": "gp-b82105",
+    "type": "gp",
+    "name": "Tadcaster Medical Centre",
+    "address": "Crab Garth, Tadcaster",
+    "postcode": "LS24 8HD",
+    "lat": 53.885512,
+    "lng": -1.258245
+  },
+  {
+    "id": "gp-b82619",
+    "type": "gp",
+    "name": "Terrington Surgery",
+    "address": "Terrington, York",
+    "postcode": "YO60 6PS",
+    "lat": 54.128925,
+    "lng": -0.973697
+  },
+  {
+    "id": "gp-b85646",
+    "type": "gp",
+    "name": "The Albion Mount Medical Practice",
+    "address": "47 Albion Street, Dewsbury",
+    "postcode": "WF13 2AJ",
+    "lat": 53.695921,
+    "lng": -1.633713
+  },
+  {
+    "id": "gp-b85023",
+    "type": "gp",
+    "name": "The Almondbury Surgery",
+    "address": "Almondbury Surgery, Huddersfield",
+    "postcode": "HD5 8XW",
+    "lat": 53.631868,
+    "lng": -1.751311
+  },
+  {
+    "id": "gp-b81035",
+    "type": "gp",
+    "name": "The Avenues Medical Centre",
+    "address": "Doctors Surgery, Kingston Upon Hull",
+    "postcode": "HU5 3TJ",
+    "lat": 53.755653,
+    "lng": -0.374221
+  },
+  {
+    "id": "gp-b83058",
+    "type": "gp",
+    "name": "The Avicenna Medical Practice",
+    "address": "Barkerend Health Centre, Bradford",
+    "postcode": "BD3 8QH",
+    "lat": 53.797849,
+    "lng": -1.721853
+  },
+  {
+    "id": "gp-b84019",
+    "type": "gp",
+    "name": "The Boulevard Medical Practice",
+    "address": "116 Savile Park Road, Halifax",
+    "postcode": "HX1 2ES",
+    "lat": 53.717279,
+    "lng": -1.868591
+  },
+  {
+    "id": "gp-b81046",
+    "type": "gp",
+    "name": "The Bridge Group Practice",
+    "address": "The Orchard Centre, Hull",
+    "postcode": "HU6 9BX",
+    "lat": 53.787575,
+    "lng": -0.375766
+  },
+  {
+    "id": "gp-c81058",
+    "type": "gp",
+    "name": "The Brimington Surgery",
+    "address": "Church Street, Chesterfield",
+    "postcode": "S43 1JG",
+    "lat": 53.257173,
+    "lng": -1.395708
+  },
+  {
+    "id": "gp-b83642",
+    "type": "gp",
+    "name": "The City Medical Practice",
+    "address": "Westbourne Green Chc Centre, Bradford",
+    "postcode": "BD8 8RA",
+    "lat": 53.80731,
+    "lng": -1.776244
+  },
+  {
+    "id": "gp-b86067",
+    "type": "gp",
+    "name": "The Dekeyser Group Practice",
+    "address": "Little Fountain Street, Leeds",
+    "postcode": "LS27 9EN",
+    "lat": 53.743055,
+    "lng": -1.604996
+  },
+  {
+    "id": "gp-c85007",
+    "type": "gp",
+    "name": "The Dove Valley Pms Practice",
+    "address": "Worsbrough Healthcare Centre, Barnsley",
+    "postcode": "S70 5NZ",
+    "lat": 53.529021,
+    "lng": -1.46034
+  },
+  {
+    "id": "gp-b86054",
+    "type": "gp",
+    "name": "The Garden Surgery",
+    "address": "78A Osmondthorpe Lane, Leeds",
+    "postcode": "LS9 9EF",
+    "lat": 53.800277,
+    "lng": -1.497846
+  },
+  {
+    "id": "gp-b87026",
+    "type": "gp",
+    "name": "The Grange Medical Centre",
+    "address": "Highfield Road, Pontefract",
+    "postcode": "WF9 4DP",
+    "lat": 53.611853,
+    "lng": -1.35425
+  },
+  {
+    "id": "gp-b85028",
+    "type": "gp",
+    "name": "The Grange Medical Practice",
+    "address": "Fartown Grange, Huddersfield",
+    "postcode": "HD2 2QA",
+    "lat": 53.662307,
+    "lng": -1.781353
+  },
+  {
+    "id": "gp-b85030",
+    "type": "gp",
+    "name": "The Greenway Medical Practice",
+    "address": "The Green Way Practice, Cleckheaton",
+    "postcode": "BD19 5AP",
+    "lat": 53.722222,
+    "lng": -1.713167
+  },
+  {
+    "id": "gp-c85019",
+    "type": "gp",
+    "name": "The Grove Medical Practice",
+    "address": "124-126 Park Grove, Barnsley",
+    "postcode": "S70 1QE",
+    "lat": 53.547102,
+    "lng": -1.485978
+  },
+  {
+    "id": "gp-b85660",
+    "type": "gp",
+    "name": "The Junction Surgery",
+    "address": "Birkhouse Lane, Huddersfield",
+    "postcode": "HD5 8BE",
+    "lat": 53.643713,
+    "lng": -1.759304
+  },
+  {
+    "id": "gp-c85009",
+    "type": "gp",
+    "name": "The Kakoty Practice",
+    "address": "170 Sheffield Road, Barnsley",
+    "postcode": "S70 4NW",
+    "lat": 53.546418,
+    "lng": -1.473445
+  },
+  {
+    "id": "gp-b82012",
+    "type": "gp",
+    "name": "The Leeds Road Practice",
+    "address": "49-51 Leeds Road, Harrogate",
+    "postcode": "HG2 8AY",
+    "lat": 53.980481,
+    "lng": -1.535162
+  },
+  {
+    "id": "gp-b85033",
+    "type": "gp",
+    "name": "The Lindley Village Surg.",
+    "address": "Thomas Street, Huddersfield",
+    "postcode": "HD3 3JD",
+    "lat": 53.661345,
+    "lng": -1.825711
+  },
+  {
+    "id": "gp-b83604",
+    "type": "gp",
+    "name": "The Lister Surgery",
+    "address": "50 Heaton Road, Bradford",
+    "postcode": "BD8 8RA",
+    "lat": 53.80731,
+    "lng": -1.776244
+  },
+  {
+    "id": "gp-c87006",
+    "type": "gp",
+    "name": "The Magna Group Practice",
+    "address": "Highthorn Road, Mexborough",
+    "postcode": "S64 5UP",
+    "lat": 53.476979,
+    "lng": -1.307089
+  },
+  {
+    "id": "gp-c88038",
+    "type": "gp",
+    "name": "The Mathews Practice Belgrave",
+    "address": "22 Asline Road, Sheffield",
+    "postcode": "S2 4UJ",
+    "lat": 53.366612,
+    "lng": -1.471814
+  },
+  {
+    "id": "gp-b86062",
+    "type": "gp",
+    "name": "The Medical Centre",
+    "address": "846 York Road, Leeds",
+    "postcode": "LS14 6DX",
+    "lat": 53.813727,
+    "lng": -1.455267
+  },
+  {
+    "id": "gp-c88655",
+    "type": "gp",
+    "name": "The Medical Centre Dr Okorie",
+    "address": "1A Ingfield Avenue, Sheffield",
+    "postcode": "S9 1WZ",
+    "lat": 53.411077,
+    "lng": -1.397219
+  },
+  {
+    "id": "gp-b81092",
+    "type": "gp",
+    "name": "The Medical Centre, Driffield",
+    "address": "The Medical Centre, Driffield",
+    "postcode": "YO25 6UH",
+    "lat": 54.006277,
+    "lng": -0.439687
+  },
+  {
+    "id": "gp-c86034",
+    "type": "gp",
+    "name": "The New Surgery",
+    "address": "Adwick Road, Mexborough",
+    "postcode": "S64 0DB",
+    "lat": 53.494642,
+    "lng": -1.281086
+  },
+  {
+    "id": "gp-b86013",
+    "type": "gp",
+    "name": "The North Leeds Medical Practice",
+    "address": "355 Harrogate Road, Leeds",
+    "postcode": "LS17 6PZ",
+    "lat": 53.843197,
+    "lng": -1.534023
+  },
+  {
+    "id": "gp-b84008",
+    "type": "gp",
+    "name": "The Northolme Practice",
+    "address": "Kos Clinic, Halifax",
+    "postcode": "HX3 8AF",
+    "lat": 53.725953,
+    "lng": -1.80885
+  },
+  {
+    "id": "gp-b81038",
+    "type": "gp",
+    "name": "The Oaks Medical Centre",
+    "address": "Council Avenue, Hull",
+    "postcode": "HU4 6RF",
+    "lat": 53.73196,
+    "lng": -0.395101
+  },
+  {
+    "id": "gp-b82071",
+    "type": "gp",
+    "name": "The Old School Medical Practice",
+    "address": "Horseman Lane, York",
+    "postcode": "YO23 3UA",
+    "lat": 53.916163,
+    "lng": -1.142404
+  },
+  {
+    "id": "gp-b85038",
+    "type": "gp",
+    "name": "The Paddock Surgery",
+    "address": "Chapel Lane, Dewsbury",
+    "postcode": "WF12 0DH",
+    "lat": 53.663472,
+    "lng": -1.624309
+  },
+  {
+    "id": "gp-b81037",
+    "type": "gp",
+    "name": "The Park Surgery",
+    "address": "6 Eastgate North, Driffield",
+    "postcode": "YO25 6EB",
+    "lat": 54.009311,
+    "lng": -0.43939
+  },
+  {
+    "id": "gp-b81017",
+    "type": "gp",
+    "name": "The Quays Medical Practice",
+    "address": "Wilberforce Health Centre, Hull",
+    "postcode": "HU1 3SA",
+    "lat": 53.746241,
+    "lng": -0.342102
+  },
+  {
+    "id": "gp-b83055",
+    "type": "gp",
+    "name": "The Ridge Medical Pract.",
+    "address": "Cousen Road, Bradford",
+    "postcode": "BD7 3JX",
+    "lat": 53.78091,
+    "lng": -1.779859
+  },
+  {
+    "id": "gp-b81061",
+    "type": "gp",
+    "name": "The Ridings Medical Group",
+    "address": "Brough Surgery, Brough",
+    "postcode": "HU15 1AY",
+    "lat": 53.728941,
+    "lng": -0.567628
+  },
+  {
+    "id": "gp-b83064",
+    "type": "gp",
+    "name": "The Rockwell And Wrose Practice",
+    "address": "Kings Road, Bradford",
+    "postcode": "BD2 1QG",
+    "lat": 53.823012,
+    "lng": -1.744412
+  },
+  {
+    "id": "gp-c85014",
+    "type": "gp",
+    "name": "The Rose Tree Pms Practice",
+    "address": "White Rose Med Practice, Barnsley",
+    "postcode": "S72 8SU",
+    "lat": 53.577865,
+    "lng": -1.416845
+  },
+  {
+    "id": "gp-b86643",
+    "type": "gp",
+    "name": "The Roundhay Road Surgery",
+    "address": "171-173 Roundhay Road, Leeds",
+    "postcode": "LS8 5AN",
+    "lat": 53.813933,
+    "lng": -1.520708
+  },
+  {
+    "id": "gp-b83039",
+    "type": "gp",
+    "name": "The Saltaire & Windhill Medical P'Ship",
+    "address": "Windhill Green Medic Prac, Shipley",
+    "postcode": "BD18 1QB",
+    "lat": 53.835412,
+    "lng": -1.764926
+  },
+  {
+    "id": "gp-b82027",
+    "type": "gp",
+    "name": "The Spa Surgery",
+    "address": "Mowbray Square Medical Centre, Harrogate",
+    "postcode": "HG1 5AR",
+    "lat": 53.996369,
+    "lng": -1.529799
+  },
+  {
+    "id": "gp-b83067",
+    "type": "gp",
+    "name": "The Springfield Surgery (Bingley)",
+    "address": "Canalside Health Care Centre, Bingley",
+    "postcode": "BD16 4RP",
+    "lat": 53.846951,
+    "lng": -1.827832
+  },
+  {
+    "id": "gp-b86066",
+    "type": "gp",
+    "name": "The Street Lane Practice",
+    "address": "12 Devonshire Avenue, Leeds",
+    "postcode": "LS8 1AY",
+    "lat": 53.842927,
+    "lng": -1.513554
+  },
+  {
+    "id": "gp-c81012",
+    "type": "gp",
+    "name": "The Surgery At Wheatbridge",
+    "address": "The Surgery-Wheatbridge, Chesterfield",
+    "postcode": "S40 2AB",
+    "lat": 53.233962,
+    "lng": -1.439619
+  },
+  {
+    "id": "gp-b81020",
+    "type": "gp",
+    "name": "The Sutton Manor Surgery",
+    "address": "Sutton Manor Surgery, Hull",
+    "postcode": "HU7 4PT",
+    "lat": 53.785779,
+    "lng": -0.315301
+  },
+  {
+    "id": "gp-c88647",
+    "type": "gp",
+    "name": "The Thorpe Practice",
+    "address": "Moorthorpe Bank, Sheffield",
+    "postcode": "S20 6PD",
+    "lat": 53.33818,
+    "lng": -1.37647
+  },
+  {
+    "id": "gp-c81002",
+    "type": "gp",
+    "name": "The Valleys Medical Partnership",
+    "address": "Gosber Road, Sheffield",
+    "postcode": "S21 4BZ",
+    "lat": 53.307676,
+    "lng": -1.355259
+  },
+  {
+    "id": "gp-b85024",
+    "type": "gp",
+    "name": "The Waterloo Practice",
+    "address": "Waterloo Health Centre, Huddersfield",
+    "postcode": "HD5 9XP",
+    "lat": 53.645365,
+    "lng": -1.73724
+  },
+  {
+    "id": "gp-b85659",
+    "type": "gp",
+    "name": "The Whitehouse Centre",
+    "address": "Princess Royal Health Centre, Huddersfield",
+    "postcode": "HD1 4EW",
+    "lat": 53.646396,
+    "lng": -1.79039
+  },
+  {
+    "id": "gp-b83020",
+    "type": "gp",
+    "name": "The Willows Medical Practice",
+    "address": "8 Osbourne Drive, Bradford",
+    "postcode": "BD13 2GD",
+    "lat": 53.76865,
+    "lng": -1.849437
+  },
+  {
+    "id": "gp-b83037",
+    "type": "gp",
+    "name": "The Wilsden Medical Practice",
+    "address": "2 Lingbob Court, Bradford",
+    "postcode": "BD15 0NJ",
+    "lat": 53.818206,
+    "lng": -1.861578
+  },
+  {
+    "id": "gp-b82049",
+    "type": "gp",
+    "name": "Thirsk Doctors Surgery",
+    "address": "Health Centre, Thirsk",
+    "postcode": "YO7 1LG",
+    "lat": 54.230949,
+    "lng": -1.342795
+  },
+  {
+    "id": "gp-b83005",
+    "type": "gp",
+    "name": "Thornbury Medical Practice",
+    "address": "Morrisons Store, Bradford",
+    "postcode": "BD3 7HZ",
+    "lat": 53.802829,
+    "lng": -1.710554
+  },
+  {
+    "id": "gp-b85606",
+    "type": "gp",
+    "name": "Thornhill Lees Medical Centre",
+    "address": "140 Slaithwaite Road, Dewsbury",
+    "postcode": "WF12 9DW",
+    "lat": 53.673566,
+    "lng": -1.630153
+  },
+  {
+    "id": "gp-b85044",
+    "type": "gp",
+    "name": "Thornton Lodge Surgery",
+    "address": "60 Thornton Lodge Road, Huddersfield",
+    "postcode": "HD1 3SB",
+    "lat": 53.637876,
+    "lng": -1.796059
+  },
+  {
+    "id": "gp-b86060",
+    "type": "gp",
+    "name": "Thornton Medical Centre",
+    "address": "Leeds Community & Mental Health Ser, Leeds",
+    "postcode": "LS12 1JE",
+    "lat": 53.791924,
+    "lng": -1.576212
+  },
+  {
+    "id": "gp-c87604",
+    "type": "gp",
+    "name": "Thorpe Hesley Surgery",
+    "address": "Sough Hall Road, Rotherham",
+    "postcode": "S61 2QP",
+    "lat": 53.458647,
+    "lng": -1.432602
+  },
+  {
+    "id": "gp-b87042",
+    "type": "gp",
+    "name": "Tieve Tara",
+    "address": "Tieve Tara Medical Centre, Castleford",
+    "postcode": "WF10 2QP",
+    "lat": 53.732599,
+    "lng": -1.314629
+  },
+  {
+    "id": "gp-b82064",
+    "type": "gp",
+    "name": "Tollerton Surgery",
+    "address": "10 Pond View, York",
+    "postcode": "YO61 1AG",
+    "lat": 54.071608,
+    "lng": -1.223241
+  },
+  {
+    "id": "gp-b83015",
+    "type": "gp",
+    "name": "Tong Medical Practice",
+    "address": "2 Proctor Street, Bradford",
+    "postcode": "BD4 9QA",
+    "lat": 53.770505,
+    "lng": -1.716799
+  },
+  {
+    "id": "gp-b82019",
+    "type": "gp",
+    "name": "Topcliffe Surgery",
+    "address": "Long Street, Thirsk",
+    "postcode": "YO7 3RP",
+    "lat": 54.177803,
+    "lng": -1.384712
+  },
+  {
+    "id": "gp-b82007",
+    "type": "gp",
+    "name": "Townhead Surgery",
+    "address": "Town Head, Settle",
+    "postcode": "BD24 9JA",
+    "lat": 54.070547,
+    "lng": -2.276906
+  },
+  {
+    "id": "gp-c88043",
+    "type": "gp",
+    "name": "Tramways And Middlewood Medical Centres",
+    "address": "Fairlawns, Sheffield",
+    "postcode": "S6 1TT",
+    "lat": 53.419002,
+    "lng": -1.515194
+  },
+  {
+    "id": "gp-c88018",
+    "type": "gp",
+    "name": "Tramways Medical Centre (O'Connell)",
+    "address": "54 Holme Lane, Sheffield",
+    "postcode": "S6 4JQ",
+    "lat": 53.402044,
+    "lng": -1.503023
+  },
+  {
+    "id": "gp-c87014",
+    "type": "gp",
+    "name": "Treeton Medical Centre",
+    "address": "10 Arundel Street, Rotherham",
+    "postcode": "S60 5PW",
+    "lat": 53.385013,
+    "lng": -1.354708
+  },
+  {
+    "id": "gp-b87017",
+    "type": "gp",
+    "name": "Trinity Medical Centre",
+    "address": "Thornhill Street, Wakefield",
+    "postcode": "WF1 1PG",
+    "lat": 53.679958,
+    "lng": -1.49484
+  },
+  {
+    "id": "gp-b85012",
+    "type": "gp",
+    "name": "Undercliffe Surgery",
+    "address": "16 Union Street, Heckmondwike",
+    "postcode": "WF16 0HH",
+    "lat": 53.70724,
+    "lng": -1.678183
+  },
+  {
+    "id": "gp-b82047",
+    "type": "gp",
+    "name": "Unity Health",
+    "address": "Kimberlow Hill Surgery, York",
+    "postcode": "YO10 5LA",
+    "lat": 53.950377,
+    "lng": -1.029723
+  },
+  {
+    "id": "gp-b85062",
+    "type": "gp",
+    "name": "University Health Centre",
+    "address": "Sand Street, Huddersfield",
+    "postcode": "HD1 3AL",
+    "lat": 53.643852,
+    "lng": -1.775549
+  },
+  {
+    "id": "gp-c88627",
+    "type": "gp",
+    "name": "University Health Service Health Centre",
+    "address": "University Health Service, Sheffield",
+    "postcode": "S3 7QP",
+    "lat": 53.380323,
+    "lng": -1.482709
+  },
+  {
+    "id": "gp-c88031",
+    "type": "gp",
+    "name": "Upperthorpe Medical Centre",
+    "address": "30 Addy Street, Sheffield",
+    "postcode": "S6 3FT",
+    "lat": 53.389895,
+    "lng": -1.486849
+  },
+  {
+    "id": "gp-c88027",
+    "type": "gp",
+    "name": "Upwell Street Surgery",
+    "address": "93 Upwell Street, Sheffield",
+    "postcode": "S4 8AN",
+    "lat": 53.406424,
+    "lng": -1.43474
+  },
+  {
+    "id": "gp-c88092",
+    "type": "gp",
+    "name": "Valley Medical Centre",
+    "address": "Johnson Street, Sheffield",
+    "postcode": "S36 1BX",
+    "lat": 53.482334,
+    "lng": -1.594911
+  },
+  {
+    "id": "gp-b83626",
+    "type": "gp",
+    "name": "Valley View Surgery",
+    "address": "17 Lowther Street, Bradford",
+    "postcode": "BD2 4RA",
+    "lat": 53.806806,
+    "lng": -1.731907
+  },
+  {
+    "id": "gp-c88631",
+    "type": "gp",
+    "name": "Veritas Health Centre",
+    "address": "243-245 Chesterfield Road, Sheffield",
+    "postcode": "S8 0RT",
+    "lat": 53.354257,
+    "lng": -1.481026
+  },
+  {
+    "id": "gp-b86041",
+    "type": "gp",
+    "name": "Vesper Road",
+    "address": "43 Vesper Road, Leeds",
+    "postcode": "LS5 3QT",
+    "lat": 53.827342,
+    "lng": -1.615325
+  },
+  {
+    "id": "gp-c85033",
+    "type": "gp",
+    "name": "Victoria Medical Centre Pms Practice",
+    "address": "7 Victoria Crescent West, Barnsley",
+    "postcode": "S75 2AE",
+    "lat": 53.556722,
+    "lng": -1.490828
+  },
+  {
+    "id": "gp-c87022",
+    "type": "gp",
+    "name": "Village Surgery",
+    "address": "24-28 Laughton Road, Rotherham",
+    "postcode": "S66 9LP",
+    "lat": 53.39423,
+    "lng": -1.251934
+  },
+  {
+    "id": "gp-c85008",
+    "type": "gp",
+    "name": "Walderslade Surgery",
+    "address": "High Croft, Barnsley",
+    "postcode": "S74 9AF",
+    "lat": 53.499839,
+    "lng": -1.437721
+  },
+  {
+    "id": "gp-c88005",
+    "type": "gp",
+    "name": "Walkley House & Stannington M.C",
+    "address": "23 Greenhow Street, Sheffield",
+    "postcode": "S6 3TN",
+    "lat": 53.392271,
+    "lng": -1.502249
+  },
+  {
+    "id": "gp-b87004",
+    "type": "gp",
+    "name": "Warrengate Medical Centre",
+    "address": "78 Upper Warrengate, Wakefield",
+    "postcode": "WF1 4PR",
+    "lat": 53.682721,
+    "lng": -1.491325
+  },
+  {
+    "id": "gp-c81041",
+    "type": "gp",
+    "name": "Welbeck Road Health Centre",
+    "address": "1B Welbeck Road, Chesterfield",
+    "postcode": "S44 6DF",
+    "lat": 53.23078,
+    "lng": -1.286528
+  },
+  {
+    "id": "gp-b85015",
+    "type": "gp",
+    "name": "Wellington House",
+    "address": "Wellington House Surgery, Batley",
+    "postcode": "WF17 5DN",
+    "lat": 53.71479,
+    "lng": -1.634565
+  },
+  {
+    "id": "gp-b86050",
+    "type": "gp",
+    "name": "West Lodge Surgery",
+    "address": "New Street, Pudsey",
+    "postcode": "LS28 5DL",
+    "lat": 53.810885,
+    "lng": -1.669708
+  },
+  {
+    "id": "gp-b85636",
+    "type": "gp",
+    "name": "Westbourne Surgery",
+    "address": "11A St. James Road, Huddersfield",
+    "postcode": "HD1 4QR",
+    "lat": 53.650952,
+    "lng": -1.806102
+  },
+  {
+    "id": "gp-b86029",
+    "type": "gp",
+    "name": "Westgate Surgery",
+    "address": "Westgate, Otley",
+    "postcode": "LS21 3HD",
+    "lat": 53.904796,
+    "lng": -1.699165
+  },
+  {
+    "id": "gp-b86673",
+    "type": "gp",
+    "name": "Wetherby & Bramham Surgery",
+    "address": "Wetherby Health Centre, Wetherby",
+    "postcode": "LS22 6JS",
+    "lat": 53.931036,
+    "lng": -1.378871
+  },
+  {
+    "id": "gp-b82017",
+    "type": "gp",
+    "name": "Whitby Group Practice",
+    "address": "Spring Vale Medical Centre, Whitby",
+    "postcode": "YO21 1SD",
+    "lat": 54.485934,
+    "lng": -0.623186
+  },
+  {
+    "id": "gp-c88020",
+    "type": "gp",
+    "name": "White House Surgery",
+    "address": "1 Fairfax Rise, Sheffield",
+    "postcode": "S2 1SL",
+    "lat": 53.368507,
+    "lng": -1.420858
+  },
+  {
+    "id": "gp-b87016",
+    "type": "gp",
+    "name": "White Rose Surgery",
+    "address": "Exchange Street, Pontefract",
+    "postcode": "WF9 2RD",
+    "lat": 53.595449,
+    "lng": -1.293671
+  },
+  {
+    "id": "gp-b86071",
+    "type": "gp",
+    "name": "Whitehall Surgery",
+    "address": "Wortley Beck Health Ctr, Leeds",
+    "postcode": "LS12 5SG",
+    "lat": 53.782464,
+    "lng": -1.601121
+  },
+  {
+    "id": "gp-c81044",
+    "type": "gp",
+    "name": "Whittington Moor Surgery",
+    "address": "Scarsdale Road, Chesterfield",
+    "postcode": "S41 8NA",
+    "lat": 53.260996,
+    "lng": -1.431065
+  },
+  {
+    "id": "gp-b83028",
+    "type": "gp",
+    "name": "Wibsey & Queensbury Med P",
+    "address": "Fair Road, Bradford",
+    "postcode": "BD6 1TD",
+    "lat": 53.767239,
+    "lng": -1.779718
+  },
+  {
+    "id": "gp-c87015",
+    "type": "gp",
+    "name": "Wickersley Health Centre",
+    "address": "Poplar Glade, Rotherham",
+    "postcode": "S66 2JQ",
+    "lat": 53.422328,
+    "lng": -1.279671
+  },
+  {
+    "id": "gp-b81032",
+    "type": "gp",
+    "name": "Wilberforce Surgery",
+    "address": "1St Floor Wilberfoce Health Centre, Hull",
+    "postcode": "HU1 3SA",
+    "lat": 53.746241,
+    "lng": -0.342102
+  },
+  {
+    "id": "gp-b81024",
+    "type": "gp",
+    "name": "Willerby And Swanland Surgery",
+    "address": "Willand Primary Care Centre, Hull",
+    "postcode": "HU10 7JR",
+    "lat": 53.740089,
+    "lng": -0.433515
+  },
+  {
+    "id": "gp-c88047",
+    "type": "gp",
+    "name": "Wincobank Medical Centre",
+    "address": "205 Tyler Street, Sheffield",
+    "postcode": "S9 1DJ",
+    "lat": 53.419468,
+    "lng": -1.41633
+  },
+  {
+    "id": "gp-b86007",
+    "type": "gp",
+    "name": "Windmill Health Centre",
+    "address": "83A Whinmoor Way, Leeds",
+    "postcode": "LS14 5BD",
+    "lat": 53.822446,
+    "lng": -1.445615
+  },
+  {
+    "id": "gp-b86057",
+    "type": "gp",
+    "name": "Windsor House Group Practice",
+    "address": "2 Corporation Street, Leeds",
+    "postcode": "LS27 9NB",
+    "lat": 53.744791,
+    "lng": -1.605541
+  },
+  {
+    "id": "gp-b85620",
+    "type": "gp",
+    "name": "Windsor Medical Centre",
+    "address": "2 William Street, Dewsbury",
+    "postcode": "WF12 7BD",
+    "lat": 53.69389,
+    "lng": -1.622161
+  },
+  {
+    "id": "gp-c81658",
+    "type": "gp",
+    "name": "Wingerworth Medical Centre",
+    "address": "Allendale Road, Chesterfield",
+    "postcode": "S42 6PX",
+    "lat": 53.200934,
+    "lng": -1.437055
+  },
+  {
+    "id": "gp-b81047",
+    "type": "gp",
+    "name": "Wolseley Medical Centre",
+    "address": "Londesborough Street, Hull",
+    "postcode": "HU3 1DS",
+    "lat": 53.746195,
+    "lng": -0.35507
+  },
+  {
+    "id": "gp-c85013",
+    "type": "gp",
+    "name": "Wombwell Gms Practice",
+    "address": "Mayflower Way, Barnsley",
+    "postcode": "S73 0AJ",
+    "lat": 53.522196,
+    "lng": -1.39572
+  },
+  {
+    "id": "gp-c85030",
+    "type": "gp",
+    "name": "Wombwell Medical Centre Practice",
+    "address": "George Street, Barnsley",
+    "postcode": "S73 0DD",
+    "lat": 53.521916,
+    "lng": -1.398921
+  },
+  {
+    "id": "gp-b85048",
+    "type": "gp",
+    "name": "Woodhouse Hill Surgery",
+    "address": "71A Woodhouse Hill, Huddersfield",
+    "postcode": "HD2 1DH",
+    "lat": 53.6667,
+    "lng": -1.770978
+  },
+  {
+    "id": "gp-c88072",
+    "type": "gp",
+    "name": "Woodhouse Medical Centre",
+    "address": "5-7 Skelton Lane, Sheffield",
+    "postcode": "S13 7LY",
+    "lat": 53.357671,
+    "lng": -1.372039
+  },
+  {
+    "id": "gp-b86049",
+    "type": "gp",
+    "name": "Woodhouse Medical Practice",
+    "address": "Cambridge Road, Leeds",
+    "postcode": "LS6 2SF",
+    "lat": 53.812644,
+    "lng": -1.547544
+  },
+  {
+    "id": "gp-c85006",
+    "type": "gp",
+    "name": "Woodland Drive Medical Centre",
+    "address": "Woodland Drive, Barnsley",
+    "postcode": "S70 6QW",
+    "lat": 53.5478,
+    "lng": -1.506646
+  },
+  {
+    "id": "gp-c88041",
+    "type": "gp",
+    "name": "Woodseats Medical Centre",
+    "address": "The Roddick Building, Sheffield",
+    "postcode": "S8 0SH",
+    "lat": 53.339926,
+    "lng": -1.480299
+  },
+  {
+    "id": "gp-c87003",
+    "type": "gp",
+    "name": "Woodstock Bower Group Practice",
+    "address": "1 Kimberworth Road, Rotherham",
+    "postcode": "S61 1AH",
+    "lat": 53.431402,
+    "lng": -1.378074
+  },
+  {
+    "id": "gp-b82083",
+    "type": "gp",
+    "name": "York Medical Group",
+    "address": "199 Acomb Road, York",
+    "postcode": "YO24 4HD",
+    "lat": 53.955939,
+    "lng": -1.119417
+  },
+  {
+    "id": "gp-c87010",
+    "type": "gp",
+    "name": "York Road Surgery",
+    "address": "York Road, Rotherham",
+    "postcode": "S65 1PW",
+    "lat": 53.435119,
+    "lng": -1.348607
+  },
+  {
+    "id": "gp-b86669",
+    "type": "gp",
+    "name": "York Street Health Practice",
+    "address": "68 York Street, Leeds",
+    "postcode": "LS9 8AA",
+    "lat": 53.79657,
+    "lng": -1.532565
+  },
+  {
+    "id": "gp-y05363",
+    "type": "gp",
+    "name": "Bhf Highgate Surgery",
+    "address": "The Grimethorpe Centre, Barnsley",
+    "postcode": "S72 7NZ",
+    "lat": 53.57363,
+    "lng": -1.378982
+  },
+  {
+    "id": "gp-y05364",
+    "type": "gp",
+    "name": "Bhf Lundwood Surgery",
+    "address": "Lundwood Priory Campus, Barnsley",
+    "postcode": "S71 5PN",
+    "lat": 53.557729,
+    "lng": -1.43854
+  },
+  {
+    "id": "gp-y05248",
+    "type": "gp",
+    "name": "Brierley Medical Centre",
+    "address": "Barnsley Healthcare Fed, Barnsley",
+    "postcode": "S72 7NZ",
+    "lat": 53.57363,
+    "lng": -1.378982
+  },
+  {
+    "id": "gp-y07275",
+    "type": "gp",
+    "name": "Broughton House Gp Surgery",
+    "address": "20 New Way, Batley",
+    "postcode": "WF17 5QT",
+    "lat": 53.713816,
+    "lng": -1.636316
+  },
+  {
+    "id": "gp-y02669",
+    "type": "gp",
+    "name": "Castle Health Centre",
+    "address": "3-4 York Place, Scarborough",
+    "postcode": "YO11 2NP",
+    "lat": 54.280311,
+    "lng": -0.402951
+  },
+  {
+    "id": "gp-y05349",
+    "type": "gp",
+    "name": "Clover City Practice",
+    "address": "1 Mulberry Street, Sheffield",
+    "postcode": "S1 2PJ",
+    "lat": 53.38196,
+    "lng": -1.466619
+  },
+  {
+    "id": "gp-y04977",
+    "type": "gp",
+    "name": "Creswell And Langwith Medical Centre",
+    "address": "Welbeck Street, Worksop",
+    "postcode": "S80 4HA",
+    "lat": 53.262654,
+    "lng": -1.215836
+  },
+  {
+    "id": "gp-y04266",
+    "type": "gp",
+    "name": "Crosland Moor Surgery",
+    "address": "11 Park Road West, Huddersfield",
+    "postcode": "HD4 5RX",
+    "lat": 53.63841,
+    "lng": -1.809638
+  },
+  {
+    "id": "gp-y00411",
+    "type": "gp",
+    "name": "Dearne Valley Group Practice",
+    "address": "The Thurnscoe Lift Building, Rotherham",
+    "postcode": "S63 0LU",
+    "lat": 53.54745,
+    "lng": -1.308688
+  },
+  {
+    "id": "gp-y01118",
+    "type": "gp",
+    "name": "Eccleshill Village Surgery",
+    "address": "14 Institute Road, Bradford",
+    "postcode": "BD2 2HX",
+    "lat": 53.821182,
+    "lng": -1.725572
+  },
+  {
+    "id": "gp-y06247",
+    "type": "gp",
+    "name": "Improved Access",
+    "address": "Gilberdyke Health Centre, Brough",
+    "postcode": "HU15 2UL",
+    "lat": 53.754538,
+    "lng": -0.731672
+  },
+  {
+    "id": "gp-y04809",
+    "type": "gp",
+    "name": "Lakeside Surgery",
+    "address": "Goldthope Centre, Rotherham",
+    "postcode": "S63 9EH",
+    "lat": 53.52812,
+    "lng": -1.310932
+  },
+  {
+    "id": "gp-y02645",
+    "type": "gp",
+    "name": "Locala Calderdale Sas",
+    "address": "Po Box 227, Liversedge",
+    "postcode": "WF17 1DR",
+    "lat": 53.708121,
+    "lng": -1.611625
+  },
+  {
+    "id": "gp-y00081",
+    "type": "gp",
+    "name": "Locala Kirklees Sas",
+    "address": "Locala Sas, Liversedge",
+    "postcode": "WF17 1DR",
+    "lat": 53.708121,
+    "lng": -1.611625
+  },
+  {
+    "id": "gp-y06659",
+    "type": "gp",
+    "name": "Nook Surgery",
+    "address": "144 Moor Hill Road, Huddersfield",
+    "postcode": "HD3 3XA",
+    "lat": 53.6571,
+    "lng": -1.843553
+  },
+  {
+    "id": "gp-y02002",
+    "type": "gp",
+    "name": "One Medicare Llp-The Light",
+    "address": "One Medicare Llp, Leeds",
+    "postcode": "LS1 8TL",
+    "lat": 53.800063,
+    "lng": -1.545675
+  },
+  {
+    "id": "gp-y04995",
+    "type": "gp",
+    "name": "Royal Primary Care Chesterfield",
+    "address": "The Grange Family H/Ctr, Chesterfield",
+    "postcode": "S40 2HP",
+    "lat": 53.219689,
+    "lng": -1.436076
+  },
+  {
+    "id": "gp-y02494",
+    "type": "gp",
+    "name": "Shakespeare Medical Practice",
+    "address": "Burmantofts Health Centre, Leeds",
+    "postcode": "LS9 7TA",
+    "lat": 53.802114,
+    "lng": -1.5252
+  },
+  {
+    "id": "gp-y08852",
+    "type": "gp",
+    "name": "Staycity York (Nimbuscare)",
+    "address": "2 Oak Rise, York",
+    "postcode": "YO24 4LJ",
+    "lat": 53.955709,
+    "lng": -1.126127
+  },
+  {
+    "id": "gp-y08645",
+    "type": "gp",
+    "name": "Waverley Medical Centre",
+    "address": "Sunny Lane, Rotherham",
+    "postcode": "S60 8GD",
+    "lat": 53.384533,
+    "lng": -1.374426
+  },
+  {
+    "id": "gp-y05346",
+    "type": "gp",
+    "name": "Westwood Primary Care Centre",
+    "address": "Pelham Street, Worksop",
+    "postcode": "S80 2TR",
+    "lat": 53.296488,
+    "lng": -1.110806
+  },
+  {
+    "id": "gp-y08516",
+    "type": "gp",
+    "name": "York Gp Extended Access (Nimbuscare)",
+    "address": "Nimbuscare Ltd, York",
+    "postcode": "YO24 4LJ",
+    "lat": 53.955709,
+    "lng": -1.126127
+  }
+]
