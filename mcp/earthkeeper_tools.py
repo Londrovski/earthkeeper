@@ -1,6 +1,10 @@
 from fastmcp import FastMCP
 import subprocess
+import sys
 import os
+import io
+import contextlib
+import tempfile
 
 mcp = FastMCP("Earthkeeper Tools")
 
@@ -8,29 +12,37 @@ PYTHON = r"C:\Users\james\AppData\Local\Programs\Python\Python311\python.exe"
 
 @mcp.tool
 def run_python(code: str) -> str:
-    """Run Python code on this machine and return the output."""
-    result = subprocess.run(
-        [PYTHON, "-c", code],
-        capture_output=True, text=True, timeout=120,
-        creationflags=subprocess.CREATE_NO_WINDOW
-    )
-    output = result.stdout
-    if result.stderr:
-        output += "\nSTDERR:\n" + result.stderr
-    return output or "(no output)"
+    """Run Python code in-process and return the output."""
+    stdout_capture = io.StringIO()
+    stderr_capture = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stderr_capture):
+            exec(code, {})
+    except Exception as e:
+        stderr_capture.write(f"{type(e).__name__}: {e}")
+    out = stdout_capture.getvalue()
+    err = stderr_capture.getvalue()
+    if err:
+        out += "\nSTDERR:\n" + err
+    return out or "(no output)"
 
 @mcp.tool
 def run_python_file(filepath: str) -> str:
     """Run a Python script file and return the output."""
-    result = subprocess.run(
-        [PYTHON, filepath],
-        capture_output=True, text=True, timeout=300,
-        creationflags=subprocess.CREATE_NO_WINDOW
-    )
-    output = result.stdout
-    if result.stderr:
-        output += "\nSTDERR:\n" + result.stderr
-    return output or "(no output)"
+    with open(filepath, "r", encoding="utf-8") as f:
+        code = f.read()
+    stdout_capture = io.StringIO()
+    stderr_capture = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stderr_capture):
+            exec(code, {"__file__": filepath})
+    except Exception as e:
+        stderr_capture.write(f"{type(e).__name__}: {e}")
+    out = stdout_capture.getvalue()
+    err = stderr_capture.getvalue()
+    if err:
+        out += "\nSTDERR:\n" + err
+    return out or "(no output)"
 
 @mcp.tool
 def read_file(filepath: str) -> str:
