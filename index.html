@@ -451,10 +451,15 @@ const GOLD='#C9A84C'
 function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
 function toolColor(t){return TOOL_COLORS[t]||GOLD}
 const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
+const TOOL_ORDER=['omega','jewel','mg'] // index = level, higher = stronger
+const GROUP_TYPES=new Set(['school','gp'])
+function toolLevel(t){const i=TOOL_ORDER.indexOf(t);return i<0?-1:i}
+function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
 
-let locations=[], progress={}, progressSha=null, selectedId=null, map, mapReady=false
+let locations=[], progress={}, progressSha=null, groupProgress={}, groupProgressSha=null, selectedId=null, map, mapReady=false
 let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true,gp:true}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
+let groupType='school', selectedDistrictCode=null, districts=[], districtMap={}
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 
 let saveQueued=false
