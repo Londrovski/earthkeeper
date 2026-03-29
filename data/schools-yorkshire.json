@@ -1,0 +1,2342 @@
+[
+  {
+    "id": "school-106653",
+    "type": "school",
+    "name": "Penistone Grammar School",
+    "address": "Huddersfield Road, Sheffield",
+    "postcode": "S36 7BX",
+    "lat": 53.533091,
+    "lng": -1.634368
+  },
+  {
+    "id": "school-107395",
+    "type": "school",
+    "name": "Titus Salt School",
+    "address": "Higher Coach Road, Bradford",
+    "postcode": "BD17 5RH",
+    "lat": 53.842309,
+    "lng": -1.790912
+  },
+  {
+    "id": "school-107439",
+    "type": "school",
+    "name": "Bingley Grammar School",
+    "address": "Keighley Road, Bingley",
+    "postcode": "BD16 2RS",
+    "lat": 53.855578,
+    "lng": -1.844534
+  },
+  {
+    "id": "school-107756",
+    "type": "school",
+    "name": "Netherhall Learning Campus High School",
+    "address": "Netherhall Avenue, Select",
+    "postcode": "HD5 9PG",
+    "lat": 53.654948,
+    "lng": -1.756734
+  },
+  {
+    "id": "school-107769",
+    "type": "school",
+    "name": "Holmfirth High School",
+    "address": "Heys Road, Holmfirth",
+    "postcode": "HD9 7SE",
+    "lat": 53.582502,
+    "lng": -1.769915
+  },
+  {
+    "id": "school-107775",
+    "type": "school",
+    "name": "Westborough High School",
+    "address": "Stockhill Street, Dewsbury",
+    "postcode": "WF13 2JE",
+    "lat": 53.693138,
+    "lng": -1.646327
+  },
+  {
+    "id": "school-107778",
+    "type": "school",
+    "name": "Spen Valley High School",
+    "address": "Roberttown Lane, Liversedge",
+    "postcode": "WF15 7LX",
+    "lat": 53.704979,
+    "lng": -1.69639
+  },
+  {
+    "id": "school-107782",
+    "type": "school",
+    "name": "All Saints Catholic College",
+    "address": "Bradley Bar, Huddersfield",
+    "postcode": "HD2 2JT",
+    "lat": 53.677761,
+    "lng": -1.769805
+  },
+  {
+    "id": "school-108055",
+    "type": "school",
+    "name": "Lawnswood School",
+    "address": "Ring Road, Leeds",
+    "postcode": "LS16 5AG",
+    "lat": 53.835682,
+    "lng": -1.593577
+  },
+  {
+    "id": "school-108057",
+    "type": "school",
+    "name": "Allerton High School",
+    "address": "King Lane, Leeds",
+    "postcode": "LS17 7AG",
+    "lat": 53.850134,
+    "lng": -1.550125
+  },
+  {
+    "id": "school-108058",
+    "type": "school",
+    "name": "Allerton Grange School",
+    "address": "Talbot Avenue, Leeds",
+    "postcode": "LS17 6SF",
+    "lat": 53.840723,
+    "lng": -1.522532
+  },
+  {
+    "id": "school-108059",
+    "type": "school",
+    "name": "Carr Manor Community School",
+    "address": "Carr Manor Road, Leeds",
+    "postcode": "LS17 5DJ",
+    "lat": 53.834466,
+    "lng": -1.550095
+  },
+  {
+    "id": "school-108075",
+    "type": "school",
+    "name": "Ralph Thoresby School",
+    "address": "Holtdale Approach, Leeds",
+    "postcode": "LS16 7RX",
+    "lat": 53.856534,
+    "lng": -1.606269
+  },
+  {
+    "id": "school-108076",
+    "type": "school",
+    "name": "Roundhay School",
+    "address": "Gledhow Lane, Leeds",
+    "postcode": "LS8 1ND",
+    "lat": 53.829459,
+    "lng": -1.513209
+  },
+  {
+    "id": "school-108079",
+    "type": "school",
+    "name": "Pudsey Grammar School",
+    "address": "Mount Pleasant Road, Pudsey",
+    "postcode": "LS28 7ND",
+    "lat": 53.798624,
+    "lng": -1.661383
+  },
+  {
+    "id": "school-108085",
+    "type": "school",
+    "name": "Guiseley School",
+    "address": "Fieldhead Road, Leeds",
+    "postcode": "LS20 8DT",
+    "lat": 53.871181,
+    "lng": -1.715965
+  },
+  {
+    "id": "school-108088",
+    "type": "school",
+    "name": "Wetherby High School",
+    "address": "Hallfield Lane, Wetherby",
+    "postcode": "LS22 6JS",
+    "lat": 53.9294,
+    "lng": -1.379151
+  },
+  {
+    "id": "school-108095",
+    "type": "school",
+    "name": "Cardinal Heenan Catholic High School",
+    "address": "Tongue Lane, Leeds",
+    "postcode": "LS6 4QE",
+    "lat": 53.838534,
+    "lng": -1.558714
+  },
+  {
+    "id": "school-108097",
+    "type": "school",
+    "name": "Mount St Mary's Catholic High School",
+    "address": "Ellerby Road, Leeds",
+    "postcode": "LS9 8LA",
+    "lat": 53.793641,
+    "lng": -1.525345
+  },
+  {
+    "id": "school-108271",
+    "type": "school",
+    "name": "Kettlethorpe High School",
+    "address": "Kettlethorpe Hall Drive, Wakefield",
+    "postcode": "WF2 7EL",
+    "lat": 53.64654,
+    "lng": -1.496482
+  },
+  {
+    "id": "school-112969",
+    "type": "school",
+    "name": "Dronfield Henry Fanshawe School",
+    "address": "Green Lane, Dronfield",
+    "postcode": "S18 2FZ",
+    "lat": 53.301193,
+    "lng": -1.464852
+  },
+  {
+    "id": "school-118072",
+    "type": "school",
+    "name": "Beverley High School",
+    "address": "Norwood, Beverley",
+    "postcode": "HU17 9EX",
+    "lat": 53.846417,
+    "lng": -0.42888
+  },
+  {
+    "id": "school-118073",
+    "type": "school",
+    "name": "Longcroft School and Sixth Form College",
+    "address": "Burton Road, Beverley",
+    "postcode": "HU17 7EJ",
+    "lat": 53.85051,
+    "lng": -0.446349
+  },
+  {
+    "id": "school-118075",
+    "type": "school",
+    "name": "Withernsea High School",
+    "address": "Hull Road, Withernsea",
+    "postcode": "HU19 2EQ",
+    "lat": 53.732194,
+    "lng": 0.025453
+  },
+  {
+    "id": "school-118076",
+    "type": "school",
+    "name": "The Market Weighton School",
+    "address": "Spring Road, Market Weighton",
+    "postcode": "YO43 3JF",
+    "lat": 53.867128,
+    "lng": -0.654325
+  },
+  {
+    "id": "school-118082",
+    "type": "school",
+    "name": "Hornsea School and Language College",
+    "address": "Eastgate, Hornsea",
+    "postcode": "HU18 1DW",
+    "lat": 53.913653,
+    "lng": -0.172314
+  },
+  {
+    "id": "school-118085",
+    "type": "school",
+    "name": "Headlands School",
+    "address": "Sewerby Road, Bridlington",
+    "postcode": "YO16 6UR",
+    "lat": 54.098796,
+    "lng": -0.181832
+  },
+  {
+    "id": "school-118111",
+    "type": "school",
+    "name": "Bridlington School",
+    "address": "Bessingby Road, Bridlington",
+    "postcode": "YO16 4QU",
+    "lat": 54.084891,
+    "lng": -0.210193
+  },
+  {
+    "id": "school-121666",
+    "type": "school",
+    "name": "Thirsk School & Sixth Form College",
+    "address": "Topcliffe Road, Thirsk",
+    "postcode": "YO7 1RZ",
+    "lat": 54.223738,
+    "lng": -1.345337
+  },
+  {
+    "id": "school-121667",
+    "type": "school",
+    "name": "Whitby School",
+    "address": "Prospect Hill, Whitby",
+    "postcode": "YO21 1LA",
+    "lat": 54.48176,
+    "lng": -0.622659
+  },
+  {
+    "id": "school-121673",
+    "type": "school",
+    "name": "Huntington School",
+    "address": "Huntington Road, York",
+    "postcode": "YO32 9WT",
+    "lat": 53.989987,
+    "lng": -1.064234
+  },
+  {
+    "id": "school-121687",
+    "type": "school",
+    "name": "King James's School",
+    "address": "King James Road, Knaresborough",
+    "postcode": "HG5 8EB",
+    "lat": 54.004873,
+    "lng": -1.459406
+  },
+  {
+    "id": "school-121689",
+    "type": "school",
+    "name": "Settle College",
+    "address": "Giggleswick, Settle",
+    "postcode": "BD24 0AU",
+    "lat": 54.071919,
+    "lng": -2.283768
+  },
+  {
+    "id": "school-121690",
+    "type": "school",
+    "name": "Upper Wharfedale School",
+    "address": "Wharfeside Avenue, Skipton",
+    "postcode": "BD23 5BS",
+    "lat": 54.071228,
+    "lng": -2.010393
+  },
+  {
+    "id": "school-121694",
+    "type": "school",
+    "name": "Ripon Grammar School",
+    "address": "Clotherholme Road, Ripon",
+    "postcode": "HG4 2DG",
+    "lat": 54.138977,
+    "lng": -1.537555
+  },
+  {
+    "id": "school-121699",
+    "type": "school",
+    "name": "Boroughbridge High School",
+    "address": "Wetherby Road, York",
+    "postcode": "YO51 9JX",
+    "lat": 54.088533,
+    "lng": -1.393903
+  },
+  {
+    "id": "school-121702",
+    "type": "school",
+    "name": "Selby High School Specialist School for the Arts and Science",
+    "address": "Leeds Road, Selby",
+    "postcode": "YO8 4HT",
+    "lat": 53.780484,
+    "lng": -1.077067
+  },
+  {
+    "id": "school-121711",
+    "type": "school",
+    "name": "Joseph Rowntree School",
+    "address": "Haxby Road, York",
+    "postcode": "YO32 4BZ",
+    "lat": 53.99771,
+    "lng": -1.069065
+  },
+  {
+    "id": "school-121716",
+    "type": "school",
+    "name": "Ermysted's Grammar School",
+    "address": "Gargrave Road, Skipton",
+    "postcode": "BD23 1PL",
+    "lat": 53.963183,
+    "lng": -2.021936
+  },
+  {
+    "id": "school-130909",
+    "type": "school",
+    "name": "Dixons City Academy",
+    "address": "Ripley Street, Bradford",
+    "postcode": "BD5 7RR",
+    "lat": 53.780362,
+    "lng": -1.755675
+  },
+  {
+    "id": "school-131065",
+    "type": "school",
+    "name": "North Liverpool Academy",
+    "address": "120 Heyworth Street, Liverpool",
+    "postcode": "L5 0SQ",
+    "lat": 53.423903,
+    "lng": -2.966966
+  },
+  {
+    "id": "school-131749",
+    "type": "school",
+    "name": "Barnsley Academy",
+    "address": "Farm Road, Barnsley",
+    "postcode": "S70 3DL",
+    "lat": 53.536232,
+    "lng": -1.451691
+  },
+  {
+    "id": "school-135367",
+    "type": "school",
+    "name": "Bradford Academy",
+    "address": "Lister Avenue, Bradford",
+    "postcode": "BD4 7QS",
+    "lat": 53.777445,
+    "lng": -1.732381
+  },
+  {
+    "id": "school-135598",
+    "type": "school",
+    "name": "Liberty Academy",
+    "address": "1 Bilton Grove, Hull",
+    "postcode": "HU9 5YB",
+    "lat": 53.758375,
+    "lng": -0.278772
+  },
+  {
+    "id": "school-135866",
+    "type": "school",
+    "name": "Dixons Allerton Academy",
+    "address": "Rhodesway, Bradford",
+    "postcode": "BD8 0DH",
+    "lat": 53.799831,
+    "lng": -1.809618
+  },
+  {
+    "id": "school-135934",
+    "type": "school",
+    "name": "E-Act Parkwood Academy",
+    "address": "Longley Avenue West, Sheffield",
+    "postcode": "S5 8UL",
+    "lat": 53.412362,
+    "lng": -1.483559
+  },
+  {
+    "id": "school-135935",
+    "type": "school",
+    "name": "Leeds West Academy",
+    "address": "Intake Lane, Leeds",
+    "postcode": "LS13 1DQ",
+    "lat": 53.813926,
+    "lng": -1.65292
+  },
+  {
+    "id": "school-135945",
+    "type": "school",
+    "name": "Sirius Academy West",
+    "address": "296 Anlaby Park Road South, Hull",
+    "postcode": "HU4 7JB",
+    "lat": 53.733126,
+    "lng": -0.40515
+  },
+  {
+    "id": "school-135961",
+    "type": "school",
+    "name": "Outwood Grange Academy",
+    "address": "Potovens Lane, Wakefield",
+    "postcode": "WF1 2PF",
+    "lat": 53.707872,
+    "lng": -1.511144
+  },
+  {
+    "id": "school-136094",
+    "type": "school",
+    "name": "Trinity Academy Halifax",
+    "address": "Shay Lane, Halifax",
+    "postcode": "HX2 9TZ",
+    "lat": 53.752985,
+    "lng": -1.874793
+  },
+  {
+    "id": "school-136198",
+    "type": "school",
+    "name": "Carlton Keighley",
+    "address": "Green Head Road, Keighley",
+    "postcode": "BD20 6EB",
+    "lat": 53.879901,
+    "lng": -1.916494
+  },
+  {
+    "id": "school-136283",
+    "type": "school",
+    "name": "Heckmondwike Grammar School",
+    "address": "High Street, Heckmondwike",
+    "postcode": "WF16 0AH",
+    "lat": 53.707761,
+    "lng": -1.667704
+  },
+  {
+    "id": "school-136331",
+    "type": "school",
+    "name": "Wales High School",
+    "address": "Storth Lane, Sheffield",
+    "postcode": "S26 5QQ",
+    "lat": 53.343101,
+    "lng": -1.272302
+  },
+  {
+    "id": "school-136343",
+    "type": "school",
+    "name": "Garforth Academy",
+    "address": "Lidgett Lane, Leeds",
+    "postcode": "LS25 1LJ",
+    "lat": 53.786608,
+    "lng": -1.389534
+  },
+  {
+    "id": "school-136392",
+    "type": "school",
+    "name": "The Morley Academy",
+    "address": "Fountain Street, Leeds",
+    "postcode": "LS27 0PD",
+    "lat": 53.741956,
+    "lng": -1.605339
+  },
+  {
+    "id": "school-136394",
+    "type": "school",
+    "name": "Outwood Academy City Fields",
+    "address": "Warmfield View, Wakefield",
+    "postcode": "WF1 4SF",
+    "lat": 53.688201,
+    "lng": -1.474526
+  },
+  {
+    "id": "school-136462",
+    "type": "school",
+    "name": "Ossett Academy and Sixth Form College",
+    "address": "Storrs Hill Road, Ossett",
+    "postcode": "WF5 0DG",
+    "lat": 53.669222,
+    "lng": -1.57588
+  },
+  {
+    "id": "school-136497",
+    "type": "school",
+    "name": "Harrogate Grammar School",
+    "address": "Arthurs Avenue, Harrogate",
+    "postcode": "HG2 0DZ",
+    "lat": 53.982755,
+    "lng": -1.545052
+  },
+  {
+    "id": "school-136502",
+    "type": "school",
+    "name": "North Huddersfield Trust School",
+    "address": "Woodhouse Hall Road, Huddersfield",
+    "postcode": "HD2 1DJ",
+    "lat": 53.665675,
+    "lng": -1.767313
+  },
+  {
+    "id": "school-136544",
+    "type": "school",
+    "name": "Manor Church of England Academy",
+    "address": "Millfield Lane, York",
+    "postcode": "YO26 6PA",
+    "lat": 53.974674,
+    "lng": -1.135574
+  },
+  {
+    "id": "school-136604",
+    "type": "school",
+    "name": "Brighouse High School",
+    "address": "Finkil Street, Brighouse",
+    "postcode": "HD6 2NY",
+    "lat": 53.71306,
+    "lng": -1.793691
+  },
+  {
+    "id": "school-136613",
+    "type": "school",
+    "name": "Airedale Academy",
+    "address": "Crewe Road, Castleford",
+    "postcode": "WF10 3JU",
+    "lat": 53.721035,
+    "lng": -1.310626
+  },
+  {
+    "id": "school-136617",
+    "type": "school",
+    "name": "Archbishop Holgate's School, A Church of England Academy",
+    "address": "Hull Road, York",
+    "postcode": "YO10 5ZA",
+    "lat": 53.952145,
+    "lng": -1.039478
+  },
+  {
+    "id": "school-136633",
+    "type": "school",
+    "name": "Castleford Academy",
+    "address": "Ferrybridge Road, Castleford",
+    "postcode": "WF10 4JQ",
+    "lat": 53.724688,
+    "lng": -1.341564
+  },
+  {
+    "id": "school-136664",
+    "type": "school",
+    "name": "Skipton Girls' High School",
+    "address": "Gargrave Road, Skipton",
+    "postcode": "BD23 1QL",
+    "lat": 53.963613,
+    "lng": -2.025854
+  },
+  {
+    "id": "school-136667",
+    "type": "school",
+    "name": "South Hunsley School and Sixth Form College",
+    "address": "East Dale Road, North Ferriby",
+    "postcode": "HU14 3HS",
+    "lat": 53.728113,
+    "lng": -0.535732
+  },
+  {
+    "id": "school-136674",
+    "type": "school",
+    "name": "The Mirfield Free Grammar",
+    "address": "Kitson Hill Road, Mirfield",
+    "postcode": "WF14 9EZ",
+    "lat": 53.686491,
+    "lng": -1.701005
+  },
+  {
+    "id": "school-136728",
+    "type": "school",
+    "name": "Norton College",
+    "address": "Langton Road, Malton",
+    "postcode": "YO17 9PT",
+    "lat": 54.125346,
+    "lng": -0.781338
+  },
+  {
+    "id": "school-136736",
+    "type": "school",
+    "name": "South Craven School",
+    "address": "Holme Lane, Keighley",
+    "postcode": "BD20 7RL",
+    "lat": 53.899498,
+    "lng": -1.987382
+  },
+  {
+    "id": "school-136788",
+    "type": "school",
+    "name": "The North Halifax Grammar School",
+    "address": "Moorbottom Road, Halifax",
+    "postcode": "HX2 9SU",
+    "lat": 53.755428,
+    "lng": -1.881293
+  },
+  {
+    "id": "school-136826",
+    "type": "school",
+    "name": "Leeds East Academy",
+    "address": "South Parkway, Leeds",
+    "postcode": "LS14 6HA",
+    "lat": 53.814894,
+    "lng": -1.460182
+  },
+  {
+    "id": "school-136896",
+    "type": "school",
+    "name": "Rossett School",
+    "address": "Green Lane, Harrogate",
+    "postcode": "HG2 9JP",
+    "lat": 53.97591,
+    "lng": -1.550936
+  },
+  {
+    "id": "school-136905",
+    "type": "school",
+    "name": "Ilkley Grammar School",
+    "address": "Cowpasture Road, Ilkley",
+    "postcode": "LS29 8TR",
+    "lat": 53.921609,
+    "lng": -1.812415
+  },
+  {
+    "id": "school-136921",
+    "type": "school",
+    "name": "Cottingham High School",
+    "address": "Harland Way, Cottingham",
+    "postcode": "HU16 5PX",
+    "lat": 53.788784,
+    "lng": -0.430412
+  },
+  {
+    "id": "school-136962",
+    "type": "school",
+    "name": "Feversham Girls' Secondary Academy",
+    "address": "158 Cliffe Road, Bradford",
+    "postcode": "BD3 0LT",
+    "lat": 53.805497,
+    "lng": -1.743486
+  },
+  {
+    "id": "school-136995",
+    "type": "school",
+    "name": "Beverley Grammar School",
+    "address": "Queensgate, Beverley",
+    "postcode": "HU17 8NF",
+    "lat": 53.833421,
+    "lng": -0.438045
+  },
+  {
+    "id": "school-137001",
+    "type": "school",
+    "name": "Crofton Academy",
+    "address": "High Street, Wakefield",
+    "postcode": "WF4 1NF",
+    "lat": 53.656192,
+    "lng": -1.427906
+  },
+  {
+    "id": "school-137011",
+    "type": "school",
+    "name": "Minsthorpe Community College",
+    "address": "Minsthorpe Lane, Pontefract",
+    "postcode": "WF9 2UJ",
+    "lat": 53.601775,
+    "lng": -1.289582
+  },
+  {
+    "id": "school-137036",
+    "type": "school",
+    "name": "Lightcliffe Academy",
+    "address": "Stoney Lane, Halifax",
+    "postcode": "HX3 8TL",
+    "lat": 53.722408,
+    "lng": -1.787749
+  },
+  {
+    "id": "school-137043",
+    "type": "school",
+    "name": "King Edward VI Aston School",
+    "address": "Frederick Road, Birmingham",
+    "postcode": "B6 6DJ",
+    "lat": 52.503291,
+    "lng": -1.884193
+  },
+  {
+    "id": "school-137065",
+    "type": "school",
+    "name": "Co-op Academy Leeds",
+    "address": "Stoney Rock Lane, Leeds",
+    "postcode": "LS9 7HD",
+    "lat": 53.80266,
+    "lng": -1.519411
+  },
+  {
+    "id": "school-137083",
+    "type": "school",
+    "name": "Abbey Grange Church of England Academy",
+    "address": "Butcher Hill, Leeds",
+    "postcode": "LS16 5EA",
+    "lat": 53.83373,
+    "lng": -1.606893
+  },
+  {
+    "id": "school-137139",
+    "type": "school",
+    "name": "St Aidan's Church of England High School",
+    "address": "Oatlands Drive, Harrogate",
+    "postcode": "HG2 8JR",
+    "lat": 53.986852,
+    "lng": -1.52373
+  },
+  {
+    "id": "school-137277",
+    "type": "school",
+    "name": "Dixons Kings Academy",
+    "address": "Northside Road, Bradford",
+    "postcode": "BD7 2AN",
+    "lat": 53.790543,
+    "lng": -1.786874
+  },
+  {
+    "id": "school-137306",
+    "type": "school",
+    "name": "Hessle High School and Penshurst Primary School",
+    "address": "Tranby House, Hessle",
+    "postcode": "HU13 0JQ",
+    "lat": 53.725016,
+    "lng": -0.450995
+  },
+  {
+    "id": "school-137352",
+    "type": "school",
+    "name": "Shelley College, A Share Academy",
+    "address": "Huddersfield Road, Huddersfield",
+    "postcode": "HD8 8NL",
+    "lat": 53.591744,
+    "lng": -1.663825
+  },
+  {
+    "id": "school-137383",
+    "type": "school",
+    "name": "Woodkirk Academy",
+    "address": "Rein Road, Wakefield",
+    "postcode": "WF3 1JQ",
+    "lat": 53.729649,
+    "lng": -1.584004
+  },
+  {
+    "id": "school-137412",
+    "type": "school",
+    "name": "Outwood Academy Ripon",
+    "address": "Clotherholme Road, Ripon",
+    "postcode": "HG4 2DE",
+    "lat": 54.136622,
+    "lng": -1.537413
+  },
+  {
+    "id": "school-137424",
+    "type": "school",
+    "name": "Batley Girls' High School",
+    "address": "Windmill Lane, Batley",
+    "postcode": "WF17 0LD",
+    "lat": 53.731614,
+    "lng": -1.644321
+  },
+  {
+    "id": "school-137444",
+    "type": "school",
+    "name": "Rastrick High School",
+    "address": "Field Top Road, Brighouse",
+    "postcode": "HD6 3XB",
+    "lat": 53.696317,
+    "lng": -1.790258
+  },
+  {
+    "id": "school-137487",
+    "type": "school",
+    "name": "Batley Grammar School",
+    "address": "Carlinghow Hill, Batley",
+    "postcode": "WF17 0AD",
+    "lat": 53.721774,
+    "lng": -1.639205
+  },
+  {
+    "id": "school-137500",
+    "type": "school",
+    "name": "Moor End Academy",
+    "address": "Dryclough Road, Huddersfield",
+    "postcode": "HD4 5JA",
+    "lat": 53.629759,
+    "lng": -1.810959
+  },
+  {
+    "id": "school-137577",
+    "type": "school",
+    "name": "The Farnley Academy",
+    "address": "Chapel Lane, Leeds",
+    "postcode": "LS12 5EU",
+    "lat": 53.783222,
+    "lng": -1.618461
+  },
+  {
+    "id": "school-137578",
+    "type": "school",
+    "name": "Ark Kings Academy",
+    "address": "Shannon Road, Birmingham",
+    "postcode": "B38 9DE",
+    "lat": 52.397727,
+    "lng": -1.930108
+  },
+  {
+    "id": "school-137675",
+    "type": "school",
+    "name": "King's Leadership Academy, Liverpool",
+    "address": "Dingle Vale, Liverpool",
+    "postcode": "L8 9SJ",
+    "lat": 53.377697,
+    "lng": -2.956552
+  },
+  {
+    "id": "school-137704",
+    "type": "school",
+    "name": "Otley Prince Henry's Grammar School Specialist Language College",
+    "address": "Farnley Lane, Otley",
+    "postcode": "LS21 2BB",
+    "lat": 53.91248,
+    "lng": -1.692329
+  },
+  {
+    "id": "school-137775",
+    "type": "school",
+    "name": "Horsforth School",
+    "address": "Lee Lane East, Leeds",
+    "postcode": "LS18 5RF",
+    "lat": 53.842084,
+    "lng": -1.639312
+  },
+  {
+    "id": "school-137869",
+    "type": "school",
+    "name": "Salendine Nook High School",
+    "address": "New Hey Road, Huddersfield",
+    "postcode": "HD3 4GN",
+    "lat": 53.653688,
+    "lng": -1.8352
+  },
+  {
+    "id": "school-138006",
+    "type": "school",
+    "name": "De Lacy Academy",
+    "address": "Middle Lane, Knottingley",
+    "postcode": "WF11 0BZ",
+    "lat": 53.704189,
+    "lng": -1.24071
+  },
+  {
+    "id": "school-138082",
+    "type": "school",
+    "name": "Hull Trinity House Academy",
+    "address": "Beverley Road, Hull",
+    "postcode": "HU3 1UP",
+    "lat": 53.756141,
+    "lng": -0.346827
+  },
+  {
+    "id": "school-138087",
+    "type": "school",
+    "name": "Belle Vue Girls' Academy",
+    "address": "Thorn Lane, Bradford",
+    "postcode": "BD9 6NA",
+    "lat": 53.819683,
+    "lng": -1.811944
+  },
+  {
+    "id": "school-138111",
+    "type": "school",
+    "name": "BBG Academy",
+    "address": "Bradford Road, Birkenshaw",
+    "postcode": "BD19 4BE",
+    "lat": 53.745275,
+    "lng": -1.688669
+  },
+  {
+    "id": "school-138190",
+    "type": "school",
+    "name": "Harrogate High School",
+    "address": "Ainsty Road, Harrogate",
+    "postcode": "HG1 4AP",
+    "lat": 53.998763,
+    "lng": -1.519231
+  },
+  {
+    "id": "school-138246",
+    "type": "school",
+    "name": "Sirius Academy North",
+    "address": "540 Hall Road, Hull",
+    "postcode": "HU6 9BP",
+    "lat": 53.784893,
+    "lng": -0.362624
+  },
+  {
+    "id": "school-138251",
+    "type": "school",
+    "name": "Dixons Trinity Academy",
+    "address": "Trinity Road, Bradford",
+    "postcode": "BD5 0BE",
+    "lat": 53.786052,
+    "lng": -1.760059
+  },
+  {
+    "id": "school-138304",
+    "type": "school",
+    "name": "Crawshaw Academy",
+    "address": "Robin Lane, Pudsey",
+    "postcode": "LS28 9HU",
+    "lat": 53.792134,
+    "lng": -1.65518
+  },
+  {
+    "id": "school-138329",
+    "type": "school",
+    "name": "St Bernard's Catholic High School",
+    "address": "Herringthorpe Valley Road, Rotherham",
+    "postcode": "S65 3BE",
+    "lat": 53.423654,
+    "lng": -1.321873
+  },
+  {
+    "id": "school-138336",
+    "type": "school",
+    "name": "Rodillian Academy",
+    "address": "Longthorpe Lane, Wakefield",
+    "postcode": "WF3 3PS",
+    "lat": 53.730377,
+    "lng": -1.499316
+  },
+  {
+    "id": "school-138361",
+    "type": "school",
+    "name": "Notre Dame High School",
+    "address": "Fulwood Road, Sheffield",
+    "postcode": "S10 3BT",
+    "lat": 53.372429,
+    "lng": -1.515609
+  },
+  {
+    "id": "school-138545",
+    "type": "school",
+    "name": "Meadowhead School Academy Trust",
+    "address": "Dyche Lane, Sheffield",
+    "postcode": "S8 8BR",
+    "lat": 53.326176,
+    "lng": -1.468984
+  },
+  {
+    "id": "school-138593",
+    "type": "school",
+    "name": "The Featherstone Academy",
+    "address": "Pontefract Road, Pontefract",
+    "postcode": "WF7 5AJ",
+    "lat": 53.67543,
+    "lng": -1.340621
+  },
+  {
+    "id": "school-138706",
+    "type": "school",
+    "name": "King James's School",
+    "address": "St Helen's Gate, Huddersfield",
+    "postcode": "HD4 6SG",
+    "lat": 53.629124,
+    "lng": -1.740958
+  },
+  {
+    "id": "school-138707",
+    "type": "school",
+    "name": "Horbury Academy",
+    "address": "Wakefield Road, Wakefield",
+    "postcode": "WF4 5HE",
+    "lat": 53.661031,
+    "lng": -1.545845
+  },
+  {
+    "id": "school-138836",
+    "type": "school",
+    "name": "The Bolsover School",
+    "address": "Mooracre Lane, Chesterfield",
+    "postcode": "S44 6XA",
+    "lat": 53.226642,
+    "lng": -1.274937
+  },
+  {
+    "id": "school-138841",
+    "type": "school",
+    "name": "King Ecgbert School",
+    "address": "Totley Brook Road, Sheffield",
+    "postcode": "S17 3QU",
+    "lat": 53.320312,
+    "lng": -1.535117
+  },
+  {
+    "id": "school-138950",
+    "type": "school",
+    "name": "St Thomas \u00e0 Becket Catholic Secondary School, A Voluntary Academy",
+    "address": "Barnsley Road, Wakefield",
+    "postcode": "WF2 6EQ",
+    "lat": 53.66069,
+    "lng": -1.481784
+  },
+  {
+    "id": "school-138951",
+    "type": "school",
+    "name": "St Wilfrid's Catholic High School & Sixth Form College: A Voluntary Academy",
+    "address": "Cutsyke Road, Pontefract",
+    "postcode": "WF7 6BD",
+    "lat": 53.695947,
+    "lng": -1.359447
+  },
+  {
+    "id": "school-139076",
+    "type": "school",
+    "name": "Manor Croft Academy",
+    "address": "Old Bank Road, Dewsbury",
+    "postcode": "WF12 7DW",
+    "lat": 53.693784,
+    "lng": -1.613999
+  },
+  {
+    "id": "school-139118",
+    "type": "school",
+    "name": "Lift Kingswood",
+    "address": "Wawne Road, Hull",
+    "postcode": "HU7 4WR",
+    "lat": 53.798121,
+    "lng": -0.324493
+  },
+  {
+    "id": "school-139167",
+    "type": "school",
+    "name": "Silverdale School",
+    "address": "Bents Crescent, Sheffield",
+    "postcode": "S11 9QH",
+    "lat": 53.351456,
+    "lng": -1.529189
+  },
+  {
+    "id": "school-139182",
+    "type": "school",
+    "name": "The Crossley Heath School",
+    "address": "Savile Park, Halifax",
+    "postcode": "HX3 0HG",
+    "lat": 53.711422,
+    "lng": -1.876643
+  },
+  {
+    "id": "school-139286",
+    "type": "school",
+    "name": "St John's Church of England Middle School Academy",
+    "address": "Watt Close, Bromsgrove",
+    "postcode": "B61 7DH",
+    "lat": 52.331887,
+    "lng": -2.065282
+  },
+  {
+    "id": "school-139351",
+    "type": "school",
+    "name": "St. Mary's Menston, a Catholic Voluntary Academy",
+    "address": "Bradford Road, Ilkley",
+    "postcode": "LS29 6AE",
+    "lat": 53.881048,
+    "lng": -1.72635
+  },
+  {
+    "id": "school-139395",
+    "type": "school",
+    "name": "The Boulevard Academy",
+    "address": "Massey Close, Kingston-upon-Hull",
+    "postcode": "HU3 3QT",
+    "lat": 53.74069,
+    "lng": -0.369317
+  },
+  {
+    "id": "school-139433",
+    "type": "school",
+    "name": "Trinity Sixth Form Academy",
+    "address": "Northgate House, Halifax",
+    "postcode": "HX1 1UN",
+    "lat": 53.724048,
+    "lng": -1.857554
+  },
+  {
+    "id": "school-139474",
+    "type": "school",
+    "name": "Valley Academy",
+    "address": "Cliffe Terrace, Bradford",
+    "postcode": "BD8 7DX",
+    "lat": 53.804891,
+    "lng": -1.758919
+  },
+  {
+    "id": "school-139500",
+    "type": "school",
+    "name": "The King's School",
+    "address": "Mill Hill Lane, Pontefract",
+    "postcode": "WF8 4JF",
+    "lat": 53.684967,
+    "lng": -1.316319
+  },
+  {
+    "id": "school-139501",
+    "type": "school",
+    "name": "Carleton High School",
+    "address": "Green Lane, Pontefract",
+    "postcode": "WF8 3NW",
+    "lat": 53.676603,
+    "lng": -1.300178
+  },
+  {
+    "id": "school-139629",
+    "type": "school",
+    "name": "Winifred Holtby Academy",
+    "address": "Midmere Avenue, Hull",
+    "postcode": "HU7 4PW",
+    "lat": 53.782045,
+    "lng": -0.316649
+  },
+  {
+    "id": "school-139646",
+    "type": "school",
+    "name": "Leeds City Academy",
+    "address": "Bedford Field, Leeds",
+    "postcode": "LS6 2LG",
+    "lat": 53.817367,
+    "lng": -1.557038
+  },
+  {
+    "id": "school-139695",
+    "type": "school",
+    "name": "UTC Sheffield City Centre",
+    "address": "111 Matilda Street, Sheffield",
+    "postcode": "S1 4QF",
+    "lat": 53.374963,
+    "lng": -1.466859
+  },
+  {
+    "id": "school-139773",
+    "type": "school",
+    "name": "Leeds Jewish Free School",
+    "address": "Henry Cohen Campus, Leeds",
+    "postcode": "LS17 7TN",
+    "lat": 53.853495,
+    "lng": -1.542791
+  },
+  {
+    "id": "school-139841",
+    "type": "school",
+    "name": "Broadway Academy",
+    "address": "The Broadway, Birmingham",
+    "postcode": "B20 3DP",
+    "lat": 52.51266,
+    "lng": -1.89413
+  },
+  {
+    "id": "school-139975",
+    "type": "school",
+    "name": "Beckfoot School",
+    "address": "Wagon Lane, Bingley",
+    "postcode": "BD16 1EE",
+    "lat": 53.841028,
+    "lng": -1.827595
+  },
+  {
+    "id": "school-139995",
+    "type": "school",
+    "name": "Oasis Academy Lister Park",
+    "address": "North Avenue, Bradford",
+    "postcode": "BD8 7ND",
+    "lat": 53.814141,
+    "lng": -1.763757
+  },
+  {
+    "id": "school-140204",
+    "type": "school",
+    "name": "Bradford Girls' Grammar School",
+    "address": "Squire Lane, Bradford",
+    "postcode": "BD9 6RB",
+    "lat": 53.803537,
+    "lng": -1.79472
+  },
+  {
+    "id": "school-140326",
+    "type": "school",
+    "name": "The Halifax Academy",
+    "address": "Gibbet Street, Halifax",
+    "postcode": "HX2 0BA",
+    "lat": 53.723976,
+    "lng": -1.892082
+  },
+  {
+    "id": "school-140429",
+    "type": "school",
+    "name": "Bradford Forster Academy",
+    "address": "Fenby Avenue, Bradford",
+    "postcode": "BD4 8RG",
+    "lat": 53.779437,
+    "lng": -1.722974
+  },
+  {
+    "id": "school-140459",
+    "type": "school",
+    "name": "Oakwood High School",
+    "address": "Moorgate Road, Rotherham",
+    "postcode": "S60 2UH",
+    "lat": 53.416074,
+    "lng": -1.344174
+  },
+  {
+    "id": "school-140547",
+    "type": "school",
+    "name": "Forge Valley School & Sixth Form",
+    "address": "Wood Lane, Sheffield",
+    "postcode": "S6 5HG",
+    "lat": 53.397764,
+    "lng": -1.518195
+  },
+  {
+    "id": "school-140565",
+    "type": "school",
+    "name": "The Ruth Gorse Academy",
+    "address": "Black Bull Street, Leeds",
+    "postcode": "LS10 1HW",
+    "lat": 53.790753,
+    "lng": -1.533803
+  },
+  {
+    "id": "school-140646",
+    "type": "school",
+    "name": "Wickersley School and Sports College",
+    "address": "Bawtry Road, Rotherham",
+    "postcode": "S66 1JL",
+    "lat": 53.421593,
+    "lng": -1.272678
+  },
+  {
+    "id": "school-140660",
+    "type": "school",
+    "name": "Colne Valley High School",
+    "address": "Gillroyd Lane, Huddersfield",
+    "postcode": "HD7 5SP",
+    "lat": 53.623947,
+    "lng": -1.844948
+  },
+  {
+    "id": "school-140821",
+    "type": "school",
+    "name": "Newfield Secondary School",
+    "address": "Lees Hall Road, Sheffield",
+    "postcode": "S8 9JP",
+    "lat": 53.346957,
+    "lng": -1.460192
+  },
+  {
+    "id": "school-140940",
+    "type": "school",
+    "name": "Chapeltown Academy",
+    "address": "Hydra Business Park, Sheffield",
+    "postcode": "S35 9ZX",
+    "lat": 53.449968,
+    "lng": -1.45571
+  },
+  {
+    "id": "school-140979",
+    "type": "school",
+    "name": "Kirk Balk Academy",
+    "address": "West Street, Barnsley",
+    "postcode": "S74 9HX",
+    "lat": 53.501101,
+    "lng": -1.447848
+  },
+  {
+    "id": "school-141002",
+    "type": "school",
+    "name": "Dixons McMillan Academy",
+    "address": "Trinity Road, Bradford",
+    "postcode": "BD5 0JD",
+    "lat": 53.78658,
+    "lng": -1.763274
+  },
+  {
+    "id": "school-141179",
+    "type": "school",
+    "name": "The Skipton Academy",
+    "address": "Gargrave Road, Skipton",
+    "postcode": "BD23 1UQ",
+    "lat": 53.96255,
+    "lng": -2.035426
+  },
+  {
+    "id": "school-141307",
+    "type": "school",
+    "name": "Ryburn Valley High School",
+    "address": "St Peter's Avenue, Sowerby Bridge",
+    "postcode": "HX6 1DF",
+    "lat": 53.70288,
+    "lng": -1.930252
+  },
+  {
+    "id": "school-141377",
+    "type": "school",
+    "name": "Outwood Academy Newbold",
+    "address": "Highfield Lane, Chesterfield",
+    "postcode": "S41 8BA",
+    "lat": 53.25187,
+    "lng": -1.434678
+  },
+  {
+    "id": "school-141470",
+    "type": "school",
+    "name": "St John Fisher Catholic Voluntary Academy",
+    "address": "Oxford Road, Dewsbury",
+    "postcode": "WF13 4LL",
+    "lat": 53.693917,
+    "lng": -1.642503
+  },
+  {
+    "id": "school-141495",
+    "type": "school",
+    "name": "Handsworth Grange Community Sports College",
+    "address": "Handsworth Grange Road, Sheffield",
+    "postcode": "S13 9HJ",
+    "lat": 53.368753,
+    "lng": -1.371099
+  },
+  {
+    "id": "school-141813",
+    "type": "school",
+    "name": "Shireland Biomedical Utc",
+    "address": "350 High Street, West Bromwich",
+    "postcode": "B70 8DJ",
+    "lat": 52.520889,
+    "lng": -1.99804
+  },
+  {
+    "id": "school-141853",
+    "type": "school",
+    "name": "Winterhill School",
+    "address": "High Street, Rotherham",
+    "postcode": "S61 2BD",
+    "lat": 53.434203,
+    "lng": -1.396418
+  },
+  {
+    "id": "school-141883",
+    "type": "school",
+    "name": "Temple Learning Academy",
+    "address": "Neville Road, Leeds",
+    "postcode": "LS15 0NN",
+    "lat": 53.79516,
+    "lng": -1.479931
+  },
+  {
+    "id": "school-141940",
+    "type": "school",
+    "name": "Elliott Hudson College",
+    "address": "The White Rose Office Park, Millshaw Park Lane, Leeds",
+    "postcode": "LS11 0LT",
+    "lat": 53.762238,
+    "lng": -1.572167
+  },
+  {
+    "id": "school-142031",
+    "type": "school",
+    "name": "Beckfoot Upper Heaton",
+    "address": "Thorn Lane, Bradford",
+    "postcode": "BD9 6AL",
+    "lat": 53.818285,
+    "lng": -1.809337
+  },
+  {
+    "id": "school-142056",
+    "type": "school",
+    "name": "Bruntcliffe Academy",
+    "address": "Bruntcliffe Lane, Leeds",
+    "postcode": "LS27 0LZ",
+    "lat": 53.745361,
+    "lng": -1.618667
+  },
+  {
+    "id": "school-142150",
+    "type": "school",
+    "name": "Malet Lambert",
+    "address": "James Reckitt Avenue, Hull",
+    "postcode": "HU8 0JD",
+    "lat": 53.768352,
+    "lng": -0.299411
+  },
+  {
+    "id": "school-142391",
+    "type": "school",
+    "name": "The Marvell College",
+    "address": "Barham Road, Hull",
+    "postcode": "HU9 4EE",
+    "lat": 53.770802,
+    "lng": -0.258444
+  },
+  {
+    "id": "school-142406",
+    "type": "school",
+    "name": "Upper Batley High School",
+    "address": "Blenheim Drive, Batley",
+    "postcode": "WF17 0BJ",
+    "lat": 53.720013,
+    "lng": -1.633598
+  },
+  {
+    "id": "school-142585",
+    "type": "school",
+    "name": "Cockburn School",
+    "address": "Parkside, Leeds",
+    "postcode": "LS11 5TT",
+    "lat": 53.759839,
+    "lng": -1.557401
+  },
+  {
+    "id": "school-142590",
+    "type": "school",
+    "name": "Immanuel College",
+    "address": "Leeds Road, Bradford",
+    "postcode": "BD10 9AQ",
+    "lat": 53.841107,
+    "lng": -1.725318
+  },
+  {
+    "id": "school-142604",
+    "type": "school",
+    "name": "University Technical College Leeds",
+    "address": "2 Sayner Road, Leeds",
+    "postcode": "LS10 1LA",
+    "lat": 53.788016,
+    "lng": -1.532862
+  },
+  {
+    "id": "school-142648",
+    "type": "school",
+    "name": "Millthorpe School",
+    "address": "Nunthorpe Avenue, York",
+    "postcode": "YO23 1WF",
+    "lat": 53.948683,
+    "lng": -1.088871
+  },
+  {
+    "id": "school-142681",
+    "type": "school",
+    "name": "Laisterdyke Leadership Academy",
+    "address": "Thornbury Road, Bradford",
+    "postcode": "BD3 8HE",
+    "lat": 53.796152,
+    "lng": -1.713071
+  },
+  {
+    "id": "school-142761",
+    "type": "school",
+    "name": "Tong Leadership Academy",
+    "address": "Westgate Hill Street, Bradford",
+    "postcode": "BD4 6NR",
+    "lat": 53.763488,
+    "lng": -1.692448
+  },
+  {
+    "id": "school-142825",
+    "type": "school",
+    "name": "Buttershaw Business & Enterprise College Academy",
+    "address": "Reevy Road West, Bradford",
+    "postcode": "BD6 3PX",
+    "lat": 53.76513,
+    "lng": -1.791266
+  },
+  {
+    "id": "school-142884",
+    "type": "school",
+    "name": "Scarborough University Technical College",
+    "address": "Ashburn Road, Scarborough",
+    "postcode": "YO11 2JW",
+    "lat": 54.27189,
+    "lng": -0.411125
+  },
+  {
+    "id": "school-143112",
+    "type": "school",
+    "name": "Beckfoot Oakbank",
+    "address": "Oakworth Road, Keighley",
+    "postcode": "BD22 7DU",
+    "lat": 53.854298,
+    "lng": -1.925333
+  },
+  {
+    "id": "school-143114",
+    "type": "school",
+    "name": "Beckfoot Thornton",
+    "address": "Leaventhorpe Lane, Bradford",
+    "postcode": "BD13 3BH",
+    "lat": 53.7912,
+    "lng": -1.820148
+  },
+  {
+    "id": "school-143115",
+    "type": "school",
+    "name": "Park Lane Academy",
+    "address": "Park Lane, Halifax",
+    "postcode": "HX3 9LG",
+    "lat": 53.699018,
+    "lng": -1.84649
+  },
+  {
+    "id": "school-143138",
+    "type": "school",
+    "name": "Brayton Academy",
+    "address": "Doncaster Road, Selby",
+    "postcode": "YO8 9QS",
+    "lat": 53.774042,
+    "lng": -1.082186
+  },
+  {
+    "id": "school-143141",
+    "type": "school",
+    "name": "Swinton Academy",
+    "address": "East Avenue, Mexborough",
+    "postcode": "S64 8JW",
+    "lat": 53.482767,
+    "lng": -1.319845
+  },
+  {
+    "id": "school-143221",
+    "type": "school",
+    "name": "Kelvin Hall School",
+    "address": "Bricknell Avenue, Hull",
+    "postcode": "HU5 4QH",
+    "lat": 53.764757,
+    "lng": -0.38465
+  },
+  {
+    "id": "school-143238",
+    "type": "school",
+    "name": "Brigshaw High School",
+    "address": "Brigshaw Lane, Castleford",
+    "postcode": "WF10 2HR",
+    "lat": 53.756332,
+    "lng": -1.380599
+  },
+  {
+    "id": "school-143288",
+    "type": "school",
+    "name": "Scalby Academy",
+    "address": "Fieldstead Crescent, Scarborough",
+    "postcode": "YO12 6TH",
+    "lat": 54.29357,
+    "lng": -0.433587
+  },
+  {
+    "id": "school-143588",
+    "type": "school",
+    "name": "Woldgate School and Sixth Form College",
+    "address": "92 Kilnwick Road, York",
+    "postcode": "YO42 2LL",
+    "lat": 53.931803,
+    "lng": -0.762474
+  },
+  {
+    "id": "school-143689",
+    "type": "school",
+    "name": "New College Bradford",
+    "address": "Nelson Street, Bradford",
+    "postcode": "BD5 0DX",
+    "lat": 53.788775,
+    "lng": -1.750753
+  },
+  {
+    "id": "school-143704",
+    "type": "school",
+    "name": "Dixons Sixth Form, Bradford",
+    "address": "Bowling Old Lane, Bradford",
+    "postcode": "BD5 7JR",
+    "lat": 53.782399,
+    "lng": -1.753766
+  },
+  {
+    "id": "school-143791",
+    "type": "school",
+    "name": "Kirkburton Middle School",
+    "address": "Turnshaws Avenue, Huddersfield",
+    "postcode": "HD8 0TJ",
+    "lat": 53.613489,
+    "lng": -1.697334
+  },
+  {
+    "id": "school-143792",
+    "type": "school",
+    "name": "Scissett Middle School",
+    "address": "Wakefield Road, Huddersfield",
+    "postcode": "HD8 9JX",
+    "lat": 53.590825,
+    "lng": -1.626859
+  },
+  {
+    "id": "school-143854",
+    "type": "school",
+    "name": "Driffield School and Sixth Form",
+    "address": "Manorfield Road, Driffield",
+    "postcode": "YO25 5HR",
+    "lat": 54.008937,
+    "lng": -0.424198
+  },
+  {
+    "id": "school-143864",
+    "type": "school",
+    "name": "Vale of York Academy",
+    "address": "Rawcliffe Drive, York",
+    "postcode": "YO30 6ZS",
+    "lat": 53.975979,
+    "lng": -1.099132
+  },
+  {
+    "id": "school-143907",
+    "type": "school",
+    "name": "Netherwood Academy",
+    "address": "Dove Valley Way, Barnsley",
+    "postcode": "S73 8FE",
+    "lat": 53.530589,
+    "lng": -1.396361
+  },
+  {
+    "id": "school-143963",
+    "type": "school",
+    "name": "The Birley Academy",
+    "address": "Birley Lane, Sheffield",
+    "postcode": "S12 3BP",
+    "lat": 53.340439,
+    "lng": -1.401738
+  },
+  {
+    "id": "school-144104",
+    "type": "school",
+    "name": "St Mary's College, Voluntary Catholic Academy",
+    "address": "Cranbrook Avenue, Hull",
+    "postcode": "HU6 7TN",
+    "lat": 53.77507,
+    "lng": -0.361519
+  },
+  {
+    "id": "school-144307",
+    "type": "school",
+    "name": "Newland School for Girls",
+    "address": "Cottingham Road, Hull",
+    "postcode": "HU6 7RU",
+    "lat": 53.771956,
+    "lng": -0.369228
+  },
+  {
+    "id": "school-144391",
+    "type": "school",
+    "name": "Heritage High School",
+    "address": "Boughton Lane, Chesterfield",
+    "postcode": "S43 4QG",
+    "lat": 53.277452,
+    "lng": -1.268738
+  },
+  {
+    "id": "school-144561",
+    "type": "school",
+    "name": "Wolfreton School and Sixth Form College",
+    "address": "Well Lane, Hull",
+    "postcode": "HU10 6HB",
+    "lat": 53.75883,
+    "lng": -0.440784
+  },
+  {
+    "id": "school-144588",
+    "type": "school",
+    "name": "Co-op Academy Priesthorpe",
+    "address": "Priesthorpe Lane, Pudsey",
+    "postcode": "LS28 5SG",
+    "lat": 53.810484,
+    "lng": -1.685831
+  },
+  {
+    "id": "school-144652",
+    "type": "school",
+    "name": "York High School",
+    "address": "Cornlands Road, York",
+    "postcode": "YO24 3WZ",
+    "lat": 53.948408,
+    "lng": -1.128162
+  },
+  {
+    "id": "school-144711",
+    "type": "school",
+    "name": "Fulford School",
+    "address": "Fulfordgate, York",
+    "postcode": "YO10 4FY",
+    "lat": 53.936124,
+    "lng": -1.065318
+  },
+  {
+    "id": "school-144721",
+    "type": "school",
+    "name": "The Royal Sutton School",
+    "address": "Reddicap Heath Road, Sutton Coldfield",
+    "postcode": "B75 7DY",
+    "lat": 52.560126,
+    "lng": -1.79411
+  },
+  {
+    "id": "school-144732",
+    "type": "school",
+    "name": "New College Pontefract",
+    "address": "Park Lane, Pontefract",
+    "postcode": "WF8 4QR",
+    "lat": 53.693615,
+    "lng": -1.324388
+  },
+  {
+    "id": "school-144743",
+    "type": "school",
+    "name": "Dixons Trinity Chapeltown",
+    "address": "Leopold Street, Leeds",
+    "postcode": "LS7 4AW",
+    "lat": 53.811725,
+    "lng": -1.531717
+  },
+  {
+    "id": "school-144766",
+    "type": "school",
+    "name": "Ron Dearing UTC",
+    "address": "Kingston Square, Hull",
+    "postcode": "HU2 8BQ",
+    "lat": 53.747724,
+    "lng": -0.33557
+  },
+  {
+    "id": "school-144809",
+    "type": "school",
+    "name": "Bishop Young Church of England Academy",
+    "address": "Bishops Way, Leeds",
+    "postcode": "LS14 6NU",
+    "lat": 53.819958,
+    "lng": -1.475005
+  },
+  {
+    "id": "school-144929",
+    "type": "school",
+    "name": "Barlby High School",
+    "address": "York Road, Selby",
+    "postcode": "YO8 5JP",
+    "lat": 53.803533,
+    "lng": -1.038216
+  },
+  {
+    "id": "school-144946",
+    "type": "school",
+    "name": "Trinity Academy Grammar",
+    "address": "Albert Road, Sowerby Bridge",
+    "postcode": "HX6 2NW",
+    "lat": 53.713472,
+    "lng": -1.907232
+  },
+  {
+    "id": "school-144976",
+    "type": "school",
+    "name": "Outwood Academy Easingwold",
+    "address": "York Road, York",
+    "postcode": "YO61 3EF",
+    "lat": 54.115809,
+    "lng": -1.18847
+  },
+  {
+    "id": "school-145173",
+    "type": "school",
+    "name": "Appleton Academy",
+    "address": "Woodside Road, Bradford",
+    "postcode": "BD12 8AL",
+    "lat": 53.742268,
+    "lng": -1.769877
+  },
+  {
+    "id": "school-145230",
+    "type": "school",
+    "name": "Thomas Rotherham College",
+    "address": "Moorgate Road, Rotherham",
+    "postcode": "S60 2BE",
+    "lat": 53.419265,
+    "lng": -1.349106
+  },
+  {
+    "id": "school-145274",
+    "type": "school",
+    "name": "Stocksbridge High School",
+    "address": "Shay House Lane, Sheffield",
+    "postcode": "S36 1FD",
+    "lat": 53.477544,
+    "lng": -1.594913
+  },
+  {
+    "id": "school-145562",
+    "type": "school",
+    "name": "Westfield School",
+    "address": "Eckington Road, Sheffield",
+    "postcode": "S20 1HQ",
+    "lat": 53.33686,
+    "lng": -1.340012
+  },
+  {
+    "id": "school-145579",
+    "type": "school",
+    "name": "Trinity Academy Cathedral",
+    "address": "Thornes Road, Wakefield",
+    "postcode": "WF2 8QF",
+    "lat": 53.669375,
+    "lng": -1.514254
+  },
+  {
+    "id": "school-145722",
+    "type": "school",
+    "name": "Holderness Academy",
+    "address": "Station Road, Hull",
+    "postcode": "HU12 8UZ",
+    "lat": 53.751584,
+    "lng": -0.194254
+  },
+  {
+    "id": "school-145777",
+    "type": "school",
+    "name": "Tadcaster Grammar School",
+    "address": "Toulston, Tadcaster",
+    "postcode": "LS24 9NB",
+    "lat": 53.877644,
+    "lng": -1.305771
+  },
+  {
+    "id": "school-145819",
+    "type": "school",
+    "name": "Sherburn High School",
+    "address": "Garden Lane, Leeds",
+    "postcode": "LS25 6AS",
+    "lat": 53.790383,
+    "lng": -1.255718
+  },
+  {
+    "id": "school-145864",
+    "type": "school",
+    "name": "Astrea Academy Sheffield",
+    "address": "Andover Street, Sheffield",
+    "postcode": "S3 9BE",
+    "lat": 53.39303,
+    "lng": -1.466212
+  },
+  {
+    "id": "school-145869",
+    "type": "school",
+    "name": "CAPA College",
+    "address": "Mulberry Way, Wakefield",
+    "postcode": "WF1 2QN",
+    "lat": 53.681482,
+    "lng": -1.500774
+  },
+  {
+    "id": "school-145878",
+    "type": "school",
+    "name": "Eden Boys' Leadership Academy, Birmingham East",
+    "address": "441 Alum Rock Road, Birmingham",
+    "postcode": "B8 3DT",
+    "lat": 52.487011,
+    "lng": -1.840051
+  },
+  {
+    "id": "school-145897",
+    "type": "school",
+    "name": "Mercia School",
+    "address": "Carter Knowle Road, Sheffield",
+    "postcode": "S7 2DY",
+    "lat": 53.351297,
+    "lng": -1.494634
+  },
+  {
+    "id": "school-145927",
+    "type": "school",
+    "name": "Cockburn John Charles Academy",
+    "address": "Old Run Road, Leeds",
+    "postcode": "LS10 2JU",
+    "lat": 53.76544,
+    "lng": -1.536283
+  },
+  {
+    "id": "school-145937",
+    "type": "school",
+    "name": "Outwood Academy Freeston",
+    "address": "Favell Avenue, Normanton",
+    "postcode": "WF6 1HZ",
+    "lat": 53.69461,
+    "lng": -1.410708
+  },
+  {
+    "id": "school-145938",
+    "type": "school",
+    "name": "Outwood Academy Hemsworth",
+    "address": "Wakefield Road, Pontefract",
+    "postcode": "WF9 4AB",
+    "lat": 53.615871,
+    "lng": -1.348081
+  },
+  {
+    "id": "school-146198",
+    "type": "school",
+    "name": "Dixons Cottingley Academy",
+    "address": "Cottingley New Road, Bingley",
+    "postcode": "BD16 1TZ",
+    "lat": 53.830215,
+    "lng": -1.815999
+  },
+  {
+    "id": "school-146217",
+    "type": "school",
+    "name": "Boston Spa Academy",
+    "address": "Clifford Moor Road, Wetherby",
+    "postcode": "LS23 6RW",
+    "lat": 53.900187,
+    "lng": -1.360406
+  },
+  {
+    "id": "school-146247",
+    "type": "school",
+    "name": "Temple Moor High School",
+    "address": "Field End Grove, Leeds",
+    "postcode": "LS15 0PT",
+    "lat": 53.796321,
+    "lng": -1.459783
+  },
+  {
+    "id": "school-146327",
+    "type": "school",
+    "name": "Royds Hall, A Share Academy",
+    "address": "Luck Lane, Huddersfield",
+    "postcode": "HD3 4HA",
+    "lat": 53.644374,
+    "lng": -1.815781
+  },
+  {
+    "id": "school-146363",
+    "type": "school",
+    "name": "Dixons Unity Academy",
+    "address": "Whingate Road, Leeds",
+    "postcode": "LS12 3DS",
+    "lat": 53.795031,
+    "lng": -1.606435
+  },
+  {
+    "id": "school-146365",
+    "type": "school",
+    "name": "Thornhill Community Academy, A Share Academy",
+    "address": "Valley Drive, Dewsbury",
+    "postcode": "WF12 0HE",
+    "lat": 53.659587,
+    "lng": -1.616309
+  },
+  {
+    "id": "school-146367",
+    "type": "school",
+    "name": "Castle Hall Academy",
+    "address": "Richard Thorpe Avenue, Mirfield",
+    "postcode": "WF14 9PH",
+    "lat": 53.679911,
+    "lng": -1.687243
+  },
+  {
+    "id": "school-146769",
+    "type": "school",
+    "name": "Graham School",
+    "address": "Woodlands Drive, Scarborough",
+    "postcode": "YO12 6QW",
+    "lat": 54.279413,
+    "lng": -0.439915
+  },
+  {
+    "id": "school-146819",
+    "type": "school",
+    "name": "George Pindar School",
+    "address": "Moor Lane, Scarborough",
+    "postcode": "YO11 3LW",
+    "lat": 54.238376,
+    "lng": -0.392032
+  },
+  {
+    "id": "school-146906",
+    "type": "school",
+    "name": "Honley High School",
+    "address": "Station Road, Holmfirth",
+    "postcode": "HD9 6QJ",
+    "lat": 53.60765,
+    "lng": -1.782007
+  },
+  {
+    "id": "school-147067",
+    "type": "school",
+    "name": "Bronte Girls' Academy",
+    "address": "Bolling Road, Bradford",
+    "postcode": "BD4 7EB",
+    "lat": 53.785633,
+    "lng": -1.74423
+  },
+  {
+    "id": "school-147100",
+    "type": "school",
+    "name": "Carlton Bolling",
+    "address": "Undercliffe Lane, Bradford",
+    "postcode": "BD3 0DU",
+    "lat": 53.801861,
+    "lng": -1.737161
+  },
+  {
+    "id": "school-147177",
+    "type": "school",
+    "name": "Co-op Academy Grange",
+    "address": "Co-Op Academy Grange, Bradford",
+    "postcode": "BD5 9ET",
+    "lat": 53.774397,
+    "lng": -1.775741
+  },
+  {
+    "id": "school-147204",
+    "type": "school",
+    "name": "Eden Boys' Leadership Academy, Bradford",
+    "address": "Syedna Way, Bradford",
+    "postcode": "BD8 9AR",
+    "lat": 53.798426,
+    "lng": -1.781201
+  },
+  {
+    "id": "school-147212",
+    "type": "school",
+    "name": "St Augustine's Catholic School - a Catholic voluntary academy",
+    "address": "Sandybed Lane, Scarborough",
+    "postcode": "YO12 5LH",
+    "lat": 54.27283,
+    "lng": -0.426556
+  },
+  {
+    "id": "school-147477",
+    "type": "school",
+    "name": "University of Liverpool Mathematics School",
+    "address": "Sir Alastair Pilkington Building, Liverpool",
+    "postcode": "L69 7SH",
+    "lat": 53.401637,
+    "lng": -2.965558
+  },
+  {
+    "id": "school-147888",
+    "type": "school",
+    "name": "Newsome Academy",
+    "address": "Castle Avenue, Huddersfield",
+    "postcode": "HD4 6JN",
+    "lat": 53.625019,
+    "lng": -1.788026
+  },
+  {
+    "id": "school-148226",
+    "type": "school",
+    "name": "Alsop High School",
+    "address": "Queens Drive, Liverpool",
+    "postcode": "L4 6SH",
+    "lat": 53.446506,
+    "lng": -2.962209
+  },
+  {
+    "id": "school-148294",
+    "type": "school",
+    "name": "Corpus Christi Catholic College, A Voluntary Academy",
+    "address": "Neville Road, Leeds",
+    "postcode": "LS9 0TT",
+    "lat": 53.796991,
+    "lng": -1.483248
+  },
+  {
+    "id": "school-148377",
+    "type": "school",
+    "name": "Ryedale School",
+    "address": "Gale Lane, York",
+    "postcode": "YO62 7SL",
+    "lat": 54.250469,
+    "lng": -0.994138
+  },
+  {
+    "id": "school-148520",
+    "type": "school",
+    "name": "St Bede's and St Joseph's Catholic College, A Voluntary Academy",
+    "address": "Highgate, Bradford",
+    "postcode": "BD9 4BQ",
+    "lat": 53.81501,
+    "lng": -1.785899
+  },
+  {
+    "id": "school-148527",
+    "type": "school",
+    "name": "Oulton Academy",
+    "address": "Pennington Lane, Leeds",
+    "postcode": "LS26 8EX",
+    "lat": 53.737102,
+    "lng": -1.458299
+  },
+  {
+    "id": "school-148545",
+    "type": "school",
+    "name": "Trinity Academy Bradford",
+    "address": "Deanstones Lane, Bradford",
+    "postcode": "BD13 2AS",
+    "lat": 53.765032,
+    "lng": -1.845157
+  },
+  {
+    "id": "school-148547",
+    "type": "school",
+    "name": "Thrybergh Academy",
+    "address": "Park Lane, Rotherham",
+    "postcode": "S65 4BP",
+    "lat": 53.450684,
+    "lng": -1.295208
+  },
+  {
+    "id": "school-148560",
+    "type": "school",
+    "name": "Trinity Academy Leeds",
+    "address": "Torre Road, Leeds",
+    "postcode": "LS9 7QL",
+    "lat": 53.799785,
+    "lng": -1.512945
+  },
+  {
+    "id": "school-148561",
+    "type": "school",
+    "name": "Trinity Academy St. Edwards",
+    "address": "Keresforth Close, Barnsley",
+    "postcode": "S70 6FP",
+    "lat": 53.54541,
+    "lng": -1.496702
+  },
+  {
+    "id": "school-148602",
+    "type": "school",
+    "name": "Lady Lumley's Academy",
+    "address": "Swainsea Lane, Pickering",
+    "postcode": "YO18 8NG",
+    "lat": 54.251337,
+    "lng": -0.782247
+  },
+  {
+    "id": "school-148616",
+    "type": "school",
+    "name": "Cockburn Laurence Calvert Academy",
+    "address": "Ring Road, Leeds",
+    "postcode": "LS10 4AX",
+    "lat": 53.747628,
+    "lng": -1.530549
+  },
+  {
+    "id": "school-148793",
+    "type": "school",
+    "name": "John Smeaton Academy",
+    "address": "Barwick Road, Leeds",
+    "postcode": "LS15 8TA",
+    "lat": 53.815219,
+    "lng": -1.433246
+  },
+  {
+    "id": "school-148855",
+    "type": "school",
+    "name": "St John Fisher Catholic Academy",
+    "address": "Hookstone Drive, Harrogate",
+    "postcode": "HG2 8PT",
+    "lat": 53.983857,
+    "lng": -1.516352
+  },
+  {
+    "id": "school-149011",
+    "type": "school",
+    "name": "Hanson Academy",
+    "address": "Sutton Avenue, Bradford",
+    "postcode": "BD2 1JP",
+    "lat": 53.817761,
+    "lng": -1.740738
+  },
+  {
+    "id": "school-149162",
+    "type": "school",
+    "name": "Whitcliffe Mount, A Share Academy",
+    "address": "Turnsteads Avenue, Cleckheaton",
+    "postcode": "BD19 3AQ",
+    "lat": 53.726194,
+    "lng": -1.726735
+  },
+  {
+    "id": "school-149205",
+    "type": "school",
+    "name": "Filey Academy",
+    "address": "Muston Road, Filey",
+    "postcode": "YO14 0HG",
+    "lat": 54.20457,
+    "lng": -0.301232
+  },
+  {
+    "id": "school-149299",
+    "type": "school",
+    "name": "The Holy Family Catholic School, a Voluntary Academy",
+    "address": "Spring Gardens Lane, Keighley",
+    "postcode": "BD20 6LH",
+    "lat": 53.875407,
+    "lng": -1.916077
+  },
+  {
+    "id": "school-149517",
+    "type": "school",
+    "name": "All Saints Catholic School York",
+    "address": "Mill Mount Lane, York",
+    "postcode": "YO24 1BJ",
+    "lat": 53.951177,
+    "lng": -1.093083
+  },
+  {
+    "id": "school-149530",
+    "type": "school",
+    "name": "Dixons Croxteth Academy",
+    "address": "Carr Lane East, Liverpool",
+    "postcode": "L11 4SG",
+    "lat": 53.447228,
+    "lng": -2.905513
+  },
+  {
+    "id": "school-149531",
+    "type": "school",
+    "name": "The Brooksbank School",
+    "address": "Victoria Road, Elland",
+    "postcode": "HX5 0QG",
+    "lat": 53.681014,
+    "lng": -1.847509
+  },
+  {
+    "id": "school-149755",
+    "type": "school",
+    "name": "Leeds Mathematics School",
+    "address": "105 Albion Street, Leeds",
+    "postcode": "LS1 5AS",
+    "lat": 53.799079,
+    "lng": -1.543823
+  },
+  {
+    "id": "school-149987",
+    "type": "school",
+    "name": "Nidderdale High School",
+    "address": "Low Wath Road, Harrogate",
+    "postcode": "HG3 5HL",
+    "lat": 54.08922,
+    "lng": -1.77027
+  },
+  {
+    "id": "school-150001",
+    "type": "school",
+    "name": "Parkside School",
+    "address": "Parkside Terrace, Bradford",
+    "postcode": "BD13 5AD",
+    "lat": 53.827215,
+    "lng": -1.890951
+  },
+  {
+    "id": "school-150320",
+    "type": "school",
+    "name": "King Edward VI King's Norton School for Boys",
+    "address": "Northfield Road, Birmingham",
+    "postcode": "B30 1DY",
+    "lat": 52.416776,
+    "lng": -1.940136
+  },
+  {
+    "id": "school-150387",
+    "type": "school",
+    "name": "The Calder Learning Trust",
+    "address": "Brier Hey Lane, Hebden Bridge",
+    "postcode": "HX7 5QN",
+    "lat": 53.7324,
+    "lng": -1.973819
+  },
+  {
+    "id": "school-150644",
+    "type": "school",
+    "name": "Malton School",
+    "address": "Middlecave Road, Malton",
+    "postcode": "YO17 7NH",
+    "lat": 54.138876,
+    "lng": -0.810212
+  },
+  {
+    "id": "school-151762",
+    "type": "school",
+    "name": "Benton Park School",
+    "address": "Harrogate Road, Leeds",
+    "postcode": "LS19 6LX",
+    "lat": 53.856911,
+    "lng": -1.681941
+  }
+]
