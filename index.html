@@ -272,11 +272,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div><strong id="s-cleared">0</strong>cleared</div>
     <div><strong id="s-pct">0%</strong>done</div>
   </div>
-  <div class="hstats" id="hstats-district" style="display:none">
-    <div id="hd-name" style="font-size:13px;color:var(--gold-l);text-transform:none;letter-spacing:.02em;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
-    <div><strong id="hd-total">-</strong>in district</div>
-    <div><strong id="hd-cleared">0</strong>cleared</div>
-  </div>
+
   <div style="display:flex;align-items:center;gap:10px">
     <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
     <button class="hbtn" id="home-btn" onclick="goHome()" style="display:none">⌂ Home</button>
@@ -515,23 +511,40 @@ function initMap(){
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
     map.addSource('districts-src',{type:'geojson',data:emptyFC()})
+    map.addSource('district-locs-src',{type:'geojson',data:emptyFC()})
     map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
-      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.10)','rgba(255,255,255,0.01)']
+      'fill-color':['case',['==',['feature-state','cleared'],2],'rgba(201,168,76,0.18)',['==',['feature-state','cleared'],1],'rgba(201,168,76,0.09)','rgba(255,255,255,0.01)']
     }})
     map.addLayer({id:'district-glow',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
       'line-color':GOLD,
-      'line-width':['case',['boolean',['feature-state','cleared'],false],8,0],
+      'line-width':['case',['==',['feature-state','cleared'],2],8,['==',['feature-state','cleared'],1],4,0],
       'line-blur':6,
-      'line-opacity':['case',['boolean',['feature-state','cleared'],false],0.5,0]
+      'line-opacity':['case',['==',['feature-state','cleared'],2],0.6,['==',['feature-state','cleared'],1],0.3,0]
     }})
     map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.25)'],
-      'line-width':['case',['boolean',['feature-state','cleared'],false],1.5,0.6]
+      'line-color':['case',['>=',['coalesce',['feature-state','cleared'],0],1],GOLD,'rgba(201,168,76,0.25)'],
+      'line-width':['case',['>=',['coalesce',['feature-state','cleared'],0],1],1.5,0.6]
     }})
     map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
       'line-color':'rgba(255,255,255,0.75)',
       'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
     }})
+    map.addLayer({id:'district-locs',type:'circle',source:'district-locs-src',layout:{visibility:'none'},paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],7,4,10,7,13,10],
+      'circle-color':['case',['==',['get','type'],'school'],'#5B9BD5','#4A9B6F'],
+      'circle-opacity':0.9,'circle-stroke-width':1.5,'circle-stroke-color':'rgba(255,255,255,0.35)','circle-pitch-alignment':'map'
+    }})
+    map.addLayer({id:'district-locs-cleared',type:'circle',source:'district-locs-src',filter:['==',['get','cleared'],true],layout:{visibility:'none'},paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],7,5,10,8,13,11],
+      'circle-color':GOLD,'circle-opacity':1,'circle-stroke-width':2,
+      'circle-stroke-color':['case',['==',['get','tool'],'omega'],'#9B5ED4',['==',['get','tool'],'jewel'],'#E07050',['==',['get','tool'],'mg'],'#4A85C9','rgba(255,255,255,0.5)'],
+      'circle-pitch-alignment':'map'
+    }})
+    ;['district-locs','district-locs-cleared'].forEach(lyr=>{
+      map.on('click',lyr,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
+      map.on('mouseenter',lyr,()=>{map.getCanvas().style.cursor='pointer'})
+      map.on('mouseleave',lyr,()=>{map.getCanvas().style.cursor=''})
+    })
     map.on('click','district-fill',e=>{if(e.features.length)selectDistrict(e.features[0].properties.code)})
     map.on('mouseenter','district-fill',()=>{map.getCanvas().style.cursor='pointer'})
     map.on('mouseleave','district-fill',()=>{map.getCanvas().style.cursor=''})
@@ -745,7 +758,7 @@ function updateDistrictStates(){
   if(!mapReady||!districts.length||!map.getSource('districts-src'))return
   districts.forEach(f=>{
     const code=f.properties.code
-    const cleared=!!(groupProgress[code+':school']||groupProgress[code+':gp'])
+    const cleared=(!!groupProgress[code+':school'])+(!!groupProgress[code+':gp'])
     const selected=code===selectedDistrictCode
     try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
   })
@@ -791,6 +804,14 @@ function selectDistrict(code){
   const d=districtMap[code];if(!d)return
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
   if(allLocs.length)fitBounds(allLocs)
+  if(mapReady&&map.getSource('district-locs-src')){
+    map.getSource('district-locs-src').setData({type:'FeatureCollection',features:allLocs.filter(l=>l.lat&&l.lng).map(l=>{
+      const p=progress[l.id],grpC=groupProgress[code+':'+l.type]
+      const cleared=!!(p||grpC),tool=p?p.tool:(grpC?grpC.tool:null)
+      return{type:'Feature',geometry:{type:'Point',coordinates:[l.lng,l.lat]},properties:{id:l.id,type:l.type,cleared,tool}}
+    })})
+    ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','visible')})
+  }
   renderDistrictDetail(code)
 }
 
@@ -881,6 +902,7 @@ function renderDistrictDetail(code){
 function closeDistrictDetail(){
   document.getElementById('district-detail').classList.remove('on')
   selectedDistrictCode=null;renderDistrictList();updateDistrictStates();updateDistrictStats(null)
+  if(mapReady)['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
 }
 function selectGroupTool(tool,gtype){
   currentTool=tool
@@ -893,14 +915,19 @@ function selectGroupTool(tool,gtype){
 }
 async function markGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
-  groupProgress[code+':'+gt]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
-  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  const d=districtMap[code]
+  groupProgress[code+':'+gt]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
+  updateDistrictStates()
+  if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
+  renderDistrictDetail(code);renderDistrictList();updateStats();renderLog()
   await saveGroupProgress()
 }
 async function unmarkGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
   delete groupProgress[code+':'+gt]
-  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  updateDistrictStates()
+  if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
+  renderDistrictDetail(code);renderDistrictList();updateStats();renderLog()
   await saveGroupProgress()
 }
 
@@ -1033,14 +1060,30 @@ function updateStats(){
 
 function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
 function renderLog(){
-  const el=document.getElementById('log-list'),fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||'',toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
-  let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l&&l.name||id,type:l&&l.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
+  const el=document.getElementById('log-list')
+  const fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||''
+  const toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
+  let entries=Object.entries(progress).map(([id,p])=>{
+    const l=locations.find(x=>x.id===id)
+    return{id,...p,name:l?l.name:id,locType:l?l.type:'',isGroup:false}
+  })
+  Object.entries(groupProgress).forEach(([key,p])=>{
+    const [code,gtype]=key.split(':')
+    const d=districtMap[code]
+    const label=(gtype==='school'?'Schools':'GPs')+' in '+(p.name||d&&d.name||code)
+    entries.push({id:key,...p,name:label,locType:'group',gtype,isGroup:true})
+  })
+  entries.sort((a,b)=>b.date.localeCompare(a.date))
   if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
   if(toVal)entries=entries.filter(e=>e.date<=toVal)
   if(!entries.length){el.innerHTML='<div class="empty">'+(fromVal||toVal?'No clearings in that date range':'No clearings yet')+'</div>';return}
   el.innerHTML=entries.map(e=>{
-    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
-    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background=\'var(--hover)\'" onmouseout="this.style.background=\'\'" onclick="openFromLog(\'' + e.id + '\')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+col+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.type+'</div></div>'
+    const typeCol=e.isGroup?(e.gtype==='school'?'var(--blue)':'var(--green)'):toolColor(e.tool)
+    const d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    const who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
+    const sub=e.isGroup?d:(d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.locType)
+    const badge=e.isGroup?'<span style="font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid '+typeCol+';color:'+typeCol+';margin-right:5px">GROUP</span>':''
+    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog(''+e.id+'')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+badge+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+sub+'</div></div>'
   }).join('')
 }
 function openFromLog(id){
@@ -1073,31 +1116,22 @@ function switchTab(name,btn){
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
   if(inGroups){renderDistrictList();updateDistrictStates()}
+  else{selectedDistrictCode=null;updateDistrictStats(null)}
   updateStats()
 }
 
 function updateDistrictStats(code){
-  const main=document.getElementById('hstats-main')
-  const dist=document.getElementById('hstats-district')
   const hb=document.getElementById('home-btn')
-  if(!code||!districtMap[code]){
-    if(main)main.style.display='flex'
-    if(dist)dist.style.display='none'
-    if(hb)hb.style.display='none'
-    return
-  }
+  if(!code||!districtMap[code]){if(hb)hb.style.display='none';updateStats();return}
   const d=districtMap[code]
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
-  const total=allLocs.length
-  const cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
-  document.getElementById('hd-name').textContent=d.name
-  document.getElementById('hd-total').textContent=total.toLocaleString()
-  document.getElementById('hd-cleared').textContent=cleared
-  if(main)main.style.display='none'
-  if(dist)dist.style.display='flex'
+  const total=allLocs.length,cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
+  const pct=total?Math.round(cleared/total*100):0
+  document.getElementById('s-total').textContent=total.toLocaleString()
+  document.getElementById('s-cleared').textContent=cleared
+  document.getElementById('s-pct').textContent=pct+'%'
   if(hb)hb.style.display=''
 }
-
 function goHome(){
   selectedDistrictCode=null
   updateDistrictStats(null)
