@@ -302,7 +302,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
           <div class="chip show-omega" id="chip-omega" onclick="setShow('omega',this)"><span class="chip-dot" style="background:var(--omega)"></span>Omega</div>
-          <div class="chip show-jewel" id="chip-jewel" onclick="setShow('jewel',this)"><span class="chip-dot" style="background:var(--jewel)"></span>Jewel</div>
+          <div class="chip show-jewel" id="chip-jewel" onclick="setShow('jewel',this)"><span class="chip-dot" style="background:var(--jewel)" ></span>Jewel</div>
           <div class="chip show-mg" id="chip-mg" onclick="setShow('mg',this)"><span class="chip-dot" style="background:var(--mg)"></span>MG</div>
         </div>
       </div>
@@ -322,7 +322,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <option value="scotland">Scotland</option>
         </select>
       </div>
-      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off"></div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
         <div class="detail-head">
@@ -336,7 +336,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#C9A84C"/></svg>
               Go To
             </a>
-            <button class="detail-close" onclick="closeDetail()">✕</button>
+            <button class="detail-close" onclick="closeDetail()">x</button>
           </div>
         </div>
         <div class="detail-body" id="d-body"></div>
@@ -347,15 +347,15 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <button class="gtype-btn school on" id="gtype-school" onclick="toggleGroupType('school',this)"><span class="chip-dot" style="background:var(--blue);display:inline-block;margin-right:4px"></span>Schools</button>
         <button class="gtype-btn gp on" id="gtype-gp" onclick="toggleGroupType('gp',this)"><span class="chip-dot" style="background:var(--green);display:inline-block;margin-right:4px"></span>GPs</button>
       </div>
-      <div class="srow"><input class="sinput" type="text" placeholder="Search districts…" id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
-      <div class="district-list" id="district-list"><div class="empty">Loading districts…</div></div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search districts..." id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
+      <div class="district-list" id="district-list"><div class="empty">Loading districts...</div></div>
       <div class="district-detail" id="district-detail">
         <div class="district-detail-head">
           <div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold-l)" id="dd-name"></div>
           </div>
-          <button class="detail-close" onclick="closeDistrictDetail()">✕</button>
+          <button class="detail-close" onclick="closeDistrictDetail()">x</button>
         </div>
         <div class="district-detail-body" id="dd-body"></div>
       </div>
@@ -364,7 +364,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <div class="log-filter">
         <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
         <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
-        <button class="log-clear-btn" onclick="clearLogFilter()">✕</button>
+        <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
       </div>
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
@@ -376,18 +376,18 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <img src="Earthkeeper-circular.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
       </div>
       <div class="dots"><span></span><span></span><span></span></div>
-      <div class="msub" id="mload-msg">Loading…</div>
+      <div class="msub" id="mload-msg">Loading...</div>
     </div>
-    <button class="tog" id="tog" onclick="toggleSidebar()">‹</button>
+    <button class="tog" id="tog" onclick="toggleSidebar()">&#x2039;</button>
     <div class="map-overlays">
       <div class="progress">
         <div class="prog-title">Progress</div>
-        <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">—</div></div>
-        <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">—</div></div>
-        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">—</div></div>
-        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">—</div></div>
-        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
-        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">—</div></div>
+        <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">-</div></div>
+        <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">-</div></div>
+        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">-</div></div>
+        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
+        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">-</div></div>
+        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">-</div></div>
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
@@ -397,14 +397,14 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>GP Surgery</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared ✦</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared</div>
       </div>
     </div>
-    <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>📍</span>Find Me</button>
+    <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>&#x1F4CD;</span>Find Me</button>
     <div id="map-district-popup" style="display:none;position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.92);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:14px 16px;min-width:240px;max-width:300px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
         <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold-l)" id="mpop-name"></div>
-        <button class="detail-close" onclick="closeMapPopup()" style="margin-left:8px">✕</button>
+        <button class="detail-close" onclick="closeMapPopup()" style="margin-left:8px">x</button>
       </div>
       <div id="mpop-body"></div>
     </div>
@@ -423,7 +423,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#C9A84C"/></svg>
         Go To
       </a>
-      <button class="detail-close" onclick="closeMobileDetail()">✕</button>
+      <button class="detail-close" onclick="closeMobileDetail()">x</button>
     </div>
   </div>
   <div class="detail-body" id="md-body"></div>
@@ -464,7 +464,7 @@ async function doLogin(e){
   const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
-  err.textContent='Checking…'
+  err.textContent='Checking...'
   const hash=await sha256(pw)
   if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
   currentUser=name;sessionStorage.setItem('ek_user',name)
@@ -504,7 +504,7 @@ function initMap(){
       tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
              'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
              'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
-      tileSize:256,attribution:'© OpenStreetMap contributors © CARTO'}},
+      tileSize:256,attribution:'(c) OpenStreetMap contributors (c) CARTO'}},
       layers:[{id:'carto-tiles',type:'raster',source:'carto'}]},
     center:[-1.5,53.5],zoom:5.5,attributionControl:false
   })
@@ -644,19 +644,19 @@ async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[
 
 async function fetchRegion(region){
   const[hospitals,schools,universities,hospices,prisons,gps]=await Promise.all([
-    ghGetOptional(`hospitals-${region}.json`),
-    ghGetOptional(`schools-${region}.json`),
-    ghGetOptional(`universities-${region}.json`),
-    ghGetOptional(`hospices-${region}.json`),
-    ghGetOptional(`prisons-${region}.json`),
-    ghGetOptional(`gps-${region}.json`)
+    ghGetOptional('hospitals-'+region+'.json'),
+    ghGetOptional('schools-'+region+'.json'),
+    ghGetOptional('universities-'+region+'.json'),
+    ghGetOptional('hospices-'+region+'.json'),
+    ghGetOptional('prisons-'+region+'.json'),
+    ghGetOptional('gps-'+region+'.json')
   ])
   return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
 }
 
 async function loadAll(){
   closeMobileDetail();closeDetail();setSelectedId(null)
-  setMsg('Loading all regions…');document.getElementById('mload').style.display='flex'
+  setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
   try{
     const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
     locations=allArrays.flat()
@@ -668,13 +668,13 @@ async function loadAll(){
 async function loadRegion(value){
   if(value==='all'){await loadAll();return}
   closeMobileDetail();closeDetail();setSelectedId(null)
-  setMsg(`Loading ${value}…`);document.getElementById('mload').style.display='flex'
+  setMsg('Loading '+value+'...');document.getElementById('mload').style.display='flex'
   try{
     locations=await fetchRegion(value)
     hideLoader();refreshMapData();renderList();updateStats()
     if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
-    else{setMsg(`No data for "${value}" yet`);setTimeout(hideLoader,3000)}
-  }catch(e){setMsg(`Error loading ${value}`);setTimeout(hideLoader,3000);locations=[];renderList()}
+    else{setMsg('No data for "'+value+'" yet');setTimeout(hideLoader,3000)}
+  }catch(e){setMsg('Error loading '+value);setTimeout(hideLoader,3000);locations=[];renderList()}
 }
 
 async function loadProgress(){
@@ -694,23 +694,23 @@ async function loadGroupProgress(){
   }catch(e){groupProgress={}}
 }
 async function saveProgress(){
-  showSaving('Saving…')
+  showSaving('Saving...')
   try{
-    const body={message:`${currentUser||'user'} — ${new Date().toISOString().slice(0,10)}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
+    const body={message:(currentUser||'user')+' - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
     if(progressSha)body.sha=progressSha
-    const res=await fetch(`${API_BASE}/progress.json`,{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
-    if(res.ok){progressSha=(await res.json()).content.sha;showSaving('✓ Saved')}
+    const res=await fetch(API_BASE+'/progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){progressSha=(await res.json()).content.sha;showSaving('Saved')}
     else{const e=await res.json();showSaving('Save failed: '+e.message)}
   }catch(e){showSaving('Error saving')}
   setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
 }
 async function saveGroupProgress(){
-  showSaving('Saving…')
+  showSaving('Saving...')
   try{
-    const body={message:(currentUser||'user')+' groups — '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
+    const body={message:(currentUser||'user')+' groups - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
     if(groupProgressSha)body.sha=groupProgressSha
-    const res=await fetch(`${API_BASE}/group-progress.json`,{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
-    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('✓ Saved')}
+    const res=await fetch(API_BASE+'/group-progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('Saved')}
     else{const e=await res.json();showSaving('Save failed: '+e.message)}
   }catch(e){showSaving('Error saving')}
   setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
@@ -760,9 +760,9 @@ function toggleGroupType(type,el){
 
 function renderDistrictList(){
   const el=document.getElementById('district-list')
-  const q=(document.getElementById('group-search')?.value||'').toLowerCase().trim()
+  const q=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').toLowerCase().trim()
   let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
-  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading…')+'</div>';return}
+  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading...')+'</div>';return}
   entries.sort((a,b)=>a.name.localeCompare(b.name))
   el.innerHTML=entries.map(d=>{
     const isSel=d.code===selectedDistrictCode
@@ -807,14 +807,14 @@ function renderMapPopup(code){
   const toolLbl=document.createElement('div');toolLbl.className='tool-label';toolLbl.textContent='Energy tool'
   body.appendChild(toolLbl)
   const toolRow=document.createElement('div');toolRow.className='tool-btns'
-  TOOLS.forEach(t=>{
+  TOOLS.forEach(function(t){
     const b=document.createElement('button')
     b.className='tool-btn '+t+(currentTool===t?' sel':'')
     b.id='mpop-tool-'+t;b.textContent=TOOL_NAMES[t]
     b.onclick=(function(tt){return function(){
       currentTool=tt
       TOOLS.forEach(function(x){var el=document.getElementById('mpop-tool-'+x);if(el)el.classList.toggle('sel',x===tt)})
-      activeTypes.forEach(function(gt){var btn=document.getElementById('mpop-clear-'+gt);if(btn)btn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[tt]+' \u2736'})
+      activeTypes.forEach(function(gt){var btn=document.getElementById('mpop-clear-'+gt);if(btn)btn.textContent='Clear all locations in '+d.name+' - '+TOOL_NAMES[tt]})
     }})(t)
     toolRow.appendChild(b)
   })
@@ -829,16 +829,16 @@ function renderMapPopup(code){
     if(grp){
       const col=toolColor(grp.tool),dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})
       const info=document.createElement('div');info.style.cssText='font-size:12px;color:'+col+';margin-bottom:6px'
-      info.textContent='\u2736 '+typeLabel+' \u2014 '+TOOL_NAMES[grp.tool]+' \u00b7 '+dt+' ('+total+' locations)'
+      info.textContent='Cleared: '+typeLabel+' - '+TOOL_NAMES[grp.tool]+' - '+dt+' ('+total+' locations)'
       div.appendChild(info)
       const btn=document.createElement('button');btn.className='btn-unmark';btn.style.cssText='padding:7px 10px;font-size:12px;margin-top:0;width:100%'
-      btn.textContent='\u21a9 Remove '+typeLabel+' clearing'
+      btn.textContent='Remove '+typeLabel+' clearing'
       btn.onclick=(function(gt){return function(){unmarkGroupCleared(code,gt);renderMapPopup(code)}})(gtype)
       div.appendChild(btn)
     }else{
       const btn=document.createElement('button');btn.className='btn-mark';btn.id='mpop-clear-'+gtype
       btn.style.cssText='padding:10px;font-size:12px;margin-bottom:0;width:100%'
-      btn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[currentTool]+' \u2736'
+      btn.textContent='Clear all locations in '+d.name+' - '+TOOL_NAMES[currentTool]
       btn.onclick=(function(gt){return function(){markGroupCleared(code,gt);renderMapPopup(code)}})(gtype)
       div.appendChild(btn)
     }
@@ -869,15 +869,15 @@ function renderDistrictDetail(code){
     heading.textContent=typeLabel;section.appendChild(heading)
     if(grp){
       const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-      const col=toolColor(grp.tool),who=grp.user?' \u00b7 '+grp.user:''
+      const col=toolColor(grp.tool),who=grp.user?' - '+grp.user:''
       const cleared=document.createElement('div');cleared.className='detail-cleared'
       cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
-      cleared.innerHTML='\u2736 Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> \u00b7 '+dt+who
+      cleared.innerHTML='Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> - '+dt+who
       section.appendChild(cleared)
       const info=document.createElement('div');info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
       info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total';section.appendChild(info)
       const btn=document.createElement('button');btn.className='btn-unmark';btn.style.marginBottom='4px'
-      btn.textContent='\u21a9 Remove clearing'
+      btn.textContent='Remove clearing'
       btn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype);section.appendChild(btn)
     }else{
       const info=document.createElement('div');info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
@@ -891,7 +891,7 @@ function renderDistrictDetail(code){
       })
       section.appendChild(btnRow)
       const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
-      markBtn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[currentTool]+' \u2736'
+      markBtn.textContent='Clear all locations in '+d.name+' - '+TOOL_NAMES[currentTool]
       markBtn.onclick=(function(gt){return function(){markGroupCleared(code,gt)}})(gtype);section.appendChild(markBtn)
     }
     body.appendChild(section)
@@ -908,7 +908,7 @@ function selectGroupTool(tool,gtype){
   TOOLS.forEach(function(t){var b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
   var btn=document.getElementById('btn-group-mark-'+gtype)
   if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
-    btn.textContent='Clear all locations in '+districtMap[selectedDistrictCode].name+' \u2014 '+TOOL_NAMES[tool]+' \u2736'
+    btn.textContent='Clear all locations in '+districtMap[selectedDistrictCode].name+' - '+TOOL_NAMES[tool]
 }
 async function markGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
@@ -931,12 +931,12 @@ function renderList(){
     if(!locVisible(l))return false
     return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
   })
-  if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
+  if(!vis.length){el.innerHTML='<div class="empty">No matches for "'+q+'"</div>';return}
   el.innerHTML=vis.map(l=>{
     const p=progress[l.id],dotBg=p?GOLD:typeColor(l.type)
-    const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:'border:2px solid transparent'
-    const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}66;background:${toolColor(p.tool)}14">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
-    return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')"><div class="ldot" style="background:${dotBg};${dotBorder}"></div><div class="linfo"><div class="lname">${l.name}</div><div class="lmeta">${l.type} · ${l.address||l.postcode||''}</div></div>${badge}</div>`
+    const dotBorder=p?'border:2px solid '+toolColor(p.tool):'border:2px solid transparent'
+    const badge=p?'<div class="lbadge" style="color:'+toolColor(p.tool)+';border-color:'+toolColor(p.tool)+'66;background:'+toolColor(p.tool)+'14">'+TOOL_NAMES[p.tool]+'</div>':''
+    return'<div class="litem '+(p?'done':'')+' '+(selectedId===l.id?'sel':'')+' " onclick="selectLoc(\'' + l.id + '\')"><div class="ldot" style="background:'+dotBg+';'+dotBorder+'"></div><div class="linfo"><div class="lname">'+l.name+'</div><div class="lmeta">'+l.type+' - '+(l.address||l.postcode||'')+'</div></div>'+badge+'</div>'
   }).join('')
 }
 
@@ -958,11 +958,11 @@ function renderDetail(loc){
   document.getElementById('d-gmaps').href=gmapsUrl(loc)
   const body=document.getElementById('d-body')
   if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?` · ${p.user}`:''
-    body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkCleared('${loc.id}')">↩ Mark as not cleared</button>`
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkCleared(\'' + loc.id + '\')">Mark as not cleared</button>'
   }else{
-    const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="tbtn-${t}" onclick="selectTool('${t}')">${TOOL_NAMES[t]}</button>`).join('')
-    body.innerHTML=`<div class="tool-label">Energy tool</div><div class="tool-btns">${toolBtns}</div><button class="btn-mark" id="btn-mark-confirm" onclick="markCleared('${loc.id}')">Mark cleared with ${TOOL_NAMES[currentTool]} ✦</button>`
+    const toolBtns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+' " id="tbtn-'+t+'" onclick="selectTool(\'' + t + '\')">'+TOOL_NAMES[t]+'</button>').join('')
+    body.innerHTML='<div class="tool-label">Energy tool</div><div class="tool-btns">'+toolBtns+'</div><button class="btn-mark" id="btn-mark-confirm" onclick="markCleared(\'' + loc.id + '\')" >Mark cleared with '+TOOL_NAMES[currentTool]+'</button>'
   }
   document.getElementById('detail').classList.add('on')
 }
@@ -978,11 +978,11 @@ function renderMobileDetail(loc){
   document.getElementById('md-gmaps').href=gmapsUrl(loc)
   const body=document.getElementById('md-body')
   if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?` · ${p.user}`:''
-    body.innerHTML=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="unmarkClearedMobile('${loc.id}')">↩ Mark as not cleared</button>`
+    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkClearedMobile(\'' + loc.id + '\')">Mark as not cleared</button>'
   }else{
-    const toolBtns=TOOLS.map(t=>`<button class="tool-btn ${t} ${currentTool===t?'sel':''}" id="md-tbtn-${t}" onclick="selectToolMobile('${t}')">${TOOL_NAMES[t]}</button>`).join('')
-    body.innerHTML=`<div class="tool-label">Energy tool</div><div class="tool-btns">${toolBtns}</div><button class="btn-mark" id="md-btn-mark" onclick="markClearedMobile('${loc.id}')">Mark cleared with ${TOOL_NAMES[currentTool]} ✦</button>`
+    const toolBtns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+' " id="md-tbtn-'+t+'" onclick="selectToolMobile(\'' + t + '\')">'+TOOL_NAMES[t]+'</button>').join('')
+    body.innerHTML='<div class="tool-label">Energy tool</div><div class="tool-btns">'+toolBtns+'</div><button class="btn-mark" id="md-btn-mark" onclick="markClearedMobile(\'' + loc.id + '\')" >Mark cleared with '+TOOL_NAMES[currentTool]+'</button>'
   }
   const panel=document.getElementById('mobile-detail');panel.classList.add('on')
   requestAnimationFrame(()=>{
@@ -997,12 +997,14 @@ function closeMobileDetail(){
   renderList();updateLocateBtnPosition()
 }
 function selectTool(tool){
-  currentTool=tool;TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('btn-mark-confirm');if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
+  currentTool=tool
+  TOOLS.forEach(t=>{const b=document.getElementById('tbtn-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  const btn=document.getElementById('btn-mark-confirm');if(btn)btn.textContent='Mark cleared with '+TOOL_NAMES[tool]
 }
 function selectToolMobile(tool){
-  currentTool=tool;TOOLS.forEach(t=>document.getElementById(`md-tbtn-${t}`)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('md-btn-mark');if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
+  currentTool=tool
+  TOOLS.forEach(t=>{const b=document.getElementById('md-tbtn-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  const btn=document.getElementById('md-btn-mark');if(btn)btn.textContent='Mark cleared with '+TOOL_NAMES[tool]
 }
 async function markCleared(id){
   const loc=locations.find(l=>l.id===id);if(!loc)return
@@ -1044,20 +1046,20 @@ function updateStats(){
     const tot=locations.filter(l=>l.type===type).length
     const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
-    document.getElementById(pgTxt).textContent=tot?cl+'/'+tot:'—'
+    document.getElementById(pgTxt).textContent=tot?cl+'/'+tot:'-'
   }
 }
 
 function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
 function renderLog(){
-  const el=document.getElementById('log-list'),fromVal=document.getElementById('log-from')?.value||'',toVal=document.getElementById('log-to')?.value||''
-  let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l?.name||id,type:l?.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
+  const el=document.getElementById('log-list'),fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||'',toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
+  let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l&&l.name||id,type:l&&l.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
   if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
   if(toVal)entries=entries.filter(e=>e.date<=toVal)
-  if(!entries.length){el.innerHTML=`<div class="empty">${fromVal||toVal?'No clearings in that date range':'No clearings yet'}</div>`;return}
+  if(!entries.length){el.innerHTML='<div class="empty">'+(fromVal||toVal?'No clearings in that date range':'No clearings yet')+'</div>';return}
   el.innerHTML=entries.map(e=>{
-    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
-    return`<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid ${col};flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">${e.name}</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">${who}${d} · ${TOOL_NAMES[e.tool]||e.tool} · ${e.type}</div></div>`
+    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
+    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background=\'var(--hover)\'" onmouseout="this.style.background=\'\'" onclick="openFromLog(\'' + e.id + '\')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+col+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.type+'</div></div>'
   }).join('')
 }
 function openFromLog(id){
@@ -1065,18 +1067,18 @@ function openFromLog(id){
   const loc=locations.find(l=>l.id===id)
   if(loc){selectLoc(id);return}
   const p=progress[id];if(!p)return
-  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?` · ${p.user}`:''
-  const html=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div>`
+  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?' - '+p.user:''
+  const html='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+'</strong> - '+d+who+'</div>'
   document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
   document.getElementById('d-name').textContent=p.name||id
   document.getElementById('d-addr').textContent='Load the region to see full details'
-  document.getElementById('d-gmaps').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name||id)}`
+  document.getElementById('d-gmaps').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name||id)
   document.getElementById('d-body').innerHTML=html
   document.getElementById('detail').classList.add('on')
 }
 
 let sbOpen=true
-function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›';setTimeout(()=>map&&map.resize(),320)}
+function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'<':'>';setTimeout(()=>map&&map.resize(),320)}
 function switchTab(name,btn){
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
@@ -1099,7 +1101,7 @@ function hideLoader(){document.getElementById('mload').style.display='none'}
 
 async function bootApp(){
   initMap()
-  setMsg('Loading progress…')
+  setMsg('Loading progress...')
   await Promise.all([loadProgress(),loadGroupProgress()])
   await loadAll()
   await loadDistricts()
