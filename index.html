@@ -513,6 +513,24 @@ function initMap(){
     map.addSource('locations',{type:'geojson',data:emptyFC()})
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
+    map.addSource('districts-src',{type:'geojson',data:emptyFC()})
+    // District fill and outline — hidden until Groups tab active
+    map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
+      'fill-color':['case',['boolean',['feature-state','cleared'],false],'rgba(201,168,76,0.07)','rgba(255,255,255,0.01)'],
+      'fill-outline-color':'transparent'
+    }})
+    map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':['case',['boolean',['feature-state','cleared'],false],GOLD,'rgba(201,168,76,0.22)'],
+      'line-width':['case',['boolean',['feature-state','cleared'],false],2,0.7],
+      'line-blur':['case',['boolean',['feature-state','cleared'],false],1,0]
+    }})
+    map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
+      'line-color':'rgba(255,255,255,0.7)',
+      'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
+    }})
+    map.on('click','district-fill',e=>{if(e.features.length)selectDistrict(e.features[0].properties.code)})
+    map.on('mouseenter','district-fill',()=>{map.getCanvas().style.cursor='pointer'})
+    map.on('mouseleave','district-fill',()=>{map.getCanvas().style.cursor=''})
 
     // Uncleared: coloured by type, slightly dimmed
     map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
@@ -582,13 +600,14 @@ function initMap(){
 
 function emptyFC(){return{type:'FeatureCollection',features:[]}}
 function locToFeature(loc){
-  const p=progress[loc.id]
-  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared:!!p,tool:p?.tool||null}}
+  const tool=effectiveTool(loc)
+  const cleared=isEffectivelyCleared(loc)
+  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared,tool:tool||null}}
 }
 function refreshMapData(){
   if(!mapReady)return
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
-  const cleared=visible.filter(l=>progress[l.id])
+  const cleared=visible.filter(l=>isEffectivelyCleared(l))
   const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
   map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
@@ -600,10 +619,11 @@ function locVisible(loc){
   if(!placesFilter[loc.type])return false
   const p=progress[loc.id]
   if(showFilter==='all')return true
-  if(showFilter==='cleared')return!!p
-  if(showFilter==='omega')return p?.tool==='omega'
-  if(showFilter==='jewel')return p?.tool==='jewel'
-  if(showFilter==='mg')return p?.tool==='mg'
+  if(showFilter==='cleared')return isEffectivelyCleared(loc)
+  const etool=effectiveTool(loc)
+  if(showFilter==='omega')return etool==='omega'
+  if(showFilter==='jewel')return etool==='jewel'
+  if(showFilter==='mg')return etool==='mg'
   return true
 }
 
@@ -825,7 +845,7 @@ function updateStats(){
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-pct').textContent=pct+'%'
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut'],['gp','pg-gp','pg-gpt']]){
-    const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
+    const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
     document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
   }
@@ -874,7 +894,19 @@ function openFromLog(id){
 
 let sbOpen=true
 function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›';setTimeout(()=>map&&map.resize(),320)}
-function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
+function switchTab(name,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
+  btn.classList.add('on')
+  document.getElementById('tab-'+name).classList.add('on')
+  const inGroups=name==='groups'
+  if(mapReady){
+    ['district-fill','district-line','district-selected'].forEach(id=>{
+      if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')
+    })
+  }
+  if(inGroups){renderDistrictList();updateDistrictStates()}
+}
 
 
 // ── Effective tool (max of individual + group floor) ──────────────────────
@@ -1076,8 +1108,8 @@ function hideLoader(){document.getElementById('mload').style.display='none'}
 async function bootApp(){
   initMap()
   setMsg('Loading progress…')
-  await loadProgress()
-  await loadAll()
+  await Promise.all([loadProgress(),loadGroupProgress()])
+  await Promise.all([loadAll(),loadDistricts()])
   renderLog()
 }
 
