@@ -28,7 +28,7 @@
   --input-bg:rgba(13,36,22,.5);
   --hover:rgba(201,168,76,.08);
   --sel:rgba(201,168,76,.12);
-  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;
+  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
   --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -87,6 +87,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
 .chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
 .chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
+.chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
 .chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
@@ -122,7 +123,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
 .gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
 .detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
-.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}
+.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
 .detail-name{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.3;color:var(--gold-l)}
 .detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
 .detail-body{padding:12px 20px 18px;overflow-y:auto}
@@ -283,6 +284,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
           <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
+          <div class="chip gp on" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
         </div>
       </div>
       <div class="frow">
@@ -358,6 +360,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">—</div></div>
         <div class="prog-row"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
         <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">—</div></div>
+        <div class="prog-row"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">—</div></div>
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
@@ -366,6 +369,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>GP Surgery</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared ✦</div>
       </div>
     </div>
@@ -401,7 +405,7 @@ const REPO_OWNER='Londrovski', REPO_NAME='earthkeeper', DATA_BRANCH='main'
 const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland']
-const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8'}
+const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8',gp:'#4A9B6F'}
 const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
 const GOLD='#C9A84C'
 function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
@@ -409,7 +413,7 @@ function toolColor(t){return TOOL_COLORS[t]||GOLD}
 const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
 
 let locations=[], progress={}, progressSha=null, selectedId=null, map, mapReady=false
-let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true}
+let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true,gp:true}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 
@@ -465,7 +469,7 @@ function initMap(){
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
 
-    // Uncleared: normal coloured dots, slightly reduced opacity
+    // Uncleared: coloured by type, slightly dimmed
     map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
       filter:['==',['get','cleared'],false],
       paint:{
@@ -475,15 +479,16 @@ function initMap(){
           ['==',['get','type'],'school'],  '#5B9BD5',
           ['==',['get','type'],'hospice'], '#3DBFA8',
           ['==',['get','type'],'prison'],  '#C4722A',
+          ['==',['get','type'],'gp'],      '#4A9B6F',
           '#9B78C8'],
-        'circle-opacity':0.55,   // dimmed but still coloured
+        'circle-opacity':0.55,
         'circle-stroke-width':1,
         'circle-stroke-color':'rgba(255,255,255,0.2)',
         'circle-pitch-alignment':'map'
       }
     })
 
-    // Cleared: soft gold glow underneath
+    // Cleared: soft gold glow
     map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,9,9,14,13,20],
       'circle-color':GOLD,
@@ -492,7 +497,7 @@ function initMap(){
       'circle-pitch-alignment':'map'
     }})
 
-    // Cleared: solid gold dot, noticeably larger and full opacity
+    // Cleared: solid gold dot
     map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
       'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?5:6,9,isMobile()?8:10,13,isMobile()?10:13],
       'circle-color':GOLD,
@@ -593,14 +598,15 @@ async function ghGet(path){
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
 async function fetchRegion(region){
-  const[hospitals,schools,universities,hospices,prisons]=await Promise.all([
+  const[hospitals,schools,universities,hospices,prisons,gps]=await Promise.all([
     ghGetOptional(`hospitals-${region}.json`),
     ghGetOptional(`schools-${region}.json`),
     ghGetOptional(`universities-${region}.json`),
     ghGetOptional(`hospices-${region}.json`),
-    ghGetOptional(`prisons-${region}.json`)
+    ghGetOptional(`prisons-${region}.json`),
+    ghGetOptional(`gps-${region}.json`)
   ])
-  return[...hospitals,...schools,...universities,...hospices,...prisons]
+  return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
 }
 
 async function loadAll(){
@@ -773,7 +779,7 @@ function updateStats(){
   document.getElementById('s-total').textContent=total.toLocaleString()
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-pct').textContent=pct+'%'
-  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]){
+  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut'],['gp','pg-gp','pg-gpt']]){
     const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
     document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
