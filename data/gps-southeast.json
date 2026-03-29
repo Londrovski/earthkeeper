@@ -1,1 +1,6491 @@
-see below
+[
+  {
+    "id": "gp-g82013",
+    "type": "gp",
+    "name": "Amherst Medical Practice",
+    "address": "21 St. Botolphs Road, Sevenoaks",
+    "postcode": "TN13 3AQ",
+    "lat": 51.276616,
+    "lng": 0.186703
+  },
+  {
+    "id": "gp-g82679",
+    "type": "gp",
+    "name": "Apex Medical Centre",
+    "address": "Gun Lane, Rochester",
+    "postcode": "ME2 4UW",
+    "lat": 51.397397,
+    "lng": 0.493218
+  },
+  {
+    "id": "gp-g81689",
+    "type": "gp",
+    "name": "Arch Healthcare",
+    "address": "Morley Street, Brighton",
+    "postcode": "BN2 9DH",
+    "lat": 50.825684,
+    "lng": -0.13427
+  },
+  {
+    "id": "gp-g81006",
+    "type": "gp",
+    "name": "Ardingly Court Surgery",
+    "address": "1 Ardingly Street, Brighton",
+    "postcode": "BN2 1SS",
+    "lat": 50.821246,
+    "lng": -0.1329
+  },
+  {
+    "id": "gp-g81050",
+    "type": "gp",
+    "name": "Arlington Road Surgery",
+    "address": "1 Arlington Road, Eastbourne",
+    "postcode": "BN21 1DH",
+    "lat": 50.768184,
+    "lng": 0.277587
+  },
+  {
+    "id": "gp-g82138",
+    "type": "gp",
+    "name": "Ash Surgery",
+    "address": "Chilton Place, Canterbury",
+    "postcode": "CT3 2HD",
+    "lat": 51.279887,
+    "lng": 1.27891
+  },
+  {
+    "id": "gp-e81615",
+    "type": "gp",
+    "name": "Ashburnham Road Surgery",
+    "address": "8 Ashburnham Road, Bedford",
+    "postcode": "MK40 1DS",
+    "lat": 52.13602,
+    "lng": -0.47817
+  },
+  {
+    "id": "gp-g81024",
+    "type": "gp",
+    "name": "Ashdown Forest Health Centre",
+    "address": "Lewes Road, Forest Row",
+    "postcode": "RH18 5AQ",
+    "lat": 51.097032,
+    "lng": 0.032893
+  },
+  {
+    "id": "gp-g82080",
+    "type": "gp",
+    "name": "Ashford Medical Partnership",
+    "address": "Bentley Road, Ashford",
+    "postcode": "TN24 0HZ",
+    "lat": 51.136741,
+    "lng": 0.898871
+  },
+  {
+    "id": "gp-e81050",
+    "type": "gp",
+    "name": "Asplands Medical Centre",
+    "address": "Asplands Close, Milton Keynes",
+    "postcode": "MK17 8QP",
+    "lat": 52.012627,
+    "lng": -0.649798
+  },
+  {
+    "id": "gp-g82058",
+    "type": "gp",
+    "name": "Aylesford Medical Centre",
+    "address": "The New Aylesford Surgery, Aylesford",
+    "postcode": "ME20 7SE",
+    "lat": 51.295189,
+    "lng": 0.47564
+  },
+  {
+    "id": "gp-g82211",
+    "type": "gp",
+    "name": "Aylesham Medical Practice",
+    "address": "Aylesham Health Centre, Canterbury",
+    "postcode": "CT3 3BB",
+    "lat": 51.225483,
+    "lng": 1.202984
+  },
+  {
+    "id": "gp-g82036",
+    "type": "gp",
+    "name": "Balmoral Surgery",
+    "address": "Canada Road, Deal",
+    "postcode": "CT14 7EQ",
+    "lat": 51.213306,
+    "lng": 1.399304
+  },
+  {
+    "id": "gp-g81019",
+    "type": "gp",
+    "name": "Beacon Surgery",
+    "address": "Beacon Road, Crowborough",
+    "postcode": "TN6 1AH",
+    "lat": 51.059833,
+    "lng": 0.159904
+  },
+  {
+    "id": "gp-g81042",
+    "type": "gp",
+    "name": "Beaconsfield Medical Practice",
+    "address": "175 Preston Road, Brighton",
+    "postcode": "BN1 6AG",
+    "lat": 50.838372,
+    "lng": -0.148266
+  },
+  {
+    "id": "gp-g82074",
+    "type": "gp",
+    "name": "Bearsted",
+    "address": "Yeoman Lane, Maidstone",
+    "postcode": "ME14 4DS",
+    "lat": 51.267984,
+    "lng": 0.57277
+  },
+  {
+    "id": "gp-g82105",
+    "type": "gp",
+    "name": "Bethesda Medical Centre",
+    "address": "Palm Bay Avenue, Margate",
+    "postcode": "CT9 3NR",
+    "lat": 51.390284,
+    "lng": 1.414813
+  },
+  {
+    "id": "gp-g82666",
+    "type": "gp",
+    "name": "Birchington Medical Centre",
+    "address": "Minnis Road, Birchington",
+    "postcode": "CT7 9HQ",
+    "lat": 51.376182,
+    "lng": 1.297647
+  },
+  {
+    "id": "gp-g81086",
+    "type": "gp",
+    "name": "Bird-In-Eye Surgery",
+    "address": "Uckfield Community Hospital, Uckfield",
+    "postcode": "TN22 5AW",
+    "lat": 50.96595,
+    "lng": 0.105639
+  },
+  {
+    "id": "gp-g82098",
+    "type": "gp",
+    "name": "Blackthorn",
+    "address": "Blackthorn Medical Centre, Maidstone",
+    "postcode": "ME16 9AL",
+    "lat": 51.26827,
+    "lng": 0.486724
+  },
+  {
+    "id": "gp-g82120",
+    "type": "gp",
+    "name": "Borough Green Medical Practice",
+    "address": "Quarry Hill Road, Sevenoaks",
+    "postcode": "TN15 8RQ",
+    "lat": 51.290053,
+    "lng": 0.303389
+  },
+  {
+    "id": "gp-g82711",
+    "type": "gp",
+    "name": "Borstal Village Surgery",
+    "address": "25 Wouldham Road, Rochester",
+    "postcode": "ME1 3JY",
+    "lat": 51.372102,
+    "lng": 0.482475
+  },
+  {
+    "id": "gp-g82031",
+    "type": "gp",
+    "name": "Bower Mount Medical Practice",
+    "address": "1 Bower Mount Road, Maidstone",
+    "postcode": "ME16 8AX",
+    "lat": 51.273703,
+    "lng": 0.506905
+  },
+  {
+    "id": "gp-g82089",
+    "type": "gp",
+    "name": "Brewer Street",
+    "address": "4 Brewer Street, Maidstone",
+    "postcode": "ME14 1RU",
+    "lat": 51.277138,
+    "lng": 0.52371
+  },
+  {
+    "id": "gp-g81012",
+    "type": "gp",
+    "name": "Bridgeside Surgery",
+    "address": "1 Western Road, Hailsham",
+    "postcode": "BN27 3DG",
+    "lat": 50.861833,
+    "lng": 0.256099
+  },
+  {
+    "id": "gp-g82796",
+    "type": "gp",
+    "name": "Broadstairs Medical Practice",
+    "address": "The Broadway, Broadstairs",
+    "postcode": "CT10 2AJ",
+    "lat": 51.360641,
+    "lng": 1.43308
+  },
+  {
+    "id": "gp-g81669",
+    "type": "gp",
+    "name": "Broadway Surgery",
+    "address": "Wellsbourne Health Centre, Brighton",
+    "postcode": "BN2 5FL",
+    "lat": 50.825439,
+    "lng": -0.107359
+  },
+  {
+    "id": "gp-g82631",
+    "type": "gp",
+    "name": "Bryant Street Medical Practice",
+    "address": "29 Bryant Street, Chatham",
+    "postcode": "ME4 5QS",
+    "lat": 51.378814,
+    "lng": 0.527733
+  },
+  {
+    "id": "gp-g82700",
+    "type": "gp",
+    "name": "Buckland Medical Practice",
+    "address": "Buckland Avenue, Dover",
+    "postcode": "CT16 2NP",
+    "lat": 51.137435,
+    "lng": 1.296741
+  },
+  {
+    "id": "gp-g81102",
+    "type": "gp",
+    "name": "Buxted Medical Centre",
+    "address": "Framfield Road, Uckfield",
+    "postcode": "TN22 5FD",
+    "lat": 50.989419,
+    "lng": 0.132151
+  },
+  {
+    "id": "gp-g82802",
+    "type": "gp",
+    "name": "Canterbury Health Centre",
+    "address": "26 Old Dover Road, Canterbury",
+    "postcode": "CT1 3JH",
+    "lat": 51.274249,
+    "lng": 1.08298
+  },
+  {
+    "id": "gp-g82228",
+    "type": "gp",
+    "name": "Canterbury Medical Practice",
+    "address": "Bridge Health Centre, Canterbury",
+    "postcode": "CT4 5BL",
+    "lat": 51.245984,
+    "lng": 1.128811
+  },
+  {
+    "id": "gp-g81014",
+    "type": "gp",
+    "name": "Carden Surgery",
+    "address": "County Oak Medical Centre, Brighton",
+    "postcode": "BN1 8DD",
+    "lat": 50.862192,
+    "lng": -0.126604
+  },
+  {
+    "id": "gp-g81048",
+    "type": "gp",
+    "name": "Carisbrooke Surgery",
+    "address": "St Leonards Medical Centre, St. Leonards-On-Sea",
+    "postcode": "TN38 8BL",
+    "lat": 50.852259,
+    "lng": 0.529559
+  },
+  {
+    "id": "gp-e81030",
+    "type": "gp",
+    "name": "Cauldwell Medical Centre",
+    "address": "Bedford Hospital, Bedford",
+    "postcode": "MK42 9DJ",
+    "lat": 52.128277,
+    "lng": -0.472474
+  },
+  {
+    "id": "gp-g81061",
+    "type": "gp",
+    "name": "Chapel Street Surgery",
+    "address": "Chapel Street, Newhaven",
+    "postcode": "BN9 9PW",
+    "lat": 50.79327,
+    "lng": 0.051144
+  },
+  {
+    "id": "gp-g82094",
+    "type": "gp",
+    "name": "Charing Surgery",
+    "address": "1 Surgery Close, Ashford",
+    "postcode": "TN27 0AW",
+    "lat": 51.209709,
+    "lng": 0.791404
+  },
+  {
+    "id": "gp-g81034",
+    "type": "gp",
+    "name": "Charter Medical Centre",
+    "address": "88 Davigdor Road, Hove",
+    "postcode": "BN3 1RF",
+    "lat": 50.831248,
+    "lng": -0.156713
+  },
+  {
+    "id": "gp-g82007",
+    "type": "gp",
+    "name": "Church Lane Health Centre",
+    "address": "The Church Lane Hc, New Romney",
+    "postcode": "TN28 8ER",
+    "lat": 50.984161,
+    "lng": 0.941509
+  },
+  {
+    "id": "gp-g82652",
+    "type": "gp",
+    "name": "Church Road",
+    "address": "The Surgery, Folkestone",
+    "postcode": "CT18 8HY",
+    "lat": 51.129484,
+    "lng": 1.088863
+  },
+  {
+    "id": "gp-g82051",
+    "type": "gp",
+    "name": "City Way Surgery",
+    "address": "65-67 City Way, Rochester",
+    "postcode": "ME1 2AY",
+    "lat": 51.372109,
+    "lng": 0.511213
+  },
+  {
+    "id": "gp-g81077",
+    "type": "gp",
+    "name": "Collington Surgery",
+    "address": "23 Terminus Road, Bexhill On Sea",
+    "postcode": "TN39 3LR",
+    "lat": 50.840425,
+    "lng": 0.465111
+  },
+  {
+    "id": "gp-g82203",
+    "type": "gp",
+    "name": "Court View Surgery",
+    "address": "2A Darnley Road, Rochester",
+    "postcode": "ME2 2HA",
+    "lat": 51.393134,
+    "lng": 0.481802
+  },
+  {
+    "id": "gp-g81004",
+    "type": "gp",
+    "name": "Downlands Medical Centre",
+    "address": "77 High Street, Polegate",
+    "postcode": "BN26 6AE",
+    "lat": 50.822932,
+    "lng": 0.244128
+  },
+  {
+    "id": "gp-e81046",
+    "type": "gp",
+    "name": "Dr A Sulakshana & Partners",
+    "address": "Hexton Road, Bedford",
+    "postcode": "MK45 4TA",
+    "lat": 51.964178,
+    "lng": -0.424489
+  },
+  {
+    "id": "gp-g82126",
+    "type": "gp",
+    "name": "East Cliff Medical Practice",
+    "address": "The Montefiore Medical Centre, Ramsgate",
+    "postcode": "CT11 8AD",
+    "lat": 51.338738,
+    "lng": 1.427249
+  },
+  {
+    "id": "gp-g82600",
+    "type": "gp",
+    "name": "Eastcourt Lane Surgery",
+    "address": "52 Eastcourt Lane, Gillingham",
+    "postcode": "ME8 6EY",
+    "lat": 51.371139,
+    "lng": 0.578679
+  },
+  {
+    "id": "gp-g82019",
+    "type": "gp",
+    "name": "Edenbridge Med Practice",
+    "address": "Edenbridge Memorial Health Centre, Edenbridge",
+    "postcode": "TN8 6FY",
+    "lat": 51.202995,
+    "lng": 0.065526
+  },
+  {
+    "id": "gp-g81052",
+    "type": "gp",
+    "name": "Fairfield Surgery",
+    "address": "High Street, Etchingham",
+    "postcode": "TN19 7EU",
+    "lat": 50.997228,
+    "lng": 0.382807
+  },
+  {
+    "id": "gp-g82027",
+    "type": "gp",
+    "name": "Faversham Medical Practice",
+    "address": "The Faversham Health Centre, Faversham",
+    "postcode": "ME13 8QR",
+    "lat": 51.31458,
+    "lng": 0.889074
+  },
+  {
+    "id": "gp-g81085",
+    "type": "gp",
+    "name": "Ferry Road Health Centre",
+    "address": "Ferry Road, Rye",
+    "postcode": "TN31 7DN",
+    "lat": 50.951164,
+    "lng": 0.729004
+  },
+  {
+    "id": "gp-e81015",
+    "type": "gp",
+    "name": "Flitwick Surgery",
+    "address": "Highlands, Bedford",
+    "postcode": "MK45 1DW",
+    "lat": 52.005174,
+    "lng": -0.492749
+  },
+  {
+    "id": "gp-g81021",
+    "type": "gp",
+    "name": "Foundry Healthcare Lewes",
+    "address": "School Hill Practice, School Hill H, Lewes",
+    "postcode": "BN7 2LU",
+    "lat": 50.873463,
+    "lng": 0.012092
+  },
+  {
+    "id": "gp-e81047",
+    "type": "gp",
+    "name": "Goldington Avenue Surgery",
+    "address": "85 Goldington Avenue, Bedford",
+    "postcode": "MK40 3DB",
+    "lat": 52.143524,
+    "lng": -0.455774
+  },
+  {
+    "id": "gp-e81031",
+    "type": "gp",
+    "name": "Great Barford Surgery",
+    "address": "26 Silver Street, Bedford",
+    "postcode": "MK44 3HX",
+    "lat": 52.156183,
+    "lng": -0.351428
+  },
+  {
+    "id": "gp-g82702",
+    "type": "gp",
+    "name": "Green Porch Medical Partnership",
+    "address": "Green Porch Medical Centre, Sittingbourne",
+    "postcode": "ME10 2HA",
+    "lat": 51.35514,
+    "lng": 0.739477
+  },
+  {
+    "id": "gp-g82024",
+    "type": "gp",
+    "name": "Greensand Medical Group",
+    "address": "Heath Road, Maidstone",
+    "postcode": "ME17 4NU",
+    "lat": 51.230128,
+    "lng": 0.506081
+  },
+  {
+    "id": "gp-e81002",
+    "type": "gp",
+    "name": "Greensand Surgery (Ampthill)",
+    "address": "The Health Centre, Bedford",
+    "postcode": "MK45 2SB",
+    "lat": 52.026203,
+    "lng": -0.493253
+  },
+  {
+    "id": "gp-g81614",
+    "type": "gp",
+    "name": "Groombridge And Hartfield Medical Group",
+    "address": "The Nook, Tunbridge Wells",
+    "postcode": "TN3 9QP",
+    "lat": 51.113949,
+    "lng": 0.184443
+  },
+  {
+    "id": "gp-g82041",
+    "type": "gp",
+    "name": "Grosvenor & St James Medical Centre",
+    "address": "Grosvenor Medical Centre, Tunbridge Wells",
+    "postcode": "TN1 2DX",
+    "lat": 51.137422,
+    "lng": 0.264375
+  },
+  {
+    "id": "gp-g81002",
+    "type": "gp",
+    "name": "Grove Road Surgery",
+    "address": "59-63 Grove Road, Eastbourne",
+    "postcode": "BN21 4TX",
+    "lat": 50.767622,
+    "lng": 0.278765
+  },
+  {
+    "id": "gp-g82026",
+    "type": "gp",
+    "name": "Grovehurst Surgery",
+    "address": "Grovehurst Road, Sittingbourne",
+    "postcode": "ME10 2ST",
+    "lat": 51.363778,
+    "lng": 0.735108
+  },
+  {
+    "id": "gp-g82091",
+    "type": "gp",
+    "name": "Guildhall Street Surgery",
+    "address": "65-69 Guildhall Street, Folkestone",
+    "postcode": "CT20 1EJ",
+    "lat": 51.082366,
+    "lng": 1.177847
+  },
+  {
+    "id": "gp-g82754",
+    "type": "gp",
+    "name": "Hadlow Medical Centre",
+    "address": "Old School, Tonbridge",
+    "postcode": "TN11 0ET",
+    "lat": 51.224456,
+    "lng": 0.337794
+  },
+  {
+    "id": "gp-g81059",
+    "type": "gp",
+    "name": "Hailsham Medical Group",
+    "address": "Vicarage Lane, Hailsham",
+    "postcode": "BN27 1BH",
+    "lat": 50.864066,
+    "lng": 0.262019
+  },
+  {
+    "id": "gp-g82186",
+    "type": "gp",
+    "name": "Hamstreet Surgery",
+    "address": "The Surgery, Ashford",
+    "postcode": "TN26 2NJ",
+    "lat": 51.064323,
+    "lng": 0.858801
+  },
+  {
+    "id": "gp-g82217",
+    "type": "gp",
+    "name": "Harbour Medical Practice",
+    "address": "Folkestone Health Centre, Folkestone",
+    "postcode": "CT20 1JY",
+    "lat": 51.082585,
+    "lng": 1.181404
+  },
+  {
+    "id": "gp-e81007",
+    "type": "gp",
+    "name": "Harrold Medical Practice",
+    "address": "Peach'S Close, Bedford",
+    "postcode": "MK43 7DX",
+    "lat": 52.202561,
+    "lng": -0.605217
+  },
+  {
+    "id": "gp-g81095",
+    "type": "gp",
+    "name": "Hastings Old Town Surgery",
+    "address": "The Ice House, Hastings",
+    "postcode": "TN34 3DW",
+    "lat": 50.856273,
+    "lng": 0.594955
+  },
+  {
+    "id": "gp-g81100",
+    "type": "gp",
+    "name": "Havenshealth",
+    "address": "Anchor Healthcare Centre, Peacehaven",
+    "postcode": "BN10 8NF",
+    "lat": 50.796097,
+    "lng": -0.000783
+  },
+  {
+    "id": "gp-g82165",
+    "type": "gp",
+    "name": "Hawkinge And Elham",
+    "address": "Elham Surgery, Canterbury",
+    "postcode": "CT4 6UH",
+    "lat": 51.151866,
+    "lng": 1.109108
+  },
+  {
+    "id": "gp-g81634",
+    "type": "gp",
+    "name": "Herstmonceux Integrative Health Centre",
+    "address": "Hailsham Road, Hailsham",
+    "postcode": "BN27 4JX",
+    "lat": 50.887451,
+    "lng": 0.31697
+  },
+  {
+    "id": "gp-g81074",
+    "type": "gp",
+    "name": "High Glades Medical Centre",
+    "address": "9A Upper Church Road, St. Leonards-On-Sea",
+    "postcode": "TN37 7AT",
+    "lat": 50.878354,
+    "lng": 0.551301
+  },
+  {
+    "id": "gp-g82117",
+    "type": "gp",
+    "name": "High Street Surgery",
+    "address": "100-106 High Street, Dover",
+    "postcode": "CT16 1EQ",
+    "lat": 51.129992,
+    "lng": 1.305803
+  },
+  {
+    "id": "gp-g82100",
+    "type": "gp",
+    "name": "Highparks Medical Practice",
+    "address": "Parkside, Rochester",
+    "postcode": "ME3 8HX",
+    "lat": 51.434213,
+    "lng": 0.496761
+  },
+  {
+    "id": "gp-g82037",
+    "type": "gp",
+    "name": "Hildenborough Medical Group",
+    "address": "The Hildenborough Med.Ctr, Tonbridge",
+    "postcode": "TN11 9HL",
+    "lat": 51.215116,
+    "lng": 0.2439
+  },
+  {
+    "id": "gp-e81074",
+    "type": "gp",
+    "name": "Houghton Close Surgery",
+    "address": "1 Houghton Close, Bedford",
+    "postcode": "MK45 2TG",
+    "lat": 52.025926,
+    "lng": -0.492679
+  },
+  {
+    "id": "gp-g81001",
+    "type": "gp",
+    "name": "Hove Medical Centre",
+    "address": "West Way, Hove",
+    "postcode": "BN3 8LD",
+    "lat": 50.845018,
+    "lng": -0.195362
+  },
+  {
+    "id": "gp-g82158",
+    "type": "gp",
+    "name": "Howell Surgery",
+    "address": "High Street, Tonbridge",
+    "postcode": "TN12 7NQ",
+    "lat": 51.150846,
+    "lng": 0.398951
+  },
+  {
+    "id": "gp-g82114",
+    "type": "gp",
+    "name": "Ivy Court Surgery",
+    "address": "Doctors Surgery, Tenterden",
+    "postcode": "TN30 6RB",
+    "lat": 51.068036,
+    "lng": 0.690253
+  },
+  {
+    "id": "gp-g82108",
+    "type": "gp",
+    "name": "King George Road Surgery",
+    "address": "52A King George Road, Chatham",
+    "postcode": "ME5 0TT",
+    "lat": 51.348911,
+    "lng": 0.518547
+  },
+  {
+    "id": "gp-e81038",
+    "type": "gp",
+    "name": "King Street Surgery",
+    "address": "273 Bedford Road, Bedford",
+    "postcode": "MK42 8QD",
+    "lat": 52.11869,
+    "lng": -0.495441
+  },
+  {
+    "id": "gp-g82730",
+    "type": "gp",
+    "name": "Kingsnorth Medical Practice",
+    "address": "Ashford Road, Ashford",
+    "postcode": "TN23 3ED",
+    "lat": 51.120699,
+    "lng": 0.85995
+  },
+  {
+    "id": "gp-g82016",
+    "type": "gp",
+    "name": "Kingswood Surgery",
+    "address": "Kingswood Road, Tunbridge Wells",
+    "postcode": "TN2 4UH",
+    "lat": 51.132027,
+    "lng": 0.27639
+  },
+  {
+    "id": "gp-g82170",
+    "type": "gp",
+    "name": "Lamberhurst",
+    "address": "The Surgery, Tunbridge Wells",
+    "postcode": "TN3 8EX",
+    "lat": 51.094567,
+    "lng": 0.388223
+  },
+  {
+    "id": "gp-g82691",
+    "type": "gp",
+    "name": "Langley",
+    "address": "Horseshoes Lane, Maidstone",
+    "postcode": "ME17 3JY",
+    "lat": 51.236872,
+    "lng": 0.593255
+  },
+  {
+    "id": "gp-g82093",
+    "type": "gp",
+    "name": "Len Valley Practice",
+    "address": "Groom Way, Maidstone",
+    "postcode": "ME17 2QF",
+    "lat": 51.23739,
+    "lng": 0.722875
+  },
+  {
+    "id": "gp-e81060",
+    "type": "gp",
+    "name": "Linden Road Surgery",
+    "address": "13 Linden Road, Bedford",
+    "postcode": "MK40 2DQ",
+    "lat": 52.143631,
+    "lng": -0.479197
+  },
+  {
+    "id": "gp-g81663",
+    "type": "gp",
+    "name": "Links Road Surgery",
+    "address": "27-29 Links Road, Brighton",
+    "postcode": "BN41 1XH",
+    "lat": 50.837056,
+    "lng": -0.2074
+  },
+  {
+    "id": "gp-g81039",
+    "type": "gp",
+    "name": "Little Common Surgery",
+    "address": "82 Cooden Sea Road, Bexhill On Sea",
+    "postcode": "TN39 4SP",
+    "lat": 50.842024,
+    "lng": 0.433531
+  },
+  {
+    "id": "gp-e81019",
+    "type": "gp",
+    "name": "London Road Health Centre",
+    "address": "84-86 London Road, Bedford",
+    "postcode": "MK42 0NT",
+    "lat": 52.126706,
+    "lng": -0.459569
+  },
+  {
+    "id": "gp-g82231",
+    "type": "gp",
+    "name": "London Road Medical Centre",
+    "address": "32 London Road, Sittingbourne",
+    "postcode": "ME10 1ND",
+    "lat": 51.341816,
+    "lng": 0.726951
+  },
+  {
+    "id": "gp-g82737",
+    "type": "gp",
+    "name": "Long Catlis Road Surgery",
+    "address": "Parkwood Health Centre, Rainham",
+    "postcode": "ME8 9PR",
+    "lat": 51.348325,
+    "lng": 0.595608
+  },
+  {
+    "id": "gp-g82768",
+    "type": "gp",
+    "name": "Lonsdale Medical Centre",
+    "address": "1 Clanricarde Gardens, Tunbridge Wells",
+    "postcode": "TN1 1PE",
+    "lat": 51.131705,
+    "lng": 0.261895
+  },
+  {
+    "id": "gp-g82227",
+    "type": "gp",
+    "name": "Lydden Surgery",
+    "address": "114 Canterbury Road, Dover",
+    "postcode": "CT15 7ET",
+    "lat": 51.163193,
+    "lng": 1.239909
+  },
+  {
+    "id": "gp-g82180",
+    "type": "gp",
+    "name": "Maidstone Rd Rainham Surgery",
+    "address": "53A-53B Maidstone Road, Gillingham",
+    "postcode": "ME8 0DP",
+    "lat": 51.36233,
+    "lng": 0.600408
+  },
+  {
+    "id": "gp-g82139",
+    "type": "gp",
+    "name": "Maidstone Road Surgery",
+    "address": "262 Maidstone Road, Chatham",
+    "postcode": "ME4 6JL",
+    "lat": 51.361226,
+    "lng": 0.516738
+  },
+  {
+    "id": "gp-g82232",
+    "type": "gp",
+    "name": "Manor Clinic",
+    "address": "31 Manor Road, Folkestone",
+    "postcode": "CT20 2SE",
+    "lat": 51.080427,
+    "lng": 1.173416
+  },
+  {
+    "id": "gp-g81049",
+    "type": "gp",
+    "name": "Manor Park Medical Centre",
+    "address": "High Street, Polegate",
+    "postcode": "BN26 5DJ",
+    "lat": 50.819102,
+    "lng": 0.242638
+  },
+  {
+    "id": "gp-g82215",
+    "type": "gp",
+    "name": "Marden Medical Centre",
+    "address": "Church Green, Tonbridge",
+    "postcode": "TN12 9HP",
+    "lat": 51.174149,
+    "lng": 0.4923
+  },
+  {
+    "id": "gp-g82744",
+    "type": "gp",
+    "name": "Maritime Health Partnership",
+    "address": "St Mary'S Island Surgery, Chatham",
+    "postcode": "ME4 3EP",
+    "lat": 51.406796,
+    "lng": 0.537976
+  },
+  {
+    "id": "gp-g82708",
+    "type": "gp",
+    "name": "Marlowe Park Medical Ctr.",
+    "address": "Wells Road, Rochester",
+    "postcode": "ME2 2PW",
+    "lat": 51.387696,
+    "lng": 0.468068
+  },
+  {
+    "id": "gp-e81043",
+    "type": "gp",
+    "name": "Marston Forest Healthcare",
+    "address": "59 Bedford Road, Bedford",
+    "postcode": "MK43 0LA",
+    "lat": 52.063868,
+    "lng": -0.547641
+  },
+  {
+    "id": "gp-g82665",
+    "type": "gp",
+    "name": "Martello Health Centre",
+    "address": "20 Chapel Road, Romney Marsh",
+    "postcode": "TN29 0TD",
+    "lat": 51.025883,
+    "lng": 0.995496
+  },
+  {
+    "id": "gp-g81023",
+    "type": "gp",
+    "name": "Martins Oak Surgery",
+    "address": "36 High Street, Battle",
+    "postcode": "TN33 0EA",
+    "lat": 50.917156,
+    "lng": 0.483704
+  },
+  {
+    "id": "gp-g82719",
+    "type": "gp",
+    "name": "Matrix Medical Practice",
+    "address": "10A Beacon Hill, Chatham",
+    "postcode": "ME5 7JX",
+    "lat": 51.36992,
+    "lng": 0.548868
+  },
+  {
+    "id": "gp-g82693",
+    "type": "gp",
+    "name": "Memorial Medical Centre",
+    "address": "Bell Road, Sittingbourne",
+    "postcode": "ME10 4XX",
+    "lat": 51.334603,
+    "lng": 0.736574
+  },
+  {
+    "id": "gp-g81073",
+    "type": "gp",
+    "name": "Mile Oak Medical Centre",
+    "address": "Chalky Road, Brighton",
+    "postcode": "BN41 2WF",
+    "lat": 50.851288,
+    "lng": -0.226546
+  },
+  {
+    "id": "gp-g82107",
+    "type": "gp",
+    "name": "Minster Surgery",
+    "address": "75 High Street, Ramsgate",
+    "postcode": "CT12 4AB",
+    "lat": 51.334409,
+    "lng": 1.314894
+  },
+  {
+    "id": "gp-g82650",
+    "type": "gp",
+    "name": "Mocketts Wood Surgery",
+    "address": "Hopeville Avenue, Broadstairs",
+    "postcode": "CT10 2TR",
+    "lat": 51.366533,
+    "lng": 1.4177
+  },
+  {
+    "id": "gp-g81044",
+    "type": "gp",
+    "name": "Montpelier Surgery",
+    "address": "2 Victoria Road, Brighton",
+    "postcode": "BN1 3FS",
+    "lat": 50.827142,
+    "lng": -0.149051
+  },
+  {
+    "id": "gp-g82076",
+    "type": "gp",
+    "name": "Mote",
+    "address": "St. Saviours Surgery, Maidstone",
+    "postcode": "ME15 9FL",
+    "lat": 51.246875,
+    "lng": 0.545654
+  },
+  {
+    "id": "gp-g82763",
+    "type": "gp",
+    "name": "Napier Road Surgery",
+    "address": "151 Napier Road, Gillingham",
+    "postcode": "ME7 4HH",
+    "lat": 51.381108,
+    "lng": 0.55383
+  },
+  {
+    "id": "gp-g82115",
+    "type": "gp",
+    "name": "New Dover Road Surgery",
+    "address": "10 New Dover Road, Canterbury",
+    "postcode": "CT1 3AP",
+    "lat": 51.274139,
+    "lng": 1.088508
+  },
+  {
+    "id": "gp-g82087",
+    "type": "gp",
+    "name": "New Hayesbank Surgery",
+    "address": "Bybrook, Ashford",
+    "postcode": "TN24 9JZ",
+    "lat": 51.157617,
+    "lng": 0.87738
+  },
+  {
+    "id": "gp-g82684",
+    "type": "gp",
+    "name": "New Lyminge Surgery",
+    "address": "Greenbanks, Lyminge, Folkestone",
+    "postcode": "CT18 8NS",
+    "lat": 51.124283,
+    "lng": 1.091303
+  },
+  {
+    "id": "gp-g82150",
+    "type": "gp",
+    "name": "Newington Road Surgery",
+    "address": "100 Newington Road, Ramsgate",
+    "postcode": "CT12 6EW",
+    "lat": 51.343316,
+    "lng": 1.399211
+  },
+  {
+    "id": "gp-g82039",
+    "type": "gp",
+    "name": "Newton Place Surgery",
+    "address": "Newton Road, Faversham",
+    "postcode": "ME13 8FH",
+    "lat": 51.313248,
+    "lng": 0.892004
+  },
+  {
+    "id": "gp-g82066",
+    "type": "gp",
+    "name": "Northdown & Dashwood Surgery",
+    "address": "Northdown Park Road, Margate",
+    "postcode": "CT9 2TR",
+    "lat": 51.382678,
+    "lng": 1.406326
+  },
+  {
+    "id": "gp-g82060",
+    "type": "gp",
+    "name": "Northgate Medical Practice",
+    "address": "1 Northgate, Canterbury",
+    "postcode": "CT1 1WL",
+    "lat": 51.28435,
+    "lng": 1.086712
+  },
+  {
+    "id": "gp-g81087",
+    "type": "gp",
+    "name": "Northiam Surgery",
+    "address": "Main Street, Rye",
+    "postcode": "TN31 6ND",
+    "lat": 50.989561,
+    "lng": 0.606575
+  },
+  {
+    "id": "gp-g82147",
+    "type": "gp",
+    "name": "Oak Hall",
+    "address": "41-43 High Street, New Romney",
+    "postcode": "TN28 8BW",
+    "lat": 50.985486,
+    "lng": 0.939598
+  },
+  {
+    "id": "gp-g82160",
+    "type": "gp",
+    "name": "Oaklands Health Centre",
+    "address": "Stade Street, Hythe",
+    "postcode": "CT21 6BD",
+    "lat": 51.069106,
+    "lng": 1.08253
+  },
+  {
+    "id": "gp-g82224",
+    "type": "gp",
+    "name": "Old Parsonage Surgery",
+    "address": "Back Lane, Cranbrook",
+    "postcode": "TN17 1AN",
+    "lat": 51.112784,
+    "lng": 0.460447
+  },
+  {
+    "id": "gp-g81099",
+    "type": "gp",
+    "name": "Old School Surgery",
+    "address": "Church Street, Seaford",
+    "postcode": "BN25 1HH",
+    "lat": 50.771891,
+    "lng": 0.100743
+  },
+  {
+    "id": "gp-g82235",
+    "type": "gp",
+    "name": "Old School Surgery",
+    "address": "Rectory Fields, Cranbrook",
+    "postcode": "TN17 3JB",
+    "lat": 51.098868,
+    "lng": 0.535857
+  },
+  {
+    "id": "gp-g82790",
+    "type": "gp",
+    "name": "Old School Surgery",
+    "address": "Bolts Hill, Canterbury",
+    "postcode": "CT4 7JY",
+    "lat": 51.253792,
+    "lng": 1.00669
+  },
+  {
+    "id": "gp-g81082",
+    "type": "gp",
+    "name": "Oldwood Surgery",
+    "address": "Station Road, Robertsbridge",
+    "postcode": "TN32 5DG",
+    "lat": 50.984999,
+    "lng": 0.470582
+  },
+  {
+    "id": "gp-g82733",
+    "type": "gp",
+    "name": "Orchard End",
+    "address": "Dorothy Avenue, Cranbrook",
+    "postcode": "TN17 3AY",
+    "lat": 51.091413,
+    "lng": 0.539562
+  },
+  {
+    "id": "gp-g82162",
+    "type": "gp",
+    "name": "Orchard Family Practice",
+    "address": "The Red Suite, Gillingham",
+    "postcode": "ME8 8AA",
+    "lat": 51.363333,
+    "lng": 0.609501
+  },
+  {
+    "id": "gp-g82125",
+    "type": "gp",
+    "name": "Otford Medical Practice",
+    "address": "Leonard Avenue, Sevenoaks",
+    "postcode": "TN14 5RB",
+    "lat": 51.313579,
+    "lng": 0.191474
+  },
+  {
+    "id": "gp-g81028",
+    "type": "gp",
+    "name": "Park Crescent Health Centre",
+    "address": "1 Lewes Road, Brighton",
+    "postcode": "BN2 3HP",
+    "lat": 50.832576,
+    "lng": -0.129394
+  },
+  {
+    "id": "gp-g81104",
+    "type": "gp",
+    "name": "Park Practice",
+    "address": "Broadwater Way, Eastbourne",
+    "postcode": "BN22 9PQ",
+    "lat": 50.794734,
+    "lng": 0.2776
+  },
+  {
+    "id": "gp-g82119",
+    "type": "gp",
+    "name": "Park Surgery",
+    "address": "116 Kings Road, Herne Bay",
+    "postcode": "CT6 5RE",
+    "lat": 51.369704,
+    "lng": 1.125187
+  },
+  {
+    "id": "gp-g82721",
+    "type": "gp",
+    "name": "Parkwood Family Practice",
+    "address": "119 Long Catlis Road, Gillingham",
+    "postcode": "ME8 9RR",
+    "lat": 51.34528,
+    "lng": 0.59219
+  },
+  {
+    "id": "gp-g81054",
+    "type": "gp",
+    "name": "Pavilion Surgery",
+    "address": "2 Old Steine, Brighton",
+    "postcode": "BN1 1EJ",
+    "lat": 50.821515,
+    "lng": -0.136211
+  },
+  {
+    "id": "gp-g82015",
+    "type": "gp",
+    "name": "Pencester Surgery",
+    "address": "10 Pencester Road, Dover",
+    "postcode": "CT16 1BW",
+    "lat": 51.127416,
+    "lng": 1.311952
+  },
+  {
+    "id": "gp-g82234",
+    "type": "gp",
+    "name": "Phoenix Medical Practice",
+    "address": "33 Bell Lane, Rochester",
+    "postcode": "ME1 3SX",
+    "lat": 51.328805,
+    "lng": 0.481298
+  },
+  {
+    "id": "gp-g81046",
+    "type": "gp",
+    "name": "Portslade Health Centre",
+    "address": "Church Road, Brighton",
+    "postcode": "BN41 1LX",
+    "lat": 50.833673,
+    "lng": -0.213225
+  },
+  {
+    "id": "gp-g81018",
+    "type": "gp",
+    "name": "Preston Park Surgery",
+    "address": "2A Florence Road, Brighton",
+    "postcode": "BN1 6DP",
+    "lat": 50.837868,
+    "lng": -0.140318
+  },
+  {
+    "id": "gp-g82741",
+    "type": "gp",
+    "name": "Princes Park Medical Ctr",
+    "address": "Sunlight Surgery, Gillingham",
+    "postcode": "ME7 1LX",
+    "lat": 51.394009,
+    "lng": 0.550351
+  },
+  {
+    "id": "gp-e81049",
+    "type": "gp",
+    "name": "Priory Medical Centre",
+    "address": "48 The Glebe, Bedford",
+    "postcode": "MK41 6GA",
+    "lat": 52.167193,
+    "lng": -0.505622
+  },
+  {
+    "id": "gp-g81641",
+    "type": "gp",
+    "name": "Priory Road Surgery",
+    "address": "83 Priory Road, Hastings",
+    "postcode": "TN34 3JJ",
+    "lat": 50.860824,
+    "lng": 0.589282
+  },
+  {
+    "id": "gp-g82635",
+    "type": "gp",
+    "name": "Pump Lane Surgery",
+    "address": "13 Pump Lane, Gillingham",
+    "postcode": "ME8 7AA",
+    "lat": 51.367795,
+    "lng": 0.589597
+  },
+  {
+    "id": "gp-e81029",
+    "type": "gp",
+    "name": "Putnoe Medical Centre Partnership",
+    "address": "93 Queens Drive, Bedford",
+    "postcode": "MK41 9JE",
+    "lat": 52.147951,
+    "lng": -0.438272
+  },
+  {
+    "id": "gp-g81016",
+    "type": "gp",
+    "name": "Quayside Medical Practice",
+    "address": "Chapel Street, Newhaven",
+    "postcode": "BN9 9PW",
+    "lat": 50.79327,
+    "lng": 0.051144
+  },
+  {
+    "id": "gp-e81021",
+    "type": "gp",
+    "name": "Queens Park Health Centre",
+    "address": "23C Carlisle Road, Bedford",
+    "postcode": "MK40 4HR",
+    "lat": 52.133163,
+    "lng": -0.493054
+  },
+  {
+    "id": "gp-g81098",
+    "type": "gp",
+    "name": "Quintins Medical Centre",
+    "address": "Hawkswood Road, Hailsham",
+    "postcode": "BN27 1UG",
+    "lat": 50.877058,
+    "lng": 0.262705
+  },
+  {
+    "id": "gp-g82161",
+    "type": "gp",
+    "name": "Reach Healthcare",
+    "address": "Walderslade Village Surgery, Chatham",
+    "postcode": "ME5 9LD",
+    "lat": 51.337756,
+    "lng": 0.524109
+  },
+  {
+    "id": "gp-g81656",
+    "type": "gp",
+    "name": "Regency Surgery",
+    "address": "4 Old Steine, Brighton",
+    "postcode": "BN1 1FZ",
+    "lat": 50.821954,
+    "lng": -0.136137
+  },
+  {
+    "id": "gp-g82106",
+    "type": "gp",
+    "name": "Riverside Medical Practice",
+    "address": "Ferry Road, Rochester",
+    "postcode": "ME2 1NP",
+    "lat": 51.348974,
+    "lng": 0.447718
+  },
+  {
+    "id": "gp-g81043",
+    "type": "gp",
+    "name": "Rotherfield Surgery",
+    "address": "The Brook Health Centre, Crowborough",
+    "postcode": "TN6 2ED",
+    "lat": 51.049158,
+    "lng": 0.186003
+  },
+  {
+    "id": "gp-g82152",
+    "type": "gp",
+    "name": "Rusthall Medical Practice",
+    "address": "Nellington Road, Tunbridge Wells",
+    "postcode": "TN4 8UW",
+    "lat": 51.136024,
+    "lng": 0.224781
+  },
+  {
+    "id": "gp-g81051",
+    "type": "gp",
+    "name": "Rye Medical Centre",
+    "address": "Kiln Drive, Rye",
+    "postcode": "TN31 7SQ",
+    "lat": 50.962007,
+    "lng": 0.730338
+  },
+  {
+    "id": "gp-g81076",
+    "type": "gp",
+    "name": "Saltdean And Rottingdean Med Practice",
+    "address": "Grand Ocean Medical Centre, Brighton",
+    "postcode": "BN2 8BU",
+    "lat": 50.802294,
+    "lng": -0.035772
+  },
+  {
+    "id": "gp-g82121",
+    "type": "gp",
+    "name": "Sandgate Road",
+    "address": "180 Sandgate Road, Folkestone",
+    "postcode": "CT20 2HN",
+    "lat": 51.076579,
+    "lng": 1.159045
+  },
+  {
+    "id": "gp-g82063",
+    "type": "gp",
+    "name": "Sandwich Medical Practice",
+    "address": "Cattle Market, Sandwich",
+    "postcode": "CT13 9ET",
+    "lat": 51.274079,
+    "lng": 1.337393
+  },
+  {
+    "id": "gp-g81055",
+    "type": "gp",
+    "name": "Saxonbury House Surgery",
+    "address": "Croft Road, Crowborough",
+    "postcode": "TN6 1DL",
+    "lat": 51.058455,
+    "lng": 0.161937
+  },
+  {
+    "id": "gp-g81613",
+    "type": "gp",
+    "name": "School House Surgery",
+    "address": "School House, Brighton",
+    "postcode": "BN1 7GF",
+    "lat": 50.845792,
+    "lng": -0.12969
+  },
+  {
+    "id": "gp-g81029",
+    "type": "gp",
+    "name": "Seaford Medical Practice",
+    "address": "Dane Road, Seaford",
+    "postcode": "BN25 1DH",
+    "lat": 50.772672,
+    "lng": 0.099303
+  },
+  {
+    "id": "gp-g81017",
+    "type": "gp",
+    "name": "Seaside Medical Centre",
+    "address": "18 Sheen Road, Eastbourne",
+    "postcode": "BN22 8DR",
+    "lat": 50.773561,
+    "lng": 0.294643
+  },
+  {
+    "id": "gp-g81057",
+    "type": "gp",
+    "name": "Sedlescombe & Westfield Surgeries",
+    "address": "Brede Lane, Battle",
+    "postcode": "TN33 0PW",
+    "lat": 50.934129,
+    "lng": 0.534725
+  },
+  {
+    "id": "gp-g81096",
+    "type": "gp",
+    "name": "Sedlescombe House",
+    "address": "8 Sedlescombe Road South, St. Leonards-On-Sea",
+    "postcode": "TN38 0TA",
+    "lat": 50.867152,
+    "lng": 0.554782
+  },
+  {
+    "id": "gp-g82658",
+    "type": "gp",
+    "name": "Sellindge Surgery",
+    "address": "Main Road, Ashford",
+    "postcode": "TN25 6JX",
+    "lat": 51.103536,
+    "lng": 1.002785
+  },
+  {
+    "id": "gp-g81047",
+    "type": "gp",
+    "name": "Seven Dials Medical Centre",
+    "address": "24 Montpelier Crescent, Brighton",
+    "postcode": "BN1 3JJ",
+    "lat": 50.829675,
+    "lng": -0.147715
+  },
+  {
+    "id": "gp-e81024",
+    "type": "gp",
+    "name": "Sharnbrook Surgery",
+    "address": "Templars Way, Bedford",
+    "postcode": "MK44 1PZ",
+    "lat": 52.227187,
+    "lng": -0.530302
+  },
+  {
+    "id": "gp-g82023",
+    "type": "gp",
+    "name": "Sheerness Health Centre",
+    "address": "250-262 High Street, Sheerness",
+    "postcode": "ME12 1UP",
+    "lat": 51.436123,
+    "lng": 0.766669
+  },
+  {
+    "id": "gp-g82799",
+    "type": "gp",
+    "name": "Sheppey Healthy Living Centre",
+    "address": "Royal Road, Sheerness",
+    "postcode": "ME12 1HH",
+    "lat": 51.441541,
+    "lng": 0.763082
+  },
+  {
+    "id": "gp-g81694",
+    "type": "gp",
+    "name": "Ship Street Surgery",
+    "address": "65-67 Ship Street, Brighton",
+    "postcode": "BN1 1AE",
+    "lat": 50.821378,
+    "lng": -0.141726
+  },
+  {
+    "id": "gp-g81041",
+    "type": "gp",
+    "name": "Sidley Medical Practice",
+    "address": "44 Turkey Road, Bexhill-On-Sea",
+    "postcode": "TN39 5HE",
+    "lat": 50.857322,
+    "lng": 0.464012
+  },
+  {
+    "id": "gp-g82085",
+    "type": "gp",
+    "name": "Snodland Medical Practice",
+    "address": "Catts Alley, Snodland",
+    "postcode": "ME6 5SN",
+    "lat": 51.326619,
+    "lng": 0.441963
+  },
+  {
+    "id": "gp-g82888",
+    "type": "gp",
+    "name": "South Park Medical Practice",
+    "address": "South Park Cottage, Sevenoaks",
+    "postcode": "TN13 1ED",
+    "lat": 51.270004,
+    "lng": 0.189729
+  },
+  {
+    "id": "gp-g81089",
+    "type": "gp",
+    "name": "South Saxon House Surgery",
+    "address": "4 Whatlington Way, St. Leonards-On-Sea",
+    "postcode": "TN38 9TE",
+    "lat": 50.868698,
+    "lng": 0.526753
+  },
+  {
+    "id": "gp-g81022",
+    "type": "gp",
+    "name": "Sovereign Practice",
+    "address": "Princes Park Health Ctr, Eastbourne",
+    "postcode": "BN22 7PG",
+    "lat": 50.781493,
+    "lng": 0.302876
+  },
+  {
+    "id": "gp-g82022",
+    "type": "gp",
+    "name": "Speldhurst & Greggswood Medical Group",
+    "address": "12A Greggs Wood Road, Tunbridge Wells",
+    "postcode": "TN2 3JL",
+    "lat": 51.142932,
+    "lng": 0.286248
+  },
+  {
+    "id": "gp-g82137",
+    "type": "gp",
+    "name": "St Andrews Medical Centre",
+    "address": "133 London Road, Tunbridge Wells",
+    "postcode": "TN4 0NA",
+    "lat": 51.156309,
+    "lng": 0.260166
+  },
+  {
+    "id": "gp-g82057",
+    "type": "gp",
+    "name": "St Georges Medical Centre",
+    "address": "55 St. Georges Avenue, Sheerness",
+    "postcode": "ME12 1QU",
+    "lat": 51.436187,
+    "lng": 0.762442
+  },
+  {
+    "id": "gp-g82002",
+    "type": "gp",
+    "name": "St James' Surgery",
+    "address": "2 Harold Street, Dover",
+    "postcode": "CT16 1SF",
+    "lat": 51.128502,
+    "lng": 1.315846
+  },
+  {
+    "id": "gp-g82205",
+    "type": "gp",
+    "name": "St John'S Medical Practice",
+    "address": "39 St. Johns Hill, Sevenoaks",
+    "postcode": "TN13 3NT",
+    "lat": 51.285008,
+    "lng": 0.195276
+  },
+  {
+    "id": "gp-g82219",
+    "type": "gp",
+    "name": "St Peter'S Surgery",
+    "address": "Thanet Community Health Hub, Broadstairs",
+    "postcode": "CT10 2RZ",
+    "lat": 51.35991,
+    "lng": 1.407006
+  },
+  {
+    "id": "gp-g82038",
+    "type": "gp",
+    "name": "St Richards Road Surgery",
+    "address": "227 St. Richards Road, Deal",
+    "postcode": "CT14 9LF",
+    "lat": 51.211956,
+    "lng": 1.376033
+  },
+  {
+    "id": "gp-g81011",
+    "type": "gp",
+    "name": "St. Peter'S Medical Centre",
+    "address": "30-36 Oxford Street, Brighton",
+    "postcode": "BN1 4LA",
+    "lat": 50.831021,
+    "lng": -0.135094
+  },
+  {
+    "id": "gp-g82233",
+    "type": "gp",
+    "name": "St. Werburgh Med.Practice",
+    "address": "98 Bells Lane, Rochester",
+    "postcode": "ME3 9HU",
+    "lat": 51.423453,
+    "lng": 0.56275
+  },
+  {
+    "id": "gp-g81038",
+    "type": "gp",
+    "name": "Stanford Medical Centre",
+    "address": "175 Preston Road, Brighton",
+    "postcode": "BN1 6AG",
+    "lat": 50.838372,
+    "lng": -0.148266
+  },
+  {
+    "id": "gp-g84004",
+    "type": "gp",
+    "name": "Stock Hill Surgery",
+    "address": "The Surgery, Westerham",
+    "postcode": "TN16 3TJ",
+    "lat": 51.31207,
+    "lng": 0.031838
+  },
+  {
+    "id": "gp-g81008",
+    "type": "gp",
+    "name": "Stone Cross Surgery",
+    "address": "Mimram Road, Pevensey",
+    "postcode": "BN24 5DZ",
+    "lat": 50.816752,
+    "lng": 0.289972
+  },
+  {
+    "id": "gp-g82113",
+    "type": "gp",
+    "name": "Stonecross And West Drive Surgery",
+    "address": "25 Street End Road, Chatham",
+    "postcode": "ME5 0AA",
+    "lat": 51.368442,
+    "lng": 0.545309
+  },
+  {
+    "id": "gp-g82082",
+    "type": "gp",
+    "name": "Sturry Surgery",
+    "address": "53 Island Road, Canterbury",
+    "postcode": "CT2 0EF",
+    "lat": 51.304473,
+    "lng": 1.130307
+  },
+  {
+    "id": "gp-g82046",
+    "type": "gp",
+    "name": "Summerhill Surgery",
+    "address": "243 Margate Road, Ramsgate",
+    "postcode": "CT12 6SU",
+    "lat": 51.347558,
+    "lng": 1.407066
+  },
+  {
+    "id": "gp-g82018",
+    "type": "gp",
+    "name": "Sun Lane",
+    "address": "5 Sun Lane, Hythe",
+    "postcode": "CT21 5JY",
+    "lat": 51.071539,
+    "lng": 1.087503
+  },
+  {
+    "id": "gp-g82229",
+    "type": "gp",
+    "name": "Sutton Valence Group Practice",
+    "address": "South Lane, Maidstone",
+    "postcode": "ME17 3BD",
+    "lat": 51.211194,
+    "lng": 0.59406
+  },
+  {
+    "id": "gp-g82050",
+    "type": "gp",
+    "name": "Sydenham House Medical Centre",
+    "address": "Sydenham House Med Centre, Ashford",
+    "postcode": "TN24 8DN",
+    "lat": 51.146337,
+    "lng": 0.880339
+  },
+  {
+    "id": "gp-g82154",
+    "type": "gp",
+    "name": "Thames Ave Surgery",
+    "address": "2 Thames Avenue, Gillingham",
+    "postcode": "ME8 9BW",
+    "lat": 51.36344,
+    "lng": 0.603086
+  },
+  {
+    "id": "gp-g81075",
+    "type": "gp",
+    "name": "The Avenue Surgery",
+    "address": "1 The Avenue, Brighton",
+    "postcode": "BN2 4GF",
+    "lat": 50.844352,
+    "lng": -0.113398
+  },
+  {
+    "id": "gp-g82111",
+    "type": "gp",
+    "name": "The Cedars Surgery",
+    "address": "24 Marine Road, Deal",
+    "postcode": "CT14 7DN",
+    "lat": 51.217627,
+    "lng": 1.403203
+  },
+  {
+    "id": "gp-g82035",
+    "type": "gp",
+    "name": "The Chestnuts Surgery",
+    "address": "70 East Street, Sittingbourne",
+    "postcode": "ME10 4RU",
+    "lat": 51.338417,
+    "lng": 0.743837
+  },
+  {
+    "id": "gp-g82697",
+    "type": "gp",
+    "name": "The Churchill Clinic",
+    "address": "94 Churchill Avenue, Chatham",
+    "postcode": "ME5 0DL",
+    "lat": 51.360115,
+    "lng": 0.533656
+  },
+  {
+    "id": "gp-g82099",
+    "type": "gp",
+    "name": "The College Practice",
+    "address": "50-52 College Road, Maidstone",
+    "postcode": "ME15 6SB",
+    "lat": 51.268399,
+    "lng": 0.522286
+  },
+  {
+    "id": "gp-e81037",
+    "type": "gp",
+    "name": "The De Parys Group",
+    "address": "Bedford Health Village, Bedford",
+    "postcode": "MK40 2NT",
+    "lat": 52.141696,
+    "lng": -0.459652
+  },
+  {
+    "id": "gp-g82077",
+    "type": "gp",
+    "name": "The Elms Medical Centre",
+    "address": "Tilley Close, Main Road, Rochester",
+    "postcode": "ME3 9AE",
+    "lat": 51.4201,
+    "lng": 0.557758
+  },
+  {
+    "id": "gp-g82129",
+    "type": "gp",
+    "name": "The Glebe Family Practice",
+    "address": "Vicarage Road, Gillingham",
+    "postcode": "ME7 5UA",
+    "lat": 51.383164,
+    "lng": 0.544501
+  },
+  {
+    "id": "gp-g82020",
+    "type": "gp",
+    "name": "The Grange Practice",
+    "address": "The Montefiore Medical Centre, Ramsgate",
+    "postcode": "CT11 8AD",
+    "lat": 51.338738,
+    "lng": 1.427249
+  },
+  {
+    "id": "gp-g81646",
+    "type": "gp",
+    "name": "The Haven Practice",
+    "address": "100 Beaconsfield Villas, Brighton",
+    "postcode": "BN1 6HE",
+    "lat": 50.84277,
+    "lng": -0.142623
+  },
+  {
+    "id": "gp-g82090",
+    "type": "gp",
+    "name": "The Heron Medical Practice",
+    "address": "Heron Medical Practice, Herne Bay",
+    "postcode": "CT6 5NF",
+    "lat": 51.371332,
+    "lng": 1.121144
+  },
+  {
+    "id": "gp-g81031",
+    "type": "gp",
+    "name": "The Hill Surgery",
+    "address": "Ore Clinic, Hastings",
+    "postcode": "TN35 5BH",
+    "lat": 50.8734,
+    "lng": 0.609795
+  },
+  {
+    "id": "gp-g82753",
+    "type": "gp",
+    "name": "The Kings Family Practice",
+    "address": "30-34 Magpie Hall Road, Chatham",
+    "postcode": "ME4 5JY",
+    "lat": 51.377821,
+    "lng": 0.534576
+  },
+  {
+    "id": "gp-g81003",
+    "type": "gp",
+    "name": "The Lighthouse Medical Practice",
+    "address": "6 College Road, Eastbourne",
+    "postcode": "BN21 4HY",
+    "lat": 50.765627,
+    "lng": 0.281391
+  },
+  {
+    "id": "gp-g82052",
+    "type": "gp",
+    "name": "The Limes Medical Centre",
+    "address": "Trinity Square, Margate",
+    "postcode": "CT9 1QY",
+    "lat": 51.390984,
+    "lng": 1.385421
+  },
+  {
+    "id": "gp-g82634",
+    "type": "gp",
+    "name": "The Meads Medical Practice",
+    "address": "29 Quartz Way, Sittingbourne",
+    "postcode": "ME10 5AA",
+    "lat": 51.35051,
+    "lng": 0.71701
+  },
+  {
+    "id": "gp-g81037",
+    "type": "gp",
+    "name": "The Meads Surgery",
+    "address": "Bell Farm Road, Uckfield",
+    "postcode": "TN22 1BA",
+    "lat": 50.969692,
+    "lng": 0.091636
+  },
+  {
+    "id": "gp-g82698",
+    "type": "gp",
+    "name": "The Medic Care Surgery",
+    "address": "Sittingbourne Memorial Hospital, Sittingbourne",
+    "postcode": "ME10 4DT",
+    "lat": 51.334603,
+    "lng": 0.736574
+  },
+  {
+    "id": "gp-g82604",
+    "type": "gp",
+    "name": "The Medical Centre Group",
+    "address": "The Medical Practice, Maidstone",
+    "postcode": "ME15 7LN",
+    "lat": 51.252513,
+    "lng": 0.544848
+  },
+  {
+    "id": "gp-g82696",
+    "type": "gp",
+    "name": "The New Golf Road Surgery",
+    "address": "Golf Road Surgery, Deal",
+    "postcode": "CT14 6PY",
+    "lat": 51.229964,
+    "lng": 1.399342
+  },
+  {
+    "id": "gp-g82086",
+    "type": "gp",
+    "name": "The New Surgery",
+    "address": "128 Canterbury Road, Folkestone",
+    "postcode": "CT19 5SR",
+    "lat": 51.089156,
+    "lng": 1.181883
+  },
+  {
+    "id": "gp-g82682",
+    "type": "gp",
+    "name": "The Om Medical Centre",
+    "address": "Wood Street, Sheerness",
+    "postcode": "ME12 1UA",
+    "lat": 51.438765,
+    "lng": 0.762195
+  },
+  {
+    "id": "gp-g81658",
+    "type": "gp",
+    "name": "The Station Practice",
+    "address": "Station Plaza Health Centre, Hastings",
+    "postcode": "TN34 1BA",
+    "lat": 50.85794,
+    "lng": 0.578166
+  },
+  {
+    "id": "gp-g82164",
+    "type": "gp",
+    "name": "The Vine Medical Centre",
+    "address": "13 Tonbridge Road, Maidstone",
+    "postcode": "ME16 8RL",
+    "lat": 51.270936,
+    "lng": 0.515184
+  },
+  {
+    "id": "gp-g82025",
+    "type": "gp",
+    "name": "The Wells Medical Practice",
+    "address": "Abbey Court, Tunbridge Wells",
+    "postcode": "TN4 9TF",
+    "lat": 51.137752,
+    "lng": 0.261246
+  },
+  {
+    "id": "gp-g82095",
+    "type": "gp",
+    "name": "Thorndike Partnership",
+    "address": "Health Care Centre, Rochester",
+    "postcode": "ME1 2TH",
+    "lat": 51.380804,
+    "lng": 0.502909
+  },
+  {
+    "id": "gp-g82083",
+    "type": "gp",
+    "name": "Thornhills Medical Practice",
+    "address": "Larkfield Health Centre, Aylesford",
+    "postcode": "ME20 6QJ",
+    "lat": 51.300145,
+    "lng": 0.440945
+  },
+  {
+    "id": "gp-g82042",
+    "type": "gp",
+    "name": "Tonbridge Medical Group",
+    "address": "3 River Lawn Road, Tonbridge",
+    "postcode": "TN9 1EP",
+    "lat": 51.193243,
+    "lng": 0.271878
+  },
+  {
+    "id": "gp-g82110",
+    "type": "gp",
+    "name": "Town Medical Centre",
+    "address": "25 London Road, Sevenoaks",
+    "postcode": "TN13 1AR",
+    "lat": 51.270971,
+    "lng": 0.191395
+  },
+  {
+    "id": "gp-g81070",
+    "type": "gp",
+    "name": "Trinity Medical Centre",
+    "address": "1 Goldstone Villas, Hove",
+    "postcode": "BN3 3AT",
+    "lat": 50.831228,
+    "lng": -0.172008
+  },
+  {
+    "id": "gp-g82140",
+    "type": "gp",
+    "name": "University Medical Centre",
+    "address": "Medical Centre, Canterbury",
+    "postcode": "CT2 7PB",
+    "lat": 51.296203,
+    "lng": 1.062158
+  },
+  {
+    "id": "gp-g81071",
+    "type": "gp",
+    "name": "University Of Sussex Health Centre",
+    "address": "Health Centre Building, Brighton",
+    "postcode": "BN1 9RW",
+    "lat": 50.869431,
+    "lng": -0.088864
+  },
+  {
+    "id": "gp-g82687",
+    "type": "gp",
+    "name": "Vel Surgery",
+    "address": "Sheerness Health Centre, Sheerness",
+    "postcode": "ME12 1UP",
+    "lat": 51.436123,
+    "lng": 0.766669
+  },
+  {
+    "id": "gp-g81032",
+    "type": "gp",
+    "name": "Victoria Medical Centre",
+    "address": "153A Victoria Drive, Eastbourne",
+    "postcode": "BN20 8NH",
+    "lat": 50.777446,
+    "lng": 0.255496
+  },
+  {
+    "id": "gp-g81030",
+    "type": "gp",
+    "name": "Wadhurst Medical Group",
+    "address": "St. James Square, Wadhurst",
+    "postcode": "TN5 6BJ",
+    "lat": 51.061952,
+    "lng": 0.340829
+  },
+  {
+    "id": "gp-g82641",
+    "type": "gp",
+    "name": "Wallis Avenue",
+    "address": "The Surgery, Maidstone",
+    "postcode": "ME15 9JJ",
+    "lat": 51.240839,
+    "lng": 0.553144
+  },
+  {
+    "id": "gp-g82184",
+    "type": "gp",
+    "name": "Waltham Road Medical Centre",
+    "address": "4A Waltham Road, Gillingham",
+    "postcode": "ME8 6XQ",
+    "lat": 51.373869,
+    "lng": 0.584135
+  },
+  {
+    "id": "gp-g82059",
+    "type": "gp",
+    "name": "Warders Medical Centre",
+    "address": "47 East Street, Tonbridge",
+    "postcode": "TN9 1LA",
+    "lat": 51.197407,
+    "lng": 0.279241
+  },
+  {
+    "id": "gp-g81036",
+    "type": "gp",
+    "name": "Warmdene Surgery",
+    "address": "County Oak Medical Centre, Brighton",
+    "postcode": "BN1 8DD",
+    "lat": 50.862192,
+    "lng": -0.126604
+  },
+  {
+    "id": "gp-g82155",
+    "type": "gp",
+    "name": "Waterfield House Surgery",
+    "address": "186 Henwood Green Road, Tunbridge Wells",
+    "postcode": "TN2 4LR",
+    "lat": 51.148087,
+    "lng": 0.329028
+  },
+  {
+    "id": "gp-g82200",
+    "type": "gp",
+    "name": "Wateringbury",
+    "address": "14 Pelican Court, Maidstone",
+    "postcode": "ME18 5SS",
+    "lat": 51.255632,
+    "lng": 0.425528
+  },
+  {
+    "id": "gp-g82055",
+    "type": "gp",
+    "name": "Weald View Medical Practice - Hawkhurst",
+    "address": "Rye Road, Cranbrook",
+    "postcode": "TN18 4EX",
+    "lat": 51.047119,
+    "lng": 0.510756
+  },
+  {
+    "id": "gp-g81088",
+    "type": "gp",
+    "name": "Wealden Ridge Medical Partnership",
+    "address": "Newick Health Centre, Lewes",
+    "postcode": "BN8 4LR",
+    "lat": 50.973631,
+    "lng": 0.016986
+  },
+  {
+    "id": "gp-g81638",
+    "type": "gp",
+    "name": "Wellbn Healthcare",
+    "address": "18-19 Western Road, Hove",
+    "postcode": "BN3 1AE",
+    "lat": 50.825177,
+    "lng": -0.156129
+  },
+  {
+    "id": "gp-g82135",
+    "type": "gp",
+    "name": "West Malling Group Practice",
+    "address": "37 Queen Street, West Malling",
+    "postcode": "ME19 4JF",
+    "lat": 51.271693,
+    "lng": 0.402473
+  },
+  {
+    "id": "gp-g82092",
+    "type": "gp",
+    "name": "Westerham Practice",
+    "address": "Winterton Surgery, Westerham",
+    "postcode": "TN16 1RB",
+    "lat": 51.266463,
+    "lng": 0.070464
+  },
+  {
+    "id": "gp-g82079",
+    "type": "gp",
+    "name": "Westgate Surgery",
+    "address": "60 Westgate Bay Avenue, Westgate-On-Sea",
+    "postcode": "CT8 8SN",
+    "lat": 51.383152,
+    "lng": 1.338326
+  },
+  {
+    "id": "gp-g82729",
+    "type": "gp",
+    "name": "White Cliffs Medical Centre",
+    "address": "143 Folkestone Road, Dover",
+    "postcode": "CT17 9SG",
+    "lat": 51.124227,
+    "lng": 1.301618
+  },
+  {
+    "id": "gp-g82069",
+    "type": "gp",
+    "name": "White House Surgery",
+    "address": "1 Cheriton High Street, Folkestone",
+    "postcode": "CT19 4PU",
+    "lat": 51.087435,
+    "lng": 1.146088
+  },
+  {
+    "id": "gp-g82071",
+    "type": "gp",
+    "name": "Whitstable Medical Practice",
+    "address": "Estuary View Medical Centre, Whitstable",
+    "postcode": "CT5 3SE",
+    "lat": 51.340841,
+    "lng": 1.012616
+  },
+  {
+    "id": "gp-g82226",
+    "type": "gp",
+    "name": "Wigmore Medical Centre",
+    "address": "114 Woodside, Gillingham",
+    "postcode": "ME8 0PW",
+    "lat": 51.352272,
+    "lng": 0.588764
+  },
+  {
+    "id": "gp-g81083",
+    "type": "gp",
+    "name": "Wish Park Surgery",
+    "address": "191-193 Portland Road, Hove",
+    "postcode": "BN3 5JA",
+    "lat": 50.834021,
+    "lng": -0.189665
+  },
+  {
+    "id": "gp-g82053",
+    "type": "gp",
+    "name": "Woodchurch Surgery",
+    "address": "Front Road, Ashford",
+    "postcode": "TN26 3SF",
+    "lat": 51.074982,
+    "lng": 0.774821
+  },
+  {
+    "id": "gp-g81040",
+    "type": "gp",
+    "name": "Woodhill Surgery",
+    "address": "Woodhill Cottage, Mayfield",
+    "postcode": "TN20 6BW",
+    "lat": 51.019347,
+    "lng": 0.253985
+  },
+  {
+    "id": "gp-g81065",
+    "type": "gp",
+    "name": "Woodingdean Medical Centre",
+    "address": "Warren Road, Brighton",
+    "postcode": "BN2 6BA",
+    "lat": 50.83591,
+    "lng": -0.079936
+  },
+  {
+    "id": "gp-g82014",
+    "type": "gp",
+    "name": "Woodlands Family Practice",
+    "address": "Gillingham Medical Centre, Gillingham",
+    "postcode": "ME7 2BU",
+    "lat": 51.378417,
+    "lng": 0.566671
+  },
+  {
+    "id": "gp-g82118",
+    "type": "gp",
+    "name": "Woodlands Health Centre",
+    "address": "1-7 Allington Road, Tonbridge",
+    "postcode": "TN12 6AX",
+    "lat": 51.180768,
+    "lng": 0.384879
+  },
+  {
+    "id": "gp-g82142",
+    "type": "gp",
+    "name": "Wye Surgery",
+    "address": "Oxenturn Road, Ashford",
+    "postcode": "TN25 5AY",
+    "lat": 51.179144,
+    "lng": 0.938034
+  },
+  {
+    "id": "gp-g82141",
+    "type": "gp",
+    "name": "Yalding",
+    "address": "Burgess Bank, Maidstone",
+    "postcode": "ME18 6ES",
+    "lat": 51.221187,
+    "lng": 0.429832
+  },
+  {
+    "id": "gp-k81645",
+    "type": "gp",
+    "name": "240 Wexham Road",
+    "address": "Wexham Road, Slough",
+    "postcode": "SL2 5JP",
+    "lat": 51.516902,
+    "lng": -0.578381
+  },
+  {
+    "id": "gp-k81081",
+    "type": "gp",
+    "name": "Abbey Medical Centre",
+    "address": "41 Russell Street, Reading",
+    "postcode": "RG1 7XD",
+    "lat": 51.45395,
+    "lng": -0.982385
+  },
+  {
+    "id": "gp-j82145",
+    "type": "gp",
+    "name": "Abbeywell Surgery",
+    "address": "The Abbey, Romsey",
+    "postcode": "SO51 8EN",
+    "lat": 50.989096,
+    "lng": -1.50189
+  },
+  {
+    "id": "gp-j82053",
+    "type": "gp",
+    "name": "Adelaide Medical Centre",
+    "address": "36 Adelaide Road, Andover",
+    "postcode": "SP10 1HA",
+    "lat": 51.208535,
+    "lng": -1.475261
+  },
+  {
+    "id": "gp-h82023",
+    "type": "gp",
+    "name": "Adur Health Partnership",
+    "address": "The Health Centre, Shoreham-By-Sea",
+    "postcode": "BN43 5US",
+    "lat": 50.83381,
+    "lng": -0.274343
+  },
+  {
+    "id": "gp-k84613",
+    "type": "gp",
+    "name": "Alchester Medical Group",
+    "address": "Langford Medical Practice, Bicester",
+    "postcode": "OX26 6XX",
+    "lat": 51.89129,
+    "lng": -1.138329
+  },
+  {
+    "id": "gp-j82092",
+    "type": "gp",
+    "name": "Aldermoor Surgery",
+    "address": "Aldermoor Close, Southampton",
+    "postcode": "SO16 5ST",
+    "lat": 50.940288,
+    "lng": -1.428061
+  },
+  {
+    "id": "gp-j82120",
+    "type": "gp",
+    "name": "Alexander House Surgery",
+    "address": "2 Salisbury Road, Farnborough",
+    "postcode": "GU14 7AW",
+    "lat": 51.293749,
+    "lng": -0.751984
+  },
+  {
+    "id": "gp-j82074",
+    "type": "gp",
+    "name": "Alma Road Surgery",
+    "address": "Alma Road, Romsey",
+    "postcode": "SO51 8ED",
+    "lat": 50.99059,
+    "lng": -1.49381
+  },
+  {
+    "id": "gp-j82122",
+    "type": "gp",
+    "name": "Alma Road Surgery",
+    "address": "The Surgery, Southampton",
+    "postcode": "SO14 6UX",
+    "lat": 50.921768,
+    "lng": -1.400361
+  },
+  {
+    "id": "gp-j82124",
+    "type": "gp",
+    "name": "Alresford Surgery",
+    "address": "The Alresford Surgery, Alresford",
+    "postcode": "SO24 9JL",
+    "lat": 51.088937,
+    "lng": -1.161548
+  },
+  {
+    "id": "gp-j84008",
+    "type": "gp",
+    "name": "Argyll House",
+    "address": "78 West Street, Ryde",
+    "postcode": "PO33 2QG",
+    "lat": 50.726904,
+    "lng": -1.16613
+  },
+  {
+    "id": "gp-h82021",
+    "type": "gp",
+    "name": "Arundel Surgery",
+    "address": "Green Lane Close, Arundel",
+    "postcode": "BN18 9HG",
+    "lat": 50.852872,
+    "lng": -0.567246
+  },
+  {
+    "id": "gp-k81655",
+    "type": "gp",
+    "name": "Ascot Medical Centre",
+    "address": "Brook House, Ascot",
+    "postcode": "SL5 7GB",
+    "lat": 51.408936,
+    "lng": -0.688262
+  },
+  {
+    "id": "gp-k82054",
+    "type": "gp",
+    "name": "Ashfield Medical Centre",
+    "address": "1 Perrydown, Milton Keynes",
+    "postcode": "MK6 4NE",
+    "lat": 52.019676,
+    "lng": -0.738252
+  },
+  {
+    "id": "gp-j82115",
+    "type": "gp",
+    "name": "Atherley House Surgery",
+    "address": "143-145 Shirley Road, Southampton",
+    "postcode": "SO15 3FH",
+    "lat": 50.913332,
+    "lng": -1.421565
+  },
+  {
+    "id": "gp-h81006",
+    "type": "gp",
+    "name": "Austen Road Surgery",
+    "address": "1 Austen Road, Guildford",
+    "postcode": "GU1 3NW",
+    "lat": 51.237257,
+    "lng": -0.557962
+  },
+  {
+    "id": "gp-h82048",
+    "type": "gp",
+    "name": "Avisford Medical Group",
+    "address": "North End Road, Arundel",
+    "postcode": "BN18 0DU",
+    "lat": 50.822678,
+    "lng": -0.613859
+  },
+  {
+    "id": "gp-j82042",
+    "type": "gp",
+    "name": "Badgerswood Surgery",
+    "address": "Mill Lane, Bordon",
+    "postcode": "GU35 8LH",
+    "lat": 51.118979,
+    "lng": -0.828596
+  },
+  {
+    "id": "gp-h82065",
+    "type": "gp",
+    "name": "Ball Tree Surgery",
+    "address": "Western Road North, Lancing",
+    "postcode": "BN15 9UX",
+    "lat": 50.83176,
+    "lng": -0.338806
+  },
+  {
+    "id": "gp-k81014",
+    "type": "gp",
+    "name": "Balmore Park Surgery",
+    "address": "59A Hemdean Road, Reading",
+    "postcode": "RG4 7SS",
+    "lat": 51.470984,
+    "lng": -0.973368
+  },
+  {
+    "id": "gp-k84010",
+    "type": "gp",
+    "name": "Bampton Surgery",
+    "address": "Landells, Bampton",
+    "postcode": "OX18 2LJ",
+    "lat": 51.729037,
+    "lng": -1.550325
+  },
+  {
+    "id": "gp-k84028",
+    "type": "gp",
+    "name": "Banbury Cross Health Centre",
+    "address": "South Bar House, Banbury",
+    "postcode": "OX16 9AD",
+    "lat": 52.057439,
+    "lng": -1.340675
+  },
+  {
+    "id": "gp-k84021",
+    "type": "gp",
+    "name": "Banbury Road Medical Centre",
+    "address": "172 Banbury Road, Oxford",
+    "postcode": "OX2 7BT",
+    "lat": 51.774777,
+    "lng": -1.263516
+  },
+  {
+    "id": "gp-j83005",
+    "type": "gp",
+    "name": "Barcroft Medical Centre",
+    "address": "The Centre, Amesbury, Salisbury",
+    "postcode": "SP4 7DL",
+    "lat": 51.172934,
+    "lng": -1.780515
+  },
+  {
+    "id": "gp-h82087",
+    "type": "gp",
+    "name": "Barn Surgery",
+    "address": "22 Ferring Street, Worthing",
+    "postcode": "BN12 5HJ",
+    "lat": 50.813945,
+    "lng": -0.447323
+  },
+  {
+    "id": "gp-k84032",
+    "type": "gp",
+    "name": "Bartlemas Surgery",
+    "address": "The East Oxford Health Centre, Oxford",
+    "postcode": "OX4 1XD",
+    "lat": 51.747191,
+    "lng": -1.232474
+  },
+  {
+    "id": "gp-h81013",
+    "type": "gp",
+    "name": "Bartlett Group Practice",
+    "address": "Frimley Green Medical Centre, Camberley",
+    "postcode": "GU16 6QQ",
+    "lat": 51.302734,
+    "lng": -0.72549
+  },
+  {
+    "id": "gp-k84016",
+    "type": "gp",
+    "name": "Beaumont Elms Practice",
+    "address": "19 Beaumont Street, Oxford",
+    "postcode": "OX1 2NA",
+    "lat": 51.754821,
+    "lng": -1.261436
+  },
+  {
+    "id": "gp-k82039",
+    "type": "gp",
+    "name": "Bedford Street Surgery",
+    "address": "4 Bedford Street, Milton Keynes",
+    "postcode": "MK2 2TX",
+    "lat": 51.995794,
+    "lng": -0.729761
+  },
+  {
+    "id": "gp-k84023",
+    "type": "gp",
+    "name": "Berinsfield Health Centre",
+    "address": "Fane Drive, Wallingford",
+    "postcode": "OX10 7NE",
+    "lat": 51.663993,
+    "lng": -1.176754
+  },
+  {
+    "id": "gp-h82016",
+    "type": "gp",
+    "name": "Bersted Green Surgery",
+    "address": "32 Durlston Drive, Bognor Regis",
+    "postcode": "PO22 9TD",
+    "lat": 50.798069,
+    "lng": -0.681792
+  },
+  {
+    "id": "gp-h82088",
+    "type": "gp",
+    "name": "Bewbush Medical Centre",
+    "address": "The Medical Centre, Crawley",
+    "postcode": "RH11 8XT",
+    "lat": 51.104191,
+    "lng": -0.223284
+  },
+  {
+    "id": "gp-k81083",
+    "type": "gp",
+    "name": "Bharani Medical Centre",
+    "address": "450 Bath Road, Slough",
+    "postcode": "SL1 6BB",
+    "lat": 51.520758,
+    "lng": -0.648974
+  },
+  {
+    "id": "gp-k84052",
+    "type": "gp",
+    "name": "Bicester Health Centre",
+    "address": "The Health Centre, Bicester",
+    "postcode": "OX26 6AT",
+    "lat": 51.89675,
+    "lng": -1.15722
+  },
+  {
+    "id": "gp-h82055",
+    "type": "gp",
+    "name": "Billingshurst Surgery",
+    "address": "Roman Way, Billingshurst",
+    "postcode": "RH14 9QZ",
+    "lat": 51.024976,
+    "lng": -0.445773
+  },
+  {
+    "id": "gp-k81060",
+    "type": "gp",
+    "name": "Binfield Surgery",
+    "address": "Binfield Health & Community Centre, Bracknell",
+    "postcode": "RG42 4EX",
+    "lat": 51.422817,
+    "lng": -0.778634
+  },
+  {
+    "id": "gp-h81026",
+    "type": "gp",
+    "name": "Binscombe Medical Centre",
+    "address": "106 Binscombe, Godalming",
+    "postcode": "GU7 3PR",
+    "lat": 51.203148,
+    "lng": -0.614525
+  },
+  {
+    "id": "gp-j82064",
+    "type": "gp",
+    "name": "Bishops Waltham Surgery",
+    "address": "Lower Lane, Southampton",
+    "postcode": "SO32 1GR",
+    "lat": 50.955273,
+    "lng": -1.212135
+  },
+  {
+    "id": "gp-j82646",
+    "type": "gp",
+    "name": "Blossom Health",
+    "address": "82 Park Lane, Havant",
+    "postcode": "PO9 3HN",
+    "lat": 50.862876,
+    "lng": -0.999088
+  },
+  {
+    "id": "gp-j82084",
+    "type": "gp",
+    "name": "Blossom Health - Gosport",
+    "address": "Gosport War Memorial Hospital, Gosport",
+    "postcode": "PO12 3PW",
+    "lat": 50.793051,
+    "lng": -1.148069
+  },
+  {
+    "id": "gp-k84058",
+    "type": "gp",
+    "name": "Bloxham Surgery",
+    "address": "Godswell Lodge, Banbury",
+    "postcode": "OX15 4ES",
+    "lat": 52.018118,
+    "lng": -1.372962
+  },
+  {
+    "id": "gp-h82020",
+    "type": "gp",
+    "name": "Bognor Medical Centre",
+    "address": "West Street, Bognor Regis",
+    "postcode": "PO21 1UT",
+    "lat": 50.783618,
+    "lng": -0.677219
+  },
+  {
+    "id": "gp-j82625",
+    "type": "gp",
+    "name": "Boundaries Surgery",
+    "address": "17 Winchester Road, Alton",
+    "postcode": "GU34 5HG",
+    "lat": 51.112125,
+    "lng": -1.042672
+  },
+  {
+    "id": "gp-j82169",
+    "type": "gp",
+    "name": "Boyatt Wood Surgery",
+    "address": "Boyatt Shopping Centre, Eastleigh",
+    "postcode": "SO50 4QP",
+    "lat": 50.977856,
+    "lng": -1.36001
+  },
+  {
+    "id": "gp-j82058",
+    "type": "gp",
+    "name": "Bramblys Grange Medical Practice",
+    "address": "Dickson House, Basingstoke",
+    "postcode": "RG21 7AP",
+    "lat": 51.267215,
+    "lng": -1.086351
+  },
+  {
+    "id": "gp-h82047",
+    "type": "gp",
+    "name": "Bridge Medical Centre",
+    "address": "Wassand Close, Crawley",
+    "postcode": "RH10 1LL",
+    "lat": 51.11736,
+    "lng": -0.166412
+  },
+  {
+    "id": "gp-j82152",
+    "type": "gp",
+    "name": "Bridgemary Medical Centre",
+    "address": "2-4 Gregson Avenue, Gosport",
+    "postcode": "PO13 0HR",
+    "lat": 50.827964,
+    "lng": -1.174723
+  },
+  {
+    "id": "gp-k84075",
+    "type": "gp",
+    "name": "Broadshires Health Centre",
+    "address": "Broadshires Way, Carterton",
+    "postcode": "OX18 1JA",
+    "lat": 51.765046,
+    "lng": -1.586701
+  },
+  {
+    "id": "gp-h82046",
+    "type": "gp",
+    "name": "Broadwater Medical Centre",
+    "address": "5-11 Broadwater Boulevard, Worthing",
+    "postcode": "BN14 8JE",
+    "lat": 50.827642,
+    "lng": -0.37465
+  },
+  {
+    "id": "gp-h81068",
+    "type": "gp",
+    "name": "Brockwood Medical Practice",
+    "address": "Tanners Meadow, Betchworth",
+    "postcode": "RH3 7NJ",
+    "lat": 51.221208,
+    "lng": -0.284144
+  },
+  {
+    "id": "gp-j82213",
+    "type": "gp",
+    "name": "Brook House Surgery",
+    "address": "98 Oakley Road, Southampton",
+    "postcode": "SO16 4NZ",
+    "lat": 50.921786,
+    "lng": -1.445873
+  },
+  {
+    "id": "gp-j82216",
+    "type": "gp",
+    "name": "Brook Lane Surgery",
+    "address": "233A Brook Lane, Southampton",
+    "postcode": "SO31 7DQ",
+    "lat": 50.870907,
+    "lng": -1.273959
+  },
+  {
+    "id": "gp-k81047",
+    "type": "gp",
+    "name": "Brookside Group Practice",
+    "address": "Chalfont Surgery, Reading",
+    "postcode": "RG6 5HZ",
+    "lat": 51.425642,
+    "lng": -0.932732
+  },
+  {
+    "id": "gp-h82084",
+    "type": "gp",
+    "name": "Brow Medical Centre",
+    "address": "The Brow, Burgess Hill",
+    "postcode": "RH15 9BS",
+    "lat": 50.955587,
+    "lng": -0.135481
+  },
+  {
+    "id": "gp-k81102",
+    "type": "gp",
+    "name": "Burdwood Surgery",
+    "address": "Wheelers Green Way, Thatcham",
+    "postcode": "RG19 4YF",
+    "lat": 51.396133,
+    "lng": -1.244182
+  },
+  {
+    "id": "gp-k84047",
+    "type": "gp",
+    "name": "Burford Surgery",
+    "address": "59 Sheep Street, Burford",
+    "postcode": "OX18 4LS",
+    "lat": 51.807728,
+    "lng": -1.638774
+  },
+  {
+    "id": "gp-j82001",
+    "type": "gp",
+    "name": "Burgess Road Surgery",
+    "address": "357A Burgess Road, Southampton",
+    "postcode": "SO16 3BD",
+    "lat": 50.93867,
+    "lng": -1.385797
+  },
+  {
+    "id": "gp-k82033",
+    "type": "gp",
+    "name": "Burnham Health Centre",
+    "address": "Minniecroft Road, Slough",
+    "postcode": "SL1 7DE",
+    "lat": 51.5349,
+    "lng": -0.662137
+  },
+  {
+    "id": "gp-h81082",
+    "type": "gp",
+    "name": "Camberley Health Centre",
+    "address": "159 Frimley Road, Camberley",
+    "postcode": "GU15 2QA",
+    "lat": 51.324435,
+    "lng": -0.754051
+  },
+  {
+    "id": "gp-j82069",
+    "type": "gp",
+    "name": "Camrose Gillies And Hackwood Partnership",
+    "address": "Brighton Hill Parade, Basingstoke",
+    "postcode": "RG22 4EH",
+    "lat": 51.245046,
+    "lng": -1.11404
+  },
+  {
+    "id": "gp-j83014",
+    "type": "gp",
+    "name": "Castle Practice",
+    "address": "Central Street, Andover",
+    "postcode": "SP11 9RA",
+    "lat": 51.256024,
+    "lng": -1.61752
+  },
+  {
+    "id": "gp-h82042",
+    "type": "gp",
+    "name": "Cathedral Medical Group",
+    "address": "The Medical Centre, Chichester",
+    "postcode": "PO19 1XT",
+    "lat": 50.832176,
+    "lng": -0.77643
+  },
+  {
+    "id": "gp-k82065",
+    "type": "gp",
+    "name": "Central Milton Keynes Medical Centre",
+    "address": "C.M.K Medical Centre, Milton Keynes",
+    "postcode": "MK13 8RN",
+    "lat": 52.041958,
+    "lng": -0.775039
+  },
+  {
+    "id": "gp-h81088",
+    "type": "gp",
+    "name": "Central Surgery",
+    "address": "1 Union Road, Farnham",
+    "postcode": "GU9 7PT",
+    "lat": 51.213759,
+    "lng": -0.796485
+  },
+  {
+    "id": "gp-j82026",
+    "type": "gp",
+    "name": "Centre Practice",
+    "address": "Fareham Health Centre, Fareham",
+    "postcode": "PO16 7ER",
+    "lat": 50.853768,
+    "lng": -1.176327
+  },
+  {
+    "id": "gp-k84008",
+    "type": "gp",
+    "name": "Chalgrove & Watlington Surgeries",
+    "address": "Hill Road, Watlington",
+    "postcode": "OX49 5AF",
+    "lat": 51.640789,
+    "lng": -0.994611
+  },
+  {
+    "id": "gp-k81103",
+    "type": "gp",
+    "name": "Chapel Row Surgery",
+    "address": "The Avenue, Reading",
+    "postcode": "RG7 6NS",
+    "lat": 51.425877,
+    "lng": -1.170841
+  },
+  {
+    "id": "gp-j82025",
+    "type": "gp",
+    "name": "Charlton Hill Surgery",
+    "address": "Charlton Road, Andover",
+    "postcode": "SP10 3JY",
+    "lat": 51.214047,
+    "lng": -1.493553
+  },
+  {
+    "id": "gp-k81026",
+    "type": "gp",
+    "name": "Chatham Street Surgery",
+    "address": "121 Chatham Street, Reading",
+    "postcode": "RG1 7JE",
+    "lat": 51.455924,
+    "lng": -0.981895
+  },
+  {
+    "id": "gp-j82075",
+    "type": "gp",
+    "name": "Chawton House Surgery",
+    "address": "43-45 St. Thomas Street, Lymington",
+    "postcode": "SO41 9ND",
+    "lat": 50.757456,
+    "lng": -1.546119
+  },
+  {
+    "id": "gp-j82136",
+    "type": "gp",
+    "name": "Chawton Park Surgery",
+    "address": "Chawton Park Road, Alton",
+    "postcode": "GU34 1RJ",
+    "lat": 51.140744,
+    "lng": -0.98982
+  },
+  {
+    "id": "gp-j82062",
+    "type": "gp",
+    "name": "Cheviot Road Surgery",
+    "address": "1 Shirley Avenue, Southampton",
+    "postcode": "SO15 5RP",
+    "lat": 50.92101,
+    "lng": -1.430276
+  },
+  {
+    "id": "gp-h81022",
+    "type": "gp",
+    "name": "Chiddingfold Surgery",
+    "address": "Ridgley Road, Godalming",
+    "postcode": "GU8 4QP",
+    "lat": 51.113855,
+    "lng": -0.640883
+  },
+  {
+    "id": "gp-j82218",
+    "type": "gp",
+    "name": "Chineham Medical Practice",
+    "address": "The New Chineham Surgery, Basingstoke",
+    "postcode": "RG24 8ND",
+    "lat": 51.288808,
+    "lng": -1.058302
+  },
+  {
+    "id": "gp-k84030",
+    "type": "gp",
+    "name": "Chipping Norton Health Centre",
+    "address": "Russell Way, Chipping Norton",
+    "postcode": "OX7 5FA",
+    "lat": 51.945593,
+    "lng": -1.535071
+  },
+  {
+    "id": "gp-h81015",
+    "type": "gp",
+    "name": "Chobham & West End Medical Practice",
+    "address": "16 Windsor Road, Woking",
+    "postcode": "GU24 8NA",
+    "lat": 51.349809,
+    "lng": -0.602498
+  },
+  {
+    "id": "gp-k84033",
+    "type": "gp",
+    "name": "Church Street Practice",
+    "address": "The Health Centre, Wantage",
+    "postcode": "OX12 9BN",
+    "lat": 51.598764,
+    "lng": -1.425831
+  },
+  {
+    "id": "gp-k81020",
+    "type": "gp",
+    "name": "Claremont Holyport Surgery",
+    "address": "Claremont Surgery, Maidenhead",
+    "postcode": "SL6 8AN",
+    "lat": 51.524995,
+    "lng": -0.719712
+  },
+  {
+    "id": "gp-k81074",
+    "type": "gp",
+    "name": "Clarence Medical Centre",
+    "address": "Vansittart Road, Windsor",
+    "postcode": "SL4 5AS",
+    "lat": 51.479401,
+    "lng": -0.61794
+  },
+  {
+    "id": "gp-j82079",
+    "type": "gp",
+    "name": "Clift Surgery",
+    "address": "Minchens Lane, Tadley",
+    "postcode": "RG26 5BH",
+    "lat": 51.331436,
+    "lng": -1.066874
+  },
+  {
+    "id": "gp-k84034",
+    "type": "gp",
+    "name": "Clifton Hampden Surgery",
+    "address": "Watery Lane, Abingdon",
+    "postcode": "OX14 3EL",
+    "lat": 51.658629,
+    "lng": -1.211432
+  },
+  {
+    "id": "gp-h82098",
+    "type": "gp",
+    "name": "Coachmans Medical Practice",
+    "address": "Lansbury Road, Crawley",
+    "postcode": "RH11 9JA",
+    "lat": 51.096331,
+    "lng": -0.203848
+  },
+  {
+    "id": "gp-k82057",
+    "type": "gp",
+    "name": "Cobbs Garden Surgery",
+    "address": "Cobbs Garden, Olney",
+    "postcode": "MK46 5QG",
+    "lat": 52.156565,
+    "lng": -0.702491
+  },
+  {
+    "id": "gp-k84618",
+    "type": "gp",
+    "name": "Cogges Surgery",
+    "address": "12 Cogges Hill Road, Witney",
+    "postcode": "OX28 3FS",
+    "lat": 51.782271,
+    "lng": -1.473749
+  },
+  {
+    "id": "gp-k81636",
+    "type": "gp",
+    "name": "Coley Park Surgery",
+    "address": "80 Wensley Road, Reading",
+    "postcode": "RG1 6DN",
+    "lat": 51.445459,
+    "lng": -0.986243
+  },
+  {
+    "id": "gp-k81042",
+    "type": "gp",
+    "name": "Cookham Medical Centre",
+    "address": "Lower Road, Maidenhead",
+    "postcode": "SL6 9HX",
+    "lat": 51.558359,
+    "lng": -0.725786
+  },
+  {
+    "id": "gp-h82014",
+    "type": "gp",
+    "name": "Coppice Surgery",
+    "address": "Station Road, Littlehampton",
+    "postcode": "BN16 3BE",
+    "lat": 50.813146,
+    "lng": -0.500425
+  },
+  {
+    "id": "gp-k81607",
+    "type": "gp",
+    "name": "Cordwallis Road Surgery",
+    "address": "Cordwallis Road, Maidenhead",
+    "postcode": "SL6 7DQ",
+    "lat": 51.528097,
+    "lng": -0.723805
+  },
+  {
+    "id": "gp-h82076",
+    "type": "gp",
+    "name": "Cornerways Surgery",
+    "address": "145 George V Avenue, Worthing",
+    "postcode": "BN11 5RZ",
+    "lat": 50.815652,
+    "lng": -0.404495
+  },
+  {
+    "id": "gp-j84015",
+    "type": "gp",
+    "name": "Cowes Medical Centre",
+    "address": "200 Newport Road, Cowes",
+    "postcode": "PO31 7ER",
+    "lat": 50.751439,
+    "lng": -1.302105
+  },
+  {
+    "id": "gp-h82004",
+    "type": "gp",
+    "name": "Cowfold Surgery",
+    "address": "The Surgery, Horsham",
+    "postcode": "RH13 8DN",
+    "lat": 50.989093,
+    "lng": -0.273379
+  },
+  {
+    "id": "gp-k84063",
+    "type": "gp",
+    "name": "Cowley Road Medical Practice",
+    "address": "The East Oxford Health Centre, Oxford",
+    "postcode": "OX4 1XD",
+    "lat": 51.747191,
+    "lng": -1.232474
+  },
+  {
+    "id": "gp-j82055",
+    "type": "gp",
+    "name": "Craneswater Group Practice",
+    "address": "Doctors Surgery, Southsea",
+    "postcode": "PO5 2PW",
+    "lat": 50.783192,
+    "lng": -1.077917
+  },
+  {
+    "id": "gp-h81052",
+    "type": "gp",
+    "name": "Cranleigh Medical Practice",
+    "address": "18 High Street, Cranleigh",
+    "postcode": "GU6 8AE",
+    "lat": 51.140608,
+    "lng": -0.487039
+  },
+  {
+    "id": "gp-j82628",
+    "type": "gp",
+    "name": "Crondall New Surgery",
+    "address": "Redlands Lane, Farnham",
+    "postcode": "GU10 5RF",
+    "lat": 51.237163,
+    "lng": -0.858044
+  },
+  {
+    "id": "gp-k84056",
+    "type": "gp",
+    "name": "Cropredy Surgery",
+    "address": "Claydon Road, Banbury",
+    "postcode": "OX17 1FB",
+    "lat": 52.116743,
+    "lng": -1.320012
+  },
+  {
+    "id": "gp-k81034",
+    "type": "gp",
+    "name": "Crosby House Surgery",
+    "address": "91 Stoke Poges Lane, Slough",
+    "postcode": "SL1 3NY",
+    "lat": 51.517964,
+    "lng": -0.59942
+  },
+  {
+    "id": "gp-j82144",
+    "type": "gp",
+    "name": "Crown Heights Medical Centre",
+    "address": "2 Dickson House, Basingstoke",
+    "postcode": "RG21 7AN",
+    "lat": 51.267188,
+    "lng": -1.086294
+  },
+  {
+    "id": "gp-k81656",
+    "type": "gp",
+    "name": "Crown Wood Medical Centre",
+    "address": "4A Crown Row, Bracknell",
+    "postcode": "RG12 0TH",
+    "lat": 51.39592,
+    "lng": -0.736917
+  },
+  {
+    "id": "gp-h82005",
+    "type": "gp",
+    "name": "Cuckfield Medical Centre",
+    "address": "Glebe Road, Haywards Heath",
+    "postcode": "RH17 5BQ",
+    "lat": 51.009421,
+    "lng": -0.136601
+  },
+  {
+    "id": "gp-h81029",
+    "type": "gp",
+    "name": "Dapdune House Surgery",
+    "address": "Dapdune House, Guildford",
+    "postcode": "GU1 4RP",
+    "lat": 51.241983,
+    "lng": -0.577542
+  },
+  {
+    "id": "gp-k81021",
+    "type": "gp",
+    "name": "Datchet Health Centre",
+    "address": "Green Lane, Slough",
+    "postcode": "SL3 9EX",
+    "lat": 51.482059,
+    "lng": -0.576297
+  },
+  {
+    "id": "gp-k84055",
+    "type": "gp",
+    "name": "Deddington Health Centre",
+    "address": "Earls Lane, Banbury",
+    "postcode": "OX15 0TQ",
+    "lat": 51.982916,
+    "lng": -1.322155
+  },
+  {
+    "id": "gp-j82119",
+    "type": "gp",
+    "name": "Denmead Health Centre",
+    "address": "Hambledon Road, Waterlooville",
+    "postcode": "PO7 6NR",
+    "lat": 50.904378,
+    "lng": -1.067332
+  },
+  {
+    "id": "gp-j82149",
+    "type": "gp",
+    "name": "Derby Road Group Practice",
+    "address": "Derby Road Surgery, Portsmouth",
+    "postcode": "PO2 8HP",
+    "lat": 50.815733,
+    "lng": -1.081946
+  },
+  {
+    "id": "gp-k84002",
+    "type": "gp",
+    "name": "Didcot Health Centre Practice",
+    "address": "Britwell Road, Didcot",
+    "postcode": "OX11 7JH",
+    "lat": 51.606526,
+    "lng": -1.247613
+  },
+  {
+    "id": "gp-h82044",
+    "type": "gp",
+    "name": "Dolphins Practice",
+    "address": "Nightingale Primary Care Centre, Haywards Heath",
+    "postcode": "RH16 4BN",
+    "lat": 51.000197,
+    "lng": -0.116049
+  },
+  {
+    "id": "gp-k84004",
+    "type": "gp",
+    "name": "Donnington Medical Partnership",
+    "address": "Donnington Health Centre, Oxford",
+    "postcode": "OX4 4DH",
+    "lat": 51.735365,
+    "lng": -1.232254
+  },
+  {
+    "id": "gp-h81028",
+    "type": "gp",
+    "name": "Dorking Medical Practice",
+    "address": "New House Surgery, Dorking",
+    "postcode": "RH4 2QR",
+    "lat": 51.228524,
+    "lng": -0.335492
+  },
+  {
+    "id": "gp-j83043",
+    "type": "gp",
+    "name": "Downton Surgery",
+    "address": "Moot Lane, Salisbury",
+    "postcode": "SP5 3JP",
+    "lat": 50.990674,
+    "lng": -1.742665
+  },
+  {
+    "id": "gp-k81608",
+    "type": "gp",
+    "name": "Dr Nabi",
+    "address": "261 Bath Road, Slough",
+    "postcode": "SL1 5PP",
+    "lat": 51.518854,
+    "lng": -0.632139
+  },
+  {
+    "id": "gp-j84004",
+    "type": "gp",
+    "name": "East Cowes Medical Centre",
+    "address": "Church Path, East Cowes",
+    "postcode": "PO32 6RP",
+    "lat": 50.757449,
+    "lng": -1.28618
+  },
+  {
+    "id": "gp-j82194",
+    "type": "gp",
+    "name": "East Shore Partnership",
+    "address": "Milton Park Surgery, Portsmouth",
+    "postcode": "PO3 6DW",
+    "lat": 50.799279,
+    "lng": -1.061948
+  },
+  {
+    "id": "gp-k81002",
+    "type": "gp",
+    "name": "Eastfield House Surgery",
+    "address": "6 St. Johns Road, Newbury",
+    "postcode": "RG14 7LW",
+    "lat": 51.395554,
+    "lng": -1.323233
+  },
+  {
+    "id": "gp-k81087",
+    "type": "gp",
+    "name": "Easthampstead Surgery",
+    "address": "23 Rectory Lane, Bracknell",
+    "postcode": "RG12 7BB",
+    "lat": 51.405544,
+    "lng": -0.753948
+  },
+  {
+    "id": "gp-j82020",
+    "type": "gp",
+    "name": "Eastleigh Medical Practice",
+    "address": "Newtown Road, Eastleigh",
+    "postcode": "SO50 9AG",
+    "lat": 50.970948,
+    "lng": -1.353169
+  },
+  {
+    "id": "gp-k81041",
+    "type": "gp",
+    "name": "Emmer Green Surgery",
+    "address": "4 St. Barnabas Road, Reading",
+    "postcode": "RG4 8RA",
+    "lat": 51.483586,
+    "lng": -0.972841
+  },
+  {
+    "id": "gp-j82009",
+    "type": "gp",
+    "name": "Emsworth Surgery",
+    "address": "North Street House, Emsworth",
+    "postcode": "PO10 7DD",
+    "lat": 50.848392,
+    "lng": -0.937394
+  },
+  {
+    "id": "gp-j84005",
+    "type": "gp",
+    "name": "Esplanade Surgery",
+    "address": "19 Esplanade, Ryde",
+    "postcode": "PO33 2EH",
+    "lat": 50.731932,
+    "lng": -1.158687
+  },
+  {
+    "id": "gp-k81657",
+    "type": "gp",
+    "name": "Evergreen Practice",
+    "address": "Skimped Hill Lane, Bracknell",
+    "postcode": "RG12 1LH",
+    "lat": 51.417222,
+    "lng": -0.752898
+  },
+  {
+    "id": "gp-k84006",
+    "type": "gp",
+    "name": "Eynsham Medical Group",
+    "address": "Eynsham Medical Centre, Witney",
+    "postcode": "OX29 4QB",
+    "lat": 51.781468,
+    "lng": -1.375694
+  },
+  {
+    "id": "gp-h81064",
+    "type": "gp",
+    "name": "Fairlands Medical Practice",
+    "address": "The Fairlands Medical Centre, Guildford",
+    "postcode": "GU3 3NA",
+    "lat": 51.26314,
+    "lng": -0.622326
+  },
+  {
+    "id": "gp-k81017",
+    "type": "gp",
+    "name": "Falkland Surgery",
+    "address": "Monks Lane, Newbury",
+    "postcode": "RG14 7DF",
+    "lat": 51.382273,
+    "lng": -1.335744
+  },
+  {
+    "id": "gp-h81615",
+    "type": "gp",
+    "name": "Farnham Dene Medical Practice",
+    "address": "Lodge Hill Road, Farnham",
+    "postcode": "GU10 3RB",
+    "lat": 51.200549,
+    "lng": -0.777406
+  },
+  {
+    "id": "gp-h81027",
+    "type": "gp",
+    "name": "Farnham Park Health Group",
+    "address": "Farnham Centre For Health, Farnham",
+    "postcode": "GU9 9QS",
+    "lat": 51.220756,
+    "lng": -0.78436
+  },
+  {
+    "id": "gp-k81075",
+    "type": "gp",
+    "name": "Farnham Road Practice",
+    "address": "301 Farnham Road, Slough",
+    "postcode": "SL2 1HD",
+    "lat": 51.53043,
+    "lng": -0.617779
+  },
+  {
+    "id": "gp-k81025",
+    "type": "gp",
+    "name": "Finchampstead Practice",
+    "address": "The Finchampstead Surgery, Wokingham",
+    "postcode": "RG40 3RG",
+    "lat": 51.375006,
+    "lng": -0.858108
+  },
+  {
+    "id": "gp-k82064",
+    "type": "gp",
+    "name": "Fishermead Medical Centre",
+    "address": "Fishermead Boulevard, Milton Keynes",
+    "postcode": "MK6 2LR",
+    "lat": 52.03622,
+    "lng": -0.747496
+  },
+  {
+    "id": "gp-h82066",
+    "type": "gp",
+    "name": "Fitzalan Medical Group",
+    "address": "Fitzalan Medical Centre, Littlehampton",
+    "postcode": "BN17 5JR",
+    "lat": 50.806531,
+    "lng": -0.537624
+  },
+  {
+    "id": "gp-h82038",
+    "type": "gp",
+    "name": "Flansham Park Health Centre",
+    "address": "109 Flansham Park, Bognor Regis",
+    "postcode": "PO22 6DH",
+    "lat": 50.794845,
+    "lng": -0.629184
+  },
+  {
+    "id": "gp-j82131",
+    "type": "gp",
+    "name": "Fordingbridge Surgery",
+    "address": "Bartons Road, Fordingbridge",
+    "postcode": "SP6 1RS",
+    "lat": 50.928152,
+    "lng": -1.793524
+  },
+  {
+    "id": "gp-k81610",
+    "type": "gp",
+    "name": "Forest Health Group-Mount Lane",
+    "address": "Boundary House Surgery, Bracknell",
+    "postcode": "RG12 9PG",
+    "lat": 51.41381,
+    "lng": -0.745829
+  },
+  {
+    "id": "gp-j82072",
+    "type": "gp",
+    "name": "Forestside Medical Practice",
+    "address": "Beaulieu Road, Southampton",
+    "postcode": "SO45 4JA",
+    "lat": 50.851823,
+    "lng": -1.416173
+  },
+  {
+    "id": "gp-j82130",
+    "type": "gp",
+    "name": "Friarsgate Practice",
+    "address": "Stockbridge Road, Winchester",
+    "postcode": "SO22 6EL",
+    "lat": 51.074243,
+    "lng": -1.336785
+  },
+  {
+    "id": "gp-h82053",
+    "type": "gp",
+    "name": "Furnace Green Surgery",
+    "address": "50 The Glade, Crawley",
+    "postcode": "RH10 6JN",
+    "lat": 51.107078,
+    "lng": -0.172519
+  },
+  {
+    "id": "gp-j82015",
+    "type": "gp",
+    "name": "Giffard Drive Surgery",
+    "address": "68 Giffard Drive, Farnborough",
+    "postcode": "GU14 8QB",
+    "lat": 51.300583,
+    "lng": -0.77069
+  },
+  {
+    "id": "gp-j81081",
+    "type": "gp",
+    "name": "Gillingham Medical Practice",
+    "address": "Barn Surgery, Gillingham",
+    "postcode": "SP8 4XS",
+    "lat": 51.035956,
+    "lng": -2.270249
+  },
+  {
+    "id": "gp-h82070",
+    "type": "gp",
+    "name": "Glebe Surgery",
+    "address": "The Glebe, Pulborough",
+    "postcode": "RH20 4FR",
+    "lat": 50.918032,
+    "lng": -0.458843
+  },
+  {
+    "id": "gp-h81024",
+    "type": "gp",
+    "name": "Goldsworth Park Health Centre",
+    "address": "Health Centre, Woking",
+    "postcode": "GU21 3LQ",
+    "lat": 51.318824,
+    "lng": -0.5915
+  },
+  {
+    "id": "gp-k84071",
+    "type": "gp",
+    "name": "Goring & Woodcote Medical Practice",
+    "address": "The Health Centre, Reading",
+    "postcode": "RG8 0PR",
+    "lat": 51.534347,
+    "lng": -1.076989
+  },
+  {
+    "id": "gp-k84045",
+    "type": "gp",
+    "name": "Gosford Hill Medical Centre",
+    "address": "167 Oxford Road, Kidlington",
+    "postcode": "OX5 2NS",
+    "lat": 51.815507,
+    "lng": -1.280842
+  },
+  {
+    "id": "gp-h82033",
+    "type": "gp",
+    "name": "Gossops Green Medical Ctr",
+    "address": "Hurst Close, Crawley",
+    "postcode": "RH11 8TY",
+    "lat": 51.107243,
+    "lng": -0.216453
+  },
+  {
+    "id": "gp-j82106",
+    "type": "gp",
+    "name": "Gratton Surgery",
+    "address": "Sutton Scotney, Winchester",
+    "postcode": "SO21 3LE",
+    "lat": 51.154091,
+    "lng": -1.335996
+  },
+  {
+    "id": "gp-h81076",
+    "type": "gp",
+    "name": "Grayshott Surgery",
+    "address": "Boundary Road, Hindhead",
+    "postcode": "GU26 6TY",
+    "lat": 51.110088,
+    "lng": -0.745607
+  },
+  {
+    "id": "gp-k81094",
+    "type": "gp",
+    "name": "Great Hollands Practice",
+    "address": "Great Hollands Square, Bracknell",
+    "postcode": "RG12 8WY",
+    "lat": 51.398662,
+    "lng": -0.77071
+  },
+  {
+    "id": "gp-k81076",
+    "type": "gp",
+    "name": "Green Meadows Surgery",
+    "address": "Brook House, Ascot",
+    "postcode": "SL5 7GB",
+    "lat": 51.408936,
+    "lng": -0.688262
+  },
+  {
+    "id": "gp-h82043",
+    "type": "gp",
+    "name": "Grove House Surgery",
+    "address": "80 Pryors Lane, Bognor Regis",
+    "postcode": "PO21 4JB",
+    "lat": 50.781756,
+    "lng": -0.718183
+  },
+  {
+    "id": "gp-k81078",
+    "type": "gp",
+    "name": "Grovelands Medical Centre",
+    "address": "701 Oxford Road, Reading",
+    "postcode": "RG30 1HG",
+    "lat": 51.460245,
+    "lng": -1.009767
+  },
+  {
+    "id": "gp-j82033",
+    "type": "gp",
+    "name": "Gudgeheath Lane Surgery",
+    "address": "187 Gudge Heath Lane, Fareham",
+    "postcode": "PO15 6QA",
+    "lat": 50.859744,
+    "lng": -1.205563
+  },
+  {
+    "id": "gp-h81010",
+    "type": "gp",
+    "name": "Guildowns Group Practice",
+    "address": "The Oaks, Guildford",
+    "postcode": "GU2 8LZ",
+    "lat": 51.243426,
+    "lng": -0.612313
+  },
+  {
+    "id": "gp-j82051",
+    "type": "gp",
+    "name": "Hamble Valley Health",
+    "address": "Satchell Lane, Southampton",
+    "postcode": "SO31 4NQ",
+    "lat": 50.876037,
+    "lng": -1.327195
+  },
+  {
+    "id": "gp-j83003",
+    "type": "gp",
+    "name": "Harcourt Medical Centre",
+    "address": "Crane Bridge Road, Salisbury",
+    "postcode": "SP2 7TD",
+    "lat": 51.067483,
+    "lng": -1.800753
+  },
+  {
+    "id": "gp-j82110",
+    "type": "gp",
+    "name": "Hart Health Partnership",
+    "address": "Church Road, Fleet",
+    "postcode": "GU51 4PE",
+    "lat": 51.288192,
+    "lng": -0.848591
+  },
+  {
+    "id": "gp-h81062",
+    "type": "gp",
+    "name": "Haslemere Health Centre",
+    "address": "Church Lane, Haslemere",
+    "postcode": "GU27 2BQ",
+    "lat": 51.092102,
+    "lng": -0.707566
+  },
+  {
+    "id": "gp-h81055",
+    "type": "gp",
+    "name": "Hawthorns Surgery",
+    "address": "1 Oxford Road, Redhill",
+    "postcode": "RH1 1DT",
+    "lat": 51.241161,
+    "lng": -0.175148
+  },
+  {
+    "id": "gp-h81032",
+    "type": "gp",
+    "name": "Heathcot Medical Practice",
+    "address": "York House Medical Centre, Woking",
+    "postcode": "GU22 7XL",
+    "lat": 51.315469,
+    "lng": -0.555958
+  },
+  {
+    "id": "gp-k84009",
+    "type": "gp",
+    "name": "Hedena Health",
+    "address": "207 London Road, Oxford",
+    "postcode": "OX3 9JA",
+    "lat": 51.76203,
+    "lng": -1.204547
+  },
+  {
+    "id": "gp-h82060",
+    "type": "gp",
+    "name": "Henfield Medical Centre",
+    "address": "Deer Park, Henfield",
+    "postcode": "BN5 9JQ",
+    "lat": 50.936101,
+    "lng": -0.27557
+  },
+  {
+    "id": "gp-k81043",
+    "type": "gp",
+    "name": "Herschel Medical Centre",
+    "address": "45 Osborne Street, Slough",
+    "postcode": "SL1 1TT",
+    "lat": 51.50637,
+    "lng": -0.592441
+  },
+  {
+    "id": "gp-k84059",
+    "type": "gp",
+    "name": "Hightown Surgery",
+    "address": "Hightown Gardens, Banbury",
+    "postcode": "OX16 9DB",
+    "lat": 52.051239,
+    "lng": -1.336478
+  },
+  {
+    "id": "gp-j82207",
+    "type": "gp",
+    "name": "Hill Lane Surgery",
+    "address": "162 Hill Lane, Southampton",
+    "postcode": "SO15 5DD",
+    "lat": 50.915794,
+    "lng": -1.415702
+  },
+  {
+    "id": "gp-h81061",
+    "type": "gp",
+    "name": "Hillview Medical Centre",
+    "address": "3 Heathside Road, Woking",
+    "postcode": "GU22 7QP",
+    "lat": 51.315499,
+    "lng": -0.557708
+  },
+  {
+    "id": "gp-j83630",
+    "type": "gp",
+    "name": "Hindon Surgery",
+    "address": "High Street, Salisbury",
+    "postcode": "SP3 6DJ",
+    "lat": 51.095814,
+    "lng": -2.130793
+  },
+  {
+    "id": "gp-h82640",
+    "type": "gp",
+    "name": "Holbrook Surgery",
+    "address": "Bartholomew Way, Horsham",
+    "postcode": "RH12 5JL",
+    "lat": 51.083825,
+    "lng": -0.300323
+  },
+  {
+    "id": "gp-h81110",
+    "type": "gp",
+    "name": "Holly Tree Surgery",
+    "address": "42 Boundstone Road, Farnham",
+    "postcode": "GU10 4TG",
+    "lat": 51.188286,
+    "lng": -0.809912
+  },
+  {
+    "id": "gp-h81048",
+    "type": "gp",
+    "name": "Holmhurst Medical Centre",
+    "address": "12 Thornton Side, Redhill",
+    "postcode": "RH1 2NP",
+    "lat": 51.252346,
+    "lng": -0.153182
+  },
+  {
+    "id": "gp-j82217",
+    "type": "gp",
+    "name": "Homeless Healthcare Team",
+    "address": "30 Cranbury Avenue, Southampton",
+    "postcode": "SO14 0LT",
+    "lat": 50.91397,
+    "lng": -1.394871
+  },
+  {
+    "id": "gp-j82196",
+    "type": "gp",
+    "name": "Homewell Curlew Practice",
+    "address": "Havant Health Centre, Havant",
+    "postcode": "PO9 2AQ",
+    "lat": 50.851057,
+    "lng": -0.978004
+  },
+  {
+    "id": "gp-j82640",
+    "type": "gp",
+    "name": "Horndean Surgery",
+    "address": "7-9 London Road, Waterlooville",
+    "postcode": "PO8 0BN",
+    "lat": 50.914999,
+    "lng": -0.996932
+  },
+  {
+    "id": "gp-k81057",
+    "type": "gp",
+    "name": "Hungerford Surgery",
+    "address": "The Croft, Hungerford",
+    "postcode": "RG17 0HY",
+    "lat": 51.415577,
+    "lng": -1.517758
+  },
+  {
+    "id": "gp-h82050",
+    "type": "gp",
+    "name": "Ifield Medical Practice",
+    "address": "Lady Margaret Road, Crawley",
+    "postcode": "RH11 0BF",
+    "lat": 51.121212,
+    "lng": -0.211928
+  },
+  {
+    "id": "gp-j82085",
+    "type": "gp",
+    "name": "Island City Practice",
+    "address": "Nutfield Place, Portsmouth",
+    "postcode": "PO1 4JT",
+    "lat": 50.804814,
+    "lng": -1.078343
+  },
+  {
+    "id": "gp-k84003",
+    "type": "gp",
+    "name": "Islip Surgery",
+    "address": "The Surgery, Kidlington",
+    "postcode": "OX5 2TQ",
+    "lat": 51.824952,
+    "lng": -1.238583
+  },
+  {
+    "id": "gp-j82125",
+    "type": "gp",
+    "name": "Jenner House Surgery",
+    "address": "159 Cove Road, Farnborough",
+    "postcode": "GU14 0HQ",
+    "lat": 51.294302,
+    "lng": -0.774501
+  },
+  {
+    "id": "gp-k84078",
+    "type": "gp",
+    "name": "Jericho Health Centre",
+    "address": "Walton Street, Oxford",
+    "postcode": "OX2 6NW",
+    "lat": 51.760298,
+    "lng": -1.26594
+  },
+  {
+    "id": "gp-k84605",
+    "type": "gp",
+    "name": "Kes@Northgate",
+    "address": "Northgate Health Centre, Oxford",
+    "postcode": "OX1 3EF",
+    "lat": 51.752835,
+    "lng": -1.25734
+  },
+  {
+    "id": "gp-k81010",
+    "type": "gp",
+    "name": "Kings Corner Surgery",
+    "address": "Kings Road, Ascot",
+    "postcode": "SL5 0AE",
+    "lat": 51.39963,
+    "lng": -0.650289
+  },
+  {
+    "id": "gp-j82054",
+    "type": "gp",
+    "name": "Kintbury & Woolton Hill Surgery",
+    "address": "Kintbury Surgery, Hungerford",
+    "postcode": "RG17 9UX",
+    "lat": 51.398986,
+    "lng": -1.446174
+  },
+  {
+    "id": "gp-j82073",
+    "type": "gp",
+    "name": "Kirklands Surgery",
+    "address": "111 Copnor Road, Portsmouth",
+    "postcode": "PO3 5AF",
+    "lat": 50.812631,
+    "lng": -1.064988
+  },
+  {
+    "id": "gp-k81616",
+    "type": "gp",
+    "name": "Kumar Medical Centre",
+    "address": "59 Grasmere Avenue, Slough",
+    "postcode": "SL2 5JE",
+    "lat": 51.516824,
+    "lng": -0.583874
+  },
+  {
+    "id": "gp-k81052",
+    "type": "gp",
+    "name": "Lambourn Surgery",
+    "address": "Bockhampton Road, Hungerford",
+    "postcode": "RG17 8PS",
+    "lat": 51.504044,
+    "lng": -1.52583
+  },
+  {
+    "id": "gp-k81024",
+    "type": "gp",
+    "name": "Langley Health Centre",
+    "address": "Common Road, Slough",
+    "postcode": "SL3 8LE",
+    "lat": 51.495314,
+    "lng": -0.541266
+  },
+  {
+    "id": "gp-h82013",
+    "type": "gp",
+    "name": "Langley House Surgery",
+    "address": "27 West Street, Chichester",
+    "postcode": "PO19 1RW",
+    "lat": 50.837049,
+    "lng": -0.783261
+  },
+  {
+    "id": "gp-h82051",
+    "type": "gp",
+    "name": "Lavant Road Surgery",
+    "address": "8 Lavant Road, Chichester",
+    "postcode": "PO19 5RH",
+    "lat": 50.853376,
+    "lng": -0.781032
+  },
+  {
+    "id": "gp-h82012",
+    "type": "gp",
+    "name": "Leacroft Medical Practice",
+    "address": "Langley House, Crawley",
+    "postcode": "RH11 7TF",
+    "lat": 51.126561,
+    "lng": -0.196001
+  },
+  {
+    "id": "gp-k81046",
+    "type": "gp",
+    "name": "Lee House Surgery",
+    "address": "84 Osborne Road, Windsor",
+    "postcode": "SL4 3EW",
+    "lat": 51.475839,
+    "lng": -0.61478
+  },
+  {
+    "id": "gp-h81113",
+    "type": "gp",
+    "name": "Leith Hill Practice",
+    "address": "168 The Street, Dorking",
+    "postcode": "RH5 5EN",
+    "lat": 51.150448,
+    "lng": -0.322943
+  },
+  {
+    "id": "gp-h81130",
+    "type": "gp",
+    "name": "Lightwater Surgery",
+    "address": "All Saints Road, Lightwater",
+    "postcode": "GU18 5SQ",
+    "lat": 51.351902,
+    "lng": -0.663998
+  },
+  {
+    "id": "gp-h82034",
+    "type": "gp",
+    "name": "Lime Tree Surgery",
+    "address": "Lime Tree Avenue, Worthing",
+    "postcode": "BN14 0DL",
+    "lat": 50.848809,
+    "lng": -0.395834
+  },
+  {
+    "id": "gp-k81018",
+    "type": "gp",
+    "name": "Linden Medical Centre",
+    "address": "9A Linden Avenue, Maidenhead",
+    "postcode": "SL6 6JJ",
+    "lat": 51.530816,
+    "lng": -0.737396
+  },
+  {
+    "id": "gp-h82035",
+    "type": "gp",
+    "name": "Lindfield Medical Centre",
+    "address": "57 High Street, Haywards Heath",
+    "postcode": "RH16 2HX",
+    "lat": 51.01302,
+    "lng": -0.081714
+  },
+  {
+    "id": "gp-h81023",
+    "type": "gp",
+    "name": "Lingfield Surgery",
+    "address": "East Grinstead Road, Lingfield",
+    "postcode": "RH7 6ER",
+    "lat": 51.173386,
+    "lng": -0.01747
+  },
+  {
+    "id": "gp-j82622",
+    "type": "gp",
+    "name": "Living Well Partnership",
+    "address": "Weston Lane Ctr Hlthy Lvg, Southampton",
+    "postcode": "SO19 9GH",
+    "lat": 50.888213,
+    "lng": -1.370694
+  },
+  {
+    "id": "gp-j82174",
+    "type": "gp",
+    "name": "Lockswood Surgery",
+    "address": "Centre Way, Southampton",
+    "postcode": "SO31 6DX",
+    "lat": 50.863567,
+    "lng": -1.274969
+  },
+  {
+    "id": "gp-k81069",
+    "type": "gp",
+    "name": "Loddon Vale Practice",
+    "address": "Hurricane Way, Reading",
+    "postcode": "RG5 4UX",
+    "lat": 51.454615,
+    "lng": -0.888275
+  },
+  {
+    "id": "gp-k81007",
+    "type": "gp",
+    "name": "London Street Surgery",
+    "address": "72 London Street, Reading",
+    "postcode": "RG1 4SJ",
+    "lat": 51.451368,
+    "lng": -0.967864
+  },
+  {
+    "id": "gp-k81048",
+    "type": "gp",
+    "name": "Long Barn Lane Surgery",
+    "address": "22 Long Barn Lane, Reading",
+    "postcode": "RG2 7SZ",
+    "lat": 51.436183,
+    "lng": -0.967013
+  },
+  {
+    "id": "gp-k84079",
+    "type": "gp",
+    "name": "Long Furlong Medical Centre",
+    "address": "45 Loyd Close, Abingdon",
+    "postcode": "OX14 1XR",
+    "lat": 51.688163,
+    "lng": -1.275136
+  },
+  {
+    "id": "gp-j82002",
+    "type": "gp",
+    "name": "Lordshill Health Centre",
+    "address": "Lordshill District Centre, Southampton",
+    "postcode": "SO16 8HY",
+    "lat": 50.940926,
+    "lng": -1.448635
+  },
+  {
+    "id": "gp-h82031",
+    "type": "gp",
+    "name": "Loxwood Surgery",
+    "address": "Loxwood Medical Practice, Billingshurst",
+    "postcode": "RH14 0SU",
+    "lat": 51.072639,
+    "lng": -0.515719
+  },
+  {
+    "id": "gp-k84066",
+    "type": "gp",
+    "name": "Luther Street Medical Practice",
+    "address": "Luther Street, Oxford",
+    "postcode": "OX1 1UL",
+    "lat": 51.747533,
+    "lng": -1.257774
+  },
+  {
+    "id": "gp-j82146",
+    "type": "gp",
+    "name": "Lyndhurst Surgery",
+    "address": "2 Church Lane, Lyndhurst",
+    "postcode": "SO43 7EW",
+    "lat": 50.872264,
+    "lng": -1.5766
+  },
+  {
+    "id": "gp-k81028",
+    "type": "gp",
+    "name": "Magnolia House Surgery",
+    "address": "Magnolia House, Ascot",
+    "postcode": "SL5 0QJ",
+    "lat": 51.400009,
+    "lng": -0.634105
+  },
+  {
+    "id": "gp-k84027",
+    "type": "gp",
+    "name": "Malthouse Surgery",
+    "address": "The Charter, Abingdon",
+    "postcode": "OX14 3JY",
+    "lat": 51.672062,
+    "lng": -1.282956
+  },
+  {
+    "id": "gp-k81086",
+    "type": "gp",
+    "name": "Manor Park Medical Centre",
+    "address": "2 Lerwick Drive, Slough",
+    "postcode": "SL1 3XU",
+    "lat": 51.524537,
+    "lng": -0.600097
+  },
+  {
+    "id": "gp-k84044",
+    "type": "gp",
+    "name": "Manor Surgery",
+    "address": "Osler Road, Oxford",
+    "postcode": "OX3 9BP",
+    "lat": 51.76148,
+    "lng": -1.215018
+  },
+  {
+    "id": "gp-k84041",
+    "type": "gp",
+    "name": "Marcham Rd Family Health Centre",
+    "address": "Marcham Road, Abingdon",
+    "postcode": "OX14 1BT",
+    "lat": 51.669583,
+    "lng": -1.302937
+  },
+  {
+    "id": "gp-k82023",
+    "type": "gp",
+    "name": "Marlow Medical Group",
+    "address": "Victoria Road, Marlow",
+    "postcode": "SL7 1DN",
+    "lat": 51.573829,
+    "lng": -0.770001
+  },
+  {
+    "id": "gp-h81643",
+    "type": "gp",
+    "name": "Maybury Surgery",
+    "address": "Alpha Road, Woking",
+    "postcode": "GU22 8HF",
+    "lat": 51.325599,
+    "lng": -0.53899
+  },
+  {
+    "id": "gp-j82181",
+    "type": "gp",
+    "name": "Mayfield Medical Centre",
+    "address": "Croyde Close, Farnborough",
+    "postcode": "GU14 8UE",
+    "lat": 51.305521,
+    "lng": -0.766542
+  },
+  {
+    "id": "gp-h82058",
+    "type": "gp",
+    "name": "Maywood Health Care Centre",
+    "address": "225 Hawthorn Road, Bognor Regis",
+    "postcode": "PO21 2UW",
+    "lat": 50.786723,
+    "lng": -0.693347
+  },
+  {
+    "id": "gp-h82003",
+    "type": "gp",
+    "name": "Meadows Surgery",
+    "address": "Temple Grove, Burgess Hill",
+    "postcode": "RH15 9XN",
+    "lat": 50.962132,
+    "lng": -0.151738
+  },
+  {
+    "id": "gp-h81072",
+    "type": "gp",
+    "name": "Medwyn Surgery",
+    "address": "Reigate Road, Dorking",
+    "postcode": "RH4 1SD",
+    "lat": 51.234786,
+    "lng": -0.324379
+  },
+  {
+    "id": "gp-k81651",
+    "type": "gp",
+    "name": "Melrose Surgery",
+    "address": "73 London Road, Reading",
+    "postcode": "RG1 5BS",
+    "lat": 51.451693,
+    "lng": -0.959841
+  },
+  {
+    "id": "gp-j82154",
+    "type": "gp",
+    "name": "Meon Health Practice",
+    "address": "102 Highlands Road, Fareham",
+    "postcode": "PO15 6JF",
+    "lat": 50.860184,
+    "lng": -1.209463
+  },
+  {
+    "id": "gp-h81035",
+    "type": "gp",
+    "name": "Merrow Park Surgery",
+    "address": "Kingfisher Drive, Guildford",
+    "postcode": "GU4 7EP",
+    "lat": 51.251386,
+    "lng": -0.530595
+  },
+  {
+    "id": "gp-h82057",
+    "type": "gp",
+    "name": "Mid Sussex Health Care",
+    "address": "The Health Centre, Hassocks",
+    "postcode": "BN6 9UQ",
+    "lat": 50.933714,
+    "lng": -0.175252
+  },
+  {
+    "id": "gp-k84036",
+    "type": "gp",
+    "name": "Mill Stream Surgery",
+    "address": "Mill Stream, Wallingford",
+    "postcode": "OX10 6RL",
+    "lat": 51.620587,
+    "lng": -1.106139
+  },
+  {
+    "id": "gp-k81040",
+    "type": "gp",
+    "name": "Milman & Kennet Surgery",
+    "address": "Milman Road Health Centre, Reading",
+    "postcode": "RG2 0AR",
+    "lat": 51.443733,
+    "lng": -0.967735
+  },
+  {
+    "id": "gp-k82631",
+    "type": "gp",
+    "name": "Milton Keynes Village Surg",
+    "address": "Griffith Gate, Milton Keynes",
+    "postcode": "MK10 9BQ",
+    "lat": 52.043891,
+    "lng": -0.697865
+  },
+  {
+    "id": "gp-h82063",
+    "type": "gp",
+    "name": "Moatfield Surgery",
+    "address": "St. Michaels Road, East Grinstead",
+    "postcode": "RH19 3GW",
+    "lat": 51.131681,
+    "lng": -0.013039
+  },
+  {
+    "id": "gp-h81638",
+    "type": "gp",
+    "name": "Modality East Surrey Medical Practice",
+    "address": "Wheelers Lane, Horley",
+    "postcode": "RH6 9PT",
+    "lat": 51.171719,
+    "lng": -0.118537
+  },
+  {
+    "id": "gp-h82040",
+    "type": "gp",
+    "name": "Modality Mid Sussex",
+    "address": "Crawley Down Health Centre, Crawley",
+    "postcode": "RH10 4HY",
+    "lat": 51.122553,
+    "lng": -0.077593
+  },
+  {
+    "id": "gp-k84038",
+    "type": "gp",
+    "name": "Montgomery House Surgery",
+    "address": "Piggy Lane, Bicester",
+    "postcode": "OX26 6HT",
+    "lat": 51.896198,
+    "lng": -1.158059
+  },
+  {
+    "id": "gp-k84014",
+    "type": "gp",
+    "name": "Morland House Surgery",
+    "address": "Morland Close, Oxford",
+    "postcode": "OX33 1DP",
+    "lat": 51.748686,
+    "lng": -1.138162
+  },
+  {
+    "id": "gp-k81027",
+    "type": "gp",
+    "name": "Mortimer Surgery",
+    "address": "72 Victoria Road, Reading",
+    "postcode": "RG7 3SQ",
+    "lat": 51.377596,
+    "lng": -1.068522
+  },
+  {
+    "id": "gp-k84015",
+    "type": "gp",
+    "name": "Nettlebed Surgery",
+    "address": "Wanbourne Lane, Henley-On-Thames",
+    "postcode": "RG9 5AJ",
+    "lat": 51.576286,
+    "lng": -0.991865
+  },
+  {
+    "id": "gp-j82129",
+    "type": "gp",
+    "name": "New Forest Medical Group",
+    "address": "Surgeries At Sway & Brockenhurst, Brockenhurst",
+    "postcode": "SO42 7RY",
+    "lat": 50.81471,
+    "lng": -1.576665
+  },
+  {
+    "id": "gp-j82112",
+    "type": "gp",
+    "name": "New Horizons Medical Partnership",
+    "address": "1 Hazel Farm Road, Southampton",
+    "postcode": "SO40 8WU",
+    "lat": 50.916821,
+    "lng": -1.514058
+  },
+  {
+    "id": "gp-h82091",
+    "type": "gp",
+    "name": "New Pond Row Surgery",
+    "address": "35 South Street, Lancing",
+    "postcode": "BN15 8AN",
+    "lat": 50.824904,
+    "lng": -0.322266
+  },
+  {
+    "id": "gp-k81080",
+    "type": "gp",
+    "name": "New Wokingham Road Surgery",
+    "address": "The Surgery, Crowthorne",
+    "postcode": "RG45 6JL",
+    "lat": 51.370335,
+    "lng": -0.802715
+  },
+  {
+    "id": "gp-k84019",
+    "type": "gp",
+    "name": "Newbury Street Practice",
+    "address": "The Health Centre, Wantage",
+    "postcode": "OX12 9BN",
+    "lat": 51.598764,
+    "lng": -1.425831
+  },
+  {
+    "id": "gp-j84011",
+    "type": "gp",
+    "name": "Newport Health Centre",
+    "address": "22 Carisbrooke High Street, Newport",
+    "postcode": "PO30 1NR",
+    "lat": 50.691597,
+    "lng": -1.312083
+  },
+  {
+    "id": "gp-k82016",
+    "type": "gp",
+    "name": "Newport Pagnell Med.Ctr.",
+    "address": "Queens Avenue, Newport Pagnell",
+    "postcode": "MK16 8QT",
+    "lat": 52.086476,
+    "lng": -0.725277
+  },
+  {
+    "id": "gp-h82056",
+    "type": "gp",
+    "name": "Newtons Practice",
+    "address": "The Health Cntre, Haywards Heath",
+    "postcode": "RH16 3BB",
+    "lat": 51.000674,
+    "lng": -0.103872
+  },
+  {
+    "id": "gp-g84039",
+    "type": "gp",
+    "name": "Norheads Lane Surgery",
+    "address": "14A Norheads Lane, Westerham",
+    "postcode": "TN16 3XS",
+    "lat": 51.314542,
+    "lng": 0.026767
+  },
+  {
+    "id": "gp-j82121",
+    "type": "gp",
+    "name": "North Baddesley Surgery",
+    "address": "Norton Welch Close, Southampton",
+    "postcode": "SO52 9EP",
+    "lat": 50.975238,
+    "lng": -1.436477
+  },
+  {
+    "id": "gp-j82630",
+    "type": "gp",
+    "name": "North Camp Surgery",
+    "address": "2 Queens Road, Farnborough",
+    "postcode": "GU14 6DH",
+    "lat": 51.276884,
+    "lng": -0.749058
+  },
+  {
+    "id": "gp-k84080",
+    "type": "gp",
+    "name": "Northgate Health Centre",
+    "address": "15 Market Street, Oxford",
+    "postcode": "OX1 3EF",
+    "lat": 51.752835,
+    "lng": -1.25734
+  },
+  {
+    "id": "gp-h82100",
+    "type": "gp",
+    "name": "Northlands Wood Surgery",
+    "address": "7 Walnut Park, Haywards Heath",
+    "postcode": "RH16 3TG",
+    "lat": 50.996527,
+    "lng": -0.081183
+  },
+  {
+    "id": "gp-k84072",
+    "type": "gp",
+    "name": "Nuffield Health Centre",
+    "address": "Welch Way, Witney",
+    "postcode": "OX28 6JQ",
+    "lat": 51.786446,
+    "lng": -1.486778
+  },
+  {
+    "id": "gp-k84624",
+    "type": "gp",
+    "name": "Oak Tree Health Centre",
+    "address": "Tyne Avenue, Didcot",
+    "postcode": "OX11 7GD",
+    "lat": 51.614989,
+    "lng": -1.240945
+  },
+  {
+    "id": "gp-k82032",
+    "type": "gp",
+    "name": "Oakridge Park Medical Centre",
+    "address": "30 Texel Close, Milton Keynes",
+    "postcode": "MK14 6GL",
+    "lat": 52.068655,
+    "lng": -0.777853
+  },
+  {
+    "id": "gp-j82163",
+    "type": "gp",
+    "name": "Oaks Healthcare",
+    "address": "26-30 London Road, Waterlooville",
+    "postcode": "PO8 8DL",
+    "lat": 50.893875,
+    "lng": -1.018159
+  },
+  {
+    "id": "gp-k84026",
+    "type": "gp",
+    "name": "Observatory Medical Practice",
+    "address": "Jericho Health Centre, Oxford",
+    "postcode": "OX2 6NW",
+    "lat": 51.760298,
+    "lng": -1.26594
+  },
+  {
+    "id": "gp-j82061",
+    "type": "gp",
+    "name": "Odiham Health Centre",
+    "address": "Deer Park View, Hook",
+    "postcode": "RG29 1JY",
+    "lat": 51.254543,
+    "lng": -0.941013
+  },
+  {
+    "id": "gp-j82128",
+    "type": "gp",
+    "name": "Old Fire Station Surgery",
+    "address": "68A Portsmouth Road, Southampton",
+    "postcode": "SO19 9AN",
+    "lat": 50.896299,
+    "lng": -1.369476
+  },
+  {
+    "id": "gp-h82036",
+    "type": "gp",
+    "name": "Orchard Surgery",
+    "address": "Lower Tanbridge Way, Horsham",
+    "postcode": "RH12 1PJ",
+    "lat": 51.062187,
+    "lng": -0.332727
+  },
+  {
+    "id": "gp-h82615",
+    "type": "gp",
+    "name": "Ouse Valley Practice",
+    "address": "London Road, Haywards Heath",
+    "postcode": "RH17 6HB",
+    "lat": 51.060237,
+    "lng": -0.201706
+  },
+  {
+    "id": "gp-h81056",
+    "type": "gp",
+    "name": "Oxted Health Centre",
+    "address": "Doctors Surgery, Oxted",
+    "postcode": "RH8 0BQ",
+    "lat": 51.257686,
+    "lng": 9.9e-05
+  },
+  {
+    "id": "gp-h81039",
+    "type": "gp",
+    "name": "Park House Surgery",
+    "address": "6 Park Street, Bagshot",
+    "postcode": "GU19 5AQ",
+    "lat": 51.36168,
+    "lng": -0.693777
+  },
+  {
+    "id": "gp-h81069",
+    "type": "gp",
+    "name": "Park Road Group Practice",
+    "address": "Park Road Surgery, Camberley",
+    "postcode": "GU15 2NN",
+    "lat": 51.333905,
+    "lng": -0.744952
+  },
+  {
+    "id": "gp-h82017",
+    "type": "gp",
+    "name": "Park Surgery",
+    "address": "Albion Way, Horsham",
+    "postcode": "RH12 1BG",
+    "lat": 51.06435,
+    "lng": -0.327354
+  },
+  {
+    "id": "gp-h82039",
+    "type": "gp",
+    "name": "Park Surgery",
+    "address": "St. Floras Road, Littlehampton",
+    "postcode": "BN17 6BF",
+    "lat": 50.808749,
+    "lng": -0.53165
+  },
+  {
+    "id": "gp-j82143",
+    "type": "gp",
+    "name": "Park Surgery",
+    "address": "Hursley Road, Eastleigh",
+    "postcode": "SO53 2ZH",
+    "lat": 50.985222,
+    "lng": -1.385382
+  },
+  {
+    "id": "gp-h82049",
+    "type": "gp",
+    "name": "Parklands Surgery",
+    "address": "4 Parklands Road, Chichester",
+    "postcode": "PO19 3DT",
+    "lat": 50.838928,
+    "lng": -0.787502
+  },
+  {
+    "id": "gp-k82015",
+    "type": "gp",
+    "name": "Parkside Medical Centre",
+    "address": "Whalley Drive, Milton Keynes",
+    "postcode": "MK3 6EN",
+    "lat": 51.997423,
+    "lng": -0.747617
+  },
+  {
+    "id": "gp-k81045",
+    "type": "gp",
+    "name": "Parkside Practice",
+    "address": "224 Wokingham Road, Reading",
+    "postcode": "RG6 1JS",
+    "lat": 51.445392,
+    "lng": -0.934013
+  },
+  {
+    "id": "gp-k81100",
+    "type": "gp",
+    "name": "Pembroke Surgery",
+    "address": "31 Alexandra Road, Reading",
+    "postcode": "RG1 5PG",
+    "lat": 51.448735,
+    "lng": -0.951764
+  },
+  {
+    "id": "gp-j82184",
+    "type": "gp",
+    "name": "Pinehill Surgery",
+    "address": "Pinehill Road, Bordon",
+    "postcode": "GU35 0BS",
+    "lat": 51.108236,
+    "lng": -0.858865
+  },
+  {
+    "id": "gp-h81129",
+    "type": "gp",
+    "name": "Pirbright Surgery",
+    "address": "The Green, Woking",
+    "postcode": "GU24 0JE",
+    "lat": 51.295201,
+    "lng": -0.645666
+  },
+  {
+    "id": "gp-h81005",
+    "type": "gp",
+    "name": "Pond Tail Surgery",
+    "address": "Pondtail, Godstone",
+    "postcode": "RH9 8DY",
+    "lat": 51.246434,
+    "lng": -0.066702
+  },
+  {
+    "id": "gp-j82012",
+    "type": "gp",
+    "name": "Portchester Practice",
+    "address": "Portchester Health Centre, Fareham",
+    "postcode": "PO16 9TU",
+    "lat": 50.846456,
+    "lng": -1.126868
+  },
+  {
+    "id": "gp-j82155",
+    "type": "gp",
+    "name": "Portsdown Group Practice",
+    "address": "Kingston Crescent Surgery, Portsmouth",
+    "postcode": "PO2 8AL",
+    "lat": 50.812865,
+    "lng": -1.080938
+  },
+  {
+    "id": "gp-h82052",
+    "type": "gp",
+    "name": "Pound Hill Medical Group",
+    "address": "1 Crawley Lane, Crawley",
+    "postcode": "RH10 7DX",
+    "lat": 51.118813,
+    "lng": -0.156409
+  },
+  {
+    "id": "gp-j82178",
+    "type": "gp",
+    "name": "Princes Gardens Surgery",
+    "address": "2A High Street, Aldershot",
+    "postcode": "GU11 1BJ",
+    "lat": 51.250405,
+    "lng": -0.76644
+  },
+  {
+    "id": "gp-h82030",
+    "type": "gp",
+    "name": "Pulborough Medical Group",
+    "address": "Spiro Close, Pulborough",
+    "postcode": "RH20 1FG",
+    "lat": 50.961132,
+    "lng": -0.50908
+  },
+  {
+    "id": "gp-k82027",
+    "type": "gp",
+    "name": "Purbeck Health Centre",
+    "address": "Purbeck, Milton Keynes",
+    "postcode": "MK14 6BL",
+    "lat": 52.061376,
+    "lng": -0.773894
+  },
+  {
+    "id": "gp-j82126",
+    "type": "gp",
+    "name": "Raymond Road Surgery",
+    "address": "34 Raymond Road, Southampton",
+    "postcode": "SO15 5AL",
+    "lat": 50.919402,
+    "lng": -1.419739
+  },
+  {
+    "id": "gp-j82056",
+    "type": "gp",
+    "name": "Red And Green Practice",
+    "address": "Waterside Health Centre, Southampton",
+    "postcode": "SO45 5WX",
+    "lat": 50.858563,
+    "lng": -1.404652
+  },
+  {
+    "id": "gp-k81097",
+    "type": "gp",
+    "name": "Redwood House Surgery",
+    "address": "Redwood House, Maidenhead",
+    "postcode": "SL6 3PH",
+    "lat": 51.511592,
+    "lng": -0.761994
+  },
+  {
+    "id": "gp-j82099",
+    "type": "gp",
+    "name": "Richmond Surgery",
+    "address": "Richmond Close, Fleet",
+    "postcode": "GU52 7US",
+    "lat": 51.269324,
+    "lng": -0.841077
+  },
+  {
+    "id": "gp-k81030",
+    "type": "gp",
+    "name": "Ringmead Medical Group",
+    "address": "Leppington, Bracknell",
+    "postcode": "RG12 7WW",
+    "lat": 51.390839,
+    "lng": -0.75199
+  },
+  {
+    "id": "gp-h82032",
+    "type": "gp",
+    "name": "Riverbank Medical Centre",
+    "address": "Dodsley Lane, Midhurst",
+    "postcode": "GU29 9AW",
+    "lat": 50.993474,
+    "lng": -0.735088
+  },
+  {
+    "id": "gp-h82089",
+    "type": "gp",
+    "name": "Riverside Medical Practice",
+    "address": "48 Worthing Road, Horsham",
+    "postcode": "RH12 1UD",
+    "lat": 51.061028,
+    "lng": -0.335937
+  },
+  {
+    "id": "gp-k81084",
+    "type": "gp",
+    "name": "Rosemead Surgery",
+    "address": "8A Ray Park Avenue, Maidenhead",
+    "postcode": "SL6 8DS",
+    "lat": 51.525529,
+    "lng": -0.70446
+  },
+  {
+    "id": "gp-k81019",
+    "type": "gp",
+    "name": "Ross Road Medical Centre",
+    "address": "85 Ross Road, Maidenhead",
+    "postcode": "SL6 2SR",
+    "lat": 51.510616,
+    "lng": -0.732811
+  },
+  {
+    "id": "gp-j82005",
+    "type": "gp",
+    "name": "Rowlands Castle Surgery",
+    "address": "12 The Green, Rowland'S Castle",
+    "postcode": "PO9 6BN",
+    "lat": 50.89132,
+    "lng": -0.958796
+  },
+  {
+    "id": "gp-j82669",
+    "type": "gp",
+    "name": "Rowner Health Centre",
+    "address": "143 Rowner Lane, Gosport",
+    "postcode": "PO13 9SP",
+    "lat": 50.812827,
+    "lng": -1.174352
+  },
+  {
+    "id": "gp-h82027",
+    "type": "gp",
+    "name": "Rudgwick Medical Centre",
+    "address": "Station Road, Horsham",
+    "postcode": "RH12 3HB",
+    "lat": 51.090068,
+    "lng": -0.450618
+  },
+  {
+    "id": "gp-j83021",
+    "type": "gp",
+    "name": "Salisbury Medical Practice",
+    "address": "Fisherton House, Salisbury",
+    "postcode": "SP2 7FD",
+    "lat": 51.072451,
+    "lng": -1.809038
+  },
+  {
+    "id": "gp-j83052",
+    "type": "gp",
+    "name": "Sarum Health Group",
+    "address": "Millstream Medical Centre, Salisbury",
+    "postcode": "SP1 3SL",
+    "lat": 51.071731,
+    "lng": -1.797509
+  },
+  {
+    "id": "gp-h82026",
+    "type": "gp",
+    "name": "Saxonbrook Medical Centre",
+    "address": "Maidenbower Square, Crawley",
+    "postcode": "RH10 7QH",
+    "lat": 51.10739,
+    "lng": -0.153421
+  },
+  {
+    "id": "gp-h82061",
+    "type": "gp",
+    "name": "Selden Medical Centre",
+    "address": "6 Selden Road, Worthing",
+    "postcode": "BN11 2LL",
+    "lat": 50.813504,
+    "lng": -0.359242
+  },
+  {
+    "id": "gp-h82037",
+    "type": "gp",
+    "name": "Selsey Medical Practice",
+    "address": "Selsey Medical Centre, Chichester",
+    "postcode": "PO20 0QG",
+    "lat": 50.733258,
+    "lng": -0.791761
+  },
+  {
+    "id": "gp-h81123",
+    "type": "gp",
+    "name": "Sheerwater Health Centre",
+    "address": "Devonshire Avenue, Woking",
+    "postcode": "GU21 5QJ",
+    "lat": 51.334156,
+    "lng": -0.530723
+  },
+  {
+    "id": "gp-k81068",
+    "type": "gp",
+    "name": "Sheet Street Surgery",
+    "address": "21 Sheet Street, Windsor",
+    "postcode": "SL4 1BZ",
+    "lat": 51.479649,
+    "lng": -0.605491
+  },
+  {
+    "id": "gp-j82082",
+    "type": "gp",
+    "name": "Shepherds Spring Medical Centre",
+    "address": "The Oval, Andover",
+    "postcode": "SP10 5DE",
+    "lat": 51.221251,
+    "lng": -1.469561
+  },
+  {
+    "id": "gp-h81077",
+    "type": "gp",
+    "name": "Sheresurgeryanddispensary",
+    "address": "Shere Surgery & Dispensary, Guildford",
+    "postcode": "GU5 9DR",
+    "lat": 51.220175,
+    "lng": -0.460089
+  },
+  {
+    "id": "gp-k81085",
+    "type": "gp",
+    "name": "Shreeji Medical Centre",
+    "address": "22 Whitby Road, Slough",
+    "postcode": "SL1 3DQ",
+    "lat": 51.518365,
+    "lng": -0.606672
+  },
+  {
+    "id": "gp-k84065",
+    "type": "gp",
+    "name": "Sibford Surgery",
+    "address": "Burdrop, Banbury",
+    "postcode": "OX15 5RQ",
+    "lat": 52.037625,
+    "lng": -1.47923
+  },
+  {
+    "id": "gp-j83629",
+    "type": "gp",
+    "name": "Silton Surgery",
+    "address": "The Surgery, Gillingham",
+    "postcode": "SP8 5DF",
+    "lat": 51.074742,
+    "lng": -2.315695
+  },
+  {
+    "id": "gp-h82072",
+    "type": "gp",
+    "name": "Silverdale Practice",
+    "address": "4 Silverdale Road, Burgess Hill",
+    "postcode": "RH15 0EF",
+    "lat": 50.952838,
+    "lng": -0.121681
+  },
+  {
+    "id": "gp-j82024",
+    "type": "gp",
+    "name": "Solent Gp Surgery",
+    "address": "Adelaide Health Centre, Southampton",
+    "postcode": "SO16 4XE",
+    "lat": 50.924655,
+    "lng": -1.447788
+  },
+  {
+    "id": "gp-j84017",
+    "type": "gp",
+    "name": "Solent Nhs Trust T/A Medina Healthcare",
+    "address": "Brannon Way, Ryde",
+    "postcode": "PO33 4NW",
+    "lat": 50.724203,
+    "lng": -1.231065
+  },
+  {
+    "id": "gp-j82215",
+    "type": "gp",
+    "name": "Solent View Medical Practice",
+    "address": "Lee-On-Solent Health Ctr, Lee-On-The-Solent",
+    "postcode": "PO13 9JG",
+    "lat": 50.802721,
+    "lng": -1.201834
+  },
+  {
+    "id": "gp-k84020",
+    "type": "gp",
+    "name": "Sonning Common Health Ctr",
+    "address": "Wood Lane, Reading",
+    "postcode": "RG4 9SW",
+    "lat": 51.515606,
+    "lng": -0.982094
+  },
+  {
+    "id": "gp-k81630",
+    "type": "gp",
+    "name": "South Meadow Surgery",
+    "address": "3 Church Close, Windsor",
+    "postcode": "SL4 6AP",
+    "lat": 51.488789,
+    "lng": -0.610383
+  },
+  {
+    "id": "gp-k81633",
+    "type": "gp",
+    "name": "South Reading & Shinfield Group Med Prac",
+    "address": "Shinfield Medical Pract, Reading",
+    "postcode": "RG2 9EH",
+    "lat": 51.404886,
+    "lng": -0.946339
+  },
+  {
+    "id": "gp-j84016",
+    "type": "gp",
+    "name": "South Wight Medical Practice",
+    "address": "Brighstone Surgery, Newport",
+    "postcode": "PO30 4BB",
+    "lat": 50.641532,
+    "lng": -1.396211
+  },
+  {
+    "id": "gp-j82081",
+    "type": "gp",
+    "name": "Southampton Sea City Partnership",
+    "address": "St Mary'S Surgery, Southampton",
+    "postcode": "SO14 1LT",
+    "lat": 50.905737,
+    "lng": -1.397466
+  },
+  {
+    "id": "gp-h82078",
+    "type": "gp",
+    "name": "Southbourne Surgery",
+    "address": "337 Main Road, Emsworth",
+    "postcode": "PO10 8JH",
+    "lat": 50.84491,
+    "lng": -0.903198
+  },
+  {
+    "id": "gp-h82064",
+    "type": "gp",
+    "name": "Southgate Medical Group",
+    "address": "137 Brighton Road, Crawley",
+    "postcode": "RH10 6TE",
+    "lat": 51.102312,
+    "lng": -0.194532
+  },
+  {
+    "id": "gp-k82045",
+    "type": "gp",
+    "name": "Southmead Surgery",
+    "address": "Blackpond Lane, Slough",
+    "postcode": "SL2 3ER",
+    "lat": 51.55254,
+    "lng": -0.616935
+  },
+  {
+    "id": "gp-h81041",
+    "type": "gp",
+    "name": "Southview Medical Practice",
+    "address": "Southview Surgery, Woking",
+    "postcode": "GU22 7RR",
+    "lat": 51.313646,
+    "lng": -0.559803
+  },
+  {
+    "id": "gp-k82025",
+    "type": "gp",
+    "name": "Sovereign Medical Centre",
+    "address": "Sovereign Drive, Milton Keynes",
+    "postcode": "MK15 8AJ",
+    "lat": 52.060796,
+    "lng": -0.745218
+  },
+  {
+    "id": "gp-h81044",
+    "type": "gp",
+    "name": "Springfield Surgery",
+    "address": "Springfield, Godalming",
+    "postcode": "GU8 6EG",
+    "lat": 51.183825,
+    "lng": -0.700912
+  },
+  {
+    "id": "gp-k84013",
+    "type": "gp",
+    "name": "St Bartholomews & Hollow Way Med Centre",
+    "address": "Manzil Way, Oxford",
+    "postcode": "OX4 1XB",
+    "lat": 51.747674,
+    "lng": -1.232089
+  },
+  {
+    "id": "gp-j82035",
+    "type": "gp",
+    "name": "St Clements Partnership",
+    "address": "28 Upper Brook Street, Winchester",
+    "postcode": "SO23 8DG",
+    "lat": 51.064463,
+    "lng": -1.312493
+  },
+  {
+    "id": "gp-h81025",
+    "type": "gp",
+    "name": "St John'S Family Practice",
+    "address": "Hermitage Road, Woking",
+    "postcode": "GU21 8TD",
+    "lat": 51.311958,
+    "lng": -0.597866
+  },
+  {
+    "id": "gp-j82103",
+    "type": "gp",
+    "name": "St Mary'S Surgery",
+    "address": "Church Close, Andover",
+    "postcode": "SP10 1DP",
+    "lat": 51.210273,
+    "lng": -1.477861
+  },
+  {
+    "id": "gp-j83048",
+    "type": "gp",
+    "name": "St Melor House Surgery",
+    "address": "Edwards Road, Salisbury",
+    "postcode": "SP4 7LT",
+    "lat": 51.171219,
+    "lng": -1.777291
+  },
+  {
+    "id": "gp-j82050",
+    "type": "gp",
+    "name": "St Paul'S Surgery",
+    "address": "Alison Way, Winchester",
+    "postcode": "SO22 5DD",
+    "lat": 51.065963,
+    "lng": -1.32139
+  },
+  {
+    "id": "gp-j82071",
+    "type": "gp",
+    "name": "St. Andrew'S Surgery",
+    "address": "166 Market Street, Eastleigh",
+    "postcode": "SO50 5PT",
+    "lat": 50.965081,
+    "lng": -1.35241
+  },
+  {
+    "id": "gp-k84060",
+    "type": "gp",
+    "name": "St. Clement'S Surgery",
+    "address": "39 Temple Street, Oxford",
+    "postcode": "OX4 1JS",
+    "lat": 51.748273,
+    "lng": -1.241321
+  },
+  {
+    "id": "gp-j84007",
+    "type": "gp",
+    "name": "St. Helens Medical Centre",
+    "address": "Upper Green Road, Ryde",
+    "postcode": "PO33 1UG",
+    "lat": 50.69874,
+    "lng": -1.109198
+  },
+  {
+    "id": "gp-h82009",
+    "type": "gp",
+    "name": "St. Lawrence Surgery",
+    "address": "79 St. Lawrence Avenue, Worthing",
+    "postcode": "BN14 7JL",
+    "lat": 50.823979,
+    "lng": -0.390026
+  },
+  {
+    "id": "gp-h81085",
+    "type": "gp",
+    "name": "St. Luke'S Surgery",
+    "address": "Warren Road, Guildford",
+    "postcode": "GU1 3JH",
+    "lat": 51.235819,
+    "lng": -0.557276
+  },
+  {
+    "id": "gp-j82208",
+    "type": "gp",
+    "name": "St. Peters Surgery",
+    "address": "49-55 Portsmouth Road, Southampton",
+    "postcode": "SO19 9RL",
+    "lat": 50.897819,
+    "lng": -1.372783
+  },
+  {
+    "id": "gp-h81040",
+    "type": "gp",
+    "name": "Station Road Surgery",
+    "address": "4 Station Road, Camberley",
+    "postcode": "GU16 7HG",
+    "lat": 51.313252,
+    "lng": -0.74596
+  },
+  {
+    "id": "gp-h82022",
+    "type": "gp",
+    "name": "Steyning Health Centre",
+    "address": "Tanyard Lane, Steyning",
+    "postcode": "BN44 3RJ",
+    "lat": 50.890666,
+    "lng": -0.329972
+  },
+  {
+    "id": "gp-j82016",
+    "type": "gp",
+    "name": "Stockbridge Surgery",
+    "address": "New Street, Stockbridge",
+    "postcode": "SO20 6HG",
+    "lat": 51.113283,
+    "lng": -1.49007
+  },
+  {
+    "id": "gp-j82018",
+    "type": "gp",
+    "name": "Stokewood Surgery",
+    "address": "Fair Oak Road, Eastleigh",
+    "postcode": "SO50 8AU",
+    "lat": 50.964876,
+    "lng": -1.310304
+  },
+  {
+    "id": "gp-j82087",
+    "type": "gp",
+    "name": "Stoneham Lane Surgery",
+    "address": "City Gateway, Southampton",
+    "postcode": "SO16 2JA",
+    "lat": 50.939296,
+    "lng": -1.378459
+  },
+  {
+    "id": "gp-h82011",
+    "type": "gp",
+    "name": "Strand Medical Group",
+    "address": "1B The Causeway, Worthing",
+    "postcode": "BN12 6FA",
+    "lat": 50.818455,
+    "lng": -0.410915
+  },
+  {
+    "id": "gp-k81063",
+    "type": "gp",
+    "name": "Strawberry Hill Medical Centre",
+    "address": "Strawberry Hill Med.Ctr, Newbury",
+    "postcode": "RG14 1JU",
+    "lat": 51.405795,
+    "lng": -1.327754
+  },
+  {
+    "id": "gp-j82104",
+    "type": "gp",
+    "name": "Stubbington Medical Practice",
+    "address": "Park Lane, Fareham",
+    "postcode": "PO14 2JP",
+    "lat": 50.824999,
+    "lng": -1.21541
+  },
+  {
+    "id": "gp-k84011",
+    "type": "gp",
+    "name": "Summertown Health Centre",
+    "address": "160 Banbury Road, Oxford",
+    "postcode": "OX2 7BS",
+    "lat": 51.774389,
+    "lng": -1.263262
+  },
+  {
+    "id": "gp-h81019",
+    "type": "gp",
+    "name": "Sunny Meed Surgery",
+    "address": "15-17 Heathside Road, Woking",
+    "postcode": "GU22 7EY",
+    "lat": 51.315437,
+    "lng": -0.551223
+  },
+  {
+    "id": "gp-k81003",
+    "type": "gp",
+    "name": "Swallowfield Medical Practice",
+    "address": "The Street, Reading",
+    "postcode": "RG7 1QY",
+    "lat": 51.378289,
+    "lng": -0.958531
+  },
+  {
+    "id": "gp-j82098",
+    "type": "gp",
+    "name": "Swan Medical Group",
+    "address": "Swan Surgery, Petersfield",
+    "postcode": "GU32 3AB",
+    "lat": 51.004349,
+    "lng": -0.942585
+  },
+  {
+    "id": "gp-j82094",
+    "type": "gp",
+    "name": "Tadley Medical P'Ship",
+    "address": "Holmwood Health Centre, Tadley",
+    "postcode": "RG26 4ER",
+    "lat": 51.357024,
+    "lng": -1.145516
+  },
+  {
+    "id": "gp-h82067",
+    "type": "gp",
+    "name": "Tangmere Medical Centre",
+    "address": "Malcolm Road, Chichester",
+    "postcode": "PO20 2HS",
+    "lat": 50.851014,
+    "lng": -0.71843
+  },
+  {
+    "id": "gp-k84007",
+    "type": "gp",
+    "name": "Temple Cowley Health Centre",
+    "address": "Temple Road, Cowley, Oxford",
+    "postcode": "OX4 2HL",
+    "lat": 51.734812,
+    "lng": -1.212439
+  },
+  {
+    "id": "gp-j82132",
+    "type": "gp",
+    "name": "Testvale Surgery",
+    "address": "12 Salisbury Road, Southampton",
+    "postcode": "SO40 3PY",
+    "lat": 50.919398,
+    "lng": -1.489889
+  },
+  {
+    "id": "gp-k81073",
+    "type": "gp",
+    "name": "Thatcham Health Centre",
+    "address": "Bath Road, Thatcham",
+    "postcode": "RG18 3HD",
+    "lat": 51.404017,
+    "lng": -1.262367
+  },
+  {
+    "id": "gp-k84054",
+    "type": "gp",
+    "name": "The Abingdon Surgery",
+    "address": "65 Stert Street, Abingdon",
+    "postcode": "OX14 3LB",
+    "lat": 51.672026,
+    "lng": -1.281496
+  },
+  {
+    "id": "gp-k82078",
+    "type": "gp",
+    "name": "The Allan Practice",
+    "address": "Calcot Medical Centre, Gerrards Cross",
+    "postcode": "SL9 9SA",
+    "lat": 51.606989,
+    "lng": -0.560996
+  },
+  {
+    "id": "gp-j82017",
+    "type": "gp",
+    "name": "The Andover Health Centre Medical Pract",
+    "address": "Charlton Road Health Centre, Andover",
+    "postcode": "SP10 3LD",
+    "lat": 51.215017,
+    "lng": -1.495476
+  },
+  {
+    "id": "gp-j84013",
+    "type": "gp",
+    "name": "The Bay Medical Practice",
+    "address": "Broadway, Sandown",
+    "postcode": "PO36 9GA",
+    "lat": 50.650525,
+    "lng": -1.162207
+  },
+  {
+    "id": "gp-k84035",
+    "type": "gp",
+    "name": "The Bell Surgery",
+    "address": "York Road, Henley On Thames",
+    "postcode": "RG9 2DR",
+    "lat": 51.538741,
+    "lng": -0.90797
+  },
+  {
+    "id": "gp-k81012",
+    "type": "gp",
+    "name": "The Boat House Surgery",
+    "address": "Whitchurch Road, Reading",
+    "postcode": "RG8 7DP",
+    "lat": 51.486094,
+    "lng": -1.085885
+  },
+  {
+    "id": "gp-j82142",
+    "type": "gp",
+    "name": "The Border Practice",
+    "address": "Blackwater Way, Aldershot",
+    "postcode": "GU12 4DN",
+    "lat": 51.240993,
+    "lng": -0.740547
+  },
+  {
+    "id": "gp-j82010",
+    "type": "gp",
+    "name": "The Bosmere Medical Practice",
+    "address": "Solent Road, Havant",
+    "postcode": "PO9 1DQ",
+    "lat": 50.850222,
+    "lng": -0.990566
+  },
+  {
+    "id": "gp-j82066",
+    "type": "gp",
+    "name": "The Cambridge Practice",
+    "address": "Aldershot Centre For Health, Aldershot",
+    "postcode": "GU11 1AY",
+    "lat": 51.254362,
+    "lng": -0.765632
+  },
+  {
+    "id": "gp-k81036",
+    "type": "gp",
+    "name": "The Cedars Surgery",
+    "address": "Wilderness Medical Centre, Maidenhead",
+    "postcode": "SL6 8AJ",
+    "lat": 51.52561,
+    "lng": -0.720069
+  },
+  {
+    "id": "gp-k84610",
+    "type": "gp",
+    "name": "The Charlbury Medical Centre",
+    "address": "Enstone Road, Chipping Norton",
+    "postcode": "OX7 3PQ",
+    "lat": 51.874181,
+    "lng": -1.482178
+  },
+  {
+    "id": "gp-j82147",
+    "type": "gp",
+    "name": "The Clanfield Practice",
+    "address": "2 White Dirt Lane, Waterlooville",
+    "postcode": "PO8 0QL",
+    "lat": 50.935363,
+    "lng": -1.000621
+  },
+  {
+    "id": "gp-h82028",
+    "type": "gp",
+    "name": "The Courtyard Surgery Horsham",
+    "address": "The Courtyard, Horsham",
+    "postcode": "RH12 1AT",
+    "lat": 51.065407,
+    "lng": -0.328315
+  },
+  {
+    "id": "gp-h82077",
+    "type": "gp",
+    "name": "The Croft Surgery",
+    "address": "Barnham Road, Chichester",
+    "postcode": "PO20 3RP",
+    "lat": 50.841366,
+    "lng": -0.657748
+  },
+  {
+    "id": "gp-k81050",
+    "type": "gp",
+    "name": "The Downland Practice",
+    "address": "East Lane, Newbury",
+    "postcode": "RG20 8UY",
+    "lat": 51.463442,
+    "lng": -1.312384
+  },
+  {
+    "id": "gp-j82102",
+    "type": "gp",
+    "name": "The Drayton Surgery",
+    "address": "280 Havant Road, Portsmouth",
+    "postcode": "PO6 1PA",
+    "lat": 50.846475,
+    "lng": -1.046571
+  },
+  {
+    "id": "gp-j82210",
+    "type": "gp",
+    "name": "The Elms Practice",
+    "address": "Elm Grove, Hayling Island",
+    "postcode": "PO11 9AP",
+    "lat": 50.789783,
+    "lng": -0.97646
+  },
+  {
+    "id": "gp-j82019",
+    "type": "gp",
+    "name": "The Fryern Surgery",
+    "address": "Oakmount Road, Eastleigh",
+    "postcode": "SO53 2LH",
+    "lat": 50.987188,
+    "lng": -1.372861
+  },
+  {
+    "id": "gp-j82201",
+    "type": "gp",
+    "name": "The Grange Surgery",
+    "address": "The Causeway, Petersfield",
+    "postcode": "GU31 4JR",
+    "lat": 51.001422,
+    "lng": -0.939103
+  },
+  {
+    "id": "gp-k82610",
+    "type": "gp",
+    "name": "The Grove Surgery",
+    "address": "Farthing Close, Milton Keynes",
+    "postcode": "MK6 4NG",
+    "lat": 52.023661,
+    "lng": -0.735093
+  },
+  {
+    "id": "gp-k82008",
+    "type": "gp",
+    "name": "The Hall Practice",
+    "address": "Hampden Road, Gerrards Cross",
+    "postcode": "SL9 9SX",
+    "lat": 51.606929,
+    "lng": -0.561287
+  },
+  {
+    "id": "gp-k84001",
+    "type": "gp",
+    "name": "The Hart Surgery",
+    "address": "York Road, Henley-On-Thames",
+    "postcode": "RG9 2DR",
+    "lat": 51.538741,
+    "lng": -0.90797
+  },
+  {
+    "id": "gp-h81030",
+    "type": "gp",
+    "name": "The House Partnership",
+    "address": "99 Station Road, Redhill",
+    "postcode": "RH1 1EB",
+    "lat": 51.240414,
+    "lng": -0.175708
+  },
+  {
+    "id": "gp-k82006",
+    "type": "gp",
+    "name": "The Ivers Practice",
+    "address": "Iver Doctors Surgery, Iver",
+    "postcode": "SL0 9NU",
+    "lat": 51.519293,
+    "lng": -0.509496
+  },
+  {
+    "id": "gp-k84082",
+    "type": "gp",
+    "name": "The Key Medical Practice",
+    "address": "Exeter Close, Kidlington",
+    "postcode": "OX5 1AP",
+    "lat": 51.821564,
+    "lng": -1.289219
+  },
+  {
+    "id": "gp-k84031",
+    "type": "gp",
+    "name": "The Leys Health Centre",
+    "address": "Dunnock Way, Oxford",
+    "postcode": "OX4 7EX",
+    "lat": 51.717534,
+    "lng": -1.19699
+  },
+  {
+    "id": "gp-j82060",
+    "type": "gp",
+    "name": "The Lighthouse Group Practice",
+    "address": "Southesea Medical Centre, Southsea",
+    "postcode": "PO5 1AT",
+    "lat": 50.79654,
+    "lng": -1.080492
+  },
+  {
+    "id": "gp-h81021",
+    "type": "gp",
+    "name": "The Mill Medical Practice",
+    "address": "Catteshall Mill, Godalming",
+    "postcode": "GU7 1JW",
+    "lat": 51.190737,
+    "lng": -0.596279
+  },
+  {
+    "id": "gp-k82051",
+    "type": "gp",
+    "name": "The Misbourne Surgery",
+    "address": "Church Lane, Gerrards Cross",
+    "postcode": "SL9 9RR",
+    "lat": 51.607788,
+    "lng": -0.558024
+  },
+  {
+    "id": "gp-j82049",
+    "type": "gp",
+    "name": "The Oakley Health Group",
+    "address": "51 Frogmore Road, Camberley",
+    "postcode": "GU17 0DD",
+    "lat": 51.335289,
+    "lng": -0.797067
+  },
+  {
+    "id": "gp-j83019",
+    "type": "gp",
+    "name": "The Orchard Partnership",
+    "address": "South Street, Salisbury",
+    "postcode": "SP2 0JU",
+    "lat": 51.077871,
+    "lng": -1.865859
+  },
+  {
+    "id": "gp-h82096",
+    "type": "gp",
+    "name": "The Orchard Surgery",
+    "address": "Penstone Park, Lancing",
+    "postcode": "BN15 9AG",
+    "lat": 50.828055,
+    "lng": -0.324326
+  },
+  {
+    "id": "gp-j82101",
+    "type": "gp",
+    "name": "The Peartree Practice",
+    "address": "Sullivan Road, Southampton",
+    "postcode": "SO19 0HS",
+    "lat": 50.900314,
+    "lng": -1.339331
+  },
+  {
+    "id": "gp-h82006",
+    "type": "gp",
+    "name": "The Petworth Surgery",
+    "address": "Grove Street, Petworth",
+    "postcode": "GU28 0LP",
+    "lat": 50.983358,
+    "lng": -0.607114
+  },
+  {
+    "id": "gp-k81004",
+    "type": "gp",
+    "name": "The Potteries",
+    "address": "Tylers Place, Reading",
+    "postcode": "RG30 6BW",
+    "lat": 51.460297,
+    "lng": -1.025614
+  },
+  {
+    "id": "gp-h81641",
+    "type": "gp",
+    "name": "The Practice College Road",
+    "address": "4-6 College Road, Woking",
+    "postcode": "GU22 8BT",
+    "lat": 51.32257,
+    "lng": -0.539804
+  },
+  {
+    "id": "gp-k82013",
+    "type": "gp",
+    "name": "The Red House Surgery",
+    "address": "241 Queensway, Milton Keynes",
+    "postcode": "MK2 2EH",
+    "lat": 51.996295,
+    "lng": -0.722887
+  },
+  {
+    "id": "gp-k84050",
+    "type": "gp",
+    "name": "The Rycote Practice",
+    "address": "East Street, Thame",
+    "postcode": "OX9 3JZ",
+    "lat": 51.745009,
+    "lng": -0.968545
+  },
+  {
+    "id": "gp-j82088",
+    "type": "gp",
+    "name": "The Shirley Health Partnership",
+    "address": "355 Shirley Road, Southampton",
+    "postcode": "SO15 3JD",
+    "lat": 50.919395,
+    "lng": -1.429257
+  },
+  {
+    "id": "gp-k82617",
+    "type": "gp",
+    "name": "The Stonedean Practice",
+    "address": "Stony Stratford Health Centre, Milton Keynes",
+    "postcode": "MK11 1YA",
+    "lat": 52.056277,
+    "lng": -0.853177
+  },
+  {
+    "id": "gp-k82007",
+    "type": "gp",
+    "name": "The Swan Practice",
+    "address": "Masonic House, Buckingham",
+    "postcode": "MK18 1NU",
+    "lat": 52.001593,
+    "lng": -0.985664
+  },
+  {
+    "id": "gp-k81066",
+    "type": "gp",
+    "name": "The Symons Medical Centre",
+    "address": "25 All Saints Avenue, Maidenhead",
+    "postcode": "SL6 6EL",
+    "lat": 51.522784,
+    "lng": -0.738902
+  },
+  {
+    "id": "gp-j82199",
+    "type": "gp",
+    "name": "The Unicity Medical Centre",
+    "address": "159-161 Commercial Road, Portsmouth",
+    "postcode": "PO1 1EA",
+    "lat": 50.80174,
+    "lng": -1.088805
+  },
+  {
+    "id": "gp-k81082",
+    "type": "gp",
+    "name": "The Village Medical Centre",
+    "address": "45 Mercian Way, Slough",
+    "postcode": "SL1 5ND",
+    "lat": 51.512953,
+    "lng": -0.647418
+  },
+  {
+    "id": "gp-h81089",
+    "type": "gp",
+    "name": "The Wall House Surgery",
+    "address": "Yorke Road, Reigate",
+    "postcode": "RH2 9HG",
+    "lat": 51.241395,
+    "lng": -0.207747
+  },
+  {
+    "id": "gp-j82059",
+    "type": "gp",
+    "name": "The Watercress Medical Group",
+    "address": "Mansfield Park Surgery, Alton",
+    "postcode": "GU34 5EW",
+    "lat": 51.112084,
+    "lng": -1.054244
+  },
+  {
+    "id": "gp-k81001",
+    "type": "gp",
+    "name": "The Waterfield Practice",
+    "address": "Ralphs Ride, Bracknell",
+    "postcode": "RG12 9LH",
+    "lat": 51.409205,
+    "lng": -0.733906
+  },
+  {
+    "id": "gp-j82198",
+    "type": "gp",
+    "name": "The Wellington Practice",
+    "address": "Aldershot Centre For Hlth, Aldershot",
+    "postcode": "GU11 1AY",
+    "lat": 51.254362,
+    "lng": -0.765632
+  },
+  {
+    "id": "gp-j82083",
+    "type": "gp",
+    "name": "The Willow Group",
+    "address": "Forton Medical Centre, Gosport",
+    "postcode": "PO12 3JP",
+    "lat": 50.800568,
+    "lng": -1.143022
+  },
+  {
+    "id": "gp-k81077",
+    "type": "gp",
+    "name": "Theale Medical Centre",
+    "address": "Englefield Road, Reading",
+    "postcode": "RG7 5AS",
+    "lat": 51.438207,
+    "lng": -1.080583
+  },
+  {
+    "id": "gp-j83026",
+    "type": "gp",
+    "name": "Three Chequers Medical Practice",
+    "address": "72 Endless Street, Salisbury",
+    "postcode": "SP1 3UH",
+    "lat": 51.072041,
+    "lng": -1.794696
+  },
+  {
+    "id": "gp-k82031",
+    "type": "gp",
+    "name": "Threeways Surgery",
+    "address": "Pennylets Green, Slough",
+    "postcode": "SL2 4AZ",
+    "lat": 51.54975,
+    "lng": -0.585102
+  },
+  {
+    "id": "gp-k81644",
+    "type": "gp",
+    "name": "Tilehurst Village Surgery",
+    "address": "92 Westwood Road, Reading",
+    "postcode": "RG31 5PP",
+    "lat": 51.461234,
+    "lng": -1.042249
+  },
+  {
+    "id": "gp-j83058",
+    "type": "gp",
+    "name": "Tisbury Surgery",
+    "address": "Park Road, Salisbury",
+    "postcode": "SP3 6LF",
+    "lat": 51.06553,
+    "lng": -2.078947
+  },
+  {
+    "id": "gp-j84012",
+    "type": "gp",
+    "name": "Tower House Surgery",
+    "address": "Tower House, Ryde",
+    "postcode": "PO33 1LP",
+    "lat": 50.726962,
+    "lng": -1.151677
+  },
+  {
+    "id": "gp-j82028",
+    "type": "gp",
+    "name": "Trafalgar Medical Group Practice",
+    "address": "The Surgery, Southsea",
+    "postcode": "PO5 3ND",
+    "lat": 50.785321,
+    "lng": -1.092472
+  },
+  {
+    "id": "gp-j82116",
+    "type": "gp",
+    "name": "Twyford Surgery",
+    "address": "Hazeley Road, Winchester",
+    "postcode": "SO21 1QY",
+    "lat": 51.01916,
+    "lng": -1.31419
+  },
+  {
+    "id": "gp-k81070",
+    "type": "gp",
+    "name": "Twyford Surgery",
+    "address": "6 Loddon Hall Road, Reading",
+    "postcode": "RG10 9JA",
+    "lat": 51.481955,
+    "lng": -0.864252
+  },
+  {
+    "id": "gp-j82080",
+    "type": "gp",
+    "name": "University Health Service Southampton",
+    "address": "Building 48, Southampton",
+    "postcode": "SO17 1BJ",
+    "lat": 50.934091,
+    "lng": -1.395705
+  },
+  {
+    "id": "gp-k81605",
+    "type": "gp",
+    "name": "University Medical Group",
+    "address": "University Health Centre, Reading",
+    "postcode": "RG2 7HE",
+    "lat": 51.440402,
+    "lng": -0.954055
+  },
+  {
+    "id": "gp-h81075",
+    "type": "gp",
+    "name": "Upper Gordon Road Surgery",
+    "address": "37 Upper Gordon Road, Camberley",
+    "postcode": "GU15 2HJ",
+    "lat": 51.336851,
+    "lng": -0.738799
+  },
+  {
+    "id": "gp-j84003",
+    "type": "gp",
+    "name": "Ventnor Medical Practice",
+    "address": "3 Albert Street, Ventnor",
+    "postcode": "PO38 1EZ",
+    "lat": 50.594548,
+    "lng": -1.203791
+  },
+  {
+    "id": "gp-h82041",
+    "type": "gp",
+    "name": "Victoria Road Surgery",
+    "address": "50 Victoria Road, Worthing",
+    "postcode": "BN11 1XE",
+    "lat": 50.816907,
+    "lng": -0.376812
+  },
+  {
+    "id": "gp-h82092",
+    "type": "gp",
+    "name": "Village Surgery",
+    "address": "Southwater Health Centre, Horsham",
+    "postcode": "RH13 9HQ",
+    "lat": 51.023686,
+    "lng": -0.35035
+  },
+  {
+    "id": "gp-h81053",
+    "type": "gp",
+    "name": "Villages Medical Ctr",
+    "address": "Send Barns Lane, Woking",
+    "postcode": "GU23 7BP",
+    "lat": 51.28718,
+    "lng": -0.523731
+  },
+  {
+    "id": "gp-j82134",
+    "type": "gp",
+    "name": "Vine Medical Group",
+    "address": "Forest End Site, Waterlooville",
+    "postcode": "PO7 7AH",
+    "lat": 50.878242,
+    "lng": -1.035047
+  },
+  {
+    "id": "gp-h81111",
+    "type": "gp",
+    "name": "Virginia Water Medical Practice",
+    "address": "Christchurch Road, Virginia Water",
+    "postcode": "GU25 4RL",
+    "lat": 51.403367,
+    "lng": -0.568216
+  },
+  {
+    "id": "gp-j82067",
+    "type": "gp",
+    "name": "Voyager Family Health",
+    "address": "Farnborough Centre For Health, Farnborough",
+    "postcode": "GU14 0NP",
+    "lat": 51.293491,
+    "lng": -0.789969
+  },
+  {
+    "id": "gp-k84037",
+    "type": "gp",
+    "name": "Wallingford Medical Practice",
+    "address": "Reading Road, Wallingford",
+    "postcode": "OX10 9DU",
+    "lat": 51.595495,
+    "lng": -1.128258
+  },
+  {
+    "id": "gp-k82615",
+    "type": "gp",
+    "name": "Walnut Tree Health Centre",
+    "address": "2 Blackberry Court, Milton Keynes",
+    "postcode": "MK7 7PB",
+    "lat": 52.021897,
+    "lng": -0.691217
+  },
+  {
+    "id": "gp-j82605",
+    "type": "gp",
+    "name": "Walnut Tree Surgery",
+    "address": "14 Carlton Road, Southampton",
+    "postcode": "SO15 2HQ",
+    "lat": 50.915172,
+    "lng": -1.406548
+  },
+  {
+    "id": "gp-k81055",
+    "type": "gp",
+    "name": "Wargrave Practice",
+    "address": "The Surgery, Reading",
+    "postcode": "RG10 8BP",
+    "lat": 51.501475,
+    "lng": -0.862225
+  },
+  {
+    "id": "gp-j82156",
+    "type": "gp",
+    "name": "Waterfront And Solent Surgery",
+    "address": "Jones Lane, Southampton",
+    "postcode": "SO45 6AW",
+    "lat": 50.870004,
+    "lng": -1.40337
+  },
+  {
+    "id": "gp-j82639",
+    "type": "gp",
+    "name": "Watership Down Health",
+    "address": "Kingsclere Health Centre, Newbury",
+    "postcode": "RG20 5QX",
+    "lat": 51.326263,
+    "lng": -1.246579
+  },
+  {
+    "id": "gp-j82021",
+    "type": "gp",
+    "name": "Waterside Medical Practice",
+    "address": "Hayling Island Health Centre, Hayling Island",
+    "postcode": "PO11 9AP",
+    "lat": 50.789783,
+    "lng": -0.97646
+  },
+  {
+    "id": "gp-k82009",
+    "type": "gp",
+    "name": "Watling Street Practice",
+    "address": "The Health Centre, Milton Keynes",
+    "postcode": "MK11 1YA",
+    "lat": 52.056277,
+    "lng": -0.853177
+  },
+  {
+    "id": "gp-h81046",
+    "type": "gp",
+    "name": "Wayside Medical Practice",
+    "address": "Kings Road, Horley",
+    "postcode": "RH6 7AD",
+    "lat": 51.173235,
+    "lng": -0.165884
+  },
+  {
+    "id": "gp-j82040",
+    "type": "gp",
+    "name": "West End Road Surgery",
+    "address": "62 West End Road, Southampton",
+    "postcode": "SO18 6TG",
+    "lat": 50.916693,
+    "lng": -1.359271
+  },
+  {
+    "id": "gp-h82099",
+    "type": "gp",
+    "name": "West Meads Surgery",
+    "address": "2-6 The Precinct, Bognor Regis",
+    "postcode": "PO21 5SB",
+    "lat": 50.788289,
+    "lng": -0.701461
+  },
+  {
+    "id": "gp-j82036",
+    "type": "gp",
+    "name": "West Meon Surgery",
+    "address": "Doctors Lane, Petersfield",
+    "postcode": "GU32 1LR",
+    "lat": 51.013252,
+    "lng": -1.083141
+  },
+  {
+    "id": "gp-h82007",
+    "type": "gp",
+    "name": "Westcourt Medical Centre",
+    "address": "12 The Street, Littlehampton",
+    "postcode": "BN16 3NX",
+    "lat": 50.811481,
+    "lng": -0.513722
+  },
+  {
+    "id": "gp-k82633",
+    "type": "gp",
+    "name": "Westcroft Health Centre",
+    "address": "1 Savill Lane, Milton Keynes",
+    "postcode": "MK4 4EN",
+    "lat": 52.006376,
+    "lng": -0.795679
+  },
+  {
+    "id": "gp-k81062",
+    "type": "gp",
+    "name": "Western Elms & Circuit Lane Surgeries",
+    "address": "Western Elms Lodge, Reading",
+    "postcode": "RG30 1AT",
+    "lat": 51.455836,
+    "lng": -0.992534
+  },
+  {
+    "id": "gp-k82059",
+    "type": "gp",
+    "name": "Westfield Road Surgery",
+    "address": "11 Westfield Road, Milton Keynes",
+    "postcode": "MK2 2DJ",
+    "lat": 51.993344,
+    "lng": -0.727762
+  },
+  {
+    "id": "gp-j82161",
+    "type": "gp",
+    "name": "Westlands Medical Centre",
+    "address": "20B Westlands Grove, Fareham",
+    "postcode": "PO16 9AD",
+    "lat": 50.84434,
+    "lng": -1.132476
+  },
+  {
+    "id": "gp-k81056",
+    "type": "gp",
+    "name": "Westwood Road Surgery",
+    "address": "66 Westwood Road, Reading",
+    "postcode": "RG31 5PR",
+    "lat": 51.460405,
+    "lng": -1.04195
+  },
+  {
+    "id": "gp-k82026",
+    "type": "gp",
+    "name": "Whaddon Healthcare",
+    "address": "25 Witham Court, Milton Keynes",
+    "postcode": "MK3 7QU",
+    "lat": 52.000317,
+    "lng": -0.766255
+  },
+  {
+    "id": "gp-j82214",
+    "type": "gp",
+    "name": "Whitchurch Surgery",
+    "address": "The Surgery, Whitchurch",
+    "postcode": "RG28 7AE",
+    "lat": 51.230252,
+    "lng": -1.340357
+  },
+  {
+    "id": "gp-j83004",
+    "type": "gp",
+    "name": "Whiteparish Surgery",
+    "address": "Common Road, Whiteparish, Salisbury",
+    "postcode": "SP5 2SU",
+    "lat": 51.009302,
+    "lng": -1.650724
+  },
+  {
+    "id": "gp-j82138",
+    "type": "gp",
+    "name": "Whitewater Health",
+    "address": "The Surgery, Hook",
+    "postcode": "RG27 8QJ",
+    "lat": 51.306553,
+    "lng": -0.901771
+  },
+  {
+    "id": "gp-j82034",
+    "type": "gp",
+    "name": "Wickham Surgery",
+    "address": "Houghton Way, Fareham",
+    "postcode": "PO17 5GU",
+    "lat": 50.9048,
+    "lng": -1.187502
+  },
+  {
+    "id": "gp-j84019",
+    "type": "gp",
+    "name": "Wight Primary Partnerships Ltd",
+    "address": "Brookside Health Centre, Freshwater",
+    "postcode": "PO40 9DT",
+    "lat": 50.68147,
+    "lng": -1.524304
+  },
+  {
+    "id": "gp-h82059",
+    "type": "gp",
+    "name": "Willow Green Surgery",
+    "address": "Station Road, Littlehampton",
+    "postcode": "BN16 3AH",
+    "lat": 50.814616,
+    "lng": -0.490966
+  },
+  {
+    "id": "gp-j82157",
+    "type": "gp",
+    "name": "Wilson Practice",
+    "address": "Alton Health Centre, Alton",
+    "postcode": "GU34 2QX",
+    "lat": 51.153736,
+    "lng": -0.966959
+  },
+  {
+    "id": "gp-k84017",
+    "type": "gp",
+    "name": "Windrush Medical Practice",
+    "address": "Welch Way, Witney",
+    "postcode": "OX28 6JS",
+    "lat": 51.787506,
+    "lng": -1.488607
+  },
+  {
+    "id": "gp-k84024",
+    "type": "gp",
+    "name": "Windrush Surgery",
+    "address": "21 West Bar Street, Banbury",
+    "postcode": "OX16 9SA",
+    "lat": 52.05891,
+    "lng": -1.343279
+  },
+  {
+    "id": "gp-j82139",
+    "type": "gp",
+    "name": "Wistaria & Milford Surgeries",
+    "address": "Wistaria Surgery, Lymington",
+    "postcode": "SO41 9GJ",
+    "lat": 50.760041,
+    "lng": -1.547285
+  },
+  {
+    "id": "gp-h81031",
+    "type": "gp",
+    "name": "Witley Surgery",
+    "address": "Wheeler Lane, Godalming",
+    "postcode": "GU8 5QR",
+    "lat": 51.156452,
+    "lng": -0.650143
+  },
+  {
+    "id": "gp-h82095",
+    "type": "gp",
+    "name": "Witterings Medical Centre",
+    "address": "The Witterings Med Centre, Chichester",
+    "postcode": "PO20 8BH",
+    "lat": 50.769995,
+    "lng": -0.874473
+  },
+  {
+    "id": "gp-k81022",
+    "type": "gp",
+    "name": "Wokingham Medical Centre",
+    "address": "23 Rose Street, Wokingham",
+    "postcode": "RG40 1XS",
+    "lat": 51.411718,
+    "lng": -0.831369
+  },
+  {
+    "id": "gp-k82003",
+    "type": "gp",
+    "name": "Wolverton Health Centre",
+    "address": "Gloucester Road, Milton Keynes",
+    "postcode": "MK12 5DF",
+    "lat": 52.054208,
+    "lng": -0.814914
+  },
+  {
+    "id": "gp-h81043",
+    "type": "gp",
+    "name": "Wonersh Surgery",
+    "address": "The Street, Guildford",
+    "postcode": "GU5 0PE",
+    "lat": 51.197393,
+    "lng": -0.545609
+  },
+  {
+    "id": "gp-h81090",
+    "type": "gp",
+    "name": "Woodbridge Hill Surgery",
+    "address": "1 Deerbarn Road, Guildford",
+    "postcode": "GU2 8YB",
+    "lat": 51.248948,
+    "lng": -0.588318
+  },
+  {
+    "id": "gp-k84043",
+    "type": "gp",
+    "name": "Woodlands Medical Centre",
+    "address": "Woodlands Road, Didcot",
+    "postcode": "OX11 0BB",
+    "lat": 51.603639,
+    "lng": -1.25888
+  },
+  {
+    "id": "gp-k81015",
+    "type": "gp",
+    "name": "Woodlands Park Surgery",
+    "address": "15 Woodlands Park Road, Maidenhead",
+    "postcode": "SL6 3NW",
+    "lat": 51.502531,
+    "lng": -0.761375
+  },
+  {
+    "id": "gp-h81058",
+    "type": "gp",
+    "name": "Woodlands Road Medical Centre",
+    "address": "5 Woodlands Road, Redhill",
+    "postcode": "RH1 6EY",
+    "lat": 51.230953,
+    "lng": -0.171613
+  },
+  {
+    "id": "gp-k84062",
+    "type": "gp",
+    "name": "Woodlands Surgery",
+    "address": "4 Burchester Place, Banbury",
+    "postcode": "OX16 3WT",
+    "lat": 52.06714,
+    "lng": -1.320123
+  },
+  {
+    "id": "gp-h82025",
+    "type": "gp",
+    "name": "Woodlands&Clerklands Partnership",
+    "address": "Woodlands Surgery, Crawley",
+    "postcode": "RH10 5BW",
+    "lat": 51.103754,
+    "lng": -0.184834
+  },
+  {
+    "id": "gp-k81051",
+    "type": "gp",
+    "name": "Woodley Practice",
+    "address": "Woodley Centre Surgery, Reading",
+    "postcode": "RG5 4JA",
+    "lat": 51.453486,
+    "lng": -0.904004
+  },
+  {
+    "id": "gp-k84042",
+    "type": "gp",
+    "name": "Woodstock Surgery",
+    "address": "1 Park Lane, Woodstock",
+    "postcode": "OX20 1UB",
+    "lat": 51.846621,
+    "lng": -1.354528
+  },
+  {
+    "id": "gp-j82076",
+    "type": "gp",
+    "name": "Woolston And Chartwell Partnership",
+    "address": "The Woolston Lodge Surgery, Southampton",
+    "postcode": "SO19 9AL",
+    "lat": 50.89728,
+    "lng": -1.372833
+  },
+  {
+    "id": "gp-k81092",
+    "type": "gp",
+    "name": "Woosehill Practice",
+    "address": "Woosehill Medical Centre, Wokingham",
+    "postcode": "RG41 3DR",
+    "lat": 51.413312,
+    "lng": -0.854392
+  },
+  {
+    "id": "gp-h82045",
+    "type": "gp",
+    "name": "Worthing Medical Group",
+    "address": "23 Shelley Road, Worthing",
+    "postcode": "BN11 4BS",
+    "lat": 50.811415,
+    "lng": -0.377016
+  },
+  {
+    "id": "gp-k84046",
+    "type": "gp",
+    "name": "Wychwood Surgery",
+    "address": "Meadow Lane, Chipping Norton",
+    "postcode": "OX7 6BW",
+    "lat": 51.863267,
+    "lng": -1.597363
+  },
+  {
+    "id": "gp-y06153",
+    "type": "gp",
+    "name": "Bedoc Healthcare",
+    "address": "Unit 16, Bedford",
+    "postcode": "MK44 3WJ",
+    "lat": 52.128403,
+    "lng": -0.418677
+  },
+  {
+    "id": "gp-y02676",
+    "type": "gp",
+    "name": "Brighton Station Health Centre",
+    "address": "Aspect House, Brighton",
+    "postcode": "BN1 3XE",
+    "lat": 50.827937,
+    "lng": -0.141323
+  },
+  {
+    "id": "gp-y02476",
+    "type": "gp",
+    "name": "Broad Street Health Centre",
+    "address": "1St Floor, Reading",
+    "postcode": "RG1 7QA",
+    "lat": 51.454811,
+    "lng": -0.975875
+  },
+  {
+    "id": "gp-y02900",
+    "type": "gp",
+    "name": "Brooklands Health Centre",
+    "address": "Montague Crescent, Milton Keynes",
+    "postcode": "MK10 7LN",
+    "lat": 52.045305,
+    "lng": -0.673852
+  },
+  {
+    "id": "gp-y00265",
+    "type": "gp",
+    "name": "Chapel Medical Centre",
+    "address": "Slough Walk In Centre, Slough",
+    "postcode": "SL1 2BJ",
+    "lat": 51.505361,
+    "lng": -0.59374
+  },
+  {
+    "id": "gp-y00080",
+    "type": "gp",
+    "name": "Harbour Medical Practice",
+    "address": "1 Pacific Drive, Eastbourne",
+    "postcode": "BN23 6DW",
+    "lat": 50.799445,
+    "lng": 0.328254
+  },
+  {
+    "id": "gp-y00351",
+    "type": "gp",
+    "name": "Langley Corner Surgery",
+    "address": "Ifield Green, Crawley",
+    "postcode": "RH11 0NF",
+    "lat": 51.125719,
+    "lng": -0.212583
+  },
+  {
+    "id": "gp-y02526",
+    "type": "gp",
+    "name": "Phl Sas Service",
+    "address": "Onyx House, Fareham",
+    "postcode": "PO15 5TD",
+    "lat": 50.869391,
+    "lng": -1.256062
+  },
+  {
+    "id": "gp-y02666",
+    "type": "gp",
+    "name": "Salisbury Walk-In Hc",
+    "address": "Avon Approach, Salisbury",
+    "postcode": "SP1 3SL",
+    "lat": 51.071731,
+    "lng": -1.797509
+  },
+  {
+    "id": "gp-y07014",
+    "type": "gp",
+    "name": "Shakespeare Road Medical Practice",
+    "address": "Shakespeare House Health Centre, Basingstoke",
+    "postcode": "RG24 9DT",
+    "lat": 51.280712,
+    "lng": -1.084032
+  },
+  {
+    "id": "gp-y02128",
+    "type": "gp",
+    "name": "Shinfield Medical Practice",
+    "address": "Shinfield House, Reading",
+    "postcode": "RG2 9EH",
+    "lat": 51.404886,
+    "lng": -0.946339
+  },
+  {
+    "id": "gp-y01253",
+    "type": "gp",
+    "name": "Slough Treatment, Advice & Recovery Team",
+    "address": "Elliman Resource Centre, Slough",
+    "postcode": "SL2 5DL",
+    "lat": 51.519647,
+    "lng": -0.598028
+  },
+  {
+    "id": "gp-y07819",
+    "type": "gp",
+    "name": "Spcl Surgery",
+    "address": "49 Portsmouth Road, Southampton",
+    "postcode": "SO19 9RL",
+    "lat": 50.897819,
+    "lng": -1.372783
+  },
+  {
+    "id": "gp-y00437",
+    "type": "gp",
+    "name": "The Orchard Surgery",
+    "address": "Willow Parade, Slough",
+    "postcode": "SL3 8HD",
+    "lat": 51.503443,
+    "lng": -0.541972
+  },
+  {
+    "id": "gp-y01281",
+    "type": "gp",
+    "name": "The Village Surgery",
+    "address": "133 London Road, Waterlooville",
+    "postcode": "PO8 8XL",
+    "lat": 50.89772,
+    "lng": -1.016685
+  },
+  {
+    "id": "gp-y06007",
+    "type": "gp",
+    "name": "Wellsbourne Healthcare Cic",
+    "address": "179 Whitehawk Road, Brighton",
+    "postcode": "BN2 5FL",
+    "lat": 50.825439,
+    "lng": -0.107359
+  },
+  {
+    "id": "gp-y06810",
+    "type": "gp",
+    "name": "Whitehouse Health Centre",
+    "address": "Dorset Way, Milton Keynes",
+    "postcode": "MK8 1EQ",
+    "lat": 52.033803,
+    "lng": -0.818151
+  },
+  {
+    "id": "gp-y00560",
+    "type": "gp",
+    "name": "Wootton Vale And Shortstown Surgery",
+    "address": "Wootton Vale Hlth Liv Ctr, Bedford",
+    "postcode": "MK43 9JJ",
+    "lat": 52.0937,
+    "lng": -0.52793
+  }
+]
