@@ -1,0 +1,299 @@
+[
+  {
+    "id": "school-104688",
+    "type": "school",
+    "name": "Holly Lodge Girls' College",
+    "address": "140 Mill Lane, Liverpool",
+    "postcode": "L12 7LE",
+    "lat": 53.427947,
+    "lng": -2.916994
+  },
+  {
+    "id": "school-104715",
+    "type": "school",
+    "name": "St John Bosco Arts College",
+    "address": "Storrington Avenue, Croxteth",
+    "postcode": "L11 9DQ",
+    "lat": 53.451183,
+    "lng": -2.910266
+  },
+  {
+    "id": "school-104960",
+    "type": "school",
+    "name": "Maricourt Catholic High School",
+    "address": "Hall Lane, Liverpool",
+    "postcode": "L31 3DZ",
+    "lat": 53.50756,
+    "lng": -2.936869
+  },
+  {
+    "id": "school-111424",
+    "type": "school",
+    "name": "Bishop Heber High School",
+    "address": "Chester Road, Malpas",
+    "postcode": "SY14 8JD",
+    "lat": 53.029499,
+    "lng": -2.759168
+  },
+  {
+    "id": "school-123564",
+    "type": "school",
+    "name": "The Community College, Bishop's Castle",
+    "address": "Brampton Road, Bishops Castle",
+    "postcode": "SY9 5AY",
+    "lat": 52.488106,
+    "lng": -2.994904
+  },
+  {
+    "id": "school-134314",
+    "type": "school",
+    "name": "St Mary Magdalene Academy",
+    "address": "Liverpool Road, London",
+    "postcode": "N7 8PG",
+    "lat": 51.546846,
+    "lng": -0.108205
+  },
+  {
+    "id": "school-135587",
+    "type": "school",
+    "name": "City of London Academy Islington",
+    "address": "Prebend Street, London",
+    "postcode": "N1 8PQ",
+    "lat": 51.535713,
+    "lng": -0.096034
+  },
+  {
+    "id": "school-136042",
+    "type": "school",
+    "name": "Maltby Academy",
+    "address": "Braithwell Road, Rotherham",
+    "postcode": "S66 8AB",
+    "lat": 53.423469,
+    "lng": -1.207253
+  },
+  {
+    "id": "school-136735",
+    "type": "school",
+    "name": "St Edward's College",
+    "address": "Sandfield Park, Liverpool",
+    "postcode": "L12 1LF",
+    "lat": 53.424565,
+    "lng": -2.90893
+  },
+  {
+    "id": "school-136979",
+    "type": "school",
+    "name": "The Marches School",
+    "address": "Morda Road, Oswestry",
+    "postcode": "SY11 2AR",
+    "lat": 52.852552,
+    "lng": -3.060102
+  },
+  {
+    "id": "school-137336",
+    "type": "school",
+    "name": "The Corbet School",
+    "address": "Eyton Lane, Shrewsbury",
+    "postcode": "SY4 2AX",
+    "lat": 52.793279,
+    "lng": -2.849602
+  },
+  {
+    "id": "school-137382",
+    "type": "school",
+    "name": "Wyedean School and Sixth Form Centre",
+    "address": "Beachley Road, Chepstow",
+    "postcode": "NP16 7AA",
+    "lat": 51.641891,
+    "lng": -2.658867
+  },
+  {
+    "id": "school-137533",
+    "type": "school",
+    "name": "Deyes High School",
+    "address": "Deyes Lane, Liverpool",
+    "postcode": "L31 6DE",
+    "lat": 53.513934,
+    "lng": -2.939061
+  },
+  {
+    "id": "school-138216",
+    "type": "school",
+    "name": "The Priory School",
+    "address": "Longden Road, Shrewsbury",
+    "postcode": "SY3 9EE",
+    "lat": 52.6956,
+    "lng": -2.766829
+  },
+  {
+    "id": "school-138470",
+    "type": "school",
+    "name": "St Mary's Catholic High School, A Catholic Voluntary Academy",
+    "address": "Newbold Road, Chesterfield",
+    "postcode": "S41 8AG",
+    "lat": 53.252974,
+    "lng": -1.451588
+  },
+  {
+    "id": "school-139102",
+    "type": "school",
+    "name": "Lakelands Academy",
+    "address": "Oswestry Road, Ellesmere",
+    "postcode": "SY12 0EA",
+    "lat": 52.903689,
+    "lng": -2.90034
+  },
+  {
+    "id": "school-139455",
+    "type": "school",
+    "name": "Church Stretton School",
+    "address": "Shrewsbury Road, Church Stretton",
+    "postcode": "SY6 6EX",
+    "lat": 52.544441,
+    "lng": -2.803775
+  },
+  {
+    "id": "school-139856",
+    "type": "school",
+    "name": "Hinde House 2-16 Academy",
+    "address": "Shiregreen Lane, Sheffield",
+    "postcode": "S5 6AG",
+    "lat": 53.421908,
+    "lng": -1.430002
+  },
+  {
+    "id": "school-139992",
+    "type": "school",
+    "name": "Wingfield Academy",
+    "address": "Wingfield Road, Rotherham",
+    "postcode": "S61 4AU",
+    "lat": 53.448581,
+    "lng": -1.381381
+  },
+  {
+    "id": "school-140412",
+    "type": "school",
+    "name": "Lord Derby Academy",
+    "address": "Seel Road, Liverpool",
+    "postcode": "L36 6DG",
+    "lat": 53.411107,
+    "lng": -2.832525
+  },
+  {
+    "id": "school-141176",
+    "type": "school",
+    "name": "Sir John Talbot's School",
+    "address": "Prees Road, Whitchurch",
+    "postcode": "SY13 2BY",
+    "lat": 52.958011,
+    "lng": -2.674959
+  },
+  {
+    "id": "school-141694",
+    "type": "school",
+    "name": "Litherland High School",
+    "address": "Sterrix Lane, Liverpool",
+    "postcode": "L21 0DB",
+    "lat": 53.480179,
+    "lng": -2.984717
+  },
+  {
+    "id": "school-142891",
+    "type": "school",
+    "name": "LIPA Sixth Form College",
+    "address": "41 Upper Duke Street, Liverpool",
+    "postcode": "L1 9DY",
+    "lat": 53.399149,
+    "lng": -2.970842
+  },
+  {
+    "id": "school-143142",
+    "type": "school",
+    "name": "St Martins School (3-16 Learning Community)",
+    "address": "Moors Bank, Oswestry",
+    "postcode": "SY10 7BD",
+    "lat": 52.918066,
+    "lng": -3.018208
+  },
+  {
+    "id": "school-144435",
+    "type": "school",
+    "name": "Ludlow Church of England School",
+    "address": "Bromfield Road, Ludlow",
+    "postcode": "SY8 1GJ",
+    "lat": 52.377442,
+    "lng": -2.726618
+  },
+  {
+    "id": "school-144900",
+    "type": "school",
+    "name": "Duke's Aldridge",
+    "address": "Trulock Road, London",
+    "postcode": "N17 0PG",
+    "lat": 51.60441,
+    "lng": -0.061719
+  },
+  {
+    "id": "school-146146",
+    "type": "school",
+    "name": "Meole Brace School",
+    "address": "Longden Road, Shrewsbury",
+    "postcode": "SY3 9DW",
+    "lat": 52.691919,
+    "lng": -2.767386
+  },
+  {
+    "id": "school-146506",
+    "type": "school",
+    "name": "Belvidere School",
+    "address": "Belvidere Lane, Shrewsbury",
+    "postcode": "SY2 5RJ",
+    "lat": 52.709357,
+    "lng": -2.7193
+  },
+  {
+    "id": "school-146509",
+    "type": "school",
+    "name": "Mary Webb School and Science College",
+    "address": "Pontesbury, Shrewsbury",
+    "postcode": "SY5 0TG",
+    "lat": 52.646919,
+    "lng": -2.881176
+  },
+  {
+    "id": "school-147508",
+    "type": "school",
+    "name": "The Thomas Adams School",
+    "address": "Lowe Hill, Shrewsbury",
+    "postcode": "SY4 5UB",
+    "lat": 52.858656,
+    "lng": -2.728421
+  },
+  {
+    "id": "school-147540",
+    "type": "school",
+    "name": "Shrewsbury Academy",
+    "address": "Corndon Crescent, Shrewsbury",
+    "postcode": "SY1 4LL",
+    "lat": 52.731295,
+    "lng": -2.722208
+  },
+  {
+    "id": "school-147788",
+    "type": "school",
+    "name": "Bradfield Secondary School",
+    "address": "Kirk Edge Road, Sheffield",
+    "postcode": "S35 0AE",
+    "lat": 53.424301,
+    "lng": -1.545587
+  },
+  {
+    "id": "school-148655",
+    "type": "school",
+    "name": "Dixons Fazakerley Academy",
+    "address": "Sherwoods Lane, Liverpool",
+    "postcode": "L10 1LB",
+    "lat": 53.470377,
+    "lng": -2.924297
+  }
+]
