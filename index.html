@@ -7,7 +7,7 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#122D1C">
 <link rel="apple-touch-icon" href="Earthkeeper-circular.png">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="Earthkeeper-circular.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
@@ -991,7 +991,7 @@ async function loadDistricts(){
     geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
     districts=geojson.features
     if(mapReady&&map.getSource('districts-src'))map.getSource('districts-src').setData(geojson)
-    if(locations.length)assignDistrictCodes()
+    assignDistrictCodes()
   }catch(e){console.warn('Districts load failed',e)}
 }
 
@@ -1282,7 +1282,8 @@ async function bootApp(){
   initMap()
   setMsg('Loading progress…')
   await Promise.all([loadProgress(),loadGroupProgress()])
-  await Promise.all([loadAll(),loadDistricts()])
+  await loadAll()
+  await loadDistricts()
   renderLog()
 }
 
