@@ -984,10 +984,11 @@ async function saveGroupProgress(){
 
 async function loadDistricts(){
   try{
-    const res=await fetch(API_BASE+'/districts.geojson',{headers:GH_HEADERS})
+    // Use raw URL — file is too large for the contents API
+    const url='https://raw.githubusercontent.com/'+REPO_OWNER+'/'+REPO_NAME+'/main/data/districts.geojson'
+    const res=await fetch(url)
     if(!res.ok)return
-    const meta=await res.json()
-    const geojson=JSON.parse(atob(meta.content.replace(/\n/g,'')))
+    const geojson=await res.json()
     geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
     districts=geojson.features
     if(mapReady&&map.getSource('districts-src'))map.getSource('districts-src').setData(geojson)
