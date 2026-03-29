@@ -876,6 +876,200 @@ let sbOpen=true
 function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›';setTimeout(()=>map&&map.resize(),320)}
 function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
 
+
+// ── Effective tool (max of individual + group floor) ──────────────────────
+function effectiveTool(loc){
+  const ind=progress[loc.id]
+  const grpKey=(loc.districtCode||'')+':'+loc.type
+  const grp=groupProgress[grpKey]
+  if(!ind&&!grp)return null
+  if(ind&&!grp)return ind.tool
+  if(!ind&&grp)return grp.tool
+  return higherTool(ind.tool,grp.tool)
+}
+function isEffectivelyCleared(loc){
+  return !!(progress[loc.id]||groupProgress[(loc.districtCode||'')+':'+loc.type])
+}
+
+// ── District loading & assignment ──────────────────────────────────────────
+async function loadGroupProgress(){
+  try{
+    const res=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
+    if(res.ok){const m=await res.json();groupProgressSha=m.sha;groupProgress=JSON.parse(atob(m.content.replace(/\n/g,'')))}
+  }catch(e){groupProgress={}}
+}
+async function saveGroupProgress(){
+  showSaving('Saving…')
+  try{
+    const body={message:(currentUser||'user')+' groups — '+new Date().toISOString().slice(0,10),
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
+    if(groupProgressSha)body.sha=groupProgressSha
+    const res=await fetch(API_BASE+'/group-progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('✓ Saved')}
+    else{const e=await res.json();showSaving('Save failed: '+e.message)}
+  }catch(e){showSaving('Error saving')}
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
+}
+
+async function loadDistricts(){
+  try{
+    const res=await fetch(API_BASE+'/districts.geojson',{headers:GH_HEADERS})
+    if(!res.ok)return
+    const meta=await res.json()
+    const geojson=JSON.parse(atob(meta.content.replace(/\n/g,'')))
+    geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
+    districts=geojson.features
+    if(mapReady&&map.getSource('districts-src'))map.getSource('districts-src').setData(geojson)
+    if(locations.length)assignDistrictCodes()
+  }catch(e){console.warn('Districts load failed',e)}
+}
+
+function pointInPolygon(pt,ring){
+  let inside=false
+  for(let i=0,j=ring.length-1;i<ring.length;j=i++){
+    const [xi,yi]=ring[i],[xj,yj]=ring[j]
+    if(((yi>pt[1])!==(yj>pt[1]))&&(pt[0]<(xj-xi)*(pt[1]-yi)/(yj-yi)+xi))inside=!inside
+  }
+  return inside
+}
+
+function assignDistrictCodes(){
+  locations.forEach(loc=>{
+    if(!loc.lat||!loc.lng||loc.districtCode)return
+    for(const f of districts){
+      const rings=f.geometry.type==='Polygon'?[f.geometry.coordinates]:f.geometry.coordinates
+      let found=false
+      for(const poly of rings){if(pointInPolygon([loc.lng,loc.lat],poly[0])){found=true;break}}
+      if(found){loc.districtCode=f.properties.code;break}
+    }
+  })
+  buildDistrictMap()
+  renderDistrictList()
+  updateDistrictStates()
+}
+
+function buildDistrictMap(){
+  districtMap={}
+  districts.forEach(f=>{districtMap[f.properties.code]={name:f.properties.name,code:f.properties.code,fid:f.id,schools:[],gps:[]}})
+  locations.forEach(loc=>{
+    if(!loc.districtCode||!districtMap[loc.districtCode])return
+    if(loc.type==='school')districtMap[loc.districtCode].schools.push(loc)
+    if(loc.type==='gp')districtMap[loc.districtCode].gps.push(loc)
+  })
+}
+
+function updateDistrictStates(){
+  if(!mapReady||!districts.length||!map.getSource('districts-src'))return
+  districts.forEach(f=>{
+    const code=f.properties.code
+    const cleared=!!(groupProgress[code+':'+groupType])
+    const selected=code===selectedDistrictCode
+    try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
+  })
+}
+
+// ── Groups UI ──────────────────────────────────────────────────────────────
+function setGroupType(type,el){
+  groupType=type
+  document.querySelectorAll('.gtype-btn').forEach(b=>b.classList.remove('on'))
+  el.classList.add('on')
+  renderDistrictList()
+  updateDistrictStates()
+}
+
+function renderDistrictList(){
+  const el=document.getElementById('district-list')
+  const q=(document.getElementById('group-search')?.value||'').toLowerCase().trim()
+  const col=groupType==='school'?'var(--blue)':'var(--green)'
+  const label=groupType==='school'?'Schools':'GPs'
+  let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
+  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading…')+'</div>';return}
+  entries.sort((a,b)=>a.name.localeCompare(b.name))
+  el.innerHTML=entries.map(d=>{
+    const grpKey=d.code+':'+groupType
+    const grp=groupProgress[grpKey]
+    const locs=groupType==='school'?d.schools:d.gps
+    const total=locs.length
+    const indCleared=locs.filter(l=>progress[l.id]).length
+    const effCleared=grp?total:indCleared
+    const pct=total?Math.round(effCleared/total*100):0
+    const isSel=d.code===selectedDistrictCode
+    const badge=grp?'<span class="dbadge" style="color:'+toolColor(grp.tool)+';border-color:'+toolColor(grp.tool)+'66;background:'+toolColor(grp.tool)+'14">'+TOOL_NAMES[grp.tool]+'</span>':''
+    return '<div class="ditem '+(isSel?'sel':'')+'" onclick="selectDistrict(''+d.code+'')">'+
+      '<div class="ditem-name"><span>'+d.name+'</span>'+badge+'</div>'+
+      '<div class="ditem-bar-label"><span>'+label+'</span><span>'+effCleared+' / '+total+'</span></div>'+
+      '<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:'+col+';width:'+pct+'%"></div></div>'+
+    '</div>'
+  }).join('')
+}
+
+function selectDistrict(code){
+  selectedDistrictCode=code
+  renderDistrictList()
+  updateDistrictStates()
+  const d=districtMap[code];if(!d)return
+  const locs=groupType==='school'?d.schools:d.gps
+  if(locs.length)fitBounds(locs)
+  renderDistrictDetail(code)
+}
+
+function renderDistrictDetail(code){
+  const d=districtMap[code];if(!d)return
+  const grpKey=code+':'+groupType
+  const grp=groupProgress[grpKey]
+  const locs=groupType==='school'?d.schools:d.gps
+  const total=locs.length
+  const indCleared=locs.filter(l=>progress[l.id]).length
+  const typeLabel=groupType==='school'?'Schools':'GP Surgeries'
+  const typeCol=groupType==='school'?'var(--blue)':'var(--green)'
+  document.getElementById('dd-type').textContent=typeLabel
+  document.getElementById('dd-type').style.color=typeCol
+  document.getElementById('dd-name').textContent=d.name
+  let html=''
+  if(grp){
+    const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    const col=toolColor(grp.tool),who=grp.user?' · '+grp.user:''
+    html+='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">✦ Group cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who+'</div>'
+    html+='<div style="font-size:12px;color:var(--soft);margin-bottom:10px">'+indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total</div>'
+    html+='<button class="btn-unmark" onclick="unmarkGroupCleared(''+code+'')">↩ Remove group clearing</button>'
+  }else{
+    html+='<div style="font-size:13px;color:var(--soft);margin-bottom:11px">'+indCleared+' of '+total+' individually cleared</div>'
+    html+='<div class="tool-label">Clear entire district to level</div>'
+    const btns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+'" id="gtbtn-'+t+'" onclick="selectGroupTool(''+t+'')">'+TOOL_NAMES[t]+'</button>').join('')
+    html+='<div class="tool-btns">'+btns+'</div>'
+    html+='<button class="btn-mark" id="btn-group-mark" onclick="markGroupCleared(''+code+'')">Clear '+d.name+' — '+TOOL_NAMES[currentTool]+' ✦</button>'
+  }
+  document.getElementById('dd-body').innerHTML=html
+  document.getElementById('district-detail').classList.add('on')
+}
+
+function closeDistrictDetail(){
+  document.getElementById('district-detail').classList.remove('on')
+  selectedDistrictCode=null
+  renderDistrictList()
+  updateDistrictStates()
+}
+
+function selectGroupTool(tool){
+  currentTool=tool
+  TOOLS.forEach(t=>document.getElementById('gtbtn-'+t)?.classList.toggle('sel',t===tool))
+  const btn=document.getElementById('btn-group-mark')
+  if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
+    btn.textContent='Clear '+districtMap[selectedDistrictCode].name+' — '+TOOL_NAMES[tool]+' ✦'
+}
+
+async function markGroupCleared(code){
+  groupProgress[code+':'+groupType]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+
+async function unmarkGroupCleared(code){
+  delete groupProgress[code+':'+groupType]
+  refreshMapData();renderDistrictDetail(code);renderDistrictList();updateDistrictStates();updateStats()
+  await saveGroupProgress()
+}
+
 function setMsg(m){document.getElementById('mload-msg').textContent=m}
 function hideLoader(){document.getElementById('mload').style.display='none'}
 
