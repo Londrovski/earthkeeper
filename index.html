@@ -304,11 +304,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="frow-label">Places</div>
         <div class="chips">
           <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
-          <div class="chip school" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
-          <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
+          <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
-          <div class="chip gp" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
         </div>
       </div>
       <div class="frow">
@@ -660,7 +658,9 @@ function panToVisible(lat,lng,zoom){
 function fitBounds(locs){
   const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
   const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
-  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:60,maxZoom:12,duration:800})
+  const minLng=Math.min(...lngs),maxLng=Math.max(...lngs)
+  const minLat=Math.min(...lats),maxLat=Math.max(...lats)
+  map.fitBounds([[minLng,minLat],[maxLng,maxLat]],{padding:{top:60,bottom:60,left:60,right:60},maxZoom:12,duration:800})
 }
 
 function locateMe(){
@@ -927,11 +927,16 @@ function switchTab(name,btn){
   document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
   if(mapReady){
-    ['district-fill','district-glow','district-line','district-selected'].forEach(id=>{
+    // District layers: only on Groups tab
+    ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{
       if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')
     })
+    // Dot layers: only on Locations tab
+    ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{
+      if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')
+    })
   }
-  // Show/hide school+GP progress rows based on tab
+  // Show/hide school+GP progress rows
   const pgS=document.getElementById('pg-row-s')
   const pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
