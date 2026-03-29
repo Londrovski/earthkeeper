@@ -635,7 +635,6 @@ function locateMe(){
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
-// All data fetched via raw URLs — public repo, no auth needed
 async function ghGet(path){
   const res=await fetch(RAW_BASE+'/'+path)
   if(!res.ok)throw new Error('Fetch '+res.status)
@@ -682,7 +681,6 @@ async function loadProgress(){
   try{
     const res=await fetch(RAW_BASE+'/progress.json?t='+Date.now())
     if(res.ok)progress=await res.json()
-    // Get SHA for saving
     const sha=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
     if(sha.ok){const m=await sha.json();progressSha=m.sha}
   }catch(e){progress={}}
@@ -783,7 +781,7 @@ function renderDistrictList(){
     const sg=groupProgress[d.code+':school'],gg=groupProgress[d.code+':gp']
     const badges=(sg?'<span class="dbadge" style="color:'+toolColor(sg.tool)+';border-color:'+toolColor(sg.tool)+'66;background:'+toolColor(sg.tool)+'14;margin-left:4px">S:'+TOOL_NAMES[sg.tool]+'</span>':'')+
       (gg?'<span class="dbadge" style="color:'+toolColor(gg.tool)+';border-color:'+toolColor(gg.tool)+'66;background:'+toolColor(gg.tool)+'14;margin-left:4px">GP:'+TOOL_NAMES[gg.tool]+'</span>':'')
-    return '<div class="ditem '+(isSel?'sel':'')+'\" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)"><div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+bars+'</div>'
+    return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)"><div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+bars+'</div>'
   }).filter(Boolean).join('')
 }
 
@@ -806,7 +804,6 @@ function renderMapPopup(code){
   body.innerHTML=''
   const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
   if(!activeTypes.length)return
-  // Shared tool selector
   const toolLbl=document.createElement('div');toolLbl.className='tool-label';toolLbl.textContent='Energy tool'
   body.appendChild(toolLbl)
   const toolRow=document.createElement('div');toolRow.className='tool-btns'
@@ -814,19 +811,15 @@ function renderMapPopup(code){
     const b=document.createElement('button')
     b.className='tool-btn '+t+(currentTool===t?' sel':'')
     b.id='mpop-tool-'+t;b.textContent=TOOL_NAMES[t]
-    b.onclick=(()=>{const tt=t;return()=>{
+    b.onclick=(function(tt){return function(){
       currentTool=tt
-      TOOLS.forEach(x=>{const el=document.getElementById('mpop-tool-'+x);if(el)el.classList.toggle('sel',x===tt)})
-      activeTypes.forEach(gt=>{
-        const btn=document.getElementById('mpop-clear-'+gt)
-        if(btn)btn.textContent='Clear all locations in '+d.name+' — '+TOOL_NAMES[tt]+' ✦'
-      })
-    }})()
+      TOOLS.forEach(function(x){var el=document.getElementById('mpop-tool-'+x);if(el)el.classList.toggle('sel',x===tt)})
+      activeTypes.forEach(function(gt){var btn=document.getElementById('mpop-clear-'+gt);if(btn)btn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[tt]+' \u2736'})
+    }})(t)
     toolRow.appendChild(b)
   })
   body.appendChild(toolRow)
-  // Per-type clear button
-  activeTypes.forEach(gtype=>{
+  activeTypes.forEach(function(gtype){
     const locs=gtype==='school'?d.schools:d.gps
     const total=locs.length
     const grp=groupProgress[code+':'+gtype]
@@ -836,16 +829,18 @@ function renderMapPopup(code){
     if(grp){
       const col=toolColor(grp.tool),dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})
       const info=document.createElement('div');info.style.cssText='font-size:12px;color:'+col+';margin-bottom:6px'
-      info.textContent='✦ '+typeLabel+' — '+TOOL_NAMES[grp.tool]+' · '+dt+' ('+total+' locations)'
+      info.textContent='\u2736 '+typeLabel+' \u2014 '+TOOL_NAMES[grp.tool]+' \u00b7 '+dt+' ('+total+' locations)'
       div.appendChild(info)
       const btn=document.createElement('button');btn.className='btn-unmark';btn.style.cssText='padding:7px 10px;font-size:12px;margin-top:0;width:100%'
-      btn.textContent='↩ Remove '+typeLabel+' clearing'
-      btn.onclick=(()=>{const gt=gtype;return()=>{unmarkGroupCleared(code,gt);renderMapPopup(code)}})()\n      div.appendChild(btn)
+      btn.textContent='\u21a9 Remove '+typeLabel+' clearing'
+      btn.onclick=(function(gt){return function(){unmarkGroupCleared(code,gt);renderMapPopup(code)}})(gtype)
+      div.appendChild(btn)
     }else{
       const btn=document.createElement('button');btn.className='btn-mark';btn.id='mpop-clear-'+gtype
       btn.style.cssText='padding:10px;font-size:12px;margin-bottom:0;width:100%'
-      btn.textContent='Clear all locations in '+d.name+' — '+TOOL_NAMES[currentTool]+' ✦'
-      btn.onclick=(()=>{const gt=gtype;return()=>{markGroupCleared(code,gt);renderMapPopup(code)}})()\n      div.appendChild(btn)
+      btn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[currentTool]+' \u2736'
+      btn.onclick=(function(gt){return function(){markGroupCleared(code,gt);renderMapPopup(code)}})(gtype)
+      div.appendChild(btn)
     }
     body.appendChild(div)
   })
@@ -863,9 +858,9 @@ function renderDistrictDetail(code){
   const body=document.getElementById('dd-body');body.innerHTML=''
   const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
   if(!activeTypes.length){const msg=document.createElement('div');msg.className='empty';msg.textContent='No data for this district';body.appendChild(msg)}
-  activeTypes.forEach(gtype=>{
+  activeTypes.forEach(function(gtype){
     const locs=gtype==='school'?d.schools:d.gps
-    const total=locs.length,indCleared=locs.filter(l=>progress[l.id]).length
+    const total=locs.length,indCleared=locs.filter(function(l){return progress[l.id]}).length
     const grp=groupProgress[code+':'+gtype]
     const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
     const typeLabel=gtype==='school'?'Schools':'GP Surgeries'
@@ -874,30 +869,30 @@ function renderDistrictDetail(code){
     heading.textContent=typeLabel;section.appendChild(heading)
     if(grp){
       const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-      const col=toolColor(grp.tool),who=grp.user?' · '+grp.user:''
+      const col=toolColor(grp.tool),who=grp.user?' \u00b7 '+grp.user:''
       const cleared=document.createElement('div');cleared.className='detail-cleared'
       cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
-      cleared.innerHTML='✦ Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who
+      cleared.innerHTML='\u2736 Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> \u00b7 '+dt+who
       section.appendChild(cleared)
       const info=document.createElement('div');info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
       info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total';section.appendChild(info)
       const btn=document.createElement('button');btn.className='btn-unmark';btn.style.marginBottom='4px'
-      btn.textContent='↩ Remove clearing'
-      btn.onclick=(()=>{const g=gtype;return()=>unmarkGroupCleared(code,g)})();section.appendChild(btn)
+      btn.textContent='\u21a9 Remove clearing'
+      btn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype);section.appendChild(btn)
     }else{
       const info=document.createElement('div');info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
       info.textContent=indCleared+' of '+total+' individually cleared';section.appendChild(info)
       const lbl=document.createElement('div');lbl.className='tool-label';lbl.textContent='Clear to level';section.appendChild(lbl)
       const btnRow=document.createElement('div');btnRow.className='tool-btns'
-      TOOLS.forEach(t=>{
+      TOOLS.forEach(function(t){
         const b=document.createElement('button');b.className='tool-btn '+t+(currentTool===t?' sel':'')
         b.id='gtbtn-'+gtype+'-'+t;b.textContent=TOOL_NAMES[t]
-        b.onclick=(()=>{const tt=t,gt=gtype;return()=>selectGroupTool(tt,gt)})();btnRow.appendChild(b)
+        b.onclick=(function(tt,gt){return function(){selectGroupTool(tt,gt)}})(t,gtype);btnRow.appendChild(b)
       })
       section.appendChild(btnRow)
       const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
-      markBtn.textContent='Clear all locations in '+d.name+' — '+TOOL_NAMES[currentTool]+' ✦'
-      markBtn.onclick=(()=>{const gt=gtype;return()=>markGroupCleared(code,gt)})();section.appendChild(markBtn)
+      markBtn.textContent='Clear all locations in '+d.name+' \u2014 '+TOOL_NAMES[currentTool]+' \u2736'
+      markBtn.onclick=(function(gt){return function(){markGroupCleared(code,gt)}})(gtype);section.appendChild(markBtn)
     }
     body.appendChild(section)
   })
@@ -910,10 +905,10 @@ function closeDistrictDetail(){
 }
 function selectGroupTool(tool,gtype){
   currentTool=tool
-  TOOLS.forEach(t=>{const b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
-  const btn=document.getElementById('btn-group-mark-'+gtype)
+  TOOLS.forEach(function(t){var b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
+  var btn=document.getElementById('btn-group-mark-'+gtype)
   if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode])
-    btn.textContent='Clear all locations in '+districtMap[selectedDistrictCode].name+' — '+TOOL_NAMES[tool]+' ✦'
+    btn.textContent='Clear all locations in '+districtMap[selectedDistrictCode].name+' \u2014 '+TOOL_NAMES[tool]+' \u2736'
 }
 async function markGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
