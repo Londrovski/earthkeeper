@@ -1188,7 +1188,7 @@ async function bootApp(){
   setMsg('Loading progress…')
   await Promise.all([loadProgress(),loadGroupProgress()])
   // Load districts in parallel with location data
-  const [,] = await Promise.all([loadAll(),loadDistricts()])
+  await Promise.all([loadAll(),loadDistricts()])
   renderLog()
 }
 
