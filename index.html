@@ -33,14 +33,12 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
-
 .maplibregl-map{position:absolute;inset:0}
 .maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right{display:none}
 .maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2) !important;border-radius:6px !important}
 .maplibregl-ctrl-group button{width:32px;height:32px}
 .maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15) !important}
 .maplibregl-canvas{cursor:default}
-
 #login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
 .login-box{background:rgba(18,45,28,.95);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,.5)}
 .login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
@@ -56,7 +54,6 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
 .login-btn:hover{background:var(--gold)}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
-
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
 .header-brand{display:flex;align-items:center;gap:12px}
@@ -72,17 +69,14 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .hstats strong{color:var(--gold);font-size:20px;display:block;letter-spacing:0}
 .hbtn{background:none;border:1px solid var(--bd);color:var(--gold-l);padding:7px 16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:var(--gold-glow);border-color:var(--gold)}
-
 .body{display:flex;flex:1;overflow:hidden}
 .sidebar{width:33.333%;flex-shrink:0;background:rgba(18,45,28,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
 .sidebar.collapsed{width:0;opacity:0;pointer-events:none}
-
 .tabs{display:flex;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.75)}
 .tab{flex:1;padding:16px 8px;font-family:'Jost',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab.on{color:var(--gold);font-weight:500;border-bottom-color:var(--gold)}
 .panel{display:none;flex-direction:column;flex:1;overflow:hidden;min-height:0}
 .panel.on{display:flex}
-
 .frow{padding:14px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:9px;font-weight:500}
 .chips{display:flex;gap:7px;flex-wrap:wrap}
@@ -98,16 +92,13 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
 .chip.show-jewel{border-color:var(--jewel);color:var(--jewel)}.chip.show-jewel.on{background:var(--jewel);color:#fff}
 .chip.show-mg{border-color:var(--mg);color:var(--mg)}.chip.show-mg.on{background:var(--mg);color:#fff}
-
 .rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
 .rsel select option{background:#1A3D28;color:var(--ink-d)}
-
 .srow{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .sinput{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;outline:none;background:rgba(13,36,22,.25);color:var(--ink-d);caret-color:var(--gold)}
 .sinput::placeholder{color:var(--soft-d)}
 .sinput:focus{border-color:var(--gold)}
-
 .llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
 .llist::-webkit-scrollbar{width:3px}
 .llist::-webkit-scrollbar-thumb{background:var(--bd)}
@@ -120,7 +111,6 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .litem.done .lname{text-decoration:line-through;opacity:.45}
 .lmeta{font-size:13px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lbadge{font-size:11px;padding:2px 9px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
-
 .detail{flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);display:none;flex-direction:column;max-height:50%}
 .detail.on{display:flex}
 .detail-head{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -147,14 +137,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .btn-mark:hover{background:var(--gold)}
 .btn-unmark{display:block;width:100%;padding:10px;margin-top:9px;background:none;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s}
 .btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
-
 .log-filter{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;display:flex;gap:9px;align-items:center;background:rgba(18,45,28,.18)}
 .log-filter label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
 .log-date-input{flex:1;padding:6px 9px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:rgba(13,36,22,.3);color:var(--ink)}
 .log-date-input:focus{border-color:var(--gold)}
 .log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 9px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;transition:all .15s}
 .log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
-
 #map{flex:1;position:relative}
 .mwrap{position:relative;flex:1;display:flex;flex-direction:column}
 .mload{position:absolute;inset:0;background:rgba(13,36,22,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:18px}
@@ -165,7 +153,6 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .msub{font-size:14px;color:var(--soft);text-align:center;max-width:300px}
 .tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:rgba(13,36,22,.7);border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
 .tog:hover{background:rgba(18,45,28,.9)}
-
 .map-overlays{position:absolute;top:14px;right:14px;z-index:400;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
 .progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:13px 18px;min-width:210px}
 .prog-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:9px}
@@ -178,15 +165,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .leg-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
 .leg-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--ink)}
 .leg-dot{width:12px;height:12px;border-radius:50%}
-
 .locate-btn{position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.7);backdrop-filter:blur(8px);border:1px solid var(--bd);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--gold-l);transition:all .15s}
 .locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
 .locate-btn span{font-size:17px;line-height:1}
-
 .empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
 #mobile-detail{display:none}
-
 @media(max-width:700px){
   header{height:48px;padding:0 12px}
   .header-seal{width:32px;height:32px}
@@ -256,20 +240,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 
 <div id="login-screen">
   <div class="login-box">
-    <div class="login-seal">
-      <img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'">
-    </div>
+    <div class="login-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
     <div class="login-logo">Earth<em>keeper</em></div>
     <div class="login-sub">Energy clearing tracker</div>
     <form autocomplete="on" onsubmit="doLogin(event)">
-      <div class="login-field">
-        <label for="login-name">Your full name</label>
-        <input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username">
-      </div>
-      <div class="login-field">
-        <label for="login-pw">Password</label>
-        <input type="password" id="login-pw" name="password" placeholder="••••••" autocomplete="current-password">
-      </div>
+      <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
+      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="••••••" autocomplete="current-password"></div>
       <button type="submit" class="login-btn">Enter</button>
     </form>
     <div class="login-err" id="login-err"></div>
@@ -279,9 +255,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 <div id="app">
 <header>
   <div class="header-brand">
-    <div class="header-seal">
-      <img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'">
-    </div>
+    <div class="header-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
     <div class="logo">Earth<em>keeper</em></div>
   </div>
   <div class="hstats">
@@ -337,9 +311,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <option value="scotland">Scotland</option>
         </select>
       </div>
-      <div class="srow">
-        <input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off">
-      </div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address…" id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
         <div class="detail-head">
@@ -361,10 +333,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     </div>
     <div class="panel" id="tab-log">
       <div class="log-filter">
-        <label>From</label>
-        <input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
-        <label>To</label>
-        <input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
+        <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
+        <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
         <button class="log-clear-btn" onclick="clearLogFilter()">✕</button>
       </div>
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
@@ -391,17 +361,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(224,112,80,.4)"></div>Hospital</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(61,191,168,.4)"></div>Hospice</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(196,114,42,.4)"></div>Prison</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(91,155,213,.4)"></div>School</div>
-        <div class="leg-item"><div class="leg-dot" style="background:rgba(155,120,200,.4)"></div>University</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#C9A84C;box-shadow:0 0 6px rgba(201,168,76,.8)"></div>Cleared ✦</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(255,255,255,0.15)"></div>Uncleared</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#C9A84C;box-shadow:0 0 8px rgba(201,168,76,.9)"></div>Cleared ✦</div>
       </div>
     </div>
-    <button class="locate-btn" id="locate-btn" onclick="locateMe()">
-      <span>📍</span>Find Me
-    </button>
+    <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>📍</span>Find Me</button>
   </div>
 </div>
 </div>
@@ -443,7 +407,6 @@ const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'
 let locations=[], progress={}, progressSha=null, selectedId=null, map, mapReady=false
 let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
-
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
 
 let saveQueued=false
@@ -453,17 +416,17 @@ window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
 
 async function doLogin(e){
   e.preventDefault()
-  const name=document.getElementById('login-name').value.trim(), pw=document.getElementById('login-pw').value, err=document.getElementById('login-err')
+  const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
   err.textContent='Checking…'
   const hash=await sha256(pw)
   if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
-  currentUser=name; sessionStorage.setItem('ek_user',name)
+  currentUser=name;sessionStorage.setItem('ek_user',name)
   document.getElementById('login-screen').style.display='none'
   document.getElementById('app').style.display='flex'
   document.getElementById('h-username').textContent=name
-  err.textContent=''; bootApp()
+  err.textContent='';bootApp()
 }
 async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
 function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
@@ -471,7 +434,7 @@ function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document
 function isMobile(){return window.innerWidth<=700}
 function updateLocateBtnPosition(){
   if(!isMobile())return
-  const btn=document.getElementById('locate-btn'), panel=document.getElementById('mobile-detail')
+  const btn=document.getElementById('locate-btn'),panel=document.getElementById('mobile-detail')
   const panelH=panel.classList.contains('on')?(panel.offsetHeight||0):0
   btn.style.bottom=(11+panelH+(panelH>0?10:0))+'px'
 }
@@ -482,20 +445,14 @@ function initMap(){
     container:'map',
     style:{
       version:8,
-      sources:{
-        carto:{
-          type:'raster',
-          tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-                 'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-                 'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
-          tileSize:256,
-          attribution:'© OpenStreetMap contributors © CARTO'
-        }
-      },
+      sources:{carto:{type:'raster',
+        tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+               'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+               'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
+        tileSize:256,attribution:'© OpenStreetMap contributors © CARTO'}},
       layers:[{id:'carto-tiles',type:'raster',source:'carto'}]
     },
-    center:[-1.5,53.5], zoom:5.5,
-    attributionControl:false
+    center:[-1.5,53.5],zoom:5.5,attributionControl:false
   })
   map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right')
   map.on('load',()=>{
@@ -504,72 +461,60 @@ function initMap(){
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
 
-    // ── Layer 1: outer glow for cleared — larger, blurred gold halo ────────
-    map.addLayer({id:'cleared-glow-outer',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],4,10,8,18,14,28],
-      'circle-color':GOLD,
-      'circle-opacity':0.15,
-      'circle-blur':0.8,
-      'circle-pitch-alignment':'map'
-    }})
-
-    // ── Layer 2: inner glow ring for cleared — tighter, brighter ──────────
-    map.addLayer({id:'cleared-glow-inner',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],4,6,8,10,14,16],
-      'circle-color':GOLD,
-      'circle-opacity':0.3,
-      'circle-blur':0.4,
-      'circle-pitch-alignment':'map'
-    }})
-
-    // ── Layer 3: uncleared dots — small, dim, desaturated ─────────────────
-    // These are just markers saying "something is here" — quiet background
-    map.addLayer({id:'locations-dots-uncleared',type:'circle',source:'locations',
+    // ── Uncleared: tiny, near-invisible white specks ──────────────────────
+    map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
       filter:['==',['get','cleared'],false],
       paint:{
-        'circle-radius':['interpolate',['linear'],['zoom'],4,2,8,4,12,6,14,7],
-        'circle-color':'#4a6658',    // desaturated grey-green, barely visible
-        'circle-opacity':0.55,
+        'circle-radius':['interpolate',['linear'],['zoom'],5,1.5,9,3,13,5],
+        'circle-color':'#ffffff',
+        'circle-opacity':0.18,   // very dim — just a hint
         'circle-stroke-width':0,
         'circle-pitch-alignment':'map'
       }
     })
 
-    // ── Layer 4: cleared dots — full gold, larger, prominent ──────────────
-    map.addLayer({id:'locations-dots-cleared',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],4,4,8,7,12,10,14,13],
+    // ── Cleared outer glow: big soft gold halo ────────────────────────────
+    map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,14,9,22,13,32],
+      'circle-color':GOLD,
+      'circle-opacity':0.22,
+      'circle-blur':0.65,
+      'circle-pitch-alignment':'map'
+    }})
+
+    // ── Cleared dot: solid bright gold, prominent ─────────────────────────
+    map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,5,9,8,13,12],
       'circle-color':GOLD,
       'circle-opacity':1,
-      'circle-stroke-width':1.5,
+      'circle-stroke-width':2,
       'circle-stroke-color':['case',
         ['==',['get','tool'],'omega'],'#9B5ED4',
         ['==',['get','tool'],'jewel'],'#E07050',
         ['==',['get','tool'],'mg'],   '#4A85C9',
-        'rgba(255,255,255,0.6)'],
+        'rgba(255,255,255,0.7)'],
       'circle-pitch-alignment':'map'
     }})
 
-    // ── Layer 5: selected ring — white, obvious ────────────────────────────
+    // ── Selected ring ─────────────────────────────────────────────────────
     map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],4,10,8,14,14,20],
+      'circle-radius':['interpolate',['linear'],['zoom'],5,11,9,16,13,22],
       'circle-color':'transparent',
       'circle-stroke-width':2.5,
-      'circle-stroke-color':'rgba(255,255,255,0.85)',
+      'circle-stroke-color':'rgba(255,255,255,0.9)',
       'circle-opacity':0,
-      'circle-stroke-opacity':0.9,
+      'circle-stroke-opacity':1,
       'circle-pitch-alignment':'map'
     }})
 
-    // Click targets — both cleared and uncleared
-    const clickLayers=['locations-dots-cleared','locations-dots-uncleared']
-    clickLayers.forEach(layer=>{
-      map.on('click',layer,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
-      map.on('mouseenter',layer,()=>{map.getCanvas().style.cursor='pointer'})
-      map.on('mouseleave',layer,()=>{map.getCanvas().style.cursor=''})
+    const clickLayers=['dots-cleared','dots-uncleared']
+    clickLayers.forEach(l=>{
+      map.on('click',l,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
+      map.on('mouseenter',l,()=>{map.getCanvas().style.cursor='pointer'})
+      map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
     })
     map.on('click',e=>{
-      const hits=map.queryRenderedFeatures(e.point,{layers:clickLayers})
-      if(!hits.length){setSelectedId(null);closeDetail();closeMobileDetail()}
+      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
     })
     refreshMapData()
   })
@@ -609,12 +554,10 @@ function panToVisible(lat,lng,zoom){
     const panel=document.getElementById('mobile-detail')
     const offset=panel.classList.contains('on')?(panel.offsetHeight||0)/2:0
     map.easeTo({center:[lng,lat],offset:[0,offset],duration:400})
-  }else{
-    map.easeTo({center:[lng,lat],duration:300})
-  }
+  }else{map.easeTo({center:[lng,lat],duration:300})}
 }
 function fitBounds(locs){
-  const pts=locs.filter(l=>l.lat&&l.lng); if(!pts.length)return
+  const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
   const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
   map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:60,maxZoom:12,duration:800})
 }
@@ -651,30 +594,26 @@ async function fetchRegion(region){
 }
 
 async function loadAll(){
-  closeMobileDetail(); closeDetail(); setSelectedId(null)
-  setMsg('Loading all regions…'); document.getElementById('mload').style.display='flex'
+  closeMobileDetail();closeDetail();setSelectedId(null)
+  setMsg('Loading all regions…');document.getElementById('mload').style.display='flex'
   try{
     const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
     locations=allArrays.flat()
-    hideLoader(); refreshMapData(); renderList(); updateStats()
+    hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations)
-  }catch(e){
-    setMsg('Error loading data'); setTimeout(hideLoader,3000); locations=[]; renderList()
-  }
+  }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
 }
 
 async function loadRegion(value){
   if(value==='all'){await loadAll();return}
-  closeMobileDetail(); closeDetail(); setSelectedId(null)
-  setMsg(`Loading ${value}…`); document.getElementById('mload').style.display='flex'
+  closeMobileDetail();closeDetail();setSelectedId(null)
+  setMsg(`Loading ${value}…`);document.getElementById('mload').style.display='flex'
   try{
     locations=await fetchRegion(value)
-    hideLoader(); refreshMapData(); renderList(); updateStats()
+    hideLoader();refreshMapData();renderList();updateStats()
     if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
     else{setMsg(`No data for "${value}" yet`);setTimeout(hideLoader,3000)}
-  }catch(e){
-    setMsg(`Error loading ${value}`); setTimeout(hideLoader,3000); locations=[]; renderList()
-  }
+  }catch(e){setMsg(`Error loading ${value}`);setTimeout(hideLoader,3000);locations=[];renderList()}
 }
 
 async function loadProgress(){
@@ -698,7 +637,7 @@ async function saveProgress(){
 function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
 
 function renderList(){
-  const el=document.getElementById('llist'), q=document.getElementById('search').value.toLowerCase().trim()
+  const el=document.getElementById('llist'),q=document.getElementById('search').value.toLowerCase().trim()
   el.classList.toggle('active',!!q)
   if(!q){el.innerHTML='';return}
   const vis=locations.filter(l=>{
@@ -707,7 +646,7 @@ function renderList(){
   })
   if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
   el.innerHTML=vis.map(l=>{
-    const p=progress[l.id], dotBg=p?GOLD:typeColor(l.type)
+    const p=progress[l.id],dotBg=p?GOLD:typeColor(l.type)
     const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:'border:2px solid transparent'
     const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}66;background:${toolColor(p.tool)}14">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
     return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
@@ -720,18 +659,18 @@ function renderList(){
 
 function selectLoc(id){
   setSelectedId(id)
-  const loc=locations.find(l=>l.id===id); if(!loc)return
+  const loc=locations.find(l=>l.id===id);if(!loc)return
   renderList()
   if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
-    document.getElementById('search').value=''; renderList(); renderMobileDetail(loc)
+    document.getElementById('search').value='';renderList();renderMobileDetail(loc)
     if(document.getElementById('tab-log').classList.contains('on'))switchTab('locs',document.querySelectorAll('.tab')[0])
   }else{renderDetail(loc)}
 }
 
 function renderDetail(loc){
   const p=progress[loc.id],cleared=!!p
-  const typeEl=document.getElementById('d-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
+  const typeEl=document.getElementById('d-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
   document.getElementById('d-name').textContent=loc.name
   document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
   document.getElementById('d-gmaps').href=gmapsUrl(loc)
@@ -747,12 +686,12 @@ function renderDetail(loc){
 }
 function closeDetail(){
   if(selectedId&&!isMobile())setSelectedId(null)
-  document.getElementById('detail').classList.remove('on'); renderList()
+  document.getElementById('detail').classList.remove('on');renderList()
 }
 
 function renderMobileDetail(loc){
   const p=progress[loc.id],cleared=!!p
-  const typeEl=document.getElementById('md-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
+  const typeEl=document.getElementById('md-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
   document.getElementById('md-name').textContent=loc.name
   document.getElementById('md-addr').textContent=loc.address||loc.postcode||''
   document.getElementById('md-gmaps').href=gmapsUrl(loc)
@@ -775,48 +714,48 @@ function renderMobileDetail(loc){
 function closeMobileDetail(){
   if(selectedId)setSelectedId(null)
   document.getElementById('mobile-detail').classList.remove('on')
-  renderList(); updateLocateBtnPosition()
+  renderList();updateLocateBtnPosition()
 }
 
 function selectTool(tool){
-  currentTool=tool; TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('btn-mark-confirm'); if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
+  currentTool=tool;TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
+  const btn=document.getElementById('btn-mark-confirm');if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
 }
 function selectToolMobile(tool){
-  currentTool=tool; TOOLS.forEach(t=>document.getElementById(`md-tbtn-${t}`)?.classList.toggle('sel',t===tool))
-  const btn=document.getElementById('md-btn-mark'); if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
+  currentTool=tool;TOOLS.forEach(t=>document.getElementById(`md-tbtn-${t}`)?.classList.toggle('sel',t===tool))
+  const btn=document.getElementById('md-btn-mark');if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
 }
 
 async function markCleared(id){
-  const loc=locations.find(l=>l.id===id); if(!loc)return
+  const loc=locations.find(l=>l.id===id);if(!loc)return
   progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
-  refreshMapData(); renderDetail(loc); renderList(); updateStats(); renderLog()
-  await saveProgress(); queueSave()
+  refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
 }
 async function unmarkCleared(id){
-  const loc=locations.find(l=>l.id===id); if(!loc)return
+  const loc=locations.find(l=>l.id===id);if(!loc)return
   delete progress[id]
-  refreshMapData(); renderDetail(loc); renderList(); updateStats(); renderLog()
-  await saveProgress(); queueSave()
+  refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
 }
 async function markClearedMobile(id){
-  const loc=locations.find(l=>l.id===id); if(!loc)return
+  const loc=locations.find(l=>l.id===id);if(!loc)return
   progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
-  refreshMapData(); renderMobileDetail(loc); renderList(); updateStats(); renderLog()
-  await saveProgress(); queueSave()
+  refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
 }
 async function unmarkClearedMobile(id){
-  const loc=locations.find(l=>l.id===id); if(!loc)return
+  const loc=locations.find(l=>l.id===id);if(!loc)return
   delete progress[id]
-  refreshMapData(); renderMobileDetail(loc); renderList(); updateStats(); renderLog()
-  await saveProgress(); queueSave()
+  refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
+  await saveProgress();queueSave()
 }
 
 function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList()}
 function setShow(mode,el){
   showFilter=mode
   document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-omega,.chip.show-jewel,.chip.show-mg').forEach(c=>c.classList.remove('on'))
-  el.classList.add('on'); refreshMapData(); renderList()
+  el.classList.add('on');refreshMapData();renderList()
 }
 
 function updateStats(){
@@ -833,7 +772,7 @@ function updateStats(){
 
 function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
 function renderLog(){
-  const el=document.getElementById('log-list'), fromVal=document.getElementById('log-from')?.value||'', toVal=document.getElementById('log-to')?.value||''
+  const el=document.getElementById('log-list'),fromVal=document.getElementById('log-from')?.value||'',toVal=document.getElementById('log-to')?.value||''
   let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l?.name||id,type:l?.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
   if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
   if(toVal)entries=entries.filter(e=>e.date<=toVal)
@@ -853,7 +792,7 @@ function openFromLog(id){
   switchTab('locs',document.querySelectorAll('.tab')[0])
   const loc=locations.find(l=>l.id===id)
   if(loc){selectLoc(id);return}
-  const p=progress[id]; if(!p)return
+  const p=progress[id];if(!p)return
   const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?` · ${p.user}`:''
   const fallbackHtml=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="${isMobile()?'unmarkClearedMobile':'unmarkCleared'}('${id}')">↩ Mark as not cleared</button>`
   const gUrl=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name||id)}`
