@@ -995,25 +995,8 @@ async function loadDistricts(){
   }catch(e){console.warn('Districts load failed',e)}
 }
 
-function pointInPolygon(pt,ring){
-  let inside=false
-  for(let i=0,j=ring.length-1;i<ring.length;j=i++){
-    const [xi,yi]=ring[i],[xj,yj]=ring[j]
-    if(((yi>pt[1])!==(yj>pt[1]))&&(pt[0]<(xj-xi)*(pt[1]-yi)/(yj-yi)+xi))inside=!inside
-  }
-  return inside
-}
-
 function assignDistrictCodes(){
-  locations.forEach(loc=>{
-    if(!loc.lat||!loc.lng||loc.districtCode)return
-    for(const f of districts){
-      const rings=f.geometry.type==='Polygon'?[f.geometry.coordinates]:f.geometry.coordinates
-      let found=false
-      for(const poly of rings){if(pointInPolygon([loc.lng,loc.lat],poly[0])){found=true;break}}
-      if(found){loc.districtCode=f.properties.code;break}
-    }
-  })
+  // District codes are precomputed in the data files — just build the map
   buildDistrictMap()
   renderDistrictList()
   updateDistrictStates()
