@@ -1,0 +1,122 @@
+[
+  {
+    "id": "prison-addiewell",
+    "type": "prison",
+    "name": "HMP Addiewell",
+    "lat": 55.8283,
+    "lng": -3.6459,
+    "address": "Station Road, Addiewell, West Lothian EH55 8QF"
+  },
+  {
+    "id": "prison-barlinnie",
+    "type": "prison",
+    "name": "HMP Barlinnie",
+    "lat": 55.8741,
+    "lng": -4.1851,
+    "address": "Lee Avenue, Riddrie, Glasgow G33 2QX"
+  },
+  {
+    "id": "prison-castle-huntly",
+    "type": "prison",
+    "name": "HMP Castle Huntly",
+    "lat": 56.4634,
+    "lng": -3.1293,
+    "address": "Longforgan, Perth PH2 0PT"
+  },
+  {
+    "id": "prison-dumfries",
+    "type": "prison",
+    "name": "HMP Dumfries",
+    "lat": 55.0713,
+    "lng": -3.604,
+    "address": "Terregles Street, Dumfries DG2 9AX"
+  },
+  {
+    "id": "prison-edinburgh",
+    "type": "prison",
+    "name": "HMP Edinburgh",
+    "lat": 55.928,
+    "lng": -3.2313,
+    "address": "33 Stenhouse Road, Edinburgh EH11 3LN"
+  },
+  {
+    "id": "prison-glenochil",
+    "type": "prison",
+    "name": "HMP Glenochil",
+    "lat": 56.157,
+    "lng": -3.8107,
+    "address": "King O'Muirs Road, Tullibody, Alloa FK10 3AD"
+  },
+  {
+    "id": "prison-grampian",
+    "type": "prison",
+    "name": "HMP Grampian",
+    "lat": 57.4927,
+    "lng": -1.7858,
+    "address": "Old Perth Road, Peterhead AB42 2YY"
+  },
+  {
+    "id": "prison-greenock",
+    "type": "prison",
+    "name": "HMP Greenock",
+    "lat": 55.9458,
+    "lng": -4.7569,
+    "address": "Old Inverkip Road, Greenock PA16 9AH"
+  },
+  {
+    "id": "prison-inverness",
+    "type": "prison",
+    "name": "HMP Inverness",
+    "lat": 57.4778,
+    "lng": -4.2286,
+    "address": "Porterfield, Inverness IV2 3HH"
+  },
+  {
+    "id": "prison-kilmarnock",
+    "type": "prison",
+    "name": "HMP Kilmarnock",
+    "lat": 55.5971,
+    "lng": -4.4666,
+    "address": "Hurlford, Kilmarnock KA1 5AA"
+  },
+  {
+    "id": "prison-low-moss",
+    "type": "prison",
+    "name": "HMP Low Moss",
+    "lat": 55.9135,
+    "lng": -4.2137,
+    "address": "Crosshill Road, Bishopbriggs, Glasgow G64 2QB"
+  },
+  {
+    "id": "prison-perth",
+    "type": "prison",
+    "name": "HMP Perth",
+    "lat": 56.3955,
+    "lng": -3.4337,
+    "address": "3 Edinburgh Road, Perth PH2 8AT"
+  },
+  {
+    "id": "prison-polmont",
+    "type": "prison",
+    "name": "HMP/YOI Polmont",
+    "lat": 56.0024,
+    "lng": -3.7232,
+    "address": "Brightons, Falkirk FK2 0AB"
+  },
+  {
+    "id": "prison-shotts",
+    "type": "prison",
+    "name": "HMP Shotts",
+    "lat": 55.8246,
+    "lng": -3.7943,
+    "address": "Canthill Road, Shotts, North Lanarkshire ML7 4LE"
+  },
+  {
+    "id": "prison-stirling",
+    "type": "prison",
+    "name": "HMP Stirling",
+    "lat": 56.1166,
+    "lng": -3.9375,
+    "address": "Cornton Road, Stirling FK9 5NU"
+  }
+]

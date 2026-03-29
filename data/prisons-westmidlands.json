@@ -1,0 +1,98 @@
+[
+  {
+    "id": "prison-birmingham",
+    "type": "prison",
+    "name": "HMP Birmingham",
+    "lat": 52.4954,
+    "lng": -1.9209,
+    "address": "Winson Green Road, Birmingham B18 4AS"
+  },
+  {
+    "id": "prison-brinsford",
+    "type": "prison",
+    "name": "HMP/YOI Brinsford",
+    "lat": 52.6494,
+    "lng": -2.0891,
+    "address": "New Road, Featherstone, Wolverhampton WV10 7PY"
+  },
+  {
+    "id": "prison-dovegate",
+    "type": "prison",
+    "name": "HMP Dovegate",
+    "lat": 52.8929,
+    "lng": -1.8749,
+    "address": "Uttoxeter, Staffordshire ST14 8XR"
+  },
+  {
+    "id": "prison-drake-hall",
+    "type": "prison",
+    "name": "HMP/YOI Drake Hall",
+    "lat": 52.8549,
+    "lng": -2.2068,
+    "address": "Eccleshall, Staffordshire ST21 6LQ"
+  },
+  {
+    "id": "prison-featherstone",
+    "type": "prison",
+    "name": "HMP Featherstone",
+    "lat": 52.6438,
+    "lng": -2.0888,
+    "address": "New Road, Featherstone, Wolverhampton WV10 7PU"
+  },
+  {
+    "id": "prison-hewell",
+    "type": "prison",
+    "name": "HMP Hewell",
+    "lat": 52.3269,
+    "lng": -2.0283,
+    "address": "Hewell Lane, Tardebigge, Redditch B97 6QS"
+  },
+  {
+    "id": "prison-long-lartin",
+    "type": "prison",
+    "name": "HMP Long Lartin",
+    "lat": 52.0797,
+    "lng": -1.9373,
+    "address": "South Littleton, Evesham, Worcestershire WR11 8TZ"
+  },
+  {
+    "id": "prison-oakwood",
+    "type": "prison",
+    "name": "HMP Oakwood",
+    "lat": 52.6502,
+    "lng": -2.0912,
+    "address": "Oaks Drive, Featherstone, Wolverhampton WV10 7QD"
+  },
+  {
+    "id": "prison-stafford",
+    "type": "prison",
+    "name": "HMP Stafford",
+    "lat": 52.8094,
+    "lng": -2.1238,
+    "address": "54 Gaol Road, Stafford ST16 3AW"
+  },
+  {
+    "id": "prison-stoke-heath",
+    "type": "prison",
+    "name": "HMP/YOI Stoke Heath",
+    "lat": 52.9064,
+    "lng": -2.4734,
+    "address": "Stoke Heath, Market Drayton, Shropshire TF9 2JL"
+  },
+  {
+    "id": "prison-swinfen-hall",
+    "type": "prison",
+    "name": "HMP/YOI Swinfen Hall",
+    "lat": 52.6672,
+    "lng": -1.7927,
+    "address": "Swinfen, Lichfield, Staffordshire WS14 9QS"
+  },
+  {
+    "id": "prison-werrington",
+    "type": "prison",
+    "name": "HMYOI Werrington",
+    "lat": 53.0256,
+    "lng": -2.1168,
+    "address": "Ash Bank Road, Werrington, Stoke-on-Trent ST9 0DX"
+  }
+]

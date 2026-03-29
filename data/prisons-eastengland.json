@@ -1,0 +1,106 @@
+[
+  {
+    "id": "prison-bedford",
+    "type": "prison",
+    "name": "HMP Bedford",
+    "lat": 52.1367,
+    "lng": -0.4705,
+    "address": "St Loyes Street, Bedford MK40 1HG"
+  },
+  {
+    "id": "prison-bure",
+    "type": "prison",
+    "name": "HMP Bure",
+    "lat": 52.7462,
+    "lng": 1.4534,
+    "address": "Jaguar Drive, Coltishall, Norwich NR12 7NF"
+  },
+  {
+    "id": "prison-chelmsford",
+    "type": "prison",
+    "name": "HMP Chelmsford",
+    "lat": 51.7366,
+    "lng": 0.4705,
+    "address": "200 Springfield Road, Chelmsford, Essex CM2 6LQ"
+  },
+  {
+    "id": "prison-highpoint-north",
+    "type": "prison",
+    "name": "HMP Highpoint North",
+    "lat": 52.1729,
+    "lng": 0.5433,
+    "address": "Stradishall, Newmarket, Suffolk CB8 9YG"
+  },
+  {
+    "id": "prison-highpoint-south",
+    "type": "prison",
+    "name": "HMP Highpoint South",
+    "lat": 52.1706,
+    "lng": 0.5401,
+    "address": "Stradishall, Newmarket, Suffolk CB8 9YG"
+  },
+  {
+    "id": "prison-hollesley-bay",
+    "type": "prison",
+    "name": "HMP/YOI Hollesley Bay",
+    "lat": 52.051,
+    "lng": 1.4336,
+    "address": "Hollesley, Woodbridge, Suffolk IP12 3JW"
+  },
+  {
+    "id": "prison-littlehey",
+    "type": "prison",
+    "name": "HMP Littlehey",
+    "lat": 52.283,
+    "lng": -0.3132,
+    "address": "Perry, Huntingdon, Cambridgeshire PE28 0SR"
+  },
+  {
+    "id": "prison-norwich",
+    "type": "prison",
+    "name": "HMP Norwich",
+    "lat": 52.6292,
+    "lng": 1.2889,
+    "address": "Knox Road, Norwich, Norfolk NR1 4LU"
+  },
+  {
+    "id": "prison-peterborough",
+    "type": "prison",
+    "name": "HMP Peterborough",
+    "lat": 52.5527,
+    "lng": -0.1979,
+    "address": "Saville Road, Westwood, Peterborough PE3 7PD"
+  },
+  {
+    "id": "prison-the-mount",
+    "type": "prison",
+    "name": "HMP The Mount",
+    "lat": 51.7469,
+    "lng": -0.3832,
+    "address": "Molyneaux Avenue, Bovingdon, Hemel Hempstead HP3 0NZ"
+  },
+  {
+    "id": "prison-warren-hill",
+    "type": "prison",
+    "name": "HMP Warren Hill",
+    "lat": 52.0491,
+    "lng": 1.4312,
+    "address": "Hollesley, Woodbridge, Suffolk IP12 3BF"
+  },
+  {
+    "id": "prison-wayland",
+    "type": "prison",
+    "name": "HMP Wayland",
+    "lat": 52.5473,
+    "lng": 0.8938,
+    "address": "Griston, Thetford, Norfolk IP25 6RL"
+  },
+  {
+    "id": "prison-whitemoor",
+    "type": "prison",
+    "name": "HMP Whitemoor",
+    "lat": 52.5572,
+    "lng": 0.0773,
+    "address": "Longhill Road, March, Cambridgeshire PE15 0PR"
+  }
+]

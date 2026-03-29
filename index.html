@@ -6,7 +6,7 @@
 <title>Earthkeeper</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#122D1C">
-<link rel="apple-touch-icon" href="Earthkeeper.png">
+<link rel="apple-touch-icon" href="Earthkeeper-circular.png">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
   --input-bg:rgba(13,36,22,.5);
   --hover:rgba(201,168,76,.08);
   --sel:rgba(201,168,76,.12);
-  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;
+  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;
   --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,7 +38,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 
 #login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
 .login-box{background:rgba(18,45,28,.95);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,.5)}
-.login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;border:2.5px solid var(--gold);margin:0 auto 20px;display:block;background:#0D2416}
+.login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
 .login-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.14em;color:var(--gold-l);margin-bottom:4px}
 .login-logo em{color:var(--gold);font-style:italic}
@@ -55,7 +55,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
 .header-brand{display:flex;align-items:center;gap:12px}
-.header-seal{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0;background:#0D2416}
+.header-seal{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
 .header-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;letter-spacing:.1em;color:var(--gold-l)}
 .logo em{color:var(--gold);font-style:italic}
@@ -87,6 +87,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
 .chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
 .chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
+.chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
 .chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
@@ -126,7 +127,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
 .gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
 .detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
-.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}
+.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}
 .detail-name{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.3;color:var(--gold-l)}
 .detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
 .detail-body{padding:12px 20px 18px;overflow-y:auto}
@@ -249,17 +250,10 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 </head>
 <body>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-<symbol id="ek-seal" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#0F2818"/>
-  <circle cx="50" cy="50" r="47" fill="none" stroke="#C9A84C" stroke-width="1.8"/>
-</symbol>
-</svg>
-
 <div id="login-screen">
   <div class="login-box">
     <div class="login-seal">
-      <img src="Earthkeeper.png" alt="Earthkeeper" onerror="this.style.display='none'">
+      <img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'">
     </div>
     <div class="login-logo">Earth<em>keeper</em></div>
     <div class="login-sub">Energy clearing tracker</div>
@@ -282,7 +276,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 <header>
   <div class="header-brand">
     <div class="header-seal">
-      <img src="Earthkeeper.png" alt="Earthkeeper" onerror="this.style.display='none'">
+      <img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'">
     </div>
     <div class="logo">Earth<em>keeper</em></div>
   </div>
@@ -310,6 +304,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip school on" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
           <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
           <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
+          <div class="chip prison on" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
         </div>
       </div>
       <div class="frow">
@@ -374,8 +369,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   <div class="mwrap">
     <div id="map"></div>
     <div class="mload" id="mload">
-      <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);margin-bottom:8px;background:#0D2416">
-        <img src="Earthkeeper.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
+      <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;margin-bottom:8px">
+        <img src="Earthkeeper-circular.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
       </div>
       <div class="dots"><span></span><span></span><span></span></div>
       <div class="msub" id="mload-msg">Loading…</div>
@@ -386,6 +381,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="prog-title">Progress</div>
         <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">—</div></div>
         <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">—</div></div>
+        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">—</div></div>
         <div class="prog-row"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">—</div></div>
         <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">—</div></div>
       </div>
@@ -393,6 +389,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="leg-title">Legend</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid var(--omega)"></div>Omega ✦</div>
@@ -447,7 +444,7 @@ const REPO_OWNER='Londrovski', REPO_NAME='earthkeeper', DATA_BRANCH='main'
 const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 let locations=[], progress={}, progressSha=null, markers={}, selectedId=null, map
-let placesFilter={hospital:true,school:true,university:true,hospice:true}, showFilter='all', currentTool='omega', currentUser=null
+let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true}, showFilter='all', currentTool='omega', currentUser=null
 let locationMarker=null, currentMobileLoc=null
 
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
@@ -515,7 +512,8 @@ function typeColor(type){
   if(type==='hospital') return '#E07050'
   if(type==='school')   return '#5B9BD5'
   if(type==='hospice')  return '#3DBFA8'
-  return '#9B78C8' /* university */
+  if(type==='prison')   return '#C4722A'
+  return '#9B78C8'
 }
 
 function makeIcon(type,cleared,tool,selected){
@@ -585,13 +583,14 @@ async function loadRegion(region){
   closeMobileDetail(); closeDetail()
   setMsg(`Loading ${region}…`); document.getElementById('mload').style.display='flex'
   try{
-    const [hospitals, schools, universities, hospices] = await Promise.all([
+    const [hospitals, schools, universities, hospices, prisons] = await Promise.all([
       ghGetOptional(`hospitals-${region}.json`),
       ghGetOptional(`schools-${region}.json`),
       ghGetOptional(`universities-${region}.json`),
-      ghGetOptional(`hospices-${region}.json`)
+      ghGetOptional(`hospices-${region}.json`),
+      ghGetOptional(`prisons-${region}.json`)
     ])
-    locations = [...hospitals, ...schools, ...universities, ...hospices]
+    locations = [...hospitals, ...schools, ...universities, ...hospices, ...prisons]
     hideLoader(); renderMarkers(); renderList(); updateStats()
     const pts=locations.filter(l=>l.lat&&l.lng)
     if(pts.length){
@@ -820,7 +819,7 @@ function openFromLog(id){
 function updateStats(){
   const total=locations.length,cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length,pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString(); document.getElementById('s-cleared').textContent=cleared; document.getElementById('s-pct').textContent=pct+'%'
-  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]){
+  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]){
     const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'; document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
   }

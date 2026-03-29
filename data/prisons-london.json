@@ -1,0 +1,66 @@
+[
+  {
+    "id": "prison-belmarsh",
+    "type": "prison",
+    "name": "HMP Belmarsh",
+    "lat": 51.4907,
+    "lng": 0.1247,
+    "address": "Western Way, Thamesmead, London SE28 0EB"
+  },
+  {
+    "id": "prison-brixton",
+    "type": "prison",
+    "name": "HMP Brixton",
+    "lat": 51.4593,
+    "lng": -0.1151,
+    "address": "Jebb Avenue, Brixton, London SW2 5XF"
+  },
+  {
+    "id": "prison-feltham",
+    "type": "prison",
+    "name": "HMP/YOI Feltham",
+    "lat": 51.4463,
+    "lng": -0.4041,
+    "address": "Bedfont Road, Feltham, London TW13 4ND"
+  },
+  {
+    "id": "prison-isis",
+    "type": "prison",
+    "name": "HMP/YOI Isis",
+    "lat": 51.4934,
+    "lng": 0.121,
+    "address": "Western Way, Thamesmead, London SE28 0NZ"
+  },
+  {
+    "id": "prison-pentonville",
+    "type": "prison",
+    "name": "HMP Pentonville",
+    "lat": 51.537,
+    "lng": -0.1142,
+    "address": "Caledonian Road, Barnsbury, London N7 8TT"
+  },
+  {
+    "id": "prison-thameside",
+    "type": "prison",
+    "name": "HMP Thameside",
+    "lat": 51.5023,
+    "lng": 0.0934,
+    "address": "Frankie Laine Place, Thamesmead, London SE28 0FJ"
+  },
+  {
+    "id": "prison-wandsworth",
+    "type": "prison",
+    "name": "HMP Wandsworth",
+    "lat": 51.4419,
+    "lng": -0.1834,
+    "address": "Heathfield Road, Wandsworth, London SW18 3HS"
+  },
+  {
+    "id": "prison-wormwood-scrubs",
+    "type": "prison",
+    "name": "HMP Wormwood Scrubs",
+    "lat": 51.5165,
+    "lng": -0.242,
+    "address": "Du Cane Road, Wormwood Scrubs, London W12 0AE"
+  }
+]

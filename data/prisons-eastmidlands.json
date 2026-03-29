@@ -1,0 +1,122 @@
+[
+  {
+    "id": "prison-fosse-way",
+    "type": "prison",
+    "name": "HMP Fosse Way",
+    "lat": 52.58,
+    "lng": -1.1459,
+    "address": "Tigers Road, Glen Parva, Leicester LE2 9TW"
+  },
+  {
+    "id": "prison-foston-hall",
+    "type": "prison",
+    "name": "HMP/YOI Foston Hall",
+    "lat": 52.9017,
+    "lng": -1.7212,
+    "address": "Foston, Derby DE65 5DN"
+  },
+  {
+    "id": "prison-gartree",
+    "type": "prison",
+    "name": "HMP Gartree",
+    "lat": 52.4476,
+    "lng": -0.9489,
+    "address": "Gallow Field Road, Market Harborough, Leicestershire LE16 7RP"
+  },
+  {
+    "id": "prison-leicester",
+    "type": "prison",
+    "name": "HMP Leicester",
+    "lat": 52.6349,
+    "lng": -1.1295,
+    "address": "Welford Road, Leicester LE2 7AJ"
+  },
+  {
+    "id": "prison-lincoln",
+    "type": "prison",
+    "name": "HMP Lincoln",
+    "lat": 53.2295,
+    "lng": -0.5462,
+    "address": "Greetwell Road, Lincoln LN2 4BD"
+  },
+  {
+    "id": "prison-lowdham-grange",
+    "type": "prison",
+    "name": "HMP Lowdham Grange",
+    "lat": 53.0057,
+    "lng": -1.0148,
+    "address": "Old Epperstone Road, Lowdham, Nottinghamshire NG14 7DA"
+  },
+  {
+    "id": "prison-morton-hall",
+    "type": "prison",
+    "name": "HMP Morton Hall",
+    "lat": 53.138,
+    "lng": -0.6327,
+    "address": "Swinderby, Lincoln LN6 9PT"
+  },
+  {
+    "id": "prison-north-sea-camp",
+    "type": "prison",
+    "name": "HMP North Sea Camp",
+    "lat": 52.9837,
+    "lng": 0.0561,
+    "address": "Freiston, Boston, Lincolnshire PE22 0QX"
+  },
+  {
+    "id": "prison-nottingham",
+    "type": "prison",
+    "name": "HMP Nottingham",
+    "lat": 52.9543,
+    "lng": -1.175,
+    "address": "Perry Road, Sherwood, Nottingham NG5 3AG"
+  },
+  {
+    "id": "prison-onley",
+    "type": "prison",
+    "name": "HMP Onley",
+    "lat": 52.3411,
+    "lng": -1.2204,
+    "address": "Willoughby, Rugby, Warwickshire CV23 8AP"
+  },
+  {
+    "id": "prison-ranby",
+    "type": "prison",
+    "name": "HMP Ranby",
+    "lat": 53.3222,
+    "lng": -1.0105,
+    "address": "Retford, Nottinghamshire DN22 8EU"
+  },
+  {
+    "id": "prison-stocken",
+    "type": "prison",
+    "name": "HMP Stocken",
+    "lat": 52.7157,
+    "lng": -0.6384,
+    "address": "Stretton, Oakham, Rutland LE15 7RD"
+  },
+  {
+    "id": "prison-sudbury",
+    "type": "prison",
+    "name": "HMP Sudbury",
+    "lat": 53.0122,
+    "lng": -1.7558,
+    "address": "Ashbourne Road, Sudbury, Derbyshire DE6 5HW"
+  },
+  {
+    "id": "prison-whatton",
+    "type": "prison",
+    "name": "HMP Whatton",
+    "lat": 52.9226,
+    "lng": -0.9774,
+    "address": "New Lane, Whatton-in-the-Vale, Nottingham NG13 9FQ"
+  },
+  {
+    "id": "prison-five-wells",
+    "type": "prison",
+    "name": "HMP Five Wells",
+    "lat": 52.2836,
+    "lng": -0.6817,
+    "address": "Niort Way, Wellingborough, Northamptonshire NN8 2NG"
+  }
+]

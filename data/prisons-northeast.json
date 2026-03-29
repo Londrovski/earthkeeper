@@ -1,0 +1,50 @@
+[
+  {
+    "id": "prison-deerbolt",
+    "type": "prison",
+    "name": "HMP/YOI Deerbolt",
+    "lat": 54.5253,
+    "lng": -1.9405,
+    "address": "Bowes Road, Startforth, Barnard Castle, County Durham DL12 9BG"
+  },
+  {
+    "id": "prison-durham",
+    "type": "prison",
+    "name": "HMP Durham",
+    "lat": 54.7753,
+    "lng": -1.5698,
+    "address": "Old Elvet, Durham DH1 3HU"
+  },
+  {
+    "id": "prison-frankland",
+    "type": "prison",
+    "name": "HMP Frankland",
+    "lat": 54.8046,
+    "lng": -1.5703,
+    "address": "Brasside, Durham DH1 5YD"
+  },
+  {
+    "id": "prison-holme-house",
+    "type": "prison",
+    "name": "HMP Holme House",
+    "lat": 54.5634,
+    "lng": -1.3116,
+    "address": "Holme House Road, Stockton-on-Tees TS18 2QU"
+  },
+  {
+    "id": "prison-low-newton",
+    "type": "prison",
+    "name": "HMP/YOI Low Newton",
+    "lat": 54.809,
+    "lng": -1.5658,
+    "address": "Brasside, Durham DH1 5YA"
+  },
+  {
+    "id": "prison-northumberland",
+    "type": "prison",
+    "name": "HMP Northumberland",
+    "lat": 55.3116,
+    "lng": -1.6386,
+    "address": "Acklington, Morpeth, Northumberland NE65 9XF"
+  }
+]

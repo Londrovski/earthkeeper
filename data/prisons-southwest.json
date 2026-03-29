@@ -1,0 +1,98 @@
+[
+  {
+    "id": "prison-ashfield",
+    "type": "prison",
+    "name": "HMP Ashfield",
+    "lat": 51.5005,
+    "lng": -2.4682,
+    "address": "Shortwood Road, Pucklechurch, Bristol BS16 9QJ"
+  },
+  {
+    "id": "prison-bristol",
+    "type": "prison",
+    "name": "HMP Bristol",
+    "lat": 51.4897,
+    "lng": -2.5823,
+    "address": "Cambridge Road, Horfield, Bristol BS7 8PS"
+  },
+  {
+    "id": "prison-channings-wood",
+    "type": "prison",
+    "name": "HMP Channings Wood",
+    "lat": 50.512,
+    "lng": -3.6761,
+    "address": "Denbury, Newton Abbot, Devon TQ12 6DW"
+  },
+  {
+    "id": "prison-dartmoor",
+    "type": "prison",
+    "name": "HMP Dartmoor",
+    "lat": 50.5476,
+    "lng": -3.9944,
+    "address": "Princetown, Yelverton, Devon PL20 6RR"
+  },
+  {
+    "id": "prison-eastwood-park",
+    "type": "prison",
+    "name": "HMP/YOI Eastwood Park",
+    "lat": 51.6365,
+    "lng": -2.4157,
+    "address": "Falfield, Wotton-under-Edge, Gloucestershire GL12 8DB"
+  },
+  {
+    "id": "prison-erlestoke",
+    "type": "prison",
+    "name": "HMP Erlestoke",
+    "lat": 51.3094,
+    "lng": -1.9947,
+    "address": "Erlestoke, Devizes, Wiltshire SN10 5TU"
+  },
+  {
+    "id": "prison-exeter",
+    "type": "prison",
+    "name": "HMP Exeter",
+    "lat": 50.7189,
+    "lng": -3.5278,
+    "address": "New North Road, Exeter, Devon EX4 4EX"
+  },
+  {
+    "id": "prison-guys-marsh",
+    "type": "prison",
+    "name": "HMP Guys Marsh",
+    "lat": 51.0134,
+    "lng": -2.2258,
+    "address": "Shaftesbury, Dorset SP7 0AH"
+  },
+  {
+    "id": "prison-leyhill",
+    "type": "prison",
+    "name": "HMP Leyhill",
+    "lat": 51.6483,
+    "lng": -2.4308,
+    "address": "Wotton-under-Edge, Gloucestershire GL12 8BT"
+  },
+  {
+    "id": "prison-portland",
+    "type": "prison",
+    "name": "HMP/YOI Portland",
+    "lat": 50.5466,
+    "lng": -2.4407,
+    "address": "Easton, Portland, Dorset DT5 1DL"
+  },
+  {
+    "id": "prison-the-verne",
+    "type": "prison",
+    "name": "HMP The Verne",
+    "lat": 50.5451,
+    "lng": -2.4371,
+    "address": "The Verne, Portland, Dorset DT5 1EQ"
+  },
+  {
+    "id": "prison-shepton-mallet",
+    "type": "prison",
+    "name": "HMP Shepton Mallet (closed)",
+    "lat": 51.1905,
+    "lng": -2.5447,
+    "address": "Cornhill, Shepton Mallet, Somerset BA4 5LU"
+  }
+]

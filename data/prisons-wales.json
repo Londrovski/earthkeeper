@@ -1,0 +1,50 @@
+[
+  {
+    "id": "prison-berwyn",
+    "type": "prison",
+    "name": "HMP Berwyn",
+    "lat": 52.9865,
+    "lng": -3.0048,
+    "address": "Wrexham Industrial Estate, Wrexham LL13 9QE"
+  },
+  {
+    "id": "prison-cardiff",
+    "type": "prison",
+    "name": "HMP Cardiff",
+    "lat": 51.4734,
+    "lng": -3.1702,
+    "address": "Knox Road, Adamsdown, Cardiff CF24 0UG"
+  },
+  {
+    "id": "prison-parc",
+    "type": "prison",
+    "name": "HMP/YOI Parc",
+    "lat": 51.5096,
+    "lng": -3.5706,
+    "address": "Heol Hopcyn John, Bridgend CF35 6AP"
+  },
+  {
+    "id": "prison-prescoed",
+    "type": "prison",
+    "name": "HMP/YOI Prescoed",
+    "lat": 51.718,
+    "lng": -2.9044,
+    "address": "Prescoed Common, Usk, Monmouthshire NP15 1XP"
+  },
+  {
+    "id": "prison-swansea",
+    "type": "prison",
+    "name": "HMP Swansea",
+    "lat": 51.6268,
+    "lng": -3.9482,
+    "address": "200 Oystermouth Road, Sandfields, Swansea SA1 3SR"
+  },
+  {
+    "id": "prison-usk",
+    "type": "prison",
+    "name": "HMP Usk",
+    "lat": 51.7048,
+    "lng": -2.8985,
+    "address": "47 Maryport Street, Usk, Monmouthshire NP15 1XP"
+  }
+]
