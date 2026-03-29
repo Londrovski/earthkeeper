@@ -985,7 +985,7 @@ async function saveGroupProgress(){
 async function loadDistricts(){
   try{
     // Use raw URL — file is too large for the contents API
-    const url='https://raw.githubusercontent.com/'+REPO_OWNER+'/'+REPO_NAME+'/main/data/districts.geojson'
+    const url='https://raw.githubusercontent.com/'+REPO_OWNER+'/'+REPO_NAME+'/main/LAD_MAY_2025_UK_BUC_-9101541134941485660.geojson'
     const res=await fetch(url)
     if(!res.ok)return
     const geojson=await res.json()
