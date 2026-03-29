@@ -391,14 +391,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
       <div class="legend">
         <div class="leg-title">Legend</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid var(--omega)"></div>Omega ✦</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid var(--jewel)"></div>Jewel ✦</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid var(--mg)"></div>MG ✦</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(224,112,80,.4)"></div>Hospital</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(61,191,168,.4)"></div>Hospice</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(196,114,42,.4)"></div>Prison</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(91,155,213,.4)"></div>School</div>
+        <div class="leg-item"><div class="leg-dot" style="background:rgba(155,120,200,.4)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#C9A84C;box-shadow:0 0 6px rgba(201,168,76,.8)"></div>Cleared ✦</div>
       </div>
     </div>
     <button class="locate-btn" id="locate-btn" onclick="locateMe()">
@@ -487,7 +485,6 @@ function initMap(){
       sources:{
         carto:{
           type:'raster',
-          // Plain dark tiles — no brightness/saturation tweaks, looks clean
           tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
                  'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
                  'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
@@ -507,42 +504,72 @@ function initMap(){
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
 
-    // Cleared glow — static soft halo
-    map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],6,12,14,22],
-      'circle-color':GOLD,'circle-opacity':0.2,'circle-blur':0.7,'circle-pitch-alignment':'map'
+    // ── Layer 1: outer glow for cleared — larger, blurred gold halo ────────
+    map.addLayer({id:'cleared-glow-outer',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],4,10,8,18,14,28],
+      'circle-color':GOLD,
+      'circle-opacity':0.15,
+      'circle-blur':0.8,
+      'circle-pitch-alignment':'map'
     }})
 
-    // Main dots — bigger at all zoom levels
-    map.addLayer({id:'locations-dots',type:'circle',source:'locations',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?4:5,10,isMobile()?7:9,14,isMobile()?9:12],
-      'circle-color':['case',
-        ['==',['get','cleared'],true],GOLD,
-        ['==',['get','type'],'hospital'],'#E07050',
-        ['==',['get','type'],'school'],  '#5B9BD5',
-        ['==',['get','type'],'hospice'], '#3DBFA8',
-        ['==',['get','type'],'prison'],  '#C4722A',
-        '#9B78C8'],
-      'circle-stroke-width':['case',['==',['get','cleared'],true],2,1.5],
+    // ── Layer 2: inner glow ring for cleared — tighter, brighter ──────────
+    map.addLayer({id:'cleared-glow-inner',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],4,6,8,10,14,16],
+      'circle-color':GOLD,
+      'circle-opacity':0.3,
+      'circle-blur':0.4,
+      'circle-pitch-alignment':'map'
+    }})
+
+    // ── Layer 3: uncleared dots — small, dim, desaturated ─────────────────
+    // These are just markers saying "something is here" — quiet background
+    map.addLayer({id:'locations-dots-uncleared',type:'circle',source:'locations',
+      filter:['==',['get','cleared'],false],
+      paint:{
+        'circle-radius':['interpolate',['linear'],['zoom'],4,2,8,4,12,6,14,7],
+        'circle-color':'#4a6658',    // desaturated grey-green, barely visible
+        'circle-opacity':0.55,
+        'circle-stroke-width':0,
+        'circle-pitch-alignment':'map'
+      }
+    })
+
+    // ── Layer 4: cleared dots — full gold, larger, prominent ──────────────
+    map.addLayer({id:'locations-dots-cleared',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],4,4,8,7,12,10,14,13],
+      'circle-color':GOLD,
+      'circle-opacity':1,
+      'circle-stroke-width':1.5,
       'circle-stroke-color':['case',
-        ['==',['get','cleared'],true],
-          ['case',['==',['get','tool'],'omega'],'#9B5ED4',['==',['get','tool'],'jewel'],'#E07050',['==',['get','tool'],'mg'],'#4A85C9',GOLD],
-        'rgba(255,255,255,0.45)'],
-      'circle-opacity':0.95,'circle-pitch-alignment':'map'
+        ['==',['get','tool'],'omega'],'#9B5ED4',
+        ['==',['get','tool'],'jewel'],'#E07050',
+        ['==',['get','tool'],'mg'],   '#4A85C9',
+        'rgba(255,255,255,0.6)'],
+      'circle-pitch-alignment':'map'
     }})
 
-    // Selected ring
+    // ── Layer 5: selected ring — white, obvious ────────────────────────────
     map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,10,10,15,14,20],
-      'circle-color':'transparent','circle-stroke-width':2.5,
-      'circle-stroke-color':GOLD,'circle-opacity':0,'circle-stroke-opacity':0.9,'circle-pitch-alignment':'map'
+      'circle-radius':['interpolate',['linear'],['zoom'],4,10,8,14,14,20],
+      'circle-color':'transparent',
+      'circle-stroke-width':2.5,
+      'circle-stroke-color':'rgba(255,255,255,0.85)',
+      'circle-opacity':0,
+      'circle-stroke-opacity':0.9,
+      'circle-pitch-alignment':'map'
     }})
 
-    map.on('click','locations-dots',e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
-    map.on('mouseenter','locations-dots',()=>{map.getCanvas().style.cursor='pointer'})
-    map.on('mouseleave','locations-dots',()=>{map.getCanvas().style.cursor=''})
+    // Click targets — both cleared and uncleared
+    const clickLayers=['locations-dots-cleared','locations-dots-uncleared']
+    clickLayers.forEach(layer=>{
+      map.on('click',layer,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
+      map.on('mouseenter',layer,()=>{map.getCanvas().style.cursor='pointer'})
+      map.on('mouseleave',layer,()=>{map.getCanvas().style.cursor=''})
+    })
     map.on('click',e=>{
-      if(!map.queryRenderedFeatures(e.point,{layers:['locations-dots']}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
+      const hits=map.queryRenderedFeatures(e.point,{layers:clickLayers})
+      if(!hits.length){setSelectedId(null);closeDetail();closeMobileDetail()}
     })
     refreshMapData()
   })
@@ -598,7 +625,7 @@ function locateMe(){
     const{latitude:lat,longitude:lng}=pos.coords
     if(locationMarker)locationMarker.remove()
     const el=document.createElement('div')
-    el.style.cssText='width:16px;height:16px;border-radius:50%;background:#C9A84C;border:3px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.4)'
+    el.style.cssText='width:14px;height:14px;border-radius:50%;background:#C9A84C;border:2.5px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.35)'
     locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
     panToVisible(lat,lng,14)
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
@@ -612,7 +639,6 @@ async function ghGet(path){
 }
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
-// Load a single region's files (5 categories)
 async function fetchRegion(region){
   const[hospitals,schools,universities,hospices,prisons]=await Promise.all([
     ghGetOptional(`hospitals-${region}.json`),
@@ -624,7 +650,6 @@ async function fetchRegion(region){
   return[...hospitals,...schools,...universities,...hospices,...prisons]
 }
 
-// Load all 11 regions at once
 async function loadAll(){
   closeMobileDetail(); closeDetail(); setSelectedId(null)
   setMsg('Loading all regions…'); document.getElementById('mload').style.display='flex'
@@ -638,7 +663,6 @@ async function loadAll(){
   }
 }
 
-// Load a single region (used when dropdown changes to a specific region)
 async function loadRegion(value){
   if(value==='all'){await loadAll();return}
   closeMobileDetail(); closeDetail(); setSelectedId(null)
