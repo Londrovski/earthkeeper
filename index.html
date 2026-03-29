@@ -1040,7 +1040,20 @@ function renderDistrictList(){
   const el=document.getElementById('district-list')
   const q=(document.getElementById('group-search')?.value||'').toLowerCase().trim()
   let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
-  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading…')+'</div>';return}
+  if(!entries.length){
+    const dk=Object.keys(districtMap).length
+    const sl=locations.filter(l=>l.type==='school').length
+    const gl=locations.filter(l=>l.type==='gp').length
+    const dc=locations.filter(l=>l.districtCode).length
+    el.innerHTML='<div class="empty" style="font-size:11px;text-align:left;padding:16px">'+
+      'districtMap keys: '+dk+'<br>'+
+      'schools loaded: '+sl+'<br>'+
+      'gps loaded: '+gl+'<br>'+
+      'locs with districtCode: '+dc+'<br>'+
+      'districts array: '+districts.length+
+    '</div>'
+    return
+  }
   entries.sort((a,b)=>a.name.localeCompare(b.name))
   el.innerHTML=entries.map(d=>{
     const isSel=d.code===selectedDistrictCode
