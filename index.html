@@ -34,10 +34,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
 
-/* MapLibre overrides */
 .maplibregl-map{position:absolute;inset:0}
 .maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right{display:none}
-.maplibregl-ctrl-top-right .maplibregl-ctrl-zoom-in,.maplibregl-ctrl-top-right .maplibregl-ctrl-zoom-out{background:#122D1C;border:1px solid rgba(201,168,76,.25);color:#C9A84C}
 .maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2) !important;border-radius:6px !important}
 .maplibregl-ctrl-group button{width:32px;height:32px}
 .maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15) !important}
@@ -325,8 +323,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
       <div class="rsel">
         <select id="region-select" onchange="loadRegion(this.value)">
-          <option value="">— Select region —</option>
-          <option value="london" selected>London</option>
+          <option value="all" selected>— All regions —</option>
+          <option value="london">London</option>
           <option value="southeast">South East</option>
           <option value="southwest">South West</option>
           <option value="eastengland">East of England</option>
@@ -436,18 +434,14 @@ const PASSWORD_HASH = '74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537
 const REPO_OWNER='Londrovski', REPO_NAME='earthkeeper', DATA_BRANCH='main'
 const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
-// ── colour constants (keep in sync with CSS vars) ──────────────────────────
-const TYPE_COLORS = {
-  hospital:'#E07050', school:'#5B9BD5', hospice:'#3DBFA8',
-  prison:'#C4722A', university:'#9B78C8'
-}
-const TOOL_COLORS = {omega:'#9B5ED4', jewel:'#E07050', mg:'#4A85C9'}
-const GOLD = '#C9A84C'
-function typeColor(t){ return TYPE_COLORS[t]||'#9B78C8' }
-function toolColor(t){ return TOOL_COLORS[t]||GOLD }
+const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland']
+const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8'}
+const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
+const GOLD='#C9A84C'
+function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
+function toolColor(t){return TOOL_COLORS[t]||GOLD}
 const TOOLS=['omega','jewel','mg'], TOOL_NAMES={omega:'Omega',jewel:'Jewel',mg:'MG'}
 
-// ── state ──────────────────────────────────────────────────────────────────
 let locations=[], progress={}, progressSha=null, selectedId=null, map, mapReady=false
 let placesFilter={hospital:true,school:true,university:true,hospice:true,prison:true}
 let showFilter='all', currentTool='omega', currentUser=null, locationMarker=null
@@ -459,12 +453,9 @@ function queueSave(){saveQueued=true}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
 window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
 
-// ── auth ───────────────────────────────────────────────────────────────────
 async function doLogin(e){
   e.preventDefault()
-  const name=document.getElementById('login-name').value.trim()
-  const pw=document.getElementById('login-pw').value
-  const err=document.getElementById('login-err')
+  const name=document.getElementById('login-name').value.trim(), pw=document.getElementById('login-pw').value, err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
   err.textContent='Checking…'
@@ -476,299 +467,214 @@ async function doLogin(e){
   document.getElementById('h-username').textContent=name
   err.textContent=''; bootApp()
 }
-async function sha256(str){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str))
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')
-}
-function logout(){
-  sessionStorage.removeItem('ek_user'); currentUser=null
-  document.getElementById('login-name').value=''
-  document.getElementById('login-pw').value=''
-  document.getElementById('login-screen').style.display='flex'
-  document.getElementById('app').style.display='none'
-}
+async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
+function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
 
-// ── utils ──────────────────────────────────────────────────────────────────
 function isMobile(){return window.innerWidth<=700}
-
 function updateLocateBtnPosition(){
   if(!isMobile())return
-  const btn=document.getElementById('locate-btn')
-  const panel=document.getElementById('mobile-detail')
+  const btn=document.getElementById('locate-btn'), panel=document.getElementById('mobile-detail')
   const panelH=panel.classList.contains('on')?(panel.offsetHeight||0):0
   btn.style.bottom=(11+panelH+(panelH>0?10:0))+'px'
 }
+function gmapsUrl(loc){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.name+(loc.address?', '+loc.address:''))}`}
 
-function gmapsUrl(loc){
-  const q=encodeURIComponent(loc.name+(loc.address?', '+loc.address:''))
-  return `https://www.google.com/maps/search/?api=1&query=${q}`
-}
-
-// ── map initialisation ─────────────────────────────────────────────────────
 function initMap(){
-  map = new maplibregl.Map({
-    container: 'map',
-    style: {
-      version: 8,
-      sources: {
-        carto: {
-          type: 'raster',
-          tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-                  'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-                  'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
-          tileSize: 256,
-          attribution: '© OpenStreetMap contributors © CARTO'
+  map=new maplibregl.Map({
+    container:'map',
+    style:{
+      version:8,
+      sources:{
+        carto:{
+          type:'raster',
+          // Plain dark tiles — no brightness/saturation tweaks, looks clean
+          tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+                 'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+                 'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
+          tileSize:256,
+          attribution:'© OpenStreetMap contributors © CARTO'
         }
       },
-      layers: [{id:'carto-tiles',type:'raster',source:'carto',paint:{'raster-brightness-min':0.15,'raster-brightness-max':0.9,'raster-saturation':-0.2}}]
+      layers:[{id:'carto-tiles',type:'raster',source:'carto'}]
     },
-    center: [-0.1, 51.5],
-    zoom: 10,
-    attributionControl: false
+    center:[-1.5,53.5], zoom:5.5,
+    attributionControl:false
   })
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right')
+  map.on('load',()=>{
+    mapReady=true
+    map.addSource('locations',{type:'geojson',data:emptyFC()})
+    map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
+    map.addSource('selected',{type:'geojson',data:emptyFC()})
 
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right')
+    // Cleared glow — static soft halo
+    map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],6,12,14,22],
+      'circle-color':GOLD,'circle-opacity':0.2,'circle-blur':0.7,'circle-pitch-alignment':'map'
+    }})
 
-  map.on('load', () => {
-    mapReady = true
+    // Main dots — bigger at all zoom levels
+    map.addLayer({id:'locations-dots',type:'circle',source:'locations',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?4:5,10,isMobile()?7:9,14,isMobile()?9:12],
+      'circle-color':['case',
+        ['==',['get','cleared'],true],GOLD,
+        ['==',['get','type'],'hospital'],'#E07050',
+        ['==',['get','type'],'school'],  '#5B9BD5',
+        ['==',['get','type'],'hospice'], '#3DBFA8',
+        ['==',['get','type'],'prison'],  '#C4722A',
+        '#9B78C8'],
+      'circle-stroke-width':['case',['==',['get','cleared'],true],2,1.5],
+      'circle-stroke-color':['case',
+        ['==',['get','cleared'],true],
+          ['case',['==',['get','tool'],'omega'],'#9B5ED4',['==',['get','tool'],'jewel'],'#E07050',['==',['get','tool'],'mg'],'#4A85C9',GOLD],
+        'rgba(255,255,255,0.45)'],
+      'circle-opacity':0.95,'circle-pitch-alignment':'map'
+    }})
 
-    // ── GeoJSON sources ────────────────────────────────────────────────────
-    // locations-all: all visible points (filtered)
-    map.addSource('locations', {type:'geojson', data:emptyFC()})
-    // locations-cleared: subset that is cleared (for glow layer)
-    map.addSource('locations-cleared', {type:'geojson', data:emptyFC()})
-    // selected: single point
-    map.addSource('selected', {type:'geojson', data:emptyFC()})
+    // Selected ring
+    map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],5,10,10,15,14,20],
+      'circle-color':'transparent','circle-stroke-width':2.5,
+      'circle-stroke-color':GOLD,'circle-opacity':0,'circle-stroke-opacity':0.9,'circle-pitch-alignment':'map'
+    }})
 
-    // ── layers (order matters: bottom → top) ───────────────────────────────
-
-    // 1. Static glow halo for cleared locations (no animation — just soft outer ring)
-    map.addLayer({
-      id: 'cleared-glow',
-      type: 'circle',
-      source: 'locations-cleared',
-      paint: {
-        'circle-radius': isMobile() ? 14 : 17,
-        'circle-color': GOLD,
-        'circle-opacity': 0.18,
-        'circle-blur': 0.6,
-        'circle-pitch-alignment': 'map'
-      }
+    map.on('click','locations-dots',e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
+    map.on('mouseenter','locations-dots',()=>{map.getCanvas().style.cursor='pointer'})
+    map.on('mouseleave','locations-dots',()=>{map.getCanvas().style.cursor=''})
+    map.on('click',e=>{
+      if(!map.queryRenderedFeatures(e.point,{layers:['locations-dots']}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
     })
-
-    // 2. Main dots — colour by type, gold if cleared
-    map.addLayer({
-      id: 'locations-dots',
-      type: 'circle',
-      source: 'locations',
-      paint: {
-        'circle-radius': ['interpolate',['linear'],['zoom'], 8,isMobile()?4:5, 14,isMobile()?7:9],
-        'circle-color': [
-          'case',
-          ['==',['get','cleared'],true], GOLD,
-          ['==',['get','type'],'hospital'], '#E07050',
-          ['==',['get','type'],'school'],   '#5B9BD5',
-          ['==',['get','type'],'hospice'],  '#3DBFA8',
-          ['==',['get','type'],'prison'],   '#C4722A',
-          '#9B78C8'
-        ],
-        'circle-stroke-width': ['case',['==',['get','cleared'],true], 2, 1.5],
-        'circle-stroke-color': [
-          'case',
-          ['==',['get','cleared'],true],
-            ['case',
-              ['==',['get','tool'],'omega'],'#9B5ED4',
-              ['==',['get','tool'],'jewel'],'#E07050',
-              ['==',['get','tool'],'mg'],   '#4A85C9',
-              GOLD],
-          'rgba(255,255,255,0.4)'
-        ],
-        'circle-opacity': 0.92,
-        'circle-pitch-alignment': 'map'
-      }
-    })
-
-    // 3. Selected ring — renders on top
-    map.addLayer({
-      id: 'selected-ring',
-      type: 'circle',
-      source: 'selected',
-      paint: {
-        'circle-radius': ['interpolate',['linear'],['zoom'], 8,isMobile()?10:12, 14,isMobile()?14:18],
-        'circle-color': 'transparent',
-        'circle-stroke-width': 2.5,
-        'circle-stroke-color': GOLD,
-        'circle-opacity': 0,
-        'circle-stroke-opacity': 0.9,
-        'circle-pitch-alignment': 'map'
-      }
-    })
-
-    // ── click handler ──────────────────────────────────────────────────────
-    map.on('click', 'locations-dots', e => {
-      if(e.features.length) selectLoc(e.features[0].properties.id)
-    })
-    map.on('mouseenter','locations-dots',()=>{ map.getCanvas().style.cursor='pointer' })
-    map.on('mouseleave','locations-dots',()=>{ map.getCanvas().style.cursor='' })
-
-    // ── click on empty space deselects ────────────────────────────────────
-    map.on('click', e => {
-      const fs = map.queryRenderedFeatures(e.point, {layers:['locations-dots']})
-      if(!fs.length){ setSelectedId(null); closeDetail(); closeMobileDetail() }
-    })
-
     refreshMapData()
   })
 }
 
-function emptyFC(){ return {type:'FeatureCollection',features:[]} }
-
-// Build a GeoJSON feature from a location object
+function emptyFC(){return{type:'FeatureCollection',features:[]}}
 function locToFeature(loc){
-  const p = progress[loc.id]
-  return {
-    type: 'Feature',
-    geometry: {type:'Point', coordinates:[loc.lng, loc.lat]},
-    properties: {
-      id: loc.id,
-      type: loc.type,
-      cleared: !!p,
-      tool: p?.tool||null
-    }
-  }
+  const p=progress[loc.id]
+  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared:!!p,tool:p?.tool||null}}
 }
-
-// Push current state to map sources
 function refreshMapData(){
-  if(!mapReady) return
-  const visible = locations.filter(l => l.lat && l.lng && locVisible(l))
-  const cleared  = visible.filter(l => progress[l.id])
-  const sel      = selectedId ? locations.filter(l=>l.id===selectedId&&l.lat&&l.lng) : []
-
-  map.getSource('locations').setData({type:'FeatureCollection', features:visible.map(locToFeature)})
-  map.getSource('locations-cleared').setData({type:'FeatureCollection', features:cleared.map(locToFeature)})
-  map.getSource('selected').setData({type:'FeatureCollection', features:sel.map(locToFeature)})
+  if(!mapReady)return
+  const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
+  const cleared=visible.filter(l=>progress[l.id])
+  const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
+  map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
+  map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
+  map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
 }
-
-function setSelectedId(id){
-  selectedId = id
-  refreshMapData()
-}
+function setSelectedId(id){selectedId=id;refreshMapData()}
 
 function locVisible(loc){
-  if(!placesFilter[loc.type]) return false
-  const p = progress[loc.id]
-  if(showFilter==='all')     return true
-  if(showFilter==='cleared') return !!p
-  if(showFilter==='omega')   return p?.tool==='omega'
-  if(showFilter==='jewel')   return p?.tool==='jewel'
-  if(showFilter==='mg')      return p?.tool==='mg'
+  if(!placesFilter[loc.type])return false
+  const p=progress[loc.id]
+  if(showFilter==='all')return true
+  if(showFilter==='cleared')return!!p
+  if(showFilter==='omega')return p?.tool==='omega'
+  if(showFilter==='jewel')return p?.tool==='jewel'
+  if(showFilter==='mg')return p?.tool==='mg'
   return true
 }
 
-// ── navigation ─────────────────────────────────────────────────────────────
-function panToVisible(lat, lng, zoom){
-  if(!map) return
-  const mobileOffset = () => {
-    const panel = document.getElementById('mobile-detail')
-    return panel.classList.contains('on') ? (panel.offsetHeight||0)/2 : 0
-  }
-  if(zoom){
-    map.flyTo({center:[lng,lat], zoom, duration:600})
-  } else {
-    if(isMobile()){
-      const offset = mobileOffset()
-      map.easeTo({center:[lng,lat], offset:[0, offset], duration:400})
-    } else {
-      map.easeTo({center:[lng,lat], duration:300})
-    }
+function panToVisible(lat,lng,zoom){
+  if(!map)return
+  if(zoom){map.flyTo({center:[lng,lat],zoom,duration:600});return}
+  if(isMobile()){
+    const panel=document.getElementById('mobile-detail')
+    const offset=panel.classList.contains('on')?(panel.offsetHeight||0)/2:0
+    map.easeTo({center:[lng,lat],offset:[0,offset],duration:400})
+  }else{
+    map.easeTo({center:[lng,lat],duration:300})
   }
 }
-
 function fitBounds(locs){
-  const pts = locs.filter(l=>l.lat&&l.lng)
-  if(!pts.length) return
-  const lngs = pts.map(l=>l.lng), lats = pts.map(l=>l.lat)
-  map.fitBounds(
-    [[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],
-    {padding:60, maxZoom:12, duration:800}
-  )
+  const pts=locs.filter(l=>l.lat&&l.lng); if(!pts.length)return
+  const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
+  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:60,maxZoom:12,duration:800})
 }
 
-// ── geolocation ────────────────────────────────────────────────────────────
 function locateMe(){
   if(!navigator.geolocation){alert('Geolocation not supported');return}
   navigator.geolocation.getCurrentPosition(pos=>{
     const{latitude:lat,longitude:lng}=pos.coords
-    if(locationMarker) locationMarker.remove()
+    if(locationMarker)locationMarker.remove()
     const el=document.createElement('div')
-    el.style.cssText=`width:16px;height:16px;border-radius:50%;background:#C9A84C;border:3px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.4)`
-    locationMarker = new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
+    el.style.cssText='width:16px;height:16px;border-radius:50%;background:#C9A84C;border:3px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.4)'
+    locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
     panToVisible(lat,lng,14)
   },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
 }
 
-// ── data loading ───────────────────────────────────────────────────────────
 async function ghGet(path){
-  const res = await fetch(`${API_BASE}/${path}`,{headers:GH_HEADERS})
-  if(!res.ok) throw new Error(`GitHub ${res.status}`)
-  const meta = await res.json()
+  const res=await fetch(`${API_BASE}/${path}`,{headers:GH_HEADERS})
+  if(!res.ok)throw new Error(`GitHub ${res.status}`)
+  const meta=await res.json()
   return JSON.parse(atob(meta.content.replace(/\n/g,'')))
 }
-async function ghGetOptional(path){ try{return await ghGet(path)}catch(e){return []} }
+async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
-async function loadRegion(region){
-  if(!region) return
+// Load a single region's files (5 categories)
+async function fetchRegion(region){
+  const[hospitals,schools,universities,hospices,prisons]=await Promise.all([
+    ghGetOptional(`hospitals-${region}.json`),
+    ghGetOptional(`schools-${region}.json`),
+    ghGetOptional(`universities-${region}.json`),
+    ghGetOptional(`hospices-${region}.json`),
+    ghGetOptional(`prisons-${region}.json`)
+  ])
+  return[...hospitals,...schools,...universities,...hospices,...prisons]
+}
+
+// Load all 11 regions at once
+async function loadAll(){
   closeMobileDetail(); closeDetail(); setSelectedId(null)
-  setMsg(`Loading ${region}…`); document.getElementById('mload').style.display='flex'
+  setMsg('Loading all regions…'); document.getElementById('mload').style.display='flex'
   try{
-    const [hospitals,schools,universities,hospices,prisons] = await Promise.all([
-      ghGetOptional(`hospitals-${region}.json`),
-      ghGetOptional(`schools-${region}.json`),
-      ghGetOptional(`universities-${region}.json`),
-      ghGetOptional(`hospices-${region}.json`),
-      ghGetOptional(`prisons-${region}.json`)
-    ])
-    locations = [...hospitals,...schools,...universities,...hospices,...prisons]
+    const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
+    locations=allArrays.flat()
     hideLoader(); refreshMapData(); renderList(); updateStats()
-    if(locations.filter(l=>l.lat&&l.lng).length) fitBounds(locations)
-    else{ setMsg(`No data for "${region}" yet`); setTimeout(hideLoader,3000) }
+    fitBounds(locations)
   }catch(e){
-    setMsg(`Error loading ${region}`); setTimeout(hideLoader,3000); locations=[]; renderList()
+    setMsg('Error loading data'); setTimeout(hideLoader,3000); locations=[]; renderList()
+  }
+}
+
+// Load a single region (used when dropdown changes to a specific region)
+async function loadRegion(value){
+  if(value==='all'){await loadAll();return}
+  closeMobileDetail(); closeDetail(); setSelectedId(null)
+  setMsg(`Loading ${value}…`); document.getElementById('mload').style.display='flex'
+  try{
+    locations=await fetchRegion(value)
+    hideLoader(); refreshMapData(); renderList(); updateStats()
+    if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
+    else{setMsg(`No data for "${value}" yet`);setTimeout(hideLoader,3000)}
+  }catch(e){
+    setMsg(`Error loading ${value}`); setTimeout(hideLoader,3000); locations=[]; renderList()
   }
 }
 
 async function loadProgress(){
   try{
-    const res = await fetch(`${API_BASE}/progress.json`,{headers:GH_HEADERS})
-    if(res.ok){
-      const meta=await res.json(); progressSha=meta.sha
-      progress=JSON.parse(atob(meta.content.replace(/\n/g,'')))
-    }
+    const res=await fetch(`${API_BASE}/progress.json`,{headers:GH_HEADERS})
+    if(res.ok){const meta=await res.json();progressSha=meta.sha;progress=JSON.parse(atob(meta.content.replace(/\n/g,'')))}
   }catch(e){progress={}}
 }
 
 async function saveProgress(){
   showSaving('Saving…')
   try{
-    const body={
-      message:`${currentUser||'user'} — ${new Date().toISOString().slice(0,10)}`,
-      content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),
-      branch:DATA_BRANCH
-    }
-    if(progressSha) body.sha=progressSha
+    const body={message:`${currentUser||'user'} — ${new Date().toISOString().slice(0,10)}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
+    if(progressSha)body.sha=progressSha
     const res=await fetch(`${API_BASE}/progress.json`,{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
-    if(res.ok){progressSha=(await res.json()).content.sha; showSaving('✓ Saved')}
-    else{const e=await res.json(); showSaving('Save failed: '+e.message)}
+    if(res.ok){progressSha=(await res.json()).content.sha;showSaving('✓ Saved')}
+    else{const e=await res.json();showSaving('Save failed: '+e.message)}
   }catch(e){showSaving('Error saving')}
   setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
 }
 function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
 
-// ── list rendering ─────────────────────────────────────────────────────────
 function renderList(){
-  const el=document.getElementById('llist')
-  const q=document.getElementById('search').value.toLowerCase().trim()
+  const el=document.getElementById('llist'), q=document.getElementById('search').value.toLowerCase().trim()
   el.classList.toggle('active',!!q)
   if(!q){el.innerHTML='';return}
   const vis=locations.filter(l=>{
@@ -777,8 +683,7 @@ function renderList(){
   })
   if(!vis.length){el.innerHTML=`<div class="empty">No matches for "${q}"</div>`;return}
   el.innerHTML=vis.map(l=>{
-    const p=progress[l.id]
-    const dotBg=p?GOLD:typeColor(l.type)
+    const p=progress[l.id], dotBg=p?GOLD:typeColor(l.type)
     const dotBorder=p?`border:2px solid ${toolColor(p.tool)}`:'border:2px solid transparent'
     const badge=p?`<div class="lbadge" style="color:${toolColor(p.tool)};border-color:${toolColor(p.tool)}66;background:${toolColor(p.tool)}14">${TOOL_NAMES[p.tool]||p.tool}</div>`:''
     return`<div class="litem ${p?'done':''} ${selectedId===l.id?'sel':''}" onclick="selectLoc('${l.id}')">
@@ -789,26 +694,19 @@ function renderList(){
   }).join('')
 }
 
-// ── selection ──────────────────────────────────────────────────────────────
 function selectLoc(id){
   setSelectedId(id)
-  const loc=locations.find(l=>l.id===id); if(!loc) return
+  const loc=locations.find(l=>l.id===id); if(!loc)return
   renderList()
-  if(loc.lat&&loc.lng) panToVisible(loc.lat,loc.lng,null)
+  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
-    document.getElementById('search').value=''
-    renderList()
-    renderMobileDetail(loc)
-    if(document.getElementById('tab-log').classList.contains('on'))
-      switchTab('locs',document.querySelectorAll('.tab')[0])
-  }else{
-    renderDetail(loc)
-  }
+    document.getElementById('search').value=''; renderList(); renderMobileDetail(loc)
+    if(document.getElementById('tab-log').classList.contains('on'))switchTab('locs',document.querySelectorAll('.tab')[0])
+  }else{renderDetail(loc)}
 }
 
-// ── detail panel ───────────────────────────────────────────────────────────
 function renderDetail(loc){
-  const p=progress[loc.id], cleared=!!p
+  const p=progress[loc.id],cleared=!!p
   const typeEl=document.getElementById('d-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
   document.getElementById('d-name').textContent=loc.name
   document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
@@ -824,12 +722,12 @@ function renderDetail(loc){
   document.getElementById('detail').classList.add('on')
 }
 function closeDetail(){
-  if(selectedId&&!isMobile()){ setSelectedId(null) }
+  if(selectedId&&!isMobile())setSelectedId(null)
   document.getElementById('detail').classList.remove('on'); renderList()
 }
 
 function renderMobileDetail(loc){
-  const p=progress[loc.id], cleared=!!p
+  const p=progress[loc.id],cleared=!!p
   const typeEl=document.getElementById('md-type'); typeEl.textContent=loc.type; typeEl.className='detail-type '+loc.type
   document.getElementById('md-name').textContent=loc.name
   document.getElementById('md-addr').textContent=loc.address||loc.postcode||''
@@ -846,31 +744,25 @@ function renderMobileDetail(loc){
   panel.classList.add('on')
   requestAnimationFrame(()=>{
     const detailH=panel.offsetHeight||0
-    if(detailH>0&&loc.lat&&loc.lng){
-      map.easeTo({center:[loc.lng,loc.lat],offset:[0,Math.round(detailH/2)],duration:250})
-    }
+    if(detailH>0&&loc.lat&&loc.lng)map.easeTo({center:[loc.lng,loc.lat],offset:[0,Math.round(detailH/2)],duration:250})
     updateLocateBtnPosition()
   })
 }
 function closeMobileDetail(){
-  if(selectedId){ setSelectedId(null) }
+  if(selectedId)setSelectedId(null)
   document.getElementById('mobile-detail').classList.remove('on')
   renderList(); updateLocateBtnPosition()
 }
 
-// ── tool selection ─────────────────────────────────────────────────────────
 function selectTool(tool){
-  currentTool=tool
-  TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
+  currentTool=tool; TOOLS.forEach(t=>document.getElementById(`tbtn-${t}`)?.classList.toggle('sel',t===tool))
   const btn=document.getElementById('btn-mark-confirm'); if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
 }
 function selectToolMobile(tool){
-  currentTool=tool
-  TOOLS.forEach(t=>document.getElementById(`md-tbtn-${t}`)?.classList.toggle('sel',t===tool))
+  currentTool=tool; TOOLS.forEach(t=>document.getElementById(`md-tbtn-${t}`)?.classList.toggle('sel',t===tool))
   const btn=document.getElementById('md-btn-mark'); if(btn)btn.textContent=`Mark cleared with ${TOOL_NAMES[tool]} ✦`
 }
 
-// ── mark / unmark ──────────────────────────────────────────────────────────
 async function markCleared(id){
   const loc=locations.find(l=>l.id===id); if(!loc)return
   progress[id]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser}
@@ -896,53 +788,34 @@ async function unmarkClearedMobile(id){
   await saveProgress(); queueSave()
 }
 
-// ── filters ────────────────────────────────────────────────────────────────
-function togglePlace(type,el){
-  placesFilter[type]=!placesFilter[type]
-  el.classList.toggle('on',placesFilter[type])
-  refreshMapData(); renderList()
-}
+function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList()}
 function setShow(mode,el){
   showFilter=mode
   document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-omega,.chip.show-jewel,.chip.show-mg').forEach(c=>c.classList.remove('on'))
-  el.classList.add('on')
-  refreshMapData(); renderList()
+  el.classList.add('on'); refreshMapData(); renderList()
 }
 
-// ── stats ──────────────────────────────────────────────────────────────────
 function updateStats(){
-  const total=locations.length, cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length
-  const pct=total?Math.round(cleared/total*100):0
+  const total=locations.length,cleared=Object.keys(progress).filter(id=>locations.find(l=>l.id===id)).length,pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString()
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-pct').textContent=pct+'%'
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['school','pg-s','pg-st'],['university','pg-u','pg-ut']]){
-    const tot=locations.filter(l=>l.type===type).length
-    const cl=locations.filter(l=>l.type===type&&progress[l.id]).length
+    const tot=locations.filter(l=>l.type===type).length,cl=locations.filter(l=>l.type===type&&progress[l.id]).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
     document.getElementById(pgTxt).textContent=tot?`${cl}/${tot}`:'—'
   }
 }
 
-// ── log ────────────────────────────────────────────────────────────────────
-function clearLogFilter(){
-  document.getElementById('log-from').value=''
-  document.getElementById('log-to').value=''
-  renderLog()
-}
+function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
 function renderLog(){
-  const el=document.getElementById('log-list')
-  const fromVal=document.getElementById('log-from')?.value||''
-  const toVal=document.getElementById('log-to')?.value||''
-  let entries=Object.entries(progress)
-    .map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l?.name||id,type:l?.type||''}})
-    .sort((a,b)=>b.date.localeCompare(a.date))
-  if(fromVal) entries=entries.filter(e=>e.date>=fromVal)
-  if(toVal)   entries=entries.filter(e=>e.date<=toVal)
+  const el=document.getElementById('log-list'), fromVal=document.getElementById('log-from')?.value||'', toVal=document.getElementById('log-to')?.value||''
+  let entries=Object.entries(progress).map(([id,p])=>{const l=locations.find(x=>x.id===id);return{id,...p,name:l?.name||id,type:l?.type||''}}).sort((a,b)=>b.date.localeCompare(a.date))
+  if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
+  if(toVal)entries=entries.filter(e=>e.date<=toVal)
   if(!entries.length){el.innerHTML=`<div class="empty">${fromVal||toVal?'No clearings in that date range':'No clearings yet'}</div>`;return}
   el.innerHTML=entries.map(e=>{
-    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-    const who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
+    const col=toolColor(e.tool),d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=e.user?`<span style="color:var(--gold)">${e.user}</span> · `:''
     return`<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog('${e.id}')">
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:3px">
         <div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid ${col};flex-shrink:0"></div>
@@ -961,58 +834,37 @@ function openFromLog(id){
   const fallbackHtml=`<div class="detail-cleared" style="background:${col}18;border:1px solid ${col}44;color:${col}">✦ Cleared with <strong>${TOOL_NAMES[p.tool]||p.tool}</strong> · ${d}${who}</div><button class="btn-unmark" onclick="${isMobile()?'unmarkClearedMobile':'unmarkCleared'}('${id}')">↩ Mark as not cleared</button>`
   const gUrl=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name||id)}`
   if(isMobile()){
-    document.getElementById('md-type').textContent=''; document.getElementById('md-type').className='detail-type'
+    document.getElementById('md-type').textContent='';document.getElementById('md-type').className='detail-type'
     document.getElementById('md-name').textContent=p.name||id
     document.getElementById('md-addr').textContent='Load the region to see full details'
-    document.getElementById('md-gmaps').href=gUrl
-    document.getElementById('md-body').innerHTML=fallbackHtml
-    document.getElementById('mobile-detail').classList.add('on')
-    updateLocateBtnPosition()
+    document.getElementById('md-gmaps').href=gUrl;document.getElementById('md-body').innerHTML=fallbackHtml
+    document.getElementById('mobile-detail').classList.add('on');updateLocateBtnPosition()
   }else{
-    document.getElementById('d-type').textContent=''; document.getElementById('d-type').className='detail-type'
+    document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
     document.getElementById('d-name').textContent=p.name||id
     document.getElementById('d-addr').textContent='Load the region to see full details'
-    document.getElementById('d-gmaps').href=gUrl
-    document.getElementById('d-body').innerHTML=fallbackHtml
+    document.getElementById('d-gmaps').href=gUrl;document.getElementById('d-body').innerHTML=fallbackHtml
     document.getElementById('detail').classList.add('on')
   }
 }
 
-// ── sidebar / tabs ─────────────────────────────────────────────────────────
 let sbOpen=true
-function toggleSidebar(){
-  sbOpen=!sbOpen
-  document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen)
-  document.getElementById('tog').textContent=sbOpen?'‹':'›'
-  setTimeout(()=>map&&map.resize(),320)
-}
-function switchTab(name,btn){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
-  btn.classList.add('on'); document.getElementById('tab-'+name).classList.add('on')
-}
+function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'‹':'›';setTimeout(()=>map&&map.resize(),320)}
+function switchTab(name,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')}
 
 function setMsg(m){document.getElementById('mload-msg').textContent=m}
 function hideLoader(){document.getElementById('mload').style.display='none'}
 
-// ── boot ───────────────────────────────────────────────────────────────────
 async function bootApp(){
   initMap()
   setMsg('Loading progress…')
   await loadProgress()
-  document.getElementById('region-select').value='london'
-  await loadRegion('london')
+  await loadAll()
   renderLog()
 }
 
 const savedUser=sessionStorage.getItem('ek_user')
-if(savedUser){
-  currentUser=savedUser
-  document.getElementById('login-screen').style.display='none'
-  document.getElementById('app').style.display='flex'
-  document.getElementById('h-username').textContent=savedUser
-  bootApp()
-}
+if(savedUser){currentUser=savedUser;document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('h-username').textContent=savedUser;bootApp()}
 </script>
 </body>
 </html>
