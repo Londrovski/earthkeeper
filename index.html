@@ -235,6 +235,27 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   #mobile-detail .btn-mark{padding:9px;font-size:12px}
   #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:6px}
 }
+
+/* ── Groups panel ── */
+.gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
+.gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
+.gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
+.gtype-btn.gp{border-color:var(--green);color:var(--green)}.gtype-btn.gp.on{background:var(--green);color:#fff}
+.district-list{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
+.district-list::-webkit-scrollbar{width:3px}
+.district-list::-webkit-scrollbar-thumb{background:var(--bd)}
+.ditem{padding:12px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s}
+.ditem:hover{background:var(--hover)}
+.ditem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
+.ditem-name{font-size:15px;font-weight:500;color:var(--ink-d);margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
+.ditem-bar-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
+.ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
+.ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
+.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:44%}
+.district-detail.on{display:flex}
+.district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.district-detail-body{padding:11px 20px 16px;overflow-y:auto}
 </style>
 </head>
 <body>
