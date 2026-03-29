@@ -356,7 +356,22 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
     </div>
     <div class="panel" id="tab-groups">
-      <div class="empty">Groups coming soon</div>
+      <div class="gtype-row">
+        <button class="gtype-btn school on" id="gtype-school" onclick="setGroupType('school',this)">Schools</button>
+        <button class="gtype-btn gp" id="gtype-gp" onclick="setGroupType('gp',this)">GPs</button>
+      </div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search districts…" id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
+      <div class="district-list" id="district-list"><div class="empty">Loading districts…</div></div>
+      <div class="district-detail" id="district-detail">
+        <div class="district-detail-head">
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold-l)" id="dd-name"></div>
+          </div>
+          <button class="detail-close" onclick="closeDistrictDetail()">✕</button>
+        </div>
+        <div class="district-detail-body" id="dd-body"></div>
+      </div>
     </div>
     <div class="panel" id="tab-log">
       <div class="log-filter">
