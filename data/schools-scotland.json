@@ -1,0 +1,65 @@
+[
+  {
+    "id": "school-102786",
+    "type": "school",
+    "name": "St Angela's Ursuline School",
+    "address": "St George's Road, London",
+    "postcode": "E7 8HU",
+    "lat": 51.541717,
+    "lng": 0.030202
+  },
+  {
+    "id": "school-137598",
+    "type": "school",
+    "name": "Berwick Academy",
+    "address": "Adams Drive, Berwick-upon-Tweed",
+    "postcode": "TD15 2JF",
+    "lat": 55.755764,
+    "lng": -2.00102
+  },
+  {
+    "id": "school-140210",
+    "type": "school",
+    "name": "Mossbourne Victoria Park Academy",
+    "address": "Victoria Park Road, London",
+    "postcode": "E9 7HD",
+    "lat": 51.5386,
+    "lng": -0.040865
+  },
+  {
+    "id": "school-141030",
+    "type": "school",
+    "name": "Big Creative Academy",
+    "address": "38, Clifton Avenue, London",
+    "postcode": "E17 6HL",
+    "lat": 51.587932,
+    "lng": -0.036679
+  },
+  {
+    "id": "school-141884",
+    "type": "school",
+    "name": "Dean Trust Ardwick",
+    "address": "345 Stockport Road, Manchester",
+    "postcode": "M13 0LF",
+    "lat": 53.462049,
+    "lng": -2.207109
+  },
+  {
+    "id": "school-145410",
+    "type": "school",
+    "name": "Royal Docks Academy",
+    "address": "Prince Regent Lane, London",
+    "postcode": "E16 3HS",
+    "lat": 51.510382,
+    "lng": 0.03649
+  },
+  {
+    "id": "school-145894",
+    "type": "school",
+    "name": "Laurus Ryecroft",
+    "address": "Lumb Lane, Manchester",
+    "postcode": "M43 7LJ",
+    "lat": 53.492657,
+    "lng": -2.132399
+  }
+]
