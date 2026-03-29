@@ -1027,7 +1027,7 @@ function renderDistrictList(){
     const pct=total?Math.round(effCleared/total*100):0
     const isSel=d.code===selectedDistrictCode
     const badge=grp?'<span class="dbadge" style="color:'+toolColor(grp.tool)+';border-color:'+toolColor(grp.tool)+'66;background:'+toolColor(grp.tool)+'14">'+TOOL_NAMES[grp.tool]+'</span>':''
-    return '<div class="ditem '+(isSel?'sel':'')+'" onclick="selectDistrict(''+d.code+'')">'+
+    return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)">'+
       '<div class="ditem-name"><span>'+d.name+'</span>'+badge+'</div>'+
       '<div class="ditem-bar-label"><span>'+label+'</span><span>'+effCleared+' / '+total+'</span></div>'+
       '<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:'+col+';width:'+pct+'%"></div></div>'+
@@ -1057,21 +1057,52 @@ function renderDistrictDetail(code){
   document.getElementById('dd-type').textContent=typeLabel
   document.getElementById('dd-type').style.color=typeCol
   document.getElementById('dd-name').textContent=d.name
-  let html=''
+  const body=document.getElementById('dd-body')
+  body.innerHTML=''
   if(grp){
     const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
     const col=toolColor(grp.tool),who=grp.user?' · '+grp.user:''
-    html+='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">✦ Group cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who+'</div>'
-    html+='<div style="font-size:12px;color:var(--soft);margin-bottom:10px">'+indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total</div>'
-    html+='<button class="btn-unmark" onclick="unmarkGroupCleared(''+code+'')">↩ Remove group clearing</button>'
+    const cleared=document.createElement('div')
+    cleared.className='detail-cleared'
+    cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col
+    cleared.innerHTML='✦ Group cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> · '+dt+who
+    body.appendChild(cleared)
+    const info=document.createElement('div')
+    info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:10px'
+    info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total'
+    body.appendChild(info)
+    const btn=document.createElement('button')
+    btn.className='btn-unmark'
+    btn.textContent='↩ Remove group clearing'
+    btn.onclick=()=>unmarkGroupCleared(code)
+    body.appendChild(btn)
   }else{
-    html+='<div style="font-size:13px;color:var(--soft);margin-bottom:11px">'+indCleared+' of '+total+' individually cleared</div>'
-    html+='<div class="tool-label">Clear entire district to level</div>'
-    const btns=TOOLS.map(t=>'<button class="tool-btn '+t+' '+(currentTool===t?'sel':'')+'" id="gtbtn-'+t+'" onclick="selectGroupTool(''+t+'')">'+TOOL_NAMES[t]+'</button>').join('')
-    html+='<div class="tool-btns">'+btns+'</div>'
-    html+='<button class="btn-mark" id="btn-group-mark" onclick="markGroupCleared(''+code+'')">Clear '+d.name+' — '+TOOL_NAMES[currentTool]+' ✦</button>'
+    const info=document.createElement('div')
+    info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:11px'
+    info.textContent=indCleared+' of '+total+' individually cleared'
+    body.appendChild(info)
+    const lbl=document.createElement('div')
+    lbl.className='tool-label'
+    lbl.textContent='Clear entire district to level'
+    body.appendChild(lbl)
+    const btnRow=document.createElement('div')
+    btnRow.className='tool-btns'
+    TOOLS.forEach(t=>{
+      const b=document.createElement('button')
+      b.className='tool-btn '+t+(currentTool===t?' sel':'')
+      b.id='gtbtn-'+t
+      b.textContent=TOOL_NAMES[t]
+      b.onclick=()=>selectGroupTool(t)
+      btnRow.appendChild(b)
+    })
+    body.appendChild(btnRow)
+    const markBtn=document.createElement('button')
+    markBtn.className='btn-mark'
+    markBtn.id='btn-group-mark'
+    markBtn.textContent='Clear '+d.name+' — '+TOOL_NAMES[currentTool]+' ✶'
+    markBtn.onclick=()=>markGroupCleared(code)
+    body.appendChild(markBtn)
   }
-  document.getElementById('dd-body').innerHTML=html
   document.getElementById('district-detail').classList.add('on')
 }
 
