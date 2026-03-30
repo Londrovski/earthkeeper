@@ -376,7 +376,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
         <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
       </div>
-      <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0" onclick="var t=event.target.closest('.log-entry');if(t)openFromLog(t.dataset.id)"></div>
+      <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
   </div>
   <div class="mwrap">
@@ -1071,28 +1071,52 @@ function renderLog(){
   const el=document.getElementById('log-list')
   const fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||''
   const toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
-  let entries=Object.entries(progress).map(([id,p])=>{
-    const l=locations.find(x=>x.id===id)
-    return{id,...p,name:l?l.name:id,locType:l?l.type:'',isGroup:false}
+  let entries=Object.entries(progress).map(function(kv){
+    const id=kv[0],p=kv[1],l=locations.find(function(x){return x.id===id})
+    return{id:id,tool:p.tool,date:p.date,user:p.user,name:l?l.name:id,locType:l?l.type:'',isGroup:false}
   })
-  Object.entries(groupProgress).forEach(([key,p])=>{
-    const [code,gtype]=key.split(':')
+  Object.entries(groupProgress).forEach(function(kv){
+    const key=kv[0],p=kv[1],parts=key.split(':'),code=parts[0],gtype=parts[1]
     const d=districtMap[code]
-    const label=(gtype==='school'?'Schools':'GPs')+' in '+(p.name||d&&d.name||code)
-    entries.push({id:key,...p,name:label,locType:'group',gtype,isGroup:true})
+    entries.push({id:key,tool:p.tool,date:p.date,user:p.user,
+      name:(gtype==='school'?'Schools':'GPs')+' in '+(p.name||(d&&d.name)||code),
+      locType:'group',gtype:gtype,isGroup:true})
   })
-  entries.sort((a,b)=>b.date.localeCompare(a.date))
-  if(fromVal)entries=entries.filter(e=>e.date>=fromVal)
-  if(toVal)entries=entries.filter(e=>e.date<=toVal)
-  if(!entries.length){el.innerHTML='<div class="empty">'+(fromVal||toVal?'No clearings in that date range':'No clearings yet')+'</div>';return}
-  el.innerHTML=entries.map(e=>{
-    const typeCol=e.isGroup?(e.gtype==='school'?'var(--blue)':'var(--green)'):toolColor(e.tool)
-    const d=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-    const who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
-    const sub=e.isGroup?d:(d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.locType)
-    const badge=e.isGroup?'<span style="font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid '+typeCol+';color:'+typeCol+';margin-right:5px">GROUP</span>':''
-    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" class="log-entry" data-id="'+e.id+'" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+badge+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+sub+'</div></div>'
-  }).join('')
+  entries.sort(function(a,b){return b.date.localeCompare(a.date)})
+  if(fromVal)entries=entries.filter(function(e){return e.date>=fromVal})
+  if(toVal)entries=entries.filter(function(e){return e.date<=toVal})
+  el.innerHTML=''
+  if(!entries.length){
+    var msg=document.createElement('div');msg.className='empty'
+    msg.textContent=(fromVal||toVal)?'No clearings in that date range':'No clearings yet'
+    el.appendChild(msg);return
+  }
+  entries.forEach(function(e){
+    var typeCol=e.isGroup?(e.gtype==='school'?'var(--blue)':'var(--green)'):toolColor(e.tool)
+    var ds=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+    var row=document.createElement('div')
+    row.style.cssText='padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s'
+    row.onmouseover=function(){this.style.background='var(--hover)'}
+    row.onmouseout=function(){this.style.background=''}
+    row.onclick=(function(eid){return function(){openFromLog(eid)}})(e.id)
+    var top=document.createElement('div');top.style.cssText='display:flex;align-items:center;gap:9px;margin-bottom:3px'
+    var dot=document.createElement('div')
+    dot.style.cssText='width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0'
+    var nameSpan=document.createElement('span')
+    nameSpan.style.cssText='font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)'
+    if(e.isGroup){
+      var badge=document.createElement('span')
+      badge.style.cssText='font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid '+typeCol+';color:'+typeCol+';margin-right:5px;vertical-align:middle'
+      badge.textContent='GROUP';nameSpan.appendChild(badge)
+    }
+    nameSpan.appendChild(document.createTextNode(e.name))
+    top.appendChild(dot);top.appendChild(nameSpan)
+    var sub=document.createElement('div')
+    sub.style.cssText='font-size:12px;color:var(--soft);padding-left:19px'
+    if(e.user){var who=document.createElement('span');who.style.color='var(--gold)';who.textContent=e.user;sub.appendChild(who);sub.appendChild(document.createTextNode(' - '))}
+    sub.appendChild(document.createTextNode(e.isGroup?ds:ds+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.locType))
+    row.appendChild(top);row.appendChild(sub);el.appendChild(row)
+  })
 }
 function openFromLog(id){
   switchTab('locs',document.getElementById('tab-btn-locs'))
