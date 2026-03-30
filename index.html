@@ -470,14 +470,14 @@ async function doLogin(){
   err.textContent='Checking...'
   const hash=await sha256(pw)
   if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
-  currentUser=name;sessionStorage.setItem('ek_user',name)
+  currentUser=name;localStorage.setItem('ek_user',name)
   document.getElementById('login-screen').style.display='none'
   document.getElementById('app').style.display='flex'
   document.getElementById('h-username').textContent=name
   err.textContent='';bootApp()
 }
 async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
-function logout(){sessionStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
+function logout(){localStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
 
 function isMobile(){return window.innerWidth<=700}
 function updateLocateBtnPosition(){
@@ -1191,9 +1191,9 @@ async function bootApp(){
 }
 
 try{
-  const savedUser=sessionStorage.getItem('ek_user')
+  const savedUser=localStorage.getItem('ek_user')
   if(savedUser){currentUser=savedUser;document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('h-username').textContent=savedUser;bootApp()}
-}catch(err){try{sessionStorage.clear()}catch(e2){}}
+}catch(err){try{localStorage.clear()}catch(e2){}}
 </script>
 </body>
 </html>
