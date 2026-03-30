@@ -31,7 +31,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .maplibregl-canvas{cursor:default}
 #login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;overflow:hidden}
 .login-bg-logo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0}
-.login-bg-logo img{width:min(75vw,75vh);height:min(75vw,75vh);object-fit:cover;border-radius:50%;opacity:.06;filter:blur(2px)}
+.login-bg-logo img{width:100vmax;height:100vmax;object-fit:cover;border-radius:50%;opacity:.07;filter:blur(1px)}
 .login-bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.08) 0%,transparent 65%);z-index:0;pointer-events:none}
 .login-box{position:relative;z-index:1;background:rgba(18,45,28,.96);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 64px rgba(0,0,0,.6)}
 .login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
@@ -260,7 +260,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div class="login-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
     <div class="login-logo">Earth<em>keeper</em></div>
     <div class="login-sub">UK Energy Clearing Tracker</div>
-    <form autocomplete="on" onsubmit="doLogin(event)">
+    <form autocomplete="on" onsubmit="doLogin(event)" id="login-form">
       <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
       <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password"></div>
       <button type="submit" class="login-btn">Enter</button>
@@ -376,7 +376,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
         <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
       </div>
-      <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
+      <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0" onclick="var t=event.target.closest('.log-entry');if(t)openFromLog(t.dataset.id)"></div>
     </div>
   </div>
   <div class="mwrap">
