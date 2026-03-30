@@ -29,8 +29,11 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .maplibregl-ctrl-group button{width:32px;height:32px}
 .maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15)!important}
 .maplibregl-canvas{cursor:default}
-#login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;background-image:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%)}
-.login-box{background:rgba(18,45,28,.95);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+#login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;overflow:hidden}
+.login-bg-logo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0}
+.login-bg-logo img{width:min(75vw,75vh);height:min(75vw,75vh);object-fit:cover;border-radius:50%;opacity:.06;filter:blur(2px)}
+.login-bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.08) 0%,transparent 65%);z-index:0;pointer-events:none}
+.login-box{position:relative;z-index:1;background:rgba(18,45,28,.96);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 64px rgba(0,0,0,.6)}
 .login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
 .login-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.14em;color:var(--gold-l);margin-bottom:4px}
@@ -44,6 +47,8 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
 .login-btn:hover{background:var(--gold)}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
+.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
+.login-instructions:hover{border-color:var(--gold);color:var(--gold-l);background:rgba(201,168,76,.05)}
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
 .header-brand{display:flex;align-items:center;gap:12px}
@@ -249,16 +254,19 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 </head>
 <body>
 <div id="login-screen">
+  <div class="login-bg-logo"><img src="Earthkeeper-circular.png" alt=""></div>
+  <div class="login-bg-glow"></div>
   <div class="login-box">
     <div class="login-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
     <div class="login-logo">Earth<em>keeper</em></div>
-    <div class="login-sub">Energy clearing tracker</div>
+    <div class="login-sub">UK Energy Clearing Tracker</div>
     <form autocomplete="on" onsubmit="doLogin(event)">
       <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
-      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="••••••" autocomplete="current-password"></div>
+      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password"></div>
       <button type="submit" class="login-btn">Enter</button>
     </form>
     <div class="login-err" id="login-err"></div>
+    <a href="instructions.html" class="login-instructions">New here? Read the instructions</a>
   </div>
 </div>
 <div id="app">
@@ -1083,7 +1091,7 @@ function renderLog(){
     const who=e.user?'<span style="color:var(--gold)">'+e.user+'</span> - ':''
     const sub=e.isGroup?d:(d+' - '+(TOOL_NAMES[e.tool]||e.tool)+' - '+e.locType)
     const badge=e.isGroup?'<span style="font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid '+typeCol+';color:'+typeCol+';margin-right:5px">GROUP</span>':''
-    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog(''+e.id+'')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+badge+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+sub+'</div></div>'
+    return'<div style="padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s" onmouseover="this.style.background='var(--hover)'" onmouseout="this.style.background=''" onclick="openFromLog('"+e.id+"')"><div style="display:flex;align-items:center;gap:9px;margin-bottom:3px"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0"></div><span style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)">'+badge+e.name+'</span></div><div style="font-size:12px;color:var(--soft);padding-left:19px">'+who+sub+'</div></div>'
   }).join('')
 }
 function openFromLog(id){
