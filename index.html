@@ -260,11 +260,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div class="login-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
     <div class="login-logo">Earth<em>keeper</em></div>
     <div class="login-sub">UK Energy Clearing Tracker</div>
-    <form autocomplete="on" onsubmit="doLogin(event)" id="login-form">
+    <div id="login-form-wrap">
       <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
-      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password"></div>
-      <button type="submit" class="login-btn">Enter</button>
-    </form>
+      <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button type="button" class="login-btn" onclick="doLogin()">Enter</button>
+    </div>
     <div class="login-err" id="login-err"></div>
     <a href="instructions.html" class="login-instructions">New here? Read the instructions</a>
   </div>
@@ -463,8 +463,7 @@ function queueSave(){saveQueued=true}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
 window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
 
-async function doLogin(e){
-  e.preventDefault()
+async function doLogin(){
   const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
@@ -1191,8 +1190,10 @@ async function bootApp(){
   renderLog()
 }
 
-const savedUser=sessionStorage.getItem('ek_user')
-if(savedUser){currentUser=savedUser;document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('h-username').textContent=savedUser;bootApp()}
+try{
+  const savedUser=sessionStorage.getItem('ek_user')
+  if(savedUser){currentUser=savedUser;document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('h-username').textContent=savedUser;bootApp()}
+}catch(err){try{sessionStorage.clear()}catch(e2){}}
 </script>
 </body>
 </html>
