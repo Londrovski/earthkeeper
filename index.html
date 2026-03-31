@@ -47,7 +47,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
 .login-btn:hover{background:var(--gold)}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
-.login-select{width:100%;padding:10px 14px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:#000;font-size:14px;margin-top:4px;cursor:pointer}.login-select:invalid,.login-select option[value=""]{color:var(--gold)}.login-select:focus{outline:none;border-color:var(--gold)}.login-select option{background:#1a2a1a;color:var(--ink-d)}.login-field{margin-bottom:12px}.login-label{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}.login-ew-row{margin:10px 0 16px;display:flex;align-items:center}.login-ew-label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}.login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
+.login-select{width:100%;padding:10px 14px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--ink-d);font-size:14px;margin-top:4px;cursor:pointer}.login-select:focus{outline:none;border-color:var(--gold)}.login-field{margin-bottom:12px}.login-label{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}.login-ew-row{margin:10px 0 16px;display:flex;align-items:center}.login-ew-label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}.login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
 .login-instructions:hover{border-color:var(--gold);color:var(--gold-l);background:rgba(201,168,76,.05)}
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
@@ -453,7 +453,7 @@ const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:
 const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
 const GOLD='#C9A84C'
 function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
-function toolColor(t){return GOLD}
+function toolColor(t){return TOOL_COLORS[t]||GOLD}
 const TOOLS=['MS','MF','O','J','MG','AP','MI','MJ','DM']
 const TOOL_NAMES={MS:'MS',MF:'MF',O:'O',J:'J',MG:'MG',AP:'AP',MI:'MI',MJ:'MJ',DM:'DM'}
 const TOOL_NAMES_FULL={MS:'Magical Structures (MS)',MF:'Multifrequency (MF)',O:'Omega (O)',J:'Jewel (J)',MG:"Merlin's Grace (MG)",AP:'Universal AP (AP)',MI:'Manifesting Intention (MI)',MJ:'Magical Jewel (MJ)',DM:'Divine Magic (DM)'}
@@ -993,7 +993,7 @@ function renderDetail(loc){
   const body=document.getElementById('d-body')
   if(cleared){
     const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
-    body.innerHTML='<div class="detail-cleared" style="background:var(--gold-tint,rgba(201,168,76,0.08));border:1px solid var(--gold);color:var(--gold)">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkCleared(\'' + loc.id + '\')">Mark as not cleared</button>'
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkCleared(\'' + loc.id + '\')">Mark as not cleared</button>'
   }else{
     body.innerHTML=''
     const defaultDiv=document.createElement('div');defaultDiv.style.cssText='margin-bottom:10px'
@@ -1041,7 +1041,7 @@ function renderMobileDetail(loc){
   const body=document.getElementById('md-body')
   if(cleared){
     const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
-    body.innerHTML='<div class="detail-cleared" style="background:var(--gold-tint,rgba(201,168,76,0.08));border:1px solid var(--gold);color:var(--gold)">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkClearedMobile(\'' + loc.id + '\')">Mark as not cleared</button>'
+    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkClearedMobile(\'' + loc.id + '\')">Mark as not cleared</button>'
   }else{
     body.innerHTML=''
     const mDefaultDiv=document.createElement('div');mDefaultDiv.style.cssText='margin-bottom:10px'
@@ -1173,7 +1173,7 @@ function renderLog(){
     row.onclick=(function(eid){return function(){openFromLog(eid)}})(e.id)
     var top=document.createElement('div');top.style.cssText='display:flex;align-items:center;gap:9px;margin-bottom:3px'
     var dot=document.createElement('div')
-    dot.style.cssText='width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--gold);flex-shrink:0'
+    dot.style.cssText='width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0'
     var nameSpan=document.createElement('span')
     nameSpan.style.cssText='font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)'
     if(e.isGroup){
@@ -1196,7 +1196,7 @@ function openFromLog(id){
   if(loc){selectLoc(id);return}
   const p=progress[id];if(!p)return
   const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?' - '+p.user:''
-  const html='<div class="detail-cleared" style="background:var(--gold-tint,rgba(201,168,76,0.08));border:1px solid var(--gold);color:var(--gold)">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div>'
+  const html='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div>'
   document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
   document.getElementById('d-name').textContent=p.name||id
   document.getElementById('d-addr').textContent='Load the region to see full details'
