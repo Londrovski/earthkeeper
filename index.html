@@ -85,9 +85,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
-.chip.show-omega{border-color:var(--omega);color:var(--omega)}.chip.show-omega.on{background:var(--omega);color:#fff}
-.chip.show-jewel{border-color:var(--jewel);color:var(--jewel)}.chip.show-jewel.on{background:var(--jewel);color:#fff}
-.chip.show-mg{border-color:var(--mg);color:var(--mg)}.chip.show-mg.on{background:var(--mg);color:#fff}
+.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}
 .rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
 .rsel select option{background:#1A3D28;color:var(--ink-d)}
@@ -319,9 +317,15 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
-          <div class="chip show-omega" id="chip-omega" onclick="setShow('omega',this)"><span class="chip-dot" style="background:var(--omega)"></span>Omega</div>
-          <div class="chip show-jewel" id="chip-jewel" onclick="setShow('jewel',this)"><span class="chip-dot" style="background:var(--jewel)" ></span>Jewel</div>
-          <div class="chip show-mg" id="chip-mg" onclick="setShow('mg',this)"><span class="chip-dot" style="background:var(--mg)"></span>MG</div>
+          <div class="chip show-tool" id="chip-MS" onclick="setShow('MS',this)">MS</div>
+          <div class="chip show-tool" id="chip-MF" onclick="setShow('MF',this)">MF</div>
+          <div class="chip show-tool" id="chip-O" onclick="setShow('O',this)">O</div>
+          <div class="chip show-tool" id="chip-J" onclick="setShow('J',this)">J</div>
+          <div class="chip show-tool" id="chip-MG" onclick="setShow('MG',this)">MG</div>
+          <div class="chip show-tool" id="chip-AP" onclick="setShow('AP',this)">AP</div>
+          <div class="chip show-tool" id="chip-MI" onclick="setShow('MI',this)">MI</div>
+          <div class="chip show-tool" id="chip-MJ" onclick="setShow('MJ',this)">MJ</div>
+          <div class="chip show-tool" id="chip-DM" onclick="setShow('DM',this)">DM</div>
         </div>
       </div>
       <div class="rsel">
@@ -1120,7 +1124,7 @@ async function unmarkClearedMobile(id){
 function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList();updateStats()}
 function setShow(mode,el){
   showFilter=mode
-  document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-omega,.chip.show-jewel,.chip.show-mg').forEach(c=>c.classList.remove('on'))
+  document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-tool').forEach(c=>c.classList.remove('on'))
   el.classList.add('on');refreshMapData();renderList()
 }
 function updateStats(){
