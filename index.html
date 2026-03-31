@@ -669,7 +669,7 @@ function panToVisible(lat,lng,zoom){
 function fitBounds(locs){
   const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
   const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
-  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:{top:60,bottom:60,left:60,right:60},maxZoom:12,duration:800})
+  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:{top:100,bottom:100,left:100,right:100},maxZoom:10,duration:800})
 }
 
 function locateMe(){
