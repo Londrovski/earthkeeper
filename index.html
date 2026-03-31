@@ -645,9 +645,7 @@ function locVisible(loc){
   if(showFilter==='all')return true
   if(showFilter==='cleared')return isEffectivelyCleared(loc)
   const etool=effectiveTool(loc)
-  if(showFilter==='omega')return etool==='omega'
-  if(showFilter==='jewel')return etool==='jewel'
-  if(showFilter==='mg')return etool==='mg'
+  if(TOOLS.includes(showFilter))return etool===showFilter
   return true
 }
 
