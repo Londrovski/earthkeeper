@@ -1,0 +1,51 @@
+name: Daily Backup
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # midnight UTC every day
+  workflow_dispatch:      # allow manual trigger
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout earthkeeper
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Checkout Backup repo
+        uses: actions/checkout@v4
+        with:
+          repository: Londrovski/Backup
+          token: ${{ secrets.BACKUP_TOKEN }}
+          path: backup
+
+      - name: Copy data files with dated folder
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          DEST="backup/earthkeeper/$DATE"
+          mkdir -p "$DEST"
+          cp source/data/*.json "$DEST/"
+          echo "Copied data files to $DEST"
+
+      - name: Delete backups older than 30 days
+        run: |
+          find backup/earthkeeper -maxdepth 1 -type d -name '????-??-??' | sort | while read dir; do
+            folder=$(basename "$dir")
+            age=$(( ( $(date +%s) - $(date -d "$folder" +%s) ) / 86400 ))
+            if [ "$age" -gt 30 ]; then
+              echo "Deleting old backup: $folder"
+              rm -rf "$dir"
+            fi
+          done
+
+      - name: Commit and push to Backup
+        run: |
+          cd backup
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Earthkeeper backup $(date +%Y-%m-%d)"
+          git push
