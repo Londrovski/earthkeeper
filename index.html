@@ -1279,13 +1279,12 @@ function goHome(){
   updateDistrictStats(null)
   document.getElementById('district-detail').classList.remove('on')
   if(document.getElementById('tab-groups').classList.contains('on')){
-    renderDistrictList();updateDistrictStates()
     if(mapReady){
-      // Hide district dot layers and clear district source
       ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
       if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
       map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
     }
+    renderDistrictList();updateDistrictStates()
   }else{
     document.getElementById('region-select').value='all'
     loadAll()
