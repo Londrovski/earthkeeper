@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded',function(){
     sel.addEventListener('change',function(){sel.classList.remove('placeholder')})
   }
 })
-function doLogin(){
+async function doLogin(){
   const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
   if(!pw){err.textContent='Please enter the password';return}
