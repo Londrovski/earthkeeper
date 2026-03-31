@@ -9,105 +9,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Jost',sans-serif;background:#0D2416;color:#E8D5A0;min-height:100vh;padding:0}
-.page{max-width:720px;margin:0 auto;padding:48px 28px 80px}
-.back{display:inline-flex;align-items:center;gap:8px;color:rgba(232,213,160,.5);font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;margin-bottom:40px;transition:color .2s}
+body{font-family:'Jost',sans-serif;background:#0D2416;color:#E8D5A0;min-height:100vh}
+.page{max-width:680px;margin:0 auto;padding:48px 28px 80px}
+.back{display:inline-flex;align-items:center;gap:8px;color:rgba(232,213,160,.45);font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;margin-bottom:40px;transition:color .2s}
 .back:hover{color:#C9A84C}
-.brand{display:flex;align-items:center;gap:14px;margin-bottom:48px}
-.brand-seal{width:52px;height:52px;border-radius:50%;overflow:hidden}
-.brand-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.brand-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:.1em;color:#E8D5A0}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:44px}
+.brand-seal{width:48px;height:48px;border-radius:50%;overflow:hidden}
+.brand-seal img{width:100%;height:100%;object-fit:cover}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;letter-spacing:.1em;color:#E8D5A0}
 .brand-name em{color:#C9A84C;font-style:italic}
-h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;letter-spacing:.06em;color:#E8D5A0;margin-bottom:10px;line-height:1.2}
-.subtitle{font-size:14px;color:rgba(232,213,160,.5);letter-spacing:.12em;text-transform:uppercase;margin-bottom:52px;padding-bottom:28px;border-bottom:1px solid rgba(201,168,76,.15)}
-h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#C9A84C;margin:44px 0 14px;letter-spacing:.04em}
-h3{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:rgba(232,213,160,.6);margin:24px 0 10px;font-weight:500}
-p{font-size:15px;line-height:1.8;color:rgba(232,213,160,.8);margin-bottom:14px}
-ul,ol{padding-left:20px;margin-bottom:14px}
-li{font-size:15px;line-height:1.8;color:rgba(232,213,160,.8);margin-bottom:6px}
-.callout{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:18px 22px;margin:24px 0}
-.callout p{margin:0;color:rgba(232,213,160,.9)}
-.tag{display:inline-block;padding:2px 9px;border-radius:4px;font-size:12px;font-weight:500;letter-spacing:.06em;margin:0 2px;vertical-align:middle}
-.tag-omega{background:rgba(155,94,212,.2);border:1px solid rgba(155,94,212,.4);color:#9B5ED4}
-.tag-jewel{background:rgba(224,112,80,.2);border:1px solid rgba(224,112,80,.4);color:#E07050}
-.tag-mg{background:rgba(74,133,201,.2);border:1px solid rgba(74,133,201,.4);color:#4A85C9}
-.type-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
-divider{display:block;height:1px;background:rgba(201,168,76,.12);margin:40px 0}
-.footer{margin-top:60px;padding-top:28px;border-top:1px solid rgba(201,168,76,.15);font-size:13px;color:rgba(232,213,160,.35);text-align:center}
+h1{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.06em;color:#E8D5A0;margin-bottom:8px;line-height:1.2}
+.subtitle{font-size:13px;color:rgba(232,213,160,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.15)}
+h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#C9A84C;margin:40px 0 12px;letter-spacing:.04em}
+p{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:12px}
+ul{padding-left:18px;margin-bottom:12px}
+li{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:5px}
+.callout{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.18);border-radius:8px;padding:16px 20px;margin:20px 0}
+.callout p{margin:0;color:rgba(232,213,160,.88)}
+.tools{display:flex;flex-direction:column;gap:6px;margin:12px 0 16px}
+.tool-row{display:flex;align-items:baseline;gap:10px;font-size:14px;color:rgba(232,213,160,.78)}
+.tool-code{color:#C9A84C;font-weight:500;min-width:36px}
+.sep{height:1px;background:rgba(201,168,76,.12);margin:36px 0}
+.footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(201,168,76,.12);font-size:13px;color:rgba(232,213,160,.3);text-align:center}
 </style>
 </head>
 <body>
 <div class="page">
-  <a href="index.html" class="back">&#8592; Back to Earthkeeper</a>
+  <a href="index.html" class="back">← Back to Earthkeeper</a>
 
   <div class="brand">
-    <div class="brand-seal"><img src="Earthkeeper-circular.png" alt="Earthkeeper" onerror="this.style.display='none'"></div>
+    <div class="brand-seal"><img src="Earthkeeper-circular.png" alt="" onerror="this.style.display='none'"></div>
     <div class="brand-name">Earth<em>keeper</em></div>
   </div>
 
-  <h1>How to Use Earthkeeper</h1>
-  <div class="subtitle">UK Energy Clearing Tracker &mdash; Guidance Notes</div>
+  <h1>How to Use</h1>
+  <div class="subtitle">UK Energy Clearing Tracker</div>
 
-  <h2>What is Earthkeeper?</h2>
-  <p>Earthkeeper is a shared tracker for a group of UK energy healing practitioners. It maps locations across England &mdash; hospitals, hospices, prisons, universities, schools, and GP surgeries &mdash; and records which have been energetically cleared, by whom, and with which tool.</p>
-  <p>The goal is simple: see what has been done, coordinate who does what next, and build a shared record of the work over time.</p>
+  <h2>Logging in</h2>
+  <p>Enter your name, the group password, and select your default clearing tool. If you work with Earthworks, tick the checkbox — this unlocks the EW1–5 options when recording a clearing.</p>
+  <p>Your preferences are remembered, so you only need to do this once per device.</p>
 
-  <h2>Logging In</h2>
-  <p>Enter your full name and the group password to access the tracker. Your name will be attached to any clearings you record, so others can see who did what in the log.</p>
-  <p>If you have forgotten the password, contact the group administrator.</p>
+  <h2>Locations tab</h2>
+  <p>The main map. Dots show all locations in the database — hospitals, hospices, prisons, universities, schools, and GP surgeries. Cleared locations show as gold.</p>
+  <p>Use the filter chips at the top of the panel to show by type or by tool used. Use the region dropdown to narrow down to a specific area.</p>
+  <p>Click any location on the map or in the search results to open its detail panel.</p>
 
-  <h2>The Three Tabs</h2>
+  <h2>Recording a clearing</h2>
+  <p>Open a location’s detail panel. Your default tool is shown — tap <strong>Use a different tool</strong> if you need to override it for this clearing. If you have Earthworks enabled, an optional EW level selector also appears.</p>
+  <p>Press <strong>Mark cleared</strong> to save. Your name, date, tool, and EW level (if used) are recorded and shared with the group immediately.</p>
+  <p>To undo, open the location and press <strong>Mark as not cleared</strong>.</p>
 
-  <h3>Locations</h3>
-  <p>This is the main view. The map shows coloured dots for every location in the database. Use the filter chips at the top of the panel to choose which types of place to display &mdash; hospitals, hospices, prisons, universities, schools, or GP surgeries.</p>
-  <p>To find a specific location, type its name or postcode into the search bar. Click any result to open its detail panel and see the map fly to it.</p>
-
-  <div class="callout">
-    <p>Tip: use the region dropdown to narrow down to a specific part of the country. This makes the map faster and the list easier to browse.</p>
+  <h2>Clearing tools</h2>
+  <div class="tools">
+    <div class="tool-row"><span class="tool-code">MS</span> Magical Structures</div>
+    <div class="tool-row"><span class="tool-code">MF</span> Multifrequency</div>
+    <div class="tool-row"><span class="tool-code">O</span> Omega</div>
+    <div class="tool-row"><span class="tool-code">J</span> Jewel</div>
+    <div class="tool-row"><span class="tool-code">MG</span> Merlin’s Grace</div>
+    <div class="tool-row"><span class="tool-code">AP</span> Universal AP</div>
+    <div class="tool-row"><span class="tool-code">MI</span> Manifesting Intention</div>
+    <div class="tool-row"><span class="tool-code">MJ</span> Magical Jewel</div>
+    <div class="tool-row"><span class="tool-code">DM</span> Divine Magic</div>
+    <div class="tool-row"><span class="tool-code">EW1–5</span> Earthworks levels (optional add-on)</div>
   </div>
 
-  <h3>Recording a Clearing</h3>
-  <p>Click on any location &mdash; either from the list or directly on the map &mdash; to open its detail panel. If it has not been cleared yet, you will see three tool buttons:</p>
-  <ul>
-    <li><span class="tag tag-omega">Omega</span> &mdash; first level clearing</li>
-    <li><span class="tag tag-jewel">Jewel</span> &mdash; second level clearing</li>
-    <li><span class="tag tag-mg">MG</span> &mdash; third level clearing</li>
-  </ul>
-  <p>Select the tool you used, then press the gold <strong>Mark cleared</strong> button. Your name, the date, and the tool will be saved and shared with the whole group automatically.</p>
-  <p>If a clearing was recorded in error, open the location and press <strong>Mark as not cleared</strong> to remove it.</p>
+  <h2>Groups tab</h2>
+  <p>Clear an entire Local Authority District at once rather than location by location. Useful when you have worked across a whole area.</p>
+  <p>Select a district from the list to see its schools (blue dots) and GP surgeries (green dots) on the map. Choose your tool and press <strong>Clear all Schools</strong> or <strong>Clear all GPs</strong>. A half-glow on the district means one type has been cleared; full brightness means both.</p>
+  <p>Group clearings appear in the Log with a GROUP badge. Click any group entry in the Log to jump back to that district.</p>
 
-  <h3>Groups</h3>
-  <p>The Groups tab allows you to clear an entire Local Authority District at once, rather than recording each school or GP surgery individually. This is useful when a practitioner has worked energetically across a whole area.</p>
-  <p>Select a district from the list &mdash; or search for it &mdash; and the map will zoom in to show all the schools (blue dots) and GP surgeries (green dots) within it. The panel shows how many locations are in the district and how many have been individually cleared so far.</p>
-  <p>To record a group clearing, choose your tool and press <strong>Clear all Schools</strong> or <strong>Clear all GPs</strong>. The district will light up on the map. Clearing one group gives a half-glow; clearing both brings it to full brightness.</p>
-  <p>Group clearings appear in the Log tab alongside individual clearings, marked with a GROUP badge.</p>
-
-  <h3>Log</h3>
-  <p>The Log tab shows a full history of all clearings recorded by everyone in the group, most recent first. You can filter by date range using the From and To fields. Click any entry to jump to that location on the Locations tab.</p>
-  <p>Group clearings show in a different colour depending on whether schools or GPs were cleared, and are marked GROUP so they are easy to distinguish.</p>
-
-  <h2>The Map</h2>
-  <p>Dot colours tell you what type of location it is:</p>
-  <ul>
-    <li><span class="type-dot" style="background:#E07050"></span><strong>Red</strong> &mdash; Hospital</li>
-    <li><span class="type-dot" style="background:#3DBFA8"></span><strong>Teal</strong> &mdash; Hospice</li>
-    <li><span class="type-dot" style="background:#C4722A"></span><strong>Amber</strong> &mdash; Prison</li>
-    <li><span class="type-dot" style="background:#9B78C8"></span><strong>Purple</strong> &mdash; University</li>
-    <li><span class="type-dot" style="background:#5B9BD5"></span><strong>Blue</strong> &mdash; School</li>
-    <li><span class="type-dot" style="background:#4A9B6F"></span><strong>Green</strong> &mdash; GP Surgery</li>
-    <li><span class="type-dot" style="background:#C9A84C"></span><strong>Gold</strong> &mdash; Cleared (any type)</li>
-  </ul>
-  <p>A cleared location turns gold. The colour of the ring around it shows which tool was used &mdash; purple for Omega, red-orange for Jewel, blue for MG.</p>
-  <p>Use the <strong>Find Me</strong> button to centre the map on your current location. Use <strong>Home</strong> to return to the full UK view.</p>
-
-  <h2>Saving</h2>
-  <p>Clearings are saved to a shared record automatically when you mark them. A small <strong>Saved</strong> notice will appear briefly at the bottom of the screen to confirm. All members of the group will see your clearing the next time they load the page.</p>
+  <h2>Log tab</h2>
+  <p>Full history of all clearings, most recent first, from everyone in the group. Filter by date range if needed. Click any entry to jump to that location or district.</p>
+  <p>The map on the Log tab shows all cleared locations across all types at once.</p>
 
   <div class="callout">
-    <p>The tracker stores all data in a shared repository. Nothing is ever deleted permanently &mdash; all changes are recorded with a timestamp and can be reviewed if needed.</p>
+    <p>Clearings are saved to a shared record automatically. All group members see your changes the next time they load the page.</p>
   </div>
 
-  <div class="footer">Earthkeeper &mdash; UK Energy Clearing Tracker</div>
+  <div class="footer">Earthkeeper — UK Energy Clearing Tracker</div>
 </div>
 </body>
 </html>
