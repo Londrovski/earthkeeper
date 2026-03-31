@@ -472,7 +472,7 @@ function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
 
 let locations=[],progress={},progressSha=null,groupProgress={},groupProgressSha=null,selectedId=null,map,mapReady=false
 let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false}
-let showFilter='all',currentTool='MG',currentUser=null,locationMarker=null,userHasEarthworks=false,currentEW=null
+let showFilter='all',logSavedPlaces=null,logSavedFilter=null,currentTool='MG',currentUser=null,locationMarker=null,userHasEarthworks=false,currentEW=null
 let selectedDistrictCode=null,districts=[],districtMap={}
 let groupTypes=new Set(['school','gp'])
 const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
@@ -1249,25 +1249,18 @@ function switchTab(name,btn){
   btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
   const inLog=name==='log'
-  // Log tab: temporarily show all types but only cleared locations
   if(inLog){
-    const savedFilter=showFilter
-    const savedPlaces={...placesFilter}
-    // Show all types on map when on log tab
-    Object.keys(placesFilter).forEach(k=>placesFilter[k]=true)
+    // Log tab: show all cleared locations across all types
+    logSavedPlaces={...placesFilter}
+    logSavedFilter=showFilter
+    Object.keys(placesFilter).forEach(k=>{if(k!=='_')placesFilter[k]=true})
     showFilter='cleared'
     refreshMapData()
+  } else if(logSavedPlaces){
     // Restore when leaving log
-    placesFilter._logSaved=savedPlaces
-    placesFilter._logFilter=savedFilter
-  } else if(placesFilter._logSaved){
-    // Restore previous filter state when leaving log
-    const saved=placesFilter._logSaved
-    const savedF=placesFilter._logFilter
-    delete placesFilter._logSaved
-    delete placesFilter._logFilter
-    Object.assign(placesFilter,saved)
-    showFilter=savedF
+    Object.assign(placesFilter,logSavedPlaces)
+    showFilter=logSavedFilter
+    logSavedPlaces=null;logSavedFilter=null
     refreshMapData()
   }
   function applyLayerVisibility(attempts){
