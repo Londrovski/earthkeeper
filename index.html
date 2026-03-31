@@ -47,7 +47,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
 .login-btn:hover{background:var(--gold)}
 .login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
-.login-select{width:100%;padding:10px 14px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-top:4px;cursor:pointer}.login-select option{background:#1c2e1c;color:var(--gold)}.login-select:focus{outline:none;border-color:var(--gold)}.login-field{margin-bottom:12px}.login-label{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}.login-ew-row{margin:10px 0 16px;display:flex;align-items:center}.login-ew-label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}.login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}.tool-override-select,.tool-ew-select,select.tool-override-select,select.tool-ew-select{background:var(--panel);color:var(--gold);border:1px solid var(--bd);border-radius:8px;font-size:14px;cursor:pointer}.tool-override-select option,.tool-ew-select option{background:#1c2e1c;color:var(--gold)}.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
+.login-select{width:100%;padding:10px 14px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-top:4px;cursor:pointer}.login-select option{background:#1c2e1c;color:var(--gold)}.login-select:focus{outline:none;border-color:var(--gold)}.login-field{margin-bottom:12px}.login-label{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}.login-ew-row{margin:10px 0 16px;display:flex;align-items:center}.login-ew-label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}.login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}.tool-override-select,.tool-ew-select,select.tool-override-select,select.tool-ew-select{background:var(--panel);color:var(--gold);border:1px solid var(--bd);border-radius:8px;font-size:14px;cursor:pointer}.tool-override-select option,.tool-ew-select option{background:#1c2e1c;color:var(--gold)}.map-home-btn{position:absolute;top:108px;left:10px;z-index:10;width:30px;height:30px;background:rgba(13,36,22,.85);border:1px solid var(--bd);border-radius:4px;color:var(--gold);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .15s}.map-home-btn:hover{background:rgba(201,168,76,.2)}.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
 .login-instructions:hover{border-color:var(--gold);color:var(--gold-l);background:rgba(201,168,76,.05)}
 #app{display:none;flex-direction:column;height:100vh}
 header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
@@ -228,7 +228,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   #mobile-detail .btn-mark{padding:9px;font-size:12px}
   #mobile-detail .btn-unmark{padding:7px;font-size:11px;margin-top:6px}
 }
-#pg-row-s,#pg-row-gp{display:none}
+#pg-row-s,#pg-row-gp{display:flex}
 .gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
 .gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
 .gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
@@ -397,7 +397,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     </div>
   </div>
   <div class="mwrap">
-    <div id="map"></div>
+    <div id="map"></div><button class="map-home-btn" onclick="goHome()" title="Home">⌂</button>
     <div class="mload" id="mload">
       <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;margin-bottom:8px">
         <img src="Earthkeeper-circular.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
@@ -539,7 +539,7 @@ function initMap(){
       layers:[{id:'carto-tiles',type:'raster',source:'carto'}]},
     center:[-1.5,53.5],zoom:5.5,attributionControl:false
   })
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right')
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left')
   map.on('load',()=>{
     mapReady=true
     map.addSource('locations',{type:'geojson',data:emptyFC()})
