@@ -1248,6 +1248,28 @@ function switchTab(name,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
   btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
+  const inLog=name==='log'
+  // Log tab: temporarily show all types but only cleared locations
+  if(inLog){
+    const savedFilter=showFilter
+    const savedPlaces={...placesFilter}
+    // Show all types on map when on log tab
+    Object.keys(placesFilter).forEach(k=>placesFilter[k]=true)
+    showFilter='cleared'
+    refreshMapData()
+    // Restore when leaving log
+    placesFilter._logSaved=savedPlaces
+    placesFilter._logFilter=savedFilter
+  } else if(placesFilter._logSaved){
+    // Restore previous filter state when leaving log
+    const saved=placesFilter._logSaved
+    const savedF=placesFilter._logFilter
+    delete placesFilter._logSaved
+    delete placesFilter._logFilter
+    Object.assign(placesFilter,saved)
+    showFilter=savedF
+    refreshMapData()
+  }
   function applyLayerVisibility(attempts){
     if(!mapReady){if(attempts>0)setTimeout(function(){applyLayerVisibility(attempts-1)},100);return}
     ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
