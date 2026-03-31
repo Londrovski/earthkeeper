@@ -1215,7 +1215,17 @@ function openFromLog(id){
   if(groupProgress[id]){
     const parts=id.split(':'),code=parts[0]
     switchTab('groups',document.getElementById('tab-btn-groups'))
-    setTimeout(function(){selectDistrict(code);renderDistrictDetail(code)},150)
+    function trySelectDistrict(attempts){
+      if(districtMap[code]){
+        selectDistrict(code)
+        setTimeout(function(){renderDistrictDetail(code)},100)
+      } else if(attempts>0){
+        setTimeout(function(){trySelectDistrict(attempts-1)},300)
+      }
+    }
+    // If districts not loaded yet, trigger load then retry
+    if(!districts.length){loadDistricts().then(function(){trySelectDistrict(10)})}
+    else{trySelectDistrict(10)}
     return
   }
   switchTab('locs',document.getElementById('tab-btn-locs'))
@@ -1239,10 +1249,12 @@ function switchTab(name,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
   btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
-  if(mapReady){
+  function applyLayerVisibility(){
+    if(!mapReady)return
     ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
     ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')})
   }
+  applyLayerVisibility()
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
