@@ -474,14 +474,6 @@ function queueSave(){saveQueued=true}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
 window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
 
-async 
-document.addEventListener('DOMContentLoaded',function(){
-  const sel=document.getElementById('login-tool')
-  if(sel){
-    sel.classList.add('placeholder')
-    sel.addEventListener('change',function(){sel.classList.remove('placeholder')})
-  }
-})
 async function doLogin(){
   const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
   if(!name){err.textContent='Please enter your name';return}
