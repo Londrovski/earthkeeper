@@ -1248,12 +1248,12 @@ function switchTab(name,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
   btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
-  function applyLayerVisibility(){
-    if(!mapReady)return
+  function applyLayerVisibility(attempts){
+    if(!mapReady){if(attempts>0)setTimeout(function(){applyLayerVisibility(attempts-1)},100);return}
     ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
     ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')})
   }
-  applyLayerVisibility()
+  applyLayerVisibility(20)
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
@@ -1280,7 +1280,12 @@ function goHome(){
   document.getElementById('district-detail').classList.remove('on')
   if(document.getElementById('tab-groups').classList.contains('on')){
     renderDistrictList();updateDistrictStates()
-    if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+    if(mapReady){
+      // Hide district dot layers and clear district source
+      ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
+      if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
+      map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+    }
   }else{
     document.getElementById('region-select').value='all'
     loadAll()
