@@ -1002,7 +1002,7 @@ function renderDetail(loc){
     defaultDiv.appendChild(defaultLbl);defaultDiv.appendChild(defaultTool)
     const changeLink=document.createElement('button');changeLink.className='btn-change-tool';changeLink.textContent='Use a different tool';changeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px'
     const toolDropWrap=document.createElement('div');toolDropWrap.style.display='none'
-    const toolDrop=document.createElement('select');toolDrop.className='tool-override-select';toolDrop.style.cssText='width:100%;padding:8px 10px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--ink-d);font-size:14px;margin-bottom:8px'
+    const toolDrop=document.createElement('select');toolDrop.className='tool-override-select';toolDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
     TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;toolDrop.appendChild(o)})
     toolDropWrap.appendChild(toolDrop)
     changeLink.onclick=function(){toolDropWrap.style.display=toolDropWrap.style.display==='none'?'block':'none'}
@@ -1010,7 +1010,7 @@ function renderDetail(loc){
     if(userHasEarthworks){
       const ewWrap=document.createElement('div');ewWrap.style.cssText='margin-bottom:10px'
       const ewLbl=document.createElement('div');ewLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';ewLbl.textContent='Earthworks (optional)'
-      ewSelect=document.createElement('select');ewSelect.className='tool-ew-select';ewSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px'
+      ewSelect=document.createElement('select');ewSelect.className='tool-ew-select';ewSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px;color:var(--gold)'
       const noneOpt=document.createElement('option');noneOpt.value='';noneOpt.textContent='None';ewSelect.appendChild(noneOpt)
       EW_LEVELS.forEach(function(ew){const o=document.createElement('option');o.value=ew;o.textContent=ew;ewSelect.appendChild(o)})
       ewWrap.appendChild(ewLbl);ewWrap.appendChild(ewSelect);body.appendChild(ewWrap)
@@ -1050,7 +1050,7 @@ function renderMobileDetail(loc){
     mDefaultDiv.appendChild(mDefaultLbl);mDefaultDiv.appendChild(mDefaultTool)
     const mChangeLink=document.createElement('button');mChangeLink.className='btn-change-tool';mChangeLink.textContent='Use a different tool';mChangeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px'
     const mToolDropWrap=document.createElement('div');mToolDropWrap.style.display='none'
-    const mToolDrop=document.createElement('select');mToolDrop.style.cssText='width:100%;padding:8px 10px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--ink-d);font-size:14px;margin-bottom:8px'
+    const mToolDrop=document.createElement('select');mToolDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
     TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;mToolDrop.appendChild(o)})
     mToolDropWrap.appendChild(mToolDrop)
     mChangeLink.onclick=function(){mToolDropWrap.style.display=mToolDropWrap.style.display==='none'?'block':'none'}
@@ -1058,7 +1058,7 @@ function renderMobileDetail(loc){
     if(userHasEarthworks){
       const mEwWrap=document.createElement('div');mEwWrap.style.cssText='margin-bottom:10px'
       const mEwLbl=document.createElement('div');mEwLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';mEwLbl.textContent='Earthworks (optional)'
-      mEwSelect=document.createElement('select');mEwSelect.className='tool-ew-select';mEwSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px'
+      mEwSelect=document.createElement('select');mEwSelect.className='tool-ew-select';mEwSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px;color:var(--gold)'
       const mNoneOpt=document.createElement('option');mNoneOpt.value='';mNoneOpt.textContent='None';mEwSelect.appendChild(mNoneOpt)
       EW_LEVELS.forEach(function(ew){const o=document.createElement('option');o.value=ew;o.textContent=ew;mEwSelect.appendChild(o)})
       mEwWrap.appendChild(mEwLbl);mEwWrap.appendChild(mEwSelect);body.appendChild(mEwWrap)
