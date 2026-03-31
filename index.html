@@ -326,6 +326,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip show-tool" id="chip-MI" onclick="setShow('MI',this)">MI</div>
           <div class="chip show-tool" id="chip-MJ" onclick="setShow('MJ',this)">MJ</div>
           <div class="chip show-tool" id="chip-DM" onclick="setShow('DM',this)">DM</div>
+          <div class="chip show-tool" id="chip-EW1" onclick="setShow('EW1',this)">EW1</div>
+          <div class="chip show-tool" id="chip-EW2" onclick="setShow('EW2',this)">EW2</div>
+          <div class="chip show-tool" id="chip-EW3" onclick="setShow('EW3',this)">EW3</div>
+          <div class="chip show-tool" id="chip-EW4" onclick="setShow('EW4',this)">EW4</div>
+          <div class="chip show-tool" id="chip-EW5" onclick="setShow('EW5',this)">EW5</div>
         </div>
       </div>
       <div class="rsel">
@@ -646,6 +651,9 @@ function locVisible(loc){
   if(showFilter==='cleared')return isEffectivelyCleared(loc)
   const etool=effectiveTool(loc)
   if(TOOLS.includes(showFilter))return etool===showFilter
+  if(EW_LEVELS.includes(showFilter)){
+    const p=progress[loc.id];return !!(p&&p.ew===showFilter)
+  }
   return true
 }
 
