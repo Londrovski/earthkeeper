@@ -1205,7 +1205,7 @@ function renderLog(){
     var sub=document.createElement('div')
     sub.style.cssText='font-size:12px;color:var(--soft);padding-left:19px'
     if(e.user){var who=document.createElement('span');who.style.color='var(--gold)';who.textContent=e.user;sub.appendChild(who);sub.appendChild(document.createTextNode(' - '))}
-    const toolStr=TOOL_NAMES[e.tool]||e.tool;const ewStr=e.ew?' + '+e.ew:'';sub.appendChild(document.createTextNode(e.isGroup?ds:ds+' - '+toolStr+ewStr+' - '+e.locType))
+    const toolStr=TOOL_NAMES[e.tool]||e.tool;const ewStr=e.ew?' + '+e.ew:'';sub.appendChild(document.createTextNode(e.isGroup?ds+' - '+toolStr+ewStr:ds+' - '+toolStr+ewStr+' - '+e.locType))
     row.appendChild(top);row.appendChild(sub);el.appendChild(row)
   })
 }
