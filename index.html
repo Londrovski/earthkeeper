@@ -1211,6 +1211,13 @@ function renderLog(){
   })
 }
 function openFromLog(id){
+  // Group entry — id is 'DISTRICTCODE:type'
+  if(groupProgress[id]){
+    const parts=id.split(':'),code=parts[0]
+    switchTab('groups',document.getElementById('tab-btn-groups'))
+    setTimeout(function(){selectDistrict(code);renderDistrictDetail(code)},150)
+    return
+  }
   switchTab('locs',document.getElementById('tab-btn-locs'))
   const loc=locations.find(l=>l.id===id)
   if(loc){selectLoc(id);return}
