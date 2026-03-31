@@ -1252,6 +1252,13 @@ function switchTab(name,btn){
     if(!mapReady){if(attempts>0)setTimeout(function(){applyLayerVisibility(attempts-1)},100);return}
     ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
     ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')})
+    // When leaving groups, clear district dots and deselect district
+    if(!inGroups){
+      if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
+      ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
+      selectedDistrictCode=null
+      document.getElementById('district-detail').classList.remove('on')
+    }
   }
   applyLayerVisibility(20)
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
