@@ -891,7 +891,7 @@ function renderDistrictDetail(code){
       const gChangeLink=document.createElement('button');gChangeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px;display:block'
       gChangeLink.textContent='Use a different tool'
       const gDropWrap=document.createElement('div');gDropWrap.style.display='none'
-      const gDrop=document.createElement('select');gDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
+      const gDrop=document.createElement('select');gDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px;color-scheme:dark'
       TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;gDrop.appendChild(o)})
       gDropWrap.appendChild(gDrop)
       gChangeLink.onclick=function(){gDropWrap.style.display=gDropWrap.style.display==='none'?'block':'none'}
