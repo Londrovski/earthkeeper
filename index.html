@@ -646,7 +646,8 @@ function refreshMapData(){
 function setSelectedId(id){selectedId=id;refreshMapData()}
 
 function locVisible(loc){
-  if(!placesFilter[loc.type])return false
+  const toolOrEwFilter=TOOLS.includes(showFilter)||EW_LEVELS.includes(showFilter)
+  if(!toolOrEwFilter&&!placesFilter[loc.type])return false
   if(showFilter==='all')return true
   if(showFilter==='cleared')return isEffectivelyCleared(loc)
   const etool=effectiveTool(loc)
