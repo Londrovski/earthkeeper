@@ -874,7 +874,7 @@ function renderDistrictDetail(code){
       const col=toolColor(grp.tool),who=grp.user?' - '+grp.user:''
       const cleared=document.createElement('div');cleared.className='detail-cleared'
       cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
-      cleared.innerHTML='Cleared to <strong>'+TOOL_NAMES[grp.tool]+'</strong> - '+dt+who
+      cleared.innerHTML='Cleared to <strong>'+(TOOL_NAMES_FULL[grp.tool]||grp.tool)+'</strong> - '+dt+who
       section.appendChild(cleared)
       const info=document.createElement('div');info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
       info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total';section.appendChild(info)
@@ -884,17 +884,25 @@ function renderDistrictDetail(code){
     }else{
       const info=document.createElement('div');info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
       info.textContent=indCleared+' of '+total+' individually cleared';section.appendChild(info)
-      const lbl=document.createElement('div');lbl.className='tool-label';lbl.textContent='Clear to level';section.appendChild(lbl)
-      const btnRow=document.createElement('div');btnRow.className='tool-btns'
-      TOOLS.forEach(function(t){
-        const b=document.createElement('button');b.className='tool-btn '+t+(currentTool===t?' sel':'')
-        b.id='gtbtn-'+gtype+'-'+t;b.textContent=TOOL_NAMES[t]
-        b.onclick=(function(tt,gt){return function(){selectGroupTool(tt,gt)}})(t,gtype);btnRow.appendChild(b)
-      })
-      section.appendChild(btnRow)
+      const gDefaultDiv=document.createElement('div');gDefaultDiv.style.cssText='margin-bottom:6px'
+      const gDefaultLbl=document.createElement('div');gDefaultLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px';gDefaultLbl.textContent='Clearing tool'
+      const gDefaultTool=document.createElement('div');gDefaultTool.style.cssText='font-size:15px;color:var(--gold);font-weight:500';gDefaultTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
+      gDefaultDiv.appendChild(gDefaultLbl);gDefaultDiv.appendChild(gDefaultTool);section.appendChild(gDefaultDiv)
+      const gChangeLink=document.createElement('button');gChangeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px;display:block'
+      gChangeLink.textContent='Use a different tool'
+      const gDropWrap=document.createElement('div');gDropWrap.style.display='none'
+      const gDrop=document.createElement('select');gDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
+      TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;gDrop.appendChild(o)})
+      gDropWrap.appendChild(gDrop)
+      gChangeLink.onclick=function(){gDropWrap.style.display=gDropWrap.style.display==='none'?'block':'none'}
+      section.appendChild(gChangeLink);section.appendChild(gDropWrap)
       const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
-      markBtn.textContent='Clear all '+typeShort+' in '+d.name+' - '+TOOL_NAMES[currentTool]
-      markBtn.onclick=(function(gt){return function(){markGroupCleared(code,gt)}})(gtype);section.appendChild(markBtn)
+      markBtn.textContent='Clear all '+typeShort+' in '+d.name
+      markBtn.onclick=(function(gt){return function(){
+        const tool=gDropWrap.style.display!=='none'?gDrop.value:currentTool
+        markGroupCleared(code,gt,tool)
+      }})(gtype);section.appendChild(markBtn)
+      gDrop.onchange=function(){markBtn.textContent='Clear all '+typeShort+' in '+d.name}
     }
     // Expandable location list
     const listWrap=document.createElement('div');listWrap.style.cssText='margin-top:8px'
@@ -949,10 +957,11 @@ function selectGroupTool(tool,gtype){
     btn.textContent='Clear all '+sgt_label+' in '+districtMap[selectedDistrictCode].name+' - '+TOOL_NAMES[tool]
   }
 }
-async function markGroupCleared(code,gtype){
+async function markGroupCleared(code,gtype,tool){
   const gt=gtype||[...groupTypes][0]
   const d=districtMap[code]
-  groupProgress[code+':'+gt]={tool:currentTool,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
+  const t=tool||currentTool
+  groupProgress[code+':'+gt]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
   renderDistrictDetail(code);renderDistrictList();updateStats();renderLog()
