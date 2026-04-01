@@ -1,0 +1,263 @@
+[
+  {
+    "id": "hosp-scotland-1",
+    "type": "hospital",
+    "name": "Glasgow Royal Infirmary",
+    "address": "84 Castle Street, Glasgow",
+    "postcode": "G4 0SF",
+    "lat": 55.864025,
+    "lng": -4.235647
+  },
+  {
+    "id": "hosp-scotland-2",
+    "type": "hospital",
+    "name": "Queen Elizabeth University Hospital",
+    "address": "1345 Govan Road, Glasgow",
+    "postcode": "G51 4TF",
+    "lat": 55.862641,
+    "lng": -4.338104
+  },
+  {
+    "id": "hosp-scotland-3",
+    "type": "hospital",
+    "name": "Royal Hospital for Children Glasgow",
+    "address": "1345 Govan Road, Glasgow",
+    "postcode": "G51 4TF",
+    "lat": 55.862641,
+    "lng": -4.338104
+  },
+  {
+    "id": "hosp-scotland-6",
+    "type": "hospital",
+    "name": "Royal Alexandra Hospital",
+    "address": "Corsebar Road, Paisley",
+    "postcode": "PA2 9PN",
+    "lat": 55.835208,
+    "lng": -4.43779
+  },
+  {
+    "id": "hosp-scotland-stobhill",
+    "type": "hospital",
+    "name": "Stobhill Hospital",
+    "address": "133 Balornock Road, Glasgow",
+    "postcode": "G21 3UW",
+    "lat": 55.886338,
+    "lng": -4.230821
+  },
+  {
+    "id": "hosp-scotland-victoria-glasgow",
+    "type": "hospital",
+    "name": "Victoria Hospital Glasgow",
+    "address": "Langside Road, Glasgow",
+    "postcode": "G42 9TY",
+    "lat": 55.824645,
+    "lng": -4.269325
+  },
+  {
+    "id": "hosp-scotland-7",
+    "type": "hospital",
+    "name": "Inverclyde Royal Hospital",
+    "address": "Larkfield Road, Greenock",
+    "postcode": "PA16 0XN",
+    "lat": 55.943981,
+    "lng": -4.809251
+  },
+  {
+    "id": "hosp-scotland-8",
+    "type": "hospital",
+    "name": "Vale of Leven District General Hospital",
+    "address": "Main Street, Alexandria",
+    "postcode": "G83 0UA",
+    "lat": 55.993079,
+    "lng": -4.591808
+  },
+  {
+    "id": "hosp-scotland-9",
+    "type": "hospital",
+    "name": "Royal Infirmary of Edinburgh",
+    "address": "51 Little France Crescent, Edinburgh",
+    "postcode": "EH16 4SA",
+    "lat": 55.921754,
+    "lng": -3.13594
+  },
+  {
+    "id": "hosp-scotland-10",
+    "type": "hospital",
+    "name": "Western General Hospital",
+    "address": "Crewe Road South, Edinburgh",
+    "postcode": "EH4 2XU",
+    "lat": 55.961802,
+    "lng": -3.234908
+  },
+  {
+    "id": "hosp-scotland-11",
+    "type": "hospital",
+    "name": "Royal Hospital for Children and Young People Edinburgh",
+    "address": "50 Little France Crescent, Edinburgh",
+    "postcode": "EH16 4TJ",
+    "lat": 55.921125,
+    "lng": -3.13789
+  },
+  {
+    "id": "hosp-scotland-12",
+    "type": "hospital",
+    "name": "St John's Hospital",
+    "address": "Howden Road West, Livingston",
+    "postcode": "EH54 6PP",
+    "lat": 55.891884,
+    "lng": -3.523085
+  },
+  {
+    "id": "hosp-scotland-13",
+    "type": "hospital",
+    "name": "Royal Edinburgh Hospital",
+    "address": "Morningside Place, Edinburgh",
+    "postcode": "EH10 5HF",
+    "lat": 55.927192,
+    "lng": -3.215865
+  },
+  {
+    "id": "hosp-scotland-14",
+    "type": "hospital",
+    "name": "Aberdeen Royal Infirmary",
+    "address": "Foresterhill, Aberdeen",
+    "postcode": "AB25 2ZN",
+    "lat": 57.155764,
+    "lng": -2.134131
+  },
+  {
+    "id": "hosp-scotland-15",
+    "type": "hospital",
+    "name": "Royal Aberdeen Children's Hospital",
+    "address": "Foresterhill, Aberdeen",
+    "postcode": "AB25 2ZG",
+    "lat": 57.15358,
+    "lng": -2.135214
+  },
+  {
+    "id": "hosp-scotland-16",
+    "type": "hospital",
+    "name": "Dr Gray's Hospital",
+    "address": "Western Road, Elgin",
+    "postcode": "IV30 1SN",
+    "lat": 57.645375,
+    "lng": -3.329946
+  },
+  {
+    "id": "hosp-scotland-17",
+    "type": "hospital",
+    "name": "Ninewells Hospital",
+    "address": "Ninewells Avenue, Dundee",
+    "postcode": "DD1 9SY",
+    "lat": 56.461679,
+    "lng": -2.991415
+  },
+  {
+    "id": "hosp-scotland-18",
+    "type": "hospital",
+    "name": "Perth Royal Infirmary",
+    "address": "Taymount Terrace, Perth",
+    "postcode": "PH1 1NX",
+    "lat": 56.396332,
+    "lng": -3.452964
+  },
+  {
+    "id": "hosp-scotland-19",
+    "type": "hospital",
+    "name": "Hairmyres Hospital",
+    "address": "Eaglesham Road, East Kilbride",
+    "postcode": "G75 8RG",
+    "lat": 55.759821,
+    "lng": -4.221963
+  },
+  {
+    "id": "hosp-scotland-20",
+    "type": "hospital",
+    "name": "Monklands Hospital",
+    "address": "Monkscourt Avenue, Airdrie",
+    "postcode": "ML6 0JS",
+    "lat": 55.865878,
+    "lng": -3.999588
+  },
+  {
+    "id": "hosp-scotland-21",
+    "type": "hospital",
+    "name": "Wishaw General Hospital",
+    "address": "50 Netherton Street, Wishaw",
+    "postcode": "ML2 0DP",
+    "lat": 55.773693,
+    "lng": -3.941738
+  },
+  {
+    "id": "hosp-scotland-22",
+    "type": "hospital",
+    "name": "University Hospital Ayr",
+    "address": "Dalmellington Road, Ayr",
+    "postcode": "KA6 6DX",
+    "lat": 55.430332,
+    "lng": -4.595538
+  },
+  {
+    "id": "hosp-scotland-23",
+    "type": "hospital",
+    "name": "University Hospital Crosshouse",
+    "address": "Crosshouse, Kilmarnock",
+    "postcode": "KA2 0BE",
+    "lat": 55.613939,
+    "lng": -4.539389
+  },
+  {
+    "id": "hosp-scotland-24",
+    "type": "hospital",
+    "name": "Raigmore Hospital",
+    "address": "Old Perth Road, Inverness",
+    "postcode": "IV2 3UJ",
+    "lat": 57.473807,
+    "lng": -4.19247
+  },
+  {
+    "id": "hosp-scotland-25",
+    "type": "hospital",
+    "name": "Forth Valley Royal Hospital",
+    "address": "Stirling Road, Larbert",
+    "postcode": "FK5 4WR",
+    "lat": 56.025115,
+    "lng": -3.848002
+  },
+  {
+    "id": "hosp-scotland-26",
+    "type": "hospital",
+    "name": "Borders General Hospital",
+    "address": "Melrose",
+    "postcode": "TD6 9BS",
+    "lat": 55.595478,
+    "lng": -2.741945
+  },
+  {
+    "id": "hosp-scotland-27",
+    "type": "hospital",
+    "name": "Victoria Hospital Kirkcaldy",
+    "address": "Hayfield Road, Kirkcaldy",
+    "postcode": "KY2 5AH",
+    "lat": 56.125108,
+    "lng": -3.160138
+  },
+  {
+    "id": "hosp-scotland-28",
+    "type": "hospital",
+    "name": "Queen Margaret Hospital Dunfermline",
+    "address": "Whitefield Road, Dunfermline",
+    "postcode": "KY12 0SU",
+    "lat": 56.082302,
+    "lng": -3.42696
+  },
+  {
+    "id": "hosp-scotland-29",
+    "type": "hospital",
+    "name": "Dumfries and Galloway Royal Infirmary",
+    "address": "Bankend Road, Dumfries",
+    "postcode": "DG1 4AP",
+    "lat": 55.056305,
+    "lng": -3.599235
+  }
+]
