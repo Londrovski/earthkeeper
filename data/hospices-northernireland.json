@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hospice-ni-1",
+    "type": "hospice",
+    "name": "Northern Ireland Hospice",
+    "address": "74 Somerton Road, Belfast",
+    "postcode": "BT15 4DE",
+    "lat": 54.6319,
+    "lng": -5.935905
+  },
+  {
+    "id": "hospice-ni-2",
+    "type": "hospice",
+    "name": "Northern Ireland Children's Hospice",
+    "address": "18 Dunmurry Lane, Belfast",
+    "postcode": "BT17 9RR",
+    "lat": 54.551721,
+    "lng": -5.998139
+  },
+  {
+    "id": "hospice-ni-3",
+    "type": "hospice",
+    "name": "Marie Curie Hospice Belfast",
+    "address": "1A Kensington Road, Belfast",
+    "postcode": "BT5 6NF",
+    "lat": 54.587021,
+    "lng": -5.855392
+  },
+  {
+    "id": "hospice-ni-4",
+    "type": "hospice",
+    "name": "Foyle Hospice",
+    "address": "61 Culmore Road, Londonderry",
+    "postcode": "BT48 8JE",
+    "lat": 55.027415,
+    "lng": -7.298353
+  }
+]
