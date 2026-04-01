@@ -97,5 +97,23 @@
     "postcode": "BT35 6AH",
     "lat": 54.177696,
     "lng": -6.339071
+  },
+  {
+    "id": "uni-ni-northern-regional",
+    "type": "university",
+    "name": "Northern Regional College",
+    "address": "Trostan Avenue, Ballymena",
+    "postcode": "BT43 6BU",
+    "lat": 54.862,
+    "lng": -6.278
+  },
+  {
+    "id": "uni-ni-cafre",
+    "type": "university",
+    "name": "College of Agriculture Food and Rural Enterprise",
+    "address": "Greenmount Campus, Antrim",
+    "postcode": "BT41 4PU",
+    "lat": 54.718,
+    "lng": -6.225
   }
 ]
