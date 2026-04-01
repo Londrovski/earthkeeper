@@ -174,7 +174,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .tool-select-inline option{background:#0a1c11;color:#E8D5A0}
 .tool-select-dropdown{width:100%;background:#0a1c11;color:#E8D5A0;border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:7px 10px;font-size:13px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
 #tool-select-row{display:none}
-.mobile-stats-bar{display:none;background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
+.mobile-stats-bar{display:none;/* v2 */background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
 .mobile-stats-bar #ms-total,.mobile-stats-bar #ms-cleared,.mobile-stats-bar #ms-pct{font-weight:600;color:#E8D5A0;font-size:12px}
 .ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
 .mobile-tool-btn-row{display:none}
@@ -1558,7 +1558,7 @@ function updateStats(){
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
   if(isMobile())updateMobileInnerStats('locs-mob-stats',statLine(total.toLocaleString(),'locations',cleared,'cleared',pct+'%'))
-  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
+  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt'],['school','pg-s2','pg-s2t'],['gp','pg-gp2','pg-gp2t']]){
     const tot=locations.filter(l=>l.type===type).length
     const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
     document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
@@ -1783,6 +1783,7 @@ async function bootApp(){
   await Promise.all([loadProgress(),loadGroupProgress()])
   await loadAll()
   await loadDistricts()
+  loadSchoolsGps()
   renderLog()
 }
 
