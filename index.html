@@ -244,7 +244,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
 .ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 .dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
-.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:44%}
+.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:65%}
 .district-detail.on{display:flex}
 .district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .district-detail-body{padding:11px 20px 16px;overflow-y:auto}
@@ -816,6 +816,11 @@ function toggleGroupType(type,el){
   else{groupTypes.add(type)}
   el.classList.toggle('on',groupTypes.has(type))
   renderDistrictList();updateDistrictStates()
+  // If a district is selected, refresh its dots and panel to match
+  if(selectedDistrictCode){
+    selectDistrict(selectedDistrictCode)
+    renderDistrictDetail(selectedDistrictCode)
+  }
 }
 
 function renderDistrictList(){
