@@ -1,0 +1,101 @@
+[
+  {
+    "id": "uni-ni-1",
+    "type": "university",
+    "name": "Queen's University Belfast",
+    "address": "University Road, Belfast",
+    "postcode": "BT7 1NN",
+    "lat": 54.584766,
+    "lng": -5.934438
+  },
+  {
+    "id": "uni-ni-2",
+    "type": "university",
+    "name": "Ulster University Belfast",
+    "address": "York Street, Belfast",
+    "postcode": "BT15 1ED",
+    "lat": 54.603921,
+    "lng": -5.929119
+  },
+  {
+    "id": "uni-ni-3",
+    "type": "university",
+    "name": "Ulster University Coleraine",
+    "address": "Cromore Road, Coleraine",
+    "postcode": "BT52 1SA",
+    "lat": 55.148761,
+    "lng": -6.678304
+  },
+  {
+    "id": "uni-ni-4",
+    "type": "university",
+    "name": "Ulster University Derry-Londonderry",
+    "address": "Northland Road, Londonderry",
+    "postcode": "BT48 7JL",
+    "lat": 55.005991,
+    "lng": -7.323686
+  },
+  {
+    "id": "uni-ni-5",
+    "type": "university",
+    "name": "Stranmillis University College",
+    "address": "Stranmillis Road, Belfast",
+    "postcode": "BT9 5DY",
+    "lat": 54.572814,
+    "lng": -5.938522
+  },
+  {
+    "id": "uni-ni-6",
+    "type": "university",
+    "name": "St Mary's University College Belfast",
+    "address": "191 Falls Road, Belfast",
+    "postcode": "BT12 6FE",
+    "lat": 54.593635,
+    "lng": -5.962026
+  },
+  {
+    "id": "uni-ni-7",
+    "type": "university",
+    "name": "Belfast Metropolitan College",
+    "address": "Millfield, Belfast",
+    "postcode": "BT1 1HS",
+    "lat": 54.600283,
+    "lng": -5.938604
+  },
+  {
+    "id": "uni-ni-8",
+    "type": "university",
+    "name": "North West Regional College",
+    "address": "Strand Road, Londonderry",
+    "postcode": "BT48 7AL",
+    "lat": 55.002887,
+    "lng": -7.324363
+  },
+  {
+    "id": "uni-ni-10",
+    "type": "university",
+    "name": "South Eastern Regional College",
+    "address": "Castle Avenue, Bangor",
+    "postcode": "BT20 4TF",
+    "lat": 54.65731,
+    "lng": -5.663063
+  },
+  {
+    "id": "uni-ni-11",
+    "type": "university",
+    "name": "South West College",
+    "address": "Enniskillen Campus, Enniskillen",
+    "postcode": "BT74 6AE",
+    "lat": 54.343089,
+    "lng": -7.631513
+  },
+  {
+    "id": "uni-ni-12",
+    "type": "university",
+    "name": "Southern Regional College",
+    "address": "Newry Campus, Newry",
+    "postcode": "BT35 6AH",
+    "lat": 54.177696,
+    "lng": -6.339071
+  }
+]
