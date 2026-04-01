@@ -1665,12 +1665,8 @@ function switchTab(name,btn){
   const inLog=name==='log'
   // Swap header stat labels based on tab
   const hb=document.getElementById('home-btn')
-  if(inGroups){
-    setTimeout(updateGroupsStats,50)
-    if(hb)hb.style.display='none'
-  }else{
-    if(hb)hb.style.display=''
-  }
+  if(hb)hb.style.display=''
+  if(inGroups){setTimeout(updateGroupsStats,50)}
   if(!inLog&&!inGroups){
     document.getElementById('s-label-total').textContent='locations'
     document.getElementById('s-label-cleared').textContent='cleared'
@@ -1728,7 +1724,6 @@ function updateDistrictStats(code){
   const hb=document.getElementById('home-btn')
   const onGroups=document.getElementById('tab-groups')&&document.getElementById('tab-groups').classList.contains('on')
   if(!code||!districtMap[code]){
-    if(hb&&onGroups)hb.style.display='none'
     updateGroupsStats();return
   }
   const d=districtMap[code]
