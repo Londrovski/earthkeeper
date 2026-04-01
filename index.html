@@ -171,11 +171,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   header{height:48px;padding:0 12px}
   .header-seal{width:32px;height:32px}
   .logo{font-size:18px}
-  .hstats{display:flex;gap:10px;font-size:11px}
+  .hstats{display:none!important}
+  #mobile-stats{display:flex!important}
+  .mobile-tool-btn-row{display:flex!important}
+  #tool-filter-row{display:none!important}
+  .map-home-btn{top:130px!important}
   .huser strong{font-size:11px}
-  .hstats strong{font-size:13px}
-  .hstats span{display:none}
-  #s-log-div,#s-log-all,#s-log-allpct{display:none!important}
   .hbtn{font-size:10px;padding:4px 9px}
   #app{flex-direction:column}
   .body{flex-direction:column;flex:1;overflow:hidden}
@@ -1357,6 +1358,7 @@ function updateGroupsStats(){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
+  updateMobileStats(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%')
 }
 function updateLogStats(){
   const indivTypes=['hospital','hospice','university','prison']
