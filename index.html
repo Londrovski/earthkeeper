@@ -85,7 +85,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
-.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}.chip-divider{font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;padding:6px 0 2px;width:100%;display:block}
+.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}.chip-divider{font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;padding:6px 0 2px;width:100%;display:flex;align-items:center;justify-content:space-between}.chip-divider-link{font-size:11px;color:var(--gold);opacity:.6;cursor:pointer;text-transform:none;letter-spacing:0;text-decoration:underline;white-space:nowrap}.chip-divider-link:hover{opacity:1}.tool-key{display:none;width:100%;background:rgba(13,36,22,.95);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:10px 14px;margin:6px 0 4px;column-count:2;column-gap:12px}.tool-key.open{display:block}.tool-key-row{font-size:12px;color:rgba(232,213,160,.8);line-height:1.8;break-inside:avoid}.tool-key-code{color:var(--gold);font-weight:500;display:inline-block;min-width:32px}
 .rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
 .rsel select option{background:#1A3D28;color:var(--ink-d)}
@@ -315,7 +315,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
-          <span class="chip-divider">cleared by</span>
+          <span class="chip-divider"><span>cleared by</span><span class="chip-divider-link" onclick="toggleToolKey()">what are these?</span></span>
+          <div class="tool-key" id="tool-key"><div class="tool-key-row"><span class="tool-key-code">MS</span>Magical Structures</div><div class="tool-key-row"><span class="tool-key-code">MF</span>Multifrequency</div><div class="tool-key-row"><span class="tool-key-code">O</span>Omega</div><div class="tool-key-row"><span class="tool-key-code">J</span>Jewel</div><div class="tool-key-row"><span class="tool-key-code">MG</span>Merlin's Grace</div><div class="tool-key-row"><span class="tool-key-code">AP</span>Universal AP</div><div class="tool-key-row"><span class="tool-key-code">MI</span>Manifesting Intention</div><div class="tool-key-row"><span class="tool-key-code">MJ</span>Magical Jewel</div><div class="tool-key-row"><span class="tool-key-code">DM</span>Divine Magic</div><div class="tool-key-row"><span class="tool-key-code">EW1–5</span>Earthworks levels</div></div>
           <div class="chip show-tool" id="chip-MS" onclick="toggleTool('MS',this)">MS</div>
           <div class="chip show-tool" id="chip-MF" onclick="toggleTool('MF',this)">MF</div>
           <div class="chip show-tool" id="chip-O" onclick="toggleTool('O',this)">O</div>
@@ -1148,6 +1149,7 @@ async function unmarkClearedMobile(id){
 
 function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList();updateStats()}
 let activeTools=new Set()
+function toggleToolKey(){const k=document.getElementById('tool-key');k.classList.toggle('open')}
 function setShow(mode,el){
   showFilter=mode
   activeTools.clear()
