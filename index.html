@@ -805,7 +805,11 @@ function updateDistrictStates(){
   if(!mapReady||!districts.length||!map.getSource('districts-src'))return
   districts.forEach(f=>{
     const code=f.properties.code
-    const cleared=(!!groupProgress[code+':school'])+(!!groupProgress[code+':gp'])
+    const hasSchools=districtMap[code]&&districtMap[code].schools.length>0
+    const hasGps=districtMap[code]&&districtMap[code].gps.length>0
+    const schoolCleared=!hasSchools||!!groupProgress[code+':school']
+    const gpCleared=!hasGps||!!groupProgress[code+':gp']
+    const cleared=schoolCleared&&gpCleared?2:(!!groupProgress[code+':school']||!!groupProgress[code+':gp'])?1:0
     const selected=code===selectedDistrictCode
     try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
   })
@@ -852,7 +856,7 @@ function renderDistrictList(){
 
 function selectDistrict(code){
   selectedDistrictCode=code
-  renderDistrictList();updateDistrictStates()
+  renderDistrictList();updateDistrictStates();updateDistrictStats(code)
   const d=districtMap[code];if(!d)return
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
   if(allLocs.length)fitBounds(allLocs)
@@ -1336,9 +1340,8 @@ function switchTab(name,btn){
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
-  if(inGroups){renderDistrictList();updateDistrictStates()}
-  else{selectedDistrictCode=null;updateDistrictStats(null)}
-  updateStats()
+  if(inGroups){renderDistrictList();updateDistrictStates();setTimeout(updateGroupsStats,80)}
+  else{selectedDistrictCode=null;updateDistrictStats(null);updateStats()}
 }
 
 function updateDistrictStats(code){
