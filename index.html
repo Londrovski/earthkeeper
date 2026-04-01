@@ -117,7 +117,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
 .detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
 .detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
-.detail-name{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.3;color:var(--gold-l)}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.3;color:var(--gold)}
 .detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
 .detail-body{padding:12px 20px 18px;overflow-y:auto}
 .detail-cleared{font-size:14px;padding:10px 13px;border-radius:6px;margin-bottom:11px;line-height:1.5}
@@ -244,10 +244,10 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
 .ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 .dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
-.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column;max-height:65%}
+.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column}
 .district-detail.on{display:flex}
 .district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.district-detail-body{padding:11px 20px 16px;overflow-y:auto}
+.district-detail-body{padding:11px 20px 16px}
 </style>
 </head>
 <body>
@@ -380,7 +380,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="district-detail-head">
           <div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold-l)" id="dd-name"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--gold)" id="dd-name"></div>
           </div>
           <button class="detail-close" onclick="closeDistrictDetail()">x</button>
         </div>
@@ -913,12 +913,12 @@ function renderDistrictDetail(code){
       gChangeLink.onclick=function(){gDropWrap.style.display=gDropWrap.style.display==='none'?'block':'none'}
       section.appendChild(gChangeLink);section.appendChild(gDropWrap)
       const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
-      markBtn.textContent='Clear all '+typeShort+' in '+d.name
+      markBtn.textContent='Clear all '+typeShort+' with '+(TOOL_NAMES_FULL[currentTool]||currentTool)
       markBtn.onclick=(function(gt){return function(){
         const tool=gDropWrap.style.display!=='none'?gDrop.value:currentTool
         markGroupCleared(code,gt,tool)
       }})(gtype);section.appendChild(markBtn)
-      gDrop.onchange=function(){markBtn.textContent='Clear all '+typeShort+' in '+d.name}
+      gDrop.onchange=function(){markBtn.textContent='Clear all '+typeShort+' with '+(TOOL_NAMES_FULL[currentTool]||currentTool)}
     }
     // Expandable location list
     const listWrap=document.createElement('div');listWrap.style.cssText='margin-top:8px'
