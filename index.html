@@ -518,6 +518,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
       </div>
       <div class="mobile-inner-stats" id="log-mob-stats" style="display:none"></div>
+      <div class="srow"><input class="sinput" type="text" id="log-search" placeholder="Search by name..." oninput="renderLog()" autocomplete="off"></div>
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
   </div>
@@ -1568,6 +1569,9 @@ function updateStats(){
 function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
 function renderLog(){
   const el=document.getElementById('log-list')
+  const searchQ=((document.getElementById('log-search')&&document.getElementById('log-search').value)||'').toLowerCase().trim()
+  if(isMobile()&&!searchQ&&!(document.getElementById('log-from')&&document.getElementById('log-from').value)&&!(document.getElementById('log-to')&&document.getElementById('log-to').value)){el.innerHTML='';el.style.display='none';updateLogStats();return}
+  el.style.display=''
   const fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||''
   const toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
   let entries=Object.entries(progress).map(function(kv){
@@ -1716,7 +1720,7 @@ function switchTab(name,btn){
     const onLog=name==='log'
     const prog=document.getElementById('map-progress')
     const leg=document.getElementById('map-legend')
-    if(prog)prog.style.display=onLog?'':'none'
+    if(prog)prog.style.display=onLog?'block':'none'
     if(leg)leg.style.display=''
   }
 }
