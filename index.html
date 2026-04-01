@@ -85,7 +85,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
-.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}
+.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}.chip-divider{font-size:10px;color:rgba(232,213,160,.3);letter-spacing:.08em;text-transform:uppercase;align-self:center;padding:0 2px;white-space:nowrap}
 .rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
 .rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
 .rsel select option{background:#1A3D28;color:var(--ink-d)}
@@ -145,7 +145,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
 .msub{font-size:14px;color:var(--soft);text-align:center;max-width:300px}
-.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:rgba(13,36,22,.7);border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
+.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#0D2416;border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
 .tog:hover{background:rgba(18,45,28,.9)}
 .map-overlays{position:absolute;top:14px;right:14px;z-index:400;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
 .progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:13px 18px;min-width:210px}
@@ -289,7 +289,6 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 
   <div style="display:flex;align-items:center;gap:10px">
     <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
-    <button class="hbtn" onclick="toggleSidebar()">☰ Panel</button>
   </div>
 </header>
 <div class="body">
@@ -315,21 +314,22 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="frow-label">Show</div>
         <div class="chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
-          <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>Cleared</div>
-          <div class="chip show-tool" id="chip-MS" onclick="setShow('MS',this)">MS</div>
-          <div class="chip show-tool" id="chip-MF" onclick="setShow('MF',this)">MF</div>
-          <div class="chip show-tool" id="chip-O" onclick="setShow('O',this)">O</div>
-          <div class="chip show-tool" id="chip-J" onclick="setShow('J',this)">J</div>
-          <div class="chip show-tool" id="chip-MG" onclick="setShow('MG',this)">MG</div>
-          <div class="chip show-tool" id="chip-AP" onclick="setShow('AP',this)">AP</div>
-          <div class="chip show-tool" id="chip-MI" onclick="setShow('MI',this)">MI</div>
-          <div class="chip show-tool" id="chip-MJ" onclick="setShow('MJ',this)">MJ</div>
-          <div class="chip show-tool" id="chip-DM" onclick="setShow('DM',this)">DM</div>
-          <div class="chip show-tool" id="chip-EW1" onclick="setShow('EW1',this)">EW1</div>
-          <div class="chip show-tool" id="chip-EW2" onclick="setShow('EW2',this)">EW2</div>
-          <div class="chip show-tool" id="chip-EW3" onclick="setShow('EW3',this)">EW3</div>
-          <div class="chip show-tool" id="chip-EW4" onclick="setShow('EW4',this)">EW4</div>
-          <div class="chip show-tool" id="chip-EW5" onclick="setShow('EW5',this)">EW5</div>
+          <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
+          <span class="chip-divider">cleared by</span>
+          <div class="chip show-tool" id="chip-MS" onclick="toggleTool('MS',this)">MS</div>
+          <div class="chip show-tool" id="chip-MF" onclick="toggleTool('MF',this)">MF</div>
+          <div class="chip show-tool" id="chip-O" onclick="toggleTool('O',this)">O</div>
+          <div class="chip show-tool" id="chip-J" onclick="toggleTool('J',this)">J</div>
+          <div class="chip show-tool" id="chip-MG" onclick="toggleTool('MG',this)">MG</div>
+          <div class="chip show-tool" id="chip-AP" onclick="toggleTool('AP',this)">AP</div>
+          <div class="chip show-tool" id="chip-MI" onclick="toggleTool('MI',this)">MI</div>
+          <div class="chip show-tool" id="chip-MJ" onclick="toggleTool('MJ',this)">MJ</div>
+          <div class="chip show-tool" id="chip-DM" onclick="toggleTool('DM',this)">DM</div>
+          <div class="chip show-tool" id="chip-EW1" onclick="toggleTool('EW1',this)">EW1</div>
+          <div class="chip show-tool" id="chip-EW2" onclick="toggleTool('EW2',this)">EW2</div>
+          <div class="chip show-tool" id="chip-EW3" onclick="toggleTool('EW3',this)">EW3</div>
+          <div class="chip show-tool" id="chip-EW4" onclick="toggleTool('EW4',this)">EW4</div>
+          <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
       <div class="rsel">
@@ -645,10 +645,20 @@ function refreshMapData(){
 function setSelectedId(id){selectedId=id;refreshMapData()}
 
 function locVisible(loc){
-  const toolOrEwFilter=TOOLS.includes(showFilter)||EW_LEVELS.includes(showFilter)
+  const multiFilter=showFilter==='tool-multi'
+  const toolOrEwFilter=multiFilter||TOOLS.includes(showFilter)||EW_LEVELS.includes(showFilter)
   if(!toolOrEwFilter&&!placesFilter[loc.type])return false
   if(showFilter==='all')return true
   if(showFilter==='cleared')return isEffectivelyCleared(loc)
+  if(multiFilter){
+    const etool=effectiveTool(loc)
+    const p=progress[loc.id]
+    for(const t of activeTools){
+      if(TOOLS.includes(t)&&etool===t)return true
+      if(EW_LEVELS.includes(t)&&p&&p.ew===t)return true
+    }
+    return false
+  }
   const etool=effectiveTool(loc)
   if(TOOLS.includes(showFilter))return etool===showFilter
   if(EW_LEVELS.includes(showFilter)){
@@ -1137,10 +1147,25 @@ async function unmarkClearedMobile(id){
 }
 
 function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList();updateStats()}
+let activeTools=new Set()
 function setShow(mode,el){
   showFilter=mode
+  activeTools.clear()
   document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-tool').forEach(c=>c.classList.remove('on'))
   el.classList.add('on');refreshMapData();renderList()
+}
+function toggleTool(tool,el){
+  // Deselect all/cleared chips
+  document.querySelectorAll('.chip.show-all,.chip.show-cleared').forEach(c=>c.classList.remove('on'))
+  showFilter='tool-multi'
+  if(activeTools.has(tool)){activeTools.delete(tool);el.classList.remove('on')}
+  else{activeTools.add(tool);el.classList.add('on')}
+  // If nothing selected, revert to all
+  if(activeTools.size===0){
+    showFilter='all'
+    document.getElementById('chip-all').classList.add('on')
+  }
+  refreshMapData();renderList()
 }
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
