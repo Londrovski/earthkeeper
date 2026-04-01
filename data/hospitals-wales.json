@@ -1,0 +1,200 @@
+[
+  {
+    "id": "hosp-wales-1",
+    "type": "hospital",
+    "name": "Royal Gwent Hospital",
+    "address": "Cardiff Road, Newport",
+    "postcode": "NP20 2UB",
+    "lat": 51.579754,
+    "lng": -2.99823
+  },
+  {
+    "id": "hosp-wales-2",
+    "type": "hospital",
+    "name": "Nevill Hall Hospital",
+    "address": "Brecon Road, Abergavenny",
+    "postcode": "NP7 7EG",
+    "lat": 51.824716,
+    "lng": -3.034151
+  },
+  {
+    "id": "hosp-wales-3",
+    "type": "hospital",
+    "name": "Grange University Hospital",
+    "address": "Cwmbran",
+    "postcode": "NP44 8YN",
+    "lat": 51.646291,
+    "lng": -2.996339
+  },
+  {
+    "id": "hosp-wales-4",
+    "type": "hospital",
+    "name": "Ysbyty Ystrad Fawr",
+    "address": "Ystrad Mynach",
+    "postcode": "CF82 7EP",
+    "lat": 51.63256,
+    "lng": -3.235745
+  },
+  {
+    "id": "hosp-wales-5",
+    "type": "hospital",
+    "name": "Wrexham Maelor Hospital",
+    "address": "Croesnewydd Road, Wrexham",
+    "postcode": "LL13 7TD",
+    "lat": 53.045974,
+    "lng": -3.007998
+  },
+  {
+    "id": "hosp-wales-6",
+    "type": "hospital",
+    "name": "Glan Clwyd Hospital",
+    "address": "Bodelwyddan, Rhyl",
+    "postcode": "LL18 5UJ",
+    "lat": 53.271772,
+    "lng": -3.496347
+  },
+  {
+    "id": "hosp-wales-7",
+    "type": "hospital",
+    "name": "Ysbyty Gwynedd",
+    "address": "Penrhosgarnedd, Bangor",
+    "postcode": "LL57 2PW",
+    "lat": 53.209036,
+    "lng": -4.159831
+  },
+  {
+    "id": "hosp-wales-8",
+    "type": "hospital",
+    "name": "University Hospital of Wales",
+    "address": "Heath Park, Cardiff",
+    "postcode": "CF14 4XW",
+    "lat": 51.507156,
+    "lng": -3.189855
+  },
+  {
+    "id": "hosp-wales-9",
+    "type": "hospital",
+    "name": "University Hospital Llandough",
+    "address": "Penlan Road, Llandough",
+    "postcode": "CF64 2XX",
+    "lat": 51.449629,
+    "lng": -3.202635
+  },
+  {
+    "id": "hosp-wales-10",
+    "type": "hospital",
+    "name": "Noah's Ark Children's Hospital for Wales",
+    "address": "Heath Park, Cardiff",
+    "postcode": "CF14 4XW",
+    "lat": 51.507156,
+    "lng": -3.189855
+  },
+  {
+    "id": "hosp-wales-11",
+    "type": "hospital",
+    "name": "Prince Charles Hospital",
+    "address": "Gurnos Road, Merthyr Tydfil",
+    "postcode": "CF47 9DT",
+    "lat": 51.76418,
+    "lng": -3.385754
+  },
+  {
+    "id": "hosp-wales-12",
+    "type": "hospital",
+    "name": "Princess of Wales Hospital",
+    "address": "Coity Road, Bridgend",
+    "postcode": "CF31 1RQ",
+    "lat": 51.51783,
+    "lng": -3.571703
+  },
+  {
+    "id": "hosp-wales-13",
+    "type": "hospital",
+    "name": "Royal Glamorgan Hospital",
+    "address": "Ynysmaerdy, Llantrisant",
+    "postcode": "CF72 8XR",
+    "lat": 51.547887,
+    "lng": -3.391244
+  },
+  {
+    "id": "hosp-wales-14",
+    "type": "hospital",
+    "name": "Glangwili General Hospital",
+    "address": "Dolgwili Road, Carmarthen",
+    "postcode": "SA31 2AF",
+    "lat": 51.867533,
+    "lng": -4.28476
+  },
+  {
+    "id": "hosp-wales-15",
+    "type": "hospital",
+    "name": "Prince Philip Hospital",
+    "address": "Dafen, Llanelli",
+    "postcode": "SA14 8QF",
+    "lat": 51.691901,
+    "lng": -4.13478
+  },
+  {
+    "id": "hosp-wales-16",
+    "type": "hospital",
+    "name": "Withybush General Hospital",
+    "address": "Fishguard Road, Haverfordwest",
+    "postcode": "SA61 2PZ",
+    "lat": 51.812733,
+    "lng": -4.965279
+  },
+  {
+    "id": "hosp-wales-17",
+    "type": "hospital",
+    "name": "Bronglais Hospital",
+    "address": "Caradoc Road, Aberystwyth",
+    "postcode": "SY23 1ER",
+    "lat": 52.416083,
+    "lng": -4.071603
+  },
+  {
+    "id": "hosp-wales-18",
+    "type": "hospital",
+    "name": "Morriston Hospital",
+    "address": "Heol Maes Eglwys, Morriston, Swansea",
+    "postcode": "SA6 6NL",
+    "lat": 51.684657,
+    "lng": -3.935273
+  },
+  {
+    "id": "hosp-wales-19",
+    "type": "hospital",
+    "name": "Singleton Hospital",
+    "address": "Sketty Lane, Swansea",
+    "postcode": "SA2 8QA",
+    "lat": 51.609039,
+    "lng": -3.984797
+  },
+  {
+    "id": "hosp-wales-20",
+    "type": "hospital",
+    "name": "Neath Port Talbot Hospital",
+    "address": "Baglan Way, Port Talbot",
+    "postcode": "SA12 7BX",
+    "lat": 51.599217,
+    "lng": -3.800367
+  },
+  {
+    "id": "hosp-wales-21",
+    "type": "hospital",
+    "name": "Bronllys Hospital",
+    "address": "Bronllys, Brecon",
+    "postcode": "LD3 0LS",
+    "lat": 52.010252,
+    "lng": -3.26183
+  },
+  {
+    "id": "hosp-wales-22",
+    "type": "hospital",
+    "name": "Llandrindod Wells Hospital",
+    "address": "Temple Street, Llandrindod Wells",
+    "postcode": "LD1 5HF",
+    "lat": 52.242118,
+    "lng": -3.377453
+  }
+]
