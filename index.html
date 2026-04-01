@@ -294,7 +294,15 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .maplibregl-ctrl-group button{width:36px!important;height:36px!important}
   .tool-key{font-size:13px}
   .tool-key-row{font-size:13px}
+  .map-overlays{top:18px;right:18px;gap:12px}
+  .progress{padding:16px 22px;min-width:260px;border-radius:10px}
+  .prog-title{font-size:13px;margin-bottom:10px}
+  .prog-row{gap:12px;margin-bottom:10px}
+  .prog-label{font-size:14px;width:90px}
+  .prog-track{height:6px}
+  .prog-txt{font-size:13px;min-width:44px}
 }
+
 </style>
 </head>
 <body>
@@ -698,6 +706,7 @@ function locToFeature(loc){
   const tool=effectiveTool(loc),cleared=isEffectivelyCleared(loc)
   return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared,tool:tool||null}}
 }
+let _lastVisibleCount=-1,_lastClearedCount=-1
 function refreshMapData(){
   if(!mapReady)return
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
@@ -706,6 +715,7 @@ function refreshMapData(){
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
   map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
   map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
+  _lastVisibleCount=visible.length;_lastClearedCount=cleared.length
 }
 function setSelectedId(id){selectedId=id;refreshMapData()}
 
