@@ -651,15 +651,19 @@ function locToFeature(loc){
   const tool=effectiveTool(loc),cleared=isEffectivelyCleared(loc)
   return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared,tool:tool||null}}
 }
+let _refreshTimer=null
 function refreshMapData(){
   if(!mapReady)return
+  if(_refreshTimer)clearTimeout(_refreshTimer)
+  _refreshTimer=setTimeout(function(){
+  _refreshTimer=null
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
   const cleared=visible.filter(l=>isEffectivelyCleared(l))
   const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
   map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
   map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
-}
+  },16)}
 function setSelectedId(id){selectedId=id;refreshMapData()}
 
 function locVisible(loc){
@@ -806,10 +810,10 @@ async function loadDistricts(){
         map.getSource('districts-src').setData(geojson)
         buildDistrictMap();renderDistrictList();updateDistrictStates()
       } else if(attempts>0){
-        setTimeout(function(){pushDistrictData(attempts-1)},200)
+        setTimeout(function(){pushDistrictData(attempts-1)},300)
       }
     }
-    pushDistrictData(20)
+    pushDistrictData(8)
   }catch(e){console.warn('Districts load failed',e)}
 }
 
