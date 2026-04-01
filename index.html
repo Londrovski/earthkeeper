@@ -1727,15 +1727,20 @@ function updateDistrictStats(code){
   const onGroups=document.getElementById('tab-groups')&&document.getElementById('tab-groups').classList.contains('on')
   if(!code||!districtMap[code]){
     if(hb&&onGroups)hb.style.display='none'
-    // No district selected — show overall groups stats
     updateGroupsStats();return
   }
   const d=districtMap[code]
+  // Only count types currently shown (matching groupTypes filter)
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
   const total=allLocs.length,cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=total?Math.round(cleared/total*100):0
+  // Build label showing which types are included
+  const parts=[]
+  if(groupTypes.has('school')&&d.schools.length)parts.push('Schools')
+  if(groupTypes.has('gp')&&d.gps.length)parts.push('GPs')
+  const typeLabel=parts.length?parts.join(' + '):'locations'
   document.getElementById('s-total').textContent=total.toLocaleString()
-  document.getElementById('s-label-total').textContent='locations'
+  document.getElementById('s-label-total').textContent=typeLabel
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-label-cleared').textContent='cleared'
   document.getElementById('s-pct').textContent=pct+'%'
@@ -1743,7 +1748,9 @@ function updateDistrictStats(code){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
-  updateMobileStats(total.toLocaleString(),'locations',cleared,'cleared',pct+'%')
+  // Update both the top bar and the in-panel tracker
+  updateMobileStats(total.toLocaleString(),typeLabel,cleared,'cleared',pct+'%')
+  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(total.toLocaleString(),typeLabel,cleared,'cleared',pct+'%'))
   if(hb)hb.style.display=''
 }
 function goHome(){
