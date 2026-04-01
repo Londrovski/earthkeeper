@@ -698,12 +698,7 @@ function initMap(){
       if(!map.queryRenderedFeatures(e.point,{layers}).length){
         setSelectedId(null);closeDetail();closeMobileDetail()
         // On groups tab, clicking sea deselects district
-        if(inGroups&&selectedDistrictCode){
-          selectedDistrictCode=null
-          document.getElementById('district-detail').classList.remove('on')
-          if(mapReady){if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]});['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})}
-          updateDistrictStates();updateGroupsStats()
-        }
+        if(inGroups&&selectedDistrictCode){goHome()}
       }
     })
     refreshMapData()
