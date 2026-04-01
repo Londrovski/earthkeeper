@@ -1362,7 +1362,13 @@ function switchTab(name,btn){
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
-  if(inGroups){renderDistrictList();updateDistrictStates();setTimeout(updateGroupsStats,80)}
+  if(inGroups){
+    if(!districts.length){
+      loadDistricts().then(function(){renderDistrictList();updateDistrictStates();updateGroupsStats()})
+    } else {
+      renderDistrictList();updateDistrictStates();setTimeout(updateGroupsStats,80)
+    }
+  }
   else{selectedDistrictCode=null;updateDistrictStats(null);updateStats()}
 }
 
