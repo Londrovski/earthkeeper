@@ -542,6 +542,12 @@ function initMap(){
   map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left')
   map.on('load',()=>{
     mapReady=true
+    // If districts already fetched before map was ready, push now
+    if(districts.length&&map.getSource('districts-src')){
+      const fc={type:'FeatureCollection',features:districts}
+      map.getSource('districts-src').setData(fc)
+      updateDistrictStates()
+    }
     map.addSource('locations',{type:'geojson',data:emptyFC()})
     map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
     map.addSource('selected',{type:'geojson',data:emptyFC()})
@@ -795,10 +801,15 @@ async function loadDistricts(){
     const geojson=await res.json()
     geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
     districts=geojson.features
-    if(mapReady&&map.getSource('districts-src'))map.getSource('districts-src').setData(geojson)
-    buildDistrictMap()
-    renderDistrictList()
-    updateDistrictStates()
+    function pushDistrictData(attempts){
+      if(mapReady&&map.getSource('districts-src')){
+        map.getSource('districts-src').setData(geojson)
+        buildDistrictMap();renderDistrictList();updateDistrictStates()
+      } else if(attempts>0){
+        setTimeout(function(){pushDistrictData(attempts-1)},200)
+      }
+    }
+    pushDistrictData(20)
   }catch(e){console.warn('Districts load failed',e)}
 }
 
