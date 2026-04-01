@@ -1477,7 +1477,7 @@ function updateLogStats(){
   document.getElementById('s-log-allpct').style.display='flex'
   document.getElementById('s-total-all').textContent=allCleared+'/'+allTotal
   document.getElementById('s-pct-all').textContent=allPct+'%'
-  if(isMobile())updateMobileInnerStats('log-mob-stats',statLine(indivCleared+'/'+indivTotal,'individual',indivPct+'%','done','')+'<span class="ms-sep">·</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span>')
+  if(isMobile())updateMobileInnerStats('log-mob-stats','<strong>'+indivCleared+'/'+indivTotal+'</strong><span> individual</span><span class="ms-sep">·</span><strong>'+indivPct+'%</strong><span> done</span><span class="ms-sep">|</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span><span class="ms-sep">·</span><strong>'+allPct+'%</strong><span> done</span>')
 }
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
