@@ -347,6 +347,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div><strong id="s-total">—</strong><span id="s-label-total">locations</span></div>
     <div><strong id="s-cleared">0</strong><span id="s-label-cleared">cleared</span></div>
     <div><strong id="s-pct">0%</strong>done</div>
+    <div id="s-log-div" style="display:none;width:1px;background:rgba(255,255,255,0.2);margin:0 6px;align-self:stretch"></div>
+    <div id="s-log-all" style="display:none"><strong id="s-total-all">—</strong><span>total</span></div>
+    <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong>all done</div>
   </div>
 
   <div style="display:flex;align-items:center;gap:10px">
@@ -699,7 +702,6 @@ function initMap(){
         setSelectedId(null);closeDetail();closeMobileDetail()
         // On groups tab, clicking sea deselects district
         if(inGroups&&selectedDistrictCode){goHome()}
-      }
     })
     refreshMapData()
   })
