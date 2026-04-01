@@ -1584,6 +1584,7 @@ function renderLog(){
   entries.sort(function(a,b){return b.date.localeCompare(a.date)})
   if(fromVal)entries=entries.filter(function(e){return e.date>=fromVal})
   if(toVal)entries=entries.filter(function(e){return e.date<=toVal})
+  if(searchQ)entries=entries.filter(function(e){return e.name.toLowerCase().includes(searchQ)})
   el.innerHTML=''
   if(!entries.length){
     var msg=document.createElement('div');msg.className='empty'
