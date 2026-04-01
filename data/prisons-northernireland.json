@@ -1,0 +1,29 @@
+[
+  {
+    "id": "prison-ni-1",
+    "type": "prison",
+    "name": "Maghaberry Prison",
+    "address": "Old Road, Maghaberry, Lisburn",
+    "postcode": "BT28 2PT",
+    "lat": 54.514188,
+    "lng": -6.188191
+  },
+  {
+    "id": "prison-ni-2",
+    "type": "prison",
+    "name": "Magilligan Prison",
+    "address": "Point Road, Limavady",
+    "postcode": "BT49 0LR",
+    "lat": 55.178601,
+    "lng": -6.95165
+  },
+  {
+    "id": "prison-ni-3",
+    "type": "prison",
+    "name": "Hydebank Wood College and Prison",
+    "address": "Hospital Road, Belfast",
+    "postcode": "BT8 8NA",
+    "lat": 54.541552,
+    "lng": -5.926794
+  }
+]
