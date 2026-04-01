@@ -1,0 +1,281 @@
+[
+  {
+    "id": "hospice-wales-1",
+    "type": "hospice",
+    "name": "Ty Hafan Children's Hospice",
+    "address": "Hayes Road, Sully",
+    "postcode": "CF64 5XX",
+    "lat": 51.401821,
+    "lng": -3.232577
+  },
+  {
+    "id": "hospice-wales-2",
+    "type": "hospice",
+    "name": "Marie Curie Hospice Cardiff",
+    "address": "Bridgeman Road, Penarth",
+    "postcode": "CF64 3YR",
+    "lat": 51.43367,
+    "lng": -3.169573
+  },
+  {
+    "id": "hospice-wales-3",
+    "type": "hospice",
+    "name": "City Hospice",
+    "address": "Whitchurch Hospital Grounds, Park Road, Whitchurch, Cardiff",
+    "postcode": "CF14 7BF",
+    "lat": 51.517418,
+    "lng": -3.235782
+  },
+  {
+    "id": "hospice-wales-4",
+    "type": "hospice",
+    "name": "University Hospital of Wales",
+    "address": "Heath Park, Cardiff",
+    "postcode": "CF14 4XW",
+    "lat": 51.507156,
+    "lng": -3.189855
+  },
+  {
+    "id": "hospice-wales-5",
+    "type": "hospice",
+    "name": "Ysbyty Ystrad Fawr",
+    "address": "Ystrad Mynach",
+    "postcode": "CF82 7EP",
+    "lat": 51.63256,
+    "lng": -3.235745
+  },
+  {
+    "id": "hospice-wales-6",
+    "type": "hospice",
+    "name": "Hospice of the Valleys",
+    "address": "Festival Drive, Ebbw Vale",
+    "postcode": "NP23 8XF",
+    "lat": 51.762511,
+    "lng": -3.19992
+  },
+  {
+    "id": "hospice-wales-7",
+    "type": "hospice",
+    "name": "Nevill Hall Hospital",
+    "address": "Brecon Road, Abergavenny",
+    "postcode": "NP7 7EG",
+    "lat": 51.824716,
+    "lng": -3.034151
+  },
+  {
+    "id": "hospice-wales-8",
+    "type": "hospice",
+    "name": "Grange University Hospital",
+    "address": "Cwmbran",
+    "postcode": "NP44 8YN",
+    "lat": 51.646291,
+    "lng": -2.996339
+  },
+  {
+    "id": "hospice-wales-9",
+    "type": "hospice",
+    "name": "St David's Hospice Care",
+    "address": "Blackett Avenue, Newport",
+    "postcode": "NP20 6NH",
+    "lat": 51.614555,
+    "lng": -3.010562
+  },
+  {
+    "id": "hospice-wales-10",
+    "type": "hospice",
+    "name": "Royal Gwent Hospital",
+    "address": "Cardiff Road, Newport",
+    "postcode": "NP20 2UB",
+    "lat": 51.579754,
+    "lng": -2.99823
+  },
+  {
+    "id": "hospice-wales-11",
+    "type": "hospice",
+    "name": "Y Bwthyn Newydd, Princess of Wales Hospital",
+    "address": "Coity Road, Bridgend",
+    "postcode": "CF31 1RQ",
+    "lat": 51.51783,
+    "lng": -3.571703
+  },
+  {
+    "id": "hospice-wales-12",
+    "type": "hospice",
+    "name": "Y Bwthyn, Royal Glamorgan Hospital",
+    "address": "Ynysmaerdy, Llantrisant",
+    "postcode": "CF72 8XR",
+    "lat": 51.547887,
+    "lng": -3.391244
+  },
+  {
+    "id": "hospice-wales-13",
+    "type": "hospice",
+    "name": "Ynysdawel Unit, Ysbyty Cwm Cynon",
+    "address": "New Road, Mountain Ash",
+    "postcode": "CF45 4DL",
+    "lat": 51.691363,
+    "lng": -3.387566
+  },
+  {
+    "id": "hospice-wales-14",
+    "type": "hospice",
+    "name": "Paul Sartori House",
+    "address": "Winch Lane, Haverfordwest",
+    "postcode": "SA61 1RP",
+    "lat": 51.797609,
+    "lng": -4.96977
+  },
+  {
+    "id": "hospice-wales-15",
+    "type": "hospice",
+    "name": "Ty Bryngwyn, St Philip's Hospital",
+    "address": "Bryngwyn Road, Llanelli",
+    "postcode": "SA14 8QF",
+    "lat": 51.691901,
+    "lng": -4.13478
+  },
+  {
+    "id": "hospice-wales-16",
+    "type": "hospice",
+    "name": "Ty Olwen Hospice, Morriston Hospital",
+    "address": "Morriston, Swansea",
+    "postcode": "SA6 6NL",
+    "lat": 51.684657,
+    "lng": -3.935273
+  },
+  {
+    "id": "hospice-wales-17",
+    "type": "hospice",
+    "name": "Singleton Hospital",
+    "address": "Sketty Lane, Swansea",
+    "postcode": "SA2 8QA",
+    "lat": 51.609039,
+    "lng": -3.984797
+  },
+  {
+    "id": "hospice-wales-18",
+    "type": "hospice",
+    "name": "Y Rhosyn, Neath Port Talbot Hospital",
+    "address": "Baglan Way, Port Talbot",
+    "postcode": "SA12 7BX",
+    "lat": 51.599217,
+    "lng": -3.800367
+  },
+  {
+    "id": "hospice-wales-19",
+    "type": "hospice",
+    "name": "Bronllys Hospital",
+    "address": "Bronllys, Brecon",
+    "postcode": "LD3 0LS",
+    "lat": 52.010252,
+    "lng": -3.26183
+  },
+  {
+    "id": "hospice-wales-20",
+    "type": "hospice",
+    "name": "Llandrindod Wells Hospital",
+    "address": "Temple Street, Llandrindod Wells",
+    "postcode": "LD1 5HF",
+    "lat": 52.242118,
+    "lng": -3.377453
+  },
+  {
+    "id": "hospice-wales-21",
+    "type": "hospice",
+    "name": "Hosbis Hafren",
+    "address": "Llanidloes Road, Newtown",
+    "postcode": "SY16 1EQ",
+    "lat": 52.512269,
+    "lng": -3.317406
+  },
+  {
+    "id": "hospice-wales-22",
+    "type": "hospice",
+    "name": "Hope House",
+    "address": "Oswestry",
+    "postcode": "SY10 9BX",
+    "lat": 52.841408,
+    "lng": -3.066275
+  },
+  {
+    "id": "hospice-wales-23",
+    "type": "hospice",
+    "name": "Severn Hospice",
+    "address": "Bicton Heath, Shrewsbury",
+    "postcode": "SY3 8HS",
+    "lat": 52.720353,
+    "lng": -2.802403
+  },
+  {
+    "id": "hospice-wales-24",
+    "type": "hospice",
+    "name": "St Michael's Hospice",
+    "address": "Bartestree, Hereford",
+    "postcode": "HR1 4HA",
+    "lat": 52.061571,
+    "lng": -2.631449
+  },
+  {
+    "id": "hospice-wales-25",
+    "type": "hospice",
+    "name": "North West Wales SPCT, Ysbyty Eryri",
+    "address": "Caernarfon Road, Bangor",
+    "postcode": "LL57 2PW",
+    "lat": 53.209036,
+    "lng": -4.159831
+  },
+  {
+    "id": "hospice-wales-26",
+    "type": "hospice",
+    "name": "Hope House, Conwy",
+    "address": "Nant Gwynant, Conwy",
+    "postcode": "LL32 8ET",
+    "lat": 53.286839,
+    "lng": -3.841767
+  },
+  {
+    "id": "hospice-wales-27",
+    "type": "hospice",
+    "name": "St David's Hospice, Llandudno",
+    "address": "Abbey Road, Llandudno",
+    "postcode": "LL30 2EN",
+    "lat": 53.322385,
+    "lng": -3.844709
+  },
+  {
+    "id": "hospice-wales-28",
+    "type": "hospice",
+    "name": "Central North Wales SPCT, Ysbyty Glan Clwyd",
+    "address": "Bodelwyddan, Rhyl",
+    "postcode": "LL18 5UJ",
+    "lat": 53.271772,
+    "lng": -3.496347
+  },
+  {
+    "id": "hospice-wales-29",
+    "type": "hospice",
+    "name": "St Kentigern's Hospice",
+    "address": "Upper Denbigh Road, St Asaph",
+    "postcode": "LL17 0RS",
+    "lat": 53.251054,
+    "lng": -3.433869
+  },
+  {
+    "id": "hospice-wales-30",
+    "type": "hospice",
+    "name": "North East Wales SPCT, Wrexham Maelor Hospital",
+    "address": "Croesnewydd Road, Wrexham",
+    "postcode": "LL13 7TD",
+    "lat": 53.045974,
+    "lng": -3.007998
+  },
+  {
+    "id": "hospice-wales-31",
+    "type": "hospice",
+    "name": "Nightingale House",
+    "address": "Wrexham Technology Park, Wrexham",
+    "postcode": "LL13 7YP",
+    "lat": 53.048988,
+    "lng": -3.01411
+  }
+]
