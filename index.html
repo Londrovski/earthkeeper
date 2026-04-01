@@ -223,7 +223,6 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .sidebar{overflow:visible!important}
   .map-overlays{top:7px;right:7px;gap:6px}
   #map-progress{display:none}
-  #map-legend{display:none}
   .progress{min-width:160px;padding:8px 12px}
   .prog-title{font-size:12px;margin-bottom:5px}
   .prog-row{gap:7px;margin-bottom:5px}
@@ -1668,11 +1667,9 @@ function switchTab(name,btn){
   else{selectedDistrictCode=null;updateDistrictStats(null);updateStats()}
   // Mobile: show progress+legend only on log tab
   if(isMobile()){
-    const showOverlays=name==='log'
+    const onLog=name==='log'
     const prog=document.getElementById('map-progress')
-    const leg=document.getElementById('map-legend')
-    if(prog)prog.style.display=showOverlays?'':'none'
-    if(leg)leg.style.display=showOverlays?'':'none'
+    if(prog)prog.style.display=onLog?'':'none'
   }
 }
 
