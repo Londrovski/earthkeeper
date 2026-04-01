@@ -1064,60 +1064,95 @@ function renderDistrictDetail(code){
   const body=document.getElementById('dd-body');body.innerHTML=''
   updateDistrictStats(code)
   const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
-  if(!activeTypes.length){const msg=document.createElement('div');msg.className='empty';msg.textContent='No data for this district';body.appendChild(msg)}
+  if(!activeTypes.length){
+    const msg=document.createElement('div');msg.className='empty'
+    msg.textContent='No data yet — schools/GPs still loading';body.appendChild(msg)
+  }
   activeTypes.forEach(function(gtype){
     const locs=gtype==='school'?d.schools:d.gps
-    const total=locs.length,indCleared=locs.filter(function(l){return progress[l.id]}).length
+    const total=locs.length
+    const indCleared=locs.filter(function(l){return progress[l.id]}).length
     const grp=groupProgress[code+':'+gtype]
     const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
-    const typeLabel=gtype==='school'?'Schools':'GP Surgeries'
     const typeShort=gtype==='school'?'Schools':'GPs'
-    const section=document.createElement('div');section.style.cssText='border-top:1px solid var(--bd);padding:11px 0'
-    const heading=document.createElement('div');heading.style.cssText='font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:'+typeCol+';margin-bottom:8px;font-weight:500'
-    heading.textContent=typeLabel;section.appendChild(heading)
+    const dot='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+typeCol+';margin-right:6px;flex-shrink:0"></span>'
+
+    // ── Outer section ──────────────────────────────────────────
+    const section=document.createElement('div')
+    section.style.cssText='border-top:1px solid var(--bd);padding:8px 0'
+
     if(grp){
-      const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-      const col=toolColor(grp.tool),who=grp.user?' - '+grp.user:''
-      const cleared=document.createElement('div');cleared.className='detail-cleared'
-      cleared.style.cssText='background:'+col+'18;border:1px solid '+col+'44;color:'+col+';margin-bottom:6px'
-      cleared.innerHTML='Cleared to <strong>'+(TOOL_NAMES_FULL[grp.tool]||grp.tool)+'</strong> - '+dt+who
-      section.appendChild(cleared)
-      const info=document.createElement('div');info.style.cssText='font-size:12px;color:var(--soft);margin-bottom:8px'
-      info.textContent=indCleared+' individual + '+(total-indCleared)+' via group = '+total+' total';section.appendChild(info)
-      const btn=document.createElement('button');btn.className='btn-unmark';btn.style.marginBottom='4px'
-      btn.textContent='Remove clearing'
-      btn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype);section.appendChild(btn)
+      // ── CLEARED STATE: one compact row ────────────────────────
+      const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})
+      const col=toolColor(grp.tool)
+      const row=document.createElement('div')
+      row.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap'
+      // label + tool badge
+      const label=document.createElement('div')
+      label.style.cssText='display:flex;align-items:center;flex:1;min-width:0;font-size:13px'
+      label.innerHTML=dot+'<strong style="color:'+typeCol+'">'+typeShort+'</strong>'
+        +'<span style="margin:0 6px;color:var(--soft);font-size:11px">·</span>'
+        +'<span style="color:'+col+';font-size:11px;background:'+col+'15;border:1px solid '+col+'40;border-radius:10px;padding:1px 7px">'+(grp.tool)+'</span>'
+        +'<span style="color:var(--soft);font-size:11px;margin-left:6px">'+dt+'</span>'
+      // remove button
+      const rmBtn=document.createElement('button')
+      rmBtn.style.cssText='background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:rgba(255,120,120,.9);border-radius:10px;padding:3px 10px;font-size:11px;cursor:pointer;white-space:nowrap;flex-shrink:0'
+      rmBtn.textContent='Remove'
+      rmBtn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype)
+      row.appendChild(label);row.appendChild(rmBtn)
+      section.appendChild(row)
     }else{
-      const info=document.createElement('div');info.style.cssText='font-size:13px;color:var(--soft);margin-bottom:8px'
-      info.textContent=indCleared+' of '+total+' individually cleared';section.appendChild(info)
-      const gDefaultDiv=document.createElement('div');gDefaultDiv.style.cssText='margin-bottom:6px'
-      const gDefaultLbl=document.createElement('div');gDefaultLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px';gDefaultLbl.textContent='Clearing tool'
-      const gDefaultTool=document.createElement('div');gDefaultTool.style.cssText='font-size:15px;color:var(--gold);font-weight:500';gDefaultTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
-      gDefaultDiv.appendChild(gDefaultLbl);gDefaultDiv.appendChild(gDefaultTool);section.appendChild(gDefaultDiv)
-      const gChangeLink=document.createElement('button');gChangeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px;display:block'
-      gChangeLink.textContent='Use a different tool'
-      const gDropWrap=document.createElement('div');gDropWrap.style.display='none'
-      const gDrop=document.createElement('select');gDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px;color-scheme:dark'
-      TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;gDrop.appendChild(o)})
-      gDropWrap.appendChild(gDrop)
-      gChangeLink.onclick=function(){gDropWrap.style.display=gDropWrap.style.display==='none'?'block':'none'}
-      section.appendChild(gChangeLink);section.appendChild(gDropWrap)
-      const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-group-mark-'+gtype;markBtn.style.marginBottom='4px'
-      markBtn.textContent='Clear all '+typeShort+' with '+(TOOL_NAMES_FULL[currentTool]||currentTool)
-      markBtn.onclick=(function(gt){return function(){
-        const tool=gDropWrap.style.display!=='none'?gDrop.value:currentTool
-        markGroupCleared(code,gt,tool)
-      }})(gtype);section.appendChild(markBtn)
-      gDrop.onchange=function(){markBtn.textContent='Clear all '+typeShort+' with '+(TOOL_NAMES_FULL[currentTool]||currentTool)}
+      // ── UNCLEARED STATE: compact action row ───────────────────
+      const row=document.createElement('div')
+      row.style.cssText='display:flex;align-items:center;gap:8px'
+      // left: type label + count
+      const label=document.createElement('div')
+      label.style.cssText='display:flex;align-items:center;flex:1;font-size:13px'
+      label.innerHTML=dot+'<strong style="color:'+typeCol+'">'+typeShort+'</strong>'
+        +'<span style="color:var(--soft);font-size:11px;margin-left:6px">'+indCleared+'/'+total+'</span>'
+      // right: Clear button (shows current tool, tap to expand dropdown)
+      const clearBtn=document.createElement('button')
+      clearBtn.style.cssText='background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);color:#C9A84C;border-radius:10px;padding:4px 10px;font-size:11px;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px'
+      clearBtn.innerHTML='Clear <span style="color:rgba(201,168,76,.6);font-size:10px">('+currentTool+')</span> <span style="font-size:9px">▾</span>'
+      row.appendChild(label);row.appendChild(clearBtn)
+      section.appendChild(row)
+      // ── Dropdown row (hidden until Clear tapped) ──────────────
+      const dropRow=document.createElement('div')
+      dropRow.style.cssText='display:none;margin-top:6px;display:none'
+      const gDrop=document.createElement('select')
+      gDrop.style.cssText='flex:1;padding:6px 8px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:13px;color-scheme:dark;background:#0a1c11'
+      TOOLS.forEach(function(t){
+        const o=document.createElement('option');o.value=t
+        o.textContent=t+' — '+(TOOL_NAMES_FULL[t]||t)
+        if(t===currentTool)o.selected=true;gDrop.appendChild(o)
+      })
+      const confirmBtn=document.createElement('button')
+      confirmBtn.style.cssText='background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.5);color:#C9A84C;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:6px'
+      confirmBtn.textContent='✓ Confirm'
+      const dropInner=document.createElement('div')
+      dropInner.style.cssText='display:flex;align-items:center;gap:6px;padding:4px 0'
+      dropInner.appendChild(gDrop);dropInner.appendChild(confirmBtn)
+      dropRow.appendChild(dropInner)
+      section.appendChild(dropRow)
+      // toggle dropdown
+      let dropOpen=false
+      clearBtn.onclick=function(){
+        dropOpen=!dropOpen
+        dropRow.style.display=dropOpen?'block':'none'
+      }
+      confirmBtn.onclick=(function(gt){return function(){
+        markGroupCleared(code,gt,gDrop.value)
+      }})(gtype)
     }
-    // Expandable location list
-    const listWrap=document.createElement('div');listWrap.style.cssText='margin-top:8px'
-    const listToggle=document.createElement('button')
-    listToggle.style.cssText="width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--bd);padding:8px 0;font-family:Jost,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center"
+
+    // ── Expandable location list ───────────────────────────────
+    const listWrap=document.createElement('div');listWrap.style.marginTop='4px'
     const arrowId='lt-arrow-'+gtype+'-'+code
-    listToggle.innerHTML='<span>'+typeLabel+' ('+total+')</span><span id="'+arrowId+'">+</span>'
+    const listToggle=document.createElement('button')
+    listToggle.style.cssText='width:100%;text-align:left;background:none;border:none;border-top:1px solid rgba(201,168,76,.08);padding:5px 0 2px;font-family:Jost,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center'
+    listToggle.innerHTML='<span>View list ('+total+')</span><span id="'+arrowId+'">+</span>'
     const listContainer=document.createElement('div')
-    listContainer.style.cssText='display:none;max-height:220px;overflow-y:auto'
+    listContainer.style.cssText='display:none;max-height:180px;overflow-y:auto'
     let listOpen=false
     listToggle.onclick=function(){
       listOpen=!listOpen
@@ -1126,18 +1161,15 @@ function renderDistrictDetail(code){
         locs.slice().sort(function(a,b){return a.name.localeCompare(b.name)}).forEach(function(loc){
           const p=progress[loc.id],grpC=!!groupProgress[code+':'+gtype]
           const isCleared=!!(p||grpC)
-          const row=document.createElement('div')
-          row.style.cssText='padding:6px 4px;border-bottom:1px solid rgba(201,168,76,.08);display:flex;align-items:center;gap:8px;cursor:pointer;border-radius:4px'
-          row.onmouseover=function(){this.style.background='var(--hover)'}
-          row.onmouseout=function(){this.style.background=''}
-          row.onclick=function(){switchTab('locs',document.getElementById('tab-btn-locs'));setTimeout(function(){selectLoc(loc.id)},150)}
-          const dot=document.createElement('div')
-          dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;background:'+(isCleared?GOLD:typeColor(loc.type))
-          const nameEl=document.createElement('div')
-          nameEl.style.cssText='font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:'+(isCleared?'var(--gold)':'var(--ink)')+(isCleared?';text-decoration:line-through;opacity:.55':'')
-          nameEl.textContent=loc.name
-          row.appendChild(dot);row.appendChild(nameEl)
-          listContainer.appendChild(row)
+          const row2=document.createElement('div')
+          row2.style.cssText='padding:4px 2px;border-bottom:1px solid rgba(201,168,76,.06);display:flex;align-items:center;gap:6px;cursor:pointer'
+          row2.onclick=function(){switchTab('locs',document.getElementById('tab-btn-locs'));setTimeout(function(){selectLoc(loc.id)},150)}
+          const dot2=document.createElement('div')
+          dot2.style.cssText='width:6px;height:6px;border-radius:50%;flex-shrink:0;background:'+(isCleared?GOLD:typeColor(loc.type))
+          const nm=document.createElement('div')
+          nm.style.cssText='font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:'+(isCleared?'var(--gold)':'var(--ink)')+(isCleared?';opacity:.6':'')
+          nm.textContent=loc.name
+          row2.appendChild(dot2);row2.appendChild(nm);listContainer.appendChild(row2)
         })
       }
       listContainer.style.display=listOpen?'block':'none'
