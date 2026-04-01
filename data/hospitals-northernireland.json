@@ -72,6 +72,15 @@
     "lng": -5.778572
   },
   {
+    "id": "hosp-ni-antrim",
+    "type": "hospital",
+    "name": "Antrim Area Hospital",
+    "address": "Bush Road, Antrim",
+    "postcode": "BT41 1QB",
+    "lat": 54.709097,
+    "lng": -6.185017
+  },
+  {
     "id": "hosp-ni-10",
     "type": "hospital",
     "name": "Causeway Hospital",
