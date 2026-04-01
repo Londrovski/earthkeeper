@@ -1317,18 +1317,52 @@ function updateGroupsStats(){
   const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=totalDistricts?Math.round(clearedDistricts/totalDistricts*100):0
   document.getElementById('s-total').textContent=clearedDistricts+'/'+totalDistricts
+  document.getElementById('s-label-total').textContent='districts cleared'
   document.getElementById('s-cleared').textContent=clearedLocs.toLocaleString()
+  document.getElementById('s-label-cleared').textContent='locations cleared'
   document.getElementById('s-pct').textContent=pct+'%'
-  document.getElementById('s-label-total').textContent='locations'
-  document.getElementById('s-label-cleared').textContent='cleared'
+  document.getElementById('s-pct').style.display=''
+  document.getElementById('s-log-div').style.display='none'
+  document.getElementById('s-log-all').style.display='none'
+  document.getElementById('s-log-allpct').style.display='none'
+}
+function updateLogStats(){
+  const indivTypes=['hospital','hospice','university','prison']
+  const indivLocs=locations.filter(l=>indivTypes.includes(l.type))
+  const indivTotal=indivLocs.length
+  const indivCleared=indivLocs.filter(l=>isEffectivelyCleared(l)).length
+  const indivPct=indivTotal?Math.round(indivCleared/indivTotal*100):0
+  const allTotal=locations.length
+  const allCleared=locations.filter(l=>isEffectivelyCleared(l)).length
+  const allPct=allTotal?Math.round(allCleared/allTotal*100):0
+  document.getElementById('s-total').textContent=indivCleared+'/'+indivTotal
+  document.getElementById('s-label-total').textContent='individual cleared'
+  document.getElementById('s-cleared').textContent=indivPct+'%'
+  document.getElementById('s-label-cleared').textContent='done'
+  document.getElementById('s-pct').style.display='none'
+  document.getElementById('s-log-div').style.display='flex'
+  document.getElementById('s-log-all').style.display='flex'
+  document.getElementById('s-log-allpct').style.display='flex'
+  document.getElementById('s-total-all').textContent=allCleared+'/'+allTotal
+  document.getElementById('s-pct-all').textContent=allPct+'%'
 }
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
   const total=visLocs.length,cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString()
+  document.getElementById('s-label-total').textContent='locations'
   document.getElementById('s-cleared').textContent=cleared
+  document.getElementById('s-label-cleared').textContent='cleared'
+  document.getElementById('s-pct').style.display=''
+  document.getElementById('s-log-div').style.display='none'
+  document.getElementById('s-log-all').style.display='none'
+  document.getElementById('s-log-allpct').style.display='none'
   document.getElementById('s-pct').textContent=pct+'%'
+  document.getElementById('s-pct').style.display=''
+  document.getElementById('s-log-div').style.display='none'
+  document.getElementById('s-log-all').style.display='none'
+  document.getElementById('s-log-allpct').style.display='none'
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
     const tot=locations.filter(l=>l.type===type).length
     const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
@@ -1442,11 +1476,13 @@ function switchTab(name,btn){
     Object.keys(placesFilter).forEach(k=>{if(k!=='_')placesFilter[k]=true})
     showFilter='cleared'
     refreshMapData()
+    updateLogStats()
   } else if(logSavedPlaces){
     // Restore when leaving log
     Object.assign(placesFilter,logSavedPlaces)
     showFilter=logSavedFilter
     logSavedPlaces=null;logSavedFilter=null
+    document.getElementById('s-pct').style.display=''
     refreshMapData()
   }
   function applyLayerVisibility(attempts){
