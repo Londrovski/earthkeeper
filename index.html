@@ -1343,13 +1343,19 @@ function switchTab(name,btn){
 
 function updateDistrictStats(code){
   const hb=document.getElementById('home-btn')
-  if(!code||!districtMap[code]){if(hb)hb.style.display='none';updateStats();return}
+  if(!code||!districtMap[code]){
+    if(hb)hb.style.display='none'
+    // No district selected — show overall groups stats
+    updateGroupsStats();return
+  }
   const d=districtMap[code]
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
   const total=allLocs.length,cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=total?Math.round(cleared/total*100):0
   document.getElementById('s-total').textContent=total.toLocaleString()
+  document.getElementById('s-label-total').textContent='locations'
   document.getElementById('s-cleared').textContent=cleared
+  document.getElementById('s-label-cleared').textContent='cleared'
   document.getElementById('s-pct').textContent=pct+'%'
   if(hb)hb.style.display=''
 }
