@@ -528,6 +528,7 @@ function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
 
 let locations=[],progress={},progressSha=null,groupProgress={},groupProgressSha=null,selectedId=null,map,mapReady=false
 let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false}
+let schoolsGpsLoaded=false
 let showFilter='all',logSavedPlaces=null,logSavedFilter=null,currentTool='MG',currentUser=null,locationMarker=null,userHasEarthworks=false,currentEW=null
 let selectedDistrictCode=null,districts=[],districtMap={}
 let groupTypes=new Set(['school','gp'])
@@ -776,15 +777,18 @@ async function ghGet(path){
 }
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
-async function fetchRegion(region){
-  const[hospitals,schools,universities,hospices,prisons,gps]=await Promise.all([
+async function fetchRegion(region,includeSchoolsGps){
+  const base=[
     ghGetOptional('hospitals-'+region+'.json'),
-    ghGetOptional('schools-'+region+'.json'),
     ghGetOptional('universities-'+region+'.json'),
     ghGetOptional('hospices-'+region+'.json'),
-    ghGetOptional('prisons-'+region+'.json'),
+    ghGetOptional('prisons-'+region+'.json')
+  ]
+  const extra=includeSchoolsGps?[
+    ghGetOptional('schools-'+region+'.json'),
     ghGetOptional('gps-'+region+'.json')
-  ])
+  ]:[Promise.resolve([]),Promise.resolve([])]
+  const[hospitals,universities,hospices,prisons,schools,gps]=await Promise.all([...base,...extra])
   return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
 }
 
@@ -792,7 +796,7 @@ async function loadAll(){
   closeMobileDetail();closeDetail();setSelectedId(null)
   setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
   try{
-    const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r)))
+    const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r,false)))
     locations=allArrays.flat()
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
@@ -804,7 +808,7 @@ async function loadRegion(value){
   closeMobileDetail();closeDetail();setSelectedId(null)
   setMsg('Loading '+value+'...');document.getElementById('mload').style.display='flex'
   try{
-    locations=await fetchRegion(value)
+    locations=await fetchRegion(value,false)
     hideLoader();refreshMapData();renderList();updateStats()
     if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
     else{setMsg('No data for "'+value+'" yet');setTimeout(hideLoader,3000)}
@@ -1237,7 +1241,30 @@ async function unmarkClearedMobile(id){
   await saveProgress();queueSave()
 }
 
-function togglePlace(type,el){placesFilter[type]=!placesFilter[type];el.classList.toggle('on',placesFilter[type]);refreshMapData();renderList();updateStats()}
+async function loadSchoolsGps(){
+  if(schoolsGpsLoaded)return
+  schoolsGpsLoaded=true
+  setMsg('Loading schools and GPs...')
+  try{
+    const extras=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r,true)))
+    // extras include all types — extract only schools+GPs not already in locations
+    const existingIds=new Set(locations.map(l=>l.id))
+    const newLocs=extras.flat().filter(l=>!existingIds.has(l.id))
+    locations=[...locations,...newLocs]
+    buildDistrictMap()
+    refreshMapData();renderList();updateStats()
+  }catch(e){console.warn('Schools/GPs load failed',e);schoolsGpsLoaded=false}
+  setMsg('')
+}
+function togglePlace(type,el){
+  placesFilter[type]=!placesFilter[type]
+  el.classList.toggle('on',placesFilter[type])
+  if((type==='school'||type==='gp')&&placesFilter[type]&&!schoolsGpsLoaded){
+    loadSchoolsGps().then(()=>{refreshMapData();renderList();updateStats()})
+  } else {
+    refreshMapData();renderList();updateStats()
+  }
+}
 let activeTools=new Set()
 function toggleToolKey(){const k=document.getElementById('tool-key');k.classList.toggle('open')}
 function setShow(mode,el){
@@ -1431,11 +1458,10 @@ function switchTab(name,btn){
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
   if(inGroups){
-    if(!districts.length){
-      loadDistricts().then(function(){renderDistrictList();updateDistrictStates();updateGroupsStats()})
-    } else {
-      renderDistrictList();updateDistrictStates();setTimeout(updateGroupsStats,80)
-    }
+    const doGroups=function(){renderDistrictList();updateDistrictStates();updateGroupsStats()}
+    const doDistricts=districts.length?Promise.resolve():loadDistricts()
+    const doSgp=schoolsGpsLoaded?Promise.resolve():loadSchoolsGps()
+    Promise.all([doDistricts,doSgp]).then(doGroups)
   }
   else{selectedDistrictCode=null;updateDistrictStats(null);updateStats()}
 }
