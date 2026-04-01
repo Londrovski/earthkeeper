@@ -623,10 +623,12 @@ function initMap(){
       map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
     })
     map.on('click',e=>{
-      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){
+      const inGroups=document.getElementById('tab-groups').classList.contains('on')
+      const layers=[...clickLayers,...(inGroups?['district-fill','district-locs','district-locs-cleared']:[] )]
+      if(!map.queryRenderedFeatures(e.point,{layers}).length){
         setSelectedId(null);closeDetail();closeMobileDetail()
         // On groups tab, clicking sea deselects district
-        if(document.getElementById('tab-groups').classList.contains('on')&&selectedDistrictCode){
+        if(inGroups&&selectedDistrictCode){
           selectedDistrictCode=null
           document.getElementById('district-detail').classList.remove('on')
           if(mapReady){if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]});['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})}
