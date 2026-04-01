@@ -623,7 +623,16 @@ function initMap(){
       map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
     })
     map.on('click',e=>{
-      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){setSelectedId(null);closeDetail();closeMobileDetail()}
+      if(!map.queryRenderedFeatures(e.point,{layers:clickLayers}).length){
+        setSelectedId(null);closeDetail();closeMobileDetail()
+        // On groups tab, clicking sea deselects district
+        if(document.getElementById('tab-groups').classList.contains('on')&&selectedDistrictCode){
+          selectedDistrictCode=null
+          document.getElementById('district-detail').classList.remove('on')
+          if(mapReady){if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]});['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})}
+          updateDistrictStates();updateGroupsStats()
+        }
+      }
     })
     refreshMapData()
   })
@@ -807,9 +816,11 @@ function updateDistrictStates(){
     const code=f.properties.code
     const hasSchools=districtMap[code]&&districtMap[code].schools.length>0
     const hasGps=districtMap[code]&&districtMap[code].gps.length>0
-    const schoolCleared=!hasSchools||!!groupProgress[code+':school']
-    const gpCleared=!hasGps||!!groupProgress[code+':gp']
-    const cleared=schoolCleared&&gpCleared?2:(!!groupProgress[code+':school']||!!groupProgress[code+':gp'])?1:0
+    const hasAny=hasSchools||hasGps
+    if(!hasAny){const cleared=0;try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){};return}
+    const schoolDone=!hasSchools||!!groupProgress[code+':school']
+    const gpDone=!hasGps||!!groupProgress[code+':gp']
+    const cleared=schoolDone&&gpDone?2:(!!groupProgress[code+':school']||!!groupProgress[code+':gp'])?1:0
     const selected=code===selectedDistrictCode
     try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
   })
@@ -984,7 +995,7 @@ async function markGroupCleared(code,gtype,tool){
   groupProgress[code+':'+gt]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateStats();renderLog()
+  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
   await saveGroupProgress()
 }
 async function unmarkGroupCleared(code,gtype){
@@ -992,7 +1003,7 @@ async function unmarkGroupCleared(code,gtype){
   delete groupProgress[code+':'+gt]
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateStats();renderLog()
+  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
   await saveGroupProgress()
 }
 
