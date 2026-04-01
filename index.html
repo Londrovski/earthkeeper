@@ -1192,10 +1192,19 @@ function toggleTool(tool,el){
   refreshMapData();renderList()
 }
 function updateGroupsStats(){
-  // Count districts that have at least one group clearing
-  const totalDistricts=Object.keys(districtMap).length
+  // Count districts where ALL present types are cleared
+  const totalDistricts=Object.keys(districtMap).filter(code=>{
+    const d=districtMap[code]
+    return d.schools.length>0||d.gps.length>0
+  }).length
   const clearedDistricts=Object.keys(districtMap).filter(code=>{
-    return [...groupTypes].some(gt=>groupProgress[code+':'+gt])
+    const d=districtMap[code]
+    const hasSchools=d.schools.length>0
+    const hasGps=d.gps.length>0
+    if(!hasSchools&&!hasGps)return false
+    const schoolDone=!hasSchools||!!groupProgress[code+':school']
+    const gpDone=!hasGps||!!groupProgress[code+':gp']
+    return schoolDone&&gpDone
   }).length
   // Count all locations in visible districts
   const allGroupLocs=Object.values(districtMap).flatMap(d=>[
