@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hosp-ni-1",
+    "type": "hospital",
+    "name": "Royal Victoria Hospital",
+    "address": "274 Grosvenor Road, Belfast",
+    "postcode": "BT12 6BA",
+    "lat": 54.594237,
+    "lng": -5.954027
+  },
+  {
+    "id": "hosp-ni-2",
+    "type": "hospital",
+    "name": "Belfast City Hospital",
+    "address": "51 Lisburn Road, Belfast",
+    "postcode": "BT9 7AB",
+    "lat": 54.586698,
+    "lng": -5.945015
+  },
+  {
+    "id": "hosp-ni-3",
+    "type": "hospital",
+    "name": "Mater Hospital Belfast",
+    "address": "45 Crumlin Road, Belfast",
+    "postcode": "BT14 6AB",
+    "lat": 54.608381,
+    "lng": -5.939294
+  },
+  {
+    "id": "hosp-ni-4",
+    "type": "hospital",
+    "name": "Royal Belfast Hospital for Sick Children",
+    "address": "274 Grosvenor Road, Belfast",
+    "postcode": "BT12 6BA",
+    "lat": 54.594237,
+    "lng": -5.954027
+  },
+  {
+    "id": "hosp-ni-5",
+    "type": "hospital",
+    "name": "Musgrave Park Hospital",
+    "address": "Stockman's Lane, Belfast",
+    "postcode": "BT9 7JB",
+    "lat": 54.568602,
+    "lng": -5.978013
+  },
+  {
+    "id": "hosp-ni-6",
+    "type": "hospital",
+    "name": "Ulster Hospital",
+    "address": "Upper Newtownards Road, Dundonald",
+    "postcode": "BT16 1RH",
+    "lat": 54.596789,
+    "lng": -5.811301
+  },
+  {
+    "id": "hosp-ni-7",
+    "type": "hospital",
+    "name": "Lagan Valley Hospital",
+    "address": "39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "hosp-ni-8",
+    "type": "hospital",
+    "name": "Downe Hospital",
+    "address": "201 Struell Wells Road, Downpatrick",
+    "postcode": "BT30 8JA",
+    "lat": 54.317848,
+    "lng": -5.778572
+  },
+  {
+    "id": "hosp-ni-10",
+    "type": "hospital",
+    "name": "Causeway Hospital",
+    "address": "4 Newbridge Road, Coleraine",
+    "postcode": "BT52 1HS",
+    "lat": 55.124453,
+    "lng": -6.65379
+  },
+  {
+    "id": "hosp-ni-11",
+    "type": "hospital",
+    "name": "Mid Ulster Hospital",
+    "address": "Hospital Road, Magherafelt",
+    "postcode": "BT45 5EX",
+    "lat": 54.761852,
+    "lng": -6.614449
+  },
+  {
+    "id": "hosp-ni-12",
+    "type": "hospital",
+    "name": "Craigavon Area Hospital",
+    "address": "68 Lurgan Road, Portadown",
+    "postcode": "BT63 5QQ",
+    "lat": 54.434586,
+    "lng": -6.409064
+  },
+  {
+    "id": "hosp-ni-13",
+    "type": "hospital",
+    "name": "Daisy Hill Hospital",
+    "address": "5 Hospital Road, Newry",
+    "postcode": "BT35 8DR",
+    "lat": 54.181367,
+    "lng": -6.352526
+  },
+  {
+    "id": "hosp-ni-14",
+    "type": "hospital",
+    "name": "South Tyrone Hospital",
+    "address": "Carland Road, Dungannon",
+    "postcode": "BT71 4AU",
+    "lat": 54.510275,
+    "lng": -6.770537
+  },
+  {
+    "id": "hosp-ni-15",
+    "type": "hospital",
+    "name": "South West Acute Hospital",
+    "address": "Enniskillen",
+    "postcode": "BT74 6DN",
+    "lat": 54.354216,
+    "lng": -7.624431
+  },
+  {
+    "id": "hosp-ni-16",
+    "type": "hospital",
+    "name": "Altnagelvin Hospital",
+    "address": "Glenshane Road, Londonderry",
+    "postcode": "BT47 6SB",
+    "lat": 54.986589,
+    "lng": -7.295332
+  },
+  {
+    "id": "hosp-ni-17",
+    "type": "hospital",
+    "name": "Omagh Hospital",
+    "address": "Donaghanie Road, Omagh",
+    "postcode": "BT79 7HB",
+    "lat": 54.613625,
+    "lng": -7.284969
+  }
+]
