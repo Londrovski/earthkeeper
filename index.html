@@ -171,8 +171,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   header{height:48px;padding:0 12px}
   .header-seal{width:32px;height:32px}
   .logo{font-size:18px}
-  .hstats{display:none}
+  .hstats{display:flex;gap:10px;font-size:11px}
   .huser strong{font-size:11px}
+  .hstats strong{font-size:13px}
+  .hstats span{display:none}
+  #s-log-div,#s-log-all,#s-log-allpct{display:none!important}
   .hbtn{font-size:10px;padding:4px 9px}
   #app{flex-direction:column}
   .body{flex-direction:column;flex:1;overflow:hidden}
@@ -198,6 +201,18 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .log-date-input{font-size:11px;padding:4px 7px}
   .log-clear-btn{font-size:10px;padding:4px 7px}
   .tog{display:none}
+  /* Groups tab mobile: hide list, show map */
+  #tab-groups .district-list{display:none!important}
+  #tab-groups .district-detail{position:fixed;bottom:0;left:0;right:0;max-height:55vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd)}
+  #tab-groups .district-detail:not(.on){display:none}
+  #tab-groups{height:auto;display:none;flex-direction:column}
+  #tab-groups.on{display:flex}
+  #tab-groups .gtype-row{padding:6px 10px;gap:6px}
+  #tab-groups .gtype-btn{font-size:11px;padding:5px 10px}
+  #tab-groups .srow{padding:4px 10px}
+  #tab-groups .sinput{font-size:12px;padding:6px 9px}
+  /* Home button mobile position */
+  .map-home-btn{top:56px!important}
   .map-overlays{top:7px;right:7px;gap:5px}
   .progress{min-width:130px;padding:6px 10px}
   .prog-title{font-size:8px;margin-bottom:4px}
@@ -808,8 +823,14 @@ async function loadAll(){
   closeMobileDetail();closeDetail();setSelectedId(null)
   setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
   try{
-    const allArrays=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r,false)))
-    locations=allArrays.flat()
+    // Batch fetches to avoid hitting browser parallel connection limits on mobile
+    const batchSize=3,results=[]
+    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
+      const batch=ALL_REGIONS.slice(i,i+batchSize)
+      const batchResults=await Promise.all(batch.map(r=>fetchRegion(r,false)))
+      results.push(...batchResults)
+    }
+    locations=results.flat()
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
   }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
@@ -1258,10 +1279,17 @@ async function loadSchoolsGps(){
   schoolsGpsLoaded=true
   setMsg('Loading schools and GPs...')
   try{
-    const extras=await Promise.all(ALL_REGIONS.map(r=>fetchRegion(r,true)))
+    // Batch fetches to avoid parallel connection limits on mobile
+    const batchSize=3,results=[]
+    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
+      const batch=ALL_REGIONS.slice(i,i+batchSize)
+      const batchResults=await Promise.all(batch.map(r=>fetchRegion(r,true)))
+      results.push(...batchResults)
+    }
+    const extras=[results]
     // extras include all types — extract only schools+GPs not already in locations
     const existingIds=new Set(locations.map(l=>l.id))
-    const newLocs=extras.flat().filter(l=>!existingIds.has(l.id))
+    const newLocs=results.flat().filter(l=>!existingIds.has(l.id))
     locations=[...locations,...newLocs]
     buildDistrictMap()
     refreshMapData();renderList();updateStats()
@@ -1499,6 +1527,8 @@ function switchTab(name,btn){
       ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
       selectedDistrictCode=null
       document.getElementById('district-detail').classList.remove('on')
+      // Refresh map data AFTER layers are shown to prevent blank dots
+      refreshMapData()
     }
   }
   applyLayerVisibility(20)
