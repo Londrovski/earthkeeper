@@ -1319,8 +1319,8 @@ function updateGroupsStats(){
   document.getElementById('s-total').textContent=clearedDistricts+'/'+totalDistricts
   document.getElementById('s-cleared').textContent=clearedLocs.toLocaleString()
   document.getElementById('s-pct').textContent=pct+'%'
-  document.getElementById('s-label-total').textContent='locations cleared'
-  document.getElementById('s-label-cleared').textContent='locations cleared'
+  document.getElementById('s-label-total').textContent='locations'
+  document.getElementById('s-label-cleared').textContent='cleared'
 }
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
