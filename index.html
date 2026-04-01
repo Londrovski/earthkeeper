@@ -526,15 +526,6 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     </div>
     <button class="tog" id="tog" onclick="toggleSidebar()">&#x2039;</button>
     <div class="map-overlays">
-      <div class="progress" id="map-progress">
-        <div class="prog-title">Progress</div>
-        <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">-</div></div>
-        <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">-</div></div>
-        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">-</div></div>
-        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
-        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">-</div></div>
-        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">-</div></div>
-      </div>
       <div class="legend" id="map-legend">
         <div class="leg-title">Legend</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
@@ -544,6 +535,15 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>GP Surgery</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border:2px solid rgba(255,255,255,.5)"></div>Cleared</div>
+      </div>
+      <div class="progress" id="map-progress">
+        <div class="prog-title">Progress</div>
+        <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">-</div></div>
+        <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">-</div></div>
+        <div class="prog-row"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">-</div></div>
+        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
+        <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">-</div></div>
+        <div class="prog-row" id="pg-row-gp"><div class="prog-label">GPs</div><div class="prog-track"><div class="prog-fill" id="pg-gp" style="background:var(--green);width:0%"></div></div><div class="prog-count" id="pg-gpt">-</div></div>
       </div>
     </div>
     <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>&#x1F4CD;</span>Find Me</button>
@@ -1669,7 +1669,9 @@ function switchTab(name,btn){
   if(isMobile()){
     const onLog=name==='log'
     const prog=document.getElementById('map-progress')
+    const leg=document.getElementById('map-legend')
     if(prog)prog.style.display=onLog?'':'none'
+    if(leg)leg.style.display=''
   }
 }
 
