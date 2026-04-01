@@ -167,6 +167,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
 #mobile-detail{display:none}
+.mobile-inner-stats{display:none;padding:5px 11px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;background:rgba(8,22,13,.6);border-bottom:1px solid rgba(201,168,76,.1);flex-shrink:0}
+.mobile-inner-stats strong{font-weight:600;color:#E8D5A0;font-size:12px}
+.mobile-inner-stats .ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
+.tool-select-dropdown{width:100%;background:#0a1c11;color:#E8D5A0;border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:7px 10px;font-size:13px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+#tool-select-row{display:none}
 .mobile-stats-bar{display:none;background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
 .mobile-stats-bar #ms-total,.mobile-stats-bar #ms-cleared,.mobile-stats-bar #ms-pct{font-weight:600;color:#E8D5A0;font-size:12px}
 .ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
@@ -178,10 +183,20 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .header-seal{width:32px;height:32px}
   .logo{font-size:18px}
   .hstats{display:none!important}
-  #mobile-stats{display:flex!important}
-  .mobile-tool-btn-row{display:flex!important}
+  .map-home-btn{top:125px!important}
+  .mobile-inner-stats{display:flex!important}
+  /* Show frow on mobile: hide chips, show select */
   #tool-filter-row{display:none!important}
-  .map-home-btn{top:130px!important}
+  .chip.show-tool,.chip-divider,.tool-key{display:none!important}
+  #tool-select-row{display:flex!important}
+  /* Hide regions on mobile */
+  .rsel{display:none!important}
+  /* Stats bar inside panel, after show frow */
+  #mobile-stats{display:flex!important}
+  /* Groups tab stats bar */
+  #groups-mobile-stats{display:flex!important}
+  /* Log tab stats bar */
+  #log-mobile-stats{display:flex!important}
   .huser strong{font-size:11px}
   .hbtn{font-size:10px;padding:4px 9px}
   #app{flex-direction:column}
@@ -419,6 +434,26 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
+      <div class="frow" id="tool-select-row">
+        <div class="frow-label">By Tool</div>
+        <select id="tool-select" class="tool-select-dropdown" onchange="setToolFromSelect(this.value)" color-scheme="dark">
+          <option value="">— All / Show all —</option>
+          <option value="MS">MS — Magical Structures</option>
+          <option value="MF">MF — Multifrequency</option>
+          <option value="O">O — Omega</option>
+          <option value="J">J — Jewel</option>
+          <option value="MG">MG — Merlin's Grace</option>
+          <option value="AP">AP — Universal AP</option>
+          <option value="MI">MI — Manifesting Intention</option>
+          <option value="MJ">MJ — Magical Jewel</option>
+          <option value="DM">DM — Divine Magic</option>
+          <option value="EW1">EW1 — Earthworks 1</option>
+          <option value="EW2">EW2 — Earthworks 2</option>
+          <option value="EW3">EW3 — Earthworks 3</option>
+          <option value="EW4">EW4 — Earthworks 4</option>
+          <option value="EW5">EW5 — Earthworks 5</option>
+        </select>
+      </div>
       <div class="frow mobile-tool-btn-row" id="tool-filter-row"><button class="tool-modal-open-btn" onclick="openToolModal()">🎯 Filter by Tool</button></div>
       <div class="rsel">
         <select id="region-select" onchange="loadRegion(this.value)">
@@ -437,6 +472,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <option value="northernireland">Northern Ireland</option>
         </select>
       </div>
+      <div class="mobile-inner-stats" id="locs-mob-stats" style="display:none"></div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
@@ -462,6 +498,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <button class="gtype-btn school on" id="gtype-school" onclick="toggleGroupType('school',this)"><span class="chip-dot" style="background:var(--blue);display:inline-block;margin-right:4px"></span>Schools</button>
         <button class="gtype-btn gp on" id="gtype-gp" onclick="toggleGroupType('gp',this)"><span class="chip-dot" style="background:var(--green);display:inline-block;margin-right:4px"></span>GPs</button>
       </div>
+      <div class="mobile-inner-stats" id="groups-mob-stats" style="display:none"></div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search districts..." id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
       <div class="district-list" id="district-list"><div class="empty">Loading districts...</div></div>
       <div class="district-detail" id="district-detail">
@@ -481,6 +518,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
         <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
       </div>
+      <div class="mobile-inner-stats" id="log-mob-stats" style="display:none"></div>
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
   </div>
@@ -956,8 +994,11 @@ function toggleGroupType(type,el){
 
 function renderDistrictList(){
   const el=document.getElementById('district-list')
+  const hasQuery=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').trim().length>0
+  if(isMobile()&&el)el.style.display=hasQuery?'':'none'
   const q=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').toLowerCase().trim()
   let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
+  if(isMobile()&&el)el.style.display=entries.length&&hasQuery?'':'none'
   if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading...')+'</div>';return}
   entries.sort((a,b)=>a.name.localeCompare(b.name))
   el.innerHTML=entries.map(d=>{
@@ -1313,6 +1354,29 @@ function togglePlace(type,el){
     refreshMapData();renderList();updateStats()
   }
 }
+function setToolFromSelect(val){
+  // Reset all tool chips first
+  activeTools.clear()
+  document.querySelectorAll('.chip.show-tool').forEach(el=>el.classList.remove('on'))
+  document.querySelectorAll('.chip.show-all,.chip.show-cleared').forEach(el=>el.classList.remove('on'))
+  if(!val){
+    showFilter='all'
+    document.getElementById('chip-all')?.classList.add('on')
+    document.getElementById('chip-all')?.classList.add('on')
+  } else {
+    showFilter='tool-multi'
+    activeTools.add(val)
+    document.getElementById('chip-'+val)?.classList.add('on')
+  }
+  refreshMapData();renderList();updateStats()
+}
+function updateMobileInnerStats(elId,html){
+  const el=document.getElementById(elId)
+  if(el)el.innerHTML=html
+}
+function statLine(total,totalLabel,cleared,clearedLabel,pct){
+  return '<strong>'+total+'</strong><span> '+totalLabel+'</span><span class="ms-sep">·</span><strong>'+cleared+'</strong><span> '+clearedLabel+'</span><span class="ms-sep">·</span><strong>'+pct+'</strong><span> done</span>'
+}
 function openToolModal(){
   const m=document.getElementById('tool-modal');if(!m)return
   syncModalState();m.style.display='flex'
@@ -1383,7 +1447,7 @@ function updateGroupsStats(){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
-  updateMobileStats(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%')
+  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%'))
 }
 function updateMobileStats(total,totalLabel,cleared,clearedLabel,pct){
   if(!isMobile())return
@@ -1413,6 +1477,7 @@ function updateLogStats(){
   document.getElementById('s-log-allpct').style.display='flex'
   document.getElementById('s-total-all').textContent=allCleared+'/'+allTotal
   document.getElementById('s-pct-all').textContent=allPct+'%'
+  if(isMobile())updateMobileInnerStats('log-mob-stats',statLine(indivCleared+'/'+indivTotal,'individual',indivPct+'%','done','')+'<span class="ms-sep">·</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span>')
 }
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
@@ -1427,7 +1492,7 @@ function updateStats(){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
-  updateMobileStats(total.toLocaleString(),'locations',cleared,'cleared',pct+'%')
+  if(isMobile())updateMobileInnerStats('locs-mob-stats',statLine(total.toLocaleString(),'locations',cleared,'cleared',pct+'%'))
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
     const tot=locations.filter(l=>l.type===type).length
     const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
@@ -1567,6 +1632,7 @@ function switchTab(name,btn){
     }
   }
   applyLayerVisibility(20)
+  if(mapReady)setTimeout(()=>map.resize(),50)
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
