@@ -1465,7 +1465,11 @@ function switchTab(name,btn){
   const inLog=name==='log'
   // Swap header stat labels based on tab
   if(inGroups){setTimeout(updateGroupsStats,50)}
-  else if(!inLog){
+  else{
+    const hb=document.getElementById('home-btn')
+    if(hb)hb.style.display=''
+  }
+  if(!inLog&&!inGroups){
     document.getElementById('s-label-total').textContent='locations'
     document.getElementById('s-label-cleared').textContent='cleared'
   }
@@ -1512,8 +1516,9 @@ function switchTab(name,btn){
 
 function updateDistrictStats(code){
   const hb=document.getElementById('home-btn')
+  const onGroups=document.getElementById('tab-groups')&&document.getElementById('tab-groups').classList.contains('on')
   if(!code||!districtMap[code]){
-    if(hb)hb.style.display='none'
+    if(hb&&onGroups)hb.style.display='none'
     // No district selected — show overall groups stats
     updateGroupsStats();return
   }
