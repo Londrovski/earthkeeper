@@ -192,7 +192,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   /* Hide regions on mobile */
   .rsel{display:none!important}
   /* Stats bar inside panel, after show frow */
-  #mobile-stats{display:flex!important}
+  #mobile-stats{display:none!important}
   /* Groups tab stats bar */
   #groups-mobile-stats{display:flex!important}
   /* Log tab stats bar */
@@ -224,8 +224,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .log-clear-btn{font-size:10px;padding:4px 7px}
   .tog{display:none}
   #tab-groups .district-list{display:none!important}
-  #tab-groups .district-detail{position:fixed!important;bottom:0;left:0;right:0;max-height:60vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
-  #tab-groups .district-detail:not(.on){display:none!important}
+  .district-detail{position:fixed;bottom:0;left:0;right:0;max-height:60vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
+  .district-detail:not(.on){display:none!important}
   .sidebar{overflow:visible!important}
   .map-overlays{top:7px;right:7px;gap:5px}
   .progress{min-width:130px;padding:6px 10px}
@@ -416,6 +416,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="chips" id="show-chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
+          <select id="tool-select-inline" class="tool-select-inline" onchange="setToolFromSelect(this.value)"><option value="">By Tool ▾</option><option value="MS">MS — Magical Structures</option><option value="MF">MF — Multifrequency</option><option value="O">O — Omega</option><option value="J">J — Jewel</option><option value="MG">MG — Merlin's Grace</option><option value="AP">AP — Universal AP</option><option value="MI">MI — Manifesting Intention</option><option value="MJ">MJ — Magical Jewel</option><option value="DM">DM — Divine Magic</option><option value="EW1">EW1</option><option value="EW2">EW2</option><option value="EW3">EW3</option><option value="EW4">EW4</option><option value="EW5">EW5</option></select>
           <span class="chip-divider"><span>cleared by</span><span class="chip-divider-link" onclick="toggleToolKey()">what are these?</span></span>
           <div class="tool-key" id="tool-key"><div class="tool-key-row"><span class="tool-key-code">MS</span>Magical Structures</div><div class="tool-key-row"><span class="tool-key-code">MF</span>Multifrequency</div><div class="tool-key-row"><span class="tool-key-code">O</span>Omega</div><div class="tool-key-row"><span class="tool-key-code">J</span>Jewel</div><div class="tool-key-row"><span class="tool-key-code">MG</span>Merlin's Grace</div><div class="tool-key-row"><span class="tool-key-code">AP</span>Universal AP</div><div class="tool-key-row"><span class="tool-key-code">MI</span>Manifesting Intention</div><div class="tool-key-row"><span class="tool-key-code">MJ</span>Magical Jewel</div><div class="tool-key-row"><span class="tool-key-code">DM</span>Divine Magic</div><div class="tool-key-row"><span class="tool-key-code">EW1–5</span>Earthworks levels</div></div>
           <div class="chip show-tool" id="chip-MS" onclick="toggleTool('MS',this)">MS</div>
@@ -501,16 +502,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <div class="mobile-inner-stats" id="groups-mob-stats" style="display:none"></div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search districts..." id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
       <div class="district-list" id="district-list"><div class="empty">Loading districts...</div></div>
-      <div class="district-detail" id="district-detail">
-        <div class="district-detail-head">
-          <div>
-            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--gold)" id="dd-name"></div>
-          </div>
-          <button class="detail-close" onclick="closeDistrictDetail()">x</button>
-        </div>
-        <div class="district-detail-body" id="dd-body"></div>
-      </div>
+      <!-- district-detail moved to body level -->
     </div>
     <div class="panel" id="tab-log">
       <div class="log-filter">
@@ -1027,9 +1019,21 @@ function selectDistrict(code){
   renderDistrictList();updateDistrictStates();updateDistrictStats(code)
   const d=districtMap[code];if(!d)return
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
+  const{bottomOffset}=getVisibleMapBounds()
+  const fitPad=isMobile()?{top:60,bottom:bottomOffset+80,left:40,right:40}:null
   if(allLocs.length){
-    const{bottomOffset}=getVisibleMapBounds()
-    fitBounds(allLocs,isMobile()?{top:60,bottom:bottomOffset+80,left:40,right:40}:null)
+    fitBounds(allLocs,fitPad)
+  } else {
+    // No locations loaded yet — zoom to district boundary from geojson
+    const feat=districts.find(f=>f.properties.code===code)
+    if(feat&&mapReady){
+      try{
+        const coords=feat.geometry.type==='Polygon'?feat.geometry.coordinates[0]:feat.geometry.coordinates.flat()
+        const lngs=coords.map(p=>p[0]),lats=coords.map(p=>p[1])
+        const pad=fitPad||{top:80,bottom:80,left:60,right:60}
+        map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:pad,maxZoom:11,duration:800})
+      }catch(e){}
+    }
   }
   if(mapReady&&map.getSource('district-locs-src')){
     map.getSource('district-locs-src').setData({type:'FeatureCollection',features:allLocs.filter(l=>l.lat&&l.lng).map(l=>{
@@ -1342,8 +1346,13 @@ async function loadSchoolsGps(){
     locations=[...locations,...newLocs]
     buildDistrictMap()
     refreshMapData();renderList();updateStats()
-  }catch(e){console.warn('Schools/GPs load failed',e);schoolsGpsLoaded=false}
-  setMsg('')
+    setMsg('')
+  }catch(e){
+    console.warn('Schools/GPs load failed',e)
+    schoolsGpsLoaded=false
+    setMsg('Some data failed to load')
+    setTimeout(()=>setMsg(''),3000)
+  }
 }
 function togglePlace(type,el){
   placesFilter[type]=!placesFilter[type]
@@ -1746,6 +1755,16 @@ try{
       <div class="chip show-tool" id="tm-EW5" onclick="toggleTool('EW5',this);syncModalState()">EW5</div>
     </div>
   </div>
+<div class="district-detail" id="district-detail">
+  <div class="district-detail-head">
+    <div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--gold)" id="dd-name"></div>
+    </div>
+    <button class="detail-close" onclick="closeDistrictDetail()">x</button>
+  </div>
+  <div class="district-detail-body" id="dd-body"></div>
+</div>
 </div>
 </body>
 </html>
