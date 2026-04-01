@@ -282,8 +282,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div class="logo">Earth<em>keeper</em></div>
   </div>
   <div class="hstats" id="hstats-main">
-    <div><strong id="s-total">—</strong>locations</div>
-    <div><strong id="s-cleared">0</strong>cleared</div>
+    <div><strong id="s-total">—</strong><span id="s-label-total">locations</span></div>
+    <div><strong id="s-cleared">0</strong><span id="s-label-cleared">cleared</span></div>
     <div><strong id="s-pct">0%</strong>done</div>
   </div>
 
@@ -1174,6 +1174,25 @@ function toggleTool(tool,el){
   }
   refreshMapData();renderList()
 }
+function updateGroupsStats(){
+  // Count districts that have at least one group clearing
+  const totalDistricts=Object.keys(districtMap).length
+  const clearedDistricts=Object.keys(districtMap).filter(code=>{
+    return [...groupTypes].some(gt=>groupProgress[code+':'+gt])
+  }).length
+  // Count all locations in visible districts
+  const allGroupLocs=Object.values(districtMap).flatMap(d=>[
+    ...(groupTypes.has('school')?d.schools:[]),
+    ...(groupTypes.has('gp')?d.gps:[])
+  ])
+  const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
+  const pct=totalDistricts?Math.round(clearedDistricts/totalDistricts*100):0
+  document.getElementById('s-total').textContent=clearedDistricts+'/'+totalDistricts
+  document.getElementById('s-cleared').textContent=clearedLocs.toLocaleString()
+  document.getElementById('s-pct').textContent=pct+'%'
+  document.getElementById('s-label-total').textContent='districts cleared'
+  document.getElementById('s-label-cleared').textContent='locations cleared'
+}
 function updateStats(){
   const visLocs=locations.filter(l=>placesFilter[l.type])
   const total=visLocs.length,cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
@@ -1281,6 +1300,12 @@ function switchTab(name,btn){
   btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
   const inGroups=name==='groups'
   const inLog=name==='log'
+  // Swap header stat labels based on tab
+  if(inGroups){setTimeout(updateGroupsStats,50)}
+  else if(!inLog){
+    document.getElementById('s-label-total').textContent='locations'
+    document.getElementById('s-label-cleared').textContent='cleared'
+  }
   if(inLog){
     // Log tab: show all cleared locations across all types
     logSavedPlaces={...placesFilter}
