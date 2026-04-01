@@ -170,6 +170,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .mobile-inner-stats{display:none;padding:5px 11px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;background:rgba(8,22,13,.6);border-bottom:1px solid rgba(201,168,76,.1);flex-shrink:0}
 .mobile-inner-stats strong{font-weight:600;color:#E8D5A0;font-size:12px}
 .mobile-inner-stats .ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
+.tool-select-inline{background:rgba(13,36,22,.9);color:#C9A84C;border:1px solid rgba(201,168,76,.35);border-radius:16px;padding:3px 22px 3px 9px;font-size:10px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4'%3E%3Cpath d='M0 0l3.5 4 3.5-4z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;background-color:rgba(13,36,22,.9);max-width:140px;display:none}
+.tool-select-inline option{background:#0a1c11;color:#E8D5A0}
 .tool-select-dropdown{width:100%;background:#0a1c11;color:#E8D5A0;border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:7px 10px;font-size:13px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
 #tool-select-row{display:none}
 .mobile-stats-bar{display:none;background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
@@ -183,12 +185,13 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .header-seal{width:32px;height:32px}
   .logo{font-size:18px}
   .hstats{display:none!important}
-  .map-home-btn{top:125px!important}
+  .map-home-btn{top:121px!important}
   .mobile-inner-stats{display:flex!important}
-  /* Show frow on mobile: hide chips, show select */
+  /* Show frow on mobile: hide chips, show inline select */
   #tool-filter-row{display:none!important}
+  #tool-select-row{display:none!important}
   .chip.show-tool,.chip-divider,.tool-key{display:none!important}
-  #tool-select-row{display:flex!important}
+  #tool-select-inline{display:inline-block!important}
   /* Hide regions on mobile */
   .rsel{display:none!important}
   /* Stats bar inside panel, after show frow */
@@ -1596,6 +1599,12 @@ function openFromLog(id){
 
 let sbOpen=true
 function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'<':'>';setTimeout(()=>map&&map.resize(),320)}
+function pushDistrictDataNow(){
+  if(!mapReady||!map.getSource('districts-src'))return
+  const geojson={type:'FeatureCollection',features:districts}
+  map.getSource('districts-src').setData(geojson)
+  updateDistrictStates()
+}
 function switchTab(name,btn){
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
@@ -1641,7 +1650,7 @@ function switchTab(name,btn){
     }
   }
   applyLayerVisibility(20)
-  if(mapReady)setTimeout(()=>map.resize(),50)
+  if(mapReady)setTimeout(()=>{map.resize();if(inGroups&&districts.length)pushDistrictDataNow()},100)
   const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
   if(pgS)pgS.style.display=inGroups?'flex':'none'
   if(pgGp)pgGp.style.display=inGroups?'flex':'none'
