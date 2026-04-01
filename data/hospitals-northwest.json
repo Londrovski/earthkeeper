@@ -1,1 +1,1973 @@
-[{"id":"hosp-airedale_general_hospital","type":"hospital","name":"Airedale General Hospital","address":"Keighley","postcode":"BD20 6TD","lat":53.9005,"lng":-1.9296,"independent":false},{"id":"hosp-aintree_university_hospita","type":"hospital","name":"Aintree University Hospital","address":"Liverpool","postcode":"L9 7AL","lat":53.4685,"lng":-2.9515,"independent":false},{"id":"hosp-alder_hey_childrens_hospit","type":"hospital","name":"Alder Hey Children's Hospital","address":"Liverpool","postcode":"L12 2AP","lat":53.4207,"lng":-2.8985,"independent":false},{"id":"hosp-arrowe_park_hospital","type":"hospital","name":"Arrowe Park Hospital","address":"Wirral","postcode":"CH49 5PE","lat":53.3673,"lng":-3.0816,"independent":false},{"id":"hosp-blackpool_victoria_hospita","type":"hospital","name":"Blackpool Victoria Hospital","address":"Blackpool","postcode":"FY3 8NR","lat":53.8262,"lng":-3.0485,"independent":false},{"id":"hosp-burnley_general_teaching_h","type":"hospital","name":"Burnley General Teaching Hospital","address":"Burnley","postcode":"BB10 2PQ","lat":53.7866,"lng":-2.2366,"independent":false},{"id":"hosp-chorley_and_south_ribble_h","type":"hospital","name":"Chorley and South Ribble Hospital","address":"Chorley","postcode":"PR7 1PP","lat":53.6513,"lng":-2.6259,"independent":false},{"id":"hosp-christie_hospital","type":"hospital","name":"Christie Hospital","address":"Manchester","postcode":"M20 4BX","lat":53.4406,"lng":-2.2333,"independent":false},{"id":"hosp-clatterbridge_cancer_centr","type":"hospital","name":"Clatterbridge Cancer Centre","address":"Wirral","postcode":"CH63 4JY","lat":53.3673,"lng":-3.0816,"independent":false},{"id":"hosp-countess_of_chester_hospit","type":"hospital","name":"Countess of Chester Hospital","address":"Chester","postcode":"CH2 1UL","lat":53.1872,"lng":-2.9121,"independent":false},{"id":"hosp-fairfield_general_hospital","type":"hospital","name":"Fairfield General Hospital","address":"Bury","postcode":"BL9 7TD","lat":53.5884,"lng":-2.2985,"independent":false},{"id":"hosp-leighton_hospital","type":"hospital","name":"Leighton Hospital","address":"Crewe","postcode":"CW1 4QJ","lat":53.0876,"lng":-2.4424,"independent":false},{"id":"hosp-liverpool_heart_and_chest_","type":"hospital","name":"Liverpool Heart and Chest Hospital","address":"Liverpool","postcode":"L14 3PE","lat":53.4191,"lng":-2.9283,"independent":false},{"id":"hosp-liverpool_womens_hospital","type":"hospital","name":"Liverpool Women's Hospital","address":"Liverpool","postcode":"L8 7SS","lat":53.3964,"lng":-2.9685,"independent":false},{"id":"hosp-manchester_royal_infirmary","type":"hospital","name":"Manchester Royal Infirmary","address":"Manchester","postcode":"M13 9WL","lat":53.4631,"lng":-2.2303,"independent":false},{"id":"hosp-north_manchester_general_h","type":"hospital","name":"North Manchester General Hospital","address":"Manchester","postcode":"M8 5RB","lat":53.5131,"lng":-2.217,"independent":false},{"id":"hosp-ormskirk_district_general_","type":"hospital","name":"Ormskirk District General Hospital","address":"Ormskirk","postcode":"L39 2AZ","lat":53.5713,"lng":-2.8856,"independent":false},{"id":"hosp-royal_blackburn_teaching_h","type":"hospital","name":"Royal Blackburn Teaching Hospital","address":"Blackburn","postcode":"BB2 3HH","lat":53.7498,"lng":-2.4731,"independent":false},{"id":"hosp-royal_bolton_hospital","type":"hospital","name":"Royal Bolton Hospital","address":"Bolton","postcode":"BL4 0JR","lat":53.5666,"lng":-2.4218,"independent":false},{"id":"hosp-royal_lancaster_infirmary","type":"hospital","name":"Royal Lancaster Infirmary","address":"Lancaster","postcode":"LA1 4RP","lat":54.0484,"lng":-2.8075,"independent":false},{"id":"hosp-royal_liverpool_university","type":"hospital","name":"Royal Liverpool University Hospital","address":"Liverpool","postcode":"L7 8XP","lat":53.4069,"lng":-2.9735,"independent":false},{"id":"hosp-royal_manchester_childrens","type":"hospital","name":"Royal Manchester Children's Hospital","address":"Manchester","postcode":"M13 9WL","lat":53.4631,"lng":-2.2303,"independent":false},{"id":"hosp-royal_oldham_hospital","type":"hospital","name":"Royal Oldham Hospital","address":"Oldham","postcode":"OL1 2JH","lat":53.5405,"lng":-2.1001,"independent":false},{"id":"hosp-royal_preston_hospital","type":"hospital","name":"Royal Preston Hospital","address":"Preston","postcode":"PR2 9HT","lat":53.7626,"lng":-2.6978,"independent":false},{"id":"hosp-salford_royal_hospital","type":"hospital","name":"Salford Royal Hospital","address":"Salford","postcode":"M6 8HD","lat":53.4892,"lng":-2.3386,"independent":false},{"id":"hosp-southport_and_formby_distr","type":"hospital","name":"Southport and Formby District General Hospital","address":"Southport","postcode":"PR8 6PN","lat":53.6455,"lng":-3.0084,"independent":false},{"id":"hosp-spire_cheshire_hospital","type":"hospital","name":"Spire Cheshire Hospital","address":"Warrington","postcode":"WA4 4LU","lat":53.3924,"lng":-2.6113,"independent":true},{"id":"hosp-st_helens_hospital","type":"hospital","name":"St Helens Hospital","address":"St Helens","postcode":"WA9 3DA","lat":53.4464,"lng":-2.7282,"independent":false},{"id":"hosp-stepping_hill_hospital","type":"hospital","name":"Stepping Hill Hospital","address":"Stockport","postcode":"SK2 7JE","lat":53.3891,"lng":-2.1486,"independent":false},{"id":"hosp-tameside_general_hospital","type":"hospital","name":"Tameside General Hospital","address":"Ashton-under-Lyne","postcode":"OL6 9RW","lat":53.482,"lng":-2.0784,"independent":false},{"id":"hosp-walton_centre","type":"hospital","name":"Walton Centre","address":"Liverpool","postcode":"L9 7LJ","lat":53.4229,"lng":-2.8951,"independent":false},{"id":"hosp-warrington_hospital","type":"hospital","name":"Warrington Hospital","address":"Warrington","postcode":"WA5 1QG","lat":53.3932,"lng":-2.5999,"independent":false},{"id":"hosp-whiston_hospital","type":"hospital","name":"Whiston Hospital","address":"Prescot","postcode":"L35 5DR","lat":53.4141,"lng":-2.7696,"independent":false},{"id":"hosp-wythenshawe_hospital","type":"hospital","name":"Wythenshawe Hospital","address":"Manchester","postcode":"M23 9LT","lat":53.3904,"lng":-2.2862,"independent":false}]
+[
+  {
+    "id": "hosp-clatterbridge_cancer_hospital",
+    "type": "hospital",
+    "name": "Clatterbridge Cancer Hospital",
+    "address": "Private Clinic - Level 1, Liverpool",
+    "postcode": "L7 8YA",
+    "lat": 53.408703,
+    "lng": -2.965031
+  },
+  {
+    "id": "hosp-community_health_and_eyecare_limited_and_head_office_chec_preston",
+    "type": "hospital",
+    "name": "Community Health and Eyecare Limited and Head Office (CHEC -  Preston)",
+    "address": "Star Building, Preston",
+    "postcode": "PR2 9WT",
+    "lat": 53.79793,
+    "lng": -2.689749
+  },
+  {
+    "id": "hosp-first_trust_hospital",
+    "type": "hospital",
+    "name": "First Trust Hospital",
+    "address": "Durton Lane, Preston",
+    "postcode": "PR3 5LD",
+    "lat": 53.803028,
+    "lng": -2.711105
+  },
+  {
+    "id": "hosp-manchester_institute_of_health_and_performance",
+    "type": "hospital",
+    "name": "Manchester Institute of Health and Performance",
+    "address": "299 Alan Turing Way, Manchester",
+    "postcode": "M11 3BS",
+    "lat": 53.477957,
+    "lng": -2.192324
+  },
+  {
+    "id": "hosp-aces_bridgewater_hospital",
+    "type": "hospital",
+    "name": "ACES Bridgewater Hospital",
+    "address": "Bridgewater Wellness Clinic,, Manchester",
+    "postcode": "M15 5AT",
+    "lat": 53.459757,
+    "lng": -2.245482
+  },
+  {
+    "id": "hosp-spamedica_kendal",
+    "type": "hospital",
+    "name": "SpaMedica Kendal",
+    "address": "Groundfloor, Juniper House, Kendal",
+    "postcode": "LA9 7RL",
+    "lat": 54.311117,
+    "lng": -2.735475
+  },
+  {
+    "id": "hosp-furness_renal_centre",
+    "type": "hospital",
+    "name": "Furness Renal Centre",
+    "address": "Sandside Road, Ulverston",
+    "postcode": "LA12 9EF",
+    "lat": 54.189242,
+    "lng": -3.068443
+  },
+  {
+    "id": "hosp-buckshaw_hospital",
+    "type": "hospital",
+    "name": "Buckshaw Hospital",
+    "address": "Eaton Avenue, Chorley",
+    "postcode": "PR7 7NA",
+    "lat": 53.686719,
+    "lng": -2.672574
+  },
+  {
+    "id": "hosp-nuffield_health_the_grosvenor_hospital_chester",
+    "type": "hospital",
+    "name": "Nuffield Health The Grosvenor Hospital Chester",
+    "address": "Wrexham Road, Chester",
+    "postcode": "CH4 7QP",
+    "lat": 53.176358,
+    "lng": -2.895263
+  },
+  {
+    "id": "hosp-precision_medical_clinic",
+    "type": "hospital",
+    "name": "Precision Medical Clinic",
+    "address": "Fence House, Macclesfield",
+    "postcode": "SK10 1JS",
+    "lat": 53.259379,
+    "lng": -2.118666
+  },
+  {
+    "id": "hosp-ultralase_eye_clinics_limited_liverpool",
+    "type": "hospital",
+    "name": "Ultralase Eye Clinics Limited - Liverpool",
+    "address": "Tower Building, Liverpool",
+    "postcode": "L3 1QA",
+    "lat": 53.406199,
+    "lng": -2.994127
+  },
+  {
+    "id": "hosp-john_sagar_renal_centre",
+    "type": "hospital",
+    "name": "John Sagar Renal Centre",
+    "address": "Unit A, Burnley",
+    "postcode": "BB10 1WB",
+    "lat": 53.805481,
+    "lng": -2.230374
+  },
+  {
+    "id": "hosp-east_cheshire_nhs_dialysis_unit",
+    "type": "hospital",
+    "name": "East Cheshire NHS Dialysis Unit",
+    "address": "Macclesfield District General Hospital, Macclesfield",
+    "postcode": "SK10 3BL",
+    "lat": 53.262339,
+    "lng": -2.141072
+  },
+  {
+    "id": "hosp-greater_lancashire_hospital",
+    "type": "hospital",
+    "name": "Greater Lancashire Hospital",
+    "address": "Millennium City Park, Preston",
+    "postcode": "PR2 5BW",
+    "lat": 53.786444,
+    "lng": -2.647806
+  },
+  {
+    "id": "hosp-crosby_hospital",
+    "type": "hospital",
+    "name": "Crosby Hospital",
+    "address": "2 Park Road, Liverpool",
+    "postcode": "L22 3XF",
+    "lat": 53.478727,
+    "lng": -3.021075
+  },
+  {
+    "id": "hosp-spamedica_oldham",
+    "type": "hospital",
+    "name": "SpaMedica Oldham",
+    "address": "First Floor, Churchill House/Oldham Kidney Care Centre, Oldham",
+    "postcode": "OL1 2PD",
+    "lat": 53.554495,
+    "lng": -2.122315
+  },
+  {
+    "id": "hosp-euxton_hall_hospital",
+    "type": "hospital",
+    "name": "Euxton Hall Hospital",
+    "address": "Wigan Road, Chorley",
+    "postcode": "PR7 6DY",
+    "lat": 53.660964,
+    "lng": -2.676311
+  },
+  {
+    "id": "hosp-fulwood_hall_hospital",
+    "type": "hospital",
+    "name": "Fulwood Hall Hospital",
+    "address": "Midgery Lane, Preston",
+    "postcode": "PR2 9SZ",
+    "lat": 53.786333,
+    "lng": -2.684033
+  },
+  {
+    "id": "hosp-oaklands_hospital",
+    "type": "hospital",
+    "name": "Oaklands Hospital",
+    "address": "19 Lancaster Road, Salford",
+    "postcode": "M6 8AQ",
+    "lat": 53.492314,
+    "lng": -2.321063
+  },
+  {
+    "id": "hosp-renacres_hospital",
+    "type": "hospital",
+    "name": "Renacres Hospital",
+    "address": "Renacres Lane, Ormskirk",
+    "postcode": "L39 8SE",
+    "lat": 53.600143,
+    "lng": -2.950696
+  },
+  {
+    "id": "hosp-the_beardwood_hospital",
+    "type": "hospital",
+    "name": "The Beardwood Hospital",
+    "address": "Preston New Road, Blackburn",
+    "postcode": "BB2 7AE",
+    "lat": 53.755053,
+    "lng": -2.513175
+  },
+  {
+    "id": "hosp-the_beaumont_hospital",
+    "type": "hospital",
+    "name": "The Beaumont Hospital",
+    "address": "Old Hall Clough, Lostock Bolton",
+    "postcode": "BL6 4LA",
+    "lat": 53.579834,
+    "lng": -2.499118
+  },
+  {
+    "id": "hosp-the_alexandra_hospital",
+    "type": "hospital",
+    "name": "The Alexandra Hospital",
+    "address": "Mill Lane, Cheadle",
+    "postcode": "SK8 2PX",
+    "lat": 53.397281,
+    "lng": -2.215827
+  },
+  {
+    "id": "hosp-the_highfield_hospital",
+    "type": "hospital",
+    "name": "The Highfield Hospital",
+    "address": "Manchester Road, Rochdale",
+    "postcode": "OL11 4LZ",
+    "lat": 53.606519,
+    "lng": -2.167503
+  },
+  {
+    "id": "hosp-lancaster_private_hospital",
+    "type": "hospital",
+    "name": "Lancaster Private Hospital",
+    "address": "Meadowside, Lancaster",
+    "postcode": "LA1 3RH",
+    "lat": 54.043202,
+    "lng": -2.795404
+  },
+  {
+    "id": "hosp-bpas_merseyside",
+    "type": "hospital",
+    "name": "BPAS - Merseyside",
+    "address": "32 Parkfield Road, Liverpool",
+    "postcode": "L17 8UJ",
+    "lat": 53.381706,
+    "lng": -2.949792
+  },
+  {
+    "id": "hosp-spire_cheshire_hospital",
+    "type": "hospital",
+    "name": "Spire Cheshire Hospital",
+    "address": "Fir Tree Close, Warrington",
+    "postcode": "WA4 4LU",
+    "lat": 53.337486,
+    "lng": -2.576343
+  },
+  {
+    "id": "hosp-spire_murrayfield_hospital",
+    "type": "hospital",
+    "name": "Spire Murrayfield Hospital",
+    "address": "Holmwood Drive, Wirral",
+    "postcode": "CH61 1AU",
+    "lat": 53.349288,
+    "lng": -3.080113
+  },
+  {
+    "id": "hosp-msi_reproductive_choices_regional_treatment_centre_manchester",
+    "type": "hospital",
+    "name": "MSI Reproductive Choices Regional Treatment Centre - Manchester",
+    "address": "5 Wynnstay Grove, Manchester",
+    "postcode": "M14 6XG",
+    "lat": 53.440848,
+    "lng": -2.220805
+  },
+  {
+    "id": "hosp-lakeland_vision_ltd",
+    "type": "hospital",
+    "name": "Lakeland Vision Ltd",
+    "address": "1, Hobson Court, Penrith",
+    "postcode": "CA11 9GQ",
+    "lat": 54.655993,
+    "lng": -2.760854
+  },
+  {
+    "id": "hosp-optimax_laser_eye_clinics_manchester",
+    "type": "hospital",
+    "name": "Optimax Laser Eye Clinics - Manchester",
+    "address": "1 Albert Square, Manchester",
+    "postcode": "M2 3FU",
+    "lat": 53.480142,
+    "lng": -2.245524
+  },
+  {
+    "id": "hosp-laurie_solomon_renal_centre",
+    "type": "hospital",
+    "name": "Laurie Solomon Renal Centre",
+    "address": "Old Bank Lane, Blackburn",
+    "postcode": "BB1 2PW",
+    "lat": 53.736816,
+    "lng": -2.455543
+  },
+  {
+    "id": "hosp-hca_healthcare_uk_the_wilmslow_hospital",
+    "type": "hospital",
+    "name": "HCA Healthcare UK The Wilmslow Hospital",
+    "address": "52 - 54 Alderley Road, Wilmslow",
+    "postcode": "SK9 1NY",
+    "lat": 53.324671,
+    "lng": -2.234827
+  },
+  {
+    "id": "hosp-community_health_and_eyecare_limited_chec_accrington",
+    "type": "hospital",
+    "name": "Community Health and Eyecare Limited (CHEC - Accrington)",
+    "address": "Castle House, Accrington",
+    "postcode": "BB5 6AA",
+    "lat": 53.755682,
+    "lng": -2.366159
+  },
+  {
+    "id": "hosp-pines_hospital",
+    "type": "hospital",
+    "name": "Pines Hospital",
+    "address": "192 Altrincham Road, Manchester",
+    "postcode": "M22 4RZ",
+    "lat": 53.393882,
+    "lng": -2.252759
+  },
+  {
+    "id": "hosp-spamedica_chester",
+    "type": "hospital",
+    "name": "SpaMedica Chester",
+    "address": "Part First Floor, Chester",
+    "postcode": "CH4 9QS",
+    "lat": 53.161261,
+    "lng": -2.90642
+  },
+  {
+    "id": "hosp-cheshire_cosmetic_surgery",
+    "type": "hospital",
+    "name": "Cheshire Cosmetic Surgery",
+    "address": "Wrexham Road, Chester",
+    "postcode": "CH4 9DE",
+    "lat": 53.161785,
+    "lng": -2.910769
+  },
+  {
+    "id": "hosp-isight_limited",
+    "type": "hospital",
+    "name": "iSight Limited",
+    "address": "Drayton House, Southport",
+    "postcode": "PR8 2AT",
+    "lat": 53.640167,
+    "lng": -3.017619
+  },
+  {
+    "id": "hosp-centre_for_reproductive_health",
+    "type": "hospital",
+    "name": "Centre for Reproductive Health",
+    "address": "Red Brow Lane, Warrington",
+    "postcode": "WA4 4GE",
+    "lat": 53.332053,
+    "lng": -2.642147
+  },
+  {
+    "id": "hosp-spamedica_blackpool",
+    "type": "hospital",
+    "name": "SpaMedica Blackpool",
+    "address": "Barons Gate, Blackpool",
+    "postcode": "FY4 5PW",
+    "lat": 53.786592,
+    "lng": -2.989209
+  },
+  {
+    "id": "hosp-visualase_laser_eye_clinic",
+    "type": "hospital",
+    "name": "Visualase Laser Eye Clinic",
+    "address": "140 Newport Street, Bolton",
+    "postcode": "BL3 6AB",
+    "lat": 53.574778,
+    "lng": -2.428215
+  },
+  {
+    "id": "hosp-nupas_manchester",
+    "type": "hospital",
+    "name": "NUPAS Manchester",
+    "address": "79 Newton Street, Manchester",
+    "postcode": "M1 1EX",
+    "lat": 53.482947,
+    "lng": -2.231932
+  },
+  {
+    "id": "hosp-community_health_and_eyecare_limited_chec_stockport",
+    "type": "hospital",
+    "name": "Community Health and Eyecare Limited (CHEC - Stockport)",
+    "address": "2 Stockport Exchange, Stockport",
+    "postcode": "SK1 3SW",
+    "lat": 53.405852,
+    "lng": -2.161734
+  },
+  {
+    "id": "hosp-spamedica_manchester",
+    "type": "hospital",
+    "name": "SpaMedica Manchester",
+    "address": "City Gate Central, Manchester",
+    "postcode": "M15 4SQ",
+    "lat": 53.472755,
+    "lng": -2.258137
+  },
+  {
+    "id": "hosp-lancaster_house_community_healthcare_diagnostics",
+    "type": "hospital",
+    "name": "Lancaster House Community Healthcare & Diagnostics",
+    "address": "15 Market Street, Oldham",
+    "postcode": "OL2 5QA",
+    "lat": 53.565747,
+    "lng": -2.123858
+  },
+  {
+    "id": "hosp-rochdale_dialysis_unit",
+    "type": "hospital",
+    "name": "Rochdale Dialysis Unit",
+    "address": "Whitehall Street, Rochdale",
+    "postcode": "OL12 0NB",
+    "lat": 53.623409,
+    "lng": -2.15992
+  },
+  {
+    "id": "hosp-trafford_hospital",
+    "type": "hospital",
+    "name": "Trafford Hospital",
+    "address": "Trafford Hospital, Manchester",
+    "postcode": "M41 5SL",
+    "lat": 53.454076,
+    "lng": -2.37068
+  },
+  {
+    "id": "hosp-spamedica_wirral",
+    "type": "hospital",
+    "name": "SpaMedica Wirral",
+    "address": "St Catherines Hospital, Birkenhead",
+    "postcode": "CH42 0LQ",
+    "lat": 53.380046,
+    "lng": -3.026531
+  },
+  {
+    "id": "hosp-community_health_and_eyecare_warrington",
+    "type": "hospital",
+    "name": "Community Health and Eyecare Warrington",
+    "address": "Phoenix House, Warrington",
+    "postcode": "WA1 1RX",
+    "lat": 53.37969,
+    "lng": -2.596156
+  },
+  {
+    "id": "hosp-spamedica_haydock",
+    "type": "hospital",
+    "name": "SpaMedica Haydock",
+    "address": "Unit 2, The Parks, Newton-le-willows",
+    "postcode": "WA12 0JQ",
+    "lat": 53.479795,
+    "lng": -2.639795
+  },
+  {
+    "id": "hosp-chec_trafford_park",
+    "type": "hospital",
+    "name": "CHEC - Trafford Park",
+    "address": "1 Old Park Lane, Manchester",
+    "postcode": "M41 7HA",
+    "lat": 53.468576,
+    "lng": -2.355606
+  },
+  {
+    "id": "hosp-nupas_bolton",
+    "type": "hospital",
+    "name": "NUPAS Bolton",
+    "address": "2nd Floor, 501 Crompton Way, Bolton",
+    "postcode": "BL1 8UP",
+    "lat": 53.597502,
+    "lng": -2.415224
+  },
+  {
+    "id": "hosp-optegra_preston",
+    "type": "hospital",
+    "name": "Optegra Preston",
+    "address": "175-177 Station Road, Preston",
+    "postcode": "PR5 6LA",
+    "lat": 53.730626,
+    "lng": -2.661225
+  },
+  {
+    "id": "hosp-spamedica_carlisle",
+    "type": "hospital",
+    "name": "SpaMedica Carlisle",
+    "address": "Minerva House, Carlisle",
+    "postcode": "CA2 7AF",
+    "lat": 54.896817,
+    "lng": -2.953437
+  },
+  {
+    "id": "hosp-aces_liverpool_hospital",
+    "type": "hospital",
+    "name": "ACES Liverpool Hospital",
+    "address": "1st Floor, Exchange Station, Liverpool",
+    "postcode": "L2 2QP",
+    "lat": 53.409534,
+    "lng": -2.99088
+  },
+  {
+    "id": "hosp-optical_express_liverpool_hospital",
+    "type": "hospital",
+    "name": "Optical Express \u0096 Liverpool Hospital",
+    "address": "1st Floor, Exchange Station, Liverpool",
+    "postcode": "L2 2QP",
+    "lat": 53.409534,
+    "lng": -2.99088
+  },
+  {
+    "id": "hosp-south_manchester_private_clinic",
+    "type": "hospital",
+    "name": "South Manchester Private Clinic",
+    "address": "136 Chester Road, Stockport",
+    "postcode": "SK7 6HE",
+    "lat": 53.370275,
+    "lng": -2.124688
+  },
+  {
+    "id": "hosp-newmedica_community_ophthalmology_service",
+    "type": "hospital",
+    "name": "Newmedica Community Ophthalmology Service",
+    "address": "Unit 27, Manchester",
+    "postcode": "M32 0QY",
+    "lat": 53.460533,
+    "lng": -2.323264
+  },
+  {
+    "id": "hosp-spamedica_sale",
+    "type": "hospital",
+    "name": "SpaMedica Sale",
+    "address": "Part Ground Floor (West Area 2), One Dovecote, Sale",
+    "postcode": "M33 2GZ",
+    "lat": 53.423522,
+    "lng": -2.293971
+  },
+  {
+    "id": "hosp-optegra_manchester_eye_hospital",
+    "type": "hospital",
+    "name": "Optegra Manchester Eye Hospital",
+    "address": "The Boulevard, Didsbury",
+    "postcode": "M20 2EU",
+    "lat": 53.430205,
+    "lng": -2.248398
+  },
+  {
+    "id": "hosp-signature_clinic_liverpool",
+    "type": "hospital",
+    "name": "Signature Clinic- Liverpool",
+    "address": "20 Knight Street, Liverpool",
+    "postcode": "L1 9DS",
+    "lat": 53.400316,
+    "lng": -2.975114
+  },
+  {
+    "id": "hosp-newmedica_community_ophthalmology_service",
+    "type": "hospital",
+    "name": "Newmedica Community Ophthalmology Service",
+    "address": "Unit 3-4, The Oaks Office Park, Chester",
+    "postcode": "CH2 4HY",
+    "lat": 53.264246,
+    "lng": -2.874487
+  },
+  {
+    "id": "hosp-fairfield_independent_hospital",
+    "type": "hospital",
+    "name": "Fairfield Independent Hospital",
+    "address": "Crank Road, St. Helens",
+    "postcode": "WA11 7RS",
+    "lat": 53.484565,
+    "lng": -2.750074
+  },
+  {
+    "id": "hosp-holes_lane_surgery",
+    "type": "hospital",
+    "name": "Holes Lane Surgery",
+    "address": "28 Holes Lane, Warrington",
+    "postcode": "WA1 4NE",
+    "lat": 53.399844,
+    "lng": -2.545137
+  },
+  {
+    "id": "hosp-chec_macclesfield",
+    "type": "hospital",
+    "name": "CHEC - Macclesfield",
+    "address": "Silkworks, Pickford Street, Macclesfield",
+    "postcode": "SK11 6HB",
+    "lat": 53.25754,
+    "lng": -2.123878
+  },
+  {
+    "id": "hosp-wimpole_clinic_manchester",
+    "type": "hospital",
+    "name": "Wimpole Clinic (Manchester)",
+    "address": "Progress House, Manchester",
+    "postcode": "M20 3BN",
+    "lat": 53.43601,
+    "lng": -2.226289
+  },
+  {
+    "id": "hosp-circle_cheshire_clinic",
+    "type": "hospital",
+    "name": "Circle Cheshire Clinic",
+    "address": "The Courtyard, Northwich",
+    "postcode": "CW9 6DG",
+    "lat": 53.27491,
+    "lng": -2.473303
+  },
+  {
+    "id": "hosp-regency_eye_hospital",
+    "type": "hospital",
+    "name": "Regency Eye Hospital",
+    "address": "2 Gibwood Road, Manchester",
+    "postcode": "M22 4BT",
+    "lat": 53.4056,
+    "lng": -2.266592
+  },
+  {
+    "id": "hosp-bridgewater_hospital",
+    "type": "hospital",
+    "name": "Bridgewater Hospital",
+    "address": "120 Princess Road, Manchester",
+    "postcode": "M15 5AT",
+    "lat": 53.459757,
+    "lng": -2.245482
+  },
+  {
+    "id": "hosp-monarch_medical_group_ltd",
+    "type": "hospital",
+    "name": "Monarch Medical Group Ltd",
+    "address": "10 City Road, Chester",
+    "postcode": "CH1 3AE",
+    "lat": 53.193442,
+    "lng": -2.881385
+  },
+  {
+    "id": "hosp-parkway",
+    "type": "hospital",
+    "name": "Parkway",
+    "address": "Parkway House, Manchester",
+    "postcode": "M22 4DB",
+    "lat": 53.406329,
+    "lng": -2.262369
+  },
+  {
+    "id": "hosp-hadley_clinic",
+    "type": "hospital",
+    "name": "Hadley Clinic",
+    "address": "The Hadley Clinic, Manchester",
+    "postcode": "M3 3BN",
+    "lat": 53.48071,
+    "lng": -2.249113
+  },
+  {
+    "id": "hosp-electiva_hospitals_manchester",
+    "type": "hospital",
+    "name": "Electiva Hospitals Manchester",
+    "address": "192 Altrincham Road, Manchester",
+    "postcode": "M22 4RZ",
+    "lat": 53.393882,
+    "lng": -2.252759
+  },
+  {
+    "id": "hosp-clifton_dialysis_unit",
+    "type": "hospital",
+    "name": "Clifton Dialysis Unit",
+    "address": "Clifton Hospital, Lytham St. Annes",
+    "postcode": "FY8 1PB",
+    "lat": 53.744359,
+    "lng": -3.007247
+  },
+  {
+    "id": "hosp-the_cheshire_hand_clinic",
+    "type": "hospital",
+    "name": "The Cheshire Hand Clinic",
+    "address": "Unit 6, Warrington",
+    "postcode": "WA2 0YL",
+    "lat": 53.411925,
+    "lng": -2.537274
+  },
+  {
+    "id": "hosp-the_whiteley_clinic_manchester",
+    "type": "hospital",
+    "name": "The Whiteley Clinic Manchester",
+    "address": "1 Albert Square, Manchester",
+    "postcode": "M2 3FU",
+    "lat": 53.480142,
+    "lng": -2.245524
+  },
+  {
+    "id": "hosp-ukskin_manchester",
+    "type": "hospital",
+    "name": "UKSKIN Manchester",
+    "address": "317 Hale Road, Altrincham",
+    "postcode": "WA15 8SS",
+    "lat": 53.369495,
+    "lng": -2.313705
+  },
+  {
+    "id": "hosp-first_trust_hospital",
+    "type": "hospital",
+    "name": "First Trust Hospital",
+    "address": "Durton Lane, Preston",
+    "postcode": "PR3 5LD",
+    "lat": 53.803028,
+    "lng": -2.711105
+  },
+  {
+    "id": "hosp-spamedica_skelmersdale",
+    "type": "hospital",
+    "name": "SpaMedica Skelmersdale",
+    "address": "Unit B, Skelmersdale",
+    "postcode": "WN8 8AP",
+    "lat": 53.547192,
+    "lng": -2.800895
+  },
+  {
+    "id": "hosp-kelsall_surgical_centre",
+    "type": "hospital",
+    "name": "Kelsall Surgical Centre",
+    "address": "Church Street, Tarporley",
+    "postcode": "CW6 0QG",
+    "lat": 53.20686,
+    "lng": -2.712349
+  },
+  {
+    "id": "hosp-bollin_clinic",
+    "type": "hospital",
+    "name": "Bollin Clinic",
+    "address": "Spring Bank House, Altrincham",
+    "postcode": "WA14 1ES",
+    "lat": 53.389508,
+    "lng": -2.347745
+  },
+  {
+    "id": "hosp-centres_for_assisted_reproduction_ltd_care_manchester",
+    "type": "hospital",
+    "name": "Centres for Assisted Reproduction Ltd - CARE Manchester",
+    "address": "108-112 Daisy Bank Road, Manchester",
+    "postcode": "M14 5QH",
+    "lat": 53.458543,
+    "lng": -2.217764
+  },
+  {
+    "id": "hosp-spire_regency_hospital",
+    "type": "hospital",
+    "name": "Spire Regency Hospital",
+    "address": "West Street, Macclesfield",
+    "postcode": "SK11 8DW",
+    "lat": 53.26014,
+    "lng": -2.137812
+  },
+  {
+    "id": "hosp-spire_liverpool_hospital",
+    "type": "hospital",
+    "name": "Spire Liverpool Hospital",
+    "address": "57 Greenbank Road, Liverpool",
+    "postcode": "L18 1HQ",
+    "lat": 53.385287,
+    "lng": -2.924117
+  },
+  {
+    "id": "hosp-spire_fylde_coast_hospital",
+    "type": "hospital",
+    "name": "Spire Fylde Coast Hospital",
+    "address": "Fylde Coast Hospital, Blackpool",
+    "postcode": "FY3 8BP",
+    "lat": 53.826067,
+    "lng": -3.019581
+  },
+  {
+    "id": "hosp-spire_manchester_hospital",
+    "type": "hospital",
+    "name": "Spire Manchester Hospital",
+    "address": "170 Barlow Moor Road, Manchester",
+    "postcode": "M20 2AF",
+    "lat": 53.425952,
+    "lng": -2.253295
+  },
+  {
+    "id": "hosp-manchester_children_s_clinic",
+    "type": "hospital",
+    "name": "Manchester Children's Clinic",
+    "address": "155 Manchester Road, Manchester",
+    "postcode": "M27 4FH",
+    "lat": 53.506122,
+    "lng": -2.320474
+  },
+  {
+    "id": "hosp-hca_healthcare_uk_the_christie_private_care",
+    "type": "hospital",
+    "name": "HCA Healthcare UK The Christie Private Care",
+    "address": "The Christie NHS Foundation Trust, Manchester",
+    "postcode": "M20 4BX",
+    "lat": 53.429783,
+    "lng": -2.230124
+  },
+  {
+    "id": "hosp-spamedica_limited",
+    "type": "hospital",
+    "name": "SpaMedica Limited",
+    "address": "SpaMedica House, Bolton",
+    "postcode": "BL1 1HU",
+    "lat": 53.579828,
+    "lng": -2.426061
+  },
+  {
+    "id": "hosp-pall_mall_medical_centre",
+    "type": "hospital",
+    "name": "Pall Mall Medical Centre",
+    "address": "Pall Mall Court, Manchester",
+    "postcode": "M2 4PD",
+    "lat": 53.481082,
+    "lng": -2.243148
+  },
+  {
+    "id": "hosp-hca_healthcare_uk_the_christie_private_care_leaders_in_oncology_care",
+    "type": "hospital",
+    "name": "HCA Healthcare UK The Christie Private Care, Leaders in Oncology Care",
+    "address": "c/o the Christie Clinic, Manchester",
+    "postcode": "M20 4BX",
+    "lat": 53.429783,
+    "lng": -2.230124
+  },
+  {
+    "id": "hosp-the_clatterbridge_clinic",
+    "type": "hospital",
+    "name": "The Clatterbridge Clinic",
+    "address": "Clatterbridge Road, Wirral",
+    "postcode": "CH63 4JY",
+    "lat": 53.332283,
+    "lng": -3.025849
+  },
+  {
+    "id": "hosp-crewe_renal_dialysis_unit",
+    "type": "hospital",
+    "name": "Crewe Renal Dialysis Unit",
+    "address": "Leighton Hospital, Crewe",
+    "postcode": "CW1 4QJ",
+    "lat": 53.117701,
+    "lng": -2.475863
+  },
+  {
+    "id": "hosp-farjo_hair_institute",
+    "type": "hospital",
+    "name": "Farjo Hair Institute",
+    "address": "70 Quay Street, Manchester",
+    "postcode": "M3 3EJ",
+    "lat": 53.47911,
+    "lng": -2.253459
+  },
+  {
+    "id": "hosp-rejuvamed_skin_clinic_vein_centre_ltd",
+    "type": "hospital",
+    "name": "RejuvaMed Skin Clinic & Vein Centre Ltd",
+    "address": "Holmes Cottage, Clitheroe",
+    "postcode": "BB7 1BG",
+    "lat": 53.867524,
+    "lng": -2.395741
+  },
+  {
+    "id": "hosp-aset_hospital",
+    "type": "hospital",
+    "name": "ASET Hospital",
+    "address": "1 Sandstone Drive, Prescot",
+    "postcode": "L35 7LS",
+    "lat": 53.425437,
+    "lng": -2.779612
+  },
+  {
+    "id": "hosp-supportive_care_uk_ltd_head_office",
+    "type": "hospital",
+    "name": "Supportive Care (UK) Ltd Head Office",
+    "address": "Southgate Centre Two, Cheadle",
+    "postcode": "SK8 3PW",
+    "lat": 53.36091,
+    "lng": -2.217536
+  },
+  {
+    "id": "hosp-spamedica_widnes",
+    "type": "hospital",
+    "name": "SpaMedica Widnes",
+    "address": "Teal House, Widnes",
+    "postcode": "WA8 0RR",
+    "lat": 53.365996,
+    "lng": -2.71329
+  },
+  {
+    "id": "hosp-stockport_nhs_dialysis_unit",
+    "type": "hospital",
+    "name": "Stockport NHS Dialysis Unit",
+    "address": "2 Hollands Mill Road, Stockport",
+    "postcode": "SK3 8AL",
+    "lat": 53.401324,
+    "lng": -2.159732
+  },
+  {
+    "id": "hosp-impact_medical_limited",
+    "type": "hospital",
+    "name": "Impact Medical Limited",
+    "address": "Unit 7j, Liverpool",
+    "postcode": "L9 5AL",
+    "lat": 53.478984,
+    "lng": -2.950788
+  },
+  {
+    "id": "hosp-the_orthteam_centre_manchester",
+    "type": "hospital",
+    "name": "The OrthTeam Centre - Manchester",
+    "address": "Ohm Building (Unit 1), Didsbury Technology Park, Manchester",
+    "postcode": "M20 2AF",
+    "lat": 53.425952,
+    "lng": -2.253295
+  },
+  {
+    "id": "hosp-spamedica_preston",
+    "type": "hospital",
+    "name": "SpaMedica Preston",
+    "address": "Albert Edward House, Preston",
+    "postcode": "PR2 2YB",
+    "lat": 53.759726,
+    "lng": -2.72419
+  },
+  {
+    "id": "hosp-bpas_chester",
+    "type": "hospital",
+    "name": "BPAS - Chester",
+    "address": "Concert House, Chester",
+    "postcode": "CH1 4EJ",
+    "lat": 53.193803,
+    "lng": -2.895567
+  },
+  {
+    "id": "hosp-pall_mall_medical_diagnostic_treatment_centre",
+    "type": "hospital",
+    "name": "Pall Mall Medical Diagnostic Treatment Centre",
+    "address": "1 Belvedere Road, Newton Le Willows",
+    "postcode": "WA12 0JJ",
+    "lat": 53.457188,
+    "lng": -2.638385
+  },
+  {
+    "id": "hosp-community_health_and_eyecare_limited_chec_blackpool",
+    "type": "hospital",
+    "name": "Community Health and Eyecare Limited (CHEC - Blackpool)",
+    "address": "Progress House, Blackpool",
+    "postcode": "FY4 2DP",
+    "lat": 53.777146,
+    "lng": -3.035043
+  },
+  {
+    "id": "hosp-phoenix_public_health_at_telford_court",
+    "type": "hospital",
+    "name": "Phoenix Public Health at Telford Court",
+    "address": "17E Telford Court, Chester",
+    "postcode": "CH1 6LT",
+    "lat": 53.246752,
+    "lng": -2.932817
+  },
+  {
+    "id": "hosp-manchester_private_hospital",
+    "type": "hospital",
+    "name": "Manchester Private Hospital",
+    "address": "New Court, Salford",
+    "postcode": "M5 4HB",
+    "lat": 53.478992,
+    "lng": -2.278698
+  },
+  {
+    "id": "hosp-phoenix_private_health_at_telford_court",
+    "type": "hospital",
+    "name": "Phoenix Private Health at Telford Court",
+    "address": "Unit 17D, Telford Court, Chester",
+    "postcode": "CH1 6LT",
+    "lat": 53.246752,
+    "lng": -2.932817
+  },
+  {
+    "id": "hosp-thmg_manchester",
+    "type": "hospital",
+    "name": "THMG Manchester",
+    "address": "1 Albert Square, Manchester",
+    "postcode": "M2 3FU",
+    "lat": 53.480142,
+    "lng": -2.245524
+  },
+  {
+    "id": "hosp-signature_clinic_manchester",
+    "type": "hospital",
+    "name": "Signature Clinic - Manchester",
+    "address": "93A Manchester Road, Rochdale",
+    "postcode": "OL11 4JG",
+    "lat": 53.610576,
+    "lng": -2.164572
+  },
+  {
+    "id": "hosp-north_west_aesthetics",
+    "type": "hospital",
+    "name": "North West Aesthetics",
+    "address": "83 Mesnes Street, Wigan",
+    "postcode": "WN1 1QJ",
+    "lat": 53.550473,
+    "lng": -2.632711
+  },
+  {
+    "id": "hosp-spamedica_liverpool",
+    "type": "hospital",
+    "name": "SpaMedica Liverpool",
+    "address": "Ground Floor, Rathbone Building, Liverpool",
+    "postcode": "L7 9NN",
+    "lat": 53.408991,
+    "lng": -2.92979
+  },
+  {
+    "id": "hosp-medical_hair_restoration_clinic_manchester_limited",
+    "type": "hospital",
+    "name": "Medical Hair Restoration Clinic (Manchester) Limited",
+    "address": "Unit 2 The Barn, Cherry Tree Farm, Altrincham",
+    "postcode": "WA14 3RZ",
+    "lat": 53.36093,
+    "lng": -2.392484
+  },
+  {
+    "id": "hosp-royal_oldham_hospital_vascular_surgery",
+    "type": "hospital",
+    "name": "Royal Oldham Hospital (Vascular Surgery)",
+    "address": "Rochdale Road, Oldham",
+    "postcode": "OL1 2JH",
+    "lat": 53.553264,
+    "lng": -2.121829
+  },
+  {
+    "id": "hosp-manchester_royal_infirmary",
+    "type": "hospital",
+    "name": "Manchester Royal Infirmary",
+    "address": "Oxford Road, Manchester",
+    "postcode": "M13 9WL",
+    "lat": 53.462452,
+    "lng": -2.227709
+  },
+  {
+    "id": "hosp-royal_manchester_children_s_hospital",
+    "type": "hospital",
+    "name": "Royal Manchester Children's Hospital",
+    "address": "4 The Boulevard, Manchester",
+    "postcode": "M13 9WL",
+    "lat": 53.462452,
+    "lng": -2.227709
+  },
+  {
+    "id": "hosp-royal_manchester_eye_hospital",
+    "type": "hospital",
+    "name": "Royal Manchester Eye Hospital",
+    "address": "2 The Boulevard, Manchester",
+    "postcode": "M13 9WL",
+    "lat": 53.462452,
+    "lng": -2.227709
+  },
+  {
+    "id": "hosp-saint_mary_s_hospital",
+    "type": "hospital",
+    "name": "Saint Mary's Hospital",
+    "address": "3 The Boulevard, Manchester",
+    "postcode": "M13 9WL",
+    "lat": 53.462452,
+    "lng": -2.227709
+  },
+  {
+    "id": "hosp-dental_hospital_manchester",
+    "type": "hospital",
+    "name": "Dental Hospital Manchester",
+    "address": "University Dental Hospital Of Manchester, Manchester",
+    "postcode": "M15 6FH",
+    "lat": 53.465401,
+    "lng": -2.236703
+  },
+  {
+    "id": "hosp-wythenshawe_hospital",
+    "type": "hospital",
+    "name": "Wythenshawe Hospital",
+    "address": "Southmoor Road, Manchester",
+    "postcode": "M23 9LT",
+    "lat": 53.387938,
+    "lng": -2.293183
+  },
+  {
+    "id": "hosp-trafford_general_hospital",
+    "type": "hospital",
+    "name": "Trafford General Hospital",
+    "address": "Moorside Road, Manchester",
+    "postcode": "M41 5SL",
+    "lat": 53.454076,
+    "lng": -2.37068
+  },
+  {
+    "id": "hosp-altrincham_general_hospital",
+    "type": "hospital",
+    "name": "Altrincham General Hospital",
+    "address": "15 Railway Street, Altrincham",
+    "postcode": "WA14 2RQ",
+    "lat": 53.384778,
+    "lng": -2.35163
+  },
+  {
+    "id": "hosp-north_manchester_general_hospital",
+    "type": "hospital",
+    "name": "North Manchester General Hospital",
+    "address": "Delaunays Road, Manchester",
+    "postcode": "M8 5RB",
+    "lat": 53.517898,
+    "lng": -2.229499
+  },
+  {
+    "id": "hosp-rochdale_infirmary_oral_surgery",
+    "type": "hospital",
+    "name": "Rochdale Infirmary (Oral surgery)",
+    "address": "Whitehall Street, Rochdale",
+    "postcode": "OL12 0NB",
+    "lat": 53.623409,
+    "lng": -2.15992
+  },
+  {
+    "id": "hosp-tameside_general_hospital_mft_renal_satellite",
+    "type": "hospital",
+    "name": "Tameside General Hospital MFT Renal Satellite",
+    "address": "Fountain Street, Ashton Under Lyne",
+    "postcode": "OL6 9RW",
+    "lat": 53.491546,
+    "lng": -2.071432
+  },
+  {
+    "id": "hosp-octagon_house_mft_renal_satellite_unit",
+    "type": "hospital",
+    "name": "Octagon House MFT Renal Satellite Unit",
+    "address": "Octagon House, Manchester",
+    "postcode": "M13 9WL",
+    "lat": 53.462452,
+    "lng": -2.227709
+  },
+  {
+    "id": "hosp-north_manchester_general_mft_renal_satellite",
+    "type": "hospital",
+    "name": "North Manchester General MFT Renal Satellite",
+    "address": "Delaunays Road, Manchester",
+    "postcode": "M8 5RB",
+    "lat": 53.517898,
+    "lng": -2.229499
+  },
+  {
+    "id": "hosp-arrowe_park_hospital",
+    "type": "hospital",
+    "name": "Arrowe Park Hospital",
+    "address": "Arrowe Park Road, Wirral",
+    "postcode": "CH49 5PE",
+    "lat": 53.36964,
+    "lng": -3.096815
+  },
+  {
+    "id": "hosp-clatterbridge_hospital",
+    "type": "hospital",
+    "name": "Clatterbridge Hospital",
+    "address": "Clatterbridge Road, Wirral",
+    "postcode": "CH63 4JY",
+    "lat": 53.332283,
+    "lng": -3.025849
+  },
+  {
+    "id": "hosp-whiston_hospital",
+    "type": "hospital",
+    "name": "Whiston Hospital",
+    "address": "Warrington Road, Prescot",
+    "postcode": "L35 5DR",
+    "lat": 53.420485,
+    "lng": -2.784953
+  },
+  {
+    "id": "hosp-st_helens_hospital",
+    "type": "hospital",
+    "name": "St Helens Hospital",
+    "address": "Marshalls Cross Road, St Helens",
+    "postcode": "WA9 3DA",
+    "lat": 53.439544,
+    "lng": -2.7189
+  },
+  {
+    "id": "hosp-ormskirk_district_general_hospital",
+    "type": "hospital",
+    "name": "Ormskirk District General Hospital",
+    "address": "Wigan Road, Ormskirk",
+    "postcode": "L39 2JW",
+    "lat": 53.564632,
+    "lng": -2.871251
+  },
+  {
+    "id": "hosp-southport_and_formby_district_general_hospital",
+    "type": "hospital",
+    "name": "Southport and Formby District General Hospital",
+    "address": "Town Lane, Southport",
+    "postcode": "PR8 6PN",
+    "lat": 53.63357,
+    "lng": -2.978821
+  },
+  {
+    "id": "hosp-liverpool_heart_and_chest_hospital",
+    "type": "hospital",
+    "name": "Liverpool Heart and Chest Hospital",
+    "address": "Thomas Drive, Liverpool",
+    "postcode": "L14 3PE",
+    "lat": 53.411167,
+    "lng": -2.897989
+  },
+  {
+    "id": "hosp-alder_hey_children_s_hospital",
+    "type": "hospital",
+    "name": "Alder Hey Children's Hospital",
+    "address": "Alder Hey Hospital, Liverpool",
+    "postcode": "L12 2AP",
+    "lat": 53.421263,
+    "lng": -2.897796
+  },
+  {
+    "id": "hosp-dewi_jones_unit",
+    "type": "hospital",
+    "name": "Dewi Jones Unit",
+    "address": "Alder Park, Park Road, Liverpool",
+    "postcode": "L22 3XE",
+    "lat": 53.474856,
+    "lng": -3.020771
+  },
+  {
+    "id": "hosp-leighton_hospital",
+    "type": "hospital",
+    "name": "Leighton Hospital",
+    "address": "Middlewich Road, Crewe",
+    "postcode": "CW1 4QJ",
+    "lat": 53.117701,
+    "lng": -2.475863
+  },
+  {
+    "id": "hosp-victoria_infirmary",
+    "type": "hospital",
+    "name": "Victoria Infirmary",
+    "address": "Winnington Hill, Northwich",
+    "postcode": "CW8 1AW",
+    "lat": 53.261907,
+    "lng": -2.519798
+  },
+  {
+    "id": "hosp-the_christie_main_site",
+    "type": "hospital",
+    "name": "The Christie Main Site",
+    "address": "550 Wilmslow Road, Manchester",
+    "postcode": "M20 4BX",
+    "lat": 53.429783,
+    "lng": -2.230124
+  },
+  {
+    "id": "hosp-university_hospital_aintree",
+    "type": "hospital",
+    "name": "University Hospital Aintree",
+    "address": "Longmoor Lane, Liverpool",
+    "postcode": "L9 7AL",
+    "lat": 53.466338,
+    "lng": -2.931103
+  },
+  {
+    "id": "hosp-kenilworth_road_diagnostic_centre_ppu",
+    "type": "hospital",
+    "name": "Kenilworth Road Diagnostic Centre (PPU)",
+    "address": "1 Kenilworth Road, Liverpool",
+    "postcode": "L23 3AD",
+    "lat": 53.487001,
+    "lng": -3.037339
+  },
+  {
+    "id": "hosp-broadgreen_hospital",
+    "type": "hospital",
+    "name": "Broadgreen Hospital",
+    "address": "Thomas Drive, Liverpool",
+    "postcode": "L14 3LB",
+    "lat": 53.411167,
+    "lng": -2.897989
+  },
+  {
+    "id": "hosp-liverpool_university_dental_hospital",
+    "type": "hospital",
+    "name": "Liverpool University Dental Hospital",
+    "address": "Dental Hospital, Liverpool",
+    "postcode": "L3 5PS",
+    "lat": 53.408939,
+    "lng": -2.967022
+  },
+  {
+    "id": "hosp-new_royal_liverpool_university",
+    "type": "hospital",
+    "name": "New Royal Liverpool University",
+    "address": "Prescot Street, Liverpool",
+    "postcode": "L7 8XP",
+    "lat": 53.409523,
+    "lng": -2.964809
+  },
+  {
+    "id": "hosp-the_clatterbridge_cancer_centre",
+    "type": "hospital",
+    "name": "The Clatterbridge Cancer Centre",
+    "address": "Clatterbridge Road, Wirral",
+    "postcode": "CH63 4JY",
+    "lat": 53.332283,
+    "lng": -3.025849
+  },
+  {
+    "id": "hosp-royal_liverpool_site",
+    "type": "hospital",
+    "name": "Royal Liverpool Site",
+    "address": "Prescot Street, Liverpool",
+    "postcode": "L7 8XP",
+    "lat": 53.409523,
+    "lng": -2.964809
+  },
+  {
+    "id": "hosp-the_clatterbridge_cancer_centre_liverpool",
+    "type": "hospital",
+    "name": "The Clatterbridge Cancer Centre Liverpool",
+    "address": "65 Pembroke Place, Liverpool",
+    "postcode": "L7 8YA",
+    "lat": 53.408703,
+    "lng": -2.965031
+  },
+  {
+    "id": "hosp-liverpool_women_s_hospital",
+    "type": "hospital",
+    "name": "Liverpool Women's Hospital",
+    "address": "Crown Street, Liverpool",
+    "postcode": "L8 7SS",
+    "lat": 53.398478,
+    "lng": -2.960077
+  },
+  {
+    "id": "hosp-liverpool_women_s_at_aintree",
+    "type": "hospital",
+    "name": "Liverpool Women's at Aintree",
+    "address": "Longmoor Lane, Liverpool",
+    "postcode": "L9 7AL",
+    "lat": 53.466338,
+    "lng": -2.931103
+  },
+  {
+    "id": "hosp-the_walton_centre",
+    "type": "hospital",
+    "name": "The Walton Centre",
+    "address": "Lower Lane, Liverpool",
+    "postcode": "L9 7LJ",
+    "lat": 53.466411,
+    "lng": -2.930999
+  },
+  {
+    "id": "hosp-congleton_war_memorial_hospital",
+    "type": "hospital",
+    "name": "Congleton War Memorial Hospital",
+    "address": "Canal Road, Congleton",
+    "postcode": "CW12 3AR",
+    "lat": 53.158042,
+    "lng": -2.202675
+  },
+  {
+    "id": "hosp-knutsford_and_district_community_hospital",
+    "type": "hospital",
+    "name": "Knutsford and District Community Hospital",
+    "address": "Bexton Road, Knutsford",
+    "postcode": "WA16 0BT",
+    "lat": 53.302017,
+    "lng": -2.378604
+  },
+  {
+    "id": "hosp-macclesfield_district_general_hospital",
+    "type": "hospital",
+    "name": "Macclesfield District General Hospital",
+    "address": "Macclesfield District Hospital, Macclesfield",
+    "postcode": "SK10 3BL",
+    "lat": 53.262339,
+    "lng": -2.141072
+  },
+  {
+    "id": "hosp-the_countess_of_chester_hospital",
+    "type": "hospital",
+    "name": "The Countess of Chester Hospital",
+    "address": "Executive Suite, Countess Of Chester Health Park, Chester",
+    "postcode": "CH2 1UL",
+    "lat": 53.208816,
+    "lng": -2.897886
+  },
+  {
+    "id": "hosp-salford_royal_hospital",
+    "type": "hospital",
+    "name": "Salford Royal Hospital",
+    "address": "Stott Lane, Salford",
+    "postcode": "M6 8HD",
+    "lat": 53.487562,
+    "lng": -2.323424
+  },
+  {
+    "id": "hosp-fairfield_general_hospital",
+    "type": "hospital",
+    "name": "Fairfield General Hospital",
+    "address": "Fairfield General Hospital, Bury",
+    "postcode": "BL9 7TD",
+    "lat": 53.600439,
+    "lng": -2.25562
+  },
+  {
+    "id": "hosp-rochdale_infirmary",
+    "type": "hospital",
+    "name": "Rochdale Infirmary",
+    "address": "Whitehall Street, Rochdale",
+    "postcode": "OL12 0NB",
+    "lat": 53.623409,
+    "lng": -2.15992
+  },
+  {
+    "id": "hosp-royal_oldham_hospital",
+    "type": "hospital",
+    "name": "Royal Oldham Hospital",
+    "address": "Rochdale Road, Oldham",
+    "postcode": "OL1 2JH",
+    "lat": 53.553264,
+    "lng": -2.121829
+  },
+  {
+    "id": "hosp-north_manchester_general_hospital",
+    "type": "hospital",
+    "name": "North Manchester General Hospital",
+    "address": "Delaunays Road, Manchester",
+    "postcode": "M8 5RB",
+    "lat": 53.517898,
+    "lng": -2.229499
+  },
+  {
+    "id": "hosp-wigan_renal_satellite_unit",
+    "type": "hospital",
+    "name": "Wigan Renal Satellite Unit",
+    "address": "Boston House,, Wigan",
+    "postcode": "WN6 7LB",
+    "lat": 53.549482,
+    "lng": -2.644891
+  },
+  {
+    "id": "hosp-bolton_renal_satellite_unit",
+    "type": "hospital",
+    "name": "Bolton Renal Satellite Unit",
+    "address": "Minerva Road, Bolton",
+    "postcode": "BL4 0JR",
+    "lat": 53.553973,
+    "lng": -2.429892
+  },
+  {
+    "id": "hosp-royal_bolton_hospital",
+    "type": "hospital",
+    "name": "Royal Bolton Hospital",
+    "address": "Minerva Road, Bolton",
+    "postcode": "BL4 0JR",
+    "lat": 53.553973,
+    "lng": -2.429892
+  },
+  {
+    "id": "hosp-salford_royal_hospital",
+    "type": "hospital",
+    "name": "Salford Royal Hospital",
+    "address": "Stott Lane, Salford",
+    "postcode": "M6 8HD",
+    "lat": 53.487562,
+    "lng": -2.323424
+  },
+  {
+    "id": "hosp-fairfield_general_hospital",
+    "type": "hospital",
+    "name": "Fairfield General Hospital",
+    "address": "Rochdale Old Road, Bury",
+    "postcode": "BL9 7TD",
+    "lat": 53.600439,
+    "lng": -2.25562
+  },
+  {
+    "id": "hosp-darley_court",
+    "type": "hospital",
+    "name": "Darley Court",
+    "address": "Shepherd Cross Street, Bolton",
+    "postcode": "BL1 3EJ",
+    "lat": 53.590363,
+    "lng": -2.448209
+  },
+  {
+    "id": "hosp-bolton_one",
+    "type": "hospital",
+    "name": "Bolton One",
+    "address": "Moor Lane, Bolton",
+    "postcode": "BL3 5BN",
+    "lat": 53.573944,
+    "lng": -2.435244
+  },
+  {
+    "id": "hosp-ingleside_birth_and_community_centre",
+    "type": "hospital",
+    "name": "Ingleside Birth and Community Centre",
+    "address": "Ingleside, Salford",
+    "postcode": "M6 7PA",
+    "lat": 53.500659,
+    "lng": -2.31989
+  },
+  {
+    "id": "hosp-tameside_general_hospital",
+    "type": "hospital",
+    "name": "Tameside General Hospital",
+    "address": "Fountain Street, Ashton Under Lyne",
+    "postcode": "OL6 9RW",
+    "lat": 53.491546,
+    "lng": -2.071432
+  },
+  {
+    "id": "hosp-workington_community_hospital",
+    "type": "hospital",
+    "name": "Workington Community Hospital",
+    "address": "Park Lane, Workington",
+    "postcode": "CA14 2RW",
+    "lat": 54.642695,
+    "lng": -3.551342
+  },
+  {
+    "id": "hosp-cumberland_infirmary",
+    "type": "hospital",
+    "name": "Cumberland Infirmary",
+    "address": "Newtown Road, Carlisle",
+    "postcode": "CA2 7HY",
+    "lat": 54.896504,
+    "lng": -2.957796
+  },
+  {
+    "id": "hosp-penrith_community_hospital",
+    "type": "hospital",
+    "name": "Penrith Community Hospital",
+    "address": "Bridge Lane, Penrith",
+    "postcode": "CA11 8HX",
+    "lat": 54.657001,
+    "lng": -2.74328
+  },
+  {
+    "id": "hosp-brampton_war_memorial_hospital",
+    "type": "hospital",
+    "name": "Brampton War Memorial Hospital",
+    "address": "Tree Road, Brampton",
+    "postcode": "CA8 1TX",
+    "lat": 54.939842,
+    "lng": -2.726293
+  },
+  {
+    "id": "hosp-victoria_cottage_hospital",
+    "type": "hospital",
+    "name": "Victoria Cottage Hospital",
+    "address": "Ewanrigg Road, Maryport",
+    "postcode": "CA15 8EJ",
+    "lat": 54.707026,
+    "lng": -3.495034
+  },
+  {
+    "id": "hosp-cockermouth_hospital",
+    "type": "hospital",
+    "name": "Cockermouth Hospital",
+    "address": "Isel Road, Cockermouth",
+    "postcode": "CA13 9HT",
+    "lat": 54.667192,
+    "lng": -3.358501
+  },
+  {
+    "id": "hosp-mary_hewetson_cottage_hospital",
+    "type": "hospital",
+    "name": "Mary Hewetson Cottage Hospital",
+    "address": "Crosthwaite Road, Keswick",
+    "postcode": "CA12 5PH",
+    "lat": 54.606708,
+    "lng": -3.139827
+  },
+  {
+    "id": "hosp-ruth_lancaster_james_community_hospital",
+    "type": "hospital",
+    "name": "Ruth Lancaster James Community Hospital",
+    "address": "Alston Hospital, Alston",
+    "postcode": "CA9 3QX",
+    "lat": 54.810213,
+    "lng": -2.439841
+  },
+  {
+    "id": "hosp-wigton_community_hospital",
+    "type": "hospital",
+    "name": "Wigton Community Hospital",
+    "address": "Cross Lane, Wigton",
+    "postcode": "CA7 9DD",
+    "lat": 54.830448,
+    "lng": -3.171343
+  },
+  {
+    "id": "hosp-west_cumberland_hospital",
+    "type": "hospital",
+    "name": "West Cumberland Hospital",
+    "address": "Homewood, Whitehaven",
+    "postcode": "CA28 8JG",
+    "lat": 54.530059,
+    "lng": -3.562598
+  },
+  {
+    "id": "hosp-advanced_dental_education_centre_adec_carys_bannister",
+    "type": "hospital",
+    "name": "Advanced Dental Education Centre (ADEC) Carys Bannister",
+    "address": "5th Floor, Carys Bannister Building, University of Manchester, Manchester",
+    "postcode": "M13 9GB",
+    "lat": 53.464891,
+    "lng": -2.230886
+  },
+  {
+    "id": "hosp-leigh_infirmary",
+    "type": "hospital",
+    "name": "Leigh Infirmary",
+    "address": "The Avenue, Leigh",
+    "postcode": "WN7 1HS",
+    "lat": 53.504428,
+    "lng": -2.512253
+  },
+  {
+    "id": "hosp-royal_albert_edward_infirmary",
+    "type": "hospital",
+    "name": "Royal Albert Edward Infirmary",
+    "address": "The Elms, Royal Albert Edward Infirmary, Wigan",
+    "postcode": "WN1 2NN",
+    "lat": 53.557755,
+    "lng": -2.629091
+  },
+  {
+    "id": "hosp-wrightington_hospital",
+    "type": "hospital",
+    "name": "Wrightington Hospital",
+    "address": "Hall Lane, Wigan",
+    "postcode": "WN6 9EP",
+    "lat": 53.589824,
+    "lng": -2.711509
+  },
+  {
+    "id": "hosp-thomas_linacre_centre",
+    "type": "hospital",
+    "name": "Thomas Linacre Centre",
+    "address": "Parsons Walk, Wigan",
+    "postcode": "WN1 1RU",
+    "lat": 53.550728,
+    "lng": -2.637197
+  },
+  {
+    "id": "hosp-wilmslow_health_centre",
+    "type": "hospital",
+    "name": "Wilmslow Health Centre",
+    "address": "Chaple Lane, Wilmslow",
+    "postcode": "SK9 5HX",
+    "lat": 53.322922,
+    "lng": -2.237324
+  },
+  {
+    "id": "hosp-wigan_health_centre",
+    "type": "hospital",
+    "name": "Wigan Health Centre",
+    "address": "Boston House, Wigan",
+    "postcode": "WN6 7LB",
+    "lat": 53.549482,
+    "lng": -2.644891
+  },
+  {
+    "id": "hosp-northern_centre_for_cancer_care_north_cumbria",
+    "type": "hospital",
+    "name": "Northern Centre for Cancer Care- North Cumbria",
+    "address": "Cumberland Infirmary, Carlisle",
+    "postcode": "CA2 7HY",
+    "lat": 54.896504,
+    "lng": -2.957796
+  },
+  {
+    "id": "hosp-west_cumberland_hospital",
+    "type": "hospital",
+    "name": "West Cumberland Hospital",
+    "address": "Henderson Suite, Homewood Road, Whitehaven",
+    "postcode": "CA28 8JG",
+    "lat": 54.530059,
+    "lng": -3.562598
+  },
+  {
+    "id": "hosp-royal_lancaster_infirmary",
+    "type": "hospital",
+    "name": "Royal Lancaster Infirmary",
+    "address": "Ashton Road, Lancaster",
+    "postcode": "LA1 5AZ",
+    "lat": 54.028103,
+    "lng": -2.806076
+  },
+  {
+    "id": "hosp-furness_general_hospital",
+    "type": "hospital",
+    "name": "Furness General Hospital",
+    "address": "Dalton Lane, Barrow In Furness",
+    "postcode": "LA14 4LF",
+    "lat": 54.136403,
+    "lng": -3.207897
+  },
+  {
+    "id": "hosp-westmorland_general_hospital",
+    "type": "hospital",
+    "name": "Westmorland General Hospital",
+    "address": "Burton Road, Kendal",
+    "postcode": "LA9 7RG",
+    "lat": 54.306116,
+    "lng": -2.731605
+  },
+  {
+    "id": "hosp-longridge_hospital",
+    "type": "hospital",
+    "name": "Longridge Hospital",
+    "address": "St. Wilfreds Terrace, Preston",
+    "postcode": "PR3 3WQ",
+    "lat": 53.832168,
+    "lng": -2.607685
+  },
+  {
+    "id": "hosp-royal_preston_hospital",
+    "type": "hospital",
+    "name": "Royal Preston Hospital",
+    "address": "Sharoe Green Lane, Preston",
+    "postcode": "PR2 9HT",
+    "lat": 53.791521,
+    "lng": -2.706842
+  },
+  {
+    "id": "hosp-minerva_centre",
+    "type": "hospital",
+    "name": "Minerva Centre",
+    "address": "Lowthorpe Road, Preston",
+    "postcode": "PR1 6SB",
+    "lat": 53.77183,
+    "lng": -2.686513
+  },
+  {
+    "id": "hosp-stepping_hill_hospital",
+    "type": "hospital",
+    "name": "Stepping Hill Hospital",
+    "address": "Poplar Grove, Stockport",
+    "postcode": "SK2 7JE",
+    "lat": 53.383794,
+    "lng": -2.132019
+  },
+  {
+    "id": "hosp-halton_health_hub",
+    "type": "hospital",
+    "name": "Halton Health Hub",
+    "address": "42 Orchard Walk, Runcorn",
+    "postcode": "WA7 2BS",
+    "lat": 53.328306,
+    "lng": -2.697842
+  },
+  {
+    "id": "hosp-woolston_neighbourhood_hub",
+    "type": "hospital",
+    "name": "Woolston Neighbourhood Hub",
+    "address": "Hall Road, Warrington",
+    "postcode": "WA1 4PN",
+    "lat": 53.400184,
+    "lng": -2.535591
+  },
+  {
+    "id": "hosp-warrington_living_well_hub",
+    "type": "hospital",
+    "name": "Warrington Living Well Hub",
+    "address": "26-30, Warrington",
+    "postcode": "WA1 1XL",
+    "lat": 53.389997,
+    "lng": -2.593187
+  },
+  {
+    "id": "hosp-halton_hospital",
+    "type": "hospital",
+    "name": "Halton Hospital",
+    "address": "Hospital Way, Runcorn",
+    "postcode": "WA7 2DA",
+    "lat": 53.323281,
+    "lng": -2.694682
+  },
+  {
+    "id": "hosp-warrington_hospital",
+    "type": "hospital",
+    "name": "Warrington Hospital",
+    "address": "Lovely Lane, Warrington",
+    "postcode": "WA5 1QG",
+    "lat": 53.393989,
+    "lng": -2.610717
+  },
+  {
+    "id": "hosp-blackpool_victoria_hospital",
+    "type": "hospital",
+    "name": "Blackpool Victoria Hospital",
+    "address": "Whinney Heys Road, Blackpool",
+    "postcode": "FY3 8NR",
+    "lat": 53.820675,
+    "lng": -3.016275
+  },
+  {
+    "id": "hosp-clifton_hospital",
+    "type": "hospital",
+    "name": "Clifton Hospital",
+    "address": "Pershore Road, Lytham St Annes",
+    "postcode": "FY8 1PB",
+    "lat": 53.744359,
+    "lng": -3.007247
+  },
+  {
+    "id": "hosp-chorley_and_south_ribble_hospital",
+    "type": "hospital",
+    "name": "Chorley and South Ribble Hospital",
+    "address": "Trust Offices, Chorley",
+    "postcode": "PR7 1PP",
+    "lat": 53.665775,
+    "lng": -2.636599
+  },
+  {
+    "id": "hosp-royal_preston_hospital",
+    "type": "hospital",
+    "name": "Royal Preston Hospital",
+    "address": "Sharoe Green Lane, Preston",
+    "postcode": "PR2 9HT",
+    "lat": 53.791521,
+    "lng": -2.706842
+  },
+  {
+    "id": "hosp-westmorland_general_hospital",
+    "type": "hospital",
+    "name": "Westmorland General Hospital",
+    "address": "Burton Road, Kendal",
+    "postcode": "LA9 7RG",
+    "lat": 54.306116,
+    "lng": -2.731605
+  },
+  {
+    "id": "hosp-royal_lancaster_infirmary",
+    "type": "hospital",
+    "name": "Royal Lancaster Infirmary",
+    "address": "Ashton Road, Lancaster",
+    "postcode": "LA1 4RP",
+    "lat": 54.042736,
+    "lng": -2.799228
+  },
+  {
+    "id": "hosp-furness_general_hospital",
+    "type": "hospital",
+    "name": "Furness General Hospital",
+    "address": "Dalton Lane, Barrow In Furness",
+    "postcode": "LA14 4LF",
+    "lat": 54.136403,
+    "lng": -3.207897
+  },
+  {
+    "id": "hosp-burnley_general_hospital",
+    "type": "hospital",
+    "name": "Burnley General Hospital",
+    "address": "Casterton Avenue, Burnley",
+    "postcode": "BB10 2PQ",
+    "lat": 53.810438,
+    "lng": -2.22788
+  },
+  {
+    "id": "hosp-royal_blackburn_hospital",
+    "type": "hospital",
+    "name": "Royal Blackburn Hospital",
+    "address": "Haslingden Road, Blackburn",
+    "postcode": "BB2 3HH",
+    "lat": 53.735575,
+    "lng": -2.462715
+  },
+  {
+    "id": "hosp-pendle_community_hospital",
+    "type": "hospital",
+    "name": "Pendle Community Hospital",
+    "address": "Leeds Road, Nelson",
+    "postcode": "BB9 9SZ",
+    "lat": 53.836817,
+    "lng": -2.213345
+  },
+  {
+    "id": "hosp-clitheroe_community_hospital",
+    "type": "hospital",
+    "name": "Clitheroe Community Hospital",
+    "address": "Chatburn Road, Clitheroe",
+    "postcode": "BB7 4JX",
+    "lat": 53.885297,
+    "lng": -2.366014
+  },
+  {
+    "id": "hosp-blackburn_birthing_centre",
+    "type": "hospital",
+    "name": "Blackburn Birthing Centre",
+    "address": "Park Lee Road, Blackburn",
+    "postcode": "BB2 3NX",
+    "lat": 53.733956,
+    "lng": -2.483358
+  },
+  {
+    "id": "hosp-rossendale_primary_care_centre",
+    "type": "hospital",
+    "name": "Rossendale Primary Care Centre",
+    "address": "Bacup Road, Rossendale",
+    "postcode": "BB4 7PL",
+    "lat": 53.700825,
+    "lng": -2.280662
+  },
+  {
+    "id": "hosp-hexagon_house_mft_renal_satellite_unit",
+    "type": "hospital",
+    "name": "Hexagon House MFT Renal Satellite Unit",
+    "address": "Hexagon Tower, Manchester",
+    "postcode": "M9 8GQ",
+    "lat": 53.522175,
+    "lng": -2.225797
+  },
+  {
+    "id": "hosp-therapeutic_apheresis_unit_liverpool",
+    "type": "hospital",
+    "name": "Therapeutic Apheresis Unit - Liverpool",
+    "address": "10th Floor, Royal Liverpool University Hospital, Liverpool",
+    "postcode": "L7 8XP",
+    "lat": 53.409523,
+    "lng": -2.964809
+  },
+  {
+    "id": "hosp-photopheresis_unit",
+    "type": "hospital",
+    "name": "Photopheresis Unit",
+    "address": "The Christie NHS Foundation Trust, Manchester",
+    "postcode": "M20 4BX",
+    "lat": 53.429783,
+    "lng": -2.230124
+  },
+  {
+    "id": "hosp-manchester_plymouth_grove_donor_centre",
+    "type": "hospital",
+    "name": "Manchester (Plymouth Grove) Donor Centre",
+    "address": "Plymouth Grove, Manchester",
+    "postcode": "M13 9LL",
+    "lat": 53.463869,
+    "lng": -2.224961
+  },
+  {
+    "id": "hosp-lancaster_donor_centre",
+    "type": "hospital",
+    "name": "Lancaster Donor Centre",
+    "address": "Royal Lancaster Infirmary, Lancaster",
+    "postcode": "LA1 4GT",
+    "lat": 54.048161,
+    "lng": -2.803823
+  },
+  {
+    "id": "hosp-fairfield_general_hospital_cardiac_procedures",
+    "type": "hospital",
+    "name": "Fairfield General Hospital (Cardiac procedures)",
+    "address": "Fairfield General Hospital, Bury",
+    "postcode": "BL9 7TD",
+    "lat": 53.600439,
+    "lng": -2.25562
+  },
+  {
+    "id": "hosp-primo_wirral",
+    "type": "hospital",
+    "name": "Primo Wirral",
+    "address": "145-147, Wirral",
+    "postcode": "CH46 9PZ",
+    "lat": 53.401302,
+    "lng": -3.107299
+  }
+]
