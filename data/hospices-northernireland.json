@@ -34,5 +34,14 @@
     "postcode": "BT48 8JE",
     "lat": 55.027415,
     "lng": -7.298353
+  },
+  {
+    "id": "hospice-ni-5",
+    "type": "hospice",
+    "name": "Evora Hospice",
+    "address": "Antrim Area Hospital, Bush Road, Antrim",
+    "postcode": "BT41 1QB",
+    "lat": 54.709097,
+    "lng": -6.185017
   }
 ]
