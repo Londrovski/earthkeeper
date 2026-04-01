@@ -1,0 +1,2711 @@
+[
+  {
+    "id": "gp-ni-64",
+    "type": "gp",
+    "name": "Dunville Health Centre",
+    "address": "309 Grosvenor Road, Belfast",
+    "postcode": "BT12 4LP",
+    "lat": 54.595354,
+    "lng": -5.951542
+  },
+  {
+    "id": "gp-ni-10",
+    "type": "gp",
+    "name": "Templemore Medical Centre",
+    "address": "225 Albertbridge Road, Belfast",
+    "postcode": "BT5 4PX",
+    "lat": 54.596023,
+    "lng": -5.898865
+  },
+  {
+    "id": "gp-ni-81",
+    "type": "gp",
+    "name": "Springfield Medical Centre",
+    "address": "44-46 Springfield Road, Belfast",
+    "postcode": "BT12 7AH",
+    "lat": 54.597702,
+    "lng": -5.958604
+  },
+  {
+    "id": "gp-ni-75",
+    "type": "gp",
+    "name": "Grosvenor Road Surgery",
+    "address": "216 Grosvenor Road, Belfast",
+    "postcode": "BT12 5LT",
+    "lat": 54.594866,
+    "lng": -5.950839
+  },
+  {
+    "id": "gp-ni-92",
+    "type": "gp",
+    "name": "Drs Mcferran & Partners",
+    "address": "Ballyowen Health Centre, 179 Andersonstown Road, Belfast",
+    "postcode": "BT11 9EA",
+    "lat": 54.573657,
+    "lng": -5.994573
+  },
+  {
+    "id": "gp-ni-3",
+    "type": "gp",
+    "name": "Greenway Practice",
+    "address": "Holywood Arches Hc 2Nd Floor, Westminster Avenue, Belfast",
+    "postcode": "BT4 1NS",
+    "lat": 54.598717,
+    "lng": -5.888451
+  },
+  {
+    "id": "gp-ni-159",
+    "type": "gp",
+    "name": "Ardmore Medical Centre",
+    "address": "485 Ormeau Road, Belfast",
+    "postcode": "BT7 3GR",
+    "lat": 54.574124,
+    "lng": -5.916386
+  },
+  {
+    "id": "gp-ni-61",
+    "type": "gp",
+    "name": "Crossin Higgins & Mcmullan",
+    "address": "Carrick Hill Medical Centre, 1 Carrick Hill, Belfast",
+    "postcode": "BT1 2JR",
+    "lat": 54.603271,
+    "lng": -5.935234
+  },
+  {
+    "id": "gp-ni-229",
+    "type": "gp",
+    "name": "Dr Ruddell & Partners",
+    "address": "Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-193",
+    "type": "gp",
+    "name": "Dundrum And Clough Surgery",
+    "address": "1 Castlewellan Road, Clough, Downpatrick",
+    "postcode": "BT30 8RD",
+    "lat": 54.289745,
+    "lng": -5.841093
+  },
+  {
+    "id": "gp-ni-132",
+    "type": "gp",
+    "name": "Dunluce Family Practice",
+    "address": "1 Dunluce Avenue, Belfast",
+    "postcode": "BT9 7HR",
+    "lat": 54.585068,
+    "lng": -5.942127
+  },
+  {
+    "id": "gp-ni-57",
+    "type": "gp",
+    "name": "Mchugh - Campbell Practice",
+    "address": "Maureen Sheehan Centre Build 2, 106 Albert Street, Belfast",
+    "postcode": "BT12 4HL",
+    "lat": 54.597885,
+    "lng": -5.94555
+  },
+  {
+    "id": "gp-ni-60",
+    "type": "gp",
+    "name": "Duncairn Medical Practice",
+    "address": "165 Duncairn Gardens, Belfast, Co Antrim",
+    "postcode": "BT15 2GE",
+    "lat": 54.61415,
+    "lng": -5.934079
+  },
+  {
+    "id": "gp-ni-198",
+    "type": "gp",
+    "name": "Saintfield Health Centre",
+    "address": "Fairview, Saintfield",
+    "postcode": "BT24 7AD",
+    "lat": 54.459827,
+    "lng": -5.835847
+  },
+  {
+    "id": "gp-ni-201",
+    "type": "gp",
+    "name": "Donard Family Practice",
+    "address": "56 Main Street, Newcastle, Co Down",
+    "postcode": "BT33 0AE",
+    "lat": 54.211797,
+    "lng": -5.889926
+  },
+  {
+    "id": "gp-ni-272",
+    "type": "gp",
+    "name": "The Square Surgery",
+    "address": "16 A The Square, Comber, Newtownards",
+    "postcode": "BT23 5DT",
+    "lat": 54.550649,
+    "lng": -5.745281
+  },
+  {
+    "id": "gp-ni-259",
+    "type": "gp",
+    "name": "Portaferry Surgery",
+    "address": "44 High Street, Portaferry, Newtownards",
+    "postcode": "BT22 1QT",
+    "lat": 54.382119,
+    "lng": -5.545154
+  },
+  {
+    "id": "gp-ni-166",
+    "type": "gp",
+    "name": "Botanic Medical Centre",
+    "address": "51 Botanic Avenue, Belfast",
+    "postcode": "BT7 1JL",
+    "lat": 54.587347,
+    "lng": -5.932961
+  },
+  {
+    "id": "gp-ni-224",
+    "type": "gp",
+    "name": "Garvey Medical Practice",
+    "address": "Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-202",
+    "type": "gp",
+    "name": "Struell Surgery",
+    "address": "2 Struell Wells Road, Downpatrick",
+    "postcode": "BT30 6RL",
+    "lat": 54.324132,
+    "lng": -5.692132
+  },
+  {
+    "id": "gp-ni-151",
+    "type": "gp",
+    "name": "The Irwin Practice",
+    "address": "Finaghy Health Centre, 13/25 Finaghy Road South, Belfast",
+    "postcode": "BT10 0BX",
+    "lat": 54.560084,
+    "lng": -5.984495
+  },
+  {
+    "id": "gp-ni-103",
+    "type": "gp",
+    "name": "Clifton Street Surgery",
+    "address": "15/17 Clifton Street, Belfast",
+    "postcode": "BT13 1AD",
+    "lat": 54.607335,
+    "lng": -5.935911
+  },
+  {
+    "id": "gp-ni-53",
+    "type": "gp",
+    "name": "Dr Colgan",
+    "address": "Falls Road Surgery, 463 Falls Road, Belfast",
+    "postcode": "BT12 6DD",
+    "lat": 54.590009,
+    "lng": -5.968644
+  },
+  {
+    "id": "gp-ni-194",
+    "type": "gp",
+    "name": "Dr Hyland & Partner",
+    "address": "Causeway Surgery, Causeway Place, Newcastle",
+    "postcode": "BT33 0DN",
+    "lat": 54.208984,
+    "lng": -5.893488
+  },
+  {
+    "id": "gp-ni-231",
+    "type": "gp",
+    "name": "Dr Knox & Partners",
+    "address": "Level 2, Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-153",
+    "type": "gp",
+    "name": "Ormeau Road Health Centre",
+    "address": "120 Ormeau Road, Belfast",
+    "postcode": "BT7 2EB",
+    "lat": 54.585962,
+    "lng": -5.922945
+  },
+  {
+    "id": "gp-ni-154",
+    "type": "gp",
+    "name": "University Street Surgery",
+    "address": "142 - 144 University Street, Belfast",
+    "postcode": "BT7 1HH",
+    "lat": 54.586392,
+    "lng": -5.924965
+  },
+  {
+    "id": "gp-ni-80",
+    "type": "gp",
+    "name": "Eden Park Medical Practice",
+    "address": "Everton Complex, 585-587 Crumlin Road, Belfast",
+    "postcode": "BT14 7GB",
+    "lat": 54.615234,
+    "lng": -5.966752
+  },
+  {
+    "id": "gp-ni-94",
+    "type": "gp",
+    "name": "Falls Family Doctors",
+    "address": "115 Falls Road, Belfast",
+    "postcode": "BT12 6AA",
+    "lat": 54.595634,
+    "lng": -5.955381
+  },
+  {
+    "id": "gp-ni-282",
+    "type": "gp",
+    "name": "Ballywalter Health Centre",
+    "address": "Fowler Way, Ballywalter, Newtownards",
+    "postcode": "BT22 2PY",
+    "lat": 54.544993,
+    "lng": -5.484961
+  },
+  {
+    "id": "gp-ni-191",
+    "type": "gp",
+    "name": "The Montalto Medical Centre",
+    "address": "2 Dromore Road, Ballynahinch",
+    "postcode": "BT24 8AY",
+    "lat": 54.400346,
+    "lng": -5.901107
+  },
+  {
+    "id": "gp-ni-165",
+    "type": "gp",
+    "name": "North Parade Medical Centre",
+    "address": "6 North Parade, Belfast",
+    "postcode": "BT7 2GG",
+    "lat": 54.579245,
+    "lng": -5.917409
+  },
+  {
+    "id": "gp-ni-265",
+    "type": "gp",
+    "name": "Churchside Practice",
+    "address": "1 Church Street, Newtownards",
+    "postcode": "BT23 4FH",
+    "lat": 54.595052,
+    "lng": -5.704049
+  },
+  {
+    "id": "gp-ni-86",
+    "type": "gp",
+    "name": "Salisbury Medical Centre",
+    "address": "474 Antrim Road, Belfast",
+    "postcode": "BT15 5GF",
+    "lat": 54.630361,
+    "lng": -5.938957
+  },
+  {
+    "id": "gp-ni-31",
+    "type": "gp",
+    "name": "Dundonald Medical Centre",
+    "address": "16 Church Road, Dundonald, Belfast",
+    "postcode": "BT16 2LN",
+    "lat": 54.593357,
+    "lng": -5.803423
+  },
+  {
+    "id": "gp-ni-136",
+    "type": "gp",
+    "name": "Mount Oriel Medical Practice",
+    "address": "Knockbreda Wtc, 110 Saintfield Road, Belfast",
+    "postcode": "BT8 6GR",
+    "lat": 54.561795,
+    "lng": -5.905899
+  },
+  {
+    "id": "gp-ni-37",
+    "type": "gp",
+    "name": "Cherryvalley Group Practice",
+    "address": "Cherryvalley Health Centre, Kings Square, Belfast",
+    "postcode": "BT5 7BP",
+    "lat": 54.589541,
+    "lng": -5.844042
+  },
+  {
+    "id": "gp-ni-79",
+    "type": "gp",
+    "name": "Springfield Road Surgery",
+    "address": "70 Springfield Road, Belfast",
+    "postcode": "BT12 7AH",
+    "lat": 54.597702,
+    "lng": -5.958604
+  },
+  {
+    "id": "gp-ni-104",
+    "type": "gp",
+    "name": "Ballygomartin Group Practice",
+    "address": "17 Ballygomartin Road, Belfast",
+    "postcode": "BT13 3BW",
+    "lat": 54.609341,
+    "lng": -5.965266
+  },
+  {
+    "id": "gp-ni-113",
+    "type": "gp",
+    "name": "Dr Dugan'S Surgery",
+    "address": "173 Anderstownstown Road, Belfast",
+    "postcode": "BT11 9EA",
+    "lat": 54.573657,
+    "lng": -5.994573
+  },
+  {
+    "id": "gp-ni-226",
+    "type": "gp",
+    "name": "Dromara Surgery",
+    "address": "Begney Hill Road, Dromara",
+    "postcode": "BT25 2AT",
+    "lat": 54.380258,
+    "lng": -6.010005
+  },
+  {
+    "id": "gp-ni-207",
+    "type": "gp",
+    "name": "Stream Street Surgery",
+    "address": "40 Stream Street, Downpatrick",
+    "postcode": "BT30 6DE",
+    "lat": 54.324166,
+    "lng": -5.711807
+  },
+  {
+    "id": "gp-ni-29",
+    "type": "gp",
+    "name": "Castlereagh Medical Centre",
+    "address": "21 Ballygowan Road, Belfast",
+    "postcode": "BT5 7LH",
+    "lat": 54.577332,
+    "lng": -5.871028
+  },
+  {
+    "id": "gp-ni-111",
+    "type": "gp",
+    "name": "Thames Street Family Practice",
+    "address": "2 Thames Street, Belfast",
+    "postcode": "BT12 6AP",
+    "lat": 54.592692,
+    "lng": -5.95935
+  },
+  {
+    "id": "gp-ni-143",
+    "type": "gp",
+    "name": "The Rowan Tree Family Practice",
+    "address": "Dunluce Health Centre, 1 Dunluce Avenue, Belfast",
+    "postcode": "BT9 7HR",
+    "lat": 54.585068,
+    "lng": -5.942127
+  },
+  {
+    "id": "gp-ni-66",
+    "type": "gp",
+    "name": "Parkside Surgery",
+    "address": "Grove Wellbeing Centre, 120 York Road, Belfast",
+    "postcode": "BT15 3HF",
+    "lat": 54.617716,
+    "lng": -5.924052
+  },
+  {
+    "id": "gp-ni-52",
+    "type": "gp",
+    "name": "Albertville Surgery",
+    "address": "16 Mccandless Street, Crumlin Road, Belfast",
+    "postcode": "BT13 1RU",
+    "lat": 54.609493,
+    "lng": -5.951373
+  },
+  {
+    "id": "gp-ni-257",
+    "type": "gp",
+    "name": "Brook Street Surgery",
+    "address": "Brook Street, Holywood",
+    "postcode": "BT18 9DA",
+    "lat": 54.640957,
+    "lng": -5.830616
+  },
+  {
+    "id": "gp-ni-140",
+    "type": "gp",
+    "name": "Elmwood Medical Practice",
+    "address": "Dunluce Health Centre, 1 Dunluce Avenue, Belfast",
+    "postcode": "BT9 7HR",
+    "lat": 54.585068,
+    "lng": -5.942127
+  },
+  {
+    "id": "gp-ni-6",
+    "type": "gp",
+    "name": "Carryduff Surgery",
+    "address": "Hillsborough Road, Carryduff",
+    "postcode": "BT8 8HR",
+    "lat": 54.513714,
+    "lng": -5.892408
+  },
+  {
+    "id": "gp-ni-281",
+    "type": "gp",
+    "name": "Cleland Park Surgery",
+    "address": "2 Cleland Park, Bangor",
+    "postcode": "BT20 3EB",
+    "lat": 54.646636,
+    "lng": -5.676195
+  },
+  {
+    "id": "gp-ni-355",
+    "type": "gp",
+    "name": "Kilrea Health Centre",
+    "address": "36 Garvagh Road, Kilrea, Coleraine",
+    "postcode": "BT51 5QP",
+    "lat": 54.952016,
+    "lng": -6.562569
+  },
+  {
+    "id": "gp-ni-389",
+    "type": "gp",
+    "name": "Corran Surgery",
+    "address": "Moyle Medical Centre, Old Glenarm Road, Larne",
+    "postcode": "BT40 1XH",
+    "lat": 54.854229,
+    "lng": -5.816267
+  },
+  {
+    "id": "gp-ni-313",
+    "type": "gp",
+    "name": "Gables Medical Centre",
+    "address": "45 Waveney Road, Ballymena",
+    "postcode": "BT43 5BA",
+    "lat": 54.862535,
+    "lng": -6.279695
+  },
+  {
+    "id": "gp-ni-351",
+    "type": "gp",
+    "name": "Portrush Medical Centre",
+    "address": "17 Dunluce Avenue, Portrush",
+    "postcode": "BT56 8DW",
+    "lat": 55.203251,
+    "lng": -6.651965
+  },
+  {
+    "id": "gp-ni-328",
+    "type": "gp",
+    "name": "Maine Medical Cullybackey",
+    "address": "Old Mill Park, Main Street, Cullybackey, Ballymena",
+    "postcode": "BT42 1GP",
+    "lat": 54.888056,
+    "lng": -6.356001
+  },
+  {
+    "id": "gp-ni-434",
+    "type": "gp",
+    "name": "Abbots Cross Medical Practice",
+    "address": "92 Doagh Road, Newtownabbey",
+    "postcode": "BT37 9QW",
+    "lat": 54.669203,
+    "lng": -5.91324
+  },
+  {
+    "id": "gp-ni-401",
+    "type": "gp",
+    "name": "Mid Ulster Health Care C'Town",
+    "address": "The Health Centre, 52 Orritor Road, Cookstown",
+    "postcode": "BT80 8BN",
+    "lat": 54.648285,
+    "lng": -6.757389
+  },
+  {
+    "id": "gp-ni-352",
+    "type": "gp",
+    "name": "Garvagh Health Centre",
+    "address": "110 Main Street, Garvagh, Coleraine",
+    "postcode": "BT51 5AE",
+    "lat": 54.982633,
+    "lng": -6.688159
+  },
+  {
+    "id": "gp-ni-344",
+    "type": "gp",
+    "name": "Killowen Medical Centre",
+    "address": "Castlerock Road, Coleraine",
+    "postcode": "BT51 3HP",
+    "lat": 55.134095,
+    "lng": -6.681172
+  },
+  {
+    "id": "gp-ni-433",
+    "type": "gp",
+    "name": "Ballyclare Group Practice",
+    "address": "Ballyclare Health Centre, George Avenue, Ballyclare",
+    "postcode": "BT39 9HL",
+    "lat": 54.753962,
+    "lng": -6.003656
+  },
+  {
+    "id": "gp-ni-405",
+    "type": "gp",
+    "name": "Loy Medical Centre",
+    "address": "8 Loy Street, Cookstown",
+    "postcode": "BT80 8PE",
+    "lat": 54.643567,
+    "lng": -6.744195
+  },
+  {
+    "id": "gp-ni-402",
+    "type": "gp",
+    "name": "Draperstown Surgery",
+    "address": "6 Tobermore Road, Draperstown, Magherafelt",
+    "postcode": "BT45 7AG",
+    "lat": 54.795574,
+    "lng": -6.781544
+  },
+  {
+    "id": "gp-ni-317",
+    "type": "gp",
+    "name": "Broughshane Medical Practice",
+    "address": "76 Main Street, Broughshane, Ballymena",
+    "postcode": "BT42 4JA",
+    "lat": 54.893814,
+    "lng": -6.204353
+  },
+  {
+    "id": "gp-ni-431",
+    "type": "gp",
+    "name": "Whitehouse Medical Group Prac",
+    "address": "Unit 29A, 1St Flr Abbeycentre, Longwood Road, Newtownabbey",
+    "postcode": "BT37 9UH",
+    "lat": 54.655392,
+    "lng": -5.918938
+  },
+  {
+    "id": "gp-ni-346",
+    "type": "gp",
+    "name": "Lodge Health",
+    "address": "20 Lodge Manor, Coleraine",
+    "postcode": "BT52 1JX",
+    "lat": 55.12738,
+    "lng": -6.662581
+  },
+  {
+    "id": "gp-ni-330",
+    "type": "gp",
+    "name": "Dr. Mckenna & Dr Mccauley",
+    "address": "Station Road Health Centre, Station Road, Antrim",
+    "postcode": "BT41 4BS",
+    "lat": 54.716892,
+    "lng": -6.211967
+  },
+  {
+    "id": "gp-ni-406",
+    "type": "gp",
+    "name": "Garden Street Surgery",
+    "address": "29 Garden Street, Magherafelt, Co Londonderry",
+    "postcode": "BT45 5DD",
+    "lat": 54.757032,
+    "lng": -6.610902
+  },
+  {
+    "id": "gp-ni-345",
+    "type": "gp",
+    "name": "Ballymoney Family Practice",
+    "address": "Ballymoney Health Centre, 21B Newal Road, Ballymoney",
+    "postcode": "BT53 6HB",
+    "lat": 55.073149,
+    "lng": -6.505858
+  },
+  {
+    "id": "gp-ni-391",
+    "type": "gp",
+    "name": "Victoria Surgery - Larne",
+    "address": "Moyle Medical Centre, Old Glenarm Road, Larne",
+    "postcode": "BT40 1XH",
+    "lat": 54.854229,
+    "lng": -5.816267
+  },
+  {
+    "id": "gp-ni-326",
+    "type": "gp",
+    "name": "The Family Practice",
+    "address": "Antrim Health Centre, Station Road, Antrim",
+    "postcode": "BT41 4BS",
+    "lat": 54.716892,
+    "lng": -6.211967
+  },
+  {
+    "id": "gp-ni-367",
+    "type": "gp",
+    "name": "The Frocess Medical Centre",
+    "address": "56 Main Street, Cloughmills, Ballymena",
+    "postcode": "BT44 9LF",
+    "lat": 54.997218,
+    "lng": -6.330208
+  },
+  {
+    "id": "gp-ni-356",
+    "type": "gp",
+    "name": "Mountsandel Surgery",
+    "address": "4 Mountsandel Road, Coleraine, Co Londonderry",
+    "postcode": "BT52 1JB",
+    "lat": 55.12723,
+    "lng": -6.668574
+  },
+  {
+    "id": "gp-ni-307",
+    "type": "gp",
+    "name": "Antrim Castle Surgery",
+    "address": "Antrim Health Centre, 32A Station Road, Antrim",
+    "postcode": "BT41 4BS",
+    "lat": 54.716892,
+    "lng": -6.211967
+  },
+  {
+    "id": "gp-ni-302",
+    "type": "gp",
+    "name": "Templepatrick Surgery",
+    "address": "80 Castleton, Templepatrick, Ballyclare",
+    "postcode": "BT39 0AZ",
+    "lat": 54.700016,
+    "lng": -6.103095
+  },
+  {
+    "id": "gp-ni-334",
+    "type": "gp",
+    "name": "Randalstown Medical Practice",
+    "address": "5 Neillsbrook Road, Randalstown, Antrim",
+    "postcode": "BT41 3AE",
+    "lat": 54.751984,
+    "lng": -6.319941
+  },
+  {
+    "id": "gp-ni-349",
+    "type": "gp",
+    "name": "The Country Medical Practice",
+    "address": "122 Ballinlea Road, Armoy, Ballymoney",
+    "postcode": "BT53 8TY",
+    "lat": 55.163148,
+    "lng": -6.376192
+  },
+  {
+    "id": "gp-ni-382",
+    "type": "gp",
+    "name": "Meadowbridge Surgery",
+    "address": "Slaughterford Road, Whitehead, Carrickfergus",
+    "postcode": "BT38 9TG",
+    "lat": 54.758972,
+    "lng": -5.719246
+  },
+  {
+    "id": "gp-ni-385",
+    "type": "gp",
+    "name": "Old School Surgery",
+    "address": "54 Station Road, Greenisland, Carrickfergus",
+    "postcode": "BT38 8TP",
+    "lat": 54.69424,
+    "lng": -5.865063
+  },
+  {
+    "id": "gp-ni-327",
+    "type": "gp",
+    "name": "Dr Kidd & Dr Cosgrove",
+    "address": "Antrim Health Centre, Station Road, Antrim",
+    "postcode": "BT41 4BS",
+    "lat": 54.716892,
+    "lng": -6.211967
+  },
+  {
+    "id": "gp-ni-323",
+    "type": "gp",
+    "name": "Smithfield Medical Centre",
+    "address": "7 Smithfield Place, Galgorm Road, Ballymena",
+    "postcode": "BT43 5HB",
+    "lat": 54.865336,
+    "lng": -6.282068
+  },
+  {
+    "id": "gp-ni-388",
+    "type": "gp",
+    "name": "Inver Surgery",
+    "address": "Moyle Medical Centre, Old Glenarm Road, Larne",
+    "postcode": "BT40 1XH",
+    "lat": 54.854229,
+    "lng": -5.816267
+  },
+  {
+    "id": "gp-ni-396",
+    "type": "gp",
+    "name": "Old Bank Surgery",
+    "address": "18 Ballymoney Road, Ballymena",
+    "postcode": "BT43 5BY",
+    "lat": 54.867911,
+    "lng": -6.280541
+  },
+  {
+    "id": "gp-ni-336",
+    "type": "gp",
+    "name": "Rosehall Medical Practice",
+    "address": "2 Mallusk Road, Glengormley, Newtownabbey",
+    "postcode": "BT36 4PP",
+    "lat": 54.674844,
+    "lng": -5.987463
+  },
+  {
+    "id": "gp-ni-337",
+    "type": "gp",
+    "name": "Glengormley Practice",
+    "address": "324 Antrim Road, Newtownabbey",
+    "postcode": "BT36 5EQ",
+    "lat": 54.672042,
+    "lng": -5.960146
+  },
+  {
+    "id": "gp-ni-319",
+    "type": "gp",
+    "name": "Portglenone Health Centre",
+    "address": "17 Townhill Road, Portglenone, Ballymena",
+    "postcode": "BT44 8AD",
+    "lat": 54.875467,
+    "lng": -6.474904
+  },
+  {
+    "id": "gp-ni-491",
+    "type": "gp",
+    "name": "Abbey Court Surgery",
+    "address": "Dobbin Lane, Armagh",
+    "postcode": "BT61 7QG",
+    "lat": 54.345005,
+    "lng": -6.65284
+  },
+  {
+    "id": "gp-ni-537",
+    "type": "gp",
+    "name": "Mcverry/Mcevoy Medical Centre",
+    "address": "Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-454",
+    "type": "gp",
+    "name": "Loughbrickland Surgery",
+    "address": "11 Main Street, Loughbrickland, Banbridge",
+    "postcode": "BT32 3NQ",
+    "lat": 54.314964,
+    "lng": -6.30281
+  },
+  {
+    "id": "gp-ni-529",
+    "type": "gp",
+    "name": "Drs Mulvanney & Flood",
+    "address": "Cornmarket Surgery, Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-469",
+    "type": "gp",
+    "name": "Dr Auld & Partners",
+    "address": "Banbridge Group Surgery, 1 Old Hospital Road, Banbridge",
+    "postcode": "BT32 3GN",
+    "lat": 54.347503,
+    "lng": -6.2778
+  },
+  {
+    "id": "gp-ni-497",
+    "type": "gp",
+    "name": "Willowbank Surgery",
+    "address": "2A Annvale Road, Keady, Co Armagh",
+    "postcode": "BT60 2RP",
+    "lat": 54.251028,
+    "lng": -6.687757
+  },
+  {
+    "id": "gp-ni-549",
+    "type": "gp",
+    "name": "Newtownhamilton Health Centre",
+    "address": "2A Markethill Road, Newtownhamilton, Newry",
+    "postcode": "BT35 0BE",
+    "lat": 54.20244,
+    "lng": -6.56863
+  },
+  {
+    "id": "gp-ni-516",
+    "type": "gp",
+    "name": "The Friary Surgery",
+    "address": "Dobbin Lane, Armagh",
+    "postcode": "BT61 7QG",
+    "lat": 54.345005,
+    "lng": -6.65284
+  },
+  {
+    "id": "gp-ni-553",
+    "type": "gp",
+    "name": "Marina Surgery",
+    "address": "15 Havelock Place, Warrenpoint, Newry",
+    "postcode": "BT34 3NE",
+    "lat": 54.099041,
+    "lng": -6.254054
+  },
+  {
+    "id": "gp-ni-544",
+    "type": "gp",
+    "name": "Dr Mckinley & Partners",
+    "address": "Cornmarket Surgery, Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-495",
+    "type": "gp",
+    "name": "Campbell Surgery",
+    "address": "10 Quarry Lane, Dungannon",
+    "postcode": "BT70 1HX",
+    "lat": 54.50987,
+    "lng": -6.77583
+  },
+  {
+    "id": "gp-ni-507",
+    "type": "gp",
+    "name": "The Health Centre Keady",
+    "address": "24A Tassagh Road, Keady",
+    "postcode": "BT60 3TU",
+    "lat": 54.252318,
+    "lng": -6.700666
+  },
+  {
+    "id": "gp-ni-542",
+    "type": "gp",
+    "name": "Newtownhamilton Surgery",
+    "address": "53 Dundalk Street, Newtownhamilton, Newry",
+    "postcode": "BT35 0PB",
+    "lat": 54.189724,
+    "lng": -6.575995
+  },
+  {
+    "id": "gp-ni-482",
+    "type": "gp",
+    "name": "The Old School House Surgery",
+    "address": "1 Antrim Road, Lurgan, Craigavon",
+    "postcode": "BT67 9BW",
+    "lat": 54.470391,
+    "lng": -6.325411
+  },
+  {
+    "id": "gp-ni-540",
+    "type": "gp",
+    "name": "Meadowlands Surgery",
+    "address": "Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-465",
+    "type": "gp",
+    "name": "Church Walk Surgery",
+    "address": "28 Church Walk, Lurgan",
+    "postcode": "BT67 9AA",
+    "lat": 54.464522,
+    "lng": -6.333039
+  },
+  {
+    "id": "gp-ni-533",
+    "type": "gp",
+    "name": "Meigh Surgery",
+    "address": "5B Drumintee Road, Killeavy, Newry",
+    "postcode": "BT35 8JT",
+    "lat": 54.122721,
+    "lng": -6.389621
+  },
+  {
+    "id": "gp-ni-514",
+    "type": "gp",
+    "name": "The Archway Surgery",
+    "address": "Dobbin Lane, Armagh",
+    "postcode": "BT61 7QG",
+    "lat": 54.345005,
+    "lng": -6.65284
+  },
+  {
+    "id": "gp-ni-531",
+    "type": "gp",
+    "name": "The Old Forge Surgery",
+    "address": "14 Kilkeel Road, Annalong, Newry",
+    "postcode": "BT34 4TH",
+    "lat": 54.107151,
+    "lng": -5.901271
+  },
+  {
+    "id": "gp-ni-472",
+    "type": "gp",
+    "name": "Scarva Street Surgery",
+    "address": "60 Scarva Street, Loughbrickland, Banbridge",
+    "postcode": "BT32 3NH",
+    "lat": 54.31655,
+    "lng": -6.305035
+  },
+  {
+    "id": "gp-ni-451",
+    "type": "gp",
+    "name": "The Lakes Family Practice",
+    "address": "Brownlow Health Centre, 1 Legahory Centre, Legahory, Craigavon",
+    "postcode": "BT65 5BE",
+    "lat": 54.448667,
+    "lng": -6.370114
+  },
+  {
+    "id": "gp-ni-554",
+    "type": "gp",
+    "name": "Mourne Family Surgery",
+    "address": "Mourne Hospital, Newry Street, Kilkeel,Newry",
+    "postcode": "BT34 4DN",
+    "lat": 54.064015,
+    "lng": -6.008283
+  },
+  {
+    "id": "gp-ni-453",
+    "type": "gp",
+    "name": "Dr. Mccloskey & Partners",
+    "address": "Banbridge Group Surgery, 1 Old Hospital Road, Banbridge",
+    "postcode": "BT32 3GN",
+    "lat": 54.347503,
+    "lng": -6.2778
+  },
+  {
+    "id": "gp-ni-463",
+    "type": "gp",
+    "name": "Lurgan Medical Practice",
+    "address": "7 Moores Lane, Lurgan, Craigavon",
+    "postcode": "BT66 8DW",
+    "lat": 54.46058,
+    "lng": -6.331271
+  },
+  {
+    "id": "gp-ni-608",
+    "type": "gp",
+    "name": "Abbey Medical Practice",
+    "address": "Abbey Street, Londonderry",
+    "postcode": "BT48 9DN",
+    "lat": 54.997986,
+    "lng": -7.326508
+  },
+  {
+    "id": "gp-ni-571",
+    "type": "gp",
+    "name": "Dr Cathcart & Partners",
+    "address": "Erne Road Health Centre, Erne Road, Enniskillen",
+    "postcode": "BT74 6NN",
+    "lat": 54.349576,
+    "lng": -7.634669
+  },
+  {
+    "id": "gp-ni-657",
+    "type": "gp",
+    "name": "Three Spires Surgery",
+    "address": "7 Donaghanie Road, Omagh",
+    "postcode": "BT79 0NR",
+    "lat": 54.586918,
+    "lng": -7.252414
+  },
+  {
+    "id": "gp-ni-609",
+    "type": "gp",
+    "name": "Rossair Family Practice",
+    "address": "Bovally Medical Centre, 2 Rossair Road, Limavady",
+    "postcode": "BT49 0TE",
+    "lat": 55.044479,
+    "lng": -6.93119
+  },
+  {
+    "id": "gp-ni-605",
+    "type": "gp",
+    "name": "Donemana Surgery",
+    "address": "256 Berryhill Road, Donemana, Strabane",
+    "postcode": "BT82 0NB",
+    "lat": 54.873767,
+    "lng": -7.312864
+  },
+  {
+    "id": "gp-ni-618",
+    "type": "gp",
+    "name": "Clarendon Street Surgery",
+    "address": "49 Clarendon Street, Londonderry",
+    "postcode": "BT48 7ER",
+    "lat": 55.001001,
+    "lng": -7.325957
+  },
+  {
+    "id": "gp-ni-576",
+    "type": "gp",
+    "name": "Rathmore Clinic",
+    "address": "9 Main Street, Rathmore, Belleek",
+    "postcode": "BT93 3FY",
+    "lat": 54.47995,
+    "lng": -8.091797
+  },
+  {
+    "id": "gp-ni-602",
+    "type": "gp",
+    "name": "Oakleaf Medical Practice",
+    "address": "Great James Street, Londonderry",
+    "postcode": "BT48 7DH",
+    "lat": 54.999673,
+    "lng": -7.326339
+  },
+  {
+    "id": "gp-ni-597",
+    "type": "gp",
+    "name": "Bovally Medical Practice",
+    "address": "2 Rossair Road, Limavady",
+    "postcode": "BT49 0TE",
+    "lat": 55.044479,
+    "lng": -6.93119
+  },
+  {
+    "id": "gp-ni-655",
+    "type": "gp",
+    "name": "Drumquin Healthcare",
+    "address": "23 Omagh Road, Drumquin",
+    "postcode": "BT78 4QY",
+    "lat": 54.611883,
+    "lng": -7.488989
+  },
+  {
+    "id": "gp-ni-621",
+    "type": "gp",
+    "name": "Northside Medical Practice",
+    "address": "Shantallow Health Centre, Racecourse Road, Londonderry",
+    "postcode": "BT48 8NL",
+    "lat": 55.02642,
+    "lng": -7.315946
+  },
+  {
+    "id": "gp-ni-660",
+    "type": "gp",
+    "name": "Carrickmore Health Centre",
+    "address": "Termon Road, Carrickmore",
+    "postcode": "BT79 9JR",
+    "lat": 54.591513,
+    "lng": -7.043798
+  },
+  {
+    "id": "gp-ni-598",
+    "type": "gp",
+    "name": "Quayside Medical Practice",
+    "address": "80 - 84 Strand Road, Londonderry",
+    "postcode": "BT48 7NN",
+    "lat": 55.004506,
+    "lng": -7.321413
+  },
+  {
+    "id": "gp-ni-599",
+    "type": "gp",
+    "name": "Park Medical",
+    "address": "The Health Centre, Great James Street, Londonderry",
+    "postcode": "BT48 7DH",
+    "lat": 54.999673,
+    "lng": -7.326339
+  },
+  {
+    "id": "gp-ni-663",
+    "type": "gp",
+    "name": "Strule Medical",
+    "address": "Omagh Hospital And Pcc, Donaghanie Road, Omagh",
+    "postcode": "BT79 0NR",
+    "lat": 54.586918,
+    "lng": -7.252414
+  },
+  {
+    "id": "gp-ni-626",
+    "type": "gp",
+    "name": "Riverfront Medical",
+    "address": "Waterside Health Centre, 127 Spencer Road, Londonderry",
+    "postcode": "BT47 6AH",
+    "lat": 54.992751,
+    "lng": -7.310816
+  },
+  {
+    "id": "gp-ni-615",
+    "type": "gp",
+    "name": "Clarendon Medical",
+    "address": "35 Northland Avenue, Londonderry",
+    "postcode": "BT48 7GW",
+    "lat": 55.006474,
+    "lng": -7.328163
+  },
+  {
+    "id": "gp-ni-562",
+    "type": "gp",
+    "name": "Drs Toal & Maguire",
+    "address": "Erne Health Centre, Erne Road, Enniskillen",
+    "postcode": "BT74 6NN",
+    "lat": 54.349576,
+    "lng": -7.634669
+  },
+  {
+    "id": "gp-ni-566",
+    "type": "gp",
+    "name": "Irvinestown Health Centre",
+    "address": "Church Street, Irvinestown",
+    "postcode": "BT94 1EH",
+    "lat": 54.47148,
+    "lng": -7.634277
+  },
+  {
+    "id": "gp-ni-564",
+    "type": "gp",
+    "name": "Lakeside Medical Practice",
+    "address": "Erne Health Centre, Erne Road, Enniskillen",
+    "postcode": "BT74 6NN",
+    "lat": 54.349576,
+    "lng": -7.634669
+  },
+  {
+    "id": "gp-ni-610",
+    "type": "gp",
+    "name": "Riverside Practice, Strabane",
+    "address": "Strabane Health Centre, Upper Main Street, Strabane",
+    "postcode": "BT82 8AS",
+    "lat": 54.824745,
+    "lng": -7.462109
+  },
+  {
+    "id": "gp-ni-596",
+    "type": "gp",
+    "name": "Cityview Medical",
+    "address": "Waterside Health Centre, 127 Spencer Road, Londonderry",
+    "postcode": "BT47 6AH",
+    "lat": 54.992751,
+    "lng": -7.310816
+  },
+  {
+    "id": "gp-ni-652",
+    "type": "gp",
+    "name": "Drumquin Surgery - Dr Richie",
+    "address": "2H Main Street, Drumquin, Drumquin",
+    "postcode": "BT78 4SB",
+    "lat": 54.615586,
+    "lng": -7.489577
+  },
+  {
+    "id": "gp-ni-601",
+    "type": "gp",
+    "name": "Mourneside Medical Centre",
+    "address": "1A Ballycolman Avenue, Strabane",
+    "postcode": "BT82 9AF",
+    "lat": 54.822196,
+    "lng": -7.466453
+  },
+  {
+    "id": "gp-ni-96",
+    "type": "gp",
+    "name": "Malvern Family Practice",
+    "address": "Cornerstone Medical Centre, 69 Shankill Road, Belfast",
+    "postcode": "BT13 1FD",
+    "lat": 54.604043,
+    "lng": -5.945193
+  },
+  {
+    "id": "gp-ni-164",
+    "type": "gp",
+    "name": "Cregagh Surgery",
+    "address": "36 Montgomery Road, Belfast",
+    "postcode": "BT6 9HL",
+    "lat": 54.577294,
+    "lng": -5.882166
+  },
+  {
+    "id": "gp-ni-568",
+    "type": "gp",
+    "name": "Drs Mallon & Mcconville",
+    "address": "Lakeland Health Village, Erne Road Health Centre, Enniskillen",
+    "postcode": "BT74 6NN",
+    "lat": 54.349576,
+    "lng": -7.634669
+  },
+  {
+    "id": "gp-ni-221",
+    "type": "gp",
+    "name": "Hillsborough Medical Practice",
+    "address": "Health Centre, Ballynahinch St, Hillsborough",
+    "postcode": "BT26 6AW",
+    "lat": 54.463143,
+    "lng": -6.082068
+  },
+  {
+    "id": "gp-ni-232",
+    "type": "gp",
+    "name": "The Hill Medical Group Practice",
+    "address": "192 Kingsway, Dunmurry, Belfast",
+    "postcode": "BT17 9AL",
+    "lat": 54.550512,
+    "lng": -6.003237
+  },
+  {
+    "id": "gp-ni-471",
+    "type": "gp",
+    "name": "Dr. Mcniff & Partners",
+    "address": "Banbridge Group Surgery, 1 Old Hospital Road, Banbridge",
+    "postcode": "BT32 3GN",
+    "lat": 54.347503,
+    "lng": -6.2778
+  },
+  {
+    "id": "gp-ni-390",
+    "type": "gp",
+    "name": "Castle Practice",
+    "address": "Carrickfergus Health Centre, Taylors Avenue, Carrickfergus",
+    "postcode": "BT38 7HT",
+    "lat": 54.720515,
+    "lng": -5.798924
+  },
+  {
+    "id": "gp-ni-14",
+    "type": "gp",
+    "name": "Kerrsland Surgery",
+    "address": "169 Upper Newtownards Road, Belfast",
+    "postcode": "BT4 3HZ",
+    "lat": 54.59532,
+    "lng": -5.87354
+  },
+  {
+    "id": "gp-ni-368",
+    "type": "gp",
+    "name": "Ballycastle Medical Practice",
+    "address": "Ballycastle Health Centre, 1A Coleraine Road, Ballycastle",
+    "postcode": "BT54 6BA",
+    "lat": 55.199966,
+    "lng": -6.257979
+  },
+  {
+    "id": "gp-ni-357",
+    "type": "gp",
+    "name": "Glens Of Antrim Medical Centre",
+    "address": "2 Gortaclee Road, Cushendall, Ballymena",
+    "postcode": "BT44 0TE",
+    "lat": 55.075414,
+    "lng": -6.058386
+  },
+  {
+    "id": "gp-ni-222",
+    "type": "gp",
+    "name": "Woodbrooke Medical Practice",
+    "address": "Stewartstown Road, Dunmurry Belfast",
+    "postcode": "BT17 0FB",
+    "lat": 54.558904,
+    "lng": -6.021827
+  },
+  {
+    "id": "gp-ni-28",
+    "type": "gp",
+    "name": "The Victoria Practice",
+    "address": "Holywood Arches Health Centre, Westminster Avenue, Belfast",
+    "postcode": "BT4 1NS",
+    "lat": 54.598717,
+    "lng": -5.888451
+  },
+  {
+    "id": "gp-ni-360",
+    "type": "gp",
+    "name": "Rasharkin Health Centre",
+    "address": "10 Moneyleck Road, Rasharkin, Ballymena",
+    "postcode": "BT44 8QB",
+    "lat": 54.958784,
+    "lng": -6.485877
+  },
+  {
+    "id": "gp-ni-457",
+    "type": "gp",
+    "name": "Wynne Hill Surgery",
+    "address": "51 Hill Street, Lurgan, Craigavon",
+    "postcode": "BT66 6BW",
+    "lat": 54.461247,
+    "lng": -6.340574
+  },
+  {
+    "id": "gp-ni-145",
+    "type": "gp",
+    "name": "Kensington Group Practice",
+    "address": "Kensington Medical Centre, 15A Donegall Road, Belfast",
+    "postcode": "BT12 5JJ",
+    "lat": 54.589523,
+    "lng": -5.935187
+  },
+  {
+    "id": "gp-ni-512",
+    "type": "gp",
+    "name": "Coalisland Medical Centre",
+    "address": "15 Barrack Street, Coalisland, Dungannon",
+    "postcode": "BT71 4LS",
+    "lat": 54.541199,
+    "lng": -6.703569
+  },
+  {
+    "id": "gp-ni-227",
+    "type": "gp",
+    "name": "Linenhall Medical Practice",
+    "address": "Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-74",
+    "type": "gp",
+    "name": "Northgate Family Practice",
+    "address": "36 Duncairn Gardens, Belfast",
+    "postcode": "BT15 2GH",
+    "lat": 54.611775,
+    "lng": -5.928627
+  },
+  {
+    "id": "gp-ni-16",
+    "type": "gp",
+    "name": "Knock Medical Centre",
+    "address": "423B Upper Newtownards Road, Belfast",
+    "postcode": "BT4 3LH",
+    "lat": 54.594532,
+    "lng": -5.855863
+  },
+  {
+    "id": "gp-ni-440",
+    "type": "gp",
+    "name": "Notting Hill Medical Practice",
+    "address": "95 Doagh Road, Newtownabbey",
+    "postcode": "BT37 9QN",
+    "lat": 54.669454,
+    "lng": -5.912685
+  },
+  {
+    "id": "gp-ni-101",
+    "type": "gp",
+    "name": "Vere Foster Medical Group",
+    "address": "132-136 Sandy Row, Belfast",
+    "postcode": "BT12 5EY",
+    "lat": 54.590121,
+    "lng": -5.936549
+  },
+  {
+    "id": "gp-ni-500",
+    "type": "gp",
+    "name": "Garvin Surgery",
+    "address": "22 Barrack Street, Coalisland, Dungannon",
+    "postcode": "BT71 4LS",
+    "lat": 54.541199,
+    "lng": -6.703569
+  },
+  {
+    "id": "gp-ni-467",
+    "type": "gp",
+    "name": "William Street Surgery",
+    "address": "87/89 William Street, Lurgan",
+    "postcode": "BT66 6JB",
+    "lat": 54.466186,
+    "lng": -6.337783
+  },
+  {
+    "id": "gp-ni-420",
+    "type": "gp",
+    "name": "Moneymore  Medical Practice",
+    "address": "1 Fairhill, Moneymore",
+    "postcode": "BT45 7LJ",
+    "lat": 54.694071,
+    "lng": -6.669137
+  },
+  {
+    "id": "gp-ni-256",
+    "type": "gp",
+    "name": "Ashley Medical Centre",
+    "address": "140 Groomsport Road, Bangor, Co Down",
+    "postcode": "BT20 5PE",
+    "lat": 54.66559,
+    "lng": -5.637335
+  },
+  {
+    "id": "gp-ni-603",
+    "type": "gp",
+    "name": "Feeny Medical Pratice",
+    "address": "The Health Centre, Feeny, Londonderry",
+    "postcode": "BT47 4TD",
+    "lat": 54.89247,
+    "lng": -7.019863
+  },
+  {
+    "id": "gp-ni-494",
+    "type": "gp",
+    "name": "The Valley Medical Practice",
+    "address": "20 Cooneen Road, Fivemiletown",
+    "postcode": "BT75 0ND",
+    "lat": 54.376318,
+    "lng": -7.316108
+  },
+  {
+    "id": "gp-ni-271",
+    "type": "gp",
+    "name": "Old Mill Surgery",
+    "address": "Church Street, Newtownards",
+    "postcode": "BT23 4AS",
+    "lat": 54.594366,
+    "lng": -5.706238
+  },
+  {
+    "id": "gp-ni-276",
+    "type": "gp",
+    "name": "Donaghadee Health Centre",
+    "address": "3 Killaughey Road, Donaghadee",
+    "postcode": "BT21 0BU",
+    "lat": 54.64053,
+    "lng": -5.536013
+  },
+  {
+    "id": "gp-ni-254",
+    "type": "gp",
+    "name": "Lisbane Medical Centre",
+    "address": "24 Lisbarnett Road, Lisbane, Newtownards",
+    "postcode": "BT23 6AW",
+    "lat": 54.503309,
+    "lng": -5.720145
+  },
+  {
+    "id": "gp-ni-195",
+    "type": "gp",
+    "name": "Dr Gilpin'S Surgery",
+    "address": "Causeway Surgery, 2 Causeway Place, Newcastle",
+    "postcode": "BT33 0DN",
+    "lat": 54.208984,
+    "lng": -5.893488
+  },
+  {
+    "id": "gp-ni-409",
+    "type": "gp",
+    "name": "Stewartstown Health Centre",
+    "address": "50 Hillhead, Stewartstown, Dungannon",
+    "postcode": "BT71 5HY",
+    "lat": 54.57538,
+    "lng": -6.676813
+  },
+  {
+    "id": "gp-ni-341",
+    "type": "gp",
+    "name": "Riverside Medical",
+    "address": "Castlerock Road, Coleraine",
+    "postcode": "BT51 3HP",
+    "lat": 55.134095,
+    "lng": -6.681172
+  },
+  {
+    "id": "gp-ni-620",
+    "type": "gp",
+    "name": "Family Practice, Strabane",
+    "address": "Strabane Health Centre, 1A Upper Main Street, Strabane",
+    "postcode": "BT82 8AS",
+    "lat": 54.824745,
+    "lng": -7.462109
+  },
+  {
+    "id": "gp-ni-114",
+    "type": "gp",
+    "name": "Hillhead Family Practice",
+    "address": "33 Stewartstown Road, Belfast",
+    "postcode": "BT11 9FZ",
+    "lat": 54.571065,
+    "lng": -6.004598
+  },
+  {
+    "id": "gp-ni-503",
+    "type": "gp",
+    "name": "Markethill Health Centre",
+    "address": "Newry Street, Markethill, Armagh",
+    "postcode": "BT60 1TA",
+    "lat": 54.296578,
+    "lng": -6.519378
+  },
+  {
+    "id": "gp-ni-275",
+    "type": "gp",
+    "name": "Park Practice",
+    "address": "Regency Medical Centre, 2A Frederick Street, Newtownards",
+    "postcode": "BT23 4LR",
+    "lat": 54.593746,
+    "lng": -5.702435
+  },
+  {
+    "id": "gp-ni-278",
+    "type": "gp",
+    "name": "Scrabo View Practice",
+    "address": "1 Church Street, Newtownards",
+    "postcode": "BT23 4FH",
+    "lat": 54.595052,
+    "lng": -5.704049
+  },
+  {
+    "id": "gp-ni-417",
+    "type": "gp",
+    "name": "Castledawson Surgery",
+    "address": "Station Road, Castledawson, Magherafelt",
+    "postcode": "BT45 8AZ",
+    "lat": 54.777213,
+    "lng": -6.558053
+  },
+  {
+    "id": "gp-ni-68",
+    "type": "gp",
+    "name": "Shankill Surgery",
+    "address": "136-138 Shankill Road, Belfast",
+    "postcode": "BT13 2BD",
+    "lat": 54.603724,
+    "lng": -5.94603
+  },
+  {
+    "id": "gp-ni-519",
+    "type": "gp",
+    "name": "Coalisland Health Centre",
+    "address": "10A Lineside, Coalisland, Dungannon",
+    "postcode": "BT71 4LP",
+    "lat": 54.539777,
+    "lng": -6.700863
+  },
+  {
+    "id": "gp-ni-410",
+    "type": "gp",
+    "name": "Maghera Medical Centre",
+    "address": "25 Church Street, Maghera",
+    "postcode": "BT46 5EA",
+    "lat": 54.842255,
+    "lng": -6.667345
+  },
+  {
+    "id": "gp-ni-255",
+    "type": "gp",
+    "name": "The Oaks Family Practice",
+    "address": "Bangor Health Centre, Newtownards Road, Bangor",
+    "postcode": "BT20 4LD",
+    "lat": 54.654937,
+    "lng": -5.674667
+  },
+  {
+    "id": "gp-ni-70",
+    "type": "gp",
+    "name": "Ballysillan Group Practice",
+    "address": "156-158 Ballysillan Road, Belfast",
+    "postcode": "BT14 7QR",
+    "lat": 54.624985,
+    "lng": -5.969595
+  },
+  {
+    "id": "gp-ni-623",
+    "type": "gp",
+    "name": "Foyleside Family Practice",
+    "address": "Bridge Street Medical Centre, 30 Bridge Street, Londonderry",
+    "postcode": "BT48 6LD",
+    "lat": 54.993766,
+    "lng": -7.318876
+  },
+  {
+    "id": "gp-ni-473",
+    "type": "gp",
+    "name": "Moira Surgery",
+    "address": "52 Main Street, Moira, Craigavon",
+    "postcode": "BT67 0LQ",
+    "lat": 54.480786,
+    "lng": -6.226576
+  },
+  {
+    "id": "gp-ni-366",
+    "type": "gp",
+    "name": "Dalriada  Family Practice",
+    "address": "Ballycastle Health Centre, 1A Coleraine Road, Ballycastle",
+    "postcode": "BT54 6BA",
+    "lat": 55.199966,
+    "lng": -6.257979
+  },
+  {
+    "id": "gp-ni-498",
+    "type": "gp",
+    "name": "Dr Campbell And Partners",
+    "address": "Moy Health Centre, 48 Charlemont Street, Moy",
+    "postcode": "BT71 7SL",
+    "lat": 54.44618,
+    "lng": -6.689924
+  },
+  {
+    "id": "gp-ni-260",
+    "type": "gp",
+    "name": "Church View Family Practice",
+    "address": "The Health Centre, Newtownards Road, Bangor",
+    "postcode": "BT20 4LD",
+    "lat": 54.654937,
+    "lng": -5.674667
+  },
+  {
+    "id": "gp-ni-534",
+    "type": "gp",
+    "name": "Clanrye Surgery",
+    "address": "Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-274",
+    "type": "gp",
+    "name": "Bloomfield Surgery",
+    "address": "95 Bloomfield Road, Bangor",
+    "postcode": "BT20 4XA",
+    "lat": 54.649425,
+    "lng": -5.660959
+  },
+  {
+    "id": "gp-ni-308",
+    "type": "gp",
+    "name": "Oriel Surgery",
+    "address": "31 Oriel Road, Antrim",
+    "postcode": "BT41 4HR",
+    "lat": 54.718917,
+    "lng": -6.214051
+  },
+  {
+    "id": "gp-ni-333",
+    "type": "gp",
+    "name": "Toome Surgery",
+    "address": "Toome House, 55 Main Street, Toomebridge, Antrim",
+    "postcode": "BT41 3TF",
+    "lat": 54.753529,
+    "lng": -6.462142
+  },
+  {
+    "id": "gp-ni-455",
+    "type": "gp",
+    "name": "Gilford Health Centre",
+    "address": "Castleview, Gilford, Craigavon",
+    "postcode": "BT63 6JS",
+    "lat": 54.373457,
+    "lng": -6.358184
+  },
+  {
+    "id": "gp-ni-72",
+    "type": "gp",
+    "name": "Mountainview Surgery",
+    "address": "585 Crumlin Road, Belfast",
+    "postcode": "BT14 7GB",
+    "lat": 54.615234,
+    "lng": -5.966752
+  },
+  {
+    "id": "gp-ni-604",
+    "type": "gp",
+    "name": "Aberfoyle Medical Practice",
+    "address": "120 Strand Road, Londonderry",
+    "postcode": "BT48 7NY",
+    "lat": 55.006973,
+    "lng": -7.319277
+  },
+  {
+    "id": "gp-ni-230",
+    "type": "gp",
+    "name": "Dr Ryan & Partners",
+    "address": "Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-17",
+    "type": "gp",
+    "name": "Connswater Family Practice",
+    "address": "The Arches Centre, Westminster Avenue, Belfast",
+    "postcode": "BT4 1NS",
+    "lat": 54.598717,
+    "lng": -5.888451
+  },
+  {
+    "id": "gp-ni-261",
+    "type": "gp",
+    "name": "Killynether Practice",
+    "address": "2A Frederick Street, Newtownards",
+    "postcode": "BT23 4LR",
+    "lat": 54.593746,
+    "lng": -5.702435
+  },
+  {
+    "id": "gp-ni-63",
+    "type": "gp",
+    "name": "Willow Medical Practice",
+    "address": "155A Andersonstown Road, Belfast",
+    "postcode": "BT11 9EA",
+    "lat": 54.573657,
+    "lng": -5.994573
+  },
+  {
+    "id": "gp-ni-664",
+    "type": "gp",
+    "name": "Sperrin Family Pracitce",
+    "address": "41 Main Street, Plumbridge",
+    "postcode": "BT79 8DL",
+    "lat": 54.767516,
+    "lng": -7.256498
+  },
+  {
+    "id": "gp-ni-58",
+    "type": "gp",
+    "name": "The Group Surgery",
+    "address": "257 North Queen Street, Belfast",
+    "postcode": "BT15 1HS",
+    "lat": 54.612856,
+    "lng": -5.926157
+  },
+  {
+    "id": "gp-ni-505",
+    "type": "gp",
+    "name": "Parkview Surgery",
+    "address": "South Tyrone Hospital Site,, Carland Road,, Dungannon",
+    "postcode": "BT71 4AU",
+    "lat": 54.510275,
+    "lng": -6.770537
+  },
+  {
+    "id": "gp-ni-15",
+    "type": "gp",
+    "name": "Holywood Road Surgery",
+    "address": "54 Holywood Road, Belfast",
+    "postcode": "BT4 1NT",
+    "lat": 54.598548,
+    "lng": -5.88651
+  },
+  {
+    "id": "gp-ni-438",
+    "type": "gp",
+    "name": "Tramways Medical Centre",
+    "address": "Farmley Road, Newtownabbey",
+    "postcode": "BT36 7XX",
+    "lat": 54.669719,
+    "lng": -5.958278
+  },
+  {
+    "id": "gp-ni-387",
+    "type": "gp",
+    "name": "Scotch Quarter Practice",
+    "address": "Carrickfergus Health Centre, Taylors Avenue, Carrickfergus",
+    "postcode": "BT38 7HT",
+    "lat": 54.720515,
+    "lng": -5.798924
+  },
+  {
+    "id": "gp-ni-253",
+    "type": "gp",
+    "name": "Redwood Surgery",
+    "address": "The Health Centre, Newtownards Road, Bangor",
+    "postcode": "BT20 4LD",
+    "lat": 54.654937,
+    "lng": -5.674667
+  },
+  {
+    "id": "gp-ni-407",
+    "type": "gp",
+    "name": "Oaks Family Practice Centre",
+    "address": "48 Orritor Road, Cookstown",
+    "postcode": "BT80 8BH",
+    "lat": 54.648402,
+    "lng": -6.753977
+  },
+  {
+    "id": "gp-ni-303",
+    "type": "gp",
+    "name": "Crumlin Medical Practice",
+    "address": "1 Glenavy Road, Crumlin, Co Antrim",
+    "postcode": "BT29 4LA",
+    "lat": 54.611727,
+    "lng": -6.221598
+  },
+  {
+    "id": "gp-ni-18",
+    "type": "gp",
+    "name": "Bridges Family Practice",
+    "address": "2-6 Bryson Street, Belfast",
+    "postcode": "BT5 4ES",
+    "lat": 54.599497,
+    "lng": -5.906455
+  },
+  {
+    "id": "gp-ni-283",
+    "type": "gp",
+    "name": "Lough View Surgery",
+    "address": "2 Main Street, Kircubbin, Newtownards",
+    "postcode": "BT22 2SP",
+    "lat": 54.488584,
+    "lng": -5.534469
+  },
+  {
+    "id": "gp-ni-412",
+    "type": "gp",
+    "name": "The Diamond Medical Centre",
+    "address": "Market Square, Magherafelt",
+    "postcode": "BT45 6ED",
+    "lat": 54.755052,
+    "lng": -6.606651
+  },
+  {
+    "id": "gp-ni-585",
+    "type": "gp",
+    "name": "Cuilcagh Medical Practice",
+    "address": "Drumlaghy, Florencecourt, Enniskillen",
+    "postcode": "BT92 1BZ",
+    "lat": 54.26765,
+    "lng": -7.705227
+  },
+  {
+    "id": "gp-ni-98",
+    "type": "gp",
+    "name": "Ligoniel Health Centre",
+    "address": "74A Ligoniel Road, Belfast",
+    "postcode": "BT14 8BY",
+    "lat": 54.624456,
+    "lng": -5.981452
+  },
+  {
+    "id": "gp-ni-404",
+    "type": "gp",
+    "name": "Coagh Medical Centre",
+    "address": "67 Urbal Road, Coagh, Cookstown",
+    "postcode": "BT80 0DP",
+    "lat": 54.644948,
+    "lng": -6.62097
+  },
+  {
+    "id": "gp-ni-536",
+    "type": "gp",
+    "name": "Summer Hill Surgery",
+    "address": "Warrenpoint Health Centre, 50 Great Georges Street, Warrenpoint, Newry",
+    "postcode": "BT34 3HS",
+    "lat": 54.099839,
+    "lng": -6.25081
+  },
+  {
+    "id": "gp-ni-627",
+    "type": "gp",
+    "name": "Eglinton Medical Practice",
+    "address": "29 Main Street, Eglinton, Londonderry",
+    "postcode": "BT47 3AB",
+    "lat": 55.027511,
+    "lng": -7.172113
+  },
+  {
+    "id": "gp-ni-662",
+    "type": "gp",
+    "name": "Drumragh Family Practice",
+    "address": "Omagh Hospital And Pcc, 7 Donaghanie Road, Omagh",
+    "postcode": "BT79 0NR",
+    "lat": 54.586918,
+    "lng": -7.252414
+  },
+  {
+    "id": "gp-ni-156",
+    "type": "gp",
+    "name": "Dr. Chakravarty & Partners",
+    "address": "Ballyowen Health Centre, 179 Andersonstown Road, Belfast",
+    "postcode": "BT11 9EA",
+    "lat": 54.573657,
+    "lng": -5.994573
+  },
+  {
+    "id": "gp-ni-32",
+    "type": "gp",
+    "name": "Willowfield Surgery",
+    "address": "50/52 Castlereagh Road, Belfast",
+    "postcode": "BT5 5FP",
+    "lat": 54.591622,
+    "lng": -5.898458
+  },
+  {
+    "id": "gp-ni-600",
+    "type": "gp",
+    "name": "Claudy Health Centre",
+    "address": "38A Irwin Crescent, Claudy, Londonderry",
+    "postcode": "BT47 4AB",
+    "lat": 54.910845,
+    "lng": -7.151824
+  },
+  {
+    "id": "gp-ni-304",
+    "type": "gp",
+    "name": "Maine Medical Ahoghill",
+    "address": "The Old Meeting House, 2 Straid Rd, Ahoghill, B'Mena",
+    "postcode": "BT42 2PB",
+    "lat": 54.850411,
+    "lng": -6.364493
+  },
+  {
+    "id": "gp-ni-509",
+    "type": "gp",
+    "name": "Ardmore Medical Practice",
+    "address": "57 Thomas Street, Dungannon, Co Tyrone",
+    "postcode": "BT70 1HW",
+    "lat": 54.507032,
+    "lng": -6.768859
+  },
+  {
+    "id": "gp-ni-33",
+    "type": "gp",
+    "name": "Woodstock Medical Centre",
+    "address": "222 Woodstock Road, Belfast",
+    "postcode": "BT6 9DL",
+    "lat": 54.591661,
+    "lng": -5.903283
+  },
+  {
+    "id": "gp-ni-624",
+    "type": "gp",
+    "name": "Glendermott Medical",
+    "address": "Waterside Health Centre, 127 Spencer Road, Londonderry",
+    "postcode": "BT47 6AH",
+    "lat": 54.992751,
+    "lng": -7.310816
+  },
+  {
+    "id": "gp-ni-192",
+    "type": "gp",
+    "name": "Killyleagh Surgery",
+    "address": "14 Downpatrick Road, Killyleagh",
+    "postcode": "BT30 9RG",
+    "lat": 54.398166,
+    "lng": -5.654833
+  },
+  {
+    "id": "gp-ni-462",
+    "type": "gp",
+    "name": "High Street Surgery",
+    "address": "60 High Street, Lurgan, Craigavon",
+    "postcode": "BT66 8BA",
+    "lat": 54.460623,
+    "lng": -6.327892
+  },
+  {
+    "id": "gp-ni-470",
+    "type": "gp",
+    "name": "Riverside Practice",
+    "address": "Portadown Health Sc Centre, 90 Meadow Lane, Portadown",
+    "postcode": "BT62 3NJ",
+    "lat": 54.422273,
+    "lng": -6.440371
+  },
+  {
+    "id": "gp-ni-273",
+    "type": "gp",
+    "name": "Comber Family Practice",
+    "address": "Comber Health Centre, 5 Newtownards Road, Comber, Newtownards",
+    "postcode": "BT23 5BA",
+    "lat": 54.551426,
+    "lng": -5.74023
+  },
+  {
+    "id": "gp-ni-20",
+    "type": "gp",
+    "name": "Lewis Square Practice",
+    "address": "Holywood Arches Health Centre, Westminster Avenue, Belfast",
+    "postcode": "BT4 1NS",
+    "lat": 54.598717,
+    "lng": -5.888451
+  },
+  {
+    "id": "gp-ni-530",
+    "type": "gp",
+    "name": "Megaw & Irwin Practice",
+    "address": "Rathfriland Health Centre, John Street, Rathfriland, Newry",
+    "postcode": "BT34 5QH",
+    "lat": 54.235712,
+    "lng": -6.162746
+  },
+  {
+    "id": "gp-ni-116",
+    "type": "gp",
+    "name": "Crocus Street Surgery",
+    "address": "1 Crocus Street, Belfast",
+    "postcode": "BT12 7AP",
+    "lat": 54.59596,
+    "lng": -5.957655
+  },
+  {
+    "id": "gp-ni-528",
+    "type": "gp",
+    "name": "Crossmaglen Health Centre",
+    "address": "Mccormick Place, Crossmaglen, Newry",
+    "postcode": "BT35 9HD",
+    "lat": 54.078435,
+    "lng": -6.607036
+  },
+  {
+    "id": "gp-ni-499",
+    "type": "gp",
+    "name": "Errigal Medical Centre",
+    "address": "Old Dungannon Road, Ballygawley,Dungannon",
+    "postcode": "BT70 2EY",
+    "lat": 54.462054,
+    "lng": -7.025153
+  },
+  {
+    "id": "gp-ni-475",
+    "type": "gp",
+    "name": "Aghalee Surgery",
+    "address": "8A Lurgan Road, Aghalee, Craigavon",
+    "postcode": "BT67 0DD",
+    "lat": 54.520547,
+    "lng": -6.268932
+  },
+  {
+    "id": "gp-ni-280",
+    "type": "gp",
+    "name": "Abbey Family Practice",
+    "address": "Bangor Health Centre, Newtownards Road, Bangor",
+    "postcode": "BT20 4LD",
+    "lat": 54.654937,
+    "lng": -5.674667
+  },
+  {
+    "id": "gp-ni-205",
+    "type": "gp",
+    "name": "Crossgar Surgery",
+    "address": "James Street, Crossgar, Downpatrick",
+    "postcode": "BT30 9JU",
+    "lat": 54.397276,
+    "lng": -5.756431
+  },
+  {
+    "id": "gp-ni-73",
+    "type": "gp",
+    "name": "Crumlin Road Family Practice",
+    "address": "Crumlin Road Health Centre, 94-100 Crumlin Road, Belfast",
+    "postcode": "BT14 6AR",
+    "lat": 54.608523,
+    "lng": -5.94393
+  },
+  {
+    "id": "gp-ni-546",
+    "type": "gp",
+    "name": "Bessbrook Surgery",
+    "address": "12 Convent Hill, Bessbrook, Newry",
+    "postcode": "BT35 7AW",
+    "lat": 54.196828,
+    "lng": -6.404454
+  },
+  {
+    "id": "gp-ni-515",
+    "type": "gp",
+    "name": "Richhill Health Centre",
+    "address": "6 Greenview, Maynooth Road, Richhill, Armagh",
+    "postcode": "BT61 9PD",
+    "lat": 54.370937,
+    "lng": -6.552987
+  },
+  {
+    "id": "gp-ni-223",
+    "type": "gp",
+    "name": "Lisburn City Practice",
+    "address": "Lisburn Pccc, Lagan Valley Hospital, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-539",
+    "type": "gp",
+    "name": "Clanrye Surgery",
+    "address": "Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-147",
+    "type": "gp",
+    "name": "Ormeau Park Surgery",
+    "address": "281 Ormeau Road, Belfast",
+    "postcode": "BT7 3GG",
+    "lat": 54.580465,
+    "lng": -5.920966
+  },
+  {
+    "id": "gp-ni-93",
+    "type": "gp",
+    "name": "Cliftonville Medical Practice",
+    "address": "61 Cliftonville Road, Belfast",
+    "postcode": "BT14 6JN",
+    "lat": 54.615816,
+    "lng": -5.9422
+  },
+  {
+    "id": "gp-ni-30",
+    "type": "gp",
+    "name": "Eastside Surgery",
+    "address": "56 Templemore Avenue, Belfast",
+    "postcode": "BT5 4FT",
+    "lat": 54.59819,
+    "lng": -5.902065
+  },
+  {
+    "id": "gp-ni-204",
+    "type": "gp",
+    "name": "The Green Surgery",
+    "address": "12 The Green, Irish Street, Downpatrick",
+    "postcode": "BT30 6BE",
+    "lat": 54.326322,
+    "lng": -5.713224
+  },
+  {
+    "id": "gp-ni-629",
+    "type": "gp",
+    "name": "Roe Family Practice",
+    "address": "Limavady Health Centre, Scroggy Road, Limavady",
+    "postcode": "BT49 0NA",
+    "lat": 55.047576,
+    "lng": -6.939103
+  },
+  {
+    "id": "gp-ni-557",
+    "type": "gp",
+    "name": "Arbor Family Practice",
+    "address": "Brownlow Health Centre, 1 Legahory Centre, Legahory,, Craigavon",
+    "postcode": "BT65 5BE",
+    "lat": 54.448667,
+    "lng": -6.370114
+  },
+  {
+    "id": "gp-ni-62",
+    "type": "gp",
+    "name": "Gardiner Family Practice",
+    "address": "Crumlin Road Health Centre, 100 Crumlin Road, Belfast",
+    "postcode": "BT14 6AR",
+    "lat": 54.608523,
+    "lng": -5.94393
+  },
+  {
+    "id": "gp-ni-258",
+    "type": "gp",
+    "name": "Castle Park Practice",
+    "address": "Bangor Health Centre, Newtownards Road, Bangor",
+    "postcode": "BT20 4LD",
+    "lat": 54.654937,
+    "lng": -5.674667
+  },
+  {
+    "id": "gp-ni-476",
+    "type": "gp",
+    "name": "Ballyward Surgery",
+    "address": "32 Station Road, Ballyward, Castlewellan",
+    "postcode": "BT31 9TU",
+    "lat": 54.278497,
+    "lng": -6.03942
+  },
+  {
+    "id": "gp-ni-321",
+    "type": "gp",
+    "name": "Seven Towers Surgery",
+    "address": "Ballymena Health & Care Centre, 86 Cushendall Road, Ballymena",
+    "postcode": "BT43 6HB",
+    "lat": 54.876858,
+    "lng": -6.271014
+  },
+  {
+    "id": "gp-ni-148",
+    "type": "gp",
+    "name": "South East Family Practice",
+    "address": "370/372 Cregagh Road, Belfast",
+    "postcode": "BT6 9EY",
+    "lat": 54.571452,
+    "lng": -5.893882
+  },
+  {
+    "id": "gp-ni-157",
+    "type": "gp",
+    "name": "University Health Centre Qub",
+    "address": "Elmwood Manse, 7 University Terrace, Belfast",
+    "postcode": "BT7 1NP",
+    "lat": 54.58401,
+    "lng": -5.937493
+  },
+  {
+    "id": "gp-ni-84",
+    "type": "gp",
+    "name": "Broadway Medical Practice",
+    "address": "Falls Road Surgery, 186 Falls Road, Belfast",
+    "postcode": "BT12 6AG",
+    "lat": 54.59277,
+    "lng": -5.959718
+  },
+  {
+    "id": "gp-ni-654",
+    "type": "gp",
+    "name": "Grange Family Practice",
+    "address": "Omagh Hospital And Pcc, 7 Donaghanie Road, Omagh",
+    "postcode": "BT79 0NR",
+    "lat": 54.586918,
+    "lng": -7.252414
+  },
+  {
+    "id": "gp-ni-504",
+    "type": "gp",
+    "name": "Dr Cleary And Partners",
+    "address": "Moy Health Centre, 48 Charlemont Street, Moy",
+    "postcode": "BT71 7SL",
+    "lat": 54.44618,
+    "lng": -6.689924
+  },
+  {
+    "id": "gp-ni-543",
+    "type": "gp",
+    "name": "Warrenpoint Health Centre",
+    "address": "Summerhill, Warrenpoint, Newry",
+    "postcode": "BT34 3JD",
+    "lat": 54.101398,
+    "lng": -6.249934
+  },
+  {
+    "id": "gp-ni-206",
+    "type": "gp",
+    "name": "Down Hc",
+    "address": "Gp & Primary Care Centre, 1St Floor, Down Hospital, Struell Wells Road Downpatrick",
+    "postcode": "BT30 6RL",
+    "lat": 54.324132,
+    "lng": -5.692132
+  },
+  {
+    "id": "gp-ni-619",
+    "type": "gp",
+    "name": "Drs Quinn Brolly & Ross",
+    "address": "Limavady Health Centre, Scroggy Road, Limavady",
+    "postcode": "BT49 0NA",
+    "lat": 55.047576,
+    "lng": -6.939103
+  },
+  {
+    "id": "gp-ni-264",
+    "type": "gp",
+    "name": "Silverbirch Medical Practice",
+    "address": "39A Silverbirch Road, Bangor",
+    "postcode": "BT19 6EU",
+    "lat": 54.651567,
+    "lng": -5.632927
+  },
+  {
+    "id": "gp-ni-358",
+    "type": "gp",
+    "name": "Liffock Surgery",
+    "address": "69 Sea Road, Castlerock, Coleraine",
+    "postcode": "BT51 4TW",
+    "lat": 55.161723,
+    "lng": -6.78708
+  },
+  {
+    "id": "gp-ni-196",
+    "type": "gp",
+    "name": "Ardglass Surgery",
+    "address": "The Health Centre, Downpatrick Road, Ardglass",
+    "postcode": "BT30 7SF",
+    "lat": 54.26398,
+    "lng": -5.613217
+  },
+  {
+    "id": "gp-ni-314",
+    "type": "gp",
+    "name": "Braid View Medical Practice",
+    "address": "86 Cushendall Road, Ballymena",
+    "postcode": "BT43 6HB",
+    "lat": 54.876858,
+    "lng": -6.271014
+  },
+  {
+    "id": "gp-ni-350",
+    "type": "gp",
+    "name": "Bushmills Medical Centre",
+    "address": "6 Priestland Road, Bushmills",
+    "postcode": "BT57 8QP",
+    "lat": 55.203383,
+    "lng": -6.526665
+  },
+  {
+    "id": "gp-ni-1",
+    "type": "gp",
+    "name": "Harland Medical Practice",
+    "address": "Holywood Arches Health Centre, Westminster Avenue, Belfast",
+    "postcode": "BT4 1NS",
+    "lat": 54.598717,
+    "lng": -5.888451
+  },
+  {
+    "id": "gp-ni-614",
+    "type": "gp",
+    "name": "Dungiven Family Practice",
+    "address": "Dungiven Health Centre, 1 Chapel Road, Dungiven",
+    "postcode": "BT47 4RS",
+    "lat": 54.922578,
+    "lng": -6.918907
+  },
+  {
+    "id": "gp-ni-616",
+    "type": "gp",
+    "name": "Western Rural Healthcare",
+    "address": "Castlederg Group Surgery, 13A Lower Strabane Road, Castlederg",
+    "postcode": "BT81 7AZ",
+    "lat": 54.707177,
+    "lng": -7.590985
+  },
+  {
+    "id": "gp-ni-460",
+    "type": "gp",
+    "name": "Donaghcloney Surgery",
+    "address": "60A Main Street, Donaghcloney, Craigavon",
+    "postcode": "BT66 7LR",
+    "lat": 54.4195,
+    "lng": -6.259206
+  },
+  {
+    "id": "gp-ni-228",
+    "type": "gp",
+    "name": "Laganview Medical Practice",
+    "address": "Level 2 Lisburn Pccc, Lagan Valley Hospital & Lpccc, 39 Hillsborough Road, Lisburn",
+    "postcode": "BT28 1JP",
+    "lat": 54.506189,
+    "lng": -6.045574
+  },
+  {
+    "id": "gp-ni-369",
+    "type": "gp",
+    "name": "Portstewart Medical Centre",
+    "address": "32 Mill Road, Portstewart",
+    "postcode": "BT55 7SW",
+    "lat": 55.179041,
+    "lng": -6.708304
+  },
+  {
+    "id": "gp-ni-146",
+    "type": "gp",
+    "name": "Balmoral Surgery",
+    "address": "436 Lisburn Road, Belfast",
+    "postcode": "BT9 6GR",
+    "lat": 54.570844,
+    "lng": -5.962236
+  },
+  {
+    "id": "gp-ni-38",
+    "type": "gp",
+    "name": "Cherryvalley Family Practice",
+    "address": "Cherryvalley Health Centre, Kings Square, Belfast",
+    "postcode": "BT5 7BP",
+    "lat": 54.589541,
+    "lng": -5.844042
+  },
+  {
+    "id": "gp-ni-325",
+    "type": "gp",
+    "name": "Kells & Connor Medical Centre",
+    "address": "36 Church Road, Kells, Ballymena",
+    "postcode": "BT42 3JU",
+    "lat": 54.807273,
+    "lng": -6.21678
+  },
+  {
+    "id": "gp-ni-493",
+    "type": "gp",
+    "name": "Mid Ulster Health Care (Dun)",
+    "address": "South Tyrone Hospital, Carland Road, Dungannon",
+    "postcode": "BT71 4AU",
+    "lat": 54.510275,
+    "lng": -6.770537
+  },
+  {
+    "id": "gp-ni-105",
+    "type": "gp",
+    "name": "Church View Medical Practice",
+    "address": "Cornerstone Medical Centre, 69 Shankill Road, Belfast",
+    "postcode": "BT13 1FD",
+    "lat": 54.604043,
+    "lng": -5.945193
+  },
+  {
+    "id": "gp-ni-24",
+    "type": "gp",
+    "name": "The Mount Group Practice",
+    "address": "50 Castlereagh Street, Belfast",
+    "postcode": "BT5 4NH",
+    "lat": 54.594402,
+    "lng": -5.903328
+  },
+  {
+    "id": "gp-ni-526",
+    "type": "gp",
+    "name": "Drs Magennis, Barrett & Grant",
+    "address": "Cornmarket Surgery, Newry Health Village, Monaghan Street, Newry",
+    "postcode": "BT35 6BW",
+    "lat": 54.176309,
+    "lng": -6.343415
+  },
+  {
+    "id": "gp-ni-233",
+    "type": "gp",
+    "name": "Glenavy Family Practice",
+    "address": "47 Main Street, Glenavy, Crumlin",
+    "postcode": "BT29 4LN",
+    "lat": 54.591591,
+    "lng": -6.214152
+  },
+  {
+    "id": "gp-ni-506",
+    "type": "gp",
+    "name": "Aughnacloy Health Centre",
+    "address": "2 Sydney Lane, Aughnacloy, Co Tyrone",
+    "postcode": "BT69 6AF",
+    "lat": 54.414946,
+    "lng": -6.9735
+  },
+  {
+    "id": "gp-ni-85",
+    "type": "gp",
+    "name": "Antrim Road Medical Centre",
+    "address": "515 Antrim Road, Belfast",
+    "postcode": "BT15 3BS",
+    "lat": 54.624387,
+    "lng": -5.937927
+  },
+  {
+    "id": "gp-ni-563",
+    "type": "gp",
+    "name": "Devenish Practice",
+    "address": "Erne Health Centre, Erne Road, Enniskillen",
+    "postcode": "BT74 6NN",
+    "lat": 54.349576,
+    "lng": -7.634669
+  },
+  {
+    "id": "gp-ni-395",
+    "type": "gp",
+    "name": "Rockfield Medical Centre",
+    "address": "73 Doury Road, Ballymena",
+    "postcode": "BT43 6JD",
+    "lat": 54.877186,
+    "lng": -6.279553
+  },
+  {
+    "id": "gp-ni-315",
+    "type": "gp",
+    "name": "Mountview Surgery",
+    "address": "Ballymena Health & Care Centre, 86 Cushendall Road, Ballymena",
+    "postcode": "BT43 6HB",
+    "lat": 54.876858,
+    "lng": -6.271014
+  },
+  {
+    "id": "gp-ni-83",
+    "type": "gp",
+    "name": "Grove Medical Practice",
+    "address": "Grove Well Being Centre, 120 York Road, Belfast",
+    "postcode": "BT15 3HF",
+    "lat": 54.617716,
+    "lng": -5.924052
+  },
+  {
+    "id": "gp-ni-285",
+    "type": "gp",
+    "name": "Green Road Medical Centre",
+    "address": "5 Green Road, Conlig, Newtownards",
+    "postcode": "BT23 7PZ",
+    "lat": 54.632325,
+    "lng": -5.668384
+  },
+  {
+    "id": "gp-ni-547",
+    "type": "gp",
+    "name": "Hanna & Groves Practice",
+    "address": "Rathfriland Medical Centre, John Street, Rathfriland, Newry",
+    "postcode": "BT34 5QH",
+    "lat": 54.235712,
+    "lng": -6.162746
+  },
+  {
+    "id": "gp-ni-19",
+    "type": "gp",
+    "name": "Linen Court Surgery",
+    "address": "336 Beersbridge Road, Belfast",
+    "postcode": "BT5 5DY",
+    "lat": 54.593189,
+    "lng": -5.888845
+  },
+  {
+    "id": "gp-ni-661",
+    "type": "gp",
+    "name": "Dromore Surgery",
+    "address": "16 Camderry Road, Dromore",
+    "postcode": "BT78 3AU",
+    "lat": 54.519153,
+    "lng": -7.459202
+  },
+  {
+    "id": "gp-ni-252",
+    "type": "gp",
+    "name": "Priory Surgery",
+    "address": "26 High Street, Holywood",
+    "postcode": "BT18 9AD",
+    "lat": 54.642295,
+    "lng": -5.83307
+  },
+  {
+    "id": "gp-ni-574",
+    "type": "gp",
+    "name": "Lisnaskea Medical Centre (Cic)",
+    "address": "44 Drumhaw Park, Lisnaskea",
+    "postcode": "BT92 0GT",
+    "lat": 54.256609,
+    "lng": -7.447348
+  },
+  {
+    "id": "gp-ni-413",
+    "type": "gp",
+    "name": "Cookstown Cic,The Surgery",
+    "address": "Loy Buildings, 18 Loy Street, Cookstown",
+    "postcode": "BT80 8PE",
+    "lat": 54.643567,
+    "lng": -6.744195
+  },
+  {
+    "id": "gp-ni-622",
+    "type": "gp",
+    "name": "Racecourse Medical Group",
+    "address": "Shantallow Health Centre, Racecourse Road, Londonderry",
+    "postcode": "BT48 8NL",
+    "lat": 55.02642,
+    "lng": -7.315946
+  },
+  {
+    "id": "gp-ni-545",
+    "type": "gp",
+    "name": "Maphoner Surgery",
+    "address": "2A Forkhill Road, Mullaghbawn, Newry",
+    "postcode": "BT35 9RA",
+    "lat": 54.10702,
+    "lng": -6.476925
+  },
+  {
+    "id": "gp-ni-584",
+    "type": "gp",
+    "name": "Brookeborough & Tempo Pcs",
+    "address": "9 Tanyard Lane, Brookeborough, Enniskillen",
+    "postcode": "BT94 4JG",
+    "lat": 54.313699,
+    "lng": -7.405497
+  },
+  {
+    "id": "gp-ni-474",
+    "type": "gp",
+    "name": "Dromore Doctors Surgery",
+    "address": "Skeagh House, 15 Banbridge Road, Dromore",
+    "postcode": "BT25 1NB",
+    "lat": 54.41333,
+    "lng": -6.154116
+  },
+  {
+    "id": "gp-ni-310",
+    "type": "gp",
+    "name": "Cullybackey Medical Practice",
+    "address": "Cullybackey Health Centre, Tober Park, Cullybackey, Ballymena",
+    "postcode": "BT42 1NW",
+    "lat": 54.889886,
+    "lng": -6.349848
+  },
+  {
+    "id": "gp-ni-532",
+    "type": "gp",
+    "name": "Kilkeel Medical Practice",
+    "address": "Greencastle Street, Kilkeel, Newry",
+    "postcode": "BT34 4BH",
+    "lat": 54.061648,
+    "lng": -6.00858
+  },
+  {
+    "id": "gp-ni-508",
+    "type": "gp",
+    "name": "Tandragee Medical Centre",
+    "address": "3 Montague Street, Tandragee, Craigavon",
+    "postcode": "BT62 2AN",
+    "lat": 54.355726,
+    "lng": -6.413575
+  },
+  {
+    "id": "gp-ni-393",
+    "type": "gp",
+    "name": "Larne Medical Practice",
+    "address": "Larne Health Centre, Gloucester Avenue, Larne",
+    "postcode": "BT40 1PB",
+    "lat": 54.853732,
+    "lng": -5.819081
+  },
+  {
+    "id": "gp-ni-651",
+    "type": "gp",
+    "name": "Fintona Medical Centre",
+    "address": "33 Dromore Road, Fintona, Omagh",
+    "postcode": "BT78 2BB",
+    "lat": 54.498266,
+    "lng": -7.321867
+  },
+  {
+    "id": "gp-ni-464",
+    "type": "gp",
+    "name": "Portadown Family Practice",
+    "address": "Portadown H&C Centre, 90 Meadow Lane, Portadown, Craigavon",
+    "postcode": "BT62 3NJ",
+    "lat": 54.422273,
+    "lng": -6.440371
+  },
+  {
+    "id": "gp-ni-354",
+    "type": "gp",
+    "name": "Portstewart Family Practice",
+    "address": "6 Lever Road, Portstewart",
+    "postcode": "BT55 7EF",
+    "lat": 55.182757,
+    "lng": -6.716504
+  },
+  {
+    "id": "gp-ni-535",
+    "type": "gp",
+    "name": "Wade,Toner & Mcalonan Practice",
+    "address": "Rathfriland Health Centre, John Street, Rathfriland, Newry",
+    "postcode": "BT34 5QH",
+    "lat": 54.235712,
+    "lng": -6.162746
+  },
+  {
+    "id": "gp-ni-551",
+    "type": "gp",
+    "name": "Rathkeeland House",
+    "address": "1 Blaney Road, Crossmaglen, Newry",
+    "postcode": "BT35 9JJ",
+    "lat": 54.078417,
+    "lng": -6.610871
+  },
+  {
+    "id": "gp-ni-502",
+    "type": "gp",
+    "name": "Tynan Surgery",
+    "address": "15 Dartan Ree, Tynan, Armagh",
+    "postcode": "BT60 4QT",
+    "lat": 54.330142,
+    "lng": -6.823418
+  },
+  {
+    "id": "gp-ni-625",
+    "type": "gp",
+    "name": "Creggan Family Practice",
+    "address": "Rath Mor Centre, Bligh'S Lane, Londonderry",
+    "postcode": "BT48 0LZ",
+    "lat": 54.996342,
+    "lng": -7.336442
+  }
+]
