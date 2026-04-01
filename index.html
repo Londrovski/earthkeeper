@@ -167,6 +167,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
 .saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
 #mobile-detail{display:none}
+.mobile-stats-bar{display:none;background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
+.mobile-stats-bar #ms-total,.mobile-stats-bar #ms-cleared,.mobile-stats-bar #ms-pct{font-weight:600;color:#E8D5A0;font-size:12px}
+.ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
+.mobile-tool-btn-row{display:none}
+.tool-modal-open-btn{width:100%;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:#C9A84C;border-radius:20px;padding:6px 14px;font-size:12px;cursor:pointer;letter-spacing:.04em;text-align:center}
+#tool-modal{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.65);align-items:flex-end}
 @media(max-width:700px){
   header{height:48px;padding:0 12px}
   .header-seal{width:32px;height:32px}
@@ -202,18 +208,10 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .log-date-input{font-size:11px;padding:4px 7px}
   .log-clear-btn{font-size:10px;padding:4px 7px}
   .tog{display:none}
-  /* Groups tab mobile: hide list, show map */
   #tab-groups .district-list{display:none!important}
-  #tab-groups .district-detail{position:fixed;bottom:0;left:0;right:0;max-height:55vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd)}
-  #tab-groups .district-detail:not(.on){display:none}
-  #tab-groups{height:auto;display:none;flex-direction:column}
-  #tab-groups.on{display:flex}
-  #tab-groups .gtype-row{padding:6px 10px;gap:6px}
-  #tab-groups .gtype-btn{font-size:11px;padding:5px 10px}
-  #tab-groups .srow{padding:4px 10px}
-  #tab-groups .sinput{font-size:12px;padding:6px 9px}
-  /* Home button mobile position */
-  .map-home-btn{top:56px!important}
+  #tab-groups .district-detail{position:fixed!important;bottom:0;left:0;right:0;max-height:60vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
+  #tab-groups .district-detail:not(.on){display:none!important}
+  .sidebar{overflow:visible!important}
   .map-overlays{top:7px;right:7px;gap:5px}
   .progress{min-width:130px;padding:6px 10px}
   .prog-title{font-size:8px;margin-bottom:4px}
@@ -378,6 +376,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
   </div>
 </header>
+<div id="mobile-stats" class="mobile-stats-bar"><span id="ms-total">—</span><span id="ms-label-total"> locations</span><span class="ms-sep">·</span><span id="ms-cleared">0</span><span id="ms-label-cleared"> cleared</span><span class="ms-sep">·</span><span id="ms-pct">0%</span><span> done</span></div>
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
@@ -399,7 +398,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
       <div class="frow">
         <div class="frow-label">Show</div>
-        <div class="chips">
+        <div class="chips" id="show-chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
           <span class="chip-divider"><span>cleared by</span><span class="chip-divider-link" onclick="toggleToolKey()">what are these?</span></span>
@@ -420,6 +419,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
+      <div class="frow mobile-tool-btn-row" id="tool-filter-row"><button class="tool-modal-open-btn" onclick="openToolModal()">🎯 Filter by Tool</button></div>
       <div class="rsel">
         <select id="region-select" onchange="loadRegion(this.value)">
           <option value="all" selected>— All regions —</option>
@@ -771,19 +771,29 @@ function locVisible(loc){
   return true
 }
 
+function getVisibleMapBounds(){
+  if(!isMobile())return{bottomOffset:0}
+  for(const id of['mobile-detail','district-detail']){
+    const el=document.getElementById(id)
+    if(el&&el.classList.contains('on')){
+      const h=el.getBoundingClientRect().height||200
+      return{bottomOffset:Math.min(h,window.innerHeight*0.6)}
+    }
+  }
+  return{bottomOffset:0}
+}
 function panToVisible(lat,lng,zoom){
   if(!map)return
-  if(zoom){map.flyTo({center:[lng,lat],zoom,duration:600});return}
-  if(isMobile()){
-    const panel=document.getElementById('mobile-detail')
-    const offset=panel.classList.contains('on')?(panel.offsetHeight||0)/2:0
-    map.easeTo({center:[lng,lat],offset:[0,offset],duration:400})
-  }else{map.easeTo({center:[lng,lat],duration:300})}
+  const{bottomOffset}=getVisibleMapBounds()
+  const yOff=isMobile()?Math.round(bottomOffset/2):0
+  if(zoom){map.flyTo({center:[lng,lat],zoom,offset:[0,yOff],duration:600});return}
+  map.easeTo({center:[lng,lat],offset:[0,yOff],duration:400})
 }
-function fitBounds(locs){
+function fitBounds(locs,padding){
   const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
   const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
-  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:{top:100,bottom:100,left:100,right:100},maxZoom:10,duration:800})
+  const pad=padding||{top:100,bottom:100,left:100,right:100}
+  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:pad,maxZoom:10,duration:800})
 }
 
 function locateMe(){
@@ -824,11 +834,9 @@ async function loadAll(){
   closeMobileDetail();closeDetail();setSelectedId(null)
   setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
   try{
-    // Batch fetches to avoid hitting browser parallel connection limits on mobile
     const batchSize=3,results=[]
     for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batch=ALL_REGIONS.slice(i,i+batchSize)
-      const batchResults=await Promise.all(batch.map(r=>fetchRegion(r,false)))
+      const batchResults=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,false)))
       results.push(...batchResults)
     }
     locations=results.flat()
@@ -978,7 +986,10 @@ function selectDistrict(code){
   renderDistrictList();updateDistrictStates();updateDistrictStats(code)
   const d=districtMap[code];if(!d)return
   const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
-  if(allLocs.length)fitBounds(allLocs)
+  if(allLocs.length){
+    const{bottomOffset}=getVisibleMapBounds()
+    fitBounds(allLocs,isMobile()?{top:60,bottom:bottomOffset+80,left:40,right:40}:null)
+  }
   if(mapReady&&map.getSource('district-locs-src')){
     map.getSource('district-locs-src').setData({type:'FeatureCollection',features:allLocs.filter(l=>l.lat&&l.lng).map(l=>{
       const p=progress[l.id],grpC=groupProgress[code+':'+l.type]
@@ -1280,17 +1291,13 @@ async function loadSchoolsGps(){
   schoolsGpsLoaded=true
   setMsg('Loading schools and GPs...')
   try{
-    // Batch fetches to avoid parallel connection limits on mobile
-    const batchSize=3,results=[]
+    const batchSize=3,allFetched=[]
     for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batch=ALL_REGIONS.slice(i,i+batchSize)
-      const batchResults=await Promise.all(batch.map(r=>fetchRegion(r,true)))
-      results.push(...batchResults)
+      const batchResults=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,true)))
+      allFetched.push(...batchResults)
     }
-    const extras=[results]
-    // extras include all types — extract only schools+GPs not already in locations
     const existingIds=new Set(locations.map(l=>l.id))
-    const newLocs=results.flat().filter(l=>!existingIds.has(l.id))
+    const newLocs=allFetched.flat().filter(l=>!existingIds.has(l.id))
     locations=[...locations,...newLocs]
     buildDistrictMap()
     refreshMapData();renderList();updateStats()
@@ -1305,6 +1312,24 @@ function togglePlace(type,el){
   } else {
     refreshMapData();renderList();updateStats()
   }
+}
+function openToolModal(){
+  const m=document.getElementById('tool-modal');if(!m)return
+  syncModalState();m.style.display='flex'
+}
+function closeToolModal(){
+  const m=document.getElementById('tool-modal');if(m)m.style.display='none'
+}
+function syncModalState(){
+  document.getElementById('tm-chip-all')?.classList.toggle('on',showFilter==='all')
+  document.getElementById('tm-chip-cleared')?.classList.toggle('on',showFilter==='cleared')
+  ;['MS','MF','O','J','MG','AP','MI','MJ','DM','EW1','EW2','EW3','EW4','EW5'].forEach(t=>{
+    document.getElementById('tm-'+t)?.classList.toggle('on',activeTools.has(t)||showFilter===t)
+  })
+}
+function syncModalToMain(){
+  document.querySelectorAll('.chip.show-all').forEach(el=>el.classList.toggle('on',showFilter==='all'))
+  document.querySelectorAll('.chip.show-cleared').forEach(el=>el.classList.toggle('on',showFilter==='cleared'))
 }
 let activeTools=new Set()
 function toggleToolKey(){const k=document.getElementById('tool-key');k.classList.toggle('open')}
@@ -1360,6 +1385,15 @@ function updateGroupsStats(){
   document.getElementById('s-log-allpct').style.display='none'
   updateMobileStats(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%')
 }
+function updateMobileStats(total,totalLabel,cleared,clearedLabel,pct){
+  if(!isMobile())return
+  const el=document.getElementById('mobile-stats');if(!el)return
+  document.getElementById('ms-total').textContent=total
+  document.getElementById('ms-label-total').textContent=' '+totalLabel
+  document.getElementById('ms-cleared').textContent=cleared
+  document.getElementById('ms-label-cleared').textContent=' '+clearedLabel
+  document.getElementById('ms-pct').textContent=pct
+}
 function updateLogStats(){
   const indivTypes=['hospital','hospice','university','prison']
   const indivLocs=locations.filter(l=>indivTypes.includes(l.type))
@@ -1393,6 +1427,7 @@ function updateStats(){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
+  updateMobileStats(total.toLocaleString(),'locations',cleared,'cleared',pct+'%')
   for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt']]){
     const tot=locations.filter(l=>l.type===type).length
     const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
@@ -1529,8 +1564,6 @@ function switchTab(name,btn){
       ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
       selectedDistrictCode=null
       document.getElementById('district-detail').classList.remove('on')
-      // Refresh map data AFTER layers are shown to prevent blank dots
-      refreshMapData()
     }
   }
   applyLayerVisibility(20)
@@ -1567,6 +1600,7 @@ function updateDistrictStats(code){
   document.getElementById('s-log-div').style.display='none'
   document.getElementById('s-log-all').style.display='none'
   document.getElementById('s-log-allpct').style.display='none'
+  updateMobileStats(total.toLocaleString(),'locations',cleared,'cleared',pct+'%')
   if(hb)hb.style.display=''
 }
 function goHome(){
@@ -1613,5 +1647,39 @@ try{
   }
 }catch(err){try{localStorage.clear()}catch(e2){}}
 </script>
+<div id="tool-modal" onclick="if(event.target===this)closeToolModal()">
+  <div style="background:#0a1c11;border-radius:14px 14px 0 0;border-top:1px solid rgba(201,168,76,.3);padding:18px 16px 28px;max-height:82vh;overflow-y:auto;width:100%;-webkit-overflow-scrolling:touch">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <span style="font-size:15px;color:#C9A84C;font-family:'Cormorant Garamond',serif;letter-spacing:.06em">Filter by Tool</span>
+      <button onclick="closeToolModal()" style="background:none;border:none;color:rgba(232,213,160,.45);font-size:24px;line-height:1;cursor:pointer;padding:0 4px">×</button>
+    </div>
+    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em">Show</div>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px">
+      <div class="chip show-all on" id="tm-chip-all" onclick="setShow('all',this);syncModalToMain();closeToolModal()">All</div>
+      <div class="chip show-cleared" id="tm-chip-cleared" onclick="setShow('cleared',this);syncModalToMain();closeToolModal()"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
+    </div>
+    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em">By Tool</div>
+    <div style="font-size:10px;color:rgba(232,213,160,.25);margin-bottom:10px;line-height:1.6">MS=Magical Structures · MF=Multifrequency · O=Omega · J=Jewel · MG=Merlin's Grace · AP=Universal AP · MI=Manifesting Intention · MJ=Magical Jewel · DM=Divine Magic</div>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px">
+      <div class="chip show-tool" id="tm-MS" onclick="toggleTool('MS',this);syncModalState()">MS</div>
+      <div class="chip show-tool" id="tm-MF" onclick="toggleTool('MF',this);syncModalState()">MF</div>
+      <div class="chip show-tool" id="tm-O" onclick="toggleTool('O',this);syncModalState()">O</div>
+      <div class="chip show-tool" id="tm-J" onclick="toggleTool('J',this);syncModalState()">J</div>
+      <div class="chip show-tool" id="tm-MG" onclick="toggleTool('MG',this);syncModalState()">MG</div>
+      <div class="chip show-tool" id="tm-AP" onclick="toggleTool('AP',this);syncModalState()">AP</div>
+      <div class="chip show-tool" id="tm-MI" onclick="toggleTool('MI',this);syncModalState()">MI</div>
+      <div class="chip show-tool" id="tm-MJ" onclick="toggleTool('MJ',this);syncModalState()">MJ</div>
+      <div class="chip show-tool" id="tm-DM" onclick="toggleTool('DM',this);syncModalState()">DM</div>
+    </div>
+    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em">Earthworks</div>
+    <div style="display:flex;flex-wrap:wrap;gap:7px">
+      <div class="chip show-tool" id="tm-EW1" onclick="toggleTool('EW1',this);syncModalState()">EW1</div>
+      <div class="chip show-tool" id="tm-EW2" onclick="toggleTool('EW2',this);syncModalState()">EW2</div>
+      <div class="chip show-tool" id="tm-EW3" onclick="toggleTool('EW3',this);syncModalState()">EW3</div>
+      <div class="chip show-tool" id="tm-EW4" onclick="toggleTool('EW4',this);syncModalState()">EW4</div>
+      <div class="chip show-tool" id="tm-EW5" onclick="toggleTool('EW5',this);syncModalState()">EW5</div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
