@@ -258,7 +258,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .hstats{gap:28px;font-size:16px}
   .huser{font-size:15px}
   .hbtn{font-size:13px;padding:6px 14px}
-  .sidebar{width:420px}
+  .sidebar{width:min(520px,34vw)}
   .tabs{height:56px}
   .tab{font-size:15px;padding:18px 12px}
   .frow{padding:12px 24px}
@@ -308,6 +308,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .prog-label{font-size:14px;width:90px}
   .prog-track{height:6px}
   .prog-txt{font-size:13px;min-width:44px}
+}
+@media(min-width:1440px){
+  .sidebar{width:min(600px,36vw)}
+}
+@media(min-width:1920px){
+  .sidebar{width:min(680px,36vw)}
 }
 
 </style>
