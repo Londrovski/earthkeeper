@@ -873,6 +873,11 @@ async function loadAll(){
       results.push(...batchResults)
     }
     locations=results.flat()
+    // Ensure default filter state is clean
+    if(!placesFilter.hospital)placesFilter.hospital=true
+    if(!placesFilter.hospice)placesFilter.hospice=true
+    if(!placesFilter.university)placesFilter.university=true
+    if(!placesFilter.prison)placesFilter.prison=true
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
   }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
@@ -1412,8 +1417,11 @@ function toggleToolKey(){const k=document.getElementById('tool-key');k.classList
 function setShow(mode,el){
   showFilter=mode
   activeTools.clear()
+  // Reset inline tool select
+  const ts=document.getElementById('tool-select-inline');if(ts)ts.value=''
+  const ts2=document.getElementById('tool-select');if(ts2)ts2.value=''
   document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-tool').forEach(c=>c.classList.remove('on'))
-  el.classList.add('on');refreshMapData();renderList()
+  el.classList.add('on');refreshMapData();renderList();updateStats()
 }
 function toggleTool(tool,el){
   // Deselect all/cleared chips
