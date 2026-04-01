@@ -300,16 +300,6 @@
     "districtCode": "S12000027"
   },
   {
-    "id": "school-6103030",
-    "type": "school",
-    "name": "Aith Junior High School",
-    "address": "Aith",
-    "postcode": "ZE2 9NB",
-    "lat": 60.2837886,
-    "lng": -1.377676,
-    "districtCode": "S12000027"
-  },
-  {
     "id": "school-8301727",
     "type": "school",
     "name": "Aitkenbar Primary School",
@@ -1490,16 +1480,6 @@
     "districtCode": "S12000027"
   },
   {
-    "id": "school-6103138",
-    "type": "school",
-    "name": "Baltasound Junior High School",
-    "address": "Baltasound, SHETLAND",
-    "postcode": "ZE2 9DY",
-    "lat": 60.7593624,
-    "lng": -0.8851556,
-    "districtCode": "S12000027"
-  },
-  {
     "id": "school-5406838",
     "type": "school",
     "name": "Balwearie High School",
@@ -2520,16 +2500,6 @@
     "districtCode": "S12000027"
   },
   {
-    "id": "school-6103332",
-    "type": "school",
-    "name": "Brae High School",
-    "address": "Brae",
-    "postcode": "ZE2 9QG",
-    "lat": 60.3958883,
-    "lng": -1.3510308,
-    "districtCode": "S12000027"
-  },
-  {
     "id": "school-5725127",
     "type": "school",
     "name": "Braehead Primary School",
@@ -2658,16 +2628,6 @@
     "lat": 55.8108774,
     "lng": -3.9594849,
     "districtCode": "S12000050"
-  },
-  {
-    "id": "school-5349834",
-    "type": "school",
-    "name": "Breadalbane Academy",
-    "address": "Breadalbane Community Campus, ABERFELDY",
-    "postcode": "PH15 2DU",
-    "lat": 56.616972,
-    "lng": -3.8698873,
-    "districtCode": "S12000048"
   },
   {
     "id": "school-5349834",
@@ -3968,16 +3928,6 @@
     "lat": 54.8966679,
     "lng": -4.9534229,
     "districtCode": "S12000006"
-  },
-  {
-    "id": "school-6203132",
-    "type": "school",
-    "name": "Castlebay School",
-    "address": "Castlebay",
-    "postcode": "HS9 5XD",
-    "lat": 56.95606,
-    "lng": -7.4963053,
-    "districtCode": "S12000013"
   },
   {
     "id": "school-6203132",
@@ -6920,16 +6870,6 @@
     "districtCode": "S12000045"
   },
   {
-    "id": "school-1003062",
-    "type": "school",
-    "name": "East Dunbartonshire Central School",
-    "address": "New College Lanarkshire Kirkintilloch Campus, KIRKINTILLOCH",
-    "postcode": "G66 1NH",
-    "lat": 55.9362943,
-    "lng": -4.1571179,
-    "districtCode": "S12000045"
-  },
-  {
     "id": "school-5200822",
     "type": "school",
     "name": "East End Primary School",
@@ -7288,16 +7228,6 @@
     "lat": 56.3937234,
     "lng": -3.2096856,
     "districtCode": "S12000048"
-  },
-  {
-    "id": "school-1004204",
-    "type": "school",
-    "name": "e-Sgoil nan Eilean Siar",
-    "address": "44 Francis Street, ISLE OF LEWIS",
-    "postcode": "HS1 2NF",
-    "lat": 58.2093421,
-    "lng": -6.3830212,
-    "districtCode": "S12000013"
   },
   {
     "id": "school-1004204",
@@ -8020,16 +7950,6 @@
     "districtCode": "S12000021"
   },
   {
-    "id": "school-8215634",
-    "type": "school",
-    "name": "Garnock Community Campus",
-    "address": "Beith Road, GLENGARNOCK",
-    "postcode": "KA14 3BF",
-    "lat": 55.7396362,
-    "lng": -4.6708056,
-    "districtCode": "S12000021"
-  },
-  {
     "id": "school-8456321",
     "type": "school",
     "name": "Garrowhill Primary School",
@@ -8218,16 +8138,6 @@
     "lat": 56.6071951,
     "lng": -3.0064824,
     "districtCode": "S12000041"
-  },
-  {
-    "id": "school-8432627",
-    "type": "school",
-    "name": "Glasgow Gaelic School",
-    "address": "147 Berkeley Street, GLASGOW",
-    "postcode": "G3 7HP",
-    "lat": 55.8645231,
-    "lng": -4.2799771,
-    "districtCode": "S12000049"
   },
   {
     "id": "school-8432627",
@@ -10240,16 +10150,6 @@
     "districtCode": "S12000026"
   },
   {
-    "id": "school-5632730",
-    "type": "school",
-    "name": "Jedburgh Grammar School",
-    "address": "JEDBURGH GRAMMAR CAMPUS, JEDBURGH",
-    "postcode": "TD8 6HH",
-    "lat": 55.4783531,
-    "lng": -2.5453336,
-    "districtCode": "S12000026"
-  },
-  {
     "id": "school-8302928",
     "type": "school",
     "name": "John Logie Baird Primary School",
@@ -10308,16 +10208,6 @@
     "lat": 55.2116636,
     "lng": -3.4169659,
     "districtCode": "S12000006"
-  },
-  {
-    "id": "school-8470332",
-    "type": "school",
-    "name": "Jordanhill School",
-    "address": "45 Chamberlain Road, GLASGOW",
-    "postcode": "G13 1SP",
-    "lat": 55.8848837,
-    "lng": -4.3339081,
-    "districtCode": "S12000049"
   },
   {
     "id": "school-8470332",
@@ -12560,16 +12450,6 @@
     "districtCode": "S12000035"
   },
   {
-    "id": "school-8111030",
-    "type": "school",
-    "name": "Lochgilphead High School",
-    "address": "Lochgilphead Joint Campus, LOCHGILPHEAD",
-    "postcode": "PA31 8AA",
-    "lat": 56.0300013,
-    "lng": -5.4274235,
-    "districtCode": "S12000035"
-  },
-  {
     "id": "school-8106428",
     "type": "school",
     "name": "Lochgoilhead Primary School",
@@ -13540,16 +13420,6 @@
     "districtCode": "S12000027"
   },
   {
-    "id": "school-6103731",
-    "type": "school",
-    "name": "Mid Yell Junior High School",
-    "address": "Mid Yell",
-    "postcode": "ZE2 9BN",
-    "lat": 60.5967313,
-    "lng": -1.0652747,
-    "districtCode": "S12000027"
-  },
-  {
     "id": "school-5235928",
     "type": "school",
     "name": "Middleton Park School",
@@ -13808,16 +13678,6 @@
     "lat": 57.5243886,
     "lng": -1.9982526,
     "districtCode": "S12000034"
-  },
-  {
-    "id": "school-5948738",
-    "type": "school",
-    "name": "Moffat Academy",
-    "address": "Jeff Brown Drive",
-    "postcode": "DG10 9QL",
-    "lat": 55.3290453,
-    "lng": -3.4378769,
-    "districtCode": "S12000006"
   },
   {
     "id": "school-5948738",
@@ -14960,16 +14820,6 @@
     "districtCode": "S12000006"
   },
   {
-    "id": "school-1004620",
-    "type": "school",
-    "name": "North West Community Campus",
-    "address": "Alloway Road, DUMFRIES",
-    "postcode": "DG2 9DF",
-    "lat": 55.0799044,
-    "lng": -3.6346083,
-    "districtCode": "S12000006"
-  },
-  {
     "id": "school-5244234",
     "type": "school",
     "name": "Northfield Academy",
@@ -15838,16 +15688,6 @@
     "lat": 56.2750227,
     "lng": -3.0776275,
     "districtCode": "S12000047"
-  },
-  {
-    "id": "school-5351332",
-    "type": "school",
-    "name": "Pitlochry High School",
-    "address": "East Moulin Road",
-    "postcode": "PH16 5ET",
-    "lat": 56.7087301,
-    "lng": -3.7252731,
-    "districtCode": "S12000048"
   },
   {
     "id": "school-5351332",
@@ -16830,16 +16670,6 @@
     "districtCode": "S12000035"
   },
   {
-    "id": "school-8130434",
-    "type": "school",
-    "name": "Rothesay Academy",
-    "address": "Rothesay Joint Campus, ROTHESAY",
-    "postcode": "PA20 9JH",
-    "lat": 55.8253855,
-    "lng": -5.0588147,
-    "districtCode": "S12000035"
-  },
-  {
     "id": "school-5208424",
     "type": "school",
     "name": "Rothiemay Primary School",
@@ -17040,16 +16870,6 @@
     "districtCode": "S12000023"
   },
   {
-    "id": "school-6003230",
-    "type": "school",
-    "name": "Sanday Community School",
-    "address": "Sanday",
-    "postcode": "KW17 2AY",
-    "lat": 59.2510998,
-    "lng": -2.5871546,
-    "districtCode": "S12000023"
-  },
-  {
     "id": "school-8110123",
     "type": "school",
     "name": "Sandbank Primary Gaelic Unit",
@@ -17117,16 +16937,6 @@
     "postcode": "ZE2 9PL",
     "lat": 60.2987542,
     "lng": -1.6478589,
-    "districtCode": "S12000027"
-  },
-  {
-    "id": "school-6103839",
-    "type": "school",
-    "name": "Sandwick Junior High School",
-    "address": "Sandwick",
-    "postcode": "ZE2 9HH",
-    "lat": 59.9968065,
-    "lng": -1.2426574,
     "districtCode": "S12000027"
   },
   {
@@ -17518,16 +17328,6 @@
     "lat": 56.1270814,
     "lng": -3.1324147,
     "districtCode": "S12000047"
-  },
-  {
-    "id": "school-6204139",
-    "type": "school",
-    "name": "Sir E Scott School",
-    "address": "Tarbert, WESTERN ISLES",
-    "postcode": "HS3 3BG",
-    "lat": 57.8998374,
-    "lng": -6.8113891,
-    "districtCode": "S12000013"
   },
   {
     "id": "school-6204139",
@@ -19168,16 +18968,6 @@
     "lat": 56.0338291,
     "lng": -3.4211268,
     "districtCode": "S12000047"
-  },
-  {
-    "id": "school-5350239",
-    "type": "school",
-    "name": "St John's RC Academy",
-    "address": "North Inch Community Campus, PERTH",
-    "postcode": "PH1 5BF",
-    "lat": 56.4102307,
-    "lng": -3.4379284,
-    "districtCode": "S12000048"
   },
   {
     "id": "school-5350239",
@@ -21510,16 +21300,6 @@
     "districtCode": "S12000023"
   },
   {
-    "id": "school-6003834",
-    "type": "school",
-    "name": "Stronsay Junior High School",
-    "address": "Stronsay",
-    "postcode": "KW17 2AE",
-    "lat": 59.1200327,
-    "lng": -2.6101823,
-    "districtCode": "S12000023"
-  },
-  {
     "id": "school-5131324",
     "type": "school",
     "name": "Strontian Primary School",
@@ -21660,16 +21440,6 @@
     "districtCode": "S12000035"
   },
   {
-    "id": "school-8110530",
-    "type": "school",
-    "name": "Tarbert Academy",
-    "address": "School Road, ARGYLL",
-    "postcode": "PA29 6TE",
-    "lat": 55.8618414,
-    "lng": -5.4131743,
-    "districtCode": "S12000035"
-  },
-  {
     "id": "school-8235023",
     "type": "school",
     "name": "Tarbolton Primary School",
@@ -21778,16 +21548,6 @@
     "lat": 57.4617404,
     "lng": -4.5429664,
     "districtCode": "S12000017"
-  },
-  {
-    "id": "school-5350034",
-    "type": "school",
-    "name": "The Community School of Auchterarder",
-    "address": "New School Lane, PERTHSHIRE",
-    "postcode": "PH3 1BL",
-    "lat": 56.2980872,
-    "lng": -3.7084577,
-    "districtCode": "S12000048"
   },
   {
     "id": "school-5350034",
@@ -22030,16 +21790,6 @@
     "districtCode": "S12000035"
   },
   {
-    "id": "school-8110131",
-    "type": "school",
-    "name": "Tiree High School",
-    "address": "Isle Of Tiree",
-    "postcode": "PA77 6XA",
-    "lat": 56.5228731,
-    "lng": -6.9174622,
-    "districtCode": "S12000035"
-  },
-  {
     "id": "school-8111421",
     "type": "school",
     "name": "Tiree Primary Gaelic Unit",
@@ -22047,16 +21797,6 @@
     "postcode": "PA77 6XA",
     "lat": 56.5228731,
     "lng": -6.9174622,
-    "districtCode": "S12000035"
-  },
-  {
-    "id": "school-8110638",
-    "type": "school",
-    "name": "Tobermory High School",
-    "address": "Tobermory, ARGYLL",
-    "postcode": "PA75 6PB",
-    "lat": 56.6242108,
-    "lng": -6.0687474,
     "districtCode": "S12000035"
   },
   {
@@ -23050,16 +22790,6 @@
     "districtCode": "S12000023"
   },
   {
-    "id": "school-6003036",
-    "type": "school",
-    "name": "Westray Junior High School",
-    "address": "Westray",
-    "postcode": "KW17 2DH",
-    "lat": 59.3189756,
-    "lng": -2.9912517,
-    "districtCode": "S12000023"
-  },
-  {
     "id": "school-5647126",
     "type": "school",
     "name": "Westruther Primary School",
@@ -23068,16 +22798,6 @@
     "lat": 55.7422456,
     "lng": -2.5854014,
     "districtCode": "S12000026"
-  },
-  {
-    "id": "school-6104134",
-    "type": "school",
-    "name": "Whalsay School",
-    "address": "Symbister, SHETLAND",
-    "postcode": "ZE2 9AQ",
-    "lat": 60.340112,
-    "lng": -1.0188788,
-    "districtCode": "S12000027"
   },
   {
     "id": "school-6104134",
