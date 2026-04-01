@@ -1,114 +1,128 @@
 [
   {
-    "id": "hospice-1106245011",
+    "id": "hospice-1-106245011",
     "type": "hospice",
     "name": "Rowcroft Hospice",
+    "address": "Avenue Road, Torquay",
+    "postcode": "TQ2 5LS",
     "lat": 50.469852,
-    "lng": -3.548,
-    "address": "Avenue Road, Torquay, Devon"
+    "lng": -3.548
   },
   {
-    "id": "hospice-1106669968",
+    "id": "hospice-1-106669968",
     "type": "hospice",
     "name": "North Devon Hospice",
+    "address": "Deer Park, Barnstaple",
+    "postcode": "EX32 0HU",
     "lat": 51.064159,
-    "lng": -4.042294,
-    "address": "Deer Park, Newport, Barnstaple, Devon"
+    "lng": -4.042294
   },
   {
-    "id": "hospice-1109995054",
+    "id": "hospice-1-109995054",
     "type": "hospice",
     "name": "Mount Edgcumbe Hospice",
+    "address": "Cornwall Hospice Care - Mount Edgcumbe, St Austell",
+    "postcode": "PL26 6AB",
     "lat": 50.328554,
-    "lng": -4.772136,
-    "address": "Porthpean Road, St Austell, Cornwall"
+    "lng": -4.772136
   },
   {
-    "id": "hospice-1109995072",
+    "id": "hospice-1-109995072",
     "type": "hospice",
     "name": "St Julia's Hospice",
+    "address": "Cornwall Hospice Care - St. Julia's Hospice, Hayle",
+    "postcode": "TR27 4HW",
     "lat": 50.18144,
-    "lng": -5.423265,
-    "address": "Foundry Hill, Hayle, Cornwall"
+    "lng": -5.423265
   },
   {
-    "id": "hospice-1111463240",
+    "id": "hospice-1-111463240",
     "type": "hospice",
-    "name": "St Luke's Hospice Plymouth",
+    "name": "St Luke's Hospice -Turnchapel",
+    "address": "St Luke's Hospice, Stamford Road, Plymouth",
+    "postcode": "PL9 9XA",
     "lat": 50.355807,
-    "lng": -4.120497,
-    "address": "Stamford Road, Turnchapel, Plymouth, Devon"
+    "lng": -4.120497
   },
   {
-    "id": "hospice-1114379452",
+    "id": "hospice-1-114320730",
     "type": "hospice",
-    "name": "St Peter's Hospice Bristol",
+    "name": "St Peter's Hospice",
+    "address": "Charlton Road, Bristol",
+    "postcode": "BS10 6NL",
     "lat": 51.506124,
-    "lng": -2.609015,
-    "address": "Charlton Road, Brentry, Bristol"
+    "lng": -2.609015
   },
   {
-    "id": "hospice-1117219570",
+    "id": "hospice-1-117219570",
     "type": "hospice",
     "name": "Prospect Hospice",
+    "address": "Moormead Road, Swindon",
+    "postcode": "SN4 9BY",
     "lat": 51.526412,
-    "lng": -1.785281,
-    "address": "Moormead Road, Wroughton, Swindon, Wiltshire"
+    "lng": -1.785281
   },
   {
-    "id": "hospice-1117267092",
+    "id": "hospice-1-117267092",
     "type": "hospice",
-    "name": "St Margaret's Somerset Hospice",
+    "name": "St Margaret's Somerset Hospice - Taunton",
+    "address": "Heron Drive, Taunton",
+    "postcode": "TA1 5HA",
     "lat": 51.01649,
-    "lng": -3.127096,
-    "address": "Heron Drive, Bishops Hull, Taunton, Somerset"
+    "lng": -3.127096
   },
   {
-    "id": "hospice-1120554524",
+    "id": "hospice-1-120554524",
     "type": "hospice",
     "name": "Weldmar Hospicecare",
+    "address": "Herringston Road, Dorchester",
+    "postcode": "DT1 2SL",
     "lat": 50.70045,
-    "lng": -2.442114,
-    "address": "Herringston Road, Dorchester, Dorset"
+    "lng": -2.442114
   },
   {
-    "id": "hospice-1128212128",
+    "id": "hospice-1-128212128",
     "type": "hospice",
     "name": "Weston Hospicecare",
+    "address": "Jackson Barstow House, Weston Super Mare",
+    "postcode": "BS23 4YQ",
     "lat": 51.322748,
-    "lng": -2.983986,
-    "address": "28 Thornbury Road, Uphill, Weston Super Mare, Somerset"
+    "lng": -2.983986
   },
   {
-    "id": "hospice-1141359425",
+    "id": "hospice-1-141359425",
     "type": "hospice",
     "name": "Dorothy House Hospice Care",
+    "address": "Winsley, Bradford On Avon",
+    "postcode": "BA15 2LE",
     "lat": 51.346347,
-    "lng": -2.291329,
-    "address": "Winsley, Bradford On Avon, Wiltshire"
+    "lng": -2.291329
   },
   {
-    "id": "hospice-1164318370",
+    "id": "hospice-1-164318370",
     "type": "hospice",
     "name": "Great Oaks Hospice",
+    "address": "Great Oaks, Coleford",
+    "postcode": "GL16 8QE",
     "lat": 51.800919,
-    "lng": -2.619695,
-    "address": "The Gorse, Coleford, Gloucestershire"
+    "lng": -2.619695
   },
   {
-    "id": "hospice-15111826514",
+    "id": "hospice-1-5111826514",
     "type": "hospice",
-    "name": "Marie Curie South West Region",
+    "name": "Marie Curie Hospice Community Services South West Region",
+    "address": "Petroc Block D, Tiverton",
+    "postcode": "EX16 6SH",
     "lat": 50.912719,
-    "lng": -3.492007,
-    "address": "Bolham Road, Tiverton, Devon"
+    "lng": -3.492007
   },
   {
-    "id": "hospice-19261394735",
+    "id": "hospice-1-9261394735",
     "type": "hospice",
     "name": "Lewis-Manning Hospice Care",
+    "address": "56 Longfleet Road, Poole",
+    "postcode": "BH15 2JD",
     "lat": 50.722858,
-    "lng": -1.971041,
-    "address": "56 Longfleet Road, Poole, Dorset"
+    "lng": -1.971041
   }
 ]
