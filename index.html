@@ -1664,9 +1664,11 @@ function switchTab(name,btn){
   const inGroups=name==='groups'
   const inLog=name==='log'
   // Swap header stat labels based on tab
-  if(inGroups){setTimeout(updateGroupsStats,50)}
-  else{
-    const hb=document.getElementById('home-btn')
+  const hb=document.getElementById('home-btn')
+  if(inGroups){
+    setTimeout(updateGroupsStats,50)
+    if(hb)hb.style.display='none'
+  }else{
     if(hb)hb.style.display=''
   }
   if(!inLog&&!inGroups){
