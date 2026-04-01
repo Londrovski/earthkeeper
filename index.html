@@ -407,6 +407,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <option value="northeast">North East</option>
           <option value="wales">Wales</option>
           <option value="scotland">Scotland</option>
+          <option value="northernireland">Northern Ireland</option>
         </select>
       </div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
@@ -517,7 +518,7 @@ const REPO_OWNER='Londrovski',REPO_NAME='earthkeeper',DATA_BRANCH='main'
 const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 const RAW_BASE=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data`
 
-const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland']
+const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland','northernireland']
 const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8',gp:'#4A9B6F'}
 const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
 const GOLD='#C9A84C'
