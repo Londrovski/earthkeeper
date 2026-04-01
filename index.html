@@ -1349,10 +1349,6 @@ function updateStats(){
   document.getElementById('s-label-total').textContent='locations'
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-label-cleared').textContent='cleared'
-  document.getElementById('s-pct').style.display=''
-  document.getElementById('s-log-div').style.display='none'
-  document.getElementById('s-log-all').style.display='none'
-  document.getElementById('s-log-allpct').style.display='none'
   document.getElementById('s-pct').textContent=pct+'%'
   document.getElementById('s-pct').style.display=''
   document.getElementById('s-log-div').style.display='none'
@@ -1521,6 +1517,10 @@ function updateDistrictStats(code){
   document.getElementById('s-cleared').textContent=cleared
   document.getElementById('s-label-cleared').textContent='cleared'
   document.getElementById('s-pct').textContent=pct+'%'
+  document.getElementById('s-pct').style.display=''
+  document.getElementById('s-log-div').style.display='none'
+  document.getElementById('s-log-all').style.display='none'
+  document.getElementById('s-log-allpct').style.display='none'
   if(hb)hb.style.display=''
 }
 function goHome(){
