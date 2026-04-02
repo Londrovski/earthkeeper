@@ -222,6 +222,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   .district-detail:not(.on){display:none!important}
   .sidebar{overflow:visible!important}
   .map-overlays{top:7px;right:7px;gap:6px}
+  #map-progress{display:none}
   .progress{min-width:160px;padding:8px 12px}
   .prog-title{font-size:12px;margin-bottom:5px}
   .prog-row{gap:7px;margin-bottom:5px}
@@ -1719,7 +1720,7 @@ function switchTab(name,btn){
     const onLog=name==='log'
     const prog=document.getElementById('map-progress')
     const leg=document.getElementById('map-legend')
-    if(prog)prog.style.display=onLog?'block':'none'
+    if(prog)prog.style.setProperty('display',onLog?'block':'none','important')
     if(leg)leg.style.display=''
   }
 }
@@ -1784,8 +1785,6 @@ async function bootApp(){
   await loadDistricts()
   loadSchoolsGps()
   renderLog()
-  // Hide progress on mobile by default (shown only on log tab)
-  if(isMobile()){const p=document.getElementById('map-progress');if(p)p.style.display='none'}
 }
 
 try{
