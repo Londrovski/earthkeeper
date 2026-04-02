@@ -1720,7 +1720,7 @@ function switchTab(name,btn){
     const onLog=name==='log'
     const prog=document.getElementById('map-progress')
     const leg=document.getElementById('map-legend')
-    if(prog)prog.style.setProperty('display',onLog?'block':'none','important')
+    if(prog)prog.style.display=onLog?'block':'none'
     if(leg)leg.style.display=''
   }
 }
