@@ -918,6 +918,8 @@ async function loadGroupProgress(){
 async function saveProgress(){
   showSaving('Saving...')
   try{
+    const shaRes=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
+    if(shaRes.ok){const m=await shaRes.json();progressSha=m.sha}
     const body={message:(currentUser||'user')+' - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
     if(progressSha)body.sha=progressSha
     const res=await fetch(API_BASE+'/progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
@@ -929,6 +931,8 @@ async function saveProgress(){
 async function saveGroupProgress(){
   showSaving('Saving...')
   try{
+    const shaRes=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
+    if(shaRes.ok){const m=await shaRes.json();groupProgressSha=m.sha}
     const body={message:(currentUser||'user')+' groups - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
     if(groupProgressSha)body.sha=groupProgressSha
     const res=await fetch(API_BASE+'/group-progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
@@ -1363,7 +1367,7 @@ function selectToolMobile(tool){
 async function markCleared(id,tool,ew){
   const loc=locations.find(l=>l.id===id);if(!loc)return
   const t=tool||currentTool;const ewVal=ew||null
-  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser}
+  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser,name:loc.name}
   refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
   await saveProgress();queueSave()
 }
@@ -1375,7 +1379,7 @@ async function unmarkCleared(id){
 async function markClearedMobile(id,tool,ew){
   const loc=locations.find(l=>l.id===id);if(!loc)return
   const t=tool||currentTool;const ewVal=ew||null
-  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser}
+  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser,name:loc.name}
   refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
   await saveProgress();queueSave()
 }
@@ -1576,7 +1580,7 @@ function renderLog(){
   const toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
   let entries=Object.entries(progress).map(function(kv){
     const id=kv[0],p=kv[1],l=locations.find(function(x){return x.id===id})
-    return{id:id,tool:p.tool,ew:p.ew||null,date:p.date,user:p.user,name:l?l.name:id,locType:l?l.type:'',isGroup:false}
+    return{id:id,tool:p.tool,ew:p.ew||null,date:p.date,user:p.user,name:l?l.name:(p.name||id),locType:l?l.type:'',isGroup:false}
   })
   Object.entries(groupProgress).forEach(function(kv){
     const key=kv[0],p=kv[1],parts=key.split(':'),code=parts[0],gtype=parts[1]
