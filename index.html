@@ -165,7 +165,7 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
 .locate-btn span{font-size:17px;line-height:1}
 .empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
-.saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:13px;z-index:9999;transition:opacity .4s;pointer-events:none}
+.saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:11px;z-index:9999;transition:opacity .4s;pointer-events:none;max-width:85vw;word-break:break-word}
 #mobile-detail{display:none}
 .mobile-inner-stats{display:none;padding:5px 11px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;background:rgba(8,22,13,.6);border-bottom:1px solid rgba(201,168,76,.1);flex-shrink:0}
 .mobile-inner-stats strong{font-weight:600;color:#E8D5A0;font-size:12px}
@@ -924,9 +924,9 @@ async function saveProgress(){
     if(progressSha)body.sha=progressSha
     const res=await fetch(API_BASE+'/progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
     if(res.ok){progressSha=(await res.json()).content.sha;showSaving('Saved')}
-    else{const e=await res.json();showSaving('Save failed: '+e.message)}
+    else{res.text().then(function(txt){showSaving('ERR '+res.status+': '+txt.slice(0,100));console.error('save fail',res.status,txt)})}
   }catch(e){showSaving('Error saving')}
-  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
+  setTimeout(()=>document.getElementById('saving').style.opacity='0',10000)
 }
 async function saveGroupProgress(){
   showSaving('Saving...')
