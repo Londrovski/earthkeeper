@@ -1,0 +1,64 @@
+@media(min-width:1024px){
+  body{font-size:17px}
+  header{height:80px;padding:0 32px}
+  .logo{font-size:36px}
+  .hstats{gap:28px;font-size:16px}
+  .huser{font-size:15px}
+  .hbtn{font-size:13px;padding:6px 14px}
+  .sidebar{width:min(520px,34vw)}
+  .tabs{height:56px}
+  .tab{font-size:15px;padding:18px 12px}
+  .frow{padding:12px 24px}
+  .frow-label{font-size:13px}
+  .chip{font-size:13px;padding:6px 14px}
+  .chip-divider{font-size:13px}
+  .detail-head{padding:18px 24px 10px}
+  .detail-name{font-size:30px}
+  .detail-type{font-size:13px}
+  .detail-addr{font-size:14px}
+  .detail-body{padding:14px 24px 22px}
+  .btn-mark{font-size:15px;padding:13px}
+  .btn-unmark{font-size:13px;padding:10px}
+  .btn-change-tool{font-size:13px}
+  .tool-override-select,.tool-ew-select{font-size:15px;padding:10px 12px}
+  .district-list{font-size:15px}
+  .district-list-item{padding:11px 24px}
+  .gtype-row{padding:12px 24px}
+  .gtype-btn{font-size:14px;padding:7px 18px}
+  .district-detail-head{padding:18px 24px 0}
+  #dd-name{font-size:28px!important}
+  .district-detail-body{padding:14px 24px 20px}
+  .log-filters{padding:12px 24px}
+  #log-list .log-entry,#log-list div{font-size:14px}
+  .progress{padding:14px 20px}
+  .prog-title{font-size:13px}
+  .prog-row{margin-bottom:8px}
+  .prog-label{font-size:13px}
+  .prog-track{height:7px}
+  .rsel{padding:12px 24px}
+  .rsel select{font-size:15px;padding:10px 14px}
+  .search-wrap{padding:10px 24px}
+  #search{font-size:15px;padding:10px 14px}
+  .map-home-btn{width:36px;height:36px;top:90px}
+  .maplibregl-ctrl-group button{width:36px!important;height:36px!important}
+  .tool-key{font-size:13px}
+  .tool-key-row{font-size:13px}
+  .map-overlays{top:18px;right:18px;gap:12px}
+  .header-seal{width:52px!important;height:52px!important}
+  .huser{font-size:16px!important;gap:16px!important}
+  .huser button{font-size:14px!important;padding:6px 14px!important}
+  .hstats strong{font-size:20px!important}
+  .header-brand{gap:16px!important}
+  .progress{padding:16px 22px;min-width:260px;border-radius:10px}
+  .prog-title{font-size:13px;margin-bottom:10px}
+  .prog-row{gap:12px;margin-bottom:10px}
+  .prog-label{font-size:14px;width:90px}
+  .prog-track{height:6px}
+  .prog-txt{font-size:13px;min-width:44px}
+}
+@media(min-width:1440px){
+  .sidebar{width:min(600px,36vw)}
+}
+@media(min-width:1920px){
+  .sidebar{width:min(680px,36vw)}
+}
