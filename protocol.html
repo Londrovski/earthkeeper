@@ -20,6 +20,9 @@ body{font-family:'Jost',sans-serif;background:#0D2416;color:#E8D5A0;min-height:1
 .brand-name em{color:#C9A84C;font-style:italic}
 h1{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.06em;color:#E8D5A0;margin-bottom:8px;line-height:1.2}
 .subtitle{font-size:13px;color:rgba(232,213,160,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.15)}
+.lead-callout{background:linear-gradient(135deg,rgba(201,168,76,.14),rgba(201,168,76,.06));border:1.5px solid rgba(201,168,76,.55);border-radius:14px;padding:26px 30px;margin-bottom:40px;box-shadow:0 4px 22px rgba(201,168,76,.08)}
+.lead-callout p{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:400;line-height:1.45;color:#F2E2B0;margin:0;letter-spacing:.01em}
+.lead-callout p em{color:#C9A84C;font-style:italic;font-weight:500}
 h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:#C9A84C;margin:40px 0 14px;letter-spacing:.03em}
 p{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:12px}
 ul{list-style:none;padding:0;margin:12px 0 18px}
@@ -35,6 +38,10 @@ li strong{color:#E8D5A0;font-weight:500}
 .ew-note{font-size:12px;color:rgba(232,213,160,.45);font-style:italic;margin-top:12px}
 .sep{height:1px;background:rgba(201,168,76,.12);margin:36px 0}
 .footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(201,168,76,.12);font-size:13px;color:rgba(232,213,160,.3);text-align:center}
+@media(max-width:600px){
+  .lead-callout{padding:22px 22px}
+  .lead-callout p{font-size:19px}
+}
 </style>
 </head>
 <body>
@@ -49,11 +56,15 @@ li strong{color:#E8D5A0;font-weight:500}
   <h1>Clearing Protocol</h1>
   <div class="subtitle">For each location you clear</div>
 
+  <div class="lead-callout">
+    <p>These are <em>suggestions</em>. The best guidance is to <em>follow Merlin</em>.</p>
+  </div>
+
   <h2>For Magical Structures +</h2>
   <ul>
     <li><strong>Regular Wizard Thread with MultiFrequency/Omega Frequencies</strong> — to optimise the energy of the place and the energy of the human activity in the place (~5–15 min)</li>
-    <li><strong>Merlin’s Healing Grid to clear through all dimensions and realms</strong> — and to clear all thought forms and ghosts in the space (~5–10 min)</li>
-    <li><strong>Merlin’s Healing Grid to do an Astrological Puja</strong> — to optimise the astrology of the place (~15–20 min)</li>
+    <li><strong>Merlin's Healing Grid to clear through all dimensions and realms</strong> — and to clear all thought forms and ghosts in the space (~5–10 min)</li>
+    <li><strong>Merlin's Healing Grid to do an Astrological Puja</strong> — to optimise the astrology of the place (~15–20 min)</li>
   </ul>
 
   <h2>Other Options</h2>
@@ -61,8 +72,8 @@ li strong{color:#E8D5A0;font-weight:500}
     <li><strong>Gaia Thread Structure</strong> — for the space</li>
     <li><strong>Portal structure to take away energy</strong> — to clear</li>
     <li><strong>Portal structure to bring in fresh energy</strong></li>
-    <li><strong>Merlin’s Healing Grid to clear the Astral</strong> — as deep as possible</li>
-    <li><strong>Mixed Structures</strong> — to fill up the space with what’s needed</li>
+    <li><strong>Merlin's Healing Grid to clear the Astral</strong> — as deep as possible</li>
+    <li><strong>Mixed Structures</strong> — to fill up the space with what's needed</li>
   </ul>
 
   <div id="ew-section" style="display:none">
@@ -72,7 +83,7 @@ li strong{color:#E8D5A0;font-weight:500}
       <ul>
         <li>Create an active healing space (Healing stream)</li>
         <li>A Rifting stream into the core functional consciousness of the space (organisation) to transform it</li>
-        <li>A ‘funnel’ of Merlin’s choosing</li>
+        <li>A 'funnel' of Merlin's choosing</li>
       </ul>
       <div class="ew-note">Only shown to students with EW3 or higher enabled in their profile.</div>
     </div>
@@ -81,7 +92,6 @@ li strong{color:#E8D5A0;font-weight:500}
   <div class="footer">Earthkeeper — UK Energy Clearing Tracker</div>
 </div>
 <script>
-  // Show EW section only for users who have EW tools enabled (flag stored at login).
   try{
     if(localStorage.getItem('ek_ew')==='1'){
       document.getElementById('ew-section').style.display='block'
