@@ -3,33 +3,30 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 async function ghGet(path){
-  // Uses raw.githubusercontent.com — fine for data files that change infrequently.
-  // For things we write (progress.json, group-progress.json), use loadJsonFresh.
   const res=await fetch(RAW_BASE+'/'+path)
   if(!res.ok)throw new Error('Fetch '+res.status)
   return await res.json()
 }
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
-// Loads JSON directly via Contents API — never cached. Also returns SHA.
-// Triple-layer cache-bust: no-store fetch, ?t= query, Cache-Control header.
+// Loads JSON directly via Contents API. The Contents API always returns live data
+// from git, no CDN cache. We just need `cache: 'no-store'` to bypass the browser's
+// memory cache. Do NOT add extra Cache-Control/Pragma headers — they trigger a
+// CORS preflight that api.github.com rejects for PAT-authenticated requests.
 async function loadJsonFresh(filename){
-  const bust='?t='+Date.now()
   try{
-    const res=await fetch(API_BASE+'/'+filename+bust,{
-      headers:{...GH_HEADERS,'Cache-Control':'no-cache, no-store, must-revalidate','Pragma':'no-cache'},
+    const res=await fetch(API_BASE+'/'+filename+'?t='+Date.now(),{
+      headers:GH_HEADERS,
       cache:'no-store'
     })
     if(!res.ok){
-      if(window.dbgLog)window.dbgLog('  Contents API '+filename+' '+res.status+', falling back to raw','warn')
-      const raw=await fetch(RAW_BASE+'/'+filename+bust,{cache:'no-store',headers:{'Cache-Control':'no-cache, no-store','Pragma':'no-cache'}})
-      if(!raw.ok)throw new Error('raw fallback '+raw.status)
-      return{data:await raw.json(),sha:null}
+      if(window.dbgLog)window.dbgLog('  Contents API '+filename+' '+res.status,'warn')
+      throw new Error('Contents API '+res.status)
     }
     const meta=await res.json()
     const decoded=decodeURIComponent(escape(atob((meta.content||'').replace(/\n/g,''))))
     const data=JSON.parse(decoded)
-    if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') OK via Contents API, sha='+(meta.sha||'?').slice(0,8),'dim')
+    if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') OK, sha='+(meta.sha||'?').slice(0,8)+' size='+meta.size,'dim')
     return{data,sha:meta.sha}
   }catch(e){
     if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') threw: '+e.message,'err')
