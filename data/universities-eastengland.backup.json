@@ -1,0 +1,13 @@
+[
+  {"id": "uni-cambridge", "type": "university", "name": "University of Cambridge", "lat": 52.2043, "lng": 0.1149, "address": "The Old Schools, Trinity Ln, Cambridge CB2 1TN"},
+  {"id": "uni-anglia", "type": "university", "name": "Anglia Ruskin University", "lat": 52.2028, "lng": 0.1341, "address": "East Rd, Cambridge CB1 1PT"},
+  {"id": "uni-essex", "type": "university", "name": "University of Essex", "lat": 51.8771, "lng": 0.9486, "address": "Wivenhoe Park, Colchester CO4 3SQ"},
+  {"id": "uni-hertfordshire", "type": "university", "name": "University of Hertfordshire", "lat": 51.7496, "lng": -0.2416, "address": "Hatfield AL10 9AB"},
+  {"id": "uni-bedfordshire", "type": "university", "name": "University of Bedfordshire", "lat": 51.8831, "lng": -0.4147, "address": "University Sq, Luton LU1 3JU"},
+  {"id": "uni-eastanglia", "type": "university", "name": "University of East Anglia", "lat": 52.6220, "lng": 1.2400, "address": "Norwich Research Park, Norwich NR4 7TJ"},
+  {"id": "uni-suffolk", "type": "university", "name": "University of Suffolk", "lat": 52.0543, "lng": 1.1636, "address": "Waterfront Building, Ipswich IP4 1QJ"},
+  {"id": "uni-writtle", "type": "university", "name": "Writtle University College", "lat": 51.7358, "lng": 0.4265, "address": "Lordship Rd, Writtle, Chelmsford CM1 3RR"},
+  {"id": "uni-norwich-arts", "type": "university", "name": "Norwich University of the Arts", "lat": 52.6297, "lng": 1.2950, "address": "Francis House, 3-7 Redwell St, Norwich NR2 4SN"},
+  {"id": "uni-buckingham", "type": "university", "name": "University of Buckingham", "lat": 52.0050, "lng": -0.9890, "address": "Hunter St, Buckingham MK18 1EG"},
+  {"id": "uni-cranfield", "type": "university", "name": "Cranfield University", "lat": 52.0720, "lng": -0.6289, "address": "College Rd, Cranfield, Bedford MK43 0AL"}
+]

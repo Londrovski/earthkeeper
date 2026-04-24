@@ -1,0 +1,11 @@
+[
+  {"id": "uni-nottingham", "type": "university", "name": "University of Nottingham", "lat": 52.9388, "lng": -1.1957, "address": "University Park, Nottingham NG7 2RD"},
+  {"id": "uni-ntu", "type": "university", "name": "Nottingham Trent University", "lat": 52.9536, "lng": -1.1515, "address": "50 Shakespeare St, Nottingham NG1 4FQ"},
+  {"id": "uni-leicester", "type": "university", "name": "University of Leicester", "lat": 52.6216, "lng": -1.1247, "address": "University Rd, Leicester LE1 7RH"},
+  {"id": "uni-dmu", "type": "university", "name": "De Montfort University", "lat": 52.6290, "lng": -1.1396, "address": "The Gateway, Leicester LE1 9BH"},
+  {"id": "uni-loughborough", "type": "university", "name": "Loughborough University", "lat": 52.7634, "lng": -1.2280, "address": "Epinal Way, Loughborough LE11 3TU"},
+  {"id": "uni-derby", "type": "university", "name": "University of Derby", "lat": 52.9194, "lng": -1.4756, "address": "Kedleston Rd, Derby DE22 1GB"},
+  {"id": "uni-northampton", "type": "university", "name": "University of Northampton", "lat": 52.2200, "lng": -0.8870, "address": "University Dr, Northampton NN1 5PH"},
+  {"id": "uni-lincoln", "type": "university", "name": "University of Lincoln", "lat": 53.2282, "lng": -0.5486, "address": "Brayford Pool, Lincoln LN6 7TS"},
+  {"id": "uni-bishopgrosseteste", "type": "university", "name": "Bishop Grosseteste University", "lat": 53.2444, "lng": -0.5478, "address": "Longdales Rd, Lincoln LN1 3DY"}
+]
