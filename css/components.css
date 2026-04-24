@@ -30,7 +30,7 @@
 .lmeta{font-size:13px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lbadge{font-size:11px;padding:2px 9px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
 
-/* Detail panels */
+/* Detail panels (inline — Locations tab) */
 .detail{flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);display:none;flex-direction:column;max-height:50%}
 .detail.on{display:flex}
 .detail-head{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -91,7 +91,27 @@
 .ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
 .ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 .dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
-.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column}
+
+/* District detail — floating bottom-left popup on desktop (mobile.css overrides to full-width bottom sheet) */
+.district-detail{
+  display:none;
+  flex-direction:column;
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  width:420px;
+  max-width:calc(100vw - 40px);
+  max-height:calc(100vh - 120px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  z-index:820;
+  background:rgba(13,36,22,.95);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(201,168,76,.3);
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
 .district-detail.on{display:flex}
 .district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .district-detail-body{padding:11px 20px 16px}
