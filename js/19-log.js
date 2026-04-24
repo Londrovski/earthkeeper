@@ -32,7 +32,6 @@ function renderLog(){
     }
   })
 
-  // Group progress entries
   Object.entries(groupProgress).forEach(function(kv){
     const key=kv[0],p=kv[1]
     const parts=key.split(':'),code=parts[0],gtype=parts[1]
@@ -77,6 +76,10 @@ function renderLog(){
   }).join('')
 }
 
+// Clicking a log entry stays on the Log tab.
+// Individual location → pan map + open the body-level detail sheet (same as mobile).
+// Group entry          → jump to Groups tab and select the district (no sensible
+//                        way to surface a group clearing popup while staying on Log).
 function openFromLog(id,kind){
   if(kind==='group'){
     const code=id.split(':')[0]
@@ -84,6 +87,9 @@ function openFromLog(id,kind){
     setTimeout(function(){selectDistrict(code)},120)
     return
   }
-  switchTab('locs',$('tab-btn-locs'))
-  setTimeout(function(){selectLoc(id)},120)
+  const loc=locations.find(l=>l.id===id);if(!loc)return
+  setSelectedId(id)
+  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+  // Body-level sheet renders regardless of active tab, so we can stay on Log.
+  renderDetail(loc,{mobile:true})
 }
