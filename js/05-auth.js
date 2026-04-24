@@ -56,9 +56,11 @@ function tryAutoLogin(){
   }
 }
 
+// The button face is always the literal word "Menu" — the dropdown itself
+// shows the user's name, tool and EW status.
 function updateHeaderMenu(){
   const face=$('acct-face-name')
-  if(face)face.textContent=currentUser?currentUser.split(' ')[0]:'Account'
+  if(face)face.textContent='Menu'
   const ddName=$('acct-current-name');if(ddName)ddName.textContent=currentUser||'—'
   const ddTool=$('acct-current-tool');if(ddTool)ddTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
   const ddEw=$('acct-current-ew');if(ddEw)ddEw.textContent=userHasEarthworks?'Yes':'No'
@@ -128,7 +130,5 @@ function saveAccountChanges(){
   if(window.dbgLog)window.dbgLog('Account updated: '+newName+' / '+newTool+' / EW='+newEw,'ok')
 }
 
-// Both Protocol and Instructions navigate in the same tab so users stay
-// inside the app context and can use the browser back button to return.
 function openProtocolPage(){window.location.href='protocol.html'}
 function openInstructionsPage(){window.location.href='instructions.html'}

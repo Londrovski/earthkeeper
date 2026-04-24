@@ -12,13 +12,15 @@
   .rsel{display:none!important}
   #mobile-stats{display:none!important}
 
-  /* Header right-side: keep buttons compact, hide labels, icon-only. */
+  /* Header right-side on mobile: show BOTH icon and label so the buttons are
+     obvious ("Protocol", "Menu") but keep padding tight so both fit. */
   .header-right{gap:6px}
-  .hdr-btn{padding:6px 8px;font-size:0}
-  .hdr-btn svg{width:18px;height:18px}
-  .hdr-btn span{display:none}
-  /* Account dropdown on mobile — anchored to header-right, drops down aligned
-     to viewport right with a bit of inset. Full-ish width so the form fits. */
+  .hdr-btn{padding:6px 9px;font-size:12px;letter-spacing:.02em}
+  .hdr-btn svg{width:16px;height:16px}
+  /* When the logo takes too much room, keep the title compact so both
+     header-right buttons + labels still fit. */
+  .logo{font-size:16px}
+  /* Account dropdown on mobile — full-ish width anchored to the right. */
   #acct-dropdown{position:fixed;top:52px;right:8px;left:auto;min-width:0;width:calc(100vw - 16px);max-width:360px;z-index:1500}
 
   .huser strong{font-size:13px}
@@ -43,7 +45,6 @@
   .chip-dot{width:7px;height:7px}
   .srow{padding:6px 14px}
   .sinput{font-size:14px;padding:8px 11px;border-width:1px}
-  /* Log scope chips — keep them on one row, tighter */
   .log-scope-row{padding:8px 14px;gap:6px}
   .log-scope-btn{padding:7px 10px;font-size:13px}
   .tog{display:none}
