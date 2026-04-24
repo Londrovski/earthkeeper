@@ -34,31 +34,12 @@
 .locate-btn{position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.7);backdrop-filter:blur(8px);border:1px solid var(--bd);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--gold-l);transition:all .15s}
 .locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
 .locate-btn span{font-size:17px;line-height:1}
-
-/* #mobile-detail defaults to hidden. mobile.css overrides to full-width bottom sheet on phones.
-   On desktop, when .on is applied, it shows as a floating card over the map — used from the
-   Log tab to avoid forcing a tab switch just to see a location. */
+/* #mobile-detail: default hidden on desktop. mobile.css promotes to full-width bottom sheet. */
 #mobile-detail{display:none}
-#mobile-detail.on{
-  display:flex;
-  flex-direction:column;
-  position:fixed;
-  bottom:24px;
-  right:24px;
-  width:380px;
-  max-width:calc(100vw - 48px);
-  max-height:calc(100vh - 100px);
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  z-index:820;
-  background:rgba(13,36,22,.96);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(201,168,76,.3);
-  border-radius:12px;
-  box-shadow:0 10px 40px rgba(0,0,0,.5);
-  animation:md-slide-in .22s ease-out;
-}
-@keyframes md-slide-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-#mobile-detail .detail-head{padding:14px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-#mobile-detail .detail-body{padding:11px 18px 16px}
+#mobile-detail.on{display:flex}
+
+/* #log-detail: inline panel at the bottom of the Log tab sidebar on desktop,
+   same pattern as .detail in Locations tab. On mobile it's never used (mobile
+   Log clicks use #mobile-detail instead). */
+#log-detail{display:none;flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-direction:column;max-height:50%}
+#log-detail.on{display:flex}

@@ -70,16 +70,21 @@ function renderLog(){
       '<div style="width:10px;height:10px;border-radius:50%;background:'+GOLD+';border:2px solid '+col+';flex-shrink:0;margin-top:5px"></div>'+
       '<div style="flex:1;min-width:0">'+
         '<div style="font-size:14px;color:var(--ink-d);font-weight:500">'+e.name+tag+'</div>'+
-        '<div style="font-size:12px;color:var(--soft);margin-top:2px">'+(e.user||'—')+' · '+d+' · '+(TOOL_NAMES[e.tool]||e.tool)+(e.ew?' + '+e.ew:'')+'</div>'+
+        '<div style="font-size:12px;color:var(--soft);margin-top:2px">'+(e.user||'—')+' · '+d+' · '+(TOOL_NAMES_FULL[e.tool]||e.tool)+(e.ew?' + '+e.ew:'')+'</div>'+
       '</div>'+
     '</div>'
   }).join('')
 }
 
 // Clicking a log entry stays on the Log tab.
-// Individual location → pan map + open the body-level detail sheet (same as mobile).
-// Group entry          → jump to Groups tab and select the district (no sensible
-//                        way to surface a group clearing popup while staying on Log).
+// Individual location → pan map + open the inline #log-detail panel that sits
+//                       inside the Log tab sidebar (same pattern as the
+//                       Locations and Groups detail panels). On mobile, use
+//                       the body-level bottom sheet for consistency with the
+//                       mobile Locations experience.
+// Group entry          → jump to Groups tab and select the district. There's
+//                       no sensible way to surface the multi-type group
+//                       clearing panel while staying on Log.
 function openFromLog(id,kind){
   if(kind==='group'){
     const code=id.split(':')[0]
@@ -90,6 +95,9 @@ function openFromLog(id,kind){
   const loc=locations.find(l=>l.id===id);if(!loc)return
   setSelectedId(id)
   if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
-  // Body-level sheet renders regardless of active tab, so we can stay on Log.
-  renderDetail(loc,{mobile:true})
+  if(isMobile()){
+    renderDetail(loc,{mobile:true})
+  }else{
+    renderDetail(loc,{logTab:true})
+  }
 }
