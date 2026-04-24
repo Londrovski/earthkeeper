@@ -1,5 +1,5 @@
 [
-  {"id":"uni-10000824","type":"university","name":"Bournemouth University","postcode":"BH12 5BB","lat":50.742,"lng":-1.899,"address":""},
-  {"id":"uni-10000385","type":"university","name":"Arts University Bournemouth","postcode":"BH12 5HH","lat":50.7589,"lng":-1.9133,"address":""},
-  {"id":"uni-10000163","type":"university","name":"Health Sciences University","postcode":"BH1 4EQ","lat":50.7225,"lng":-1.8792,"address":""}
+  {"id": "uni-10000824", "type": "university", "name": "Bournemouth University", "lat": 50.74351, "lng": -1.898338, "address": "Fern Barrow, Poole BH12 5BB", "place_id": "ChIJifGVjYahc0gRzfoIIipO6t4"},
+  {"id": "uni-10000385", "type": "university", "name": "Arts University Bournemouth", "lat": 50.740979, "lng": -1.899403, "address": "7 Fern Barrow, Wallisdown, Poole BH12 5HH", "place_id": "ChIJy018yYihc0gR9o6lavGRq5Q"},
+  {"id": "uni-10000163", "type": "university", "name": "Health Sciences University", "lat": 50.727505, "lng": -1.828648, "address": "Parkwood Campus, Parkwood Rd, Bournemouth BH5 2DF", "place_id": "ChIJdR6Ujj2fc0gR-SBSWvlaxio"}
 ]

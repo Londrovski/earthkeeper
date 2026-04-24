@@ -1,9 +1,9 @@
 [
-  {"id":"uni-durham","type":"university","name":"Durham University","lat":54.7753,"lng":-1.5849,"address":"The Palatine Centre, Durham DH1 3LE"},
-  {"id":"uni-newcastle","type":"university","name":"Newcastle University","lat":54.9787,"lng":-1.6147,"address":"King's Gate, Newcastle NE1 7RU"},
-  {"id":"uni-northumbria","type":"university","name":"Northumbria University","lat":54.9778,"lng":-1.6131,"address":"Ellison Place, Newcastle NE1 8ST"},
-  {"id":"uni-sunderland","type":"university","name":"University of Sunderland","lat":54.9058,"lng":-1.3820,"address":"Edinburgh Building, Sunderland SR1 3SD"},
-  {"id":"uni-teesside","type":"university","name":"Teesside University","lat":54.5740,"lng":-1.2320,"address":"Middlesbrough TS1 3BA"},
-  {"id":"uni-ncg","type":"university","name":"NCG (Newcastle College Group)","lat":54.9698,"lng":-1.6190,"address":"Rye Hill Campus, Newcastle NE4 7SA"},
-  {"id":"uni-northernschoolart","type":"university","name":"The Northern School of Art","lat":54.5740,"lng":-1.2320,"address":"Green Lane, Middlesbrough TS5 7RJ"}
+  {"id": "uni-durham", "type": "university", "name": "Durham University", "lat": 54.764986, "lng": -1.578203, "address": "University, The Palatine Centre, Stockton Rd, Durham DH1 3LE", "place_id": "ChIJc84_9maHfkgRr8jLpyp8TgY"},
+  {"id": "uni-newcastle", "type": "university", "name": "Newcastle University", "lat": 54.979187, "lng": -1.614661, "address": "Newcastle upon Tyne NE1 7RU", "place_id": "ChIJg2Eu1c1wfkgRfccMhQHrRcE"},
+  {"id": "uni-northumbria", "type": "university", "name": "Northumbria University", "lat": 54.97646, "lng": -1.607071, "address": "Ellison Pl, Newcastle upon Tyne NE1 8ST", "place_id": "ChIJ9-nFEuFwfkgRB849kgzGp3k"},
+  {"id": "uni-sunderland", "type": "university", "name": "University of Sunderland", "lat": 54.904525, "lng": -1.391461, "address": "Chester Rd, Sunderland SR1 3SD", "place_id": "ChIJRwUFHIZmfkgRgEdTGhWaN90"},
+  {"id": "uni-teesside", "type": "university", "name": "Teesside University", "lat": 54.570675, "lng": -1.235267, "address": "Teesside University, Southfield Rd, Middlesbrough TS1 3BX", "place_id": "ChIJ3T4KdxDtfkgRDArRT9Yn4ig"},
+  {"id": "uni-ncg", "type": "university", "name": "NCG (Newcastle College Group)", "lat": 54.968407, "lng": -1.62861, "address": "NCG, Rye Hill House, Westmorland Rd, Newcastle upon Tyne NE4 7SA", "place_id": "ChIJYZdyGkx3fkgRya0cQSR0JlY"},
+  {"id": "uni-northernschoolart", "type": "university", "name": "The Northern School of Art", "lat": 54.576053, "lng": -1.243273, "address": "Newport Rd., Middlesbrough TS1 1LA", "place_id": "ChIJr8NG5yXtfkgRWnk8uakpGNM"}
 ]

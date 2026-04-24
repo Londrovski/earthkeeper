@@ -1,11 +1,11 @@
 [
-  {"id":"uni-cardiff","type":"university","name":"Cardiff University","lat":51.4876,"lng":-3.1784,"address":"Main Building, Park Place, Cardiff CF10 3AT"},
-  {"id":"uni-swansea","type":"university","name":"Swansea University","lat":51.6074,"lng":-3.9260,"address":"Singleton Park, Swansea SA2 8PP"},
-  {"id":"uni-aberystwyth","type":"university","name":"Aberystwyth University","lat":52.4178,"lng":-4.0652,"address":"Penglais, Aberystwyth SY23 3FL"},
-  {"id":"uni-bangor","type":"university","name":"Bangor University","lat":53.2280,"lng":-4.1290,"address":"College Rd, Bangor LL57 2DG"},
-  {"id":"uni-cardiffmet","type":"university","name":"Cardiff Metropolitan University","lat":51.4950,"lng":-3.2120,"address":"Llandaff Campus, Cardiff CF5 2YB"},
-  {"id":"uni-southwales","type":"university","name":"University of South Wales","lat":51.5935,"lng":-3.3355,"address":"Pontypridd CF37 1DL"},
-  {"id":"uni-uwtsd","type":"university","name":"University of Wales Trinity Saint David","lat":51.6665,"lng":-4.1683,"address":"Carmarthen SA31 3EP"},
-  {"id":"uni-wales","type":"university","name":"University of Wales","lat":51.4876,"lng":-3.1784,"address":"King Edward VII Ave, Cardiff CF10 3NS"},
-  {"id":"uni-wrexham","type":"university","name":"Wrexham University","lat":53.0456,"lng":-2.9978,"address":"Mold Rd, Wrexham LL11 2AW"}
+  {"id": "uni-cardiff", "type": "university", "name": "Cardiff University", "lat": 51.487656, "lng": -3.179115, "address": "Park Pl, Cardiff CF10 3AT", "place_id": "ChIJrysBNr0cbkgRyiJxngnHbeA"},
+  {"id": "uni-swansea", "type": "university", "name": "Swansea University", "lat": 51.609218, "lng": -3.979952, "address": "Singleton Park, Sketty, Swansea SA2 8PP", "place_id": "ChIJ4RC-2DGLbkgRRD4ya-wj8KI"},
+  {"id": "uni-aberystwyth", "type": "university", "name": "Aberystwyth University", "lat": 52.418275, "lng": -4.063853, "address": "Penglais, Aberystwyth SY23 3FL", "place_id": "ChIJ_1XwDk12b0gRVFtdVPmq_B4"},
+  {"id": "uni-bangor", "type": "university", "name": "Bangor University", "lat": 53.228368, "lng": -4.129437, "address": "Bangor, Gwynedd LL57 2DG", "place_id": "ChIJje9izVkHZUgRYpSaLaF9uCM"},
+  {"id": "uni-cardiffmet", "type": "university", "name": "Cardiff Metropolitan University", "lat": 51.495956, "lng": -3.212052, "address": "Llandaff Campus, Western Ave, Cardiff CF5 2YB", "place_id": "ChIJ7z5d08ccbkgRdo7RMMEl_lo"},
+  {"id": "uni-southwales", "type": "university", "name": "University of South Wales", "lat": 51.589264, "lng": -3.33083, "address": "Llantwit Rd, Pontypridd CF37 1DL", "place_id": "ChIJja_0inMXbkgR8m79KXJZuzA"},
+  {"id": "uni-uwtsd", "type": "university", "name": "University of Wales Trinity Saint David", "lat": 51.85835, "lng": -4.32871, "address": "College Rd, Carmarthen SA31 3EP", "place_id": "ChIJFUc1Ic3gbkgRqLKLEr4HL4U"},
+  {"id": "uni-wales", "type": "university", "name": "University of Wales", "lat": 51.485598, "lng": -3.180994, "address": "Glamorgan Building, King Edward VII Ave, Cardiff CF10 3NS", "place_id": "ChIJz9X4IrscbkgRKWY0w09Xiik"},
+  {"id": "uni-wrexham", "type": "university", "name": "Wrexham University", "lat": 53.052623, "lng": -3.006165, "address": "Mold Rd, Wrexham LL11 2AW", "place_id": "ChIJY5NBd_7GekgRS6Lp5Iw0GBw"}
 ]

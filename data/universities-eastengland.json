@@ -1,13 +1,13 @@
 [
-  {"id":"uni-cambridge","type":"university","name":"University of Cambridge","lat":52.2054,"lng":0.1132,"address":"The Old Schools, Trinity Lane, Cambridge CB2 1TN"},
-  {"id":"uni-openuni","type":"university","name":"The Open University","lat":52.0241,"lng":-0.7087,"address":"Walton Hall, Milton Keynes MK7 6AA"},
-  {"id":"uni-uea","type":"university","name":"University of East Anglia","lat":52.6212,"lng":1.2386,"address":"Norwich Research Park, Norwich NR4 7TJ"},
-  {"id":"uni-essex","type":"university","name":"University of Essex","lat":51.8779,"lng":0.9412,"address":"Wivenhoe Park, Colchester CO4 3SQ"},
-  {"id":"uni-hertfordshire","type":"university","name":"University of Hertfordshire","lat":51.7510,"lng":-0.2430,"address":"College Lane, Hatfield AL10 9AB"},
-  {"id":"uni-angliaru","type":"university","name":"Anglia Ruskin University","lat":52.2024,"lng":0.1302,"address":"East Rd, Cambridge CB1 1PT"},
-  {"id":"uni-bedfordshire","type":"university","name":"University of Bedfordshire","lat":51.8793,"lng":-0.4201,"address":"Park Square, Luton LU1 3JU"},
-  {"id":"uni-cranfield","type":"university","name":"Cranfield University","lat":52.0722,"lng":-0.6276,"address":"Cranfield, Bedford MK43 0AL"},
-  {"id":"uni-suffolk","type":"university","name":"University of Suffolk","lat":52.0560,"lng":1.1490,"address":"Waterfront Building, Ipswich IP4 1QJ"},
-  {"id":"uni-norwich-arts","type":"university","name":"Norwich University of the Arts","lat":52.6311,"lng":1.2990,"address":"Francis House, Norwich NR2 4SN"},
-  {"id":"uni-ashridge","type":"university","name":"Ashridge Executive Education","lat":51.8012,"lng":-0.5629,"address":"Ashridge House, Berkhamsted HP4 1NS"}
+  {"id": "uni-cambridge", "type": "university", "name": "University of Cambridge", "lat": 52.205356, "lng": 0.113168, "address": "The Old Schools, Trinity Ln, Cambridge CB2 1TN", "place_id": "ChIJqRIn1E532EcRu7Vt86uAyiE"},
+  {"id": "uni-openuni", "type": "university", "name": "The Open University", "lat": 52.02493, "lng": -0.70819, "address": "Walton Hall, Kents Hill, Milton Keynes MK7 6AA", "place_id": "ChIJc8udEi6rd0gR2GQRIEDO0ow"},
+  {"id": "uni-uea", "type": "university", "name": "University of East Anglia", "lat": 52.622052, "lng": 1.241084, "address": "Research Park, Norwich NR4 7TJ", "place_id": "ChIJAViAe9jg2UcRc-VEB_B7ubk"},
+  {"id": "uni-essex", "type": "university", "name": "University of Essex", "lat": 51.877726, "lng": 0.947207, "address": "Wivenhoe Park, Colchester CO4 3SQ", "place_id": "ChIJAdGLnmUF2UcR5GsP03cbx1w"},
+  {"id": "uni-hertfordshire", "type": "university", "name": "University of Hertfordshire", "lat": 51.761543, "lng": -0.248051, "address": "De Havilland Campus, Mosquito Way, Hatfield AL10 9EU", "place_id": "ChIJnZECLXo8dkgRIkh37ROCHaA"},
+  {"id": "uni-angliaru", "type": "university", "name": "Anglia Ruskin University", "lat": 52.203287, "lng": 0.134458, "address": "Anglia Ruskin University, East Rd, Cambridge CB1 1PT", "place_id": "ChIJEZq1qotx2EcRHI2BDWqMK0g"},
+  {"id": "uni-bedfordshire", "type": "university", "name": "University of Bedfordshire", "lat": 51.877928, "lng": -0.412169, "address": "Park Square, Luton LU1 3JU", "place_id": "ChIJb5uEL0FIdkgRrROa1eA072I"},
+  {"id": "uni-cranfield", "type": "university", "name": "Cranfield University", "lat": 52.074038, "lng": -0.628206, "address": "College Rd, Wharley End, Bedford MK43 0AL", "place_id": "ChIJ6_rISE2sd0gRl86SveYDyUQ"},
+  {"id": "uni-suffolk", "type": "university", "name": "University of Suffolk", "lat": 52.052294, "lng": 1.162886, "address": "University of Suffolk, Waterfront Building, 19 Neptune Quay, Ipswich IP4 1QJ", "place_id": "ChIJ_TbkHoGf2UcRONxBTJhwvzg"},
+  {"id": "uni-norwich-arts", "type": "university", "name": "Norwich University of the Arts", "lat": 52.630282, "lng": 1.296659, "address": "Francis House, 3-7 Redwell St, Norwich NR2 4SN", "place_id": "ChIJM8GV6-fj2UcRKO7qszrSncg"},
+  {"id": "uni-ashridge", "type": "university", "name": "Ashridge Executive Education", "lat": 51.799462, "lng": -0.560006, "address": "Ashridge House, Berkhamsted HP4 1NS", "place_id": "ChIJY_1Pn9pEdkgRD0HiMjKRCXo"}
 ]
