@@ -33,8 +33,7 @@
 
   function clearLog(){lines.length=0;render()}
 
-  // ── Admin-only visibility ────────────────────────────────────────────────
-  // Re-check who's logged in every second and show/hide the button accordingly.
+  // ── Admin-only visibility ──────────────────────────────────────────────
   function isAdmin(){
     try{
       if(typeof currentUser!=='undefined'&&currentUser===ADMIN_NAME)return true
@@ -50,7 +49,7 @@
     if(!show&&panel)panel.classList.remove('on')
   }
 
-  // ── Panel construction ───────────────────────────────────────────────────
+  // ── Panel construction ─────────────────────────────────────────────────────
   function buildPanel(){
     if(document.getElementById('dbg-btn'))return
     const btn=document.createElement('button')
@@ -69,6 +68,7 @@
         '<button class="dbg-action" data-act="state">State</button>'+
         '<button class="dbg-action" data-act="ids">Check IDs</button>'+
         '<button class="dbg-action" data-act="dump">Dump progress</button>'+
+        '<button class="dbg-action" data-act="audit">View audit log</button>'+
         '<button class="dbg-action" data-act="sb-ping">Supabase ping</button>'+
         '<button class="dbg-action" data-act="sb-select">SB select all</button>'+
         '<button class="dbg-action" data-act="sb-upsert">SB test upsert</button>'+
@@ -90,6 +90,7 @@
         'state':actCheckState,
         'ids':actCheckIds,
         'dump':actDumpProgress,
+        'audit':actAuditLog,
         'sb-ping':actSbPing,
         'sb-select':actSbSelect,
         'sb-upsert':actSbUpsert,
@@ -139,7 +140,7 @@
       ' &nbsp; <strong>RT:</strong> <span style="color:'+rtColor+'">'+rt+'</span>'
   }
 
-  // ── Existing checks ──────────────────────────────────────────────────────
+  // ── Existing checks ───────────────────────────────────────────────────
   function actCheckState(){
     dbgLog('── State ──','hdr')
     try{
@@ -185,7 +186,32 @@
     }catch(e){dbgLog('actDumpProgress failed: '+e.message,'err')}
   }
 
-  // ── Supabase-specific actions ────────────────────────────────────────────
+  // ── Audit log view ────────────────────────────────────────────────────
+  async function actAuditLog(){
+    dbgLog('── Audit log (most recent 100) ──','hdr')
+    try{
+      if(typeof fetchRecentAuditLog!=='function'){dbgLog('fetchRecentAuditLog not defined','err');return}
+      const rows=await fetchRecentAuditLog(100)
+      if(!rows.length){dbgLog('(audit log is empty)','dim');return}
+      dbgLog(rows.length+' entries:','info')
+      rows.forEach(function(r){
+        const when=new Date(r.created_at).toLocaleString('en-GB')
+        const who=r.user||'—'
+        const action=r.action.padEnd(14,' ')
+        const name=r.target_name||r.target_id
+        let detail=''
+        if(r.action==='clear'||r.action==='group_clear'){
+          detail=(r.tool||'?')+(r.ew?' + '+r.ew:'')
+          if(r.previous_tool&&r.previous_tool!==r.tool)detail+=' (was '+r.previous_tool+')'
+        }else{
+          detail='(was '+(r.previous_tool||'?')+')'
+        }
+        dbgLog(when+'  '+action+'  '+name+'  ·  '+detail+'  ·  '+who,'info')
+      })
+    }catch(e){dbgLog('audit log threw: '+e.message,'err')}
+  }
+
+  // ── Supabase-specific actions ──────────────────────────────────────────────
 
   async function actSbPing(){
     dbgLog('── Supabase ping ──','hdr')
@@ -277,7 +303,7 @@
     }catch(e){dbgLog('Reload threw: '+e.message,'err')}
   }
 
-  // ── Error capture ────────────────────────────────────────────────────────
+  // ── Error capture ─────────────────────────────────────────────────────
   window.addEventListener('error',function(e){
     dbgLog('window.onerror: '+(e.message||'?')+' @ '+(e.filename||'?')+':'+(e.lineno||'?'),'err')
   })
