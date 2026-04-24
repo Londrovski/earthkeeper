@@ -3,30 +3,58 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 async function ghGet(path){
+  // Uses raw.githubusercontent.com — fine for data files that change infrequently.
+  // For things we write (progress.json, group-progress.json), use loadJsonFresh.
   const res=await fetch(RAW_BASE+'/'+path)
   if(!res.ok)throw new Error('Fetch '+res.status)
   return await res.json()
 }
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
+// Loads JSON directly via Contents API — never cached. Also returns SHA.
+// Falls back to raw URL if Contents API fails for any reason.
+async function loadJsonFresh(filename){
+  try{
+    const res=await fetch(API_BASE+'/'+filename,{headers:{...GH_HEADERS,'Cache-Control':'no-cache'}})
+    if(!res.ok){
+      if(window.dbgLog)window.dbgLog('  Contents API '+filename+' '+res.status+', falling back to raw','warn')
+      const raw=await fetch(RAW_BASE+'/'+filename+'?t='+Date.now(),{cache:'no-store'})
+      if(!raw.ok)throw new Error('raw fallback '+raw.status)
+      return{data:await raw.json(),sha:null}
+    }
+    const meta=await res.json()
+    // meta.content is base64-encoded; GitHub splits long content with \n, so strip.
+    const decoded=decodeURIComponent(escape(atob((meta.content||'').replace(/\n/g,''))))
+    const data=JSON.parse(decoded)
+    return{data,sha:meta.sha}
+  }catch(e){
+    if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') threw: '+e.message,'err')
+    throw e
+  }
+}
+
 async function loadProgress(){
   try{
-    const res=await fetch(RAW_BASE+'/progress.json?t='+Date.now())
-    if(res.ok)progress=await res.json()
-    const sha=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
-    if(sha.ok){const m=await sha.json();progressSha=m.sha}
+    const{data,sha}=await loadJsonFresh('progress.json')
+    progress=data||{}
+    progressSha=sha
     if(window.dbgLog)window.dbgLog('loadProgress: '+Object.keys(progress).length+' entries, sha='+(progressSha||'?').slice(0,8),'ok')
-  }catch(e){progress={};if(window.dbgLog)window.dbgLog('loadProgress failed: '+e.message,'err')}
+  }catch(e){
+    progress={}
+    if(window.dbgLog)window.dbgLog('loadProgress failed: '+e.message,'err')
+  }
 }
 
 async function loadGroupProgress(){
   try{
-    const res=await fetch(RAW_BASE+'/group-progress.json?t='+Date.now())
-    if(res.ok)groupProgress=await res.json()
-    const sha=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
-    if(sha.ok){const m=await sha.json();groupProgressSha=m.sha}
+    const{data,sha}=await loadJsonFresh('group-progress.json')
+    groupProgress=data||{}
+    groupProgressSha=sha
     if(window.dbgLog)window.dbgLog('loadGroupProgress: '+Object.keys(groupProgress).length+' entries','ok')
-  }catch(e){groupProgress={};if(window.dbgLog)window.dbgLog('loadGroupProgress failed: '+e.message,'err')}
+  }catch(e){
+    groupProgress={}
+    if(window.dbgLog)window.dbgLog('loadGroupProgress failed: '+e.message,'err')
+  }
 }
 
 // Generic GitHub PUT. Fetches fresh SHA right before PUT to avoid conflicts.
