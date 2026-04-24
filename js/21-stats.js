@@ -1,9 +1,22 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 21-stats.js — header + progress bar + mobile stats
+//
+// Each tab has its own header stats layout. Per-tab stats functions guard
+// against running when their tab isn't active so background renders
+// (triggered by realtime events or post-action UI refreshes) don't stomp
+// on the currently-visible tab's header.
 // ═══════════════════════════════════════════════════════════════════════════
 
 function setText(id,v){const e=$(id);if(e)e.textContent=v}
 function setDisplay(id,v){const e=$(id);if(e)e.style.display=v}
+
+// Returns 'locs' | 'groups' | 'log' | null — whichever tab panel has .on
+function currentTab(){
+  if($('tab-locs')&&$('tab-locs').classList.contains('on'))return 'locs'
+  if($('tab-groups')&&$('tab-groups').classList.contains('on'))return 'groups'
+  if($('tab-log')&&$('tab-log').classList.contains('on'))return 'log'
+  return null
+}
 
 function setLogStatsVisible(show){
   setDisplay('s-pct',show?'none':'')
@@ -20,18 +33,8 @@ function statLine(total,totalLabel,cleared,clearedLabel,pct){
 }
 
 function updateStats(){
-  const visLocs=locations.filter(l=>placesFilter[l.type])
-  const total=visLocs.length
-  const cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
-  const pct=total?Math.round(cleared/total*100):0
-  setText('s-total',total.toLocaleString())
-  setText('s-label-total','locations')
-  setText('s-cleared',cleared)
-  setText('s-label-cleared','cleared')
-  setText('s-pct',pct+'%')
-  setLogStatsVisible(false)
-  if(isMobile())updateMobileInnerStats('locs-mob-stats',statLine(total.toLocaleString(),'locations',cleared,'cleared',pct+'%'))
-
+  // Always compute progress bars (visible on map overlay across tabs).
+  // Header writes guarded by tab below.
   const rows=[
     ['hospital','pg-h','pg-ht'],
     ['hospice','pg-ho','pg-hot'],
@@ -48,9 +51,26 @@ function updateStats(){
     pgEl.style.width=(tot?Math.round(cl/tot*100):0)+'%'
     pgTxtEl.textContent=tot?cl+'/'+tot:'-'
   }
+
+  // Locations-tab mobile bar: always safe to compute, only visible on the locs tab anyway
+  const visLocs=locations.filter(l=>placesFilter[l.type])
+  const total=visLocs.length
+  const cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
+  const pct=total?Math.round(cleared/total*100):0
+  if(isMobile())updateMobileInnerStats('locs-mob-stats',statLine(total.toLocaleString(),'locations',cleared,'cleared',pct+'%'))
+
+  // Header: only if we're actually on the Locations tab.
+  if(currentTab()!=='locs')return
+  setText('s-total',total.toLocaleString())
+  setText('s-label-total','locations')
+  setText('s-cleared',cleared)
+  setText('s-label-cleared','cleared')
+  setText('s-pct',pct+'%')
+  setLogStatsVisible(false)
 }
 
 function updateGroupsStats(){
+  // Mobile bar always safe to compute; header guarded.
   const codes=Object.keys(districtMap).filter(code=>{
     const d=districtMap[code];return d.schools.length>0||d.gps.length>0
   })
@@ -68,13 +88,15 @@ function updateGroupsStats(){
   ])
   const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=totalDistricts?Math.round(clearedDistricts/totalDistricts*100):0
+  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%'))
+
+  if(currentTab()!=='groups')return
   setText('s-total',clearedDistricts+'/'+totalDistricts)
   setText('s-label-total','districts cleared')
   setText('s-cleared',clearedLocs.toLocaleString())
   setText('s-label-cleared','locations cleared')
   setText('s-pct',pct+'%')
   setLogStatsVisible(false)
-  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%'))
 }
 
 function updateDistrictStats(code){
@@ -90,6 +112,14 @@ function updateLogStats(){
   const allTotal=locations.length
   const allCleared=locations.filter(l=>isEffectivelyCleared(l)).length
   const allPct=allTotal?Math.round(allCleared/allTotal*100):0
+
+  // Mobile bar: only shown on the log tab anyway, but guard for good measure.
+  if(isMobile()&&currentTab()==='log')updateMobileInnerStats('log-mob-stats',
+    '<strong>'+indivCleared+'/'+indivTotal+'</strong><span> individual</span><span class="ms-sep">·</span><strong>'+indivPct+'%</strong><span> done</span><span class="ms-sep">|</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span><span class="ms-sep">·</span><strong>'+allPct+'%</strong><span> done</span>'
+  )
+
+  // Header: only when actually on the Log tab.
+  if(currentTab()!=='log')return
   setText('s-total',indivCleared+'/'+indivTotal)
   setText('s-label-total','individual cleared')
   setText('s-cleared',indivPct+'%')
@@ -97,7 +127,4 @@ function updateLogStats(){
   setLogStatsVisible(true)
   setText('s-total-all',allCleared+'/'+allTotal)
   setText('s-pct-all',allPct+'%')
-  if(isMobile())updateMobileInnerStats('log-mob-stats',
-    '<strong>'+indivCleared+'/'+indivTotal+'</strong><span> individual</span><span class="ms-sep">·</span><strong>'+indivPct+'%</strong><span> done</span><span class="ms-sep">|</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span><span class="ms-sep">·</span><strong>'+allPct+'%</strong><span> done</span>'
-  )
 }
