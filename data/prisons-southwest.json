@@ -86,13 +86,5 @@
     "lat": 50.5451,
     "lng": -2.4371,
     "address": "The Verne, Portland, Dorset DT5 1EQ"
-  },
-  {
-    "id": "prison-shepton-mallet",
-    "type": "prison",
-    "name": "HMP Shepton Mallet (closed)",
-    "lat": 51.1905,
-    "lng": -2.5447,
-    "address": "Cornhill, Shepton Mallet, Somerset BA4 5LU"
   }
 ]

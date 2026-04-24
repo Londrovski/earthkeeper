@@ -56,11 +56,6 @@ function tryAutoLogin(){
   }
 }
 
-// ─── Header account menu ──────────────────────────────────────────────────────────────
-// Replaces the old plain "Sign out" button. Button face shows the user's
-// first name; clicking opens a dropdown with name/tool editing, protocol
-// and instruction links, and sign out.
-
 function updateHeaderMenu(){
   const face=$('acct-face-name')
   if(face)face.textContent=currentUser?currentUser.split(' ')[0]:'Account'
@@ -77,11 +72,9 @@ function toggleAccountMenu(){
 
 function openAccountMenu(){
   const dd=$('acct-dropdown');if(!dd)return
-  // Start in view (non-edit) mode each time.
   setAccountEditMode(false)
   updateHeaderMenu()
   dd.classList.add('on')
-  // Click-away to close
   setTimeout(function(){document.addEventListener('click',_acctOutsideClick,{once:true})},0)
 }
 
@@ -95,7 +88,6 @@ function _acctOutsideClick(e){
   const dd=$('acct-dropdown'),btn=$('acct-btn')
   if(!dd)return
   if(dd.contains(e.target)||(btn&&btn.contains(e.target))){
-    // Click was inside — reattach listener for next time
     setTimeout(function(){document.addEventListener('click',_acctOutsideClick,{once:true})},0)
     return
   }
@@ -129,7 +121,6 @@ function saveAccountChanges(){
   }catch(e){}
   updateHeaderMenu()
   setAccountEditMode(false)
-  // Re-render anything that depends on user or tool
   if(typeof renderLog==='function')renderLog()
   if(typeof renderList==='function')renderList()
   if(typeof refreshMapData==='function')refreshMapData()
@@ -137,9 +128,7 @@ function saveAccountChanges(){
   if(window.dbgLog)window.dbgLog('Account updated: '+newName+' / '+newTool+' / EW='+newEw,'ok')
 }
 
-function openProtocolPage(){
-  window.open('protocol.html','_blank')
-}
-function openInstructionsPage(){
-  window.open('instructions.html','_blank')
-}
+// Both Protocol and Instructions navigate in the same tab so users stay
+// inside the app context and can use the browser back button to return.
+function openProtocolPage(){window.location.href='protocol.html'}
+function openInstructionsPage(){window.location.href='instructions.html'}
