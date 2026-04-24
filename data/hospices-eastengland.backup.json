@@ -1,0 +1,20 @@
+[
+  {
+    "id": "hospice-1-17708902164",
+    "type": "hospice",
+    "name": "Hospice at Home",
+    "address": "ST LUKE'S HOSPICE, Fobbing Farm, Basildon",
+    "postcode": "SS16 5NJ",
+    "lat": 51.557673,
+    "lng": 0.456905
+  },
+  {
+    "id": "hospice-1-107319447",
+    "type": "hospice",
+    "name": "Keech Hospice Care",
+    "address": "Great Bramingham Lane, Luton",
+    "postcode": "LU3 3NT",
+    "lat": 51.927841,
+    "lng": -0.438559
+  }
+]
