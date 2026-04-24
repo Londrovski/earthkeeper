@@ -2,17 +2,21 @@
 // 01-config.js — constants only, no mutable state
 // ═══════════════════════════════════════════════════════════════════════════
 
-// NOTE: token is split to avoid GitHub secret scanner false positives.
-// Never commit this file with the token joined into a single string literal.
-const GITHUB_TOKEN='ghp_KcWJhRHBiDNttiIcY5N'+'XE23u4hbGqL3coy1n'
-const PASSWORD_HASH='74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
+// ── Supabase (progress + group_progress live here) ─────────────────────────────────────
+const SUPABASE_URL='https://wxdqncumgfarehwlsbuo.supabase.co'
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4ZHFuY3VtZ2ZhcmVod2xzYnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMjM2MTgsImV4cCI6MjA5MjU5OTYxOH0.OIiDeC2eLtpSEiIcVnPxYhWw4PvaG3Ajr6Q6t_wJvxo'
+const SB_REST=SUPABASE_URL+'/rest/v1'
+const SB_REALTIME=SUPABASE_URL.replace('https://','wss://')+'/realtime/v1/websocket'
+const SB_HEADERS={apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json'}
 
+// ── GitHub (location data + the app itself still live on GitHub Pages) ──────────────
+const PASSWORD_HASH='74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
 const REPO_OWNER='Londrovski'
 const REPO_NAME='earthkeeper'
 const DATA_BRANCH='main'
-const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 const RAW_BASE=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data`
-const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
+// API_BASE + GH_HEADERS kept for any future admin tooling but unused by the runtime app now.
+const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
 const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland','northernireland']
 

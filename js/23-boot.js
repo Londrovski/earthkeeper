@@ -11,6 +11,8 @@ async function bootApp(){
   await loadDistricts()
   loadSchoolsGps()
   renderLog()
+  // Kick off real-time subscription so saves from other devices appear live
+  try{startRealtime()}catch(e){if(window.dbgLog)window.dbgLog('startRealtime threw: '+e.message,'err')}
   if(window.dbgLog)window.dbgLog('bootApp() done','ok')
 }
 

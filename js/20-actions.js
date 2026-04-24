@@ -1,5 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 20-actions.js — markCleared / unmarkCleared / markGroupCleared / unmarkGroupCleared
+// Every action now saves a SINGLE row to Supabase. No bulk writes, no SHA.
 // ═══════════════════════════════════════════════════════════════════════════
 
 async function markCleared(id,tool,ew){
@@ -14,7 +15,7 @@ async function markCleared(id,tool,ew){
   safe('renderList',renderList)
   safe('updateStats',updateStats)
   safe('renderLog',renderLog)
-  await saveProgress();queueSave()
+  await saveProgressEntry(id)
 }
 
 async function markClearedMobile(id,tool,ew){
@@ -29,7 +30,7 @@ async function markClearedMobile(id,tool,ew){
   safe('renderList',renderList)
   safe('updateStats',updateStats)
   safe('renderLog',renderLog)
-  await saveProgress();queueSave()
+  await saveProgressEntry(id)
 }
 
 async function unmarkCleared(id){
@@ -40,7 +41,7 @@ async function unmarkCleared(id){
   safe('renderList',renderList)
   safe('updateStats',updateStats)
   safe('renderLog',renderLog)
-  await saveProgress();queueSave()
+  await deleteProgressEntry(id)
 }
 
 async function unmarkClearedMobile(id){
@@ -51,27 +52,29 @@ async function unmarkClearedMobile(id){
   safe('renderList',renderList)
   safe('updateStats',updateStats)
   safe('renderLog',renderLog)
-  await saveProgress();queueSave()
+  await deleteProgressEntry(id)
 }
 
 async function markGroupCleared(code,gtype,tool){
   const gt=gtype||[...groupTypes][0]
   const d=districtMap[code]
   const t=tool||currentTool
-  groupProgress[code+':'+gt]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
+  const key=code+':'+gt
+  groupProgress[key]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
   renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
-  await saveGroupProgress()
+  await saveGroupProgressEntry(key)
 }
 
 async function unmarkGroupCleared(code,gtype){
   const gt=gtype||[...groupTypes][0]
-  delete groupProgress[code+':'+gt]
+  const key=code+':'+gt
+  delete groupProgress[key]
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
   renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
-  await saveGroupProgress()
+  await deleteGroupProgressEntry(key)
 }
 
 // Helper: wrap a call so a throw in one rendering step doesn't kill the save flow
