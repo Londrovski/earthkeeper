@@ -1,0 +1,22 @@
+[
+  {"id": "uni-oxford", "type": "university", "name": "University of Oxford", "lat": 51.7548, "lng": -1.2544, "address": "University Offices, Wellington Square, Oxford OX1 2JD"},
+  {"id": "uni-oxfordbrookes", "type": "university", "name": "Oxford Brookes University", "lat": 51.7488, "lng": -1.22, "address": "Headington Campus, Oxford OX3 0BP"},
+  {"id": "uni-reading", "type": "university", "name": "University of Reading", "lat": 51.4414, "lng": -0.9429, "address": "Whiteknights, Reading RG6 6AH"},
+  {"id": "uni-surrey", "type": "university", "name": "University of Surrey", "lat": 51.2436, "lng": -0.5886, "address": "Guildford GU2 7XH"},
+  {"id": "uni-sussex", "type": "university", "name": "University of Sussex", "lat": 50.8657, "lng": -0.0878, "address": "Falmer, Brighton BN1 9RH"},
+  {"id": "uni-brighton", "type": "university", "name": "University of Brighton", "lat": 50.823, "lng": -0.141, "address": "Mithras House, Brighton BN2 4AT"},
+  {"id": "uni-southampton", "type": "university", "name": "University of Southampton", "lat": 50.9345, "lng": -1.3951, "address": "University Rd, Southampton SO17 1BJ"},
+  {"id": "uni-portsmouth", "type": "university", "name": "University of Portsmouth", "lat": 50.798, "lng": -1.093, "address": "University House, Winston Churchill Ave, Portsmouth PO1 2UP"},
+  {"id": "uni-kent", "type": "university", "name": "University of Kent", "lat": 51.2981, "lng": 1.068, "address": "Canterbury CT2 7NZ"},
+  {"id": "uni-ccu", "type": "university", "name": "Canterbury Christ Church University", "lat": 51.2773, "lng": 1.0789, "address": "North Holmes Rd, Canterbury CT1 1QU"},
+  {"id": "uni-winchester", "type": "university", "name": "University of Winchester", "lat": 51.06, "lng": -1.316, "address": "Sparkford Rd, Winchester SO22 4NR"},
+  {"id": "uni-solent", "type": "university", "name": "Southampton Solent University", "lat": 50.906, "lng": -1.402, "address": "East Park Terrace, Southampton SO14 0YN"},
+  {"id": "uni-uca", "type": "university", "name": "University for the Creative Arts", "lat": 51.2161, "lng": -0.7982, "address": "Falkner Rd, Farnham GU9 7DS"},
+  {"id": "uni-chichester", "type": "university", "name": "University of Chichester", "lat": 50.8378, "lng": -0.778, "address": "College Lane, Chichester PO19 6PE"},
+  {"id": "uni-buckingham", "type": "university", "name": "University of Buckingham", "lat": 51.9957, "lng": -0.9842, "address": "Hunter St, Buckingham MK18 1EG"},
+  {"id": "uni-bnu", "type": "university", "name": "Buckinghamshire New University", "lat": 51.6297, "lng": -0.7482, "address": "Queen Alexandra Rd, High Wycombe HP11 2JZ"},
+  {"id": "uni-rosebruford", "type": "university", "name": "Rose Bruford College of Theatre and Performance", "lat": 51.4227, "lng": 0.0875, "address": "Burnt Oak Lane, Sidcup DA15 9DF"},
+  {"id": "uni-bpp", "type": "university", "name": "BPP University", "lat": 51.5155, "lng": -0.1243, "address": "BPP House, Aldine Place, London W12 8AA"},
+  {"id": "uni-nfts", "type": "university", "name": "National Film and Television School", "lat": 51.628, "lng": -0.6113, "address": "Beaconsfield Studios HP9 1LG"},
+  {"id": "uni-rambert", "type": "university", "name": "Rambert School", "lat": 51.4838, "lng": -0.3135, "address": "Twickenham TW1 1QN"}
+]

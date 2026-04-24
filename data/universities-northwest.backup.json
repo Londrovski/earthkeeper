@@ -1,0 +1,19 @@
+[
+  {"id": "uni-manchester", "type": "university", "name": "University of Manchester", "lat": 53.4668, "lng": -2.234, "address": "Oxford Rd, Manchester M13 9PL"},
+  {"id": "uni-mmu", "type": "university", "name": "Manchester Metropolitan University", "lat": 53.4701, "lng": -2.2388, "address": "All Saints, Manchester M15 6BH"},
+  {"id": "uni-liverpool", "type": "university", "name": "University of Liverpool", "lat": 53.4059, "lng": -2.9664, "address": "Foundation Building, Liverpool L69 7ZX"},
+  {"id": "uni-ljmu", "type": "university", "name": "Liverpool John Moores University", "lat": 53.4031, "lng": -2.9833, "address": "Egerton Court, Liverpool L2 1QP"},
+  {"id": "uni-lancashire", "type": "university", "name": "University of Central Lancashire", "lat": 53.763, "lng": -2.709, "address": "Preston PR1 2HE"},
+  {"id": "uni-lancaster", "type": "university", "name": "Lancaster University", "lat": 54.0104, "lng": -2.787, "address": "Bailrigg, Lancaster LA1 4YW"},
+  {"id": "uni-salford", "type": "university", "name": "University of Salford", "lat": 53.4875, "lng": -2.2741, "address": "The Crescent, Salford M5 4WT"},
+  {"id": "uni-chester", "type": "university", "name": "University of Chester", "lat": 53.1878, "lng": -2.8907, "address": "Parkgate Rd, Chester CH1 4BJ"},
+  {"id": "uni-edgehill", "type": "university", "name": "Edge Hill University", "lat": 53.57, "lng": -2.887, "address": "St Helens Rd, Ormskirk L39 4QP"},
+  {"id": "uni-liverpoolhope", "type": "university", "name": "Liverpool Hope University", "lat": 53.3913, "lng": -2.9027, "address": "Hope Park, Liverpool L16 9JD"},
+  {"id": "uni-cumbria", "type": "university", "name": "University of Cumbria", "lat": 54.8951, "lng": -2.9382, "address": "Fusehill St, Carlisle CA1 2HH"},
+  {"id": "uni-boltongreater", "type": "university", "name": "University of Greater Manchester", "lat": 53.5747, "lng": -2.4317, "address": "Deane Rd, Bolton BL3 5AB"},
+  {"id": "uni-rncm", "type": "university", "name": "Royal Northern College of Music", "lat": 53.4701, "lng": -2.2388, "address": "124 Oxford Rd, Manchester M13 9RD"},
+  {"id": "uni-lipa", "type": "university", "name": "Liverpool Institute for Performing Arts", "lat": 53.4013, "lng": -2.9777, "address": "Mount St, Liverpool L1 9HF"},
+  {"id": "uni-lstm", "type": "university", "name": "Liverpool School of Tropical Medicine", "lat": 53.4031, "lng": -2.9664, "address": "Pembroke Place, Liverpool L3 5QA"},
+  {"id": "uni-lte", "type": "university", "name": "LTE Group (The Manchester College)", "lat": 53.4808, "lng": -2.2426, "address": "Lower Ormond St, Manchester M1 5QA"},
+  {"id": "uni-blackpoolflyde", "type": "university", "name": "Blackpool and The Fylde College", "lat": 53.8196, "lng": -3.0497, "address": "Ashfield Rd, Bispham, Blackpool FY2 0HB"}
+]

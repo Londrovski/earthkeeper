@@ -1,0 +1,9 @@
+[
+  {"id": "uni-durham", "type": "university", "name": "Durham University", "lat": 54.7753, "lng": -1.5849, "address": "The Palatine Centre, Durham DH1 3LE"},
+  {"id": "uni-newcastle", "type": "university", "name": "Newcastle University", "lat": 54.9787, "lng": -1.6147, "address": "King's Gate, Newcastle NE1 7RU"},
+  {"id": "uni-northumbria", "type": "university", "name": "Northumbria University", "lat": 54.9778, "lng": -1.6131, "address": "Ellison Place, Newcastle NE1 8ST"},
+  {"id": "uni-sunderland", "type": "university", "name": "University of Sunderland", "lat": 54.9058, "lng": -1.382, "address": "Edinburgh Building, Sunderland SR1 3SD"},
+  {"id": "uni-teesside", "type": "university", "name": "Teesside University", "lat": 54.574, "lng": -1.232, "address": "Middlesbrough TS1 3BA"},
+  {"id": "uni-ncg", "type": "university", "name": "NCG (Newcastle College Group)", "lat": 54.9698, "lng": -1.619, "address": "Rye Hill Campus, Newcastle NE4 7SA"},
+  {"id": "uni-northernschoolart", "type": "university", "name": "The Northern School of Art", "lat": 54.574, "lng": -1.232, "address": "Green Lane, Middlesbrough TS5 7RJ"}
+]

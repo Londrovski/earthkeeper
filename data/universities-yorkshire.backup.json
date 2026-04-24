@@ -1,0 +1,16 @@
+[
+  {"id": "uni-leeds", "type": "university", "name": "University of Leeds", "lat": 53.8066, "lng": -1.555, "address": "Woodhouse Lane, Leeds LS2 9JT"},
+  {"id": "uni-sheffield", "type": "university", "name": "University of Sheffield", "lat": 53.3811, "lng": -1.4874, "address": "Western Bank, Sheffield S10 2TN"},
+  {"id": "uni-york", "type": "university", "name": "University of York", "lat": 53.9454, "lng": -1.029, "address": "Heslington, York YO10 5DD"},
+  {"id": "uni-hull", "type": "university", "name": "University of Hull", "lat": 53.7706, "lng": -0.3644, "address": "Cottingham Rd, Hull HU6 7RX"},
+  {"id": "uni-bradford", "type": "university", "name": "University of Bradford", "lat": 53.7878, "lng": -1.7517, "address": "Richmond Rd, Bradford BD7 1DP"},
+  {"id": "uni-huddersfield", "type": "university", "name": "University of Huddersfield", "lat": 53.6456, "lng": -1.778, "address": "Queensgate, Huddersfield HD1 3DH"},
+  {"id": "uni-sheffhalm", "type": "university", "name": "Sheffield Hallam University", "lat": 53.378, "lng": -1.4657, "address": "City Campus, Howard St, Sheffield S1 1WB"},
+  {"id": "uni-leedsbeckett", "type": "university", "name": "Leeds Beckett University", "lat": 53.8008, "lng": -1.549, "address": "City Campus, Leeds LS1 3HE"},
+  {"id": "uni-leedstrinity", "type": "university", "name": "Leeds Trinity University", "lat": 53.8601, "lng": -1.651, "address": "Brownberrie Lane, Horsforth LS18 5HD"},
+  {"id": "uni-yorkstjohn", "type": "university", "name": "York St John University", "lat": 53.9632, "lng": -1.0735, "address": "Lord Mayor's Walk, York YO31 7EX"},
+  {"id": "uni-leedsarts", "type": "university", "name": "Leeds Arts University", "lat": 53.8175, "lng": -1.544, "address": "Blenheim Walk, Leeds LS2 9AQ"},
+  {"id": "uni-nscd", "type": "university", "name": "Northern School of Contemporary Dance", "lat": 53.8175, "lng": -1.544, "address": "98 Chapeltown Rd, Leeds LS7 4BH"},
+  {"id": "uni-luminate", "type": "university", "name": "Luminate Education Group", "lat": 53.7978, "lng": -1.5443, "address": "Quarry Hill, Leeds LS2 7PD"},
+  {"id": "uni-tec", "type": "university", "name": "TEC Partnership", "lat": 53.5653, "lng": -0.0796, "address": "Nuns Corner, Grimsby DN34 5BQ"}
+]
