@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=19">
-<link rel="stylesheet" href="css/layout.css?v=19">
-<link rel="stylesheet" href="css/components.css?v=19">
-<link rel="stylesheet" href="css/map.css?v=19">
-<link rel="stylesheet" href="css/mobile.css?v=19">
-<link rel="stylesheet" href="css/desktop.css?v=19">
-<link rel="stylesheet" href="css/debug.css?v=19">
+<link rel="stylesheet" href="css/base.css?v=20">
+<link rel="stylesheet" href="css/layout.css?v=20">
+<link rel="stylesheet" href="css/components.css?v=20">
+<link rel="stylesheet" href="css/map.css?v=20">
+<link rel="stylesheet" href="css/mobile.css?v=20">
+<link rel="stylesheet" href="css/desktop.css?v=20">
+<link rel="stylesheet" href="css/debug.css?v=20">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
@@ -68,10 +68,10 @@
   <div class="hstats" id="hstats-main">
     <div><strong id="s-total">&mdash;</strong><span id="s-label-total">locations</span></div>
     <div><strong id="s-cleared">0</strong><span id="s-label-cleared">cleared</span></div>
-    <div><strong id="s-pct">0%</strong>done</div>
+    <div><strong id="s-pct">0%</strong><span>done</span></div>
     <div id="s-log-div" style="display:none;width:1px;background:rgba(255,255,255,0.2);margin:0 6px;align-self:stretch"></div>
     <div id="s-log-all" style="display:none"><strong id="s-total-all">&mdash;</strong><span>districts</span></div>
-    <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong>all done</div>
+    <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong><span>all done</span></div>
   </div>
   <div class="header-right">
     <button type="button" class="hdr-btn" onclick="openProtocolPage()" title="Protocol">
@@ -172,19 +172,6 @@
             <option value="EW4">EW4</option>
             <option value="EW5">EW5</option>
           </select>
-          <span class="chip-divider"><span>cleared by</span><span class="chip-divider-link" onclick="toggleToolKey()">what are these?</span></span>
-          <div class="tool-key" id="tool-key">
-            <div class="tool-key-row"><span class="tool-key-code">MS</span>Magical Structures</div>
-            <div class="tool-key-row"><span class="tool-key-code">MF</span>Multifrequency</div>
-            <div class="tool-key-row"><span class="tool-key-code">O</span>Omega</div>
-            <div class="tool-key-row"><span class="tool-key-code">J</span>Jewel</div>
-            <div class="tool-key-row"><span class="tool-key-code">MG</span>Merlin's Grace</div>
-            <div class="tool-key-row"><span class="tool-key-code">AP</span>Universal AP</div>
-            <div class="tool-key-row"><span class="tool-key-code">MI</span>Manifesting Intention</div>
-            <div class="tool-key-row"><span class="tool-key-code">MJ</span>Magical Jewel</div>
-            <div class="tool-key-row"><span class="tool-key-code">DM</span>Divine Magic</div>
-            <div class="tool-key-row"><span class="tool-key-code">EW1&ndash;5</span>Earthworks levels</div>
-          </div>
           <div class="chip show-tool" id="chip-MS" onclick="toggleTool('MS',this)">MS</div>
           <div class="chip show-tool" id="chip-MF" onclick="toggleTool('MF',this)">MF</div>
           <div class="chip show-tool" id="chip-O" onclick="toggleTool('O',this)">O</div>
@@ -358,29 +345,29 @@
 
 <!-- Scripts, loaded in order (defer guarantees sequential execution).
      ?v=N cache-bust: bump this number whenever you push JS changes. -->
-<script defer src="js/01-config.js?v=19"></script>
-<script defer src="js/02-state.js?v=19"></script>
-<script defer src="js/03-helpers.js?v=19"></script>
-<script defer src="js/04-debug.js?v=19"></script>
-<script defer src="js/05-auth.js?v=19"></script>
-<script defer src="js/06-api.js?v=19"></script>
-<script defer src="js/07-data-loader.js?v=19"></script>
-<script defer src="js/08-map-init.js?v=19"></script>
-<script defer src="js/09-map-layers.js?v=19"></script>
-<script defer src="js/10-map-handlers.js?v=19"></script>
-<script defer src="js/11-map-render.js?v=19"></script>
-<script defer src="js/12-map-view.js?v=19"></script>
-<script defer src="js/13-filters.js?v=19"></script>
-<script defer src="js/14-tool-modal.js?v=19"></script>
-<script defer src="js/15-locations-list.js?v=19"></script>
-<script defer src="js/16-locations-detail.js?v=19"></script>
-<script defer src="js/17-groups-list.js?v=19"></script>
-<script defer src="js/18-groups-detail.js?v=19"></script>
-<script defer src="js/19-log.js?v=19"></script>
-<script defer src="js/20-actions.js?v=19"></script>
-<script defer src="js/21-stats.js?v=19"></script>
-<script defer src="js/22-tabs.js?v=19"></script>
-<script defer src="js/23-boot.js?v=19"></script>
+<script defer src="js/01-config.js?v=20"></script>
+<script defer src="js/02-state.js?v=20"></script>
+<script defer src="js/03-helpers.js?v=20"></script>
+<script defer src="js/04-debug.js?v=20"></script>
+<script defer src="js/05-auth.js?v=20"></script>
+<script defer src="js/06-api.js?v=20"></script>
+<script defer src="js/07-data-loader.js?v=20"></script>
+<script defer src="js/08-map-init.js?v=20"></script>
+<script defer src="js/09-map-layers.js?v=20"></script>
+<script defer src="js/10-map-handlers.js?v=20"></script>
+<script defer src="js/11-map-render.js?v=20"></script>
+<script defer src="js/12-map-view.js?v=20"></script>
+<script defer src="js/13-filters.js?v=20"></script>
+<script defer src="js/14-tool-modal.js?v=20"></script>
+<script defer src="js/15-locations-list.js?v=20"></script>
+<script defer src="js/16-locations-detail.js?v=20"></script>
+<script defer src="js/17-groups-list.js?v=20"></script>
+<script defer src="js/18-groups-detail.js?v=20"></script>
+<script defer src="js/19-log.js?v=20"></script>
+<script defer src="js/20-actions.js?v=20"></script>
+<script defer src="js/21-stats.js?v=20"></script>
+<script defer src="js/22-tabs.js?v=20"></script>
+<script defer src="js/23-boot.js?v=20"></script>
 
 </body>
 </html>
