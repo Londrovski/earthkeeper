@@ -12,20 +12,24 @@ async function ghGet(path){
 async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
 
 // Loads JSON directly via Contents API — never cached. Also returns SHA.
-// Falls back to raw URL if Contents API fails for any reason.
+// Triple-layer cache-bust: no-store fetch, ?t= query, Cache-Control header.
 async function loadJsonFresh(filename){
+  const bust='?t='+Date.now()
   try{
-    const res=await fetch(API_BASE+'/'+filename,{headers:{...GH_HEADERS,'Cache-Control':'no-cache'}})
+    const res=await fetch(API_BASE+'/'+filename+bust,{
+      headers:{...GH_HEADERS,'Cache-Control':'no-cache, no-store, must-revalidate','Pragma':'no-cache'},
+      cache:'no-store'
+    })
     if(!res.ok){
       if(window.dbgLog)window.dbgLog('  Contents API '+filename+' '+res.status+', falling back to raw','warn')
-      const raw=await fetch(RAW_BASE+'/'+filename+'?t='+Date.now(),{cache:'no-store'})
+      const raw=await fetch(RAW_BASE+'/'+filename+bust,{cache:'no-store',headers:{'Cache-Control':'no-cache, no-store','Pragma':'no-cache'}})
       if(!raw.ok)throw new Error('raw fallback '+raw.status)
       return{data:await raw.json(),sha:null}
     }
     const meta=await res.json()
-    // meta.content is base64-encoded; GitHub splits long content with \n, so strip.
     const decoded=decodeURIComponent(escape(atob((meta.content||'').replace(/\n/g,''))))
     const data=JSON.parse(decoded)
+    if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') OK via Contents API, sha='+(meta.sha||'?').slice(0,8),'dim')
     return{data,sha:meta.sha}
   }catch(e){
     if(window.dbgLog)window.dbgLog('  loadJsonFresh('+filename+') threw: '+e.message,'err')
@@ -63,7 +67,7 @@ async function saveJson(filename,dataObj,messagePrefix){
   showSaving('Saving...')
   let liveSha=null
   try{
-    const shaRes=await fetch(API_BASE+'/'+filename,{headers:GH_HEADERS})
+    const shaRes=await fetch(API_BASE+'/'+filename+'?t='+Date.now(),{headers:GH_HEADERS,cache:'no-store'})
     if(shaRes.ok){const m=await shaRes.json();liveSha=m.sha;if(window.dbgLog)window.dbgLog('  fresh sha='+liveSha.slice(0,8),'dim')}
     else if(window.dbgLog)window.dbgLog('  sha fetch '+shaRes.status,'warn')
   }catch(e){if(window.dbgLog)window.dbgLog('  sha fetch threw: '+e.message,'err')}
