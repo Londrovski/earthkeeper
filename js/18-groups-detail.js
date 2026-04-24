@@ -16,43 +16,40 @@
 // Per-popup local state. Reset each time the popup opens.
 let _ddState=null
 
+// Canonical tool order used throughout the UI.
+const DD_TOOLS=['MS','MF','O','J','MG','AP','MI','MJ','DM']
+
 function renderDistrictDetail(code){
   const d=districtMap[code];if(!d)return
   const body=$('dd-body');if(!body)return
 
-  // Header
   const nameEl=$('dd-name');if(nameEl)nameEl.textContent=d.name
   const typeEl=$('dd-type');if(typeEl)typeEl.textContent=code
   updateDistrictStats(code)
 
-  // Determine which types this district actually has.
   const availableTypes=['school','gp'].filter(function(t){
     const list=t==='school'?d.schools:d.gps
     return list.length>0
   })
 
-  // Initial selection: if only one type present, preselect it; else none.
   _ddState={
     code:code,
     availableTypes:availableTypes,
     selectedTypes:availableTypes.length===1?new Set(availableTypes):new Set(),
     tool:currentTool||'O',
-    ew:(localStorage.getItem('ek_ew')==='1')?null:null, // null = no EW. user opts in per-action.
-    saveState:'idle', // idle | saving | success | error
+    ew:null,
+    saveState:'idle',
     errorMsg:null,
-    unmarkConfirm:null // null | gtype currently asking to unmark
+    unmarkConfirm:null
   }
 
-  // Build the popup.
   body.innerHTML=''
   body.appendChild(buildDdContent(d,code))
 
-  // Show popup + backdrop
   ensureBackdrop()
   $('district-backdrop').classList.add('on')
   $('district-detail').classList.add('on')
 
-  // Focus trap + ESC handler (one-time, removed on close)
   if(!$('district-detail')._ddEscBound){
     $('district-detail')._ddEscBound=true
     document.addEventListener('keydown',function(e){
@@ -60,7 +57,6 @@ function renderDistrictDetail(code){
     })
   }
 
-  // Mobile: refit map so the sheet doesn't cover the district
   if(isMobile()&&selectedDistrictCode){
     setTimeout(function(){fitMapToDistrict(code)},300)
   }
@@ -91,10 +87,6 @@ function fitMapToDistrict(code){
     )
   }catch(e){}
 }
-
-// ============================================================================
-// Build functions
-// ============================================================================
 
 function buildDdContent(d,code){
   const wrap=document.createElement('div')
@@ -128,7 +120,6 @@ function buildDdContent(d,code){
   wrap.appendChild(buildDdMarkButton(d,code))
   if(st.errorMsg)wrap.appendChild(buildDdError(st.errorMsg))
 
-  // Any existing clearings available to unmark? Show the section.
   const hasAnyCleared=st.availableTypes.some(function(t){return !!groupProgress[code+':'+t]})
   if(hasAnyCleared)wrap.appendChild(buildDdUnmarkSection(d,code))
 
@@ -142,7 +133,6 @@ function buildDdSectionLabel(text){
   return el
 }
 
-// ---- Stats summary ---------------------------------------------------------
 function buildDdStats(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-stats'
@@ -154,7 +144,6 @@ function buildDdStats(d,code){
     const pct=tot?Math.round(eff/tot*100):0
     const col=t==='school'?'var(--blue)':'var(--green)'
     const label=t==='school'?'Schools':'GPs'
-
     const row=document.createElement('div')
     row.className='dd-stat-row'
     row.innerHTML=
@@ -169,7 +158,6 @@ function buildDdStats(d,code){
   return wrap
 }
 
-// ---- Type chips ------------------------------------------------------------
 function buildDdTypeChips(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-type-chips'
@@ -179,7 +167,6 @@ function buildDdTypeChips(d,code){
     const grp=groupProgress[code+':'+t]
     const done=!!grp
     const remaining=done?0:(tot-list.filter(l=>progress[l.id]).length)
-
     const chip=document.createElement('button')
     chip.type='button'
     chip.className='dd-type-chip '+t+(done?' done':'')+(_ddState.selectedTypes.has(t)?' on':'')
@@ -198,20 +185,18 @@ function buildDdTypeChips(d,code){
 function toggleDdType(t){
   if(!_ddState)return
   const d=districtMap[_ddState.code];if(!d)return
-  if(groupProgress[_ddState.code+':'+t])return // done — skip
+  if(groupProgress[_ddState.code+':'+t])return
   if(_ddState.selectedTypes.has(t))_ddState.selectedTypes.delete(t)
   else _ddState.selectedTypes.add(t)
   reRenderDd()
 }
 
-// ---- Tool selector ---------------------------------------------------------
 function buildDdToolSelector(){
   const wrap=document.createElement('div')
   wrap.className='dd-tool-wrap'
-
   const sel=document.createElement('select')
   sel.className='dd-tool-select'
-  TOOL_CODES.forEach(function(code){
+  DD_TOOLS.forEach(function(code){
     const opt=document.createElement('option')
     opt.value=code
     opt.textContent=code+' — '+(TOOL_NAMES[code]||code)
@@ -220,8 +205,6 @@ function buildDdToolSelector(){
   })
   sel.onchange=function(){_ddState.tool=sel.value;reRenderDd()}
   wrap.appendChild(sel)
-
-  // EW chips (only if user has EW access)
   if(localStorage.getItem('ek_ew')==='1'){
     const ewRow=document.createElement('div')
     ewRow.className='dd-ew-row'
@@ -244,7 +227,6 @@ function buildDdToolSelector(){
   return wrap
 }
 
-// ---- Confirm summary + primary button --------------------------------------
 function buildDdConfirmSummary(d,code){
   const st=_ddState
   const parts=[]
@@ -287,14 +269,11 @@ function buildDdError(msg){
   return el
 }
 
-// ---- Unmark section --------------------------------------------------------
 function buildDdUnmarkSection(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-unmark-wrap'
-
   const clearedTypes=_ddState.availableTypes.filter(function(t){return !!groupProgress[code+':'+t]})
   if(!clearedTypes.length)return wrap
-
   if(_ddState.unmarkConfirm&&clearedTypes.indexOf(_ddState.unmarkConfirm)>=0){
     const gtype=_ddState.unmarkConfirm
     const typeLabel=gtype==='school'?'schools':'GPs'
@@ -312,8 +291,6 @@ function buildDdUnmarkSection(d,code){
     wrap.appendChild(confirm)
     return wrap
   }
-
-  // One unmark button per cleared type (Schools / GPs)
   clearedTypes.forEach(function(t){
     const btn=document.createElement('button')
     btn.type='button'
@@ -325,7 +302,6 @@ function buildDdUnmarkSection(d,code){
   return wrap
 }
 
-// ---- Fully cleared summary view -------------------------------------------
 function buildDdFullyClearedView(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-full-cleared'
@@ -342,23 +318,13 @@ function buildDdFullyClearedView(d,code){
   return wrap
 }
 
-// ============================================================================
-// Actions
-// ============================================================================
-
 async function doDdMark(d,code){
   const st=_ddState
   if(!st.selectedTypes.size||!st.tool)return
   st.saveState='saving';st.errorMsg=null
   reRenderDd()
-
-  // For EW: store the chosen ew alongside the tool. We pass tool as the base
-  // tool; the ew value is captured in the audit log via markGroupCleared's
-  // existing flow. The current group_progress schema doesn't store ew — so we
-  // stick with the existing contract and let audit_log record it.
   const selected=[...st.selectedTypes]
   try{
-    // Fire actions sequentially so individual failures can be caught per type.
     for(const t of selected){
       await markGroupCleared(code,t,st.tool)
     }
@@ -384,7 +350,6 @@ async function doDdUnmark(code,gtype){
   }
 }
 
-// Rebuild body without resetting popup state.
 function reRenderDd(){
   if(!_ddState)return
   const body=$('dd-body');if(!body)return
@@ -393,7 +358,6 @@ function reRenderDd(){
   body.appendChild(buildDdContent(d,_ddState.code))
 }
 
-// Expose reRender so realtime changes can refresh the popup while open.
 window.reRenderDistrictDetailIfOpen=function(code){
   if(!_ddState||_ddState.code!==code)return
   if(!$('district-detail')||!$('district-detail').classList.contains('on'))return
