@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Geocoding Review - SW Universities</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,sans-serif;background:#0D2416;color:#E8D5A0;display:grid;grid-template-columns:460px 1fr;height:100vh;overflow:hidden}
+  .list{overflow-y:auto;padding:14px;border-right:1px solid rgba(201,168,76,.2)}
+  .item{padding:11px 13px;margin-bottom:9px;border:1px solid rgba(201,168,76,.2);border-radius:8px;background:rgba(255,255,255,.03);cursor:pointer;transition:background .15s}
+  .item:hover{background:rgba(201,168,76,.1)}
+  .item.active{border-color:#C9A84C;background:rgba(201,168,76,.15)}
+  .item h3{font-size:14px;font-weight:500;color:#E8D5A0;margin-bottom:6px}
+  .item .row{font-size:11.5px;color:rgba(232,213,160,.7);margin-bottom:3px;font-family:ui-monospace,monospace}
+  .item .dist{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-top:5px}
+  .dist.ok{background:rgba(120,200,120,.2);color:#9de89d}
+  .dist.warn{background:rgba(255,180,50,.2);color:#ffc266}
+  .dist.bad{background:rgba(255,90,90,.25);color:#ff9090}
+  .links{margin-top:6px;display:flex;gap:10px;font-size:11px}
+  .links a{color:#C9A84C;text-decoration:none}
+  .links a:hover{text-decoration:underline}
+  #map{height:100%}
+  .legend{position:absolute;bottom:18px;left:478px;background:rgba(13,36,22,.92);padding:10px 14px;border:1px solid rgba(201,168,76,.3);border-radius:6px;font-size:12px;z-index:10}
+  .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  h1{font-family:serif;font-size:18px;font-weight:400;margin-bottom:4px;color:#C9A84C}
+  .head{padding:0 14px 14px;border-bottom:1px solid rgba(201,168,76,.15);margin:0 -14px 14px}
+  .summary{font-size:11px;color:rgba(232,213,160,.6)}
+</style>
+</head>
+<body>
+<div class="list">
+  <div class="head">
+    <h1>Geocoding Review</h1>
+    <div class="summary">SW Universities - 18 entries - click to zoom</div>
+  </div>
+  <div id="items"></div>
+</div>
+<div style="position:relative"><div id="map"></div>
+<div class="legend">
+  <div><span class="dot" style="background:#ff6b6b"></span>Old coord</div>
+  <div><span class="dot" style="background:#4ade80"></span>New coord (Google)</div>
+</div></div>
+
+<script>
+const DATA = [{"id": "uni-bristol", "type": "university", "name": "University of Bristol", "lat": 51.458538, "lng": -2.602176, "address": "Beacon House, Queens Rd, Bristol BS8 1QU", "place_id": "ChIJ-5LS39uNcUgRVm1Lm_hgCy8", "_old_lat": 51.4584, "_old_lng": -2.6031, "_old_address": "Beacon House, Queens Rd, Bristol BS8 1QU", "_distance_moved_km": 0.066, "_matched_name": "University of Bristol"}, {"id": "uni-bath", "type": "university", "name": "University of Bath", "lat": 51.378223, "lng": -2.326399, "address": "Claverton Down, Bath BA2 7AY", "place_id": "ChIJ17-nSbuBcUgR56edacB8LoQ", "_old_lat": 51.3781, "_old_lng": -2.328, "_old_address": "Claverton Down, Bath BA2 7AY", "_distance_moved_km": 0.112, "_matched_name": "University of Bath"}, {"id": "uni-exeter", "type": "university", "name": "University of Exeter", "lat": 50.737137, "lng": -3.535147, "address": "Stocker Rd, Exeter EX4 4PY", "place_id": "ChIJsTCBPBGkbUgRRnIoswT9Pn8", "_old_lat": 50.736, "_old_lng": -3.532, "_old_address": "Stocker Rd, Exeter EX4 4PY", "_distance_moved_km": 0.255, "_matched_name": "University of Exeter"}, {"id": "uni-uwe", "type": "university", "name": "University of the West of England, Bristol", "lat": 51.500728, "lng": -2.546901, "address": "Coldharbour Ln, Stoke Gifford, Bristol BS16 1QY", "place_id": "ChIJ_UVaBzOQcUgRZNV132oBvWw", "_old_lat": 51.5, "_old_lng": -2.549, "_old_address": "Frenchay Campus, Bristol BS16 1QY", "_distance_moved_km": 0.166, "_matched_name": "University of the West of England"}, {"id": "uni-bathspa", "type": "university", "name": "Bath Spa University", "lat": 51.374856, "lng": -2.439332, "address": "Newton St Loe, Bath BA2 9BN", "place_id": "ChIJa35G5veGcUgRLQU1oYWP9e8", "_old_lat": 51.3892, "_old_lng": -2.359, "_old_address": "Newton St Loe, Bath BA2 9BN", "_distance_moved_km": 5.799, "_matched_name": "Bath Spa University"}, {"id": "uni-plymouth", "type": "university", "name": "University of Plymouth", "lat": 50.375889, "lng": -4.139584, "address": "Drake Circus, Plymouth PL4 8AA", "place_id": "ChIJ19_0833rbEgRltSSw00yTVk", "_old_lat": 50.375, "_old_lng": -4.1375, "_old_address": "Drake Circus, Plymouth PL4 8AA", "_distance_moved_km": 0.178, "_matched_name": "University of Plymouth"}, {"id": "uni-falmouth", "type": "university", "name": "Falmouth University", "lat": 50.171041, "lng": -5.12569, "address": "Penryn Campus, Treliever Road, Penryn TR10 9FE", "place_id": "ChIJ66CHg2wja0gRz7kNrJ8-a34", "_old_lat": 50.1552, "_old_lng": -5.0686, "_old_address": "Woodlane, Falmouth TR11 4RH", "_distance_moved_km": 4.432, "_matched_name": "Falmouth University, Penryn Campus"}, {"id": "uni-glos", "type": "university", "name": "University of Gloucestershire", "lat": 51.887284, "lng": -2.089076, "address": "The Park, Cheltenham GL50 2RH", "place_id": "ChIJffVvn_QbcUgRZ4VBfBpwC7g", "_old_lat": 51.896, "_old_lng": -2.074, "_old_address": "The Park, Cheltenham GL50 2RH", "_distance_moved_km": 1.418, "_matched_name": "University of Gloucestershire, Park Campus"}, {"id": "uni-plymouthmarjon", "type": "university", "name": "Plymouth Marjon University", "lat": 50.420122, "lng": -4.110023, "address": "Derriford Rd, Plymouth PL6 8BH", "place_id": "ChIJD-Vv0hLtbEgR7RfLCmzAHWI", "_old_lat": 50.4127, "_old_lng": -4.1213, "_old_address": "Derriford Rd, Plymouth PL6 8BH", "_distance_moved_km": 1.149, "_matched_name": "Plymouth Marjon University"}, {"id": "uni-rau", "type": "university", "name": "Royal Agricultural University", "lat": 51.710453, "lng": -1.995022, "address": "Stroud Rd, Cirencester GL7 6JS", "place_id": "ChIJ4eHMMF8UcUgR71oNnvmTgXM", "_old_lat": 51.7118, "_old_lng": -1.964, "_old_address": "Stroud Rd, Cirencester GL7 6JS", "_distance_moved_km": 2.143, "_matched_name": "Royal Agricultural University"}, {"id": "uni-artsplymouth", "type": "university", "name": "Arts University Plymouth", "lat": 50.373277, "lng": -4.137282, "address": "Tavistock Pl, Plymouth PL4 8AT", "place_id": "ChIJtQvCrrTsbEgRUtuHEVwCMKo", "_old_lat": 50.375, "_old_lng": -4.1375, "_old_address": "Tavistock Place, Plymouth PL4 8AT", "_distance_moved_km": 0.192, "_matched_name": "Arts University Plymouth"}, {"id": "uni-hartpury", "type": "university", "name": "Hartpury University", "lat": 51.906751, "lng": -2.306238, "address": "Hartpury, Gloucester GL19 3BE", "place_id": "ChIJ7T-M2zAHcUgRWh9FFk5-QFU", "_old_lat": 51.8897, "_old_lng": -2.2756, "_old_address": "Hartpury House, Gloucester GL19 3BE", "_distance_moved_km": 2.831, "_matched_name": "Hartpury University and Hartpury College"}, {"id": "uni-bournemouth", "type": "university", "name": "Bournemouth University", "lat": 50.74351, "lng": -1.898338, "address": "Fern Barrow, Poole BH12 5BB", "place_id": "ChIJifGVjYahc0gRzfoIIipO6t4", "_old_lat": 50.742, "_old_lng": -1.899, "_old_address": "Fern Barrow, Poole BH12 5BB", "_distance_moved_km": 0.174, "_matched_name": "Bournemouth University"}, {"id": "uni-aub", "type": "university", "name": "Arts University Bournemouth", "lat": 50.740979, "lng": -1.899403, "address": "7 Fern Barrow, Wallisdown, Poole BH12 5HH", "place_id": "ChIJy018yYihc0gR9o6lavGRq5Q", "_old_lat": 50.7589, "_old_lng": -1.9133, "_old_address": "Wallisdown, Poole BH12 5HH", "_distance_moved_km": 2.22, "_matched_name": "Arts University Bournemouth"}, {"id": "uni-hsu", "type": "university", "name": "Health Sciences University", "lat": 50.727505, "lng": -1.828648, "address": "Parkwood Campus, Parkwood Rd, Bournemouth BH5 2DF", "place_id": "ChIJdR6Ujj2fc0gR-SBSWvlaxio", "_old_lat": 50.7225, "_old_lng": -1.8792, "_old_address": "Bournemouth BH1 4EQ", "_distance_moved_km": 3.602, "_matched_name": "Health Sciences University"}, {"id": "uni-norland", "type": "university", "name": "Norland College", "lat": 51.376011, "lng": -2.373187, "address": "39-41 Upper Oldfield Park, Bath BA2 3LB", "place_id": "ChIJFQkbW3GBcUgRhHRXwUVHNOE", "_old_lat": 51.3865, "_old_lng": -2.387, "_old_address": "Norland Place, Bath BA1 6PH", "_distance_moved_km": 1.51, "_matched_name": "Norland"}, {"id": "uni-cornwall", "type": "university", "name": "Cornwall College", "lat": 50.228046, "lng": -5.278882, "address": "Trevenson Rd, Pool, Redruth TR15 3GF", "place_id": "ChIJX7V3IyAga0gRHZPtwZM8j3U", "_old_lat": 50.3956, "_old_lng": -5.0713, "_old_address": "Trevenson Rd, Pool, Redruth TR15 3RD", "_distance_moved_km": 23.757, "_matched_name": "Cornwall College"}, {"id": "uni-dyson", "type": "university", "name": "Dyson Institute of Engineering and Technology", "lat": 51.595514, "lng": -2.104395, "address": "Tetbury Hill, Malmesbury SN16 0RP", "place_id": "ChIJYcf4kPFtcUgRB_lTdw412So", "_old_lat": 51.5195, "_old_lng": -2.1461, "_old_address": "Tetbury Hill, Malmesbury SN16 0RP", "_distance_moved_km": 8.931, "_matched_name": "Dyson Institute of Engineering and Technology"}];
+
+const map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+  center: [-3.5, 51.0],
+  zoom: 7
+});
+
+const list = document.getElementById('items');
+
+DATA.forEach((d, i) => {
+  const dist = d._distance_moved_km || 0;
+  const distClass = dist > 10 ? 'bad' : dist > 2 ? 'warn' : 'ok';
+  const item = document.createElement('div');
+  item.className = 'item';
+  item.dataset.i = i;
+  item.innerHTML = `
+    <h3>${d.name}</h3>
+    <div class="row">OLD: ${d._old_lat}, ${d._old_lng}</div>
+    <div class="row">NEW: ${d.lat}, ${d.lng}</div>
+    <div class="row" style="color:#C9A84C">${d.address}</div>
+    <span class="dist ${distClass}">moved ${dist.toFixed(2)} km</span>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=${d.lat},${d.lng}" target="_blank">NEW in Google Maps</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=${d._old_lat},${d._old_lng}" target="_blank">OLD in Google Maps</a>
+    </div>
+  `;
+  item.onclick = () => {
+    document.querySelectorAll('.item').forEach(x=>x.classList.remove('active'));
+    item.classList.add('active');
+    map.fitBounds([[Math.min(d.lng, d._old_lng)-0.02, Math.min(d.lat, d._old_lat)-0.02],[Math.max(d.lng, d._old_lng)+0.02, Math.max(d.lat, d._old_lat)+0.02]], {padding:60, duration:700, maxZoom:15});
+  };
+  list.appendChild(item);
+});
+
+map.on('load', () => {
+  DATA.forEach((d, i) => {
+    map.addSource('line-'+i, {type:'geojson', data:{type:'Feature', geometry:{type:'LineString', coordinates:[[d._old_lng, d._old_lat],[d.lng, d.lat]]}}});
+    map.addLayer({id:'line-'+i, type:'line', source:'line-'+i, paint:{'line-color':'#C9A84C','line-width':1.2,'line-opacity':0.5,'line-dasharray':[2,2]}});
+    const oldEl = document.createElement('div');
+    oldEl.style.cssText = 'width:13px;height:13px;border-radius:50%;background:#ff6b6b;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.6);cursor:pointer';
+    oldEl.title = 'OLD: ' + d.name;
+    new maplibregl.Marker({element:oldEl}).setLngLat([d._old_lng, d._old_lat]).addTo(map);
+    const newEl = document.createElement('div');
+    newEl.style.cssText = 'width:13px;height:13px;border-radius:50%;background:#4ade80;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.6);cursor:pointer';
+    newEl.title = 'NEW: ' + d.name;
+    new maplibregl.Marker({element:newEl}).setLngLat([d.lng, d.lat]).addTo(map);
+  });
+  const lngs = DATA.flatMap(d=>[d.lng, d._old_lng]);
+  const lats = DATA.flatMap(d=>[d.lat, d._old_lat]);
+  map.fitBounds([[Math.min(...lngs), Math.min(...lats)],[Math.max(...lngs), Math.max(...lats)]], {padding:50, duration:0});
+});
+</script>
+</body>
+</html>
