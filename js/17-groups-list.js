@@ -70,6 +70,7 @@ function selectDistrict(code){
 
 function closeDistrictDetail(){
   const dd=$('district-detail');if(dd)dd.classList.remove('on')
+  const bd=$('district-backdrop');if(bd)bd.classList.remove('on')
   selectedDistrictCode=null
   renderDistrictList();updateDistrictStates();updateDistrictStats(null)
   if(mapReady){

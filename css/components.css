@@ -75,7 +75,7 @@
 .log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 9px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;transition:all .15s}
 .log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
 
-/* Groups */
+/* Groups list (districts) */
 .gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
 .gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
 .gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
@@ -92,29 +92,205 @@
 .ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 .dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
 
-/* District detail — floating bottom-left popup on desktop (mobile.css overrides to full-width bottom sheet) */
+/* ===========================================================================
+   DISTRICT CLEARING POPUP (Groups tab)
+   Spec: notes/specs/groups-clearing-popup.md
+   Desktop: centred modal with dim backdrop.
+   Mobile:  bottom sheet (overridden in mobile.css).
+   =========================================================================== */
+
+/* Backdrop behind the popup — dim + blur + click-to-dismiss */
+.district-backdrop{
+  display:none;
+  position:fixed;inset:0;z-index:815;
+  background:rgba(0,0,0,.60);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  animation:dd-fade-in .18s ease-out;
+}
+.district-backdrop.on{display:block}
+
+/* Popup container — centred modal on desktop */
 .district-detail{
   display:none;
   flex-direction:column;
   position:fixed;
-  bottom:20px;
-  left:20px;
-  width:420px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:480px;
   max-width:calc(100vw - 40px);
-  max-height:calc(100vh - 120px);
+  max-height:min(720px,calc(100vh - 80px));
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   z-index:820;
-  background:rgba(13,36,22,.95);
+  background:rgba(13,36,22,.97);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
   border:1px solid rgba(201,168,76,.3);
   border-radius:12px;
-  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
-.district-detail.on{display:flex}
-.district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.district-detail-body{padding:11px 20px 16px}
+.district-detail.on{display:flex;animation:dd-scale-in .22s cubic-bezier(.2,.9,.3,1.2)}
+
+@keyframes dd-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes dd-scale-in{from{opacity:0;transform:translate(-50%,-50%) scale(.96)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes dd-slide-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Header */
+.district-detail-head{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.district-detail-head .detail-head-left{flex:1;min-width:0}
+.district-detail-head .detail-head-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#dd-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;line-height:1.15;color:var(--gold);margin:0}
+#dd-type{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace;font-size:11px;color:var(--soft);letter-spacing:.05em;margin-top:4px;opacity:.7}
+.district-detail-head .detail-close{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:24px;border-radius:8px}
+.district-detail-head .detail-close:hover{background:rgba(201,168,76,.08)}
+
+/* Body */
+.district-detail-body{padding:14px 22px 22px;display:flex;flex-direction:column;gap:16px}
+
+/* ---- Stats summary (section 1) ---- */
+.dd-stats{display:flex;flex-direction:column;gap:10px}
+.dd-stat-row{display:flex;flex-direction:column;gap:4px;cursor:pointer;user-select:none;padding:2px 0;transition:opacity .15s}
+.dd-stat-row:hover{opacity:.85}
+.dd-stat-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.dd-stat-label{font-weight:500}
+.dd-stat-count{color:var(--soft);font-variant-numeric:tabular-nums;font-size:11px}
+.dd-stat-count strong{color:var(--gold-l);font-weight:500}
+.dd-stat-bar{height:4px;background:rgba(201,168,76,.08);border-radius:2px;overflow:hidden}
+.dd-stat-fill{height:100%;border-radius:2px;transition:width .4s ease-in-out}
+
+/* ---- Place type chips (section 2) ---- */
+.dd-section-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);font-weight:500}
+.dd-type-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:-4px}
+.dd-type-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 14px;border-radius:22px;
+  font-size:13px;font-family:'Jost',sans-serif;font-weight:500;
+  cursor:pointer;user-select:none;
+  border:1.5px solid;background:none;
+  transition:all .15s;
+  min-height:40px;
+}
+.dd-type-chip.school{border-color:var(--blue);color:var(--blue)}
+.dd-type-chip.school.on{background:var(--blue);color:#fff;box-shadow:0 0 0 3px rgba(107,160,220,.15)}
+.dd-type-chip.gp{border-color:var(--green);color:var(--green)}
+.dd-type-chip.gp.on{background:var(--green);color:#fff;box-shadow:0 0 0 3px rgba(122,180,130,.15)}
+.dd-type-chip.done{opacity:.55;cursor:default;border-style:dashed}
+.dd-type-chip.done:hover{opacity:.55}
+.dd-type-chip-count{font-size:11px;opacity:.8;font-variant-numeric:tabular-nums}
+
+/* ---- Tool selector (section 3) ---- */
+.dd-tool-wrap{display:flex;flex-direction:column;gap:8px}
+.dd-tool-select{
+  width:100%;
+  background:#0a1c11;color:var(--gold-l);
+  border:1px solid rgba(201,168,76,.3);
+  border-radius:8px;
+  padding:12px 38px 12px 14px;
+  font-family:'Jost',sans-serif;font-size:14px;
+  color-scheme:dark;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  min-height:44px;
+}
+.dd-tool-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.dd-ew-row{display:flex;gap:6px;flex-wrap:wrap}
+.dd-ew-chip{
+  flex:1;min-width:44px;
+  padding:8px 10px;border-radius:8px;
+  background:none;border:1.5px solid var(--bd);
+  color:var(--soft);font-family:'Jost',sans-serif;font-size:12px;
+  cursor:pointer;user-select:none;
+  transition:all .15s;
+  min-height:36px;
+}
+.dd-ew-chip.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}
+.dd-ew-chip:hover:not(.on){border-color:rgba(201,168,76,.4);color:var(--gold-l)}
+
+/* ---- Confirm summary + primary button (section 5) ---- */
+.dd-confirm-summary{
+  font-size:13px;color:var(--gold-l);
+  line-height:1.45;
+  padding:12px 14px;
+  background:rgba(201,168,76,.06);
+  border:1px solid rgba(201,168,76,.18);
+  border-radius:8px;
+  text-align:center;
+}
+.dd-confirm-summary em{font-style:normal;color:var(--gold);font-weight:500}
+.dd-confirm-summary.muted{color:var(--soft);background:rgba(255,255,255,.02);border-color:var(--bd)}
+
+.dd-btn-mark{
+  display:block;width:100%;
+  padding:16px;min-height:56px;
+  background:var(--gold-d);color:var(--forest);
+  border:none;border-radius:8px;
+  font-family:'Jost',sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s,transform .1s,box-shadow .2s;
+}
+.dd-btn-mark:hover:not(:disabled){background:var(--gold);box-shadow:0 4px 16px rgba(201,168,76,.25)}
+.dd-btn-mark:active:not(:disabled){transform:translateY(1px)}
+.dd-btn-mark:disabled{opacity:.45;cursor:not-allowed;background:rgba(201,168,76,.3)}
+.dd-btn-mark.saving{background:var(--gold-d);animation:dd-pulse 1.2s ease-in-out infinite}
+.dd-btn-mark.success{background:var(--green);color:#fff;animation:none}
+@keyframes dd-pulse{0%,100%{opacity:.75}50%{opacity:1}}
+
+/* ---- Error line ---- */
+.dd-error{
+  font-size:12px;color:#ff8888;
+  padding:8px 0;text-align:center;
+  animation:dd-slide-up .25s ease-out;
+}
+
+/* ---- Unmark button + inline confirm (section 6) ---- */
+.dd-unmark-wrap{display:flex;flex-direction:column;gap:8px}
+.dd-btn-unmark{
+  display:block;width:100%;
+  padding:12px;min-height:44px;
+  background:none;color:var(--soft);
+  border:1.5px solid var(--bd);border-radius:8px;
+  font-family:'Jost',sans-serif;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .15s;
+}
+.dd-btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
+.dd-inline-confirm{
+  display:flex;flex-direction:column;gap:10px;
+  padding:12px 14px;
+  background:rgba(255,120,120,.06);
+  border:1px solid rgba(255,120,120,.25);
+  border-radius:8px;
+  animation:dd-slide-up .22s ease-out;
+}
+.dd-inline-confirm-text{font-size:13px;color:var(--gold-l);line-height:1.4}
+.dd-inline-confirm-btns{display:flex;gap:8px}
+.dd-inline-confirm-btns button{
+  flex:1;padding:10px;border-radius:6px;
+  font-family:'Jost',sans-serif;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;min-height:40px;transition:all .15s;
+}
+.dd-inline-confirm-yes{background:rgba(255,120,120,.8);border:none;color:#1a0a0a;font-weight:600}
+.dd-inline-confirm-yes:hover{background:rgba(255,120,120,1)}
+.dd-inline-confirm-no{background:none;border:1px solid var(--bd);color:var(--soft)}
+.dd-inline-confirm-no:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ---- Fully cleared summary view ---- */
+.dd-full-cleared{
+  display:flex;flex-direction:column;gap:10px;
+  padding:18px;text-align:center;
+  background:rgba(122,180,130,.08);
+  border:1px solid rgba(122,180,130,.25);
+  border-radius:10px;
+}
+.dd-full-cleared-icon{font-size:32px;line-height:1}
+.dd-full-cleared-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);font-weight:600}
+.dd-full-cleared-meta{font-size:12px;color:var(--soft);line-height:1.6}
+.dd-full-cleared-meta strong{color:var(--gold-l);font-weight:500}
 
 .saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:11px;z-index:9999;transition:opacity .4s;pointer-events:none;max-width:85vw;word-break:break-word}
 .empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
