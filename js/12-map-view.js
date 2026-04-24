@@ -39,6 +39,20 @@ function kmBetween(lat1,lng1,lat2,lng2){
   return 2*R*Math.asin(Math.sqrt(a))
 }
 
+// User-location marker: a hollow sky-blue ring with a small centre dot.
+// Designed to SIT OVER a location dot without covering it — the hollow
+// interior lets the underlying location colour show through. Blue is the
+// universal "this is you" colour (Google Maps, Apple Maps) so it won't be
+// confused with the gold "cleared" colour scheme.
+function buildUserMarkerElement(){
+  const el=document.createElement('div')
+  el.style.cssText='position:relative;width:38px;height:38px;pointer-events:none;transform:translateZ(0)'
+  el.innerHTML=
+    '<div style="position:absolute;inset:0;border-radius:50%;background:rgba(64,156,255,.18);border:2px solid rgba(64,156,255,.9);box-shadow:0 0 0 1px rgba(255,255,255,.4),0 2px 6px rgba(0,0,0,.35);animation:ekUserPulse 2s ease-in-out infinite"></div>'+
+    '<div style="position:absolute;left:50%;top:50%;width:10px;height:10px;margin-left:-5px;margin-top:-5px;border-radius:50%;background:#409CFF;border:2px solid #fff;box-shadow:0 0 3px rgba(0,0,0,.4)"></div>'
+  return el
+}
+
 // Find Me:
 //  - high-accuracy: desktop Chrome often fails silently without it
 //  - maximumAge 5 min: re-use any recent fix so repeat taps are instant
@@ -57,10 +71,12 @@ function locateMe(){
     const{latitude:lat,longitude:lng}=pos.coords
     if(window.dbgLog)window.dbgLog('locateMe: got '+lat.toFixed(4)+','+lng.toFixed(4),'info')
     if(locationMarker)locationMarker.remove()
-    const el=document.createElement('div')
-    el.style.cssText='width:14px;height:14px;border-radius:50%;background:#C9A84C;border:2.5px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.35)'
-    try{locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)}
-    catch(e){if(window.dbgLog)window.dbgLog('marker failed: '+e.message,'err')}
+    try{
+      // pointer-events:none on the element means clicks fall through to the
+      // underlying MapLibre canvas, so tapping a location dot still works
+      // even when the user ring overlaps it.
+      locationMarker=new maplibregl.Marker({element:buildUserMarkerElement(),anchor:'center'}).setLngLat([lng,lat]).addTo(map)
+    }catch(e){if(window.dbgLog)window.dbgLog('marker failed: '+e.message,'err')}
 
     // Fit to nearest 15 hospitals/hospices/unis/prisons + user location.
     try{
