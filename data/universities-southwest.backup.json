@@ -1,0 +1,20 @@
+[
+  {"id":"uni-bristol","type":"university","name":"University of Bristol","lat":51.4584,"lng":-2.6031,"address":"Beacon House, Queens Rd, Bristol BS8 1QU"},
+  {"id":"uni-bath","type":"university","name":"University of Bath","lat":51.3781,"lng":-2.3280,"address":"Claverton Down, Bath BA2 7AY"},
+  {"id":"uni-exeter","type":"university","name":"University of Exeter","lat":50.7360,"lng":-3.5320,"address":"Stocker Rd, Exeter EX4 4PY"},
+  {"id":"uni-uwe","type":"university","name":"University of the West of England, Bristol","lat":51.5000,"lng":-2.5490,"address":"Frenchay Campus, Bristol BS16 1QY"},
+  {"id":"uni-bathspa","type":"university","name":"Bath Spa University","lat":51.3892,"lng":-2.3590,"address":"Newton St Loe, Bath BA2 9BN"},
+  {"id":"uni-plymouth","type":"university","name":"University of Plymouth","lat":50.3750,"lng":-4.1375,"address":"Drake Circus, Plymouth PL4 8AA"},
+  {"id":"uni-falmouth","type":"university","name":"Falmouth University","lat":50.1552,"lng":-5.0686,"address":"Woodlane, Falmouth TR11 4RH"},
+  {"id":"uni-glos","type":"university","name":"University of Gloucestershire","lat":51.8960,"lng":-2.0740,"address":"The Park, Cheltenham GL50 2RH"},
+  {"id":"uni-plymouthmarjon","type":"university","name":"Plymouth Marjon University","lat":50.4127,"lng":-4.1213,"address":"Derriford Rd, Plymouth PL6 8BH"},
+  {"id":"uni-rau","type":"university","name":"Royal Agricultural University","lat":51.7118,"lng":-1.9640,"address":"Stroud Rd, Cirencester GL7 6JS"},
+  {"id":"uni-artsplymouth","type":"university","name":"Arts University Plymouth","lat":50.3750,"lng":-4.1375,"address":"Tavistock Place, Plymouth PL4 8AT"},
+  {"id":"uni-hartpury","type":"university","name":"Hartpury University","lat":51.8897,"lng":-2.2756,"address":"Hartpury House, Gloucester GL19 3BE"},
+  {"id":"uni-bournemouth","type":"university","name":"Bournemouth University","lat":50.7420,"lng":-1.8990,"address":"Fern Barrow, Poole BH12 5BB"},
+  {"id":"uni-aub","type":"university","name":"Arts University Bournemouth","lat":50.7589,"lng":-1.9133,"address":"Wallisdown, Poole BH12 5HH"},
+  {"id":"uni-hsu","type":"university","name":"Health Sciences University","lat":50.7225,"lng":-1.8792,"address":"Bournemouth BH1 4EQ"},
+  {"id":"uni-norland","type":"university","name":"Norland College","lat":51.3865,"lng":-2.3870,"address":"Norland Place, Bath BA1 6PH"},
+  {"id":"uni-cornwall","type":"university","name":"Cornwall College","lat":50.3956,"lng":-5.0713,"address":"Trevenson Rd, Pool, Redruth TR15 3RD"},
+  {"id":"uni-dyson","type":"university","name":"Dyson Institute of Engineering and Technology","lat":51.5195,"lng":-2.1461,"address":"Tetbury Hill, Malmesbury SN16 0RP"}
+]
