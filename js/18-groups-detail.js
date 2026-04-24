@@ -176,7 +176,7 @@ function buildDdToolSelector(){
   DD_TOOLS.forEach(function(code){
     const opt=document.createElement('option')
     opt.value=code
-    opt.textContent=code+' — '+(TOOL_NAMES[code]||code)
+    opt.textContent=TOOL_NAMES_FULL[code]||code
     if(code===_ddState.tool)opt.selected=true
     sel.appendChild(opt)
   })
@@ -218,7 +218,7 @@ function buildDdConfirmSummary(d,code){
     el.textContent='Select Schools or GPs above to continue'
     return el
   }
-  const toolName=TOOL_NAMES[st.tool]||st.tool
+  const toolName=TOOL_NAMES_FULL[st.tool]||st.tool
   const ewBit=st.ew?' + '+st.ew:''
   el.innerHTML='Clear <em>'+parts.join(' and ')+'</em> in <em>'+d.name+'</em> using <em>'+toolName+ewBit+'</em>'
   return el
@@ -286,7 +286,7 @@ function buildDdFullyClearedView(d,code){
     const g=groupProgress[code+':'+t]
     const dt=g?new Date(g.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):''
     const label=t==='school'?'Schools':'GPs'
-    return label+' · <strong>'+(TOOL_NAMES[g.tool]||g.tool)+'</strong> · '+dt+(g.user?' · '+g.user:'')
+    return label+' · <strong>'+(TOOL_NAMES_FULL[g.tool]||g.tool)+'</strong> · '+dt+(g.user?' · '+g.user:'')
   }).join('<br>')
   wrap.innerHTML=
     '<div class="dd-full-cleared-icon">✨</div>'+
@@ -307,7 +307,6 @@ async function doDdMark(d,code){
     }
     st.saveState='success';reRenderDd()
     setTimeout(function(){
-      // Reset to idle so the panel stays open and usable with the updated cleared state.
       if(_ddState&&_ddState.code===code){st.saveState='idle';st.selectedTypes=new Set();reRenderDd()}
     },1200)
   }catch(e){
