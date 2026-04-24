@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthkeeper — Clearing Protocol</title>
+<link rel="icon" type="image/png" href="Earthkeeper-circular.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',sans-serif;background:#0D2416;color:#E8D5A0;min-height:100vh}
+.page{max-width:720px;margin:0 auto;padding:48px 28px 80px}
+.back{display:inline-flex;align-items:center;gap:8px;color:rgba(232,213,160,.45);font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;margin-bottom:40px;transition:color .2s}
+.back:hover{color:#C9A84C}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:44px}
+.brand-seal{width:48px;height:48px;border-radius:50%;overflow:hidden}
+.brand-seal img{width:100%;height:100%;object-fit:cover}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;letter-spacing:.1em;color:#E8D5A0}
+.brand-name em{color:#C9A84C;font-style:italic}
+h1{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;letter-spacing:.06em;color:#E8D5A0;margin-bottom:8px;line-height:1.2}
+.subtitle{font-size:13px;color:rgba(232,213,160,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.15)}
+h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:#C9A84C;margin:40px 0 14px;letter-spacing:.03em}
+p{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:12px}
+ul{list-style:none;padding:0;margin:12px 0 18px}
+li{position:relative;padding:8px 0 8px 22px;font-size:15px;line-height:1.7;color:rgba(232,213,160,.82);border-bottom:1px solid rgba(201,168,76,.08)}
+li:last-child{border-bottom:none}
+li::before{content:"✧";position:absolute;left:0;top:8px;color:#C9A84C;font-size:12px;opacity:.6}
+li strong{color:#E8D5A0;font-weight:500}
+.ew-callout{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.25);border-radius:10px;padding:18px 22px;margin:12px 0 18px}
+.ew-callout p{margin-bottom:6px;font-size:14px;color:rgba(232,213,160,.85)}
+.ew-callout ul{margin:10px 0 0}
+.ew-callout li{border-bottom:none;padding:4px 0 4px 20px;font-size:14px}
+.ew-callout li::before{content:"•";color:#C9A84C;opacity:.8;top:4px}
+.ew-note{font-size:12px;color:rgba(232,213,160,.45);font-style:italic;margin-top:12px}
+.sep{height:1px;background:rgba(201,168,76,.12);margin:36px 0}
+.footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(201,168,76,.12);font-size:13px;color:rgba(232,213,160,.3);text-align:center}
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="back">← Back to Earthkeeper</a>
+
+  <div class="brand">
+    <div class="brand-seal"><img src="Earthkeeper-circular.png" alt="" onerror="this.style.display='none'"></div>
+    <div class="brand-name">Earth<em>keeper</em></div>
+  </div>
+
+  <h1>Clearing Protocol</h1>
+  <div class="subtitle">For each location you clear</div>
+
+  <h2>For Magical Structures +</h2>
+  <ul>
+    <li><strong>Regular Wizard Thread with MultiFrequency/Omega Frequencies</strong> — to optimise the energy of the place and the energy of the human activity in the place (~5–15 min)</li>
+    <li><strong>Merlin’s Healing Grid to clear through all dimensions and realms</strong> — and to clear all thought forms and ghosts in the space (~5–10 min)</li>
+    <li><strong>Merlin’s Healing Grid to do an Astrological Puja</strong> — to optimise the astrology of the place (~15–20 min)</li>
+  </ul>
+
+  <h2>Other Options</h2>
+  <ul>
+    <li><strong>Gaia Thread Structure</strong> — for the space</li>
+    <li><strong>Portal structure to take away energy</strong> — to clear</li>
+    <li><strong>Portal structure to bring in fresh energy</strong></li>
+    <li><strong>Merlin’s Healing Grid to clear the Astral</strong> — as deep as possible</li>
+    <li><strong>Mixed Structures</strong> — to fill up the space with what’s needed</li>
+  </ul>
+
+  <div id="ew-section" style="display:none">
+    <h2>Earthworks 3 +</h2>
+    <div class="ew-callout">
+      <p>For each place, make an EW3 stream for:</p>
+      <ul>
+        <li>Create an active healing space (Healing stream)</li>
+        <li>A Rifting stream into the core functional consciousness of the space (organisation) to transform it</li>
+        <li>A ‘funnel’ of Merlin’s choosing</li>
+      </ul>
+      <div class="ew-note">Only shown to students with EW3 or higher enabled in their profile.</div>
+    </div>
+  </div>
+
+  <div class="footer">Earthkeeper — UK Energy Clearing Tracker</div>
+</div>
+<script>
+  // Show EW section only for users who have EW tools enabled (flag stored at login).
+  try{
+    if(localStorage.getItem('ek_ew')==='1'){
+      document.getElementById('ew-section').style.display='block'
+    }
+  }catch(e){}
+</script>
+</body>
+</html>

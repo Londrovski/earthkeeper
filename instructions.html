@@ -10,7 +10,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:#0D2416;color:#E8D5A0;min-height:100vh}
-.page{max-width:680px;margin:0 auto;padding:48px 28px 80px}
+.page{max-width:720px;margin:0 auto;padding:48px 28px 80px}
 .back{display:inline-flex;align-items:center;gap:8px;color:rgba(232,213,160,.45);font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;margin-bottom:40px;transition:color .2s}
 .back:hover{color:#C9A84C}
 .brand{display:flex;align-items:center;gap:14px;margin-bottom:44px}
@@ -31,6 +31,9 @@ li{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:5px
 .tool-code{color:#C9A84C;font-weight:500;min-width:36px}
 .sep{height:1px;background:rgba(201,168,76,.12);margin:36px 0}
 .footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(201,168,76,.12);font-size:13px;color:rgba(232,213,160,.3);text-align:center}
+.link-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.link-row a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(201,168,76,.3);border-radius:6px;color:#C9A84C;text-decoration:none;font-size:13px;letter-spacing:.04em;transition:all .15s}
+.link-row a:hover{background:rgba(201,168,76,.1);border-color:#C9A84C}
 </style>
 </head>
 <body>
@@ -45,31 +48,37 @@ li{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:5px
   <h1>How to Use</h1>
   <div class="subtitle">UK Energy Clearing Tracker</div>
 
-  <h2>Logging in</h2>
-  <p>Enter your name, the group password, and select your default clearing tool. If you work with Earthworks, tick the checkbox — this unlocks the EW1–5 options when recording a clearing.</p>
-  <p>Your preferences are remembered, so you only need to do this once per device.</p>
+  <h2>Signing in</h2>
+  <p>Enter your name, the group password, and pick your default clearing tool. If you work with Earthworks, tick the checkbox — that unlocks the EW1–5 options when you record a clearing.</p>
+  <p>Your preferences are remembered on this device. You can change your name, default tool, or EW status anytime from the <strong>Account</strong> menu in the top-right.</p>
 
   <h2>Coverage</h2>
-  <p>Earthkeeper covers the whole of the UK — England, Wales, Scotland and Northern Ireland. Locations include hospitals, hospices, prisons, universities, schools and GP surgeries. Use the region dropdown to zoom into a specific area, or leave it on <em>All regions</em> to see everything at once.</p>
+  <p>Earthkeeper covers the whole UK — England, Wales, Scotland, Northern Ireland. Locations include hospitals, hospices, prisons, universities, schools and GP surgeries. Use the region dropdown to zoom into a specific area, or leave it on <em>All regions</em> to see everything.</p>
 
-  <h2>The header stats bar</h2>
-  <p>The three numbers across the top of the page update depending on which tab you are on:</p>
+  <h2>Top bar</h2>
+  <p>Three things live in the top header:</p>
   <ul>
-    <li><strong>Locations tab</strong> — shows the total number of visible locations, how many are cleared, and the percentage done. These update live as you toggle the type filter chips.</li>
-    <li><strong>Groups tab (overview)</strong> — shows districts cleared out of total, total individual locations cleared across all districts, and the percentage of districts done.</li>
-    <li><strong>Groups tab (district selected)</strong> — switches to showing locations, cleared and percentage for that district only.</li>
-    <li><strong>Log tab</strong> — shows two sets of stats separated by a divider: individual locations (hospitals, hospices, universities and prisons) cleared with a percentage, and then total locations including schools and GPs with a percentage.</li>
+    <li><strong>Stats tiles</strong> — context-sensitive to whichever tab is active (see below).</li>
+    <li><strong>Protocol</strong> — opens the clearing protocol (the recommended sequence of structures to run on every location).</li>
+    <li><strong>Account menu</strong> — shows your name, current default tool and Earthworks status. Expand it to change any of those, open these instructions, or sign out.</li>
+  </ul>
+
+  <h2>The stats tiles</h2>
+  <ul>
+    <li><strong>Locations tab</strong> — total visible locations, how many are cleared, and the percentage done. Updates live as you toggle the place-type chips.</li>
+    <li><strong>Groups tab</strong> — total schools + GPs across the UK, how many are cleared, percentage done, plus a fourth tile showing districts where <em>both</em> schools and GPs have been fully cleared.</li>
+    <li><strong>Log tab</strong> — total locations everywhere, how many are cleared, and the percentage done. Flips between all group members’ clearings and just yours via the <strong>All / My Clearings</strong> toggle.</li>
   </ul>
 
   <h2>Locations tab</h2>
-  <p>The main map. Dots show all locations in the database across the whole UK. Cleared locations show as solid gold.</p>
-  <p>Use the filter chips at the top of the panel to show by location type or by clearing tool used. The <strong>What are these?</strong> key explains the tool codes. Use the region dropdown to narrow down to a specific area.</p>
-  <p>Click any location on the map or in the list to open its detail panel. The home button (top left of the map, below the zoom controls) resets the view back to the full UK.</p>
+  <p>The main map. Dots show every location in the database across the UK. Cleared locations render as solid gold.</p>
+  <p>Use the place-type chips to show hospitals, hospices, unis, prisons, schools or GPs. The <strong>Show</strong> row lets you view everything, only cleared points, or filter by a specific tool. <em>What are these?</em> opens a key explaining the tool codes.</p>
+  <p>Tap any dot on the map or any item in the list to open its detail panel at the bottom of the sidebar. The home button (top-left of the map) resets the view to the whole UK.</p>
 
   <h2>Recording a clearing</h2>
-  <p>Open a location's detail panel. Your default tool is shown — tap <strong>Use a different tool</strong> if you need to override it for this clearing. If you have Earthworks enabled, an optional EW level selector also appears.</p>
-  <p>Press <strong>Mark cleared</strong> to save. Your name, date, tool, and EW level (if used) are recorded and shared with the group immediately.</p>
-  <p>To undo, open the location and press <strong>Mark as not cleared</strong>.</p>
+  <p>Open a location’s detail panel. Your default tool is shown — tap <strong>Use a different tool</strong> to override it for this clearing. If you have Earthworks enabled, an optional EW level selector appears too.</p>
+  <p>Press <strong>Mark cleared</strong> to save. Your name, date, tool, and EW level (if used) are recorded and shared with the group straight away — other members see your update in real time.</p>
+  <p>To undo, open the same location and press <strong>Mark as not cleared</strong>.</p>
 
   <h2>Clearing tools</h2>
   <div class="tools">
@@ -77,7 +86,7 @@ li{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:5px
     <div class="tool-row"><span class="tool-code">MF</span> Multifrequency</div>
     <div class="tool-row"><span class="tool-code">O</span> Omega</div>
     <div class="tool-row"><span class="tool-code">J</span> Jewel</div>
-    <div class="tool-row"><span class="tool-code">MG</span> Merlin's Grace</div>
+    <div class="tool-row"><span class="tool-code">MG</span> Merlin’s Grace</div>
     <div class="tool-row"><span class="tool-code">AP</span> Universal AP</div>
     <div class="tool-row"><span class="tool-code">MI</span> Manifesting Intention</div>
     <div class="tool-row"><span class="tool-code">MJ</span> Magical Jewel</div>
@@ -86,18 +95,30 @@ li{font-size:15px;line-height:1.75;color:rgba(232,213,160,.78);margin-bottom:5px
   </div>
 
   <h2>Groups tab</h2>
-  <p>Clear an entire Local Authority District at once rather than location by location. Useful when you have worked across a whole area. This tab covers all UK districts — England, Wales, Scotland and Northern Ireland.</p>
-  <p>Select a district from the list to zoom in and see its schools (blue dots) and GP surgeries (green dots) on the map. Choose your tool and press <strong>Clear all Schools</strong> or <strong>Clear all GPs</strong>.</p>
-  <p>District glow indicates progress: a half-glow means one type has been cleared; full brightness means both schools and GPs are done.</p>
-  <p>To deselect a district and return to the overview, press the home button (top left of the map) or click on the sea.</p>
-  <p>Group clearings appear in the Log with a GROUP badge. Click any group entry in the Log to jump back to that district.</p>
+  <p>Clear an entire Local Authority District at once rather than location-by-location. Useful when you’ve worked across a whole area. Covers all UK districts.</p>
+  <p>Select a district from the list to zoom in and see its schools (blue dots) and GP surgeries (green dots). The clearing panel opens inline at the bottom of the sidebar — pick which types to clear (Schools, GPs, or both), choose your tool, then press <strong>Mark cleared</strong>.</p>
+  <p>District glow shows progress: half-glow means one type has been cleared; full brightness means both schools and GPs are done.</p>
+  <p>Group clearings appear in the Log with a GROUP badge. Clicking a group entry in the Log jumps you back to that district.</p>
 
   <h2>Log tab</h2>
-  <p>Full history of all clearings, most recent first, from everyone in the group. Filter by date range if needed. Click any entry to jump to that location or district on the map.</p>
-  <p>The map on the Log tab shows all cleared locations across all types at once. The header shows two progress figures: individual locations (hospitals, hospices, universities and prisons), and then total locations including schools and GPs.</p>
+  <p>Full history of clearings, most recent first.</p>
+  <ul>
+    <li><strong>All Clearings</strong> — what the whole group has done.</li>
+    <li><strong>My Clearings</strong> — only clearings recorded against the name on your account. Tracks what <em>you</em> personally have achieved.</li>
+  </ul>
+  <p>The header stats and the map both follow the toggle: switching to My Clearings filters the cleared-dot layer to only your work.</p>
+  <p>Tap any log row to open that location’s detail panel without leaving the Log tab. Group entries jump you over to the Groups tab.</p>
+
+  <h2>Find Me</h2>
+  <p>The <strong>Find Me</strong> button (bottom-left of the map) uses your device’s location to zoom the map so you can see your position plus the nearest 15 hospitals, hospices, universities and prisons — roughly a district-scale view.</p>
 
   <div class="callout">
-    <p>Clearings are saved to a shared record automatically. All group members see your changes the next time they load the page.</p>
+    <p>Clearings save automatically to the shared record. Every group member sees updates in real time — no need to refresh.</p>
+  </div>
+
+  <div class="link-row">
+    <a href="protocol.html">Read the Clearing Protocol →</a>
+    <a href="index.html">Open Earthkeeper →</a>
   </div>
 
   <div class="footer">Earthkeeper — UK Energy Clearing Tracker</div>

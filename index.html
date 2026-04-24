@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=18">
-<link rel="stylesheet" href="css/layout.css?v=18">
-<link rel="stylesheet" href="css/components.css?v=18">
-<link rel="stylesheet" href="css/map.css?v=18">
-<link rel="stylesheet" href="css/mobile.css?v=18">
-<link rel="stylesheet" href="css/desktop.css?v=18">
-<link rel="stylesheet" href="css/debug.css?v=18">
+<link rel="stylesheet" href="css/base.css?v=19">
+<link rel="stylesheet" href="css/layout.css?v=19">
+<link rel="stylesheet" href="css/components.css?v=19">
+<link rel="stylesheet" href="css/map.css?v=19">
+<link rel="stylesheet" href="css/mobile.css?v=19">
+<link rel="stylesheet" href="css/desktop.css?v=19">
+<link rel="stylesheet" href="css/debug.css?v=19">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
@@ -73,8 +73,51 @@
     <div id="s-log-all" style="display:none"><strong id="s-total-all">&mdash;</strong><span>districts</span></div>
     <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong>all done</div>
   </div>
-  <div style="display:flex;align-items:center;gap:10px">
-    <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
+  <div class="header-right">
+    <button type="button" class="hdr-btn" onclick="openProtocolPage()" title="Protocol">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/>
+      </svg>
+      <span>Protocol</span>
+    </button>
+    <button type="button" class="hdr-btn" id="acct-btn" onclick="toggleAccountMenu()" title="Account">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>
+      </svg>
+      <span id="acct-face-name">Account</span>
+    </button>
+    <div id="acct-dropdown">
+      <div id="acct-view-mode" style="display:flex;flex-direction:column;gap:12px">
+        <div class="acct-row"><div class="acct-row-label">Signed in as</div><div class="acct-row-value" id="acct-current-name">&mdash;</div></div>
+        <div class="acct-row"><div class="acct-row-label">Default tool</div><div class="acct-row-value" id="acct-current-tool">&mdash;</div></div>
+        <div class="acct-row"><div class="acct-row-label">Earthworks</div><div class="acct-row-value" id="acct-current-ew">&mdash;</div></div>
+        <div class="acct-divider"></div>
+        <button type="button" class="acct-btn" onclick="setAccountEditMode(true)">Change name or tool</button>
+        <button type="button" class="acct-btn" onclick="openInstructionsPage()">How to use Earthkeeper</button>
+        <button type="button" class="acct-btn" onclick="openProtocolPage()">Read the Protocol</button>
+        <div class="acct-divider"></div>
+        <button type="button" class="acct-btn acct-btn-danger" onclick="logout()">Sign out</button>
+      </div>
+      <div id="acct-edit-mode" style="display:none;flex-direction:column;gap:12px">
+        <div class="acct-edit-field"><label>Name</label><input type="text" id="acct-edit-name"></div>
+        <div class="acct-edit-field"><label>Default tool</label><select id="acct-edit-tool">
+          <option value="MS">Magical Structures (MS)</option>
+          <option value="MF">Multifrequency (MF)</option>
+          <option value="O">Omega (O)</option>
+          <option value="J">Jewel (J)</option>
+          <option value="MG">Merlin's Grace (MG)</option>
+          <option value="AP">Universal AP (AP)</option>
+          <option value="MI">Manifesting Intention (MI)</option>
+          <option value="MJ">Magical Jewel (MJ)</option>
+          <option value="DM">Divine Magic (DM)</option>
+        </select></div>
+        <label class="acct-edit-checkrow"><input type="checkbox" id="acct-edit-ew"> I have Earthworks tools (EW1&ndash;5)</label>
+        <div class="acct-edit-btn-row">
+          <button type="button" class="acct-btn" onclick="setAccountEditMode(false)">Cancel</button>
+          <button type="button" class="acct-btn acct-btn-primary" onclick="saveAccountChanges()">Save</button>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -224,10 +267,9 @@
 
     <!-- Log tab -->
     <div class="panel" id="tab-log">
-      <div class="log-filter">
-        <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
-        <label>To</label><input type="date" class="log-date-input" id="log-to" onchange="renderLog()">
-        <button class="log-clear-btn" onclick="clearLogFilter()">x</button>
+      <div class="log-scope-row">
+        <button type="button" class="log-scope-btn on" id="log-scope-all" onclick="setLogScope('all',this)">All Clearings</button>
+        <button type="button" class="log-scope-btn" id="log-scope-my" onclick="setLogScope('my',this)">My Clearings</button>
       </div>
       <div class="mobile-inner-stats" id="log-mob-stats" style="display:none"></div>
       <div class="srow"><input class="sinput" type="text" id="log-search" placeholder="Search by name..." oninput="renderLog()" autocomplete="off"></div>
@@ -316,29 +358,29 @@
 
 <!-- Scripts, loaded in order (defer guarantees sequential execution).
      ?v=N cache-bust: bump this number whenever you push JS changes. -->
-<script defer src="js/01-config.js?v=18"></script>
-<script defer src="js/02-state.js?v=18"></script>
-<script defer src="js/03-helpers.js?v=18"></script>
-<script defer src="js/04-debug.js?v=18"></script>
-<script defer src="js/05-auth.js?v=18"></script>
-<script defer src="js/06-api.js?v=18"></script>
-<script defer src="js/07-data-loader.js?v=18"></script>
-<script defer src="js/08-map-init.js?v=18"></script>
-<script defer src="js/09-map-layers.js?v=18"></script>
-<script defer src="js/10-map-handlers.js?v=18"></script>
-<script defer src="js/11-map-render.js?v=18"></script>
-<script defer src="js/12-map-view.js?v=18"></script>
-<script defer src="js/13-filters.js?v=18"></script>
-<script defer src="js/14-tool-modal.js?v=18"></script>
-<script defer src="js/15-locations-list.js?v=18"></script>
-<script defer src="js/16-locations-detail.js?v=18"></script>
-<script defer src="js/17-groups-list.js?v=18"></script>
-<script defer src="js/18-groups-detail.js?v=18"></script>
-<script defer src="js/19-log.js?v=18"></script>
-<script defer src="js/20-actions.js?v=18"></script>
-<script defer src="js/21-stats.js?v=18"></script>
-<script defer src="js/22-tabs.js?v=18"></script>
-<script defer src="js/23-boot.js?v=18"></script>
+<script defer src="js/01-config.js?v=19"></script>
+<script defer src="js/02-state.js?v=19"></script>
+<script defer src="js/03-helpers.js?v=19"></script>
+<script defer src="js/04-debug.js?v=19"></script>
+<script defer src="js/05-auth.js?v=19"></script>
+<script defer src="js/06-api.js?v=19"></script>
+<script defer src="js/07-data-loader.js?v=19"></script>
+<script defer src="js/08-map-init.js?v=19"></script>
+<script defer src="js/09-map-layers.js?v=19"></script>
+<script defer src="js/10-map-handlers.js?v=19"></script>
+<script defer src="js/11-map-render.js?v=19"></script>
+<script defer src="js/12-map-view.js?v=19"></script>
+<script defer src="js/13-filters.js?v=19"></script>
+<script defer src="js/14-tool-modal.js?v=19"></script>
+<script defer src="js/15-locations-list.js?v=19"></script>
+<script defer src="js/16-locations-detail.js?v=19"></script>
+<script defer src="js/17-groups-list.js?v=19"></script>
+<script defer src="js/18-groups-detail.js?v=19"></script>
+<script defer src="js/19-log.js?v=19"></script>
+<script defer src="js/20-actions.js?v=19"></script>
+<script defer src="js/21-stats.js?v=19"></script>
+<script defer src="js/22-tabs.js?v=19"></script>
+<script defer src="js/23-boot.js?v=19"></script>
 
 </body>
 </html>
