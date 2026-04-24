@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=20">
-<link rel="stylesheet" href="css/layout.css?v=20">
-<link rel="stylesheet" href="css/components.css?v=20">
-<link rel="stylesheet" href="css/map.css?v=20">
-<link rel="stylesheet" href="css/mobile.css?v=20">
-<link rel="stylesheet" href="css/desktop.css?v=20">
-<link rel="stylesheet" href="css/debug.css?v=20">
+<link rel="stylesheet" href="css/base.css?v=21">
+<link rel="stylesheet" href="css/layout.css?v=21">
+<link rel="stylesheet" href="css/components.css?v=21">
+<link rel="stylesheet" href="css/map.css?v=21">
+<link rel="stylesheet" href="css/mobile.css?v=21">
+<link rel="stylesheet" href="css/desktop.css?v=21">
+<link rel="stylesheet" href="css/debug.css?v=21">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
@@ -80,11 +80,11 @@
       </svg>
       <span>Protocol</span>
     </button>
-    <button type="button" class="hdr-btn" id="acct-btn" onclick="toggleAccountMenu()" title="Account">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>
+    <button type="button" class="hdr-btn" id="acct-btn" onclick="toggleAccountMenu()" title="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
-      <span id="acct-face-name">Account</span>
+      <span id="acct-face-name">Menu</span>
     </button>
     <div id="acct-dropdown">
       <div id="acct-view-mode" style="display:flex;flex-direction:column;gap:12px">
@@ -345,29 +345,29 @@
 
 <!-- Scripts, loaded in order (defer guarantees sequential execution).
      ?v=N cache-bust: bump this number whenever you push JS changes. -->
-<script defer src="js/01-config.js?v=20"></script>
-<script defer src="js/02-state.js?v=20"></script>
-<script defer src="js/03-helpers.js?v=20"></script>
-<script defer src="js/04-debug.js?v=20"></script>
-<script defer src="js/05-auth.js?v=20"></script>
-<script defer src="js/06-api.js?v=20"></script>
-<script defer src="js/07-data-loader.js?v=20"></script>
-<script defer src="js/08-map-init.js?v=20"></script>
-<script defer src="js/09-map-layers.js?v=20"></script>
-<script defer src="js/10-map-handlers.js?v=20"></script>
-<script defer src="js/11-map-render.js?v=20"></script>
-<script defer src="js/12-map-view.js?v=20"></script>
-<script defer src="js/13-filters.js?v=20"></script>
-<script defer src="js/14-tool-modal.js?v=20"></script>
-<script defer src="js/15-locations-list.js?v=20"></script>
-<script defer src="js/16-locations-detail.js?v=20"></script>
-<script defer src="js/17-groups-list.js?v=20"></script>
-<script defer src="js/18-groups-detail.js?v=20"></script>
-<script defer src="js/19-log.js?v=20"></script>
-<script defer src="js/20-actions.js?v=20"></script>
-<script defer src="js/21-stats.js?v=20"></script>
-<script defer src="js/22-tabs.js?v=20"></script>
-<script defer src="js/23-boot.js?v=20"></script>
+<script defer src="js/01-config.js?v=21"></script>
+<script defer src="js/02-state.js?v=21"></script>
+<script defer src="js/03-helpers.js?v=21"></script>
+<script defer src="js/04-debug.js?v=21"></script>
+<script defer src="js/05-auth.js?v=21"></script>
+<script defer src="js/06-api.js?v=21"></script>
+<script defer src="js/07-data-loader.js?v=21"></script>
+<script defer src="js/08-map-init.js?v=21"></script>
+<script defer src="js/09-map-layers.js?v=21"></script>
+<script defer src="js/10-map-handlers.js?v=21"></script>
+<script defer src="js/11-map-render.js?v=21"></script>
+<script defer src="js/12-map-view.js?v=21"></script>
+<script defer src="js/13-filters.js?v=21"></script>
+<script defer src="js/14-tool-modal.js?v=21"></script>
+<script defer src="js/15-locations-list.js?v=21"></script>
+<script defer src="js/16-locations-detail.js?v=21"></script>
+<script defer src="js/17-groups-list.js?v=21"></script>
+<script defer src="js/18-groups-detail.js?v=21"></script>
+<script defer src="js/19-log.js?v=21"></script>
+<script defer src="js/20-actions.js?v=21"></script>
+<script defer src="js/21-stats.js?v=21"></script>
+<script defer src="js/22-tabs.js?v=21"></script>
+<script defer src="js/23-boot.js?v=21"></script>
 
 </body>
 </html>

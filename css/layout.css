@@ -37,10 +37,13 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
 .acct-edit-btn-row{display:flex;gap:8px}
 .acct-edit-btn-row button{flex:1}
 
-.hstats{display:flex;gap:24px;font-size:13px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
-.hstats strong{color:var(--gold);font-size:20px;display:block;letter-spacing:0}
-/* Stats tile labels: small left margin so the number+label don't crash together */
-.hstats span{margin-left:4px}
+/* ==================== Header stats tiles ==================== */
+/* Every tile stacks the big number on top and the label below, so the four
+   tiles align as a clean row. strong is block, span is a separate line. */
+.hstats{display:flex;gap:24px;font-size:13px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase;align-items:flex-start}
+.hstats>div{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+.hstats strong{color:var(--gold);font-size:20px;letter-spacing:0;font-weight:600}
+.hstats span{display:block;font-size:11px;letter-spacing:.08em}
 .hbtn{background:none;border:1px solid var(--bd);color:var(--gold-l);padding:7px 16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
 .hbtn:hover{background:var(--gold-glow);border-color:var(--gold)}
 .body{display:flex;flex:1;overflow:hidden}
