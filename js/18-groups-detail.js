@@ -1,22 +1,17 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// 18-groups-detail.js — district clearing popup (redesigned to match
-// notes/specs/groups-clearing-popup.md). Modal on desktop, bottom sheet on
-// mobile. Built against the current Supabase schema — uses progress +
-// group_progress tables, not the future multi-group `clearings` schema.
+// 18-groups-detail.js — district clearing panel. Inline panel at the bottom of
+// the Groups tab sidebar (same pattern as the Locations detail panel). Not a
+// modal — no backdrop, no ESC, no focus trap.
 //
-// Layout (top→bottom):
-//   1. Stats summary     — per-type mini progress bars
-//   2. Type chips        — multi-select; 'done' state when fully cleared
-//   3. Tool selector     — select + optional EW level chips
-//   4. (Notes skipped — not in current schema)
-//   5. Confirm summary + primary button ("Mark cleared")
-//   6. Unmark + inline slide-down confirm
+// Content (top→bottom):
+//   1. Stats summary    — per-type mini progress bars
+//   2. Type chips       — multi-select; 'done' state when fully cleared
+//   3. Tool selector    — dropdown + optional EW chips
+//   4. Confirm summary + primary button ("Mark cleared")
+//   5. Unmark + inline slide-down confirm
 // ═══════════════════════════════════════════════════════════════════════════
 
-// Per-popup local state. Reset each time the popup opens.
 let _ddState=null
-
-// Canonical tool order used throughout the UI.
 const DD_TOOLS=['MS','MF','O','J','MG','AP','MI','MJ','DM']
 
 function renderDistrictDetail(code){
@@ -46,29 +41,11 @@ function renderDistrictDetail(code){
   body.innerHTML=''
   body.appendChild(buildDdContent(d,code))
 
-  ensureBackdrop()
-  $('district-backdrop').classList.add('on')
   $('district-detail').classList.add('on')
-
-  if(!$('district-detail')._ddEscBound){
-    $('district-detail')._ddEscBound=true
-    document.addEventListener('keydown',function(e){
-      if(e.key==='Escape'&&$('district-detail').classList.contains('on'))closeDistrictDetail()
-    })
-  }
 
   if(isMobile()&&selectedDistrictCode){
     setTimeout(function(){fitMapToDistrict(code)},300)
   }
-}
-
-function ensureBackdrop(){
-  if($('district-backdrop'))return
-  const bd=document.createElement('div')
-  bd.id='district-backdrop'
-  bd.className='district-backdrop'
-  bd.onclick=closeDistrictDetail
-  document.body.appendChild(bd)
 }
 
 function fitMapToDistrict(code){
@@ -90,7 +67,7 @@ function fitMapToDistrict(code){
 
 function buildDdContent(d,code){
   const wrap=document.createElement('div')
-  wrap.style.cssText='display:flex;flex-direction:column;gap:16px'
+  wrap.style.cssText='display:flex;flex-direction:column;gap:12px'
 
   const st=_ddState
   const fullyCleared=st.availableTypes.length>0 && st.availableTypes.every(function(t){
@@ -329,7 +306,10 @@ async function doDdMark(d,code){
       await markGroupCleared(code,t,st.tool)
     }
     st.saveState='success';reRenderDd()
-    setTimeout(function(){closeDistrictDetail()},900)
+    setTimeout(function(){
+      // Reset to idle so the panel stays open and usable with the updated cleared state.
+      if(_ddState&&_ddState.code===code){st.saveState='idle';st.selectedTypes=new Set();reRenderDd()}
+    },1200)
   }catch(e){
     st.saveState='error'
     st.errorMsg="Couldn't save — check connection"
