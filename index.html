@@ -13,348 +13,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/desktop.css">
+<link rel="stylesheet" href="css/debug.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<style>
-:root{
-  --forest:#0D2416;--forest-m:#122D1C;--gold:#C9A84C;--gold-l:#E8D5A0;--gold-d:#A87C28;
-  --gold-glow:rgba(201,168,76,.18);--bd:rgba(201,168,76,.18);--ink:#E8D5A0;--ink-d:#F5EDD8;
-  --soft:rgba(232,213,160,.55);--soft-d:rgba(232,213,160,.35);--input-bg:rgba(13,36,22,.5);
-  --hover:rgba(201,168,76,.08);--sel:rgba(201,168,76,.12);
-  --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
-  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
-.maplibregl-map{position:absolute;inset:0}
-.maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right{display:none}
-.maplibregl-ctrl-group{background:#122D1C;border:1px solid rgba(201,168,76,.2)!important;border-radius:6px!important}
-.maplibregl-ctrl-group button{width:32px;height:32px}
-.maplibregl-ctrl-group button+button{border-top:1px solid rgba(201,168,76,.15)!important}
-.maplibregl-canvas{cursor:default}
-#login-screen{position:fixed;inset:0;background:var(--forest);display:flex;align-items:center;justify-content:center;z-index:9999;overflow:hidden}
-.login-bg-logo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0}
-.login-bg-logo img{width:100vmax;height:100vmax;object-fit:cover;border-radius:50%;opacity:.07;filter:blur(1px)}
-.login-bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.08) 0%,transparent 65%);z-index:0;pointer-events:none}
-.login-box{position:relative;z-index:1;background:rgba(18,45,28,.96);border:1px solid var(--bd);border-radius:10px;padding:44px 48px;width:360px;text-align:center;box-shadow:0 8px 64px rgba(0,0,0,.6)}
-.login-seal{width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 20px;display:block}
-.login-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
-.login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:4px}
-.login-logo em{color:var(--gold);font-style:italic;font-weight:500}
-.login-sub{font-size:12px;color:var(--soft);letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px}
-.login-field{margin-bottom:14px;text-align:left}
-.login-field label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);display:block;margin-bottom:6px}
-.login-field input{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:15px;background:var(--input-bg);outline:none;color:var(--ink-d);caret-color:var(--gold)}
-.login-field input::placeholder{color:var(--soft-d)}
-.login-field input:focus{border-color:var(--gold)}
-.login-btn{width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;font-weight:500}
-.login-btn:hover{background:var(--gold)}
-.login-err{font-size:12px;color:var(--jewel);margin-top:12px;min-height:18px}
-.login-select{width:100%;padding:10px 14px;background:var(--panel);border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-top:4px;cursor:pointer}.login-select option{background:#1c2e1c;color:var(--gold)}.login-select:focus{outline:none;border-color:var(--gold)}.login-field{margin-bottom:12px}.login-label{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}.login-ew-row{margin:10px 0 16px;display:flex;align-items:center}.login-ew-label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}.login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}.tool-override-select,.tool-ew-select,select.tool-override-select,select.tool-ew-select{background:var(--panel);color:var(--gold);border:1px solid var(--bd);border-radius:8px;font-size:14px;cursor:pointer}.tool-override-select option,.tool-ew-select option{background:#1c2e1c;color:var(--gold)}#map .maplibregl-ctrl-group,.maplibregl-map .maplibregl-ctrl-group{background:rgba(13,36,22,.92)!important;border:1px solid rgba(201,168,76,.4)!important;box-shadow:none!important}#map .maplibregl-ctrl-group button,.maplibregl-map .maplibregl-ctrl-group button{background:transparent!important;border-bottom:1px solid rgba(201,168,76,.2)!important;width:30px!important;height:30px!important}#map .maplibregl-ctrl-group button:last-child,.maplibregl-map .maplibregl-ctrl-group button:last-child{border-bottom:none!important}#map .maplibregl-ctrl-group button:hover,.maplibregl-map .maplibregl-ctrl-group button:hover{background:rgba(201,168,76,.15)!important}.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{filter:invert(75%) sepia(60%) saturate(600%) hue-rotate(5deg) brightness(110%)!important}.map-home-btn{position:absolute;top:80px;left:10px;z-index:100;width:30px;height:30px;background:rgba(13,36,22,.92);border:1px solid rgba(201,168,76,.4);border-radius:4px;color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}.map-home-btn:hover{background:rgba(201,168,76,.2)}.login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
-.login-instructions:hover{border-color:var(--gold);color:var(--gold-l);background:rgba(201,168,76,.05)}
-#app{display:none;flex-direction:column;height:100vh}
-header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;gap:16px;border-bottom:1px solid var(--bd)}
-.header-brand{display:flex;align-items:center;gap:12px}
-.header-seal{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
-.header-seal img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
-.logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;letter-spacing:.1em;color:var(--gold)}
-.logo em{color:var(--gold);font-style:italic;font-weight:500}
-.huser{font-size:14px;color:var(--soft);display:flex;align-items:center;gap:12px}
-.huser strong{color:var(--gold-l);font-size:15px}
-.huser button{background:none;border:1px solid var(--bd);color:var(--soft);padding:5px 12px;font-family:'Jost',sans-serif;font-size:12px;cursor:pointer;border-radius:4px;transition:all .15s}
-.huser button:hover{border-color:var(--gold);color:var(--gold-l)}
-.hstats{display:flex;gap:24px;font-size:13px;letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
-.hstats strong{color:var(--gold);font-size:20px;display:block;letter-spacing:0}
-.hbtn{background:none;border:1px solid var(--bd);color:var(--gold-l);padding:7px 16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;cursor:pointer;border-radius:4px;text-transform:uppercase;transition:all .2s}
-.hbtn:hover{background:var(--gold-glow);border-color:var(--gold)}
-.body{display:flex;flex:1;overflow:hidden}
-.sidebar{width:33.333%;flex-shrink:0;background:rgba(18,45,28,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:width .3s,opacity .3s}
-.sidebar.collapsed{width:0;opacity:0;pointer-events:none}
-.tabs{display:flex;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.75)}
-.tab{flex:1;padding:16px 8px;font-family:'Jost',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;background:none;border:none;cursor:pointer;color:var(--soft);transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
-.tab.on{color:var(--gold);font-weight:500;border-bottom-color:var(--gold)}
-.panel{display:none;flex-direction:column;flex:1;overflow:hidden;min-height:0}
-.panel.on{display:flex}
-.frow{padding:14px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.frow-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:9px;font-weight:500}
-.chips{display:flex;gap:7px;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:20px;font-size:13px;cursor:pointer;border:1.5px solid;transition:all .15s;font-family:'Jost',sans-serif;user-select:none;color:var(--soft)}
-.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
-.chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
-.chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
-.chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
-.chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
-.chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
-.chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
-.chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
-.chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}.chip-divider{font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;padding:6px 0 2px;width:100%;display:flex;align-items:center;justify-content:space-between}.chip-divider-link{font-size:11px;color:var(--gold);opacity:.6;cursor:pointer;text-transform:none;letter-spacing:0;text-decoration:underline;white-space:nowrap}.chip-divider-link:hover{opacity:1}.tool-key{display:none;width:100%;background:rgba(13,36,22,.95);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:10px 14px;margin:6px 0 4px;column-count:2;column-gap:12px}.tool-key.open{display:block}.tool-key-row{font-size:12px;color:rgba(232,213,160,.8);line-height:1.8;break-inside:avoid}.tool-key-code{color:var(--gold);font-weight:500;display:inline-block;min-width:32px}
-.rsel{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.rsel select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;background:rgba(13,36,22,.3);outline:none;cursor:pointer;color:var(--ink);appearance:none;-webkit-appearance:none}
-.rsel select option{background:#1A3D28;color:var(--ink-d)}
-.srow{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18)}
-.sinput{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;outline:none;background:rgba(13,36,22,.25);color:var(--ink-d);caret-color:var(--gold)}
-.sinput::placeholder{color:var(--soft-d)}
-.sinput:focus{border-color:var(--gold)}
-.llist{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
-.llist::-webkit-scrollbar{width:3px}
-.llist::-webkit-scrollbar-thumb{background:var(--bd)}
-.litem{padding:12px 20px;cursor:pointer;border-bottom:1px solid var(--bd);transition:background .12s;display:flex;align-items:flex-start;gap:12px}
-.litem:hover{background:var(--hover)}
-.litem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
-.ldot{width:13px;height:13px;border-radius:50%;flex-shrink:0;margin-top:4px;border:2px solid transparent}
-.linfo{flex:1;min-width:0}
-.lname{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-d)}
-.litem.done .lname{text-decoration:line-through;opacity:.45}
-.lmeta{font-size:13px;color:var(--soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lbadge{font-size:11px;padding:2px 9px;border-radius:10px;flex-shrink:0;align-self:center;border:1.5px solid;white-space:nowrap;font-weight:500}
-.detail{flex-shrink:0;border-top:1px solid var(--bd);background:rgba(13,36,22,.88);display:none;flex-direction:column;max-height:50%}
-.detail.on{display:flex}
-.detail-head{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.detail-head-left{flex:1;min-width:0}
-.detail-head-right{display:flex;flex-direction:row;align-items:center;gap:9px;flex-shrink:0}
-.detail-close{background:none;border:none;font-size:22px;color:var(--soft);cursor:pointer;line-height:1;padding:0;transition:color .15s}
-.detail-close:hover{color:var(--gold)}
-.gmaps-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;background:rgba(201,168,76,.1);border:1px solid var(--bd);text-decoration:none;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--gold);white-space:nowrap}
-.gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
-.gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
-.detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
-.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
-.detail-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.3;color:var(--gold)}
-.detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
-.detail-body{padding:12px 20px 18px;overflow-y:auto}
-.detail-cleared{font-size:14px;padding:10px 13px;border-radius:6px;margin-bottom:11px;line-height:1.5}
-.tool-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
-.tool-btns{display:flex;gap:9px;margin-bottom:11px}
-.tool-btn{flex:1;padding:11px 6px;border:1.5px solid;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;cursor:pointer;background:none;transition:all .15s;letter-spacing:.04em;font-weight:500}
-.tool-btn.omega{border-color:var(--omega);color:var(--omega)}.tool-btn.omega.sel{background:var(--omega);color:#fff}
-.tool-btn.jewel{border-color:var(--jewel);color:var(--jewel)}.tool-btn.jewel.sel{background:var(--jewel);color:#fff}
-.tool-btn.mg{border-color:var(--mg);color:var(--mg)}.tool-btn.mg.sel{background:var(--mg);color:#fff}
-.btn-mark{display:block;width:100%;padding:13px;background:var(--gold-d);color:var(--forest);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-weight:500}
-.btn-mark:hover{background:var(--gold)}
-.btn-unmark{display:block;width:100%;padding:10px;margin-top:9px;background:none;border:1.5px solid var(--bd);border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;color:var(--soft);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .15s}
-.btn-unmark:hover{border-color:var(--jewel);color:var(--jewel)}
-.log-filter{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;display:flex;gap:9px;align-items:center;background:rgba(18,45,28,.18)}
-.log-filter label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
-.log-date-input{flex:1;padding:6px 9px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:rgba(13,36,22,.3);color:var(--ink)}
-.log-date-input:focus{border-color:var(--gold)}
-.log-clear-btn{background:none;border:1px solid var(--bd);border-radius:5px;padding:5px 9px;font-family:'Jost',sans-serif;font-size:12px;color:var(--soft);cursor:pointer;transition:all .15s}
-.log-clear-btn:hover{border-color:var(--jewel);color:var(--jewel)}
-#map{flex:1;position:relative}
-.mwrap{position:relative;flex:1;display:flex;flex-direction:column}
-.mload{position:absolute;inset:0;background:rgba(13,36,22,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;gap:18px}
-.dots{display:flex;gap:8px}
-.dots span{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease-in-out infinite}
-.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
-@keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
-.msub{font-size:14px;color:var(--soft);text-align:center;max-width:300px}
-.tog{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:1000;background:#0D2416;border:1px solid var(--bd);border-left:none;border-radius:0 6px 6px 0;width:22px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;transition:background .15s}
-.tog:hover{background:rgba(18,45,28,.9)}
-.map-overlays{position:absolute;top:14px;right:14px;z-index:400;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
-.progress{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:13px 18px;min-width:210px}
-.prog-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:9px}
-.prog-row{display:flex;align-items:center;gap:9px;margin-bottom:7px}
-.prog-label{font-size:13px;width:74px;flex-shrink:0;color:var(--ink)}
-.prog-track{flex:1;height:4px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
-.prog-fill{height:100%;border-radius:2px;transition:width .4s}
-.prog-count{font-size:12px;color:var(--soft);min-width:34px;text-align:right}
-.legend{background:rgba(13,36,22,.65);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:12px 16px}
-.leg-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:8px}
-.leg-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--ink)}
-.leg-dot{width:12px;height:12px;border-radius:50%}
-.locate-btn{position:absolute;bottom:22px;left:14px;z-index:410;background:rgba(13,36,22,.7);backdrop-filter:blur(8px);border:1px solid var(--bd);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--gold-l);transition:all .15s}
-.locate-btn:hover{background:rgba(18,45,28,.92);border-color:var(--gold)}
-.locate-btn span{font-size:17px;line-height:1}
-.empty{padding:26px;text-align:center;font-size:14px;color:var(--soft);line-height:1.8}
-.saving{position:fixed;bottom:22px;right:22px;background:rgba(13,36,22,.95);border:1px solid var(--bd);color:var(--gold-l);padding:10px 16px;border-radius:6px;font-size:11px;z-index:9999;transition:opacity .4s;pointer-events:none;max-width:85vw;word-break:break-word}
-#mobile-detail{display:none}
-.mobile-inner-stats{display:none;padding:5px 11px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;background:rgba(8,22,13,.6);border-bottom:1px solid rgba(201,168,76,.1);flex-shrink:0}
-.mobile-inner-stats strong{font-weight:600;color:#E8D5A0;font-size:12px}
-.mobile-inner-stats .ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
-.tool-select-inline{background:rgba(13,36,22,.9);color:#C9A84C;border:1px solid rgba(201,168,76,.35);border-radius:16px;padding:3px 22px 3px 9px;font-size:10px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4'%3E%3Cpath d='M0 0l3.5 4 3.5-4z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;background-color:rgba(13,36,22,.9);max-width:140px;display:none}
-.tool-select-inline option{background:#0a1c11;color:#E8D5A0}
-.tool-select-dropdown{width:100%;background:#0a1c11;color:#E8D5A0;border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:7px 10px;font-size:13px;font-family:'Jost',sans-serif;color-scheme:dark;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
-#tool-select-row{display:none}
-.mobile-stats-bar{display:none;/* v2 */background:rgba(10,28,17,.92);border-bottom:1px solid rgba(201,168,76,.15);padding:5px 12px;font-size:11px;color:rgba(232,213,160,.65);gap:5px;align-items:center;white-space:nowrap;overflow:hidden;flex-shrink:0}
-.mobile-stats-bar #ms-total,.mobile-stats-bar #ms-cleared,.mobile-stats-bar #ms-pct{font-weight:600;color:#E8D5A0;font-size:12px}
-.ms-sep{color:rgba(201,168,76,.35);margin:0 1px}
-.mobile-tool-btn-row{display:none}
-.tool-modal-open-btn{width:100%;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:#C9A84C;border-radius:20px;padding:6px 14px;font-size:12px;cursor:pointer;letter-spacing:.04em;text-align:center}
-#tool-modal{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.65);align-items:flex-end}
-@media(max-width:700px){
-  header{height:48px;padding:0 12px}
-  .header-seal{width:32px;height:32px}
-  .logo{font-size:18px}
-  .hstats{display:none!important}
-  .map-home-btn{top:79px!important}
-  .mobile-inner-stats{display:flex!important}
-  #tool-filter-row{display:none!important}
-  #tool-select-row{display:none!important}
-  .chip.show-tool,.chip-divider,.tool-key{display:none!important}
-  #tool-select-inline{display:inline-block!important}
-  .rsel{display:none!important}
-  #mobile-stats{display:none!important}
-  .huser strong{font-size:13px}
-  .hbtn{font-size:12px;padding:5px 10px}
-  #app{flex-direction:column}
-  .body{flex-direction:column;flex:1;overflow:hidden}
-  .mwrap{flex:1;min-height:0;position:relative}
-  .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:1px solid var(--bd);height:auto;overflow:visible;background:rgba(13,36,22,.7)}
-  .sidebar.collapsed{height:40px;overflow:hidden}
-  .llist{display:none!important;flex:none!important}
-  .llist.active{display:block!important;max-height:40vh;overflow-y:auto!important}
-  .sidebar .detail{display:none!important}
-  .tabs{background:rgba(18,45,28,.75)}
-  .tab{color:var(--soft-d);font-size:14px;padding:12px 8px;border-bottom-color:transparent;border-bottom-width:2px;margin-bottom:-1px}
-  .tab.on{color:var(--gold);border-bottom-color:var(--gold);font-size:15px}
-  .frow{padding:8px 14px}
-  .frow-label{font-size:12px;margin-bottom:5px}
-  .chip{font-size:13px;padding:5px 11px;border-width:1px;gap:4px}
-  .chip-dot{width:7px;height:7px}
-  .srow{padding:6px 14px}
-  .sinput{font-size:14px;padding:8px 11px;border-width:1px}
-  .log-filter{padding:8px 14px;gap:8px}
-  .log-filter label{font-size:12px}
-  .log-date-input{font-size:13px;padding:6px 9px}
-  .log-clear-btn{font-size:12px;padding:6px 9px}
-  .tog{display:none}
-  #tab-groups .district-list{display:none!important}
-  .district-detail{position:fixed;bottom:0;left:0;right:0;max-height:60vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
-  .district-detail:not(.on){display:none!important}
-  .sidebar{overflow:visible!important}
-  .map-overlays{top:7px;right:7px;gap:6px}
-  #map-progress{display:none}
-  .progress{min-width:160px;padding:8px 12px}
-  .prog-title{font-size:12px;margin-bottom:5px}
-  .prog-row{gap:7px;margin-bottom:5px}
-  .prog-label{font-size:12px;width:64px}
-  .prog-track{height:5px}
-  .prog-count{font-size:11px;min-width:36px}
-  .legend{padding:7px 10px}
-  .leg-title{font-size:12px;margin-bottom:4px}
-  .leg-item{font-size:12px;gap:6px;margin-bottom:3px}
-  .leg-dot{width:10px;height:10px}
-  .locate-btn{position:fixed!important;bottom:14px;left:14px;z-index:820;padding:8px 13px;font-size:14px;gap:5px;transition:bottom .25s ease}
-  .locate-btn span{font-size:18px}
-  .saving{bottom:14px;right:14px;font-size:13px;padding:8px 13px}
-  #mobile-detail{display:none;position:fixed;bottom:0;left:0;right:0;max-height:55vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch;flex-direction:column}
-  #mobile-detail.on{display:flex}
-  #mobile-detail .detail-head{padding:14px 16px 0}
-  #mobile-detail .detail-head-right{gap:9px}
-  #mobile-detail .detail-close{font-size:22px}
-  #mobile-detail .gmaps-btn{font-size:13px;padding:7px 10px}
-  #mobile-detail .gmaps-btn svg{width:14px;height:14px}
-  #mobile-detail .detail-type{font-size:12px}
-  #mobile-detail .detail-name{font-size:20px}
-  #mobile-detail .detail-addr{font-size:13px}
-  #mobile-detail .detail-body{padding:11px 16px 16px}
-  #mobile-detail .detail-cleared{font-size:14px;padding:9px 12px;margin-bottom:9px}
-  #mobile-detail .tool-label{font-size:13px;margin-bottom:6px}
-  #mobile-detail .tool-btns{gap:8px;margin-bottom:9px}
-  #mobile-detail .tool-btn{padding:10px 6px;font-size:14px;border-width:1.5px}
-  #mobile-detail .btn-mark{padding:11px;font-size:14px}
-  #mobile-detail .btn-unmark{padding:9px;font-size:13px;margin-top:7px}
-  .mobile-inner-stats{font-size:13px}
-  .mobile-inner-stats strong{font-size:14px}
-  .tool-select-inline{font-size:13px!important;padding:5px 26px 5px 11px!important}
-  .gtype-btn{font-size:14px!important;padding:8px 16px!important}
-  #dd-name{font-size:26px!important}
-  .district-detail-head{padding:14px 16px 8px!important}
-  .district-detail-body{padding:0 16px 24px!important;font-size:14px}
-  .district-detail-body .detail-cleared{font-size:13px!important;padding:8px 12px!important;margin-bottom:8px!important}
-  .district-detail-body .btn-mark{font-size:14px!important;padding:12px!important;width:100%!important;margin-bottom:6px!important}
-  .district-detail-body .btn-unmark{font-size:13px!important;padding:10px!important;width:100%!important}
-  .district-detail-body select{font-size:14px!important;padding:9px 10px!important;color-scheme:dark;background:#0a1c11!important;color:var(--gold)!important}
-  #log-list .log-entry{font-size:14px!important}
-}
-#pg-row-s,#pg-row-gp{display:flex}
-.gtype-row{padding:10px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;background:rgba(18,45,28,.18);display:flex;gap:8px;align-items:center}
-.gtype-btn{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid;font-family:'Jost',sans-serif;transition:all .15s;background:none}
-.gtype-btn.school{border-color:var(--blue);color:var(--blue)}.gtype-btn.school.on{background:var(--blue);color:#fff}
-.gtype-btn.gp{border-color:var(--green);color:var(--green)}.gtype-btn.gp.on{background:var(--green);color:#fff}
-.district-list{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
-.district-list::-webkit-scrollbar{width:3px}
-.district-list::-webkit-scrollbar-thumb{background:var(--bd)}
-.ditem{padding:12px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s}
-.ditem:hover{background:var(--hover)}
-.ditem.sel{background:var(--sel);border-left:3px solid var(--gold);padding-left:17px}
-.ditem-name{font-size:15px;font-weight:500;color:var(--ink-d);margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
-.ditem-bar-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
-.ditem-bar-track{height:3px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
-.ditem-bar-fill{height:100%;border-radius:2px;transition:width .4s}
-.dbadge{font-size:10px;padding:2px 8px;border-radius:10px;border:1.5px solid;font-weight:500}
-.district-detail{border-top:1px solid var(--bd);background:rgba(13,36,22,.88);flex-shrink:0;display:none;flex-direction:column}
-.district-detail.on{display:flex}
-.district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.district-detail-body{padding:11px 20px 16px}
-
-@media(min-width:1024px){
-  body{font-size:17px}
-  header{height:80px;padding:0 32px}
-  .logo{font-size:36px}
-  .hstats{gap:28px;font-size:16px}
-  .huser{font-size:15px}
-  .hbtn{font-size:13px;padding:6px 14px}
-  .sidebar{width:min(520px,34vw)}
-  .tabs{height:56px}
-  .tab{font-size:15px;padding:18px 12px}
-  .frow{padding:12px 24px}
-  .frow-label{font-size:13px}
-  .chip{font-size:13px;padding:6px 14px}
-  .chip-divider{font-size:13px}
-  .detail-head{padding:18px 24px 10px}
-  .detail-name{font-size:30px}
-  .detail-type{font-size:13px}
-  .detail-addr{font-size:14px}
-  .detail-body{padding:14px 24px 22px}
-  .btn-mark{font-size:15px;padding:13px}
-  .btn-unmark{font-size:13px;padding:10px}
-  .btn-change-tool{font-size:13px}
-  .tool-override-select,.tool-ew-select{font-size:15px;padding:10px 12px}
-  .district-list{font-size:15px}
-  .district-list-item{padding:11px 24px}
-  .gtype-row{padding:12px 24px}
-  .gtype-btn{font-size:14px;padding:7px 18px}
-  .district-detail-head{padding:18px 24px 0}
-  #dd-name{font-size:28px!important}
-  .district-detail-body{padding:14px 24px 20px}
-  .log-filters{padding:12px 24px}
-  #log-list .log-entry,#log-list div{font-size:14px}
-  .progress{padding:14px 20px}
-  .prog-title{font-size:13px}
-  .prog-row{margin-bottom:8px}
-  .prog-label{font-size:13px}
-  .prog-track{height:7px}
-  .rsel{padding:12px 24px}
-  .rsel select{font-size:15px;padding:10px 14px}
-  .search-wrap{padding:10px 24px}
-  #search{font-size:15px;padding:10px 14px}
-  .map-home-btn{width:36px;height:36px;top:90px}
-  .maplibregl-ctrl-group button{width:36px!important;height:36px!important}
-  .tool-key{font-size:13px}
-  .tool-key-row{font-size:13px}
-  .map-overlays{top:18px;right:18px;gap:12px}
-  .header-seal{width:52px!important;height:52px!important}
-  .huser{font-size:16px!important;gap:16px!important}
-  .huser button{font-size:14px!important;padding:6px 14px!important}
-  .hstats strong{font-size:20px!important}
-  .header-brand{gap:16px!important}
-  .progress{padding:16px 22px;min-width:260px;border-radius:10px}
-  .prog-title{font-size:13px;margin-bottom:10px}
-  .prog-row{gap:12px;margin-bottom:10px}
-  .prog-label{font-size:14px;width:90px}
-  .prog-track{height:6px}
-  .prog-txt{font-size:13px;min-width:44px}
-}
-@media(min-width:1440px){
-  .sidebar{width:min(600px,36vw)}
-}
-@media(min-width:1920px){
-  .sidebar{width:min(680px,36vw)}
-}
-
-</style>
 </head>
 <body>
+
+<!-- Login screen -->
 <div id="login-screen">
   <div class="login-bg-logo"><img src="Earthkeeper-circular.png" alt=""></div>
   <div class="login-bg-glow"></div>
@@ -365,20 +35,29 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div id="login-form-wrap">
       <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Anthony Gorman" autocomplete="username"></div>
       <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
-      <div class="login-field"><label class="login-label">Default clearing tool</label><select id="login-tool" class="login-select"><option value="" disabled selected hidden>Select your tool...</option><option value="MS">Magical Structures (MS)</option>
-<option value="MF">Multifrequency (MF)</option>
-<option value="O">Omega (O)</option>
-<option value="J">Jewel (J)</option>
-<option value="MG">Merlin's Grace (MG)</option>
-<option value="AP">Universal AP (AP)</option>
-<option value="MI">Manifesting Intention (MI)</option>
-<option value="MJ">Magical Jewel (MJ)</option>
-<option value="DM">Divine Magic (DM)</option></select></div><div class="login-ew-row"><label class="login-ew-label"><input type="checkbox" id="login-ew"> I have Earthworks tools (EW1–5)</label></div><button type="button" class="login-btn" onclick="doLogin()">Enter</button>
+      <div class="login-field"><label class="login-label">Default clearing tool</label>
+        <select id="login-tool" class="login-select">
+          <option value="" disabled selected hidden>Select your tool...</option>
+          <option value="MS">Magical Structures (MS)</option>
+          <option value="MF">Multifrequency (MF)</option>
+          <option value="O">Omega (O)</option>
+          <option value="J">Jewel (J)</option>
+          <option value="MG">Merlin's Grace (MG)</option>
+          <option value="AP">Universal AP (AP)</option>
+          <option value="MI">Manifesting Intention (MI)</option>
+          <option value="MJ">Magical Jewel (MJ)</option>
+          <option value="DM">Divine Magic (DM)</option>
+        </select>
+      </div>
+      <div class="login-ew-row"><label class="login-ew-label"><input type="checkbox" id="login-ew"> I have Earthworks tools (EW1&ndash;5)</label></div>
+      <button type="button" class="login-btn" onclick="doLogin()">Enter</button>
     </div>
     <div class="login-err" id="login-err"></div>
     <a href="instructions.html" class="login-instructions">New here? Read the instructions</a>
   </div>
 </div>
+
+<!-- App -->
 <div id="app">
 <header>
   <div class="header-brand">
@@ -386,19 +65,26 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
     <div class="logo">Earth<em>keeper</em></div>
   </div>
   <div class="hstats" id="hstats-main">
-    <div><strong id="s-total">—</strong><span id="s-label-total">locations</span></div>
+    <div><strong id="s-total">&mdash;</strong><span id="s-label-total">locations</span></div>
     <div><strong id="s-cleared">0</strong><span id="s-label-cleared">cleared</span></div>
     <div><strong id="s-pct">0%</strong>done</div>
     <div id="s-log-div" style="display:none;width:1px;background:rgba(255,255,255,0.2);margin:0 6px;align-self:stretch"></div>
-    <div id="s-log-all" style="display:none"><strong id="s-total-all">—</strong><span>total</span></div>
+    <div id="s-log-all" style="display:none"><strong id="s-total-all">&mdash;</strong><span>total</span></div>
     <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong>all done</div>
   </div>
-
   <div style="display:flex;align-items:center;gap:10px">
     <div class="huser"><strong id="h-username"></strong><button onclick="logout()">Sign out</button></div>
   </div>
 </header>
-<div id="mobile-stats" class="mobile-stats-bar"><span id="ms-total">—</span><span id="ms-label-total"> locations</span><span class="ms-sep">·</span><span id="ms-cleared">0</span><span id="ms-label-cleared"> cleared</span><span class="ms-sep">·</span><span id="ms-pct">0%</span><span> done</span></div>
+
+<div id="mobile-stats" class="mobile-stats-bar">
+  <span id="ms-total">&mdash;</span><span id="ms-label-total"> locations</span>
+  <span class="ms-sep">&middot;</span>
+  <span id="ms-cleared">0</span><span id="ms-label-cleared"> cleared</span>
+  <span class="ms-sep">&middot;</span>
+  <span id="ms-pct">0%</span><span> done</span>
+</div>
+
 <div class="body">
   <div class="sidebar" id="sidebar">
     <div class="tabs">
@@ -406,6 +92,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <button class="tab" id="tab-btn-groups" onclick="switchTab('groups',this)">Groups</button>
       <button class="tab" id="tab-btn-log" onclick="switchTab('log',this)">Log</button>
     </div>
+
+    <!-- Locations tab -->
     <div class="panel on" id="tab-locs">
       <div class="frow">
         <div class="frow-label">Places</div>
@@ -423,9 +111,36 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="chips" id="show-chips">
           <div class="chip show-all on" id="chip-all" onclick="setShow('all',this)">All</div>
           <div class="chip show-cleared" id="chip-cleared" onclick="setShow('cleared',this)"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
-          <select id="tool-select-inline" class="tool-select-inline" onchange="setToolFromSelect(this.value)"><option value="">By Tool ▾</option><option value="MS">MS — Magical Structures</option><option value="MF">MF — Multifrequency</option><option value="O">O — Omega</option><option value="J">J — Jewel</option><option value="MG">MG — Merlin's Grace</option><option value="AP">AP — Universal AP</option><option value="MI">MI — Manifesting Intention</option><option value="MJ">MJ — Magical Jewel</option><option value="DM">DM — Divine Magic</option><option value="EW1">EW1</option><option value="EW2">EW2</option><option value="EW3">EW3</option><option value="EW4">EW4</option><option value="EW5">EW5</option></select>
+          <select id="tool-select-inline" class="tool-select-inline" onchange="setToolFromSelect(this.value)">
+            <option value="">By Tool &#9662;</option>
+            <option value="MS">MS &mdash; Magical Structures</option>
+            <option value="MF">MF &mdash; Multifrequency</option>
+            <option value="O">O &mdash; Omega</option>
+            <option value="J">J &mdash; Jewel</option>
+            <option value="MG">MG &mdash; Merlin's Grace</option>
+            <option value="AP">AP &mdash; Universal AP</option>
+            <option value="MI">MI &mdash; Manifesting Intention</option>
+            <option value="MJ">MJ &mdash; Magical Jewel</option>
+            <option value="DM">DM &mdash; Divine Magic</option>
+            <option value="EW1">EW1</option>
+            <option value="EW2">EW2</option>
+            <option value="EW3">EW3</option>
+            <option value="EW4">EW4</option>
+            <option value="EW5">EW5</option>
+          </select>
           <span class="chip-divider"><span>cleared by</span><span class="chip-divider-link" onclick="toggleToolKey()">what are these?</span></span>
-          <div class="tool-key" id="tool-key"><div class="tool-key-row"><span class="tool-key-code">MS</span>Magical Structures</div><div class="tool-key-row"><span class="tool-key-code">MF</span>Multifrequency</div><div class="tool-key-row"><span class="tool-key-code">O</span>Omega</div><div class="tool-key-row"><span class="tool-key-code">J</span>Jewel</div><div class="tool-key-row"><span class="tool-key-code">MG</span>Merlin's Grace</div><div class="tool-key-row"><span class="tool-key-code">AP</span>Universal AP</div><div class="tool-key-row"><span class="tool-key-code">MI</span>Manifesting Intention</div><div class="tool-key-row"><span class="tool-key-code">MJ</span>Magical Jewel</div><div class="tool-key-row"><span class="tool-key-code">DM</span>Divine Magic</div><div class="tool-key-row"><span class="tool-key-code">EW1–5</span>Earthworks levels</div></div>
+          <div class="tool-key" id="tool-key">
+            <div class="tool-key-row"><span class="tool-key-code">MS</span>Magical Structures</div>
+            <div class="tool-key-row"><span class="tool-key-code">MF</span>Multifrequency</div>
+            <div class="tool-key-row"><span class="tool-key-code">O</span>Omega</div>
+            <div class="tool-key-row"><span class="tool-key-code">J</span>Jewel</div>
+            <div class="tool-key-row"><span class="tool-key-code">MG</span>Merlin's Grace</div>
+            <div class="tool-key-row"><span class="tool-key-code">AP</span>Universal AP</div>
+            <div class="tool-key-row"><span class="tool-key-code">MI</span>Manifesting Intention</div>
+            <div class="tool-key-row"><span class="tool-key-code">MJ</span>Magical Jewel</div>
+            <div class="tool-key-row"><span class="tool-key-code">DM</span>Divine Magic</div>
+            <div class="tool-key-row"><span class="tool-key-code">EW1&ndash;5</span>Earthworks levels</div>
+          </div>
           <div class="chip show-tool" id="chip-MS" onclick="toggleTool('MS',this)">MS</div>
           <div class="chip show-tool" id="chip-MF" onclick="toggleTool('MF',this)">MF</div>
           <div class="chip show-tool" id="chip-O" onclick="toggleTool('O',this)">O</div>
@@ -442,30 +157,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
           <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
-      <div class="frow" id="tool-select-row">
-        <div class="frow-label">By Tool</div>
-        <select id="tool-select" class="tool-select-dropdown" onchange="setToolFromSelect(this.value)" color-scheme="dark">
-          <option value="">— All / Show all —</option>
-          <option value="MS">MS — Magical Structures</option>
-          <option value="MF">MF — Multifrequency</option>
-          <option value="O">O — Omega</option>
-          <option value="J">J — Jewel</option>
-          <option value="MG">MG — Merlin's Grace</option>
-          <option value="AP">AP — Universal AP</option>
-          <option value="MI">MI — Manifesting Intention</option>
-          <option value="MJ">MJ — Magical Jewel</option>
-          <option value="DM">DM — Divine Magic</option>
-          <option value="EW1">EW1 — Earthworks 1</option>
-          <option value="EW2">EW2 — Earthworks 2</option>
-          <option value="EW3">EW3 — Earthworks 3</option>
-          <option value="EW4">EW4 — Earthworks 4</option>
-          <option value="EW5">EW5 — Earthworks 5</option>
-        </select>
-      </div>
-      <div class="frow mobile-tool-btn-row" id="tool-filter-row"><button class="tool-modal-open-btn" onclick="openToolModal()">🎯 Filter by Tool</button></div>
       <div class="rsel">
         <select id="region-select" onchange="loadRegion(this.value)">
-          <option value="all" selected>— All regions —</option>
+          <option value="all" selected>&mdash; All regions &mdash;</option>
           <option value="london">London</option>
           <option value="southeast">South East</option>
           <option value="southwest">South West</option>
@@ -501,6 +195,8 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
         <div class="detail-body" id="d-body"></div>
       </div>
     </div>
+
+    <!-- Groups tab -->
     <div class="panel" id="tab-groups">
       <div class="gtype-row">
         <button class="gtype-btn school on" id="gtype-school" onclick="toggleGroupType('school',this)"><span class="chip-dot" style="background:var(--blue);display:inline-block;margin-right:4px"></span>Schools</button>
@@ -509,8 +205,9 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <div class="mobile-inner-stats" id="groups-mob-stats" style="display:none"></div>
       <div class="srow"><input class="sinput" type="text" placeholder="Search districts..." id="group-search" oninput="renderDistrictList()" autocomplete="off"></div>
       <div class="district-list" id="district-list"><div class="empty">Loading districts...</div></div>
-      <!-- district-detail moved to body level -->
     </div>
+
+    <!-- Log tab -->
     <div class="panel" id="tab-log">
       <div class="log-filter">
         <label>From</label><input type="date" class="log-date-input" id="log-from" onchange="renderLog()">
@@ -522,8 +219,12 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       <div id="log-list" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0"></div>
     </div>
   </div>
+
   <div class="mwrap">
-    <div id="map"></div><button id="home-btn" class="map-home-btn" onclick="goHome()" title="Home"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 13L12 3l11 10"/><path d="M5 10v9a1 1 0 001 1h4v-4h4v4h4a1 1 0 001-1v-9"/></svg></button>
+    <div id="map"></div>
+    <button id="home-btn" class="map-home-btn" onclick="goHome()" title="Home">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 13L12 3l11 10"/><path d="M5 10v9a1 1 0 001 1h4v-4h4v4h4a1 1 0 001-1v-9"/></svg>
+    </button>
     <div class="mload" id="mload">
       <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;margin-bottom:8px">
         <img src="Earthkeeper-circular.png" alt="Earthkeeper" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" onerror="this.style.display='none'">
@@ -554,10 +255,11 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
       </div>
     </div>
     <button class="locate-btn" id="locate-btn" onclick="locateMe()"><span>&#x1F4CD;</span>Find Me</button>
-
   </div>
 </div>
 </div>
+
+<!-- Mobile detail sheet (outside sidebar) -->
 <div id="mobile-detail">
   <div class="detail-head">
     <div class="detail-head-left">
@@ -575,1279 +277,47 @@ header{background:var(--forest-m);padding:0 24px;display:flex;align-items:center
   </div>
   <div class="detail-body" id="md-body"></div>
 </div>
-<div class="saving" id="saving" style="opacity:0"></div>
-<script>
-const GITHUB_TOKEN='ghp_KcWJhRHBiDNttiIcY5N'+'XE23u4hbGqL3coy1n'
-const PASSWORD_HASH='74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
-const REPO_OWNER='Londrovski',REPO_NAME='earthkeeper',DATA_BRANCH='main'
-const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
-const RAW_BASE=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data`
 
-const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland','northernireland']
-const TYPE_COLORS={hospital:'#E07050',school:'#5B9BD5',hospice:'#3DBFA8',prison:'#C4722A',university:'#9B78C8',gp:'#4A9B6F'}
-const TOOL_COLORS={omega:'#9B5ED4',jewel:'#E07050',mg:'#4A85C9'}
-const GOLD='#C9A84C'
-function typeColor(t){return TYPE_COLORS[t]||'#9B78C8'}
-function toolColor(t){return TOOL_COLORS[t]||GOLD}
-const TOOLS=['MS','MF','O','J','MG','AP','MI','MJ','DM']
-const TOOL_NAMES={MS:'MS',MF:'MF',O:'O',J:'J',MG:'MG',AP:'AP',MI:'MI',MJ:'MJ',DM:'DM'}
-const TOOL_NAMES_FULL={MS:'Magical Structures (MS)',MF:'Multifrequency (MF)',O:'Omega (O)',J:'Jewel (J)',MG:"Merlin's Grace (MG)",AP:'Universal AP (AP)',MI:'Manifesting Intention (MI)',MJ:'Magical Jewel (MJ)',DM:'Divine Magic (DM)'}
-const EW_LEVELS=['EW1','EW2','EW3','EW4','EW5']
-const TOOL_ORDER=['MS','MF','O','J','MG','AP','MI','MJ','DM']
-function toolLevel(t){const i=TOOL_ORDER.indexOf(t);return i<0?-1:i}
-function higherTool(a,b){return toolLevel(a)>=toolLevel(b)?a:b}
-
-let locations=[],progress={},progressSha=null,groupProgress={},groupProgressSha=null,selectedId=null,map,mapReady=false
-let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false}
-let schoolsGpsLoaded=false
-let showFilter='all',logSavedPlaces=null,logSavedFilter=null,currentTool='MG',currentUser=null,locationMarker=null,userHasEarthworks=false,currentEW=null
-let selectedDistrictCode=null,districts=[],districtMap={}
-let groupTypes=new Set(['school','gp'])
-const GH_HEADERS={Authorization:`token ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json'}
-
-let saveQueued=false
-function queueSave(){saveQueued=true}
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveQueued){saveProgress();saveQueued=false}})
-window.addEventListener('pagehide',()=>{if(saveQueued)saveProgress()})
-
-async function doLogin(){
-  const name=document.getElementById('login-name').value.trim(),pw=document.getElementById('login-pw').value,err=document.getElementById('login-err')
-  if(!name){err.textContent='Please enter your name';return}
-  if(!pw){err.textContent='Please enter the password';return}
-  const tool=document.getElementById('login-tool').value
-  if(!tool){err.textContent='Please select your default clearing tool';return}
-  err.textContent='Checking...'
-  const hash=await sha256(pw)
-  if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';document.getElementById('login-pw').value='';return}
-  currentUser=name
-  currentTool=tool
-  userHasEarthworks=document.getElementById('login-ew').checked
-  currentEW=null
-  localStorage.setItem('ek_user',name)
-  localStorage.setItem('ek_tool',tool)
-  localStorage.setItem('ek_ew',userHasEarthworks?'1':'0')
-  document.getElementById('login-screen').style.display='none'
-  document.getElementById('app').style.display='flex'
-  document.getElementById('h-username').textContent=name
-  err.textContent='';bootApp()
-}
-async function sha256(str){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')}
-function logout(){localStorage.removeItem('ek_user');currentUser=null;document.getElementById('login-name').value='';document.getElementById('login-pw').value='';document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none'}
-
-function isMobile(){return window.innerWidth<=700}
-function updateLocateBtnPosition(){
-  if(!isMobile())return
-  const btn=document.getElementById('locate-btn'),panel=document.getElementById('mobile-detail')
-  const panelH=panel.classList.contains('on')?(panel.offsetHeight||0):0
-  btn.style.bottom=(11+panelH+(panelH>0?10:0))+'px'
-}
-function gmapsUrl(loc){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.name+(loc.address?', '+loc.address:''))}`}
-
-function effectiveTool(loc){
-  const ind=progress[loc.id]
-  const grp=groupProgress[(loc.districtCode||'')+':'+loc.type]
-  if(!ind&&!grp)return null
-  if(ind&&!grp)return ind.tool
-  if(!ind&&grp)return grp.tool
-  return higherTool(ind.tool,grp.tool)
-}
-function isEffectivelyCleared(loc){
-  return !!(progress[loc.id]||groupProgress[(loc.districtCode||'')+':'+loc.type])
-}
-
-function initMap(){
-  map=new maplibregl.Map({
-    container:'map',
-    style:{version:8,sources:{carto:{type:'raster',
-      tiles:['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-             'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-             'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
-      tileSize:256,attribution:'(c) OpenStreetMap contributors (c) CARTO'}},
-      layers:[{id:'carto-tiles',type:'raster',source:'carto'}]},
-    center:[-1.5,53.5],zoom:5.5,attributionControl:false
-  })
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left')
-  map.on('load',()=>{
-    mapReady=true
-    // If districts already fetched before map was ready, push now
-    if(districts.length&&map.getSource('districts-src')){
-      const fc={type:'FeatureCollection',features:districts}
-      map.getSource('districts-src').setData(fc)
-      updateDistrictStates()
-    }
-    map.addSource('locations',{type:'geojson',data:emptyFC()})
-    map.addSource('locations-cleared',{type:'geojson',data:emptyFC()})
-    map.addSource('selected',{type:'geojson',data:emptyFC()})
-    map.addSource('districts-src',{type:'geojson',data:emptyFC()})
-    map.addSource('district-locs-src',{type:'geojson',data:emptyFC()})
-    map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
-      'fill-color':['case',['==',['feature-state','cleared'],2],'rgba(201,168,76,0.18)',['==',['feature-state','cleared'],1],'rgba(201,168,76,0.09)','rgba(255,255,255,0.01)']
-    }})
-    map.addLayer({id:'district-glow',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':GOLD,
-      'line-width':['case',['==',['feature-state','cleared'],2],8,['==',['feature-state','cleared'],1],4,0],
-      'line-blur':6,
-      'line-opacity':['case',['==',['feature-state','cleared'],2],0.6,['==',['feature-state','cleared'],1],0.3,0]
-    }})
-    map.addLayer({id:'district-line',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':['case',['>=',['coalesce',['feature-state','cleared'],0],1],GOLD,'rgba(201,168,76,0.25)'],
-      'line-width':['case',['>=',['coalesce',['feature-state','cleared'],0],1],1.5,0.6]
-    }})
-    map.addLayer({id:'district-selected',type:'line',source:'districts-src',layout:{visibility:'none'},paint:{
-      'line-color':'rgba(255,255,255,0.75)',
-      'line-width':['case',['boolean',['feature-state','selected'],false],2.5,0]
-    }})
-    map.addLayer({id:'district-locs',type:'circle',source:'district-locs-src',layout:{visibility:'none'},paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],7,4,10,7,13,10],
-      'circle-color':['case',['==',['get','type'],'school'],'#5B9BD5','#4A9B6F'],
-      'circle-opacity':0.9,'circle-stroke-width':1.5,'circle-stroke-color':'rgba(255,255,255,0.35)','circle-pitch-alignment':'map'
-    }})
-    map.addLayer({id:'district-locs-cleared',type:'circle',source:'district-locs-src',filter:['==',['get','cleared'],true],layout:{visibility:'none'},paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],7,5,10,8,13,11],
-      'circle-color':GOLD,'circle-opacity':1,'circle-stroke-width':2,
-      'circle-stroke-color':['case',['==',['get','tool'],'omega'],'#9B5ED4',['==',['get','tool'],'jewel'],'#E07050',['==',['get','tool'],'mg'],'#4A85C9','rgba(255,255,255,0.5)'],
-      'circle-pitch-alignment':'map'
-    }})
-    ;['district-locs','district-locs-cleared'].forEach(lyr=>{
-      map.on('click',lyr,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
-      map.on('mouseenter',lyr,()=>{map.getCanvas().style.cursor='pointer'})
-      map.on('mouseleave',lyr,()=>{map.getCanvas().style.cursor=''})
-    })
-    map.on('click','district-fill',e=>{if(e.features.length)selectDistrict(e.features[0].properties.code)})
-    map.on('mouseenter','district-fill',()=>{map.getCanvas().style.cursor='pointer'})
-    map.on('mouseleave','district-fill',()=>{map.getCanvas().style.cursor=''})
-    map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',
-      filter:['==',['get','cleared'],false],
-      paint:{
-        'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?3:4,9,isMobile()?5:7,13,isMobile()?7:9],
-        'circle-color':['case',
-          ['==',['get','type'],'hospital'],'#E07050',
-          ['==',['get','type'],'school'],'#5B9BD5',
-          ['==',['get','type'],'hospice'],'#3DBFA8',
-          ['==',['get','type'],'prison'],'#C4722A',
-          ['==',['get','type'],'gp'],'#4A9B6F',
-          '#9B78C8'],
-        'circle-opacity':0.55,'circle-stroke-width':1,'circle-stroke-color':'rgba(255,255,255,0.2)','circle-pitch-alignment':'map'
-      }
-    })
-    map.addLayer({id:'cleared-glow',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,9,9,14,13,20],
-      'circle-color':GOLD,'circle-opacity':0.12,'circle-blur':0.7,'circle-pitch-alignment':'map'
-    }})
-    map.addLayer({id:'dots-cleared',type:'circle',source:'locations-cleared',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?5:6,9,isMobile()?8:10,13,isMobile()?10:13],
-      'circle-color':GOLD,'circle-opacity':1,'circle-stroke-width':2,
-      'circle-stroke-color':['case',
-        ['==',['get','tool'],'omega'],'#9B5ED4',
-        ['==',['get','tool'],'jewel'],'#E07050',
-        ['==',['get','tool'],'mg'],'#4A85C9',
-        'rgba(255,255,255,0.6)'],
-      'circle-pitch-alignment':'map'
-    }})
-    map.addLayer({id:'selected-ring',type:'circle',source:'selected',paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],5,11,9,16,13,22],
-      'circle-color':'transparent','circle-stroke-width':2.5,
-      'circle-stroke-color':'rgba(255,255,255,0.85)','circle-opacity':0,'circle-stroke-opacity':1,'circle-pitch-alignment':'map'
-    }})
-    const clickLayers=['dots-cleared','dots-uncleared']
-    clickLayers.forEach(l=>{
-      map.on('click',l,e=>{if(e.features.length)selectLoc(e.features[0].properties.id)})
-      map.on('mouseenter',l,()=>{map.getCanvas().style.cursor='pointer'})
-      map.on('mouseleave',l,()=>{map.getCanvas().style.cursor=''})
-    })
-    map.on('click',e=>{
-      const inGroups=document.getElementById('tab-groups').classList.contains('on')
-      const layers=[...clickLayers,...(inGroups?['district-fill','district-locs','district-locs-cleared']:[] )]
-      if(!map.queryRenderedFeatures(e.point,{layers}).length){
-        setSelectedId(null);closeDetail();closeMobileDetail()
-        // On groups tab, clicking sea deselects district
-        if(inGroups&&selectedDistrictCode){goHome()}
-      }
-    })
-    refreshMapData()
-  })
-}
-
-function emptyFC(){return{type:'FeatureCollection',features:[]}}
-function locToFeature(loc){
-  const tool=effectiveTool(loc),cleared=isEffectivelyCleared(loc)
-  return{type:'Feature',geometry:{type:'Point',coordinates:[loc.lng,loc.lat]},properties:{id:loc.id,type:loc.type,cleared,tool:tool||null}}
-}
-let _lastVisibleCount=-1,_lastClearedCount=-1
-function refreshMapData(){
-  if(!mapReady)return
-  const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
-  const cleared=visible.filter(l=>isEffectivelyCleared(l))
-  const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
-  map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
-  map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})
-  map.getSource('selected').setData({type:'FeatureCollection',features:sel.map(locToFeature)})
-  _lastVisibleCount=visible.length;_lastClearedCount=cleared.length
-}
-function setSelectedId(id){selectedId=id;refreshMapData()}
-
-function locVisible(loc){
-  const multiFilter=showFilter==='tool-multi'
-  const toolOrEwFilter=multiFilter||TOOLS.includes(showFilter)||EW_LEVELS.includes(showFilter)
-  if(!toolOrEwFilter&&!placesFilter[loc.type])return false
-  if(showFilter==='all')return true
-  if(showFilter==='cleared')return isEffectivelyCleared(loc)
-  if(multiFilter){
-    const etool=effectiveTool(loc)
-    const p=progress[loc.id]
-    for(const t of activeTools){
-      if(TOOLS.includes(t)&&etool===t)return true
-      if(EW_LEVELS.includes(t)&&p&&p.ew===t)return true
-    }
-    return false
-  }
-  const etool=effectiveTool(loc)
-  if(TOOLS.includes(showFilter))return etool===showFilter
-  if(EW_LEVELS.includes(showFilter)){
-    const p=progress[loc.id];return !!(p&&p.ew===showFilter)
-  }
-  return true
-}
-
-function getVisibleMapBounds(){
-  if(!isMobile())return{bottomOffset:0}
-  for(const id of['mobile-detail','district-detail']){
-    const el=document.getElementById(id)
-    if(el&&el.classList.contains('on')){
-      const h=el.getBoundingClientRect().height||200
-      return{bottomOffset:Math.min(h,window.innerHeight*0.6)}
-    }
-  }
-  return{bottomOffset:0}
-}
-function panToVisible(lat,lng,zoom){
-  if(!map)return
-  const{bottomOffset}=getVisibleMapBounds()
-  const yOff=isMobile()?Math.round(bottomOffset/2):0
-  if(zoom){map.flyTo({center:[lng,lat],zoom,offset:[0,yOff],duration:600});return}
-  map.easeTo({center:[lng,lat],offset:[0,yOff],duration:400})
-}
-function fitBounds(locs,padding){
-  const pts=locs.filter(l=>l.lat&&l.lng);if(!pts.length)return
-  const lngs=pts.map(l=>l.lng),lats=pts.map(l=>l.lat)
-  const pad=padding||{top:100,bottom:100,left:100,right:100}
-  map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:pad,maxZoom:10,duration:800})
-}
-
-function locateMe(){
-  if(!navigator.geolocation){alert('Geolocation not supported');return}
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const{latitude:lat,longitude:lng}=pos.coords
-    if(locationMarker)locationMarker.remove()
-    const el=document.createElement('div')
-    el.style.cssText='width:14px;height:14px;border-radius:50%;background:#C9A84C;border:2.5px solid #0F2818;box-shadow:0 0 0 3px rgba(201,168,76,.35)'
-    locationMarker=new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map)
-    panToVisible(lat,lng,11)
-  },err=>{alert(err.code===1?'Location permission denied':'Could not get location')},{enableHighAccuracy:true,timeout:10000})
-}
-
-async function ghGet(path){
-  const res=await fetch(RAW_BASE+'/'+path)
-  if(!res.ok)throw new Error('Fetch '+res.status)
-  return await res.json()
-}
-async function ghGetOptional(path){try{return await ghGet(path)}catch(e){return[]}}
-
-async function fetchRegion(region,includeSchoolsGps){
-  const base=[
-    ghGetOptional('hospitals-'+region+'.json'),
-    ghGetOptional('universities-'+region+'.json'),
-    ghGetOptional('hospices-'+region+'.json'),
-    ghGetOptional('prisons-'+region+'.json')
-  ]
-  const extra=includeSchoolsGps?[
-    ghGetOptional('schools-'+region+'.json'),
-    ghGetOptional('gps-'+region+'.json')
-  ]:[Promise.resolve([]),Promise.resolve([])]
-  const[hospitals,universities,hospices,prisons,schools,gps]=await Promise.all([...base,...extra])
-  return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
-}
-
-async function loadAll(){
-  closeMobileDetail();closeDetail();setSelectedId(null)
-  setMsg('Loading all regions...');document.getElementById('mload').style.display='flex'
-  try{
-    const batchSize=3,results=[]
-    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batchResults=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,false)))
-      results.push(...batchResults)
-    }
-    locations=results.flat()
-    if(!placesFilter.hospital)placesFilter.hospital=true
-    if(!placesFilter.hospice)placesFilter.hospice=true
-    if(!placesFilter.university)placesFilter.university=true
-    if(!placesFilter.prison)placesFilter.prison=true
-    hideLoader();refreshMapData();renderList();updateStats()
-    fitBounds(locations.filter(l=>placesFilter[l.type]))
-  }catch(e){setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()}
-}
-
-async function loadRegion(value){
-  if(value==='all'){await loadAll();return}
-  closeMobileDetail();closeDetail();setSelectedId(null)
-  setMsg('Loading '+value+'...');document.getElementById('mload').style.display='flex'
-  try{
-    locations=await fetchRegion(value,false)
-    hideLoader();refreshMapData();renderList();updateStats()
-    if(locations.filter(l=>l.lat&&l.lng).length)fitBounds(locations)
-    else{setMsg('No data for "'+value+'" yet');setTimeout(hideLoader,3000)}
-  }catch(e){setMsg('Error loading '+value);setTimeout(hideLoader,3000);locations=[];renderList()}
-}
-
-async function loadProgress(){
-  try{
-    const res=await fetch(RAW_BASE+'/progress.json?t='+Date.now())
-    if(res.ok)progress=await res.json()
-    const sha=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
-    if(sha.ok){const m=await sha.json();progressSha=m.sha}
-  }catch(e){progress={}}
-}
-async function loadGroupProgress(){
-  try{
-    const res=await fetch(RAW_BASE+'/group-progress.json?t='+Date.now())
-    if(res.ok)groupProgress=await res.json()
-    const sha=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
-    if(sha.ok){const m=await sha.json();groupProgressSha=m.sha}
-  }catch(e){groupProgress={}}
-}
-async function saveProgress(){
-  showSaving('Saving...')
-  try{
-    const shaRes=await fetch(API_BASE+'/progress.json',{headers:GH_HEADERS})
-    if(shaRes.ok){const m=await shaRes.json();progressSha=m.sha}
-    const body={message:(currentUser||'user')+' - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(progress,null,2)))),branch:DATA_BRANCH}
-    if(progressSha)body.sha=progressSha
-    const res=await fetch(API_BASE+'/progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
-    if(res.ok){progressSha=(await res.json()).content.sha;showSaving('Saved')}
-    else{res.text().then(function(txt){showSaving('ERR '+res.status+': '+txt.slice(0,100));console.error('save fail',res.status,txt)})}
-  }catch(e){showSaving('Error saving')}
-  setTimeout(()=>document.getElementById('saving').style.opacity='0',10000)
-}
-async function saveGroupProgress(){
-  showSaving('Saving...')
-  try{
-    const shaRes=await fetch(API_BASE+'/group-progress.json',{headers:GH_HEADERS})
-    if(shaRes.ok){const m=await shaRes.json();groupProgressSha=m.sha}
-    const body={message:(currentUser||'user')+' groups - '+new Date().toISOString().slice(0,10),content:btoa(unescape(encodeURIComponent(JSON.stringify(groupProgress,null,2)))),branch:DATA_BRANCH}
-    if(groupProgressSha)body.sha=groupProgressSha
-    const res=await fetch(API_BASE+'/group-progress.json',{method:'PUT',headers:{...GH_HEADERS,'Content-Type':'application/json'},body:JSON.stringify(body)})
-    if(res.ok){groupProgressSha=(await res.json()).content.sha;showSaving('Saved')}
-    else{const e=await res.json();showSaving('Save failed: '+e.message)}
-  }catch(e){showSaving('Error saving')}
-  setTimeout(()=>document.getElementById('saving').style.opacity='0',2500)
-}
-function showSaving(msg){const e=document.getElementById('saving');e.textContent=msg;e.style.opacity='1'}
-
-async function loadDistricts(){
-  try{
-    const res=await fetch(RAW_BASE+'/districts.geojson')
-    if(!res.ok){console.warn('Districts fetch failed',res.status);return}
-    const geojson=await res.json()
-    geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
-    districts=geojson.features
-    function pushDistrictData(attempts){
-      if(mapReady&&map.getSource('districts-src')){
-        map.getSource('districts-src').setData(geojson)
-        buildDistrictMap();renderDistrictList();updateDistrictStates()
-      } else if(attempts>0){
-        setTimeout(function(){pushDistrictData(attempts-1)},300)
-      }
-    }
-    pushDistrictData(8)
-  }catch(e){console.warn('Districts load failed',e)}
-}
-
-function buildDistrictMap(){
-  districtMap={}
-  districts.forEach(f=>{districtMap[f.properties.code]={name:f.properties.name,code:f.properties.code,fid:f.id,schools:[],gps:[]}})
-  locations.forEach(loc=>{
-    if(!loc.districtCode||!districtMap[loc.districtCode])return
-    if(loc.type==='school')districtMap[loc.districtCode].schools.push(loc)
-    if(loc.type==='gp')districtMap[loc.districtCode].gps.push(loc)
-  })
-}
-
-function updateDistrictStates(){
-  if(!mapReady||!districts.length||!map.getSource('districts-src'))return
-  districts.forEach(f=>{
-    const code=f.properties.code
-    const hasSchools=districtMap[code]&&districtMap[code].schools.length>0
-    const hasGps=districtMap[code]&&districtMap[code].gps.length>0
-    const hasAny=hasSchools||hasGps
-    if(!hasAny){const cleared=0;try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){};return}
-    const schoolDone=!hasSchools||!!groupProgress[code+':school']
-    const gpDone=!hasGps||!!groupProgress[code+':gp']
-    const cleared=schoolDone&&gpDone?2:(!!groupProgress[code+':school']||!!groupProgress[code+':gp'])?1:0
-    const selected=code===selectedDistrictCode
-    try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
-  })
-}
-
-function toggleGroupType(type,el){
-  if(groupTypes.has(type)){if(groupTypes.size>1)groupTypes.delete(type)}
-  else{groupTypes.add(type)}
-  el.classList.toggle('on',groupTypes.has(type))
-  renderDistrictList();updateDistrictStates()
-  // If a district is selected, refresh its dots and panel to match
-  if(selectedDistrictCode){
-    selectDistrict(selectedDistrictCode)
-    renderDistrictDetail(selectedDistrictCode)
-  }
-}
-
-function renderDistrictList(){
-  const el=document.getElementById('district-list')
-  const hasQuery=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').trim().length>0
-  if(isMobile()&&el)el.style.display=hasQuery?'':'none'
-  const q=(document.getElementById('group-search')&&document.getElementById('group-search').value||'').toLowerCase().trim()
-  let entries=Object.values(districtMap).filter(d=>d.name&&(!q||d.name.toLowerCase().includes(q)))
-  if(isMobile()&&el)el.style.display=entries.length&&hasQuery?'':'none'
-  if(!entries.length){el.innerHTML='<div class="empty">'+(Object.keys(districtMap).length?'No matches':'Loading...')+'</div>';return}
-  entries.sort((a,b)=>a.name.localeCompare(b.name))
-  el.innerHTML=entries.map(d=>{
-    const isSel=d.code===selectedDistrictCode
-    let bars=''
-    if(groupTypes.has('school')&&d.schools.length){
-      const grp=groupProgress[d.code+':school'],tot=d.schools.length
-      const eff=grp?tot:d.schools.filter(l=>progress[l.id]).length
-      bars+='<div style="margin-bottom:3px"><div class="ditem-bar-label"><span style="color:var(--blue)">Schools</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--blue);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
-    }
-    if(groupTypes.has('gp')&&d.gps.length){
-      const grp=groupProgress[d.code+':gp'],tot=d.gps.length
-      const eff=grp?tot:d.gps.filter(l=>progress[l.id]).length
-      bars+='<div><div class="ditem-bar-label"><span style="color:var(--green)">GPs</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--green);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
-    }
-    if(!bars)return ''
-    const sg=groupProgress[d.code+':school'],gg=groupProgress[d.code+':gp']
-    const badges=(sg?'<span class="dbadge" style="color:'+toolColor(sg.tool)+';border-color:'+toolColor(sg.tool)+'66;background:'+toolColor(sg.tool)+'14;margin-left:4px">S:'+TOOL_NAMES[sg.tool]+'</span>':'')+
-      (gg?'<span class="dbadge" style="color:'+toolColor(gg.tool)+';border-color:'+toolColor(gg.tool)+'66;background:'+toolColor(gg.tool)+'14;margin-left:4px">GP:'+TOOL_NAMES[gg.tool]+'</span>':'')
-    return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)"><div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+bars+'</div>'
-  }).filter(Boolean).join('')
-}
-
-function selectDistrict(code){
-  selectedDistrictCode=code
-  renderDistrictList();updateDistrictStates();updateDistrictStats(code)
-  const d=districtMap[code];if(!d)return
-  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
-  const{bottomOffset}=getVisibleMapBounds()
-  const fitPad=isMobile()?{top:60,bottom:bottomOffset+80,left:40,right:40}:null
-  if(allLocs.length){
-    fitBounds(allLocs,fitPad)
-  } else {
-    // No locations loaded yet — zoom to district boundary from geojson
-    const feat=districts.find(f=>f.properties.code===code)
-    if(feat&&mapReady){
-      try{
-        const coords=feat.geometry.type==='Polygon'?feat.geometry.coordinates[0]:feat.geometry.coordinates.flat()
-        const lngs=coords.map(p=>p[0]),lats=coords.map(p=>p[1])
-        const pad=fitPad||{top:80,bottom:80,left:60,right:60}
-        map.fitBounds([[Math.min(...lngs),Math.min(...lats)],[Math.max(...lngs),Math.max(...lats)]],{padding:pad,maxZoom:11,duration:800})
-      }catch(e){}
-    }
-  }
-  if(mapReady&&map.getSource('district-locs-src')){
-    map.getSource('district-locs-src').setData({type:'FeatureCollection',features:allLocs.filter(l=>l.lat&&l.lng).map(l=>{
-      const p=progress[l.id],grpC=groupProgress[code+':'+l.type]
-      const cleared=!!(p||grpC),tool=p?p.tool:(grpC?grpC.tool:null)
-      return{type:'Feature',geometry:{type:'Point',coordinates:[l.lng,l.lat]},properties:{id:l.id,type:l.type,cleared,tool}}
-    })})
-    ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','visible')})
-  }
-  renderDistrictDetail(code)
-}
-
-function renderDistrictDetail(code){
-  const d=districtMap[code];if(!d)return
-  document.getElementById('dd-type').textContent=''
-  document.getElementById('dd-name').textContent=d.name
-  const body=document.getElementById('dd-body');body.innerHTML=''
-  updateDistrictStats(code)
-  const activeTypes=[...groupTypes].filter(t=>(t==='school'?d.schools:d.gps).length>0)
-  if(!activeTypes.length){
-    const msg=document.createElement('div');msg.className='empty'
-    msg.textContent='No data yet — schools/GPs still loading';body.appendChild(msg)
-  }
-  activeTypes.forEach(function(gtype){
-    const locs=gtype==='school'?d.schools:d.gps
-    const total=locs.length
-    const indCleared=locs.filter(function(l){return progress[l.id]}).length
-    const grp=groupProgress[code+':'+gtype]
-    const typeCol=gtype==='school'?'var(--blue)':'var(--green)'
-    const typeShort=gtype==='school'?'Schools':'GPs'
-    const dot='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+typeCol+';margin-right:6px;flex-shrink:0"></span>'
-
-    // ── Outer section ──────────────────────────────────────────
-    const section=document.createElement('div')
-    section.style.cssText='border-top:1px solid var(--bd);padding:8px 0'
-
-    if(grp){
-      // ── CLEARED STATE: one compact row ────────────────────────
-      const dt=new Date(grp.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})
-      const col=toolColor(grp.tool)
-      const row=document.createElement('div')
-      row.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap'
-      // label + tool badge
-      const label=document.createElement('div')
-      label.style.cssText='display:flex;align-items:center;flex:1;min-width:0;font-size:13px'
-      label.innerHTML=dot+'<strong style="color:'+typeCol+'">'+typeShort+'</strong>'
-        +'<span style="margin:0 6px;color:var(--soft);font-size:11px">·</span>'
-        +'<span style="color:'+col+';font-size:11px;background:'+col+'15;border:1px solid '+col+'40;border-radius:10px;padding:1px 7px">'+(grp.tool)+'</span>'
-        +'<span style="color:var(--soft);font-size:11px;margin-left:6px">'+dt+'</span>'
-      // remove button
-      const rmBtn=document.createElement('button')
-      rmBtn.style.cssText='background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:rgba(255,120,120,.9);border-radius:10px;padding:3px 10px;font-size:11px;cursor:pointer;white-space:nowrap;flex-shrink:0'
-      rmBtn.textContent='Remove'
-      rmBtn.onclick=(function(g){return function(){unmarkGroupCleared(code,g)}})(gtype)
-      row.appendChild(label);row.appendChild(rmBtn)
-      section.appendChild(row)
-    }else{
-      // ── UNCLEARED STATE: compact action row ───────────────────
-      const row=document.createElement('div')
-      row.style.cssText='display:flex;align-items:center;gap:8px'
-      // left: type label + count
-      const label=document.createElement('div')
-      label.style.cssText='display:flex;align-items:center;flex:1;font-size:13px'
-      label.innerHTML=dot+'<strong style="color:'+typeCol+'">'+typeShort+'</strong>'
-        +'<span style="color:var(--soft);font-size:11px;margin-left:6px">'+indCleared+'/'+total+'</span>'
-      // right: Clear button (shows current tool, tap to expand dropdown)
-      const clearBtn=document.createElement('button')
-      clearBtn.style.cssText='background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);color:#C9A84C;border-radius:10px;padding:4px 10px;font-size:11px;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px'
-      clearBtn.innerHTML='Clear <span style="color:rgba(201,168,76,.6);font-size:10px">('+currentTool+')</span> <span style="font-size:9px">▾</span>'
-      row.appendChild(label);row.appendChild(clearBtn)
-      section.appendChild(row)
-      // ── Dropdown row (hidden until Clear tapped) ──────────────
-      const dropRow=document.createElement('div')
-      dropRow.style.cssText='display:none;margin-top:6px;display:none'
-      const gDrop=document.createElement('select')
-      gDrop.style.cssText='flex:1;padding:6px 8px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:13px;color-scheme:dark;background:#0a1c11'
-      TOOLS.forEach(function(t){
-        const o=document.createElement('option');o.value=t
-        o.textContent=t+' — '+(TOOL_NAMES_FULL[t]||t)
-        if(t===currentTool)o.selected=true;gDrop.appendChild(o)
-      })
-      const confirmBtn=document.createElement('button')
-      confirmBtn.style.cssText='background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.5);color:#C9A84C;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:6px'
-      confirmBtn.textContent='✓ Confirm'
-      const dropInner=document.createElement('div')
-      dropInner.style.cssText='display:flex;align-items:center;gap:6px;padding:4px 0'
-      dropInner.appendChild(gDrop);dropInner.appendChild(confirmBtn)
-      dropRow.appendChild(dropInner)
-      section.appendChild(dropRow)
-      // toggle dropdown
-      let dropOpen=false
-      clearBtn.onclick=function(){
-        dropOpen=!dropOpen
-        dropRow.style.display=dropOpen?'block':'none'
-      }
-      confirmBtn.onclick=(function(gt){return function(){
-        markGroupCleared(code,gt,gDrop.value)
-      }})(gtype)
-    }
-
-    // ── Expandable location list ───────────────────────────────
-    const listWrap=document.createElement('div');listWrap.style.marginTop='4px'
-    const arrowId='lt-arrow-'+gtype+'-'+code
-    const listToggle=document.createElement('button')
-    listToggle.style.cssText='width:100%;text-align:left;background:none;border:none;border-top:1px solid rgba(201,168,76,.08);padding:5px 0 2px;font-family:Jost,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);cursor:pointer;display:flex;justify-content:space-between;align-items:center'
-    listToggle.innerHTML='<span>View list ('+total+')</span><span id="'+arrowId+'">+</span>'
-    const listContainer=document.createElement('div')
-    listContainer.style.cssText='display:none;max-height:180px;overflow-y:auto'
-    let listOpen=false
-    listToggle.onclick=function(){
-      listOpen=!listOpen
-      const arr=document.getElementById(arrowId);if(arr)arr.textContent=listOpen?'-':'+'
-      if(listOpen&&!listContainer.children.length){
-        locs.slice().sort(function(a,b){return a.name.localeCompare(b.name)}).forEach(function(loc){
-          const p=progress[loc.id],grpC=!!groupProgress[code+':'+gtype]
-          const isCleared=!!(p||grpC)
-          const row2=document.createElement('div')
-          row2.style.cssText='padding:4px 2px;border-bottom:1px solid rgba(201,168,76,.06);display:flex;align-items:center;gap:6px;cursor:pointer'
-          row2.onclick=function(){switchTab('locs',document.getElementById('tab-btn-locs'));setTimeout(function(){selectLoc(loc.id)},150)}
-          const dot2=document.createElement('div')
-          dot2.style.cssText='width:6px;height:6px;border-radius:50%;flex-shrink:0;background:'+(isCleared?GOLD:typeColor(loc.type))
-          const nm=document.createElement('div')
-          nm.style.cssText='font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:'+(isCleared?'var(--gold)':'var(--ink)')+(isCleared?';opacity:.6':'')
-          nm.textContent=loc.name
-          row2.appendChild(dot2);row2.appendChild(nm);listContainer.appendChild(row2)
-        })
-      }
-      listContainer.style.display=listOpen?'block':'none'
-    }
-    listWrap.appendChild(listToggle);listWrap.appendChild(listContainer)
-    section.appendChild(listWrap)
-    body.appendChild(section)
-  })
-  document.getElementById('district-detail').classList.add('on')
-  if(isMobile()&&selectedDistrictCode){
-    setTimeout(function(){
-      const{bottomOffset}=getVisibleMapBounds()
-      const pad={top:60,bottom:bottomOffset+80,left:40,right:40}
-      const d2=districtMap[selectedDistrictCode]
-      const locs2=d2?[...(groupTypes.has('school')?d2.schools:[]),...(groupTypes.has('gp')?d2.gps:[])]:[]
-      if(locs2.length){fitBounds(locs2,pad)}
-      else{const feat=districts.find(f=>f.properties.code===selectedDistrictCode);if(feat&&mapReady){try{const co=feat.geometry.type==='Polygon'?feat.geometry.coordinates[0]:feat.geometry.coordinates.flat();map.fitBounds([[Math.min(...co.map(p=>p[0])),Math.min(...co.map(p=>p[1]))],[Math.max(...co.map(p=>p[0])),Math.max(...co.map(p=>p[1]))]],{padding:pad,maxZoom:11,duration:600})}catch(e){}}}
-    },300)
-  }
-}
-
-function closeDistrictDetail(){
-  document.getElementById('district-detail').classList.remove('on')
-  selectedDistrictCode=null;renderDistrictList();updateDistrictStates();updateDistrictStats(null)
-  if(mapReady)['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
-}
-function selectGroupTool(tool,gtype){
-  currentTool=tool
-  TOOLS.forEach(function(t){var b=document.getElementById('gtbtn-'+gtype+'-'+t);if(b)b.classList.toggle('sel',t===tool)})
-  var btn=document.getElementById('btn-group-mark-'+gtype)
-  if(btn&&selectedDistrictCode&&districtMap[selectedDistrictCode]){
-    var sgt_label=gtype==='school'?'Schools':'GPs'
-    btn.textContent='Clear all '+sgt_label+' in '+districtMap[selectedDistrictCode].name+' - '+TOOL_NAMES[tool]
-  }
-}
-async function markGroupCleared(code,gtype,tool){
-  const gt=gtype||[...groupTypes][0]
-  const d=districtMap[code]
-  const t=tool||currentTool
-  groupProgress[code+':'+gt]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
-  updateDistrictStates()
-  if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
-  await saveGroupProgress()
-}
-async function unmarkGroupCleared(code,gtype){
-  const gt=gtype||[...groupTypes][0]
-  delete groupProgress[code+':'+gt]
-  updateDistrictStates()
-  if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
-  await saveGroupProgress()
-}
-
-function renderList(){
-  const el=document.getElementById('llist'),q=document.getElementById('search').value.toLowerCase().trim()
-  el.classList.toggle('active',!!q)
-  if(!q){el.innerHTML='';return}
-  const vis=locations.filter(l=>{
-    if(!locVisible(l))return false
-    return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
-  })
-  if(!vis.length){el.innerHTML='<div class="empty">No matches for "'+q+'"</div>';return}
-  el.innerHTML=vis.map(l=>{
-    const p=progress[l.id],dotBg=p?GOLD:typeColor(l.type)
-    const dotBorder=p?'border:2px solid '+toolColor(p.tool):'border:2px solid transparent'
-    const badge=p?'<div class="lbadge" style="color:'+toolColor(p.tool)+';border-color:'+toolColor(p.tool)+'66;background:'+toolColor(p.tool)+'14">'+TOOL_NAMES[p.tool]+'</div>':''
-    return'<div class="litem '+(p?'done':'')+' '+(selectedId===l.id?'sel':'')+' " onclick="selectLoc(\'' + l.id + '\')"><div class="ldot" style="background:'+dotBg+';'+dotBorder+'"></div><div class="linfo"><div class="lname">'+l.name+'</div><div class="lmeta">'+l.type+' - '+(l.address||l.postcode||'')+'</div></div>'+badge+'</div>'
-  }).join('')
-}
-
-function selectLoc(id){
-  setSelectedId(id)
-  const loc=locations.find(l=>l.id===id);if(!loc)return
-  renderList()
-  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
-  if(isMobile()){
-    document.getElementById('search').value='';renderList();renderMobileDetail(loc)
-  }else{renderDetail(loc)}
-}
-
-function renderDetail(loc){
-  const p=progress[loc.id],cleared=!!p
-  const typeEl=document.getElementById('d-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
-  document.getElementById('d-name').textContent=loc.name
-  document.getElementById('d-addr').textContent=loc.address||loc.postcode||''
-  document.getElementById('d-gmaps').href=gmapsUrl(loc)
-  const body=document.getElementById('d-body')
-  if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
-    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkCleared(\'' + loc.id + '\')">Mark as not cleared</button>'
-  }else{
-    body.innerHTML=''
-    const defaultDiv=document.createElement('div');defaultDiv.style.cssText='margin-bottom:10px'
-    const defaultLbl=document.createElement('div');defaultLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';defaultLbl.textContent='Clearing tool'
-    const defaultTool=document.createElement('div');defaultTool.style.cssText='font-size:15px;color:var(--gold);font-weight:500';defaultTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
-    defaultDiv.appendChild(defaultLbl);defaultDiv.appendChild(defaultTool)
-    const changeLink=document.createElement('button');changeLink.className='btn-change-tool';changeLink.textContent='Use a different tool';changeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px'
-    const toolDropWrap=document.createElement('div');toolDropWrap.style.display='none'
-    const toolDrop=document.createElement('select');toolDrop.className='tool-override-select';toolDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
-    TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;toolDrop.appendChild(o)})
-    toolDropWrap.appendChild(toolDrop)
-    changeLink.onclick=function(){toolDropWrap.style.display=toolDropWrap.style.display==='none'?'block':'none'}
-    let ewSelect=null
-    if(userHasEarthworks){
-      const ewWrap=document.createElement('div');ewWrap.style.cssText='margin-bottom:10px'
-      const ewLbl=document.createElement('div');ewLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';ewLbl.textContent='Earthworks (optional)'
-      ewSelect=document.createElement('select');ewSelect.className='tool-ew-select';ewSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px;color:var(--gold)'
-      const noneOpt=document.createElement('option');noneOpt.value='';noneOpt.textContent='None';ewSelect.appendChild(noneOpt)
-      EW_LEVELS.forEach(function(ew){const o=document.createElement('option');o.value=ew;o.textContent=ew;ewSelect.appendChild(o)})
-      ewWrap.appendChild(ewLbl);ewWrap.appendChild(ewSelect);body.appendChild(ewWrap)
-    }
-    const markBtn=document.createElement('button');markBtn.className='btn-mark';markBtn.id='btn-mark-confirm'
-    markBtn.textContent='Mark cleared with '+( TOOL_NAMES_FULL[currentTool]||currentTool)
-    markBtn.onclick=function(){
-      const tool=toolDropWrap.style.display!=='none'?toolDrop.value:currentTool
-      const ew=ewSelect?ewSelect.value||null:null
-      markCleared(loc.id,tool,ew)
-    }
-    toolDrop.onchange=function(){markBtn.textContent='Mark cleared with '+(TOOL_NAMES_FULL[toolDrop.value]||toolDrop.value)+(ewSelect&&ewSelect.value?' + '+ewSelect.value:'')}
-    if(ewSelect)ewSelect.onchange=function(){markBtn.textContent='Mark cleared with '+(toolDropWrap.style.display!=='none'?TOOL_NAMES_FULL[toolDrop.value]||toolDrop.value:TOOL_NAMES_FULL[currentTool]||currentTool)+(ewSelect.value?' + '+ewSelect.value:'')}
-    body.appendChild(defaultDiv);body.appendChild(changeLink);body.appendChild(toolDropWrap);body.appendChild(markBtn)
-  }
-  document.getElementById('detail').classList.add('on')
-}
-function closeDetail(){
-  if(selectedId&&!isMobile())setSelectedId(null)
-  document.getElementById('detail').classList.remove('on');renderList()
-}
-function renderMobileDetail(loc){
-  const p=progress[loc.id],cleared=!!p
-  const typeEl=document.getElementById('md-type');typeEl.textContent=loc.type;typeEl.className='detail-type '+loc.type
-  document.getElementById('md-name').textContent=loc.name
-  document.getElementById('md-addr').textContent=loc.address||loc.postcode||''
-  document.getElementById('md-gmaps').href=gmapsUrl(loc)
-  const body=document.getElementById('md-body')
-  if(cleared){
-    const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),col=toolColor(p.tool),who=p.user?' - '+p.user:''
-    body.innerHTML='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div><button class="btn-unmark" onclick="unmarkClearedMobile(\'' + loc.id + '\')">Mark as not cleared</button>'
-  }else{
-    body.innerHTML=''
-    const mDefaultDiv=document.createElement('div');mDefaultDiv.style.cssText='margin-bottom:10px'
-    const mDefaultLbl=document.createElement('div');mDefaultLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';mDefaultLbl.textContent='Clearing tool'
-    const mDefaultTool=document.createElement('div');mDefaultTool.style.cssText='font-size:15px;color:var(--gold);font-weight:500';mDefaultTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
-    mDefaultDiv.appendChild(mDefaultLbl);mDefaultDiv.appendChild(mDefaultTool)
-    const mChangeLink=document.createElement('button');mChangeLink.className='btn-change-tool';mChangeLink.textContent='Use a different tool';mChangeLink.style.cssText='background:none;border:none;color:var(--soft);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px 0 10px'
-    const mToolDropWrap=document.createElement('div');mToolDropWrap.style.display='none'
-    const mToolDrop=document.createElement('select');mToolDrop.style.cssText='width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;color:var(--gold);font-size:14px;margin-bottom:8px'
-    TOOLS.forEach(function(t){const o=document.createElement('option');o.value=t;o.textContent=TOOL_NAMES_FULL[t]||t;if(t===currentTool)o.selected=true;mToolDrop.appendChild(o)})
-    mToolDropWrap.appendChild(mToolDrop)
-    mChangeLink.onclick=function(){mToolDropWrap.style.display=mToolDropWrap.style.display==='none'?'block':'none'}
-    let mEwSelect=null
-    if(userHasEarthworks){
-      const mEwWrap=document.createElement('div');mEwWrap.style.cssText='margin-bottom:10px'
-      const mEwLbl=document.createElement('div');mEwLbl.style.cssText='font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';mEwLbl.textContent='Earthworks (optional)'
-      mEwSelect=document.createElement('select');mEwSelect.className='tool-ew-select';mEwSelect.style.cssText='width:100%;padding:8px 10px;font-size:14px;color:var(--gold)'
-      const mNoneOpt=document.createElement('option');mNoneOpt.value='';mNoneOpt.textContent='None';mEwSelect.appendChild(mNoneOpt)
-      EW_LEVELS.forEach(function(ew){const o=document.createElement('option');o.value=ew;o.textContent=ew;mEwSelect.appendChild(o)})
-      mEwWrap.appendChild(mEwLbl);mEwWrap.appendChild(mEwSelect);body.appendChild(mEwWrap)
-    }
-    const mMarkBtn=document.createElement('button');mMarkBtn.className='btn-mark';mMarkBtn.id='md-btn-mark'
-    mMarkBtn.textContent='Mark cleared with '+(TOOL_NAMES_FULL[currentTool]||currentTool)
-    mMarkBtn.onclick=function(){
-      const tool=mToolDropWrap.style.display!=='none'?mToolDrop.value:currentTool
-      const ew=mEwSelect?mEwSelect.value||null:null
-      markClearedMobile(loc.id,tool,ew)
-    }
-    mToolDrop.onchange=function(){mMarkBtn.textContent='Mark cleared with '+(TOOL_NAMES_FULL[mToolDrop.value]||mToolDrop.value)+(mEwSelect&&mEwSelect.value?' + '+mEwSelect.value:'')}
-    if(mEwSelect)mEwSelect.onchange=function(){mMarkBtn.textContent='Mark cleared with '+(mToolDropWrap.style.display!=='none'?TOOL_NAMES_FULL[mToolDrop.value]||mToolDrop.value:TOOL_NAMES_FULL[currentTool]||currentTool)+(mEwSelect.value?' + '+mEwSelect.value:'')}
-    body.appendChild(mDefaultDiv);body.appendChild(mChangeLink);body.appendChild(mToolDropWrap);body.appendChild(mMarkBtn)
-  }
-  const panel=document.getElementById('mobile-detail');panel.classList.add('on')
-  requestAnimationFrame(()=>{
-    const detailH=panel.offsetHeight||0
-    if(detailH>0&&loc.lat&&loc.lng)map.easeTo({center:[loc.lng,loc.lat],offset:[0,Math.round(detailH/2)],duration:250})
-    updateLocateBtnPosition()
-  })
-}
-function closeMobileDetail(){
-  if(selectedId)setSelectedId(null)
-  document.getElementById('mobile-detail').classList.remove('on')
-  renderList();updateLocateBtnPosition()
-}
-function selectTool(tool){currentTool=tool}
-function selectToolMobile(tool){
-  currentTool=tool
-  TOOLS.forEach(t=>{const b=document.getElementById('md-tbtn-'+t);if(b)b.classList.toggle('sel',t===tool)})
-  const btn=document.getElementById('md-btn-mark');if(btn)btn.textContent='Mark cleared with '+TOOL_NAMES[tool]
-}
-async function markCleared(id,tool,ew){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
-  const t=tool||currentTool;const ewVal=ew||null
-  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser,name:loc.name}
-  refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
-}
-async function unmarkCleared(id){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
-  delete progress[id];refreshMapData();renderDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
-}
-async function markClearedMobile(id,tool,ew){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
-  const t=tool||currentTool;const ewVal=ew||null
-  progress[id]={tool:t,ew:ewVal,date:new Date().toISOString().slice(0,10),user:currentUser,name:loc.name}
-  refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
-}
-async function unmarkClearedMobile(id){
-  const loc=locations.find(l=>l.id===id);if(!loc)return
-  delete progress[id];refreshMapData();renderMobileDetail(loc);renderList();updateStats();renderLog()
-  await saveProgress();queueSave()
-}
-
-async function loadSchoolsGps(){
-  if(schoolsGpsLoaded)return
-  schoolsGpsLoaded=true
-  setMsg('Loading schools and GPs...')
-  try{
-    const batchSize=3,allFetched=[]
-    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batchResults=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,true)))
-      allFetched.push(...batchResults)
-    }
-    const existingIds=new Set(locations.map(l=>l.id))
-    const newLocs=allFetched.flat().filter(l=>!existingIds.has(l.id))
-    locations=[...locations,...newLocs]
-    buildDistrictMap()
-    refreshMapData();renderList();updateStats()
-    setMsg('')
-  }catch(e){
-    console.warn('Schools/GPs load failed',e)
-    schoolsGpsLoaded=false
-    setMsg('Some data failed to load')
-    setTimeout(()=>setMsg(''),3000)
-  }
-}
-function togglePlace(type,el){
-  placesFilter[type]=!placesFilter[type]
-  el.classList.toggle('on',placesFilter[type])
-  if((type==='school'||type==='gp')&&placesFilter[type]&&!schoolsGpsLoaded){
-    loadSchoolsGps().then(()=>{refreshMapData();renderList();updateStats()})
-  } else {
-    refreshMapData();renderList();updateStats()
-  }
-}
-function setToolFromSelect(val){
-  // Reset all tool chips first
-  activeTools.clear()
-  document.querySelectorAll('.chip.show-tool').forEach(el=>el.classList.remove('on'))
-  document.querySelectorAll('.chip.show-all,.chip.show-cleared').forEach(el=>el.classList.remove('on'))
-  if(!val){
-    showFilter='all'
-    document.getElementById('chip-all')?.classList.add('on')
-    document.getElementById('chip-all')?.classList.add('on')
-  } else {
-    showFilter='tool-multi'
-    activeTools.add(val)
-    document.getElementById('chip-'+val)?.classList.add('on')
-  }
-  refreshMapData();renderList();updateStats()
-}
-function updateMobileInnerStats(elId,html){
-  const el=document.getElementById(elId)
-  if(el)el.innerHTML=html
-}
-function statLine(total,totalLabel,cleared,clearedLabel,pct){
-  return '<strong>'+total+'</strong><span> '+totalLabel+'</span><span class="ms-sep">·</span><strong>'+cleared+'</strong><span> '+clearedLabel+'</span><span class="ms-sep">·</span><strong>'+pct+'</strong><span> done</span>'
-}
-function openToolModal(){
-  const m=document.getElementById('tool-modal');if(!m)return
-  syncModalState();m.style.display='flex'
-}
-function closeToolModal(){
-  const m=document.getElementById('tool-modal');if(m)m.style.display='none'
-}
-function syncModalState(){
-  document.getElementById('tm-chip-all')?.classList.toggle('on',showFilter==='all')
-  document.getElementById('tm-chip-cleared')?.classList.toggle('on',showFilter==='cleared')
-  ;['MS','MF','O','J','MG','AP','MI','MJ','DM','EW1','EW2','EW3','EW4','EW5'].forEach(t=>{
-    document.getElementById('tm-'+t)?.classList.toggle('on',activeTools.has(t)||showFilter===t)
-  })
-}
-function syncModalToMain(){
-  document.querySelectorAll('.chip.show-all').forEach(el=>el.classList.toggle('on',showFilter==='all'))
-  document.querySelectorAll('.chip.show-cleared').forEach(el=>el.classList.toggle('on',showFilter==='cleared'))
-}
-let activeTools=new Set()
-function toggleToolKey(){const k=document.getElementById('tool-key');k.classList.toggle('open')}
-function setShow(mode,el){
-  showFilter=mode
-  activeTools.clear()
-  const ts=document.getElementById('tool-select-inline');if(ts)ts.value=''
-  const ts2=document.getElementById('tool-select');if(ts2)ts2.value=''
-  document.querySelectorAll('.chip.show-all,.chip.show-cleared,.chip.show-tool').forEach(c=>c.classList.remove('on'))
-  el.classList.add('on');refreshMapData();renderList();updateStats()
-}
-function toggleTool(tool,el){
-  // Deselect all/cleared chips
-  document.querySelectorAll('.chip.show-all,.chip.show-cleared').forEach(c=>c.classList.remove('on'))
-  showFilter='tool-multi'
-  if(activeTools.has(tool)){activeTools.delete(tool);el.classList.remove('on')}
-  else{activeTools.add(tool);el.classList.add('on')}
-  // If nothing selected, revert to all
-  if(activeTools.size===0){
-    showFilter='all'
-    document.getElementById('chip-all').classList.add('on')
-  }
-  refreshMapData();renderList()
-}
-function updateGroupsStats(){
-  // Count districts where ALL present types are cleared
-  const totalDistricts=Object.keys(districtMap).filter(code=>{
-    const d=districtMap[code]
-    return d.schools.length>0||d.gps.length>0
-  }).length
-  const clearedDistricts=Object.keys(districtMap).filter(code=>{
-    const d=districtMap[code]
-    const hasSchools=d.schools.length>0
-    const hasGps=d.gps.length>0
-    if(!hasSchools&&!hasGps)return false
-    const schoolDone=!hasSchools||!!groupProgress[code+':school']
-    const gpDone=!hasGps||!!groupProgress[code+':gp']
-    return schoolDone&&gpDone
-  }).length
-  // Count all locations in visible districts
-  const allGroupLocs=Object.values(districtMap).flatMap(d=>[
-    ...(groupTypes.has('school')?d.schools:[]),
-    ...(groupTypes.has('gp')?d.gps:[])
-  ])
-  const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
-  const pct=totalDistricts?Math.round(clearedDistricts/totalDistricts*100):0
-  document.getElementById('s-total').textContent=clearedDistricts+'/'+totalDistricts
-  document.getElementById('s-label-total').textContent='districts cleared'
-  document.getElementById('s-cleared').textContent=clearedLocs.toLocaleString()
-  document.getElementById('s-label-cleared').textContent='locations cleared'
-  document.getElementById('s-pct').textContent=pct+'%'
-  document.getElementById('s-pct').style.display=''
-  document.getElementById('s-log-div').style.display='none'
-  document.getElementById('s-log-all').style.display='none'
-  document.getElementById('s-log-allpct').style.display='none'
-  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(clearedDistricts+'/'+totalDistricts,'districts',clearedLocs.toLocaleString(),'locations',pct+'%'))
-}
-function updateMobileStats(total,totalLabel,cleared,clearedLabel,pct){
-  if(!isMobile())return
-  const el=document.getElementById('mobile-stats');if(!el)return
-  document.getElementById('ms-total').textContent=total
-  document.getElementById('ms-label-total').textContent=' '+totalLabel
-  document.getElementById('ms-cleared').textContent=cleared
-  document.getElementById('ms-label-cleared').textContent=' '+clearedLabel
-  document.getElementById('ms-pct').textContent=pct
-}
-function updateLogStats(){
-  const indivTypes=['hospital','hospice','university','prison']
-  const indivLocs=locations.filter(l=>indivTypes.includes(l.type))
-  const indivTotal=indivLocs.length
-  const indivCleared=indivLocs.filter(l=>isEffectivelyCleared(l)).length
-  const indivPct=indivTotal?Math.round(indivCleared/indivTotal*100):0
-  const allTotal=locations.length
-  const allCleared=locations.filter(l=>isEffectivelyCleared(l)).length
-  const allPct=allTotal?Math.round(allCleared/allTotal*100):0
-  document.getElementById('s-total').textContent=indivCleared+'/'+indivTotal
-  document.getElementById('s-label-total').textContent='individual cleared'
-  document.getElementById('s-cleared').textContent=indivPct+'%'
-  document.getElementById('s-label-cleared').textContent='done'
-  document.getElementById('s-pct').style.display='none'
-  document.getElementById('s-log-div').style.display='flex'
-  document.getElementById('s-log-all').style.display='flex'
-  document.getElementById('s-log-allpct').style.display='flex'
-  document.getElementById('s-total-all').textContent=allCleared+'/'+allTotal
-  document.getElementById('s-pct-all').textContent=allPct+'%'
-  if(isMobile())updateMobileInnerStats('log-mob-stats','<strong>'+indivCleared+'/'+indivTotal+'</strong><span> individual</span><span class="ms-sep">·</span><strong>'+indivPct+'%</strong><span> done</span><span class="ms-sep">|</span><strong>'+allCleared+'/'+allTotal+'</strong><span> total</span><span class="ms-sep">·</span><strong>'+allPct+'%</strong><span> done</span>')
-}
-function updateStats(){
-  const visLocs=locations.filter(l=>placesFilter[l.type])
-  const total=visLocs.length,cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
-  const pct=total?Math.round(cleared/total*100):0
-  document.getElementById('s-total').textContent=total.toLocaleString()
-  document.getElementById('s-label-total').textContent='locations'
-  document.getElementById('s-cleared').textContent=cleared
-  document.getElementById('s-label-cleared').textContent='cleared'
-  document.getElementById('s-pct').textContent=pct+'%'
-  document.getElementById('s-pct').style.display=''
-  document.getElementById('s-log-div').style.display='none'
-  document.getElementById('s-log-all').style.display='none'
-  document.getElementById('s-log-allpct').style.display='none'
-  if(isMobile())updateMobileInnerStats('locs-mob-stats',statLine(total.toLocaleString(),'locations',cleared,'cleared',pct+'%'))
-  for(const[type,pgId,pgTxt]of[['hospital','pg-h','pg-ht'],['hospice','pg-ho','pg-hot'],['prison','pg-pr','pg-prt'],['university','pg-u','pg-ut'],['school','pg-s','pg-st'],['gp','pg-gp','pg-gpt'],['school','pg-s2','pg-s2t'],['gp','pg-gp2','pg-gp2t']]){
-    const tot=locations.filter(l=>l.type===type).length
-    const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
-    document.getElementById(pgId).style.width=(tot?Math.round(cl/tot*100):0)+'%'
-    document.getElementById(pgTxt).textContent=tot?cl+'/'+tot:'-'
-  }
-}
-
-function clearLogFilter(){document.getElementById('log-from').value='';document.getElementById('log-to').value='';renderLog()}
-function renderLog(){
-  const el=document.getElementById('log-list')
-  const searchQ=((document.getElementById('log-search')&&document.getElementById('log-search').value)||'').toLowerCase().trim()
-  if(isMobile()&&!searchQ&&!(document.getElementById('log-from')&&document.getElementById('log-from').value)&&!(document.getElementById('log-to')&&document.getElementById('log-to').value)){el.innerHTML='';el.style.display='none';updateLogStats();return}
-  el.style.display=''
-  const fromVal=(document.getElementById('log-from')&&document.getElementById('log-from').value)||''
-  const toVal=(document.getElementById('log-to')&&document.getElementById('log-to').value)||''
-  let entries=Object.entries(progress).map(function(kv){
-    const id=kv[0],p=kv[1],l=locations.find(function(x){return x.id===id})
-    return{id:id,tool:p.tool,ew:p.ew||null,date:p.date,user:p.user,name:l?l.name:(p.name||id),locType:l?l.type:'',isGroup:false}
-  })
-  Object.entries(groupProgress).forEach(function(kv){
-    const key=kv[0],p=kv[1],parts=key.split(':'),code=parts[0],gtype=parts[1]
-    const d=districtMap[code]
-    entries.push({id:key,tool:p.tool,date:p.date,user:p.user,
-      name:(gtype==='school'?'Schools':'GPs')+' in '+(p.name||(d&&d.name)||code),
-      locType:'group',gtype:gtype,isGroup:true})
-  })
-  entries.sort(function(a,b){return b.date.localeCompare(a.date)})
-  if(fromVal)entries=entries.filter(function(e){return e.date>=fromVal})
-  if(toVal)entries=entries.filter(function(e){return e.date<=toVal})
-  if(searchQ)entries=entries.filter(function(e){return e.name.toLowerCase().includes(searchQ)})
-  el.innerHTML=''
-  if(!entries.length){
-    var msg=document.createElement('div');msg.className='empty'
-    msg.textContent=(fromVal||toVal)?'No clearings in that date range':'No clearings yet'
-    el.appendChild(msg);return
-  }
-  entries.forEach(function(e){
-    var typeCol=e.isGroup?(e.gtype==='school'?'var(--blue)':'var(--green)'):toolColor(e.tool)
-    var ds=new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
-    var row=document.createElement('div')
-    row.style.cssText='padding:13px 20px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s'
-    row.onmouseover=function(){this.style.background='var(--hover)'}
-    row.onmouseout=function(){this.style.background=''}
-    row.onclick=(function(eid){return function(){openFromLog(eid)}})(e.id)
-    var top=document.createElement('div');top.style.cssText='display:flex;align-items:center;gap:9px;margin-bottom:3px'
-    var dot=document.createElement('div')
-    dot.style.cssText='width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid '+typeCol+';flex-shrink:0'
-    var nameSpan=document.createElement('span')
-    nameSpan.style.cssText='font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-d)'
-    if(e.isGroup){
-      var badge=document.createElement('span')
-      badge.style.cssText='font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid '+typeCol+';color:'+typeCol+';margin-right:5px;vertical-align:middle'
-      badge.textContent='GROUP';nameSpan.appendChild(badge)
-    }
-    nameSpan.appendChild(document.createTextNode(e.name))
-    top.appendChild(dot);top.appendChild(nameSpan)
-    var sub=document.createElement('div')
-    sub.style.cssText='font-size:12px;color:var(--soft);padding-left:19px'
-    if(e.user){var who=document.createElement('span');who.style.color='var(--gold)';who.textContent=e.user;sub.appendChild(who);sub.appendChild(document.createTextNode(' - '))}
-    const toolStr=TOOL_NAMES[e.tool]||e.tool;const ewStr=e.ew?' + '+e.ew:'';sub.appendChild(document.createTextNode(e.isGroup?ds+' - '+toolStr+ewStr:ds+' - '+toolStr+ewStr+' - '+e.locType))
-    row.appendChild(top);row.appendChild(sub);el.appendChild(row)
-  })
-}
-function openFromLog(id){
-  // Group entry — id is 'DISTRICTCODE:type'
-  if(groupProgress[id]){
-    const parts=id.split(':'),code=parts[0]
-    switchTab('groups',document.getElementById('tab-btn-groups'))
-    function trySelectDistrict(attempts){
-      if(districtMap[code]){
-        selectDistrict(code)
-        setTimeout(function(){renderDistrictDetail(code)},100)
-      } else if(attempts>0){
-        setTimeout(function(){trySelectDistrict(attempts-1)},300)
-      }
-    }
-    // If districts not loaded yet, trigger load then retry
-    if(!districts.length){loadDistricts().then(function(){trySelectDistrict(10)})}
-    else{trySelectDistrict(10)}
-    return
-  }
-  switchTab('locs',document.getElementById('tab-btn-locs'))
-  const loc=locations.find(l=>l.id===id)
-  if(loc){selectLoc(id);return}
-  const p=progress[id];if(!p)return
-  const col=toolColor(p.tool),d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),who=p.user?' - '+p.user:''
-  const html='<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">Cleared with <strong>'+(TOOL_NAMES[p.tool]||p.tool)+(p.ew?' + '+p.ew:'')+'</strong> - '+d+who+'</div>'
-  document.getElementById('d-type').textContent='';document.getElementById('d-type').className='detail-type'
-  document.getElementById('d-name').textContent=p.name||id
-  document.getElementById('d-addr').textContent='Load the region to see full details'
-  document.getElementById('d-gmaps').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name||id)
-  document.getElementById('d-body').innerHTML=html
-  document.getElementById('detail').classList.add('on')
-}
-
-let sbOpen=true
-function toggleSidebar(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('tog').textContent=sbOpen?'<':'>';setTimeout(()=>map&&map.resize(),320)}
-function pushDistrictDataNow(){
-  if(!mapReady||!map.getSource('districts-src'))return
-  const geojson={type:'FeatureCollection',features:districts}
-  map.getSource('districts-src').setData(geojson)
-  updateDistrictStates()
-}
-function switchTab(name,btn){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'))
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'))
-  btn.classList.add('on');document.getElementById('tab-'+name).classList.add('on')
-  const inGroups=name==='groups'
-  const inLog=name==='log'
-  // Swap header stat labels based on tab
-  const hb=document.getElementById('home-btn')
-  if(hb)hb.style.display=''
-  if(inGroups){setTimeout(updateGroupsStats,50)}
-  if(!inLog&&!inGroups){
-    document.getElementById('s-label-total').textContent='locations'
-    document.getElementById('s-label-cleared').textContent='cleared'
-  }
-  if(inLog){
-    // Log tab: show all cleared locations across all types
-    logSavedPlaces={...placesFilter}
-    logSavedFilter=showFilter
-    Object.keys(placesFilter).forEach(k=>{if(k!=='_')placesFilter[k]=true})
-    showFilter='cleared'
-    refreshMapData()
-    updateLogStats()
-  } else if(logSavedPlaces){
-    // Restore when leaving log
-    Object.assign(placesFilter,logSavedPlaces)
-    showFilter=logSavedFilter
-    logSavedPlaces=null;logSavedFilter=null
-    document.getElementById('s-pct').style.display=''
-    refreshMapData()
-  }
-  function applyLayerVisibility(attempts){
-    if(!mapReady){if(attempts>0)setTimeout(function(){applyLayerVisibility(attempts-1)},100);return}
-    ;['district-fill','district-glow','district-line','district-selected'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'visible':'none')})
-    ;['dots-uncleared','cleared-glow','dots-cleared','selected-ring'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility',inGroups?'none':'visible')})
-    // When leaving groups, clear district dots and deselect district
-    if(!inGroups){
-      if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
-      ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
-      selectedDistrictCode=null
-      document.getElementById('district-detail').classList.remove('on')
-    }
-  }
-  applyLayerVisibility(20)
-  if(mapReady)setTimeout(()=>{map.resize();if(inGroups&&districts.length)pushDistrictDataNow()},100)
-  const pgS=document.getElementById('pg-row-s'),pgGp=document.getElementById('pg-row-gp')
-  if(pgS)pgS.style.display=inGroups?'flex':'none'
-  if(pgGp)pgGp.style.display=inGroups?'flex':'none'
-  if(inGroups){
-    const doGroups=function(){renderDistrictList();updateDistrictStates();updateGroupsStats()}
-    const doDistricts=districts.length?Promise.resolve():loadDistricts()
-    const doSgp=schoolsGpsLoaded?Promise.resolve():loadSchoolsGps()
-    Promise.all([doDistricts,doSgp]).then(doGroups)
-  }
-  else{selectedDistrictCode=null;updateDistrictStats(null);updateStats()}
-  if(isMobile()){
-    const onLog=name==='log'
-    const prog=document.getElementById('map-progress')
-    const leg=document.getElementById('map-legend')
-    if(prog)prog.style.display=onLog?'block':'none'
-    if(leg)leg.style.display=''
-  }
-}
-
-function updateDistrictStats(code){
-  const hb=document.getElementById('home-btn')
-  const onGroups=document.getElementById('tab-groups')&&document.getElementById('tab-groups').classList.contains('on')
-  if(!code||!districtMap[code]){
-    updateGroupsStats();return
-  }
-  const d=districtMap[code]
-  // Only count types currently shown (matching groupTypes filter)
-  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
-  const total=allLocs.length,cleared=allLocs.filter(l=>isEffectivelyCleared(l)).length
-  const pct=total?Math.round(cleared/total*100):0
-  // Build label showing which types are included
-  const parts=[]
-  if(groupTypes.has('school')&&d.schools.length)parts.push('Schools')
-  if(groupTypes.has('gp')&&d.gps.length)parts.push('GPs')
-  const typeLabel=parts.length?parts.join(' + '):'locations'
-  document.getElementById('s-total').textContent=total.toLocaleString()
-  document.getElementById('s-label-total').textContent=typeLabel
-  document.getElementById('s-cleared').textContent=cleared
-  document.getElementById('s-label-cleared').textContent='cleared'
-  document.getElementById('s-pct').textContent=pct+'%'
-  document.getElementById('s-pct').style.display=''
-  document.getElementById('s-log-div').style.display='none'
-  document.getElementById('s-log-all').style.display='none'
-  document.getElementById('s-log-allpct').style.display='none'
-  // Update both the top bar and the in-panel tracker
-  updateMobileStats(total.toLocaleString(),typeLabel,cleared,'cleared',pct+'%')
-  if(isMobile())updateMobileInnerStats('groups-mob-stats',statLine(total.toLocaleString(),typeLabel,cleared,'cleared',pct+'%'))
-  if(hb)hb.style.display=''
-}
-function goHome(){
-  selectedDistrictCode=null
-  updateDistrictStats(null)
-  document.getElementById('district-detail').classList.remove('on')
-  if(document.getElementById('tab-groups').classList.contains('on')){
-    if(mapReady){
-      ;['district-locs','district-locs-cleared'].forEach(id=>{if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')})
-      if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
-      map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
-    }
-    renderDistrictList();updateDistrictStates()
-  }else{
-    document.getElementById('region-select').value='all'
-    loadAll()
-    if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
-  }
-}
-
-
-function setMsg(m){document.getElementById('mload-msg').textContent=m}
-function hideLoader(){document.getElementById('mload').style.display='none'}
-
-async function bootApp(){
-  initMap()
-  setMsg('Loading progress...')
-  await Promise.all([loadProgress(),loadGroupProgress()])
-  await loadAll()
-  await loadDistricts()
-  loadSchoolsGps()
-  renderLog()
-}
-
-try{
-  const savedUser=localStorage.getItem('ek_user')
-  if(savedUser){
-    currentUser=savedUser
-    const storedTool=localStorage.getItem('ek_tool');if(storedTool&&TOOLS.includes(storedTool))currentTool=storedTool
-    userHasEarthworks=localStorage.getItem('ek_ew')==='1'
-    document.getElementById('login-screen').style.display='none'
-    document.getElementById('app').style.display='flex'
-    document.getElementById('h-username').textContent=savedUser
-    bootApp()
-  }
-}catch(err){try{localStorage.clear()}catch(e2){}}
-</script>
-<div id="tool-modal" onclick="if(event.target===this)closeToolModal()">
-  <div style="background:#0a1c11;border-radius:14px 14px 0 0;border-top:1px solid rgba(201,168,76,.3);padding:18px 16px 28px;max-height:82vh;overflow-y:auto;width:100%;-webkit-overflow-scrolling:touch">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <span style="font-size:15px;color:#C9A84C;font-family:'Cormorant Garamond',serif;letter-spacing:.06em">Filter by Tool</span>
-      <button onclick="closeToolModal()" style="background:none;border:none;color:rgba(232,213,160,.45);font-size:24px;line-height:1;cursor:pointer;padding:0 4px">×</button>
-    </div>
-    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em">Show</div>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px">
-      <div class="chip show-all on" id="tm-chip-all" onclick="setShow('all',this);syncModalToMain();closeToolModal()">All</div>
-      <div class="chip show-cleared" id="tm-chip-cleared" onclick="setShow('cleared',this);syncModalToMain();closeToolModal()"><span class="chip-dot" style="background:var(--gold)"></span>All Cleared</div>
-    </div>
-    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em">By Tool</div>
-    <div style="font-size:10px;color:rgba(232,213,160,.25);margin-bottom:10px;line-height:1.6">MS=Magical Structures · MF=Multifrequency · O=Omega · J=Jewel · MG=Merlin's Grace · AP=Universal AP · MI=Manifesting Intention · MJ=Magical Jewel · DM=Divine Magic</div>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px">
-      <div class="chip show-tool" id="tm-MS" onclick="toggleTool('MS',this);syncModalState()">MS</div>
-      <div class="chip show-tool" id="tm-MF" onclick="toggleTool('MF',this);syncModalState()">MF</div>
-      <div class="chip show-tool" id="tm-O" onclick="toggleTool('O',this);syncModalState()">O</div>
-      <div class="chip show-tool" id="tm-J" onclick="toggleTool('J',this);syncModalState()">J</div>
-      <div class="chip show-tool" id="tm-MG" onclick="toggleTool('MG',this);syncModalState()">MG</div>
-      <div class="chip show-tool" id="tm-AP" onclick="toggleTool('AP',this);syncModalState()">AP</div>
-      <div class="chip show-tool" id="tm-MI" onclick="toggleTool('MI',this);syncModalState()">MI</div>
-      <div class="chip show-tool" id="tm-MJ" onclick="toggleTool('MJ',this);syncModalState()">MJ</div>
-      <div class="chip show-tool" id="tm-DM" onclick="toggleTool('DM',this);syncModalState()">DM</div>
-    </div>
-    <div style="font-size:10px;color:rgba(232,213,160,.35);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em">Earthworks</div>
-    <div style="display:flex;flex-wrap:wrap;gap:7px">
-      <div class="chip show-tool" id="tm-EW1" onclick="toggleTool('EW1',this);syncModalState()">EW1</div>
-      <div class="chip show-tool" id="tm-EW2" onclick="toggleTool('EW2',this);syncModalState()">EW2</div>
-      <div class="chip show-tool" id="tm-EW3" onclick="toggleTool('EW3',this);syncModalState()">EW3</div>
-      <div class="chip show-tool" id="tm-EW4" onclick="toggleTool('EW4',this);syncModalState()">EW4</div>
-      <div class="chip show-tool" id="tm-EW5" onclick="toggleTool('EW5',this);syncModalState()">EW5</div>
-    </div>
-  </div>
-</div>
+<!-- District detail sheet (body-level to avoid clipping) -->
 <div class="district-detail" id="district-detail">
   <div class="district-detail-head">
-    <div>
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px" id="dd-type"></div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--gold)" id="dd-name"></div>
+    <div class="detail-head-left">
+      <div class="detail-type" id="dd-type"></div>
+      <div class="detail-name" id="dd-name"></div>
     </div>
-    <button class="detail-close" onclick="closeDistrictDetail()">x</button>
+    <div class="detail-head-right">
+      <button class="detail-close" onclick="closeDistrictDetail()">x</button>
+    </div>
   </div>
   <div class="district-detail-body" id="dd-body"></div>
 </div>
-</div>
+
+<div class="saving" id="saving" style="opacity:0"></div>
+
+<!-- Scripts, loaded in order (defer guarantees sequential execution) -->
+<script defer src="js/01-config.js"></script>
+<script defer src="js/02-state.js"></script>
+<script defer src="js/03-helpers.js"></script>
+<script defer src="js/04-debug.js"></script>
+<script defer src="js/05-auth.js"></script>
+<script defer src="js/06-api.js"></script>
+<script defer src="js/07-data-loader.js"></script>
+<script defer src="js/08-map-init.js"></script>
+<script defer src="js/09-map-layers.js"></script>
+<script defer src="js/10-map-handlers.js"></script>
+<script defer src="js/11-map-render.js"></script>
+<script defer src="js/12-map-view.js"></script>
+<script defer src="js/13-filters.js"></script>
+<script defer src="js/14-tool-modal.js"></script>
+<script defer src="js/15-locations-list.js"></script>
+<script defer src="js/16-locations-detail.js"></script>
+<script defer src="js/17-groups-list.js"></script>
+<script defer src="js/18-groups-detail.js"></script>
+<script defer src="js/19-log.js"></script>
+<script defer src="js/20-actions.js"></script>
+<script defer src="js/21-stats.js"></script>
+<script defer src="js/22-tabs.js"></script>
+<script defer src="js/23-boot.js"></script>
+
 </body>
 </html>
