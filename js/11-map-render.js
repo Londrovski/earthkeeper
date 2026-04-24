@@ -1,5 +1,7 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// 11-map-render.js — feeds data into map sources and maintains district feature-state
+// 11-map-render.js — feeds data into map sources and maintains district
+//                    feature-state. On the Log tab, the cleared-dot layer can
+//                    be scoped to "my clearings only" via logScope.
 // ═══════════════════════════════════════════════════════════════════════════
 
 function locToFeature(loc){
@@ -11,10 +13,21 @@ function locToFeature(loc){
   }
 }
 
+// A clearing belongs to the current user if the progress row has user===currentUser.
+// Group clearings don't map to individual locations here, so they're considered
+// not-mine for the purpose of the cleared-dots layer.
+function isMyClearing(loc){
+  const p=progress[loc.id]
+  return !!(p&&currentUser&&p.user===currentUser)
+}
+
 function refreshMapData(){
   if(!mapReady)return
+  const onLog=$('tab-log')&&$('tab-log').classList.contains('on')
+  const scopedToMe=onLog&&logScope==='my'
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
-  const cleared=visible.filter(l=>isEffectivelyCleared(l))
+  const clearedAll=visible.filter(l=>isEffectivelyCleared(l))
+  const cleared=scopedToMe?clearedAll.filter(isMyClearing):clearedAll
   const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
   map.getSource('locations-cleared').setData({type:'FeatureCollection',features:cleared.map(locToFeature)})

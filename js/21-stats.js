@@ -1,15 +1,10 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 21-stats.js — header + progress bar + mobile stats
 //
-// Each tab has its own header stats layout. Per-tab stats functions guard
-// against running when their tab isn't active so background renders (realtime
-// updates, post-action refreshes) don't stomp on the currently-visible tab's
-// header.
-//
 // Layouts:
-//   Locations tab  — 3 tiles: locations, cleared, pct
-//   Groups tab     — 4 tiles: locations, cleared, pct, districts-fully-cleared
-//   Log tab        — 3 tiles: locations (all), cleared, pct
+//   Locations tab — 3 tiles: locations, cleared, pct
+//   Groups tab    — 4 tiles: locations, cleared, pct, districts-fully-cleared
+//   Log tab       — 3 tiles: locations (all), cleared, pct (scoped by logScope)
 // ═══════════════════════════════════════════════════════════════════════════
 
 function setText(id,v){const e=$(id);if(e)e.textContent=v}
@@ -22,16 +17,10 @@ function currentTab(){
   return null
 }
 
-// Show/hide the 4th extra header tile (#s-log-div + #s-log-all).
-// Used by Groups tab to surface the districts-cleared count.
-function setExtraStatVisible(show,label){
+function setExtraStatVisible(show){
   setDisplay('s-log-div',show?'flex':'none')
   setDisplay('s-log-all',show?'flex':'none')
-  setDisplay('s-log-allpct','none') // unused now; all tabs at most use one extra tile
-  if(show&&label){
-    const lbl=$('s-log-all')&&$('s-log-all').querySelector('span')
-    if(lbl)lbl.textContent=label
-  }
+  setDisplay('s-log-allpct','none')
 }
 
 function updateMobileInnerStats(elId,html){
@@ -42,7 +31,6 @@ function statLine(total,totalLabel,cleared,clearedLabel,pct){
 }
 
 function updateStats(){
-  // Always compute progress bars (shown on map overlay across tabs).
   const rows=[
     ['hospital','pg-h','pg-ht'],
     ['hospice','pg-ho','pg-hot'],
@@ -60,7 +48,6 @@ function updateStats(){
     pgTxtEl.textContent=tot?cl+'/'+tot:'-'
   }
 
-  // Locations tab mobile bar
   const visLocs=locations.filter(l=>placesFilter[l.type])
   const total=visLocs.length
   const cleared=visLocs.filter(l=>isEffectivelyCleared(l)).length
@@ -78,15 +65,11 @@ function updateStats(){
 }
 
 function updateGroupsStats(){
-  // Compute across ALL schools + GPs regardless of gtype toggle, so the header
-  // reflects actual totals rather than what's currently filtered in the list.
   const allGroupLocs=Object.values(districtMap).flatMap(d=>[...d.schools,...d.gps])
   const totalLocs=allGroupLocs.length
   const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=totalLocs?Math.round(clearedLocs/totalLocs*100):0
 
-  // Districts fully cleared: a district counts when every type it contains has
-  // been group-cleared. Districts with no schools AND no GPs are ignored.
   const relevantCodes=Object.keys(districtMap).filter(code=>{
     const d=districtMap[code];return d.schools.length>0||d.gps.length>0
   })
@@ -117,24 +100,34 @@ function updateGroupsStats(){
   if(lbl)lbl.textContent='districts'
 }
 
-function updateDistrictStats(code){
-  // Reserved for future detail-level stats; currently a no-op.
-}
+function updateDistrictStats(code){}
 
 function updateLogStats(){
+  // Scope: 'all' uses everyone's clearings, 'my' filters to currentUser.
+  // The denominator (total locations) doesn't change by scope — it's a
+  // progress metric against the world, not against the filtered subset.
   const total=locations.length
-  const cleared=locations.filter(l=>isEffectivelyCleared(l)).length
+  const matches=function(loc){
+    if(!isEffectivelyCleared(loc))return false
+    if(logScope==='my'){
+      const p=progress[loc.id]
+      return !!(p&&currentUser&&p.user===currentUser)
+    }
+    return true
+  }
+  const cleared=locations.filter(matches).length
   const pct=total?Math.round(cleared/total*100):0
+  const clearedLbl=logScope==='my'?'cleared by you':'cleared'
 
   if(isMobile()&&currentTab()==='log')updateMobileInnerStats('log-mob-stats',
-    statLine(total.toLocaleString(),'locations',cleared.toLocaleString(),'cleared',pct+'%')
+    statLine(total.toLocaleString(),'locations',cleared.toLocaleString(),clearedLbl,pct+'%')
   )
 
   if(currentTab()!=='log')return
   setText('s-total',total.toLocaleString())
   setText('s-label-total','locations')
   setText('s-cleared',cleared.toLocaleString())
-  setText('s-label-cleared','cleared')
+  setText('s-label-cleared',clearedLbl)
   setText('s-pct',pct+'%')
   setDisplay('s-pct','')
   setExtraStatVisible(false)

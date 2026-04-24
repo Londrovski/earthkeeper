@@ -26,6 +26,10 @@ let schoolsGpsLoaded=false
 let logSavedPlaces=null
 let logSavedFilter=null
 
+// 'all' — every clearing by anyone
+// 'my'  — only clearings whose user matches currentUser
+let logScope='all'
+
 let currentTool='MG'
 let currentUser=null
 let userHasEarthworks=false

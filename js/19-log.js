@@ -1,18 +1,21 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// 19-log.js — Log tab: date filter, search, rendered entries, openFromLog
+// 19-log.js — Log tab: scope toggle (All/My), search, entries, openFromLog
 // ═══════════════════════════════════════════════════════════════════════════
 
-function clearLogFilter(){
-  const f=$('log-from'),t=$('log-to')
-  if(f)f.value='';if(t)t.value=''
+function setLogScope(mode,btn){
+  if(mode!=='all'&&mode!=='my')mode='all'
+  logScope=mode
+  const allBtn=$('log-scope-all'),myBtn=$('log-scope-my')
+  if(allBtn)allBtn.classList.toggle('on',mode==='all')
+  if(myBtn)myBtn.classList.toggle('on',mode==='my')
   renderLog()
+  updateLogStats()
+  if(typeof refreshMapData==='function')refreshMapData()
 }
 
 function renderLog(){
   const el=$('log-list');if(!el)return
-  const fromEl=$('log-from'),toEl=$('log-to'),searchEl=$('log-search')
-  const fromD=fromEl&&fromEl.value?fromEl.value:null
-  const toD=toEl&&toEl.value?toEl.value:null
+  const searchEl=$('log-search')
   const q=(searchEl&&searchEl.value||'').toLowerCase().trim()
 
   updateLogStats()
@@ -30,18 +33,17 @@ function renderLog(){
     entries.push({id:key,kind:'group',name:dName+' — '+(gtype==='school'?'Schools':'GPs'),type:gtype,tool:p.tool,ew:null,date:p.date,user:p.user||'',isGroup:true})
   })
 
-  if(fromD)entries=entries.filter(e=>e.date>=fromD)
-  if(toD)entries=entries.filter(e=>e.date<=toD)
+  if(logScope==='my'&&currentUser){
+    entries=entries.filter(e=>e.user===currentUser)
+  }
   if(q)entries=entries.filter(e=>e.name.toLowerCase().includes(q))
 
   entries.sort((a,b)=>b.date.localeCompare(a.date))
 
-  if(window.dbgLog){
-    const miss=entries.filter(e=>e.kind==='loc'&&!locations.find(l=>l.id===e.id)).length
-    if(miss>0)window.dbgLog('renderLog: '+miss+' progress IDs have no matching location (shown as raw ID/name)','warn')
+  if(!entries.length){
+    el.innerHTML='<div class="empty">'+(logScope==='my'?'You haven\u2019t cleared anything yet':'No clearings logged yet')+'</div>'
+    return
   }
-
-  if(!entries.length){el.innerHTML='<div class="empty">No clearings logged yet</div>';return}
 
   el.innerHTML=entries.map(function(e){
     const col=toolColor(e.tool)
@@ -57,11 +59,6 @@ function renderLog(){
   }).join('')
 }
 
-// Clicking a log entry stays on the Log tab.
-// Individual loc → open the inline #log-detail panel (desktop) or the
-//                 body-level mobile sheet (mobile). Pan AFTER render so the
-//                 popup height is known and map bias is correct.
-// Group entry   → jump to Groups tab + select the district.
 function openFromLog(id,kind){
   if(kind==='group'){
     const code=id.split(':')[0]

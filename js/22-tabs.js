@@ -2,11 +2,6 @@
 // 22-tabs.js — switchTab, toggleSidebar, map-layer visibility on tab change
 // ═══════════════════════════════════════════════════════════════════════════
 
-// Layer groups.
-// Locations tab — all four location layers visible
-// Log tab       — only cleared dots + glow + selection ring (for highlighting
-//                 the selected point in the same way Locations does)
-// Groups tab    — location layers hidden; districts shown instead
 const LOC_ALL_LAYERS=['dots-uncleared','cleared-glow','dots-cleared','selected-ring']
 const LOC_CLEARED_LAYERS=['cleared-glow','dots-cleared']
 const DISTRICT_LAYERS=['district-fill','district-glow','district-line','district-selected']
@@ -31,15 +26,12 @@ function switchTab(tab,btn){
       setLayerVisibility(DISTRICT_LAYERS,true)
       setLayerVisibility(DISTRICT_DOT_LAYERS,!!selectedDistrictCode)
     }else if(tab==='log'){
-      // Show cleared dots + glow, hide uncleared. Keep selected-ring so a
-      // clicked dot (from map or list) gets highlighted like on Locations.
       setLayerVisibility(['dots-uncleared'],false)
       setLayerVisibility(LOC_CLEARED_LAYERS,true)
       setLayerVisibility(['selected-ring'],true)
       setLayerVisibility(DISTRICT_LAYERS,false)
       setLayerVisibility(DISTRICT_DOT_LAYERS,false)
     }else{
-      // Locations tab
       setLayerVisibility(LOC_ALL_LAYERS,true)
       setLayerVisibility(DISTRICT_LAYERS,false)
       setLayerVisibility(DISTRICT_DOT_LAYERS,false)
@@ -53,8 +45,12 @@ function switchTab(tab,btn){
   }else if(tab==='log'){
     updateLogStats()
     renderLog()
+    // Log tab filters cleared dots by logScope — refresh source now.
+    if(typeof refreshMapData==='function')refreshMapData()
   }else{
     updateStats()
+    // Leaving Log tab — restore full cleared-dots source.
+    if(typeof refreshMapData==='function')refreshMapData()
   }
 }
 

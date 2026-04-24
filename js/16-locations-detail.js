@@ -1,10 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 16-locations-detail.js — unified desktop + mobile detail panel.
-//
-// Three render targets supported via opts:
-//   default            — desktop Locations tab sidebar panel (#detail)
-//   { mobile: true }   — body-level mobile bottom sheet (#mobile-detail)
-//   { logTab: true }   — desktop Log tab sidebar panel (#log-detail)
 // ═══════════════════════════════════════════════════════════════════════════
 
 function renderDetail(loc,opts){
@@ -32,8 +27,6 @@ function renderDetail(loc,opts){
     const d=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
     const col=toolColor(p.tool)
     const who=p.user?' - '+p.user:''
-    // Mobile unmark uses its own flow so the mobile sheet re-renders correctly.
-    // Log-tab panel just uses the desktop unmark path.
     const unmarkFn=isMob?'unmarkClearedMobile':'unmarkCleared'
     body.innerHTML=
       '<div class="detail-cleared" style="background:'+col+'18;border:1px solid '+col+'44;color:'+col+'">'+
@@ -49,8 +42,10 @@ function renderDetail(loc,opts){
   if(isMob){
     requestAnimationFrame(function(){
       const detailH=panelEl.offsetHeight||0
+      // Negative offset puts the target point in the UPPER half of the map
+      // — the region NOT covered by the mobile bottom sheet.
       if(detailH>0&&loc.lat&&loc.lng){
-        map.easeTo({center:[loc.lng,loc.lat],offset:[0,Math.round(detailH/2)],duration:250})
+        map.easeTo({center:[loc.lng,loc.lat],offset:[0,-Math.round(detailH/2)],duration:250})
       }
       updateLocateBtnPosition()
     })
