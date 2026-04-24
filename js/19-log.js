@@ -20,33 +20,14 @@ function renderLog(){
   let entries=Object.entries(progress).map(function(kv){
     const id=kv[0],p=kv[1]
     const l=locations.find(x=>x.id===id)
-    return{
-      id:id,
-      kind:'loc',
-      name:l?l.name:(p.name||id),
-      type:l?l.type:null,
-      tool:p.tool,
-      ew:p.ew,
-      date:p.date,
-      user:p.user||''
-    }
+    return{id:id,kind:'loc',name:l?l.name:(p.name||id),type:l?l.type:null,tool:p.tool,ew:p.ew,date:p.date,user:p.user||''}
   })
 
   Object.entries(groupProgress).forEach(function(kv){
     const key=kv[0],p=kv[1]
     const parts=key.split(':'),code=parts[0],gtype=parts[1]
     const dName=(districtMap[code]&&districtMap[code].name)||p.name||code
-    entries.push({
-      id:key,
-      kind:'group',
-      name:dName+' — '+(gtype==='school'?'Schools':'GPs'),
-      type:gtype,
-      tool:p.tool,
-      ew:null,
-      date:p.date,
-      user:p.user||'',
-      isGroup:true
-    })
+    entries.push({id:key,kind:'group',name:dName+' — '+(gtype==='school'?'Schools':'GPs'),type:gtype,tool:p.tool,ew:null,date:p.date,user:p.user||'',isGroup:true})
   })
 
   if(fromD)entries=entries.filter(e=>e.date>=fromD)
@@ -77,14 +58,10 @@ function renderLog(){
 }
 
 // Clicking a log entry stays on the Log tab.
-// Individual location → pan map + open the inline #log-detail panel that sits
-//                       inside the Log tab sidebar (same pattern as the
-//                       Locations and Groups detail panels). On mobile, use
-//                       the body-level bottom sheet for consistency with the
-//                       mobile Locations experience.
-// Group entry          → jump to Groups tab and select the district. There's
-//                       no sensible way to surface the multi-type group
-//                       clearing panel while staying on Log.
+// Individual loc → open the inline #log-detail panel (desktop) or the
+//                 body-level mobile sheet (mobile). Pan AFTER render so the
+//                 popup height is known and map bias is correct.
+// Group entry   → jump to Groups tab + select the district.
 function openFromLog(id,kind){
   if(kind==='group'){
     const code=id.split(':')[0]
@@ -94,10 +71,12 @@ function openFromLog(id,kind){
   }
   const loc=locations.find(l=>l.id===id);if(!loc)return
   setSelectedId(id)
-  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
     renderDetail(loc,{mobile:true})
   }else{
     renderDetail(loc,{logTab:true})
   }
+  requestAnimationFrame(function(){
+    if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+  })
 }

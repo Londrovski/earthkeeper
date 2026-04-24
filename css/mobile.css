@@ -16,7 +16,12 @@
   #app{flex-direction:column}
   .body{flex-direction:column;flex:1;overflow:hidden}
   .mwrap{flex:1;min-height:0;position:relative}
-  .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:1px solid var(--bd);height:auto;overflow:visible;background:rgba(13,36,22,.7)}
+  /* On mobile the sidebar must NOT have backdrop-filter. backdrop-filter
+     creates a new containing block, which reparents any position:fixed
+     descendant (the district-detail / log-detail panels) to the sidebar
+     instead of the viewport. That's what was pinning the groups popup to
+     the wrong spot. Explicit 'none' on the relevant properties. */
+  .sidebar{width:100%!important;opacity:1!important;flex-shrink:0;border-right:none;border-top:1px solid var(--bd);height:auto;overflow:visible;background:rgba(13,36,22,.9);backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
   .sidebar.collapsed{height:40px;overflow:hidden}
   .llist{display:none!important;flex:none!important}
   .llist.active{display:block!important;max-height:40vh;overflow-y:auto!important}
@@ -36,9 +41,10 @@
   .log-clear-btn{font-size:12px;padding:6px 9px}
   .tog{display:none}
   #tab-groups .district-list{display:none!important}
-  .district-detail{position:fixed;bottom:0;left:0;right:0;max-height:60vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
+  /* District clearing panel: full-width bottom sheet. Explicit top:auto to
+     neutralise any desktop rule accidentally bleeding through. */
+  .district-detail{position:fixed!important;top:auto!important;bottom:0!important;left:0!important;right:0!important;max-height:60vh!important;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:820;background:rgba(13,36,22,.97);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch}
   .district-detail:not(.on){display:none!important}
-  .sidebar{overflow:visible!important}
   .map-overlays{top:7px;right:7px;gap:6px}
   #map-progress{display:none}
   .progress{min-width:160px;padding:8px 12px}
@@ -54,7 +60,9 @@
   .locate-btn{position:fixed!important;bottom:14px;left:14px;z-index:820;padding:8px 13px;font-size:14px;gap:5px;transition:bottom .25s ease}
   .locate-btn span{font-size:18px}
   .saving{bottom:14px;right:14px;font-size:13px;padding:8px 13px}
-  #mobile-detail{display:none;position:fixed;bottom:0;left:0;right:0;max-height:55vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch;flex-direction:column}
+  /* Mobile-detail body-level sheet. Same containing-block concern as above,
+     but this one is ALREADY at body level so no backdrop fix needed. */
+  #mobile-detail{display:none;position:fixed;top:auto;bottom:0;left:0;right:0;max-height:55vh;overflow-y:auto;border-radius:12px 12px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.5);z-index:810;background:rgba(13,36,22,.94);border-top:1px solid var(--bd);-webkit-overflow-scrolling:touch;flex-direction:column}
   #mobile-detail.on{display:flex}
   #mobile-detail .detail-head{padding:14px 16px 0}
   #mobile-detail .detail-head-right{gap:9px}
@@ -71,6 +79,11 @@
   #mobile-detail .tool-btn{padding:10px 6px;font-size:14px;border-width:1.5px}
   #mobile-detail .btn-mark{padding:11px;font-size:14px}
   #mobile-detail .btn-unmark{padding:9px;font-size:13px;margin-top:7px}
+  /* Log tab on mobile: cap the list to ~3 rows so the map stays visible. */
+  #log-list{max-height:170px!important;overflow-y:auto!important}
+  /* #log-detail is desktop-only; keep it hidden on mobile so there's no
+     duplicate render (mobile clicks route to #mobile-detail instead). */
+  #log-detail{display:none!important}
   .mobile-inner-stats{font-size:13px}
   .mobile-inner-stats strong{font-size:14px}
   .tool-select-inline{font-size:13px!important;padding:5px 26px 5px 11px!important}

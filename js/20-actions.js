@@ -4,7 +4,7 @@
 // Every action:
 //   1. Captures prior state (for audit previous_tool)
 //   2. Mutates local progress/groupProgress
-//   3. Repaints UI
+//   3. Repaints UI (including stats for the current tab)
 //   4. Writes the row change to Supabase
 //   5. Writes an audit_log entry (fire-and-forget)
 // ═══════════════════════════════════════════════════════════════════════════
@@ -21,6 +21,7 @@ async function markCleared(id,tool,ew){
   safe('renderDetail',()=>renderDetail(loc,{mobile:false}))
   safe('renderList',renderList)
   safe('updateStats',updateStats)
+  safe('updateGroupsStats',updateGroupsStats)
   safe('renderLog',renderLog)
   const ok=await saveProgressEntry(id)
   if(ok)sbLogAudit({action:'clear',target_id:id,target_name:loc.name,target_type:loc.type,tool:t,ew:ewVal,previous_tool:prior,user:currentUser})
@@ -38,6 +39,7 @@ async function markClearedMobile(id,tool,ew){
   safe('renderMobileDetail',()=>renderDetail(loc,{mobile:true}))
   safe('renderList',renderList)
   safe('updateStats',updateStats)
+  safe('updateGroupsStats',updateGroupsStats)
   safe('renderLog',renderLog)
   const ok=await saveProgressEntry(id)
   if(ok)sbLogAudit({action:'clear',target_id:id,target_name:loc.name,target_type:loc.type,tool:t,ew:ewVal,previous_tool:prior,user:currentUser})
@@ -51,6 +53,7 @@ async function unmarkCleared(id){
   safe('renderDetail',()=>renderDetail(loc,{mobile:false}))
   safe('renderList',renderList)
   safe('updateStats',updateStats)
+  safe('updateGroupsStats',updateGroupsStats)
   safe('renderLog',renderLog)
   const ok=await deleteProgressEntry(id)
   if(ok)sbLogAudit({action:'unclear',target_id:id,target_name:loc.name,target_type:loc.type,previous_tool:prior,user:currentUser})
@@ -64,6 +67,7 @@ async function unmarkClearedMobile(id){
   safe('renderMobileDetail',()=>renderDetail(loc,{mobile:true}))
   safe('renderList',renderList)
   safe('updateStats',updateStats)
+  safe('updateGroupsStats',updateGroupsStats)
   safe('renderLog',renderLog)
   const ok=await deleteProgressEntry(id)
   if(ok)sbLogAudit({action:'unclear',target_id:id,target_name:loc.name,target_type:loc.type,previous_tool:prior,user:currentUser})
@@ -78,7 +82,7 @@ async function markGroupCleared(code,gtype,tool){
   groupProgress[key]={tool:t,date:new Date().toISOString().slice(0,10),user:currentUser,name:d?d.name:code}
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
+  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);updateGroupsStats();updateStats();renderLog()
   const ok=await saveGroupProgressEntry(key)
   if(ok)sbLogAudit({action:'group_clear',target_id:key,target_name:d?d.name:code,target_type:gt,tool:t,previous_tool:prior,user:currentUser})
 }
@@ -91,12 +95,11 @@ async function unmarkGroupCleared(code,gtype){
   delete groupProgress[key]
   updateDistrictStates()
   if(selectedDistrictCode===code)selectDistrict(code);else refreshMapData()
-  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);renderLog()
+  renderDistrictDetail(code);renderDistrictList();updateDistrictStats(code);updateGroupsStats();updateStats();renderLog()
   const ok=await deleteGroupProgressEntry(key)
   if(ok)sbLogAudit({action:'group_unclear',target_id:key,target_name:d?d.name:code,target_type:gt,previous_tool:prior,user:currentUser})
 }
 
-// Helper: wrap a call so a throw in one rendering step doesn't kill the save flow
 function safe(name,fn){
   try{fn()}
   catch(e){if(window.dbgLog)window.dbgLog('  '+name+' threw: '+e.message,'err')}

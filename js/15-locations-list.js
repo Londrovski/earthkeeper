@@ -1,5 +1,9 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 15-locations-list.js — Locations tab search results list + selectLoc
+//
+// Order of operations in selectLoc is important on mobile: we open the popup
+// FIRST so that panToVisible can measure its height and bias the map so the
+// selected point sits in the visible region above the popup.
 // ═══════════════════════════════════════════════════════════════════════════
 
 function renderList(){
@@ -26,12 +30,16 @@ function selectLoc(id){
   setSelectedId(id)
   const loc=locations.find(l=>l.id===id);if(!loc)return
   renderList()
-  if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
   if(isMobile()){
     const s=$('search');if(s)s.value=''
     renderList()
     renderDetail(loc,{mobile:true})
+    // Pan AFTER the panel has a chance to size, so bottomOffset is accurate.
+    requestAnimationFrame(function(){
+      if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+    })
   }else{
     renderDetail(loc,{mobile:false})
+    if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
   }
 }
