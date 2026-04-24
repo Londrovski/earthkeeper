@@ -1,9 +1,10 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// 06-api.js — Supabase read/write for progress + group_progress.
+// 06-api.js — Supabase read/write for progress + group_progress + audit_log.
 //
-// Replaces the old GitHub Contents API approach. Every save is a single HTTP
-// request that returns immediately. No SHA juggling. No base64. No CDN cache.
-// Real-time subscriptions keep every open tab in sync within ~1 second.
+// Every save is a single HTTP request that returns immediately. No SHA
+// juggling. No base64. No CDN cache. Real-time subscriptions keep every open
+// tab in sync within ~1 second. audit_log is append-only and records every
+// clear/unclear/group action with previous_tool for traceability.
 // ═══════════════════════════════════════════════════════════════════════════
 
 // ── Location data reads (hospitals, schools, etc.) still come from GitHub ─────────────
@@ -53,9 +54,6 @@ async function loadGroupProgress(){
 }
 
 // ── Supabase: upsert / delete individual rows ──────────────────────────────────────
-// Upsert: PostgREST POST with Prefer: resolution=merge-duplicates.
-// Delete: PostgREST DELETE with ?id=eq.<id>
-
 async function sbUpsertRow(table,row){
   if(window.dbgLog)window.dbgLog('upsert '+table+' id='+row.id,'info')
   showSaving('Saving...')
@@ -111,6 +109,51 @@ async function sbDeleteRow(table,id){
   }
 }
 
+// ── Audit log: fire-and-forget append ───────────────────────────────────────────
+// Every clear/unclear/group action calls this after the main write. Failures
+// are logged but never thrown — audit writes must not block the user's action.
+async function sbLogAudit(entry){
+  try{
+    const body={
+      action:entry.action,
+      target_id:entry.target_id,
+      target_name:entry.target_name||null,
+      target_type:entry.target_type||null,
+      tool:entry.tool||null,
+      ew:entry.ew||null,
+      previous_tool:entry.previous_tool||null,
+      user:entry.user||null
+    }
+    const res=await fetch(SB_REST+'/audit_log',{
+      method:'POST',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify(body)
+    })
+    if(!res.ok){
+      const txt=await res.text()
+      if(window.dbgLog)window.dbgLog('  audit_log '+res.status+': '+txt.slice(0,200),'warn')
+      return false
+    }
+    if(window.dbgLog)window.dbgLog('  audit: '+entry.action+' '+entry.target_id+(entry.tool?' ('+entry.tool+')':''),'dim')
+    return true
+  }catch(e){
+    if(window.dbgLog)window.dbgLog('  audit threw: '+e.message,'warn')
+    return false
+  }
+}
+
+// Fetch recent audit rows for the debug panel.
+async function fetchRecentAuditLog(limit){
+  limit=limit||100
+  const url=SB_REST+'/audit_log?select=*&order=created_at.desc&limit='+limit
+  const res=await fetch(url,{headers:SB_HEADERS,cache:'no-store'})
+  if(!res.ok){
+    const txt=await res.text()
+    throw new Error('audit_log fetch '+res.status+': '+txt.slice(0,200))
+  }
+  return await res.json()
+}
+
 // ── Save-a-single-entry helpers (called by 20-actions.js) ──────────────────────────
 async function saveProgressEntry(id){
   const p=progress[id];if(!p)return false
@@ -124,7 +167,6 @@ async function saveGroupProgressEntry(key){
 async function deleteGroupProgressEntry(key){return await sbDeleteRow('group_progress',key)}
 
 // ── Legacy compat wrappers (so any leftover callers to saveProgress don't crash) ────────
-// NOTE: these aren't the path markCleared/unmarkCleared use anymore. Kept as a safety net.
 async function saveProgress(){if(window.dbgLog)window.dbgLog('(noop) bulk saveProgress called — actions now save single rows','dim')}
 async function saveGroupProgress(){if(window.dbgLog)window.dbgLog('(noop) bulk saveGroupProgress called','dim')}
 function queueSave(){/* noop: every action saves immediately */}
@@ -143,7 +185,6 @@ function startRealtime(){
     if(window.dbgLog)window.dbgLog('realtime: connected','ok')
     joinChannel('realtime:public:progress','progress')
     joinChannel('realtime:public:group_progress','group_progress')
-    // Keep-alive heartbeat every 25s (Supabase default idle timeout is 30s)
     setInterval(function(){
       if(ws.readyState===1){
         ws.send(JSON.stringify({topic:'phoenix',event:'heartbeat',payload:{},ref:(++_sbRefCounter).toString()}))
@@ -184,7 +225,7 @@ function joinChannel(topic,table){
 function handleRealtimeChange(payload){
   const data=payload.data;if(!data)return
   const table=data.table
-  const type=data.type // INSERT | UPDATE | DELETE
+  const type=data.type
   const rec=data.record||data.old_record
   if(!rec)return
 
@@ -206,7 +247,6 @@ function handleRealtimeChange(payload){
     }
   }
 
-  // Refresh the visible UI pieces
   try{refreshMapData()}catch(e){}
   try{if(typeof updateStats!=='undefined')updateStats()}catch(e){}
   try{if(typeof renderLog!=='undefined')renderLog()}catch(e){}
