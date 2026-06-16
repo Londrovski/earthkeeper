@@ -63,11 +63,23 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
 
 /* Locations detail: when a location is open, the detail fills the panel below
-   the search bar (the list is hidden), and the close button becomes a back
-   chevron. Cleaner than the old 50/50 list+detail split. Desktop only. */
+   the search bar (the list is hidden), and the close button becomes a boxed
+   X sitting next to the "Go To" button — our own Maps-style action row. */
 #tab-locs.detail-open .llist{display:none}
 #tab-locs.detail-open .detail{flex:1 1 auto;max-height:none;border-top:none}
-#detail .detail-close{font-size:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px}
-#detail .detail-close::before{content:'\2039';font-size:30px;line-height:1;color:var(--soft);font-family:'Jost',sans-serif}
-#detail .detail-close:hover{background:var(--hover)}
-#detail .detail-close:hover::before{color:var(--gold)}
+
+/* Boxed X close button — same pill design as the gold "Go To" button, so the
+   two read as a matched pair. Applies to the Locations + Log detail panels. */
+#detail .detail-close,#log-detail .detail-close{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;padding:0;font-size:0;flex-shrink:0;
+  border-radius:6px;background:rgba(201,168,76,.1);
+  border:1px solid var(--bd);cursor:pointer;transition:all .15s;line-height:1
+}
+#detail .detail-close::before,#log-detail .detail-close::before{
+  content:'\00D7';font-size:20px;line-height:1;color:var(--gold);
+  font-family:'Jost',sans-serif
+}
+#detail .detail-close:hover,#log-detail .detail-close:hover{
+  background:rgba(201,168,76,.2);border-color:var(--gold)
+}
