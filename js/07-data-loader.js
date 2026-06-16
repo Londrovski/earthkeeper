@@ -1,20 +1,48 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 07-data-loader.js — fetchRegion, loadAll, loadRegion, loadSchoolsGps, loadDistricts, buildDistrictMap
+//
+// Locations now come from the Supabase `locations` table (was static /data JSON).
+// fetchRegion keeps the same return shape — an array of location objects with
+// id/type/name/address/postcode/lat/lng and (schools/gps) districtCode — so the
+// rest of the app is unchanged. Districts still load from the static geojson.
 // ═══════════════════════════════════════════════════════════════════════════
 
+// Pull locations for one region from Supabase, paginated (PostgREST caps pages).
+// Maps DB columns back to the legacy object shape the app expects.
+async function sbLocations(region,types){
+  const sel='id,type,name,address,postcode,lat,lng,district_code,meta'
+  const out=[],page=1000
+  let offset=0
+  while(true){
+    const url=SB_REST+'/locations?select='+sel
+      +'&region=eq.'+region
+      +'&type=in.('+types.join(',')+')'
+      +'&order=id.asc&limit='+page+'&offset='+offset
+    const res=await fetch(url,{headers:SB_HEADERS,cache:'no-store'})
+    if(!res.ok)throw new Error('locations '+region+' '+res.status)
+    const batch=await res.json()
+    for(const r of batch){
+      const o={id:r.id,type:r.type,name:r.name,address:r.address,postcode:r.postcode,lat:r.lat,lng:r.lng}
+      if(r.district_code)o.districtCode=r.district_code
+      if(r.meta&&typeof r.meta==='object')Object.assign(o,r.meta)
+      out.push(o)
+    }
+    if(batch.length<page)break
+    offset+=page
+  }
+  return out
+}
+
 async function fetchRegion(region,includeSchoolsGps){
-  const base=[
-    ghGetOptional('hospitals-'+region+'.json'),
-    ghGetOptional('universities-'+region+'.json'),
-    ghGetOptional('hospices-'+region+'.json'),
-    ghGetOptional('prisons-'+region+'.json')
-  ]
-  const extra=includeSchoolsGps?[
-    ghGetOptional('schools-'+region+'.json'),
-    ghGetOptional('gps-'+region+'.json')
-  ]:[Promise.resolve([]),Promise.resolve([])]
-  const[hospitals,universities,hospices,prisons,schools,gps]=await Promise.all([...base,...extra])
-  return[...hospitals,...schools,...universities,...hospices,...prisons,...gps]
+  const types=includeSchoolsGps
+    ?['hospital','university','hospice','prison','school','gp']
+    :['hospital','university','hospice','prison']
+  try{
+    return await sbLocations(region,types)
+  }catch(e){
+    if(window.dbgLog)window.dbgLog('fetchRegion '+region+' failed: '+e.message,'err')
+    return []
+  }
 }
 
 async function loadAll(){
