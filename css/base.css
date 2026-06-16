@@ -54,12 +54,10 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 ::-webkit-scrollbar-thumb:hover{background-color:rgba(201,168,76,.6);background-clip:padding-box}
 ::-webkit-scrollbar-corner{background:transparent}
 
-/* Locations search: "jump to area" dropdown */
-.srow{position:relative}
-.search-suggest{position:absolute;left:0;right:0;top:100%;margin-top:4px;z-index:55;display:none;background:var(--forest-m);border:1px solid var(--bd);border-radius:6px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.45)}
-.search-suggest.on{display:block}
-.search-suggest-head{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);padding:7px 12px 3px}
-.search-suggest-item{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;color:var(--ink-d);font-size:14px}
-.search-suggest-item:hover{background:var(--hover)}
-.search-suggest-item .ss-pin{font-size:12px}
-.search-suggest-item .ss-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
+/* Locations search results — section headers + "jump to area" rows in the list */
+.lsec{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);padding:10px 16px 4px}
+.larea{display:flex;align-items:center;gap:8px;padding:10px 16px;cursor:pointer;border-bottom:1px solid var(--bd);color:var(--ink-d);font-size:14px}
+.larea:hover{background:var(--hover)}
+.larea .larea-pin{font-size:13px}
+.larea .larea-name{font-weight:500}
+.larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}

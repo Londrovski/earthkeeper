@@ -31,12 +31,29 @@ function renderList(){
   const q=sEl.value.toLowerCase().trim()
   el.classList.toggle('active',!!q)
   if(!q){el.innerHTML='';return}
+  let html=''
+  // "Jump to area" rows on top (from 27-search.js, async for this query)
+  const ar=window.searchAreasResult
+  if(ar&&ar.q&&ar.q.toLowerCase()===q&&ar.areas&&ar.areas.length){
+    html+='<div class="lsec">Jump to area</div>'
+    html+=ar.areas.map(function(a,i){
+      return '<div class="larea" onclick="gotoAreaByIndex('+i+')"><span class="larea-pin">📍</span><span class="larea-name">'+a.label+'</span><span class="larea-sub">'+(a.sub||'')+'</span></div>'
+    }).join('')
+  }
+  // Matching locations beneath
   const vis=locations.filter(function(l){
     if(!locVisible(l))return false
     return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
   })
-  if(!vis.length){el.innerHTML='<div class="empty">No matches for "'+q+'"</div>';return}
-  el.innerHTML=vis.map(renderLitem).join('')
+  if(vis.length){
+    if(html)html+='<div class="lsec">Locations</div>'
+    const cap=vis.slice(0,300)
+    html+=cap.map(renderLitem).join('')
+    if(vis.length>cap.length)html+='<div class="empty">+'+(vis.length-cap.length)+' more — refine search</div>'
+  }else if(!(ar&&ar.areas&&ar.areas.length)){
+    html='<div class="empty">No matches for "'+sEl.value.trim()+'"</div>'
+  }
+  el.innerHTML=html
 }
 
 function selectLoc(id){
