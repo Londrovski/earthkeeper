@@ -23,9 +23,9 @@ to an append-only audit trail.
 ## Architecture
 
 No build step, no framework, no bundler. `index.html` is a thin shell that loads **7 CSS +
-23 JS files** in numbered order via `defer`, each cache-busted with `?v=N`.
+25 JS files** in numbered order via `defer`, each cache-busted with `?v=N`.
 
-- `js/01-config.js` … `js/23-boot.js` (load order matters)
+- `js/01-config.js` … `js/25-settings.js` (load order matters)
 - `css/base, layout, components, map, mobile, desktop, debug`
 - Map: MapLibre GL JS. Theme: dark green `#0D2416` + gold `#C9A84C`.
 - Auth: client-side SHA-256 of a shared group password, persisted in `localStorage`.
@@ -36,26 +36,24 @@ unicode corruption" advice is obsolete.)
 
 ---
 
-## Data — where everything lives (two stores, deliberately split)
+## Data — where everything lives (Supabase)
 
-**Supabase** (`wxdqncumgfarehwlsbuo`) holds all dynamic + catalogue data — 4 tables:
+**Supabase** (`wxdqncumgfarehwlsbuo`) holds all dynamic + catalogue data — 6 tables:
 
 - `progress` — individual clearings. `id` = a location id, plus `tool, ew, date, user, name`.
 - `group_progress` — district group clearings. `id` like `"E09000030:school"`.
 - `audit_log` — append-only trail of every clear/unclear.
 - `locations` — the location catalogue, **38,385 rows**. Migrated here June 2026 (was static JSON).
+- `districts` — 361 LAD boundary polygons (`code`, `name`, `geometry` jsonb). Migrated here June 2026 (was static geojson).
+- `app_settings` — design tokens (`key` → `jsonb`): `colors`, `tools`, etc. Drives the UI; see Design tokens below.
 
-**GitHub static files** (served from `raw.githubusercontent.com`) hold only:
-
-- `data/districts.geojson` — 361 LAD boundary polygons (Groups tab). Kept static on purpose
-  (polygons want PostGIS for no real benefit here). **Must stay.**
-- the app code itself.
+**GitHub static files** now hold only the app code itself. The entire `/data` folder was
+removed June 2026 — locations and districts both live in Supabase now. (Districts moved to a
+`districts` table with `geometry` as jsonb; no PostGIS needed — the loader rebuilds the
+FeatureCollection client-side.)
 
 The browser reads `locations` / `progress` / etc. with the **public anon key** (in
 `01-config.js`; safe — RLS-governed). A realtime WebSocket keeps open tabs in sync.
-
-> The old `data/hospitals-*.json`, `schools-*.json`, `gps-*.json`, etc. are now **unused**
-> (superseded by the `locations` table) and can be deleted. `data/districts.geojson` stays.
 
 ---
 
@@ -125,12 +123,26 @@ Then verify: `select * from public.locations where id = '…';` — confirm `lat
 
 ---
 
+## Design tokens (app_settings)
+
+Colours and other design knobs live in the Supabase `app_settings` table (`key` → `jsonb`,
+anon read-only). `js/25-settings.js` fetches it at boot, applies values as CSS custom
+properties on `:root`, refreshes the JS colour constants (`GOLD` / `TYPE_COLORS` /
+`TOOL_COLORS` in `01-config.js`, which read from CSS vars), and re-styles the live map. So the
+palette has **one source**: `app_settings` (with `base.css` `:root` as fail-safe fallback).
+
+**To change a colour** (or any token): edit the row in Supabase — no code edit, no redeploy.
+Example: `update app_settings set value = jsonb_set(value,'{gold}','"#D4AF37"') where key='colors';`
+then refresh. It propagates to chips, panels, map dots, badges — everywhere.
+
+Current keys: `colors` (forest, gold, red/blue/violet/teal/amber/green…), `tools` (omega, jewel, mg).
+
 ## Deploy / cache-bust
 
 - Push code to a **branch** → Cloudflare gives a **preview URL** for it → test there → merge
   to `main` for production.
 - On **any** change to a JS/CSS file, bump its `?v=N` in `index.html` (or the global N) so
-  browsers don't serve stale code. **Current: `v=25`.**
+  browsers don't serve stale code. **Current: `v=27`.**
 - `node --check` changed JS before pushing — cheap insurance; one syntax error blanks the app.
 
 ---
@@ -153,7 +165,8 @@ Then verify: `select * from public.locations where id = '…';` — confirm `lat
 
 - **Real backup:** `Londrovski/Backup` → `.github/workflows/supabase-nightly.yml` (00:05 UTC).
   Daily snapshots of `progress`/`group_progress` + `audit_log` (rolling daily + monthly
-  rollup, self-healing). Healthy. Doubles as Supabase keep-alive.
+  rollup, self-healing). Healthy. Doubles as Supabase keep-alive. (TODO: extend to snapshot
+  `locations` / `districts` / `app_settings` too.)
 - **Code backup:** git history + manual freezes in `Backup/snapshots/`. We keep iterations on
   backup branches and don't ship `main` until confirmed working.
 - **Removed June 2026:** the old `sync.yml` + `sync/` (abandoned auto-import experiment) and
@@ -165,7 +178,7 @@ Then verify: `select * from public.locations where id = '…';` — confirm `lat
 
 - `01-config.js` holds only the **public anon key** (safe; RLS enforces policy).
 - `audit_log` is append-only: anon `select` + `insert`, **no** update/delete policy. Don't add one.
-- `locations` is anon read-only. Don't make it anon-writable; don't put a service key in client JS.
+- `locations`, `districts`, `app_settings` are all anon **read-only**. Don't make them anon-writable; don't put a service key in client JS.
 - A real GitHub PAT was once committed in `data/config.json` — revoked + scrubbed June 2026.
   `config.json` now holds only the (client-side, intentionally public) password hash.
 
@@ -179,4 +192,4 @@ Then verify: `select * from public.locations where id = '…';` — confirm `lat
 - **MapLibre `easeTo` offset sign** for mobile bottom sheets: negative `y` pushes the target
   up into the visible region above the sheet.
 
-*Last updated: 16 June 2026.*
+*Last updated: 16 June 2026 (locations + districts + design tokens all in Supabase).*
