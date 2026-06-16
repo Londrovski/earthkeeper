@@ -34,14 +34,17 @@ function renderLog(){
   })
 
   if(logScope==='my'&&currentUser){
-    entries=entries.filter(e=>e.user===currentUser)
+    // My Clearings = the user's own INDIVIDUAL clearings only (any type, incl
+    // schools/GPs). Group/district clearings are excluded — they're completed
+    // by a group of people, so attributing them to one person is unfair/confusing.
+    entries=entries.filter(e=>e.kind==='loc'&&e.user===currentUser)
   }
   if(q)entries=entries.filter(e=>e.name.toLowerCase().includes(q))
 
   entries.sort((a,b)=>b.date.localeCompare(a.date))
 
   if(!entries.length){
-    el.innerHTML='<div class="empty">'+(logScope==='my'?'You haven\u2019t cleared anything yet':'No clearings logged yet')+'</div>'
+    el.innerHTML='<div class="empty">'+(logScope==='my'?'You haven’t cleared anything yet':'No clearings logged yet')+'</div>'
     return
   }
 
