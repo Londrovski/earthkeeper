@@ -20,7 +20,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-logo{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:4px}
 .login-logo em{color:var(--gold);font-style:italic;font-weight:500}
 .login-sub{font-size:12px;color:var(--soft);letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px}
-.login-field{margin-bottom:12px;text-align:left}
+.login-field{margin-bottom:12px;text-align:left;position:relative}
 .login-field label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);display:block;margin-bottom:6px}
 .login-field input{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:5px;font-family:'Jost',sans-serif;font-size:15px;background:var(--input-bg);outline:none;color:var(--ink-d);caret-color:var(--gold)}
 .login-field input::placeholder{color:var(--soft-d)}
@@ -37,3 +37,10 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-ew-label input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
 .login-instructions{display:block;margin-top:16px;font-size:12px;color:var(--soft);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(201,168,76,.2);border-radius:5px;padding:9px 14px;transition:all .2s;background:none;width:100%;font-family:'Jost',sans-serif;cursor:pointer;text-align:center}
 .login-instructions:hover{border-color:var(--gold);color:var(--gold-l);background:rgba(201,168,76,.05)}
+
+/* Login name autocomplete dropdown */
+.login-suggest{position:absolute;left:0;right:0;top:100%;margin-top:4px;z-index:60;display:none;background:var(--forest-m);border:1px solid var(--bd);border-radius:6px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.login-suggest.on{display:block}
+.login-suggest-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;color:var(--ink-d);font-size:14px}
+.login-suggest-item:hover{background:var(--hover)}
+.login-suggest-item .ls-meta{color:var(--soft);font-size:12px;letter-spacing:.04em}

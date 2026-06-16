@@ -18,6 +18,7 @@ async function doLogin(){
   userHasEarthworks=$('login-ew').checked
   currentEW=null
   try{localStorage.setItem('ek_user',name);localStorage.setItem('ek_tool',tool);localStorage.setItem('ek_ew',userHasEarthworks?'1':'0')}catch(e){}
+  usersUpsert(name,tool,userHasEarthworks)
   $('login-screen').style.display='none'
   $('app').style.display='flex'
   updateHeaderMenu()
@@ -121,6 +122,7 @@ function saveAccountChanges(){
     localStorage.setItem('ek_tool',newTool)
     localStorage.setItem('ek_ew',newEw?'1':'0')
   }catch(e){}
+  usersUpsert(newName,newTool,newEw)
   updateHeaderMenu()
   setAccountEditMode(false)
   if(typeof renderLog==='function')renderLog()
