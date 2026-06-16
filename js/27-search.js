@@ -1,11 +1,11 @@
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════════════
 // 27-search.js — Locations search: location matches + "jump to area".
 //
 // One unified list (no overlay): when you type, the list shows JUMP-TO-AREA
-// rows on top (London boroughs + major towns/cities + postcodes), then matching
-// LOCATIONS beneath. Picking an area flies the map there and switches the list
-// to AREA VIEW (loaded locations within the map view, respecting the chips).
-// ═══════════════════════════════════════════════════════════════════════════
+// rows on top (London boroughs + NI districts + major towns/cities + postcodes),
+// then matching LOCATIONS beneath. Picking an area flies the map there and
+// switches the list to AREA VIEW (loaded locations within the map view).
+// ════════════════════════════════════════════════════════════════════════════════
 
 window.areaView={active:false}
 window.searchAreasResult={q:'',areas:[]}
@@ -20,17 +20,22 @@ function _geomBbox(geom){
   return [a,b,c,d]
 }
 
-// London boroughs (LAD code E09xxxxxxx) from the loaded districts — lets you
-// search "Camden" etc. and fit the map to the borough boundary. London is too
-// big for a single pin, so boroughs are the useful unit there.
+// District-level areas from the loaded districts table. Two cases postcodes.io
+// /places can't serve well:
+//   • London boroughs (LAD code E09xxxxxxx) — London is too big for one pin, so
+//     boroughs ("Camden") are the useful unit.
+//   • Northern Ireland districts (LAD code N09xxxxxxx) — postcodes.io /places has
+//     NO NI coverage at all, so Belfast/Derry/Lisburn etc. only come from here.
+// Both fit the map to the district boundary.
 function searchBoroughs(q){
   if(typeof districts==='undefined'||!Array.isArray(districts))return []
   const ql=q.toLowerCase(),out=[]
   for(const f of districts){
     const code=(f.properties&&f.properties.code)||'',name=(f.properties&&f.properties.name)||''
-    if(code.slice(0,3)==='E09'&&name.toLowerCase().indexOf(ql)>-1&&f.geometry){
+    const pre=code.slice(0,3)
+    if((pre==='E09'||pre==='N09')&&name.toLowerCase().indexOf(ql)>-1&&f.geometry){
       const bb=_geomBbox(f.geometry)
-      out.push({label:name,sub:'London borough',bbox:bb,lat:(bb[1]+bb[3])/2,lng:(bb[0]+bb[2])/2,zoom:12})
+      out.push({label:name,sub:pre==='E09'?'London borough':'NI district',bbox:bb,lat:(bb[1]+bb[3])/2,lng:(bb[0]+bb[2])/2,zoom:12})
       if(out.length>=5)break
     }
   }
