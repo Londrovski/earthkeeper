@@ -61,3 +61,13 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .larea .larea-pin{font-size:13px}
 .larea .larea-name{font-weight:500}
 .larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
+
+/* Locations detail: when a location is open, the detail fills the panel below
+   the search bar (the list is hidden), and the close button becomes a back
+   chevron. Cleaner than the old 50/50 list+detail split. Desktop only. */
+#tab-locs.detail-open .llist{display:none}
+#tab-locs.detail-open .detail{flex:1 1 auto;max-height:none;border-top:none}
+#detail .detail-close{font-size:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px}
+#detail .detail-close::before{content:'\2039';font-size:30px;line-height:1;color:var(--soft);font-family:'Jost',sans-serif}
+#detail .detail-close:hover{background:var(--hover)}
+#detail .detail-close:hover::before{color:var(--gold)}
