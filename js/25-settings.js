@@ -2,10 +2,12 @@
 // 25-settings.js — design tokens from Supabase app_settings.
 //
 // Fetches the app_settings table at boot and applies values as CSS custom
-// properties on :root, and exposes window.SETTINGS for JS that needs them.
-// base.css :root holds the same values as fallback defaults, so there is no
-// flash and the site still works if this fetch fails. Loaded right after
-// 01-config.js (needs SB_REST / SB_HEADERS).
+// properties on :root, exposes window.SETTINGS, refreshes the JS colour
+// constants (GOLD / TYPE_COLORS / TOOL_COLORS), and re-styles the map so a DB
+// colour change reaches everything. base.css :root holds the same values as
+// fallback defaults, so there is no flash and the site still works if this
+// fetch fails. Loaded right after 01-config.js (needs SB_REST / SB_HEADERS /
+// cssVar / the colour constants).
 //
 // To change a colour etc: edit the row in Supabase app_settings — no code edit,
 // no redeploy. Refresh the site and the new value applies.
@@ -36,8 +38,59 @@ async function loadSettings(){
     const S={}; rows.forEach(r=>S[r.key]=r.value)
     window.SETTINGS=S
     applySettingsCssVars(S)
+    refreshColorTokens()
+    restyleMap()
+    try{ if(typeof refreshMapData==='function')refreshMapData() }catch(e){}
+    try{ if(typeof renderList==='function')renderList() }catch(e){}
     if(window.dbgLog)window.dbgLog('settings loaded: '+rows.length+' keys','ok')
   }catch(e){ if(window.dbgLog)window.dbgLog('loadSettings failed: '+e.message,'warn') }
+}
+
+// Re-read CSS vars (now overridden from app_settings) into the JS colour
+// constants used by the map and list renderers.
+function refreshColorTokens(){
+  if(typeof cssVar!=='function')return
+  GOLD=cssVar('--gold',GOLD)
+  if(typeof TYPE_COLORS==='object'){
+    TYPE_COLORS.hospital=cssVar('--red',TYPE_COLORS.hospital)
+    TYPE_COLORS.school=cssVar('--blue',TYPE_COLORS.school)
+    TYPE_COLORS.hospice=cssVar('--teal',TYPE_COLORS.hospice)
+    TYPE_COLORS.prison=cssVar('--amber',TYPE_COLORS.prison)
+    TYPE_COLORS.university=cssVar('--violet',TYPE_COLORS.university)
+    TYPE_COLORS.gp=cssVar('--green',TYPE_COLORS.gp)
+  }
+  if(typeof TOOL_COLORS==='object'){
+    TOOL_COLORS.omega=cssVar('--omega',TOOL_COLORS.omega)
+    TOOL_COLORS.jewel=cssVar('--jewel',TOOL_COLORS.jewel)
+    TOOL_COLORS.mg=cssVar('--mg',TOOL_COLORS.mg)
+  }
+}
+
+// Best-effort: re-apply paint properties so a DB colour change reaches the
+// already-built map. Fully guarded — if anything is missing it's a no-op,
+// never an error, and the map keeps its current colours.
+function restyleMap(){
+  try{
+    if(typeof map==='undefined'||!map||typeof map.getLayer!=='function')return
+    const setGold=['dots-cleared','cleared-glow','district-locs-cleared']
+    setGold.forEach(id=>{ if(map.getLayer(id))map.setPaintProperty(id,'circle-color',GOLD) })
+    if(map.getLayer('district-glow'))map.setPaintProperty('district-glow','line-color',GOLD)
+    if(map.getLayer('dots-uncleared'))map.setPaintProperty('dots-uncleared','circle-color',
+      ['case',
+       ['==',['get','type'],'hospital'],TYPE_COLORS.hospital,
+       ['==',['get','type'],'school'],TYPE_COLORS.school,
+       ['==',['get','type'],'hospice'],TYPE_COLORS.hospice,
+       ['==',['get','type'],'prison'],TYPE_COLORS.prison,
+       ['==',['get','type'],'gp'],TYPE_COLORS.gp,
+       TYPE_COLORS.university])
+    const toolStroke=['case',
+      ['==',['get','tool'],'omega'],TOOL_COLORS.omega,
+      ['==',['get','tool'],'jewel'],TOOL_COLORS.jewel,
+      ['==',['get','tool'],'mg'],TOOL_COLORS.mg,
+      'rgba(255,255,255,0.6)']
+    if(map.getLayer('dots-cleared'))map.setPaintProperty('dots-cleared','circle-stroke-color',toolStroke)
+    if(map.getLayer('district-locs-cleared'))map.setPaintProperty('district-locs-cleared','circle-stroke-color',toolStroke)
+  }catch(e){ if(window.dbgLog)window.dbgLog('restyleMap failed: '+e.message,'warn') }
 }
 
 loadSettings()

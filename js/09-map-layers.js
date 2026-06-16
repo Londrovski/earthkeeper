@@ -1,5 +1,8 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 09-map-layers.js — all sources + layer definitions. Pure declaration.
+// Colours reference the shared TYPE_COLORS / TOOL_COLORS / GOLD constants
+// (sourced from CSS vars / app_settings). restyleMap() in 25-settings.js
+// re-applies these after settings load so DB colour changes reach the map.
 // ═══════════════════════════════════════════════════════════════════════════
 
 function addAllSources(){
@@ -11,7 +14,7 @@ function addAllSources(){
 }
 
 function addAllLayers(){
-  // ── District polygons ─────────────────────────────────────────────────────────
+  // ── District polygons ──────────────────────────────────────────────
   map.addLayer({id:'district-fill',type:'fill',source:'districts-src',layout:{visibility:'none'},paint:{
     'fill-color':['case',
       ['==',['feature-state','cleared'],2],'rgba(201,168,76,0.18)',
@@ -36,7 +39,7 @@ function addAllLayers(){
   // ── Per-location dots inside a selected district (schools/gps) ────────────────────────────
   map.addLayer({id:'district-locs',type:'circle',source:'district-locs-src',layout:{visibility:'none'},paint:{
     'circle-radius':['interpolate',['linear'],['zoom'],7,4,10,7,13,10],
-    'circle-color':['case',['==',['get','type'],'school'],'#5B9BD5','#4A9B6F'],
+    'circle-color':['case',['==',['get','type'],'school'],TYPE_COLORS.school,TYPE_COLORS.gp],
     'circle-opacity':0.9,
     'circle-stroke-width':1.5,
     'circle-stroke-color':'rgba(255,255,255,0.35)',
@@ -48,23 +51,23 @@ function addAllLayers(){
     'circle-opacity':1,
     'circle-stroke-width':2,
     'circle-stroke-color':['case',
-      ['==',['get','tool'],'omega'],'#9B5ED4',
-      ['==',['get','tool'],'jewel'],'#E07050',
-      ['==',['get','tool'],'mg'],'#4A85C9',
+      ['==',['get','tool'],'omega'],TOOL_COLORS.omega,
+      ['==',['get','tool'],'jewel'],TOOL_COLORS.jewel,
+      ['==',['get','tool'],'mg'],TOOL_COLORS.mg,
       'rgba(255,255,255,0.5)'],
     'circle-pitch-alignment':'map'
   }})
 
-  // ── Main location dots (uncleared + cleared + selected ring) ─────────────────────────────
+  // ── Main location dots (uncleared + cleared + selected ring) ────────────────────────────────
   map.addLayer({id:'dots-uncleared',type:'circle',source:'locations',filter:['==',['get','cleared'],false],paint:{
     'circle-radius':['interpolate',['linear'],['zoom'],5,isMobile()?3:4,9,isMobile()?5:7,13,isMobile()?7:9],
     'circle-color':['case',
-      ['==',['get','type'],'hospital'],'#E07050',
-      ['==',['get','type'],'school'],'#5B9BD5',
-      ['==',['get','type'],'hospice'],'#3DBFA8',
-      ['==',['get','type'],'prison'],'#C4722A',
-      ['==',['get','type'],'gp'],'#4A9B6F',
-      '#9B78C8'],
+      ['==',['get','type'],'hospital'],TYPE_COLORS.hospital,
+      ['==',['get','type'],'school'],TYPE_COLORS.school,
+      ['==',['get','type'],'hospice'],TYPE_COLORS.hospice,
+      ['==',['get','type'],'prison'],TYPE_COLORS.prison,
+      ['==',['get','type'],'gp'],TYPE_COLORS.gp,
+      TYPE_COLORS.university],
     'circle-opacity':0.55,
     'circle-stroke-width':1,
     'circle-stroke-color':'rgba(255,255,255,0.2)',
@@ -83,9 +86,9 @@ function addAllLayers(){
     'circle-opacity':1,
     'circle-stroke-width':2,
     'circle-stroke-color':['case',
-      ['==',['get','tool'],'omega'],'#9B5ED4',
-      ['==',['get','tool'],'jewel'],'#E07050',
-      ['==',['get','tool'],'mg'],'#4A85C9',
+      ['==',['get','tool'],'omega'],TOOL_COLORS.omega,
+      ['==',['get','tool'],'jewel'],TOOL_COLORS.jewel,
+      ['==',['get','tool'],'mg'],TOOL_COLORS.mg,
       'rgba(255,255,255,0.6)'],
     'circle-pitch-alignment':'map'
   }})
