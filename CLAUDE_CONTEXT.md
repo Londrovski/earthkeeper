@@ -123,6 +123,35 @@ Then verify: `select * from public.locations where id = '…';` — confirm `lat
 
 ---
 
+## RUNBOOK — marking a location cleared
+
+A clearing = one row in `progress` (+ a matching `audit_log` row, as the app writes). Insert
+via the Supabase MCP. Fields:
+
+- **id** — the `locations.id` being cleared (e.g. `hosp-practice_plus_emersons_green`).
+- **tool** — the tool **code**, NOT the name: `MS, MF, O, J, MG, AP, MI, MJ, DM`
+  (Omega=`O`, Jewel=`J`, Merlin's Grace=`MG`, …). Stored lowercase only for the map's tool
+  colours; `progress.tool` holds the code.
+- **ew** — `EW1`…`EW5` if an Earthworks add-on was used, else `null`.
+- **date** — the clearing date `YYYY-MM-DD`.
+- **"user"** — the practitioner's full name, e.g. `James Morris` (note: reserved word, quote it).
+- **name** — the **location's** name (used for the Log display), not the user's.
+
+```sql
+insert into public.progress (id, tool, ew, date, "user", name)
+values ('hosp-practice_plus_emersons_green','O',null,'2026-05-06','James Morris','Practice Plus Group Hospital, Emersons Green')
+on conflict (id) do update set tool=excluded.tool, ew=excluded.ew, date=excluded.date, "user"=excluded."user", name=excluded.name;
+
+insert into public.audit_log (action, target_id, target_name, target_type, tool, ew, previous_tool, "user", created_at)
+values ('clear','hosp-practice_plus_emersons_green','Practice Plus Group Hospital, Emersons Green','hospital','O',null,null,'James Morris','2026-05-06T09:00:00Z');
+```
+
+(Group/district clearings go in `group_progress` instead, id `"DISTRICTCODE:school"` / `":gp"`.)
+No redeploy — appears gold on the map on the next region load.
+
+Tip: from a Google Maps link, the redirect URL contains the place name + full address +
+postcode; geocode the postcode via postcodes.io (above) for lat/lng.
+
 ## Design tokens (app_settings)
 
 Colours and other design knobs live in the Supabase `app_settings` table (`key` → `jsonb`,
@@ -165,8 +194,8 @@ Current keys: `colors` (forest, gold, red/blue/violet/teal/amber/green…), `too
 
 - **Real backup:** `Londrovski/Backup` → `.github/workflows/supabase-nightly.yml` (00:05 UTC).
   Daily snapshots of `progress`/`group_progress` + `audit_log` (rolling daily + monthly
-  rollup, self-healing). Healthy. Doubles as Supabase keep-alive. (TODO: extend to snapshot
-  `locations` / `districts` / `app_settings` too.)
+  rollup, self-healing). Healthy. Doubles as Supabase keep-alive. Also snapshots
+  `locations` / `districts` / `app_settings` (latest-only, in `earthkeeper/reference/`).
 - **Code backup:** git history + manual freezes in `Backup/snapshots/`. We keep iterations on
   backup branches and don't ship `main` until confirmed working.
 - **Removed June 2026:** the old `sync.yml` + `sync/` (abandoned auto-import experiment) and
