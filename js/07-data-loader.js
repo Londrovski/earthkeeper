@@ -4,7 +4,7 @@
 // Locations now come from the Supabase `locations` table (was static /data JSON).
 // fetchRegion keeps the same return shape — an array of location objects with
 // id/type/name/address/postcode/lat/lng and (schools/gps) districtCode — so the
-// rest of the app is unchanged. Districts still load from the static geojson.
+// rest of the app is unchanged. Districts also load from Supabase now (was static geojson).
 // ═══════════════════════════════════════════════════════════════════════════
 
 // Pull locations for one region from Supabase, paginated (PostgREST caps pages).
@@ -109,10 +109,10 @@ async function loadSchoolsGps(){
 
 async function loadDistricts(){
   try{
-    const res=await fetch(RAW_BASE+'/districts.geojson')
+    const res=await fetch(SB_REST+'/districts?select=code,name,geometry&order=code.asc',{headers:SB_HEADERS,cache:'no-store'})
     if(!res.ok){console.warn('Districts fetch failed',res.status);return}
-    const geojson=await res.json()
-    geojson.features=geojson.features.map((f,i)=>({...f,id:i+1}))
+    const rows=await res.json()
+    const geojson={type:'FeatureCollection',features:rows.map((r,i)=>({type:'Feature',id:i+1,properties:{code:r.code,name:r.name},geometry:r.geometry}))}
     districts=geojson.features
     function pushDistrictData(attempts){
       if(mapReady&&map.getSource('districts-src')){
