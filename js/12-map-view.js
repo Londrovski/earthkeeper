@@ -124,7 +124,7 @@ function goHome(){
     }
     renderDistrictList();updateDistrictStates()
   }else{
-    $('region-select').value='all'
+    const _rs=$('region-select');if(_rs)_rs.value='all'
     loadAll()
     if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
   }

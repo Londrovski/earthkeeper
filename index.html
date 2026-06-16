@@ -188,25 +188,8 @@
           <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
-      <div class="rsel">
-        <select id="region-select" onchange="loadRegion(this.value)">
-          <option value="all" selected>&mdash; All regions &mdash;</option>
-          <option value="london">London</option>
-          <option value="southeast">South East</option>
-          <option value="southwest">South West</option>
-          <option value="eastengland">East of England</option>
-          <option value="eastmidlands">East Midlands</option>
-          <option value="westmidlands">West Midlands</option>
-          <option value="yorkshire">Yorkshire</option>
-          <option value="northwest">North West</option>
-          <option value="northeast">North East</option>
-          <option value="wales">Wales</option>
-          <option value="scotland">Scotland</option>
-          <option value="northernireland">Northern Ireland</option>
-        </select>
-      </div>
       <div class="mobile-inner-stats" id="locs-mob-stats" style="display:none"></div>
-      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search places, town or postcode..." id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
         <div class="detail-head">
