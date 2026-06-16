@@ -77,6 +77,6 @@ function openFromLog(id,kind){
     renderDetail(loc,{logTab:true})
   }
   requestAnimationFrame(function(){
-    if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+    if(loc.lat&&loc.lng)flyToLoc(loc.lat,loc.lng)
   })
 }

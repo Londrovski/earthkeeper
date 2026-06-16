@@ -66,10 +66,10 @@ function selectLoc(id){
     renderDetail(loc,{mobile:true})
     // Pan AFTER the panel has a chance to size, so bottomOffset is accurate.
     requestAnimationFrame(function(){
-      if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+      if(loc.lat&&loc.lng)flyToLoc(loc.lat,loc.lng)
     })
   }else{
     renderDetail(loc,{mobile:false})
-    if(loc.lat&&loc.lng)panToVisible(loc.lat,loc.lng,null)
+    if(loc.lat&&loc.lng)flyToLoc(loc.lat,loc.lng)
   }
 }

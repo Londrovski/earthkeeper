@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// 12-map-view.js — map viewport helpers: fitBounds, panToVisible, locateMe, goHome
+// 12-map-view.js — map viewport helpers: fitBounds, panToVisible, flyToLoc, locateMe, goHome
 // ═══════════════════════════════════════════════════════════════════════════
 
 function getVisibleMapBounds(){
@@ -20,6 +20,16 @@ function panToVisible(lat,lng,zoom){
   const yOff=isMobile()?-Math.round(bottomOffset/2):0
   if(zoom){map.flyTo({center:[lng,lat],zoom,offset:[0,yOff],duration:600});return}
   map.easeTo({center:[lng,lat],offset:[0,yOff],duration:400})
+}
+
+// Fly to a clicked location. If the map is zoomed out (a lot of area visible),
+// zoom in to a comfortable regional level (~3 zoom-button clicks from Home);
+// if already closer in, keep the current zoom and just pan. Never zooms out.
+const LOC_ZOOM=8.5
+function flyToLoc(lat,lng){
+  if(!map||lat==null||lng==null)return
+  const cur=(typeof map.getZoom==='function')?map.getZoom():0
+  panToVisible(lat,lng,cur<LOC_ZOOM?LOC_ZOOM:null)
 }
 
 function fitBounds(locs,padding){
