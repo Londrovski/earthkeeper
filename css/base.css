@@ -63,9 +63,8 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
 
 /* Locations detail: when a location is open, the detail fills the panel below
-   the Show chips, covering BOTH the list and the search bar (.llist + .srow
-   hidden). The close button is a boxed X sitting next to the "Go To" button
-   — our own Maps-style action row. */
+   AND the search bar (both list and search row hidden), and the close button is a boxed
+   X sitting next to the "Go To" button — our own Maps-style action row. */
 #tab-locs.detail-open .llist{display:none}
 #tab-locs.detail-open .srow{display:none}
 #tab-locs.detail-open .detail{flex:1 1 auto;max-height:none;border-top:none}
@@ -85,3 +84,18 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 #detail .detail-close:hover,#log-detail .detail-close:hover{
   background:rgba(201,168,76,.2);border-color:var(--gold)
 }
+
+/* "Are you here?" proximity card (Find Me, when standing at a location).
+   Floats top-centre over the map; gold-edged to match the theme. */
+.at-loc-card{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1200;display:flex;align-items:center;gap:13px;max-width:430px;width:calc(100% - 28px);background:rgba(13,36,22,.96);backdrop-filter:blur(10px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.55);animation:atLocIn .25s ease}
+@keyframes atLocIn{from{opacity:0}to{opacity:1}}
+.at-loc-card-pin{font-size:22px;line-height:1;flex-shrink:0}
+.at-loc-card-body{flex:1;min-width:0}
+.at-loc-card-q{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)}
+.at-loc-card-name{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--gold);font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.at-loc-card-dist{font-size:11px;color:var(--soft);margin-top:1px}
+.at-loc-card-btns{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.at-loc-yes{background:var(--gold-d);color:var(--forest);border:none;border-radius:6px;padding:7px 14px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;cursor:pointer;white-space:nowrap;transition:background .15s}
+.at-loc-yes:hover{background:var(--gold)}
+.at-loc-no{background:none;border:1px solid var(--bd);color:var(--soft);border-radius:6px;padding:7px 14px;font-family:'Jost',sans-serif;font-size:12px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.at-loc-no:hover{border-color:var(--gold);color:var(--gold)}
