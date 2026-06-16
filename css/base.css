@@ -63,9 +63,11 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
 
 /* Locations detail: when a location is open, the detail fills the panel below
-   the search bar (the list is hidden), and the close button becomes a boxed
-   X sitting next to the "Go To" button — our own Maps-style action row. */
+   the Show chips, covering BOTH the list and the search bar (.llist + .srow
+   hidden). The close button is a boxed X sitting next to the "Go To" button
+   — our own Maps-style action row. */
 #tab-locs.detail-open .llist{display:none}
+#tab-locs.detail-open .srow{display:none}
 #tab-locs.detail-open .detail{flex:1 1 auto;max-height:none;border-top:none}
 
 /* Boxed X close button — same pill design as the gold "Go To" button, so the
