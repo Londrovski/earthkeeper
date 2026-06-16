@@ -6,9 +6,28 @@
 // selected point sits in the visible region above the popup.
 // ═══════════════════════════════════════════════════════════════════════════
 
+function renderLitem(l){
+  const p=progress[l.id]
+  const dotBg=p?GOLD:typeColor(l.type)
+  const dotBorder=p?'border:2px solid '+toolColor(p.tool):'border:2px solid transparent'
+  const badge=p?'<div class="lbadge" style="color:'+toolColor(p.tool)+';border-color:'+toolColor(p.tool)+'66;background:'+toolColor(p.tool)+'14">'+TOOL_NAMES[p.tool]+'</div>':''
+  return '<div class="litem '+(p?'done':'')+' '+(selectedId===l.id?'sel':'')+'" onclick="selectLoc(\''+l.id+'\')"><div class="ldot" style="background:'+dotBg+';'+dotBorder+'"></div><div class="linfo"><div class="lname">'+l.name+'</div><div class="lmeta">'+l.type+' - '+(l.address||l.postcode||'')+'</div></div>'+badge+'</div>'
+}
+
 function renderList(){
   const el=$('llist'),sEl=$('search')
   if(!el||!sEl)return
+  // Area view: list mirrors the map — loaded locations within the current map
+  // bounds, respecting the Places/Show chips (locVisible). Driven by 27-search.js.
+  if(window.areaView&&window.areaView.active&&mapReady&&typeof map!=='undefined'&&map.getBounds){
+    el.classList.add('active')
+    const b=map.getBounds()
+    const inView=locations.filter(l=>l.lat&&l.lng&&locVisible(l)&&b.contains([l.lng,l.lat]))
+    if(!inView.length){el.innerHTML='<div class="empty">No clearable places in view</div>';return}
+    const cap=inView.slice(0,300)
+    el.innerHTML=cap.map(renderLitem).join('')+(inView.length>cap.length?'<div class="empty">+'+(inView.length-cap.length)+' more — zoom in</div>':'')
+    return
+  }
   const q=sEl.value.toLowerCase().trim()
   el.classList.toggle('active',!!q)
   if(!q){el.innerHTML='';return}
@@ -17,13 +36,7 @@ function renderList(){
     return l.name.toLowerCase().includes(q)||(l.address||'').toLowerCase().includes(q)||(l.postcode||'').toLowerCase().includes(q)
   })
   if(!vis.length){el.innerHTML='<div class="empty">No matches for "'+q+'"</div>';return}
-  el.innerHTML=vis.map(function(l){
-    const p=progress[l.id]
-    const dotBg=p?GOLD:typeColor(l.type)
-    const dotBorder=p?'border:2px solid '+toolColor(p.tool):'border:2px solid transparent'
-    const badge=p?'<div class="lbadge" style="color:'+toolColor(p.tool)+';border-color:'+toolColor(p.tool)+'66;background:'+toolColor(p.tool)+'14">'+TOOL_NAMES[p.tool]+'</div>':''
-    return '<div class="litem '+(p?'done':'')+' '+(selectedId===l.id?'sel':'')+'" onclick="selectLoc(\''+l.id+'\')"><div class="ldot" style="background:'+dotBg+';'+dotBorder+'"></div><div class="linfo"><div class="lname">'+l.name+'</div><div class="lmeta">'+l.type+' - '+(l.address||l.postcode||'')+'</div></div>'+badge+'</div>'
-  }).join('')
+  el.innerHTML=vis.map(renderLitem).join('')
 }
 
 function selectLoc(id){

@@ -111,6 +111,9 @@ function locateMe(){
 }
 
 function goHome(){
+  if(window.areaView)window.areaView.active=false
+  const _sh=$('search');if(_sh)_sh.value=''
+  const _ss=$('search-suggest');if(_ss){_ss.classList.remove('on');_ss.innerHTML=''}
   selectedDistrictCode=null
   updateDistrictStats(null)
   $('district-detail').classList.remove('on')
