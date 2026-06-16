@@ -1,0 +1,24 @@
+# Files in the repo that should NOT be published as part of the site.
+# Cloudflare uploads everything in the assets directory except these.
+# (gitignore-style patterns)
+
+# Build / tooling internals
+node_modules
+package.json
+bun.lockb
+package-lock.json
+wrangler.jsonc
+.assetsignore
+.env.example
+.git
+.github
+.gitignore
+
+# Repo docs and project internals (not part of the app)
+*.md
+mcp
+supabase
+workflows
+
+# Large source file — runtime uses data/districts.geojson instead
+LAD_MAY_2025_UK_BUC_-9101541134941485660.geojson

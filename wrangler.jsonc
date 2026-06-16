@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers static-assets config for the Earthkeeper site.
+  // The app is plain HTML/CSS/JS with no build step, so it is served
+  // entirely as static assets — there is no Worker script (no "main").
+  //
+  // IMPORTANT: "name" must match the name of your Cloudflare Worker project.
+  // If your project is named something else, change it here.
+  "name": "earthkeeper",
+  "compatibility_date": "2026-06-16",
+  "assets": {
+    "directory": "."
+  }
+}
