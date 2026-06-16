@@ -26,7 +26,11 @@ function refreshMapData(){
   const onLog=$('tab-log')&&$('tab-log').classList.contains('on')
   const scopedToMe=onLog&&logScope==='my'
   const visible=locations.filter(l=>l.lat&&l.lng&&locVisible(l))
-  const clearedAll=visible.filter(l=>isEffectivelyCleared(l))
+  // Cleared-dots layer. On the Log tab it mirrors the Log list: every cleared
+  // location of ANY type (ignoring the place-type filter), scoped to the current
+  // user in 'my' mode. Group/district clearings aren't individual dots and are
+  // excluded by isMyClearing. On other tabs the cleared layer respects filters.
+  const clearedAll=(onLog?locations.filter(l=>l.lat&&l.lng):visible).filter(l=>isEffectivelyCleared(l))
   const cleared=scopedToMe?clearedAll.filter(isMyClearing):clearedAll
   const sel=selectedId?locations.filter(l=>l.id===selectedId&&l.lat&&l.lng):[]
   map.getSource('locations').setData({type:'FeatureCollection',features:visible.map(locToFeature)})
