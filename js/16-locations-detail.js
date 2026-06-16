@@ -1,6 +1,6 @@
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════════════
 // 16-locations-detail.js — unified desktop + mobile detail panel.
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════════════
 
 function renderDetail(loc,opts){
   opts=opts||{}
@@ -39,6 +39,7 @@ function renderDetail(loc,opts){
   }
 
   if(panelEl)panelEl.classList.add('on')
+  if(panelId==='detail'){const _t=$('tab-locs');if(_t)_t.classList.add('detail-open')}
   if(isMob){
     requestAnimationFrame(function(){
       const detailH=panelEl.offsetHeight||0
@@ -115,6 +116,7 @@ function buildMarkForm(body,loc,isMob){
 function closeDetail(){
   if(selectedId&&!isMobile())setSelectedId(null)
   const el=$('detail');if(el)el.classList.remove('on')
+  const _t=$('tab-locs');if(_t)_t.classList.remove('detail-open')
   renderList()
 }
 

@@ -63,6 +63,10 @@ async function loadAll(){
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
     if(window.dbgLog)window.dbgLog('loadAll() OK, '+locations.length+' locations','ok')
+    // loadAll() only fetches base types, so it drops schools/GPs from `locations`.
+    // If they were already loaded, re-load them so cleared school/GP dots (e.g.
+    // another user's) don't vanish on Home / switching to "all regions".
+    if(schoolsGpsLoaded){schoolsGpsLoaded=false;loadSchoolsGps()}
   }catch(e){
     setMsg('Error loading data');setTimeout(hideLoader,3000);locations=[];renderList()
     if(window.dbgLog)window.dbgLog('loadAll failed: '+e.message,'err')

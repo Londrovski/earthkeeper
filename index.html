@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=28">
-<link rel="stylesheet" href="css/layout.css?v=28">
-<link rel="stylesheet" href="css/components.css?v=28">
-<link rel="stylesheet" href="css/map.css?v=28">
-<link rel="stylesheet" href="css/mobile.css?v=28">
-<link rel="stylesheet" href="css/desktop.css?v=28">
-<link rel="stylesheet" href="css/debug.css?v=28">
+<link rel="stylesheet" href="css/base.css?v=30">
+<link rel="stylesheet" href="css/layout.css?v=30">
+<link rel="stylesheet" href="css/components.css?v=30">
+<link rel="stylesheet" href="css/map.css?v=30">
+<link rel="stylesheet" href="css/mobile.css?v=30">
+<link rel="stylesheet" href="css/desktop.css?v=30">
+<link rel="stylesheet" href="css/debug.css?v=30">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
@@ -188,25 +188,8 @@
           <div class="chip show-tool" id="chip-EW5" onclick="toggleTool('EW5',this)">EW5</div>
         </div>
       </div>
-      <div class="rsel">
-        <select id="region-select" onchange="loadRegion(this.value)">
-          <option value="all" selected>&mdash; All regions &mdash;</option>
-          <option value="london">London</option>
-          <option value="southeast">South East</option>
-          <option value="southwest">South West</option>
-          <option value="eastengland">East of England</option>
-          <option value="eastmidlands">East Midlands</option>
-          <option value="westmidlands">West Midlands</option>
-          <option value="yorkshire">Yorkshire</option>
-          <option value="northwest">North West</option>
-          <option value="northeast">North East</option>
-          <option value="wales">Wales</option>
-          <option value="scotland">Scotland</option>
-          <option value="northernireland">Northern Ireland</option>
-        </select>
-      </div>
       <div class="mobile-inner-stats" id="locs-mob-stats" style="display:none"></div>
-      <div class="srow"><input class="sinput" type="text" placeholder="Search by name or address..." id="search" oninput="renderList()" autocomplete="off"></div>
+      <div class="srow"><input class="sinput" type="text" placeholder="Search places, town or postcode..." id="search" oninput="renderList()" autocomplete="off"></div>
       <div class="llist" id="llist"></div>
       <div class="detail" id="detail">
         <div class="detail-head">
@@ -341,32 +324,33 @@
 
 <div class="saving" id="saving" style="opacity:0"></div>
 
-<script defer src="js/01-config.js?v=28"></script>
-<script defer src="js/25-settings.js?v=28"></script>
-<script defer src="js/02-state.js?v=28"></script>
-<script defer src="js/03-helpers.js?v=28"></script>
-<script defer src="js/04-debug.js?v=28"></script>
-<script defer src="js/05-auth.js?v=28"></script>
-<script defer src="js/26-users.js?v=28"></script>
-<script defer src="js/06-api.js?v=28"></script>
-<script defer src="js/07-data-loader.js?v=28"></script>
-<script defer src="js/08-map-init.js?v=28"></script>
-<script defer src="js/09-map-layers.js?v=28"></script>
-<script defer src="js/10-map-handlers.js?v=28"></script>
-<script defer src="js/11-map-render.js?v=28"></script>
-<script defer src="js/12-map-view.js?v=28"></script>
-<script defer src="js/13-filters.js?v=28"></script>
-<script defer src="js/14-tool-modal.js?v=28"></script>
-<script defer src="js/15-locations-list.js?v=28"></script>
-<script defer src="js/16-locations-detail.js?v=28"></script>
-<script defer src="js/17-groups-list.js?v=28"></script>
-<script defer src="js/18-groups-detail.js?v=28"></script>
-<script defer src="js/19-log.js?v=28"></script>
-<script defer src="js/20-actions.js?v=28"></script>
-<script defer src="js/21-stats.js?v=28"></script>
-<script defer src="js/22-tabs.js?v=28"></script>
-<script defer src="js/23-boot.js?v=28"></script>
-<script defer src="js/24-sheets.js?v=28"></script>
+<script defer src="js/01-config.js?v=30"></script>
+<script defer src="js/25-settings.js?v=30"></script>
+<script defer src="js/02-state.js?v=30"></script>
+<script defer src="js/03-helpers.js?v=30"></script>
+<script defer src="js/04-debug.js?v=30"></script>
+<script defer src="js/05-auth.js?v=30"></script>
+<script defer src="js/26-users.js?v=30"></script>
+<script defer src="js/27-search.js?v=30"></script>
+<script defer src="js/06-api.js?v=30"></script>
+<script defer src="js/07-data-loader.js?v=30"></script>
+<script defer src="js/08-map-init.js?v=30"></script>
+<script defer src="js/09-map-layers.js?v=30"></script>
+<script defer src="js/10-map-handlers.js?v=30"></script>
+<script defer src="js/11-map-render.js?v=30"></script>
+<script defer src="js/12-map-view.js?v=30"></script>
+<script defer src="js/13-filters.js?v=30"></script>
+<script defer src="js/14-tool-modal.js?v=30"></script>
+<script defer src="js/15-locations-list.js?v=30"></script>
+<script defer src="js/16-locations-detail.js?v=30"></script>
+<script defer src="js/17-groups-list.js?v=30"></script>
+<script defer src="js/18-groups-detail.js?v=30"></script>
+<script defer src="js/19-log.js?v=30"></script>
+<script defer src="js/20-actions.js?v=30"></script>
+<script defer src="js/21-stats.js?v=30"></script>
+<script defer src="js/22-tabs.js?v=30"></script>
+<script defer src="js/23-boot.js?v=30"></script>
+<script defer src="js/24-sheets.js?v=30"></script>
 
 </body>
 </html>
