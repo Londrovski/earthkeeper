@@ -2,9 +2,16 @@
 // 27-search.js — Locations search: location matches + "jump to area".
 //
 // One unified list (no overlay): when you type, the list shows JUMP-TO-AREA
-// rows on top (London boroughs + NI districts + major towns/cities + postcodes),
-// then matching LOCATIONS beneath. Picking an area flies the map there and
-// switches the list to AREA VIEW (loaded locations within the map view).
+// rows on top, then matching LOCATIONS beneath. Picking an area flies the map
+// there and switches the list to AREA VIEW (loaded locations within the view).
+//
+// Areas come from TWO sources, deduped:
+//   1. postcodes.io — friendly town/city names + postcode lookups (GB only).
+//   2. The districts table (all 361 LADs, in Supabase with polygons) — the
+//      authoritative gazetteer of areas that actually CONTAIN clearable
+//      locations. This guarantees searchable coverage == dataset coverage:
+//      anywhere with something to clear is findable; Crown Dependencies
+//      (Isle of Man, Channel Islands — no clearable locations) stay absent.
 // ════════════════════════════════════════════════════════════════════════════════
 
 window.areaView={active:false}
@@ -12,6 +19,7 @@ window.searchAreasResult={q:'',areas:[]}
 
 const _PC_RE=/^[A-Za-z]{1,2}\d[A-Za-z\d]?(\s*\d[A-Za-z]{2})?$/
 function _isMajorPlace(p){const t=(p.local_type||'').toLowerCase();return t.indexOf('city')>-1||t.indexOf('town')>-1}
+function _norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
 
 // Bounding box [minLng,minLat,maxLng,maxLat] from a (Multi)Polygon geometry.
 function _geomBbox(geom){
@@ -20,26 +28,32 @@ function _geomBbox(geom){
   return [a,b,c,d]
 }
 
-// District-level areas from the loaded districts table. Two cases postcodes.io
-// /places can't serve well:
-//   • London boroughs (LAD code E09xxxxxxx) — London is too big for one pin, so
-//     boroughs ("Camden") are the useful unit.
-//   • Northern Ireland districts (LAD code N09xxxxxxx) — postcodes.io /places has
-//     NO NI coverage at all, so Belfast/Derry/Lisburn etc. only come from here.
-// Both fit the map to the district boundary.
-function searchBoroughs(q){
+function _districtSub(code){
+  const p=code.slice(0,3)
+  if(p==='E09')return'London borough'
+  if(p==='N09')return'NI district'
+  if(code[0]==='S')return'Council area'
+  if(code[0]==='W')return'County / borough'
+  return'District'
+}
+
+// Match the query against district (LAD) names from the loaded districts table.
+// Every clearable location is tagged to one of these, so this is the gazetteer
+// that matters — it can't have a "place with stuff to clear" it doesn't know.
+// Fits the map to the district boundary.
+function searchDistricts(q){
   if(typeof districts==='undefined'||!Array.isArray(districts))return []
-  const ql=q.toLowerCase(),out=[]
+  const ql=q.toLowerCase(),starts=[],contains=[]
   for(const f of districts){
     const code=(f.properties&&f.properties.code)||'',name=(f.properties&&f.properties.name)||''
-    const pre=code.slice(0,3)
-    if((pre==='E09'||pre==='N09')&&name.toLowerCase().indexOf(ql)>-1&&f.geometry){
-      const bb=_geomBbox(f.geometry)
-      out.push({label:name,sub:pre==='E09'?'London borough':'NI district',bbox:bb,lat:(bb[1]+bb[3])/2,lng:(bb[0]+bb[2])/2,zoom:12})
-      if(out.length>=5)break
-    }
+    if(!f.geometry||!name)continue
+    const nl=name.toLowerCase(),pos=nl.indexOf(ql)
+    if(pos<0)continue
+    const bb=_geomBbox(f.geometry)
+    const row={label:name,sub:_districtSub(code),bbox:bb,lat:(bb[1]+bb[3])/2,lng:(bb[0]+bb[2])/2,zoom:12}
+    ;(pos===0?starts:contains).push(row)   // prefix matches rank first
   }
-  return out
+  return [...starts,...contains].slice(0,6)
 }
 
 // Resolve a query to candidate areas via postcodes.io (UK, free, no key).
@@ -55,20 +69,26 @@ async function searchAreas(q){
       if(res.ok){const d=(await res.json()).result;if(d)return[{label:d.outcode,sub:(d.admin_district&&d.admin_district[0])||'UK',lat:d.latitude,lng:d.longitude,zoom:11}]}
       return []
     }
-    const boroughs=searchBoroughs(q)
-    const res=await fetch('https://api.postcodes.io/places?q='+encodeURIComponent(q)+'&limit=20',{cache:'no-store'})
+    // Friendly town/city names from postcodes.io (GB coverage).
     let places=[]
-    if(res.ok){
-      const rows=(((await res.json()).result)||[]).filter(_isMajorPlace)
-      const seen=new Set()
-      for(const p of rows){
-        const k=(p.name_1+'|'+(p.county_unitary||'')).toLowerCase()
-        if(seen.has(k))continue
-        seen.add(k)
-        places.push({label:p.name_1,sub:p.county_unitary||'',lat:p.latitude,lng:p.longitude,zoom:10})
+    try{
+      const res=await fetch('https://api.postcodes.io/places?q='+encodeURIComponent(q)+'&limit=20',{cache:'no-store'})
+      if(res.ok){
+        const rows=(((await res.json()).result)||[]).filter(_isMajorPlace)
+        const seen=new Set()
+        for(const p of rows){
+          const k=(p.name_1+'|'+(p.county_unitary||'')).toLowerCase()
+          if(seen.has(k))continue
+          seen.add(k)
+          places.push({label:p.name_1,sub:p.county_unitary||'',lat:p.latitude,lng:p.longitude,zoom:10})
+        }
       }
-    }
-    return [...boroughs,...places].slice(0,6)
+    }catch(e){}
+    // Districts fill every gap (NI, anything postcodes.io misses), deduped
+    // against the friendly names we already have.
+    const have=new Set(places.map(p=>_norm(p.label)))
+    const districts2=searchDistricts(q).filter(d=>!have.has(_norm(d.label)))
+    return [...places,...districts2].slice(0,6)
   }catch(e){return []}
 }
 
