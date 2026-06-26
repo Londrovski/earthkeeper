@@ -14,7 +14,7 @@ async function sbLocations(region,types){
   const out=[],page=1000
   let offset=0
   while(true){
-    const url=SB_REST+'/locations?select='+sel
+    const url=SB_REST+'/'+TABLES.locations+'?select='+sel
       +'&region=eq.'+region
       +'&type=in.('+types.join(',')+')'
       +'&order=id.asc&limit='+page+'&offset='+offset
@@ -113,7 +113,7 @@ async function loadSchoolsGps(){
 
 async function loadDistricts(){
   try{
-    const res=await fetch(SB_REST+'/districts?select=code,name,geometry&order=code.asc',{headers:SB_HEADERS,cache:'no-store'})
+    const res=await fetch(SB_REST+'/'+TABLES.districts+'?select=code,name,geometry&order=code.asc',{headers:SB_HEADERS,cache:'no-store'})
     if(!res.ok){console.warn('Districts fetch failed',res.status);return}
     const rows=await res.json()
     const geojson={type:'FeatureCollection',features:rows.map((r,i)=>({type:'Feature',id:i+1,properties:{code:r.code,name:r.name},geometry:r.geometry}))}
