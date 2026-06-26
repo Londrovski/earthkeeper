@@ -10,6 +10,7 @@ async function doLogin(){
   if(!pw){err.textContent='Please enter the password';return}
   const tool=$('login-tool').value
   if(!tool){err.textContent='Please select your default clearing tool';return}
+  const country=($('login-country')&&$('login-country').value)||'UK'
   err.textContent='Checking...'
   const hash=await sha256(pw)
   if(hash!==PASSWORD_HASH){err.textContent='Incorrect password';$('login-pw').value='';return}
@@ -17,8 +18,9 @@ async function doLogin(){
   currentTool=tool
   userHasEarthworks=$('login-ew').checked
   currentEW=null
+  setCountry(country)
   try{localStorage.setItem('ek_user',name);localStorage.setItem('ek_tool',tool);localStorage.setItem('ek_ew',userHasEarthworks?'1':'0')}catch(e){}
-  usersUpsert(name,tool,userHasEarthworks)
+  usersUpsert(name,tool,userHasEarthworks,country)
   $('login-screen').style.display='none'
   $('app').style.display='flex'
   updateHeaderMenu()
@@ -45,6 +47,8 @@ function tryAutoLogin(){
     const storedTool=localStorage.getItem('ek_tool')
     if(storedTool&&TOOLS.includes(storedTool))currentTool=storedTool
     userHasEarthworks=localStorage.getItem('ek_ew')==='1'
+    // Sync country from this account's saved profile (cross-device); falls back to cached/UK.
+    usersGetCountry(savedUser).then(function(c){if(c&&c!==getCountry()){setCountry(c);updateHeaderMenu();if(typeof loadAll==='function'){bootApp()}}}).catch(function(){})
     $('login-screen').style.display='none'
     $('app').style.display='flex'
     updateHeaderMenu()
@@ -65,6 +69,7 @@ function updateHeaderMenu(){
   const ddName=$('acct-current-name');if(ddName)ddName.textContent=currentUser||'—'
   const ddTool=$('acct-current-tool');if(ddTool)ddTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
   const ddEw=$('acct-current-ew');if(ddEw)ddEw.textContent=userHasEarthworks?'Yes':'No'
+  const ddCountry=$('acct-current-country');if(ddCountry)ddCountry.textContent=(EK_COUNTRIES[getCountry()]||{}).label||getCountry()
 }
 
 function toggleAccountMenu(){
@@ -105,6 +110,7 @@ function setAccountEditMode(edit){
     const n=$('acct-edit-name');if(n)n.value=currentUser||''
     const t=$('acct-edit-tool');if(t)t.value=currentTool||'O'
     const ew=$('acct-edit-ew');if(ew)ew.checked=!!userHasEarthworks
+    const c=$('acct-edit-country');if(c)c.value=getCountry()
   }
 }
 
@@ -112,24 +118,30 @@ function saveAccountChanges(){
   const newName=($('acct-edit-name')?.value||'').trim()
   const newTool=$('acct-edit-tool')?.value
   const newEw=!!$('acct-edit-ew')?.checked
+  const newCountry=($('acct-edit-country')?.value)||getCountry()
   if(!newName){alert('Please enter a name');return}
   if(!newTool||!TOOLS.includes(newTool)){alert('Please pick a tool');return}
+  const countryChanged=newCountry!==getCountry()
   currentUser=newName
   currentTool=newTool
   userHasEarthworks=newEw
+  setCountry(newCountry)
   try{
     localStorage.setItem('ek_user',newName)
     localStorage.setItem('ek_tool',newTool)
     localStorage.setItem('ek_ew',newEw?'1':'0')
   }catch(e){}
-  usersUpsert(newName,newTool,newEw)
+  usersUpsert(newName,newTool,newEw,newCountry)
   updateHeaderMenu()
   setAccountEditMode(false)
+  closeAccountMenu()
+  // Country switch loads an entirely different dataset, so re-boot the app.
+  if(countryChanged&&typeof bootApp==='function'){bootApp();if(window.dbgLog)window.dbgLog('Country switched to '+newCountry+', re-booting','ok');return}
   if(typeof renderLog==='function')renderLog()
   if(typeof renderList==='function')renderList()
   if(typeof refreshMapData==='function')refreshMapData()
   if(typeof updateLogStats==='function')updateLogStats()
-  if(window.dbgLog)window.dbgLog('Account updated: '+newName+' / '+newTool+' / EW='+newEw,'ok')
+  if(window.dbgLog)window.dbgLog('Account updated: '+newName+' / '+newTool+' / EW='+newEw+' / '+newCountry,'ok')
 }
 
 function openProtocolPage(){window.location.href='protocol.html'}
