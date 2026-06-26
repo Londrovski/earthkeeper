@@ -27,7 +27,7 @@ async function sbSelectAll(table){
 
 async function loadProgress(){
   try{
-    const rows=await sbSelectAll('progress')
+    const rows=await sbSelectAll(TABLES.progress)
     progress={}
     rows.forEach(function(r){
       progress[r.id]={tool:r.tool,ew:r.ew,date:r.date,user:r.user,name:r.name}
@@ -41,7 +41,7 @@ async function loadProgress(){
 
 async function loadGroupProgress(){
   try{
-    const rows=await sbSelectAll('group_progress')
+    const rows=await sbSelectAll(TABLES.group_progress)
     groupProgress={}
     rows.forEach(function(r){
       groupProgress[r.id]={tool:r.tool,date:r.date,user:r.user,name:r.name}
@@ -124,7 +124,7 @@ async function sbLogAudit(entry){
       previous_tool:entry.previous_tool||null,
       user:entry.user||null
     }
-    const res=await fetch(SB_REST+'/audit_log',{
+    const res=await fetch(SB_REST+'/'+TABLES.audit_log,{
       method:'POST',
       headers:{...SB_HEADERS,'Prefer':'return=minimal'},
       body:JSON.stringify(body)
@@ -145,7 +145,7 @@ async function sbLogAudit(entry){
 // Fetch recent audit rows for the debug panel.
 async function fetchRecentAuditLog(limit){
   limit=limit||100
-  const url=SB_REST+'/audit_log?select=*&order=created_at.desc&limit='+limit
+  const url=SB_REST+'/'+TABLES.audit_log+'?select=*&order=created_at.desc&limit='+limit
   const res=await fetch(url,{headers:SB_HEADERS,cache:'no-store'})
   if(!res.ok){
     const txt=await res.text()
@@ -157,14 +157,14 @@ async function fetchRecentAuditLog(limit){
 // ── Save-a-single-entry helpers (called by 20-actions.js) ──────────────────────────
 async function saveProgressEntry(id){
   const p=progress[id];if(!p)return false
-  return await sbUpsertRow('progress',{id:id,tool:p.tool,ew:p.ew||null,date:p.date,user:p.user,name:p.name||null})
+  return await sbUpsertRow(TABLES.progress,{id:id,tool:p.tool,ew:p.ew||null,date:p.date,user:p.user,name:p.name||null})
 }
-async function deleteProgressEntry(id){return await sbDeleteRow('progress',id)}
+async function deleteProgressEntry(id){return await sbDeleteRow(TABLES.progress,id)}
 async function saveGroupProgressEntry(key){
   const g=groupProgress[key];if(!g)return false
-  return await sbUpsertRow('group_progress',{id:key,tool:g.tool,date:g.date,user:g.user,name:g.name||null})
+  return await sbUpsertRow(TABLES.group_progress,{id:key,tool:g.tool,date:g.date,user:g.user,name:g.name||null})
 }
-async function deleteGroupProgressEntry(key){return await sbDeleteRow('group_progress',key)}
+async function deleteGroupProgressEntry(key){return await sbDeleteRow(TABLES.group_progress,key)}
 
 // ── Legacy compat wrappers (so any leftover callers to saveProgress don't crash) ────────
 async function saveProgress(){if(window.dbgLog)window.dbgLog('(noop) bulk saveProgress called — actions now save single rows','dim')}
@@ -183,8 +183,8 @@ function startRealtime(){
 
   ws.onopen=function(){
     if(window.dbgLog)window.dbgLog('realtime: connected','ok')
-    joinChannel('realtime:public:progress','progress')
-    joinChannel('realtime:public:group_progress','group_progress')
+    joinChannel('realtime:public:'+TABLES.progress,TABLES.progress)
+    joinChannel('realtime:public:'+TABLES.group_progress,TABLES.group_progress)
     setInterval(function(){
       if(ws.readyState===1){
         ws.send(JSON.stringify({topic:'phoenix',event:'heartbeat',payload:{},ref:(++_sbRefCounter).toString()}))
@@ -229,7 +229,7 @@ function handleRealtimeChange(payload){
   const rec=data.record||data.old_record
   if(!rec)return
 
-  if(table==='progress'){
+  if(table===TABLES.progress){
     if(type==='DELETE'){
       delete progress[data.old_record.id]
       if(window.dbgLog)window.dbgLog('realtime: progress DELETE '+data.old_record.id,'info')
@@ -237,7 +237,7 @@ function handleRealtimeChange(payload){
       progress[rec.id]={tool:rec.tool,ew:rec.ew,date:rec.date,user:rec.user,name:rec.name}
       if(window.dbgLog)window.dbgLog('realtime: progress '+type+' '+rec.id,'info')
     }
-  }else if(table==='group_progress'){
+  }else if(table===TABLES.group_progress){
     if(type==='DELETE'){
       delete groupProgress[data.old_record.id]
       if(window.dbgLog)window.dbgLog('realtime: group_progress DELETE '+data.old_record.id,'info')
