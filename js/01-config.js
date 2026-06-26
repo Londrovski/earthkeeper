@@ -4,10 +4,22 @@
 
 // ── Supabase (progress + group_progress live here) ───────────────────────────────────────
 const SUPABASE_URL='https://wxdqncumgfarehwlsbuo.supabase.co'
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4ZHFuY3VtZ2ZhcmVod2xzYnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMjM2MTgsImV4cCI6MjA5MjU5OTYxOH0.OIiDeC2eLtpSEiIcVnPxYhWw4PvaG3Ajr6Q6t_wJvxo'
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4ZHFuY3VtZ2ZhcmVod2xzYnVvIiwicm9sZSI6ImФub24iLCJpYXQiOjE3NzcwMjM2MTgsImV4cCI6MjA5MjU5OTYxOH0.OIiDeC2eLtpSEiIcVnPxYhWw4PvaG3Ajr6Q6t_wJvxo'
 const SB_REST=SUPABASE_URL+'/rest/v1'
 const SB_REALTIME=SUPABASE_URL.replace('https://','wss://')+'/realtime/v1/websocket'
 const SB_HEADERS={apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json'}
+
+// ── Country selection (UK live now; AU coming). Persisted in localStorage. ───────────────
+// Each country maps the logical table set to its physical Supabase table names.
+// UK tables were renamed with a _uk suffix (June 2026) ahead of the AU rollout.
+const EK_COUNTRIES={
+  UK:{label:'United Kingdom',flag:'🇬🇧',tables:{progress:'progress_uk',group_progress:'group_progress_uk',audit_log:'audit_log_uk',locations:'locations_uk',districts:'districts_uk'}},
+  AU:{label:'Australia',flag:'🇦🇺',tables:{progress:'progress_au',group_progress:'group_progress_au',audit_log:'audit_log_au',locations:'locations_au',districts:'districts_au'}}
+}
+function getCountry(){try{const c=localStorage.getItem('ek_country');return (c&&EK_COUNTRIES[c])?c:'UK'}catch(e){return 'UK'}}
+function setCountry(c){try{if(EK_COUNTRIES[c])localStorage.setItem('ek_country',c)}catch(e){}}
+// TABLES.progress etc. → physical table name for the active country.
+const TABLES=new Proxy({},{get:(_,k)=>EK_COUNTRIES[getCountry()].tables[k]})
 
 // ── GitHub (location data + the app itself still live on GitHub Pages) ──────────────────
 const PASSWORD_HASH='74e6fbb572af72246abf610d8e268ae53e6599972c571117503dc4537b982b69'
