@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=31">
-<link rel="stylesheet" href="css/layout.css?v=31">
-<link rel="stylesheet" href="css/components.css?v=31">
-<link rel="stylesheet" href="css/map.css?v=31">
-<link rel="stylesheet" href="css/mobile.css?v=31">
-<link rel="stylesheet" href="css/desktop.css?v=31">
-<link rel="stylesheet" href="css/debug.css?v=31">
+<link rel="stylesheet" href="css/base.css?v=32">
+<link rel="stylesheet" href="css/layout.css?v=32">
+<link rel="stylesheet" href="css/components.css?v=32">
+<link rel="stylesheet" href="css/map.css?v=32">
+<link rel="stylesheet" href="css/mobile.css?v=32">
+<link rel="stylesheet" href="css/desktop.css?v=32">
+<link rel="stylesheet" href="css/debug.css?v=32">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
@@ -36,6 +36,12 @@
     <div id="login-form-wrap">
       <div class="login-field"><label for="login-name">Your full name</label><input type="text" id="login-name" name="username" placeholder="e.g. Mehindra Smith" autocomplete="username"></div>
       <div class="login-field"><label for="login-pw">Password</label><input type="password" id="login-pw" name="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="login-field"><label class="login-label">Country</label>
+        <select id="login-country" class="login-select">
+          <option value="UK">&#x1F1EC;&#x1F1E7; United Kingdom</option>
+          <option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
+        </select>
+      </div>
       <div class="login-field"><label class="login-label">Default clearing tool</label>
         <select id="login-tool" class="login-select">
           <option value="" disabled selected hidden>Select your tool...</option>
@@ -91,6 +97,7 @@
         <div class="acct-row"><div class="acct-row-label">Signed in as</div><div class="acct-row-value" id="acct-current-name">&mdash;</div></div>
         <div class="acct-row"><div class="acct-row-label">Default tool</div><div class="acct-row-value" id="acct-current-tool">&mdash;</div></div>
         <div class="acct-row"><div class="acct-row-label">Earthworks</div><div class="acct-row-value" id="acct-current-ew">&mdash;</div></div>
+        <div class="acct-row"><div class="acct-row-label">Country</div><div class="acct-row-value" id="acct-current-country">&mdash;</div></div>
         <div class="acct-divider"></div>
         <button type="button" class="acct-btn" onclick="setAccountEditMode(true)">Change name or tool</button>
         <button type="button" class="acct-btn" onclick="openInstructionsPage()">How to use Earthkeeper</button>
@@ -110,6 +117,10 @@
           <option value="MI">Manifesting Intention (MI)</option>
           <option value="MJ">Magical Jewel (MJ)</option>
           <option value="DM">Divine Magic (DM)</option>
+        </select></div>
+        <div class="acct-edit-field"><label>Country</label><select id="acct-edit-country">
+          <option value="UK">&#x1F1EC;&#x1F1E7; United Kingdom</option>
+          <option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
         </select></div>
         <label class="acct-edit-checkrow"><input type="checkbox" id="acct-edit-ew"> I have Earthworks tools (EW1&ndash;5)</label>
         <div class="acct-edit-btn-row">
@@ -324,33 +335,33 @@
 
 <div class="saving" id="saving" style="opacity:0"></div>
 
-<script defer src="js/01-config.js?v=31"></script>
-<script defer src="js/25-settings.js?v=31"></script>
-<script defer src="js/02-state.js?v=31"></script>
-<script defer src="js/03-helpers.js?v=31"></script>
-<script defer src="js/04-debug.js?v=31"></script>
-<script defer src="js/05-auth.js?v=31"></script>
-<script defer src="js/26-users.js?v=31"></script>
-<script defer src="js/27-search.js?v=31"></script>
-<script defer src="js/06-api.js?v=31"></script>
-<script defer src="js/07-data-loader.js?v=31"></script>
-<script defer src="js/08-map-init.js?v=31"></script>
-<script defer src="js/09-map-layers.js?v=31"></script>
-<script defer src="js/10-map-handlers.js?v=31"></script>
-<script defer src="js/11-map-render.js?v=31"></script>
-<script defer src="js/12-map-view.js?v=31"></script>
-<script defer src="js/13-filters.js?v=31"></script>
-<script defer src="js/14-tool-modal.js?v=31"></script>
-<script defer src="js/15-locations-list.js?v=31"></script>
-<script defer src="js/16-locations-detail.js?v=31"></script>
-<script defer src="js/17-groups-list.js?v=31"></script>
-<script defer src="js/18-groups-detail.js?v=31"></script>
-<script defer src="js/19-log.js?v=31"></script>
-<script defer src="js/20-actions.js?v=31"></script>
-<script defer src="js/21-stats.js?v=31"></script>
-<script defer src="js/22-tabs.js?v=31"></script>
-<script defer src="js/23-boot.js?v=31"></script>
-<script defer src="js/24-sheets.js?v=31"></script>
+<script defer src="js/01-config.js?v=32"></script>
+<script defer src="js/25-settings.js?v=32"></script>
+<script defer src="js/02-state.js?v=32"></script>
+<script defer src="js/03-helpers.js?v=32"></script>
+<script defer src="js/04-debug.js?v=32"></script>
+<script defer src="js/05-auth.js?v=32"></script>
+<script defer src="js/26-users.js?v=32"></script>
+<script defer src="js/27-search.js?v=32"></script>
+<script defer src="js/06-api.js?v=32"></script>
+<script defer src="js/07-data-loader.js?v=32"></script>
+<script defer src="js/08-map-init.js?v=32"></script>
+<script defer src="js/09-map-layers.js?v=32"></script>
+<script defer src="js/10-map-handlers.js?v=32"></script>
+<script defer src="js/11-map-render.js?v=32"></script>
+<script defer src="js/12-map-view.js?v=32"></script>
+<script defer src="js/13-filters.js?v=32"></script>
+<script defer src="js/14-tool-modal.js?v=32"></script>
+<script defer src="js/15-locations-list.js?v=32"></script>
+<script defer src="js/16-locations-detail.js?v=32"></script>
+<script defer src="js/17-groups-list.js?v=32"></script>
+<script defer src="js/18-groups-detail.js?v=32"></script>
+<script defer src="js/19-log.js?v=32"></script>
+<script defer src="js/20-actions.js?v=32"></script>
+<script defer src="js/21-stats.js?v=32"></script>
+<script defer src="js/22-tabs.js?v=32"></script>
+<script defer src="js/23-boot.js?v=32"></script>
+<script defer src="js/24-sheets.js?v=32"></script>
 
 </body>
 </html>
