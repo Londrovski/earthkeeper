@@ -54,7 +54,7 @@
     if(document.getElementById('dbg-btn'))return
     const btn=document.createElement('button')
     btn.id='dbg-btn';btn.type='button';btn.title='Debug'
-    btn.textContent='\uD83D\uDC1B'
+    btn.textContent='🐛'
     btn.onclick=function(){openPanel()}
     document.body.appendChild(btn)
 
@@ -62,7 +62,7 @@
     panel.id='dbg-panel'
     panel.innerHTML=
       '<div id="dbg-title">Debug</div>'+
-      '<button id="dbg-close" type="button">\u00D7</button>'+
+      '<button id="dbg-close" type="button">×</button>'+
       '<div id="dbg-status" style="padding:4px 8px;font-size:11px;color:#E8D5A0;margin-bottom:6px;border:1px solid rgba(201,168,76,.2);border-radius:4px;background:rgba(0,0,0,.4)">status loading…</div>'+
       '<div id="dbg-actions">'+
         '<button class="dbg-action" data-act="state">State</button>'+
@@ -171,8 +171,8 @@
       let hit=0,miss=0
       keys.forEach(function(id){
         const l=locations.find(function(x){return x.id===id})
-        if(l){hit++;dbgLog('  \u2713 '+id+' \u2192 '+l.name+' ('+l.type+')','ok')}
-        else{miss++;dbgLog('  \u2717 '+id+' NOT FOUND in locations','err')}
+        if(l){hit++;dbgLog('  ✓ '+id+' → '+l.name+' ('+l.type+')','ok')}
+        else{miss++;dbgLog('  ✗ '+id+' NOT FOUND in locations','err')}
       })
       dbgLog('Result: '+hit+' matched, '+miss+' missing','info')
     }catch(e){dbgLog('actCheckIds failed: '+e.message,'err')}
@@ -212,32 +212,31 @@
   }
 
   // ── Supabase-specific actions ──────────────────────────────────────────────
-
   async function actSbPing(){
     dbgLog('── Supabase ping ──','hdr')
     try{
       const t0=performance.now()
-      const res=await fetch(SB_REST+'/progress?select=id&limit=1',{headers:SB_HEADERS,cache:'no-store'})
+      const res=await fetch(SB_REST+'/'+TABLES.progress+'?select=id&limit=1',{headers:SB_HEADERS,cache:'no-store'})
       const ms=Math.round(performance.now()-t0)
       const txt=await res.text()
-      if(res.ok){dbgLog('  \u2713 '+res.status+' in '+ms+'ms. Response: '+txt.slice(0,200),'ok')}
-      else{dbgLog('  \u2717 '+res.status+' in '+ms+'ms: '+txt.slice(0,200),'err')}
-    }catch(e){dbgLog('  \u2717 ping threw: '+e.message,'err')}
+      if(res.ok){dbgLog('  ✓ '+res.status+' in '+ms+'ms. Response: '+txt.slice(0,200),'ok')}
+      else{dbgLog('  ✗ '+res.status+' in '+ms+'ms: '+txt.slice(0,200),'err')}
+    }catch(e){dbgLog('  ✗ ping threw: '+e.message,'err')}
   }
 
   async function actSbSelect(){
     dbgLog('── Supabase SELECT * ──','hdr')
     try{
       const t0=performance.now()
-      const p=await sbSelectAll('progress')
+      const p=await sbSelectAll(TABLES.progress)
       dbgLog('  progress: '+p.length+' rows in '+Math.round(performance.now()-t0)+'ms','ok')
       p.slice(0,5).forEach(function(r){dbgLog('    '+r.id+' ('+r.tool+') '+r.name,'dim')})
       if(p.length>5)dbgLog('    ... and '+(p.length-5)+' more','dim')
       const t1=performance.now()
-      const g=await sbSelectAll('group_progress')
+      const g=await sbSelectAll(TABLES.group_progress)
       dbgLog('  group_progress: '+g.length+' rows in '+Math.round(performance.now()-t1)+'ms','ok')
       g.slice(0,5).forEach(function(r){dbgLog('    '+r.id+' ('+r.tool+')','dim')})
-    }catch(e){dbgLog('  \u2717 select threw: '+e.message,'err')}
+    }catch(e){dbgLog('  ✗ select threw: '+e.message,'err')}
   }
 
   async function actSbUpsert(){
@@ -246,24 +245,24 @@
     const row={id:testId,tool:'O',ew:null,date:new Date().toISOString().slice(0,10),user:(currentUser||'debug'),name:'DEBUG TEST ROW'}
     dbgLog('  upserting '+testId,'dim')
     try{
-      const ok=await sbUpsertRow('progress',row)
-      if(ok){dbgLog('  \u2713 upsert returned true. Check Table Editor to confirm.','ok')
+      const ok=await sbUpsertRow(TABLES.progress,row)
+      if(ok){dbgLog('  ✓ upsert returned true. Check Table Editor to confirm.','ok')
         dbgLog('  Use "SB test delete" to clean up '+testId,'dim')}
-      else{dbgLog('  \u2717 upsert returned false','err')}
-    }catch(e){dbgLog('  \u2717 upsert threw: '+e.message,'err')}
+      else{dbgLog('  ✗ upsert returned false','err')}
+    }catch(e){dbgLog('  ✗ upsert threw: '+e.message,'err')}
   }
 
   async function actSbDelete(){
     dbgLog('── Supabase test delete (any rows starting with _debug_test_) ──','hdr')
     try{
-      const rows=await sbSelectAll('progress')
+      const rows=await sbSelectAll(TABLES.progress)
       const testRows=rows.filter(function(r){return r.id.indexOf('_debug_test_')===0})
       if(!testRows.length){dbgLog('  no test rows to delete','info');return}
       for(const r of testRows){
-        const ok=await sbDeleteRow('progress',r.id)
-        dbgLog('  '+(ok?'\u2713':'\u2717')+' deleted '+r.id,ok?'ok':'err')
+        const ok=await sbDeleteRow(TABLES.progress,r.id)
+        dbgLog('  '+(ok?'✓':'✗')+' deleted '+r.id,ok?'ok':'err')
       }
-    }catch(e){dbgLog('  \u2717 delete threw: '+e.message,'err')}
+    }catch(e){dbgLog('  ✗ delete threw: '+e.message,'err')}
   }
 
   function actRealtimeStatus(){
