@@ -51,8 +51,9 @@ async function loadAll(){
   if(window.dbgLog)window.dbgLog('loadAll() starting','info')
   try{
     const batchSize=3,results=[]
-    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batch=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,false)))
+    const REGIONS=getRegions()
+    for(let i=0;i<REGIONS.length;i+=batchSize){
+      const batch=await Promise.all(REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,false)))
       results.push(...batch)
     }
     locations=results.flat()
@@ -91,8 +92,9 @@ async function loadSchoolsGps(){
   setMsg('Loading schools and GPs...')
   try{
     const batchSize=3,allFetched=[]
-    for(let i=0;i<ALL_REGIONS.length;i+=batchSize){
-      const batch=await Promise.all(ALL_REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,true)))
+    const REGIONS=getRegions()
+    for(let i=0;i<REGIONS.length;i+=batchSize){
+      const batch=await Promise.all(REGIONS.slice(i,i+batchSize).map(r=>fetchRegion(r,true)))
       allFetched.push(...batch)
     }
     const existingIds=new Set(locations.map(l=>l.id))
