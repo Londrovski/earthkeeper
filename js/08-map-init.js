@@ -3,6 +3,10 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 function initMap(){
+  // Re-entrant: bootApp() runs again on country switch. Don't stack a second map —
+  // reuse the existing one and just fly it to the (now-active) country's home view.
+  if(map){try{flyHome()}catch(e){}return}
+  const _home=(typeof getHomeView==='function')?getHomeView():{center:[-2.5,54.3],zoom:5.0}
   map=new maplibregl.Map({
     container:'map',
     style:{
@@ -18,8 +22,8 @@ function initMap(){
       }},
       layers:[{id:'carto-tiles',type:'raster',source:'carto'}]
     },
-    center:[-1.5,53.5],
-    zoom:5.5,
+    center:_home.center,
+    zoom:_home.zoom,
     attributionControl:false
   })
   map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left')
