@@ -190,6 +190,14 @@ function locateMe(){
   },opts)
 }
 
+// Fly the map to the active country's whole-country home view. Used by Home and
+// on country switch — works even when there's no data yet (so AU doesn't strand on England).
+function flyHome(){
+  if(!mapReady||!map)return
+  const h=(typeof getHomeView==='function')?getHomeView():{center:[-2.5,54.3],zoom:5.0}
+  map.flyTo({center:h.center,zoom:h.zoom,duration:800})
+}
+
 function goHome(){
   clearAtLocationGlow();hideAtLocationCard()
   if(window.areaView)window.areaView.active=false
@@ -204,13 +212,13 @@ function goHome(){
         if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none')
       })
       if(map.getSource('district-locs-src'))map.getSource('district-locs-src').setData({type:'FeatureCollection',features:[]})
-      map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+      flyHome()
     }
     renderDistrictList();updateDistrictStates()
   }else{
     const _rs=$('region-select');if(_rs)_rs.value='all'
     loadAll()
-    if(mapReady)map.flyTo({center:[-1.5,53.5],zoom:5.5,duration:800})
+    flyHome()
   }
 }
 
