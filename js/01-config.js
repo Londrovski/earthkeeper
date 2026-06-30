@@ -10,11 +10,18 @@ const SB_REALTIME=SUPABASE_URL.replace('https://','wss://')+'/realtime/v1/websoc
 const SB_HEADERS={apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json'}
 
 // ── Country selection (UK live now; AU coming). Persisted in localStorage. ───────────────
-// Each country maps the logical table set to its physical Supabase table names.
+// Each country maps the logical table set to its physical Supabase table names,
+// plus its region set (drives data loading) and home map view (centre/zoom).
 // UK tables were renamed with a _uk suffix (June 2026) ahead of the AU rollout.
 const EK_COUNTRIES={
-  UK:{label:'United Kingdom',flag:'🇬🇧',tables:{progress:'progress_uk',group_progress:'group_progress_uk',audit_log:'audit_log_uk',locations:'locations_uk',districts:'districts_uk'}},
-  AU:{label:'Australia',flag:'🇦🇺',tables:{progress:'progress_au',group_progress:'group_progress_au',audit_log:'audit_log_au',locations:'locations_au',districts:'districts_au'}}
+  UK:{label:'United Kingdom',flag:'🇬🇧',
+      tables:{progress:'progress_uk',group_progress:'group_progress_uk',audit_log:'audit_log_uk',locations:'locations_uk',districts:'districts_uk'},
+      regions:['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland','northernireland'],
+      home:{center:[-2.5,54.3],zoom:5.0}},
+  AU:{label:'Australia',flag:'🇦🇺',
+      tables:{progress:'progress_au',group_progress:'group_progress_au',audit_log:'audit_log_au',locations:'locations_au',districts:'districts_au'},
+      regions:['nsw','vic','qld','sa','wa','tas','nt','act'],
+      home:{center:[134.0,-25.0],zoom:3.6}}
 }
 function getCountry(){try{const c=localStorage.getItem('ek_country');return (c&&EK_COUNTRIES[c])?c:'UK'}catch(e){return 'UK'}}
 function setCountry(c){try{if(EK_COUNTRIES[c])localStorage.setItem('ek_country',c)}catch(e){}}
@@ -30,7 +37,11 @@ const RAW_BASE=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/mai
 // API_BASE + GH_HEADERS kept for any future admin tooling but unused by the runtime app now.
 const API_BASE=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data`
 
-const ALL_REGIONS=['london','southeast','southwest','eastengland','eastmidlands','westmidlands','yorkshire','northwest','northeast','wales','scotland','northernireland']
+// Region set + home map view resolve from the active country (see EK_COUNTRIES).
+function getRegions(){return (EK_COUNTRIES[getCountry()]||EK_COUNTRIES.UK).regions}
+function getHomeView(){return (EK_COUNTRIES[getCountry()]||EK_COUNTRIES.UK).home}
+// Back-compat: existing code reads ALL_REGIONS; keep it as the active country's regions.
+Object.defineProperty(window,'ALL_REGIONS',{get:getRegions,configurable:true})
 
 // Colours come from CSS variables (base.css defaults, overridden at boot from
 // Supabase app_settings by 25-settings.js). These JS copies are read once here,
