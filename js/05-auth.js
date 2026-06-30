@@ -135,8 +135,15 @@ function saveAccountChanges(){
   updateHeaderMenu()
   setAccountEditMode(false)
   closeAccountMenu()
-  // Country switch loads an entirely different dataset, so re-boot the app.
-  if(countryChanged&&typeof bootApp==='function'){bootApp();if(window.dbgLog)window.dbgLog('Country switched to '+newCountry+', re-booting','ok');return}
+  // Country switch loads an entirely different dataset, so re-boot the app and
+  // immediately fly the map to the new country's home view (so it doesn't strand
+  // on the old country while the new data is still empty).
+  if(countryChanged&&typeof bootApp==='function'){
+    bootApp()
+    if(typeof flyHome==='function'){setTimeout(flyHome,150)}
+    if(window.dbgLog)window.dbgLog('Country switched to '+newCountry+', re-booting','ok')
+    return
+  }
   if(typeof renderLog==='function')renderLog()
   if(typeof renderList==='function')renderList()
   if(typeof refreshMapData==='function')refreshMapData()
