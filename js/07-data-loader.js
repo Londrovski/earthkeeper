@@ -35,8 +35,8 @@ async function sbLocations(region,types){
 
 async function fetchRegion(region,includeSchoolsGps){
   const types=includeSchoolsGps
-    ?['hospital','university','hospice','prison','school','gp']
-    :['hospital','university','hospice','prison']
+    ?['hospital','university','hospice','prison','school','gp','massacre']
+    :['hospital','university','hospice','prison','massacre']
   try{
     return await sbLocations(region,types)
   }catch(e){
