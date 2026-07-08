@@ -1,10 +1,10 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 07-data-loader.js — fetchRegion, loadAll, loadRegion, loadSchoolsGps, loadDistricts, buildDistrictMap
 //
-// Locations now come from the Supabase `locations` table (was static /data JSON).
-// fetchRegion keeps the same return shape — an array of location objects with
-// id/type/name/address/postcode/lat/lng and (schools/gps) districtCode — so the
-// rest of the app is unchanged. Districts also load from Supabase now (was static geojson).
+// Locations come from the Supabase `locations` table. Which types load eagerly
+// (base) vs on-demand (lazy) is driven by the per-country `place_types` config
+// (is_lazy). Lazy types (schools, and in AU the ~18k nurseries) are only fetched
+// on first enable / background pass, so the initial boot stays light.
 // ═══════════════════════════════════════════════════════════════════════════
 
 // Pull locations for one region from Supabase, paginated (PostgREST caps pages).
@@ -33,11 +33,20 @@ async function sbLocations(region,types){
   return out
 }
 
-async function fetchRegion(region,includeSchoolsGps){
-  const base=getCountry()==='AU'
-    ?['hospital','university','hospice','nursery','massacre']
-    :['hospital','university','hospice','prison','massacre']
-  const types=includeSchoolsGps?[...base,'school','gp']:base
+// Base = non-lazy types (eager, on boot); lazy = is_lazy types (schools/nurseries/GPs).
+// Derived from the loaded place_types config, with a per-country fallback.
+function baseTypes(){
+  if(window.PLACE_TYPES&&PLACE_TYPES.length)return PLACE_TYPES.filter(r=>!r.is_lazy).map(r=>r.type)
+  return getCountry()==='AU'?['hospital','university','hospice','massacre']:['hospital','university','hospice','prison','massacre']
+}
+function lazyTypes(){
+  if(window.PLACE_TYPES&&PLACE_TYPES.length)return PLACE_TYPES.filter(r=>r.is_lazy).map(r=>r.type)
+  return getCountry()==='AU'?['school','nursery']:['school','gp']
+}
+
+async function fetchRegion(region,includeLazy){
+  const types=includeLazy?[...baseTypes(),...lazyTypes()]:baseTypes()
+  if(!types.length)return []
   try{
     return await sbLocations(region,types)
   }catch(e){
@@ -58,17 +67,13 @@ async function loadAll(){
       results.push(...batch)
     }
     locations=results.flat()
-    // Re-enable primary types if they got toggled off before a region reload
-    if(!placesFilter.hospital)placesFilter.hospital=true
-    if(!placesFilter.hospice)placesFilter.hospice=true
-    if(!placesFilter.university)placesFilter.university=true
-    if(!placesFilter.massacre)placesFilter.massacre=true
-    if(getCountry()!=='AU'&&!placesFilter.prison)placesFilter.prison=true
+    // Re-enable primary (non-lazy, default-on) types if they got toggled off before a reload
+    ;(window.PLACE_TYPES||[]).forEach(function(r){ if(r.default_on&&!placesFilter[r.type])placesFilter[r.type]=true })
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
     if(window.dbgLog)window.dbgLog('loadAll() OK, '+locations.length+' locations','ok')
-    // loadAll() only fetches base types, so it drops schools/GPs from `locations`.
-    // If they were already loaded, re-load them so cleared school/GP dots (e.g.
+    // loadAll() only fetches base types, so it drops lazy types from `locations`.
+    // If they were already loaded, re-load them so cleared lazy-type dots (e.g.
     // another user's) don't vanish on Home / switching to "all regions".
     if(schoolsGpsLoaded){schoolsGpsLoaded=false;loadSchoolsGps()}
   }catch(e){
@@ -91,8 +96,9 @@ async function loadRegion(value){
 
 async function loadSchoolsGps(){
   if(schoolsGpsLoaded)return
+  if(!lazyTypes().length){schoolsGpsLoaded=true;return}
   schoolsGpsLoaded=true
-  setMsg('Loading schools and GPs...')
+  setMsg('Loading schools and nurseries...')
   try{
     const batchSize=3,allFetched=[]
     const REGIONS=getRegions()
@@ -108,7 +114,7 @@ async function loadSchoolsGps(){
     setMsg('')
     if(window.dbgLog)window.dbgLog('loadSchoolsGps OK, total locations='+locations.length,'ok')
   }catch(e){
-    console.warn('Schools/GPs load failed',e)
+    console.warn('Lazy types load failed',e)
     schoolsGpsLoaded=false
     setMsg('Some data failed to load')
     setTimeout(()=>setMsg(''),3000)
