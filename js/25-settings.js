@@ -43,7 +43,8 @@ function refreshColorTokens(){
     TYPE_COLORS.school=cssVar('--blue',TYPE_COLORS.school)
     TYPE_COLORS.hospice=cssVar('--teal',TYPE_COLORS.hospice)
     TYPE_COLORS.prison=cssVar('--amber',TYPE_COLORS.prison)
-    TYPE_COLORS.university=cssVar('--violet',TYPE_COLORS.university)
+    TYPE_COLORS.nursery=cssVar('--amber',TYPE_COLORS.nursery)
+    TYPE_COLORS.university=cssVar('--red',TYPE_COLORS.university)
     TYPE_COLORS.gp=cssVar('--green',TYPE_COLORS.gp)
     TYPE_COLORS.massacre=cssVar('--massacre',TYPE_COLORS.massacre)
   }
@@ -66,6 +67,7 @@ function restyleMap(){
        ['==',['get','type'],'school'],TYPE_COLORS.school,
        ['==',['get','type'],'hospice'],TYPE_COLORS.hospice,
        ['==',['get','type'],'prison'],TYPE_COLORS.prison,
+       ['==',['get','type'],'nursery'],TYPE_COLORS.nursery,
        ['==',['get','type'],'gp'],TYPE_COLORS.gp,
        ['==',['get','type'],'massacre'],TYPE_COLORS.massacre,
        TYPE_COLORS.university])
