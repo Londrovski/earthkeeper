@@ -28,7 +28,9 @@ function locVisible(loc){
 function togglePlace(type,el){
   placesFilter[type]=!placesFilter[type]
   el.classList.toggle('on',placesFilter[type])
-  if((type==='school'||type==='gp')&&placesFilter[type]&&!schoolsGpsLoaded){
+  // Lazy types (schools/GPs) are fetched on first enable, driven by the place_types config.
+  const lazy=(typeof PT_BY_TYPE==='object'&&PT_BY_TYPE[type]&&PT_BY_TYPE[type].is_lazy)
+  if(placesFilter[type]&&lazy&&!schoolsGpsLoaded){
     loadSchoolsGps().then(()=>{refreshMapData();renderList();updateStats()})
   }else{
     refreshMapData();renderList();updateStats()
