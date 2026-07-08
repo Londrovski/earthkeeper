@@ -14,19 +14,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=39">
-<link rel="stylesheet" href="css/layout.css?v=39">
-<link rel="stylesheet" href="css/components.css?v=39">
-<link rel="stylesheet" href="css/map.css?v=39">
-<link rel="stylesheet" href="css/mobile.css?v=39">
-<link rel="stylesheet" href="css/desktop.css?v=39">
-<link rel="stylesheet" href="css/debug.css?v=39">
+<link rel="stylesheet" href="css/base.css?v=40">
+<link rel="stylesheet" href="css/layout.css?v=40">
+<link rel="stylesheet" href="css/components.css?v=40">
+<link rel="stylesheet" href="css/map.css?v=40">
+<link rel="stylesheet" href="css/mobile.css?v=40">
+<link rel="stylesheet" href="css/desktop.css?v=40">
+<link rel="stylesheet" href="css/debug.css?v=40">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
 .country-uk .au-only{display:none!important}
 .country-au .uk-only{display:none!important}
 .chip.hospital,.chip.hospice,.chip.university,.chip.prison,.chip.nursery,.chip.school,.chip.gp,.chip.massacre{opacity:.35}
 .chip.hospital.on,.chip.hospice.on,.chip.university.on,.chip.prison.on,.chip.nursery.on,.chip.school.on,.chip.gp.on,.chip.massacre.on{opacity:1}
+/* Country switcher in the top bar */
+.hdr-country{background:rgba(201,168,76,.1);border:1px solid var(--bd);color:var(--gold);border-radius:6px;padding:6px 8px;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;letter-spacing:.04em;cursor:pointer;color-scheme:dark;outline:none;transition:all .15s}
+.hdr-country:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
+.hdr-country:focus{border-color:var(--gold)}
+.hdr-country option{background:#0a1c11;color:#E8D5A0}
+@media(max-width:768px){.hdr-country{padding:5px 4px;font-size:11px}}
 </style>
 </head>
 <body>
@@ -86,6 +92,10 @@
     <div id="s-log-allpct" style="display:none"><strong id="s-pct-all">0%</strong><span>all done</span></div>
   </div>
   <div class="header-right">
+    <select id="hdr-country" class="hdr-country" aria-label="Country" title="Switch country" onchange="switchCountry(this.value)">
+      <option value="UK">&#x1F1EC;&#x1F1E7; UK</option>
+      <option value="AU">&#x1F1E6;&#x1F1FA; AU</option>
+    </select>
     <button type="button" class="hdr-btn" onclick="openProtocolPage()" title="Protocol">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/>
@@ -325,34 +335,34 @@
 
 <div class="saving" id="saving" style="opacity:0"></div>
 
-<script defer src="js/01-config.js?v=39"></script>
-<script defer src="js/25-settings.js?v=39"></script>
-<script defer src="js/02-state.js?v=39"></script>
-<script defer src="js/28-place-types.js?v=39"></script>
-<script defer src="js/03-helpers.js?v=39"></script>
-<script defer src="js/04-debug.js?v=39"></script>
-<script defer src="js/05-auth.js?v=39"></script>
-<script defer src="js/26-users.js?v=39"></script>
-<script defer src="js/27-search.js?v=39"></script>
-<script defer src="js/06-api.js?v=39"></script>
-<script defer src="js/07-data-loader.js?v=39"></script>
-<script defer src="js/08-map-init.js?v=39"></script>
-<script defer src="js/09-map-layers.js?v=39"></script>
-<script defer src="js/10-map-handlers.js?v=39"></script>
-<script defer src="js/11-map-render.js?v=39"></script>
-<script defer src="js/12-map-view.js?v=39"></script>
-<script defer src="js/13-filters.js?v=39"></script>
-<script defer src="js/14-tool-modal.js?v=39"></script>
-<script defer src="js/15-locations-list.js?v=39"></script>
-<script defer src="js/16-locations-detail.js?v=39"></script>
-<script defer src="js/17-groups-list.js?v=39"></script>
-<script defer src="js/18-groups-detail.js?v=39"></script>
-<script defer src="js/19-log.js?v=39"></script>
-<script defer src="js/20-actions.js?v=39"></script>
-<script defer src="js/21-stats.js?v=39"></script>
-<script defer src="js/22-tabs.js?v=39"></script>
-<script defer src="js/23-boot.js?v=39"></script>
-<script defer src="js/24-sheets.js?v=39"></script>
+<script defer src="js/01-config.js?v=40"></script>
+<script defer src="js/25-settings.js?v=40"></script>
+<script defer src="js/02-state.js?v=40"></script>
+<script defer src="js/28-place-types.js?v=40"></script>
+<script defer src="js/03-helpers.js?v=40"></script>
+<script defer src="js/04-debug.js?v=40"></script>
+<script defer src="js/05-auth.js?v=40"></script>
+<script defer src="js/26-users.js?v=40"></script>
+<script defer src="js/27-search.js?v=40"></script>
+<script defer src="js/06-api.js?v=40"></script>
+<script defer src="js/07-data-loader.js?v=40"></script>
+<script defer src="js/08-map-init.js?v=40"></script>
+<script defer src="js/09-map-layers.js?v=40"></script>
+<script defer src="js/10-map-handlers.js?v=40"></script>
+<script defer src="js/11-map-render.js?v=40"></script>
+<script defer src="js/12-map-view.js?v=40"></script>
+<script defer src="js/13-filters.js?v=40"></script>
+<script defer src="js/14-tool-modal.js?v=40"></script>
+<script defer src="js/15-locations-list.js?v=40"></script>
+<script defer src="js/16-locations-detail.js?v=40"></script>
+<script defer src="js/17-groups-list.js?v=40"></script>
+<script defer src="js/18-groups-detail.js?v=40"></script>
+<script defer src="js/19-log.js?v=40"></script>
+<script defer src="js/20-actions.js?v=40"></script>
+<script defer src="js/21-stats.js?v=40"></script>
+<script defer src="js/22-tabs.js?v=40"></script>
+<script defer src="js/23-boot.js?v=40"></script>
+<script defer src="js/24-sheets.js?v=40"></script>
 
 </body>
 </html>
