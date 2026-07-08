@@ -61,6 +61,22 @@ function tryAutoLogin(){
   }
 }
 
+// Country switcher in the header — swap country, persist to the account, re-boot.
+function switchCountry(c){
+  if(!c||!EK_COUNTRIES[c])return
+  if(c===getCountry()){updateHeaderMenu();return}
+  setCountry(c)
+  if(currentUser)usersUpsert(currentUser,currentTool,userHasEarthworks,c)
+  updateHeaderMenu()
+  // A country switch loads an entirely different dataset + place set, so re-boot
+  // and fly the map to the new country's home view.
+  if(typeof bootApp==='function'){
+    bootApp()
+    if(typeof flyHome==='function'){setTimeout(flyHome,150)}
+  }
+  if(window.dbgLog)window.dbgLog('Country switched to '+c+' (header), re-booting','ok')
+}
+
 // The button face is always the literal word "Menu" — the dropdown itself
 // shows the user's name, tool and EW status.
 function updateHeaderMenu(){
@@ -70,6 +86,7 @@ function updateHeaderMenu(){
   const ddTool=$('acct-current-tool');if(ddTool)ddTool.textContent=TOOL_NAMES_FULL[currentTool]||currentTool
   const ddEw=$('acct-current-ew');if(ddEw)ddEw.textContent=userHasEarthworks?'Yes':'No'
   const ddCountry=$('acct-current-country');if(ddCountry)ddCountry.textContent=(EK_COUNTRIES[getCountry()]||{}).label||getCountry()
+  const hdrCountry=$('hdr-country');if(hdrCountry&&hdrCountry.value!==getCountry())hdrCountry.value=getCountry()
 }
 
 function toggleAccountMenu(){
