@@ -17,7 +17,9 @@ let map=null
 let mapReady=false
 let locationMarker=null
 
-let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,nursery:true,gp:false,massacre:false}
+// Primary (auto-on): hospital, hospice, university, massacre, prison(UK)
+// Secondary (auto-off): school, nursery, gp — these move to Groups tab later
+let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,nursery:false,gp:false,massacre:true}
 let showFilter='all'
 let activeTools=new Set()
 let groupTypes=new Set(['school','gp'])
