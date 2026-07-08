@@ -5,6 +5,9 @@
 async function bootApp(){
   document.body.classList.remove('country-uk','country-au')
   document.body.classList.add('country-'+getCountry().toLowerCase())
+  // Build the per-country place set (chips, legend, progress, group buttons)
+  // before any data render, so the right tags/colours are in place.
+  await loadPlaceTypes()
   if(window.dbgLog)window.dbgLog('bootApp() starting','info')
   initMap()
   setMsg('Loading progress...')
