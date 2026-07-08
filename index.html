@@ -14,26 +14,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="css/base.css?v=36">
-<link rel="stylesheet" href="css/layout.css?v=36">
-<link rel="stylesheet" href="css/components.css?v=36">
-<link rel="stylesheet" href="css/map.css?v=36">
-<link rel="stylesheet" href="css/mobile.css?v=36">
-<link rel="stylesheet" href="css/desktop.css?v=36">
-<link rel="stylesheet" href="css/debug.css?v=36">
+<link rel="stylesheet" href="css/base.css?v=37">
+<link rel="stylesheet" href="css/layout.css?v=37">
+<link rel="stylesheet" href="css/components.css?v=37">
+<link rel="stylesheet" href="css/map.css?v=37">
+<link rel="stylesheet" href="css/mobile.css?v=37">
+<link rel="stylesheet" href="css/desktop.css?v=37">
+<link rel="stylesheet" href="css/debug.css?v=37">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
 .country-uk .au-only{display:none!important}
 .country-au .uk-only{display:none!important}
 .chip.hospital,.chip.hospice,.chip.university,.chip.prison,.chip.nursery,.chip.school,.chip.gp,.chip.massacre{opacity:.35}
 .chip.hospital.on,.chip.hospice.on,.chip.university.on,.chip.prison.on,.chip.nursery.on,.chip.school.on,.chip.gp.on,.chip.massacre.on{opacity:1}
-.chip.hospital.on{box-shadow:inset 0 0 0 1.5px var(--red)}
-.chip.hospice.on{box-shadow:inset 0 0 0 1.5px var(--teal)}
-.chip.university.on{box-shadow:inset 0 0 0 1.5px var(--violet)}
-.chip.prison.on,.chip.nursery.on{box-shadow:inset 0 0 0 1.5px var(--amber)}
-.chip.school.on{box-shadow:inset 0 0 0 1.5px var(--blue)}
-.chip.gp.on{box-shadow:inset 0 0 0 1.5px var(--green)}
-.chip.massacre.on{box-shadow:inset 0 0 0 1.5px var(--massacre)}
 </style>
 </head>
 <body>
@@ -166,14 +159,14 @@
       <div class="frow">
         <div class="frow-label">Places</div>
         <div class="chips">
-          <div class="chip hospital on" onclick="togglePlace('hospital',this)"><span class="chip-dot" style="background:var(--red)"></span>Hospitals</div>
-          <div class="chip hospice on" onclick="togglePlace('hospice',this)"><span class="chip-dot" style="background:var(--teal)"></span>Hospices</div>
-          <div class="chip massacre on" onclick="togglePlace('massacre',this)"><span class="chip-dot" style="background:var(--massacre)"></span>Massacres</div>
-          <div class="chip university on" onclick="togglePlace('university',this)"><span class="chip-dot" style="background:var(--violet)"></span>Unis</div>
-          <div class="chip prison on uk-only" onclick="togglePlace('prison',this)"><span class="chip-dot" style="background:var(--amber)"></span>Prisons</div>
-          <div class="chip school" onclick="togglePlace('school',this)"><span class="chip-dot" style="background:var(--blue)"></span>Schools</div>
-          <div class="chip nursery au-only" onclick="togglePlace('nursery',this)"><span class="chip-dot" style="background:var(--amber)"></span>Nurseries</div>
-          <div class="chip gp" onclick="togglePlace('gp',this)"><span class="chip-dot" style="background:var(--green)"></span>GPs</div>
+          <div class="chip hospital on" onclick="togglePlace('hospital',this)">Hospitals</div>
+          <div class="chip hospice on" onclick="togglePlace('hospice',this)">Hospices</div>
+          <div class="chip massacre on" onclick="togglePlace('massacre',this)">Massacres</div>
+          <div class="chip university on" onclick="togglePlace('university',this)">Unis</div>
+          <div class="chip prison on uk-only" onclick="togglePlace('prison',this)">Prisons</div>
+          <div class="chip school" onclick="togglePlace('school',this)">Schools</div>
+          <div class="chip nursery au-only" onclick="togglePlace('nursery',this)">Nurseries</div>
+          <div class="chip gp" onclick="togglePlace('gp',this)">GPs</div>
         </div>
       </div>
       <div class="frow">
@@ -309,7 +302,7 @@
         <div class="prog-row"><div class="prog-label">Hospitals</div><div class="prog-track"><div class="prog-fill" id="pg-h" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ht">-</div></div>
         <div class="prog-row"><div class="prog-label">Hospices</div><div class="prog-track"><div class="prog-fill" id="pg-ho" style="background:var(--teal);width:0%"></div></div><div class="prog-count" id="pg-hot">-</div></div>
         <div class="prog-row"><div class="prog-label">Massacres</div><div class="prog-track"><div class="prog-fill" id="pg-ma" style="background:var(--massacre);width:0%"></div></div><div class="prog-count" id="pg-mat">-</div></div>
-        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--violet);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
+        <div class="prog-row"><div class="prog-label">Unis</div><div class="prog-track"><div class="prog-fill" id="pg-u" style="background:var(--red);width:0%"></div></div><div class="prog-count" id="pg-ut">-</div></div>
         <div class="prog-row uk-only"><div class="prog-label">Prisons</div><div class="prog-track"><div class="prog-fill" id="pg-pr" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-prt">-</div></div>
         <div class="prog-row au-only"><div class="prog-label">Nurseries</div><div class="prog-track"><div class="prog-fill" id="pg-nu" style="background:var(--amber);width:0%"></div></div><div class="prog-count" id="pg-nut">-</div></div>
         <div class="prog-row" id="pg-row-s"><div class="prog-label">Schools</div><div class="prog-track"><div class="prog-fill" id="pg-s" style="background:var(--blue);width:0%"></div></div><div class="prog-count" id="pg-st">-</div></div>
@@ -320,7 +313,7 @@
         <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Hospital</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Hospice</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--massacre)"></div>Massacre</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--violet)"></div>University</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>University</div>
         <div class="leg-item uk-only"><div class="leg-dot" style="background:var(--amber)"></div>Prison</div>
         <div class="leg-item au-only"><div class="leg-dot" style="background:var(--amber)"></div>Nursery</div>
         <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>School</div>
@@ -354,33 +347,33 @@
 
 <div class="saving" id="saving" style="opacity:0"></div>
 
-<script defer src="js/01-config.js?v=36"></script>
-<script defer src="js/25-settings.js?v=36"></script>
-<script defer src="js/02-state.js?v=36"></script>
-<script defer src="js/03-helpers.js?v=36"></script>
-<script defer src="js/04-debug.js?v=36"></script>
-<script defer src="js/05-auth.js?v=36"></script>
-<script defer src="js/26-users.js?v=36"></script>
-<script defer src="js/27-search.js?v=36"></script>
-<script defer src="js/06-api.js?v=36"></script>
-<script defer src="js/07-data-loader.js?v=36"></script>
-<script defer src="js/08-map-init.js?v=36"></script>
-<script defer src="js/09-map-layers.js?v=36"></script>
-<script defer src="js/10-map-handlers.js?v=36"></script>
-<script defer src="js/11-map-render.js?v=36"></script>
-<script defer src="js/12-map-view.js?v=36"></script>
-<script defer src="js/13-filters.js?v=36"></script>
-<script defer src="js/14-tool-modal.js?v=36"></script>
-<script defer src="js/15-locations-list.js?v=36"></script>
-<script defer src="js/16-locations-detail.js?v=36"></script>
-<script defer src="js/17-groups-list.js?v=36"></script>
-<script defer src="js/18-groups-detail.js?v=36"></script>
-<script defer src="js/19-log.js?v=36"></script>
-<script defer src="js/20-actions.js?v=36"></script>
-<script defer src="js/21-stats.js?v=36"></script>
-<script defer src="js/22-tabs.js?v=36"></script>
-<script defer src="js/23-boot.js?v=36"></script>
-<script defer src="js/24-sheets.js?v=36"></script>
+<script defer src="js/01-config.js?v=37"></script>
+<script defer src="js/25-settings.js?v=37"></script>
+<script defer src="js/02-state.js?v=37"></script>
+<script defer src="js/03-helpers.js?v=37"></script>
+<script defer src="js/04-debug.js?v=37"></script>
+<script defer src="js/05-auth.js?v=37"></script>
+<script defer src="js/26-users.js?v=37"></script>
+<script defer src="js/27-search.js?v=37"></script>
+<script defer src="js/06-api.js?v=37"></script>
+<script defer src="js/07-data-loader.js?v=37"></script>
+<script defer src="js/08-map-init.js?v=37"></script>
+<script defer src="js/09-map-layers.js?v=37"></script>
+<script defer src="js/10-map-handlers.js?v=37"></script>
+<script defer src="js/11-map-render.js?v=37"></script>
+<script defer src="js/12-map-view.js?v=37"></script>
+<script defer src="js/13-filters.js?v=37"></script>
+<script defer src="js/14-tool-modal.js?v=37"></script>
+<script defer src="js/15-locations-list.js?v=37"></script>
+<script defer src="js/16-locations-detail.js?v=37"></script>
+<script defer src="js/17-groups-list.js?v=37"></script>
+<script defer src="js/18-groups-detail.js?v=37"></script>
+<script defer src="js/19-log.js?v=37"></script>
+<script defer src="js/20-actions.js?v=37"></script>
+<script defer src="js/21-stats.js?v=37"></script>
+<script defer src="js/22-tabs.js?v=37"></script>
+<script defer src="js/23-boot.js?v=37"></script>
+<script defer src="js/24-sheets.js?v=37"></script>
 
 </body>
 </html>

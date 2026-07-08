@@ -39,7 +39,7 @@ Object.defineProperty(window,'ALL_REGIONS',{get:getRegions,configurable:true})
 // Colours: CSS vars → JS constants, refreshed by 25-settings after settings load
 function cssVar(n,fb){try{const v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb}catch(e){return fb}}
 let GOLD=cssVar('--gold','#C9A84C')
-const TYPE_COLORS={hospital:cssVar('--red','#E07050'),school:cssVar('--blue','#5B9BD5'),hospice:cssVar('--teal','#3DBFA8'),prison:cssVar('--amber','#C4722A'),nursery:cssVar('--amber','#C4722A'),university:cssVar('--violet','#9B78C8'),gp:cssVar('--green','#4A9B6F'),massacre:cssVar('--massacre','#7B3DAF')}
+const TYPE_COLORS={hospital:cssVar('--red','#E07050'),school:cssVar('--blue','#5B9BD5'),hospice:cssVar('--teal','#3DBFA8'),prison:cssVar('--amber','#C4722A'),nursery:cssVar('--amber','#C4722A'),university:cssVar('--red','#E07050'),gp:cssVar('--green','#4A9B6F'),massacre:cssVar('--massacre','#7B3DAF')}
 const TOOL_COLORS={omega:cssVar('--omega','#9B5ED4'),jewel:cssVar('--jewel','#E07050'),mg:cssVar('--mg','#4A85C9')}
 
 const TOOLS=['MS','MF','O','J','MG','AP','MI','MJ','DM']

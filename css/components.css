@@ -4,10 +4,12 @@
 .chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .chip.hospital{border-color:var(--red);color:var(--red)}.chip.hospital.on{background:var(--red);color:#fff}
 .chip.school{border-color:var(--blue);color:var(--blue)}.chip.school.on{background:var(--blue);color:#fff}
-.chip.university{border-color:var(--violet);color:var(--violet)}.chip.university.on{background:var(--violet);color:#fff}
+.chip.university{border-color:var(--red);color:var(--red)}.chip.university.on{background:var(--red);color:#fff}
 .chip.hospice{border-color:var(--teal);color:var(--teal)}.chip.hospice.on{background:var(--teal);color:#fff}
 .chip.prison{border-color:var(--amber);color:var(--amber)}.chip.prison.on{background:var(--amber);color:#fff}
+.chip.nursery{border-color:var(--amber);color:var(--amber)}.chip.nursery.on{background:var(--amber);color:#fff}
 .chip.gp{border-color:var(--green);color:var(--green)}.chip.gp.on{background:var(--green);color:#fff}
+.chip.massacre{border-color:var(--massacre);color:var(--massacre)}.chip.massacre.on{background:var(--massacre);color:#fff}
 .chip.show-all{border-color:var(--soft);color:var(--soft)}.chip.show-all.on{background:rgba(232,213,160,.2);color:var(--gold-l);border-color:var(--gold)}
 .chip.show-cleared{border-color:var(--gold-d);color:var(--gold)}.chip.show-cleared.on{background:var(--gold);color:var(--forest)}
 .chip.show-tool{border-color:var(--soft);color:var(--soft)}.chip.show-tool.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}
@@ -42,7 +44,7 @@
 .gmaps-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
 .gmaps-btn svg{width:14px;height:14px;flex-shrink:0}
 .detail-type{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:4px}
-.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--violet)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}
+.detail-type.hospital{color:var(--red)}.detail-type.school{color:var(--blue)}.detail-type.university{color:var(--red)}.detail-type.hospice{color:var(--teal)}.detail-type.prison{color:var(--amber)}.detail-type.gp{color:var(--green)}.detail-type.massacre{color:var(--massacre)}.detail-type.nursery{color:var(--amber)}
 .detail-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.3;color:var(--gold)}
 .detail-addr{font-size:13px;color:var(--soft);margin-top:3px}
 .detail-body{padding:12px 20px 18px;overflow-y:auto}
@@ -94,9 +96,6 @@
 
 /* ===========================================================================
    DISTRICT CLEARING POPUP (Groups tab)
-   Desktop: inline panel at the bottom of the Groups tab sidebar column,
-   same pattern as the Locations detail panel.
-   Mobile:  full-width bottom sheet (rules in mobile.css).
    =========================================================================== */
 
 .district-detail{
@@ -111,7 +110,6 @@
 }
 .district-detail.on{display:flex}
 
-/* Header */
 .district-detail-head{padding:14px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .district-detail-head .detail-head-left{flex:1;min-width:0}
 .district-detail-head .detail-head-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
@@ -120,10 +118,8 @@
 .district-detail-head .detail-close{min-width:32px;min-height:32px;display:flex;align-items:center;justify-content:center;font-size:22px;border-radius:6px}
 .district-detail-head .detail-close:hover{background:rgba(201,168,76,.08)}
 
-/* Body */
 .district-detail-body{padding:11px 20px 16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
 
-/* ---- Stats summary (section 1) ---- */
 .dd-stats{display:flex;flex-direction:column;gap:8px}
 .dd-stat-row{display:flex;flex-direction:column;gap:3px;cursor:pointer;user-select:none;padding:1px 0;transition:opacity .15s}
 .dd-stat-row:hover{opacity:.85}
@@ -134,7 +130,6 @@
 .dd-stat-bar{height:3px;background:rgba(201,168,76,.08);border-radius:2px;overflow:hidden}
 .dd-stat-fill{height:100%;border-radius:2px;transition:width .4s ease-in-out}
 
-/* ---- Place type chips (section 2) ---- */
 .dd-section-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);font-weight:500}
 .dd-type-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:-4px}
 .dd-type-chip{
@@ -154,7 +149,6 @@
 .dd-type-chip.done:hover{opacity:.55}
 .dd-type-chip-count{font-size:10px;opacity:.8;font-variant-numeric:tabular-nums}
 
-/* ---- Tool selector (section 3) ---- */
 .dd-tool-wrap{display:flex;flex-direction:column;gap:6px}
 .dd-tool-select{
   width:100%;
@@ -181,7 +175,6 @@
 .dd-ew-chip.on{background:rgba(201,168,76,.15);color:var(--gold);border-color:var(--gold)}
 .dd-ew-chip:hover:not(.on){border-color:rgba(201,168,76,.4);color:var(--gold-l)}
 
-/* ---- Confirm summary + primary button ---- */
 .dd-confirm-summary{
   font-size:12px;color:var(--gold-l);line-height:1.4;
   padding:9px 11px;
@@ -211,7 +204,6 @@
 
 .dd-error{font-size:11px;color:#ff8888;padding:6px 0;text-align:center}
 
-/* ---- Unmark section + inline confirm ---- */
 .dd-unmark-wrap{display:flex;flex-direction:column;gap:6px}
 .dd-btn-unmark{
   display:block;width:100%;
@@ -243,7 +235,6 @@
 .dd-inline-confirm-no{background:none;border:1px solid var(--bd);color:var(--soft)}
 .dd-inline-confirm-no:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ---- Fully cleared summary view ---- */
 .dd-full-cleared{
   display:flex;flex-direction:column;gap:8px;
   padding:14px;text-align:center;
