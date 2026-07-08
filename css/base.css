@@ -4,7 +4,7 @@
   --soft:rgba(232,213,160,.55);--soft-d:rgba(232,213,160,.35);--input-bg:rgba(13,36,22,.5);
   --hover:rgba(201,168,76,.08);--sel:rgba(201,168,76,.12);
   --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
-  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;--massacre:#8B2020;
+  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;--massacre:#7B3DAF;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}

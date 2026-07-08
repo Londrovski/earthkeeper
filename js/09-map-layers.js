@@ -43,7 +43,7 @@ function addAllLayers(){
     'circle-pitch-alignment':'map'
   }})
   map.addLayer({id:'district-locs-cleared',type:'circle',source:'district-locs-src',filter:['==',['get','cleared'],true],layout:{visibility:'none'},paint:{
-    'circle-radius':['interpolate',['linear'],['zoom'],7,5,10,8,13,11],
+    'circle-radius':['interpolate',['linear'],['zoom'],5,5,10,8,13,11],
     'circle-color':GOLD,
     'circle-opacity':1,
     'circle-stroke-width':2,
@@ -63,6 +63,7 @@ function addAllLayers(){
       ['==',['get','type'],'school'],TYPE_COLORS.school,
       ['==',['get','type'],'hospice'],TYPE_COLORS.hospice,
       ['==',['get','type'],'prison'],TYPE_COLORS.prison,
+      ['==',['get','type'],'nursery'],TYPE_COLORS.nursery,
       ['==',['get','type'],'gp'],TYPE_COLORS.gp,
       ['==',['get','type'],'massacre'],TYPE_COLORS.massacre,
       TYPE_COLORS.university],
