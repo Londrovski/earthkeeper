@@ -30,6 +30,7 @@ function updateStats(){
     ['hospital','pg-h','pg-ht'],
     ['hospice','pg-ho','pg-hot'],
     ['prison','pg-pr','pg-prt'],
+    ['nursery','pg-nu','pg-nut'],
     ['university','pg-u','pg-ut'],
     ['school','pg-s','pg-st'],
     ['gp','pg-gp','pg-gpt'],
