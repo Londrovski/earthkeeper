@@ -17,12 +17,12 @@ let map=null
 let mapReady=false
 let locationMarker=null
 
-// Primary (auto-on): hospital, hospice, university, massacre, prison(UK)
-// Secondary (auto-off): school, nursery, gp — these move to Groups tab later
-let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,nursery:false,gp:false,massacre:true}
+// Place filter + group types are seeded per active country by loadPlaceTypes()
+// (28-place-types.js) from the Supabase `place_types` config table, on each boot.
+let placesFilter={}
 let showFilter='all'
 let activeTools=new Set()
-let groupTypes=new Set(['school','gp'])
+let groupTypes=new Set()
 let schoolsGpsLoaded=false
 
 let logSavedPlaces=null
