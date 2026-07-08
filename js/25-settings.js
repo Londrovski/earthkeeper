@@ -44,7 +44,7 @@ function refreshColorTokens(){
     TYPE_COLORS.hospice=cssVar('--teal',TYPE_COLORS.hospice)
     TYPE_COLORS.prison=cssVar('--amber',TYPE_COLORS.prison)
     TYPE_COLORS.nursery=cssVar('--amber',TYPE_COLORS.nursery)
-    TYPE_COLORS.university=cssVar('--red',TYPE_COLORS.university)
+    TYPE_COLORS.university=cssVar('--violet',TYPE_COLORS.university)
     TYPE_COLORS.gp=cssVar('--green',TYPE_COLORS.gp)
     TYPE_COLORS.massacre=cssVar('--massacre',TYPE_COLORS.massacre)
   }
