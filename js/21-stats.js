@@ -1,11 +1,6 @@
-// ═══════════════════════════════════════════════════════════════════════════
+// ==========================================================================
 // 21-stats.js — header + progress bar + mobile stats
-//
-// Layouts:
-//   Locations tab — 3 tiles: locations, cleared, pct
-//   Groups tab    — 4 tiles: locations, cleared, pct, districts-fully-cleared
-//   Log tab       — 3 tiles: locations (all), cleared, pct (scoped by logScope)
-// ═══════════════════════════════════════════════════════════════════════════
+// ==========================================================================
 
 function setText(id,v){const e=$(id);if(e)e.textContent=v}
 function setDisplay(id,v){const e=$(id);if(e)e.style.display=v}
@@ -27,7 +22,7 @@ function updateMobileInnerStats(elId,html){
   const el=$(elId);if(el)el.innerHTML=html
 }
 function statLine(total,totalLabel,cleared,clearedLabel,pct){
-  return '<strong>'+total+'</strong><span> '+totalLabel+'</span><span class="ms-sep">·</span><strong>'+cleared+'</strong><span> '+clearedLabel+'</span><span class="ms-sep">·</span><strong>'+pct+'</strong><span> done</span>'
+  return '<strong>'+total+'</strong><span> '+totalLabel+'</span><span class="ms-sep">&middot;</span><strong>'+cleared+'</strong><span> '+clearedLabel+'</span><span class="ms-sep">&middot;</span><strong>'+pct+'</strong><span> done</span>'
 }
 
 function updateStats(){
@@ -37,7 +32,8 @@ function updateStats(){
     ['prison','pg-pr','pg-prt'],
     ['university','pg-u','pg-ut'],
     ['school','pg-s','pg-st'],
-    ['gp','pg-gp','pg-gpt']
+    ['gp','pg-gp','pg-gpt'],
+    ['massacre','pg-ma','pg-mat']
   ]
   for(const[type,pgId,pgTxt]of rows){
     const pgEl=$(pgId),pgTxtEl=$(pgTxt)
@@ -84,7 +80,7 @@ function updateGroupsStats(){
 
   if(isMobile())updateMobileInnerStats('groups-mob-stats',
     statLine(totalLocs.toLocaleString(),'locations',clearedLocs.toLocaleString(),'cleared',pct+'%')+
-    '<span class="ms-sep">·</span><strong>'+clearedDistricts+'/'+totalDistricts+'</strong><span> districts</span>'
+    '<span class="ms-sep">&middot;</span><strong>'+clearedDistricts+'/'+totalDistricts+'</strong><span> districts</span>'
   )
 
   if(currentTab()!=='groups')return
@@ -103,9 +99,6 @@ function updateGroupsStats(){
 function updateDistrictStats(code){}
 
 function updateLogStats(){
-  // Scope: 'all' uses everyone's clearings, 'my' filters to currentUser.
-  // The denominator (total locations) doesn't change by scope — it's a
-  // progress metric against the world, not against the filtered subset.
   const total=locations.length
   const matches=function(loc){
     if(!isEffectivelyCleared(loc))return false

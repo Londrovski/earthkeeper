@@ -4,7 +4,7 @@
   --soft:rgba(232,213,160,.55);--soft-d:rgba(232,213,160,.35);--input-bg:rgba(13,36,22,.5);
   --hover:rgba(201,168,76,.08);--sel:rgba(201,168,76,.12);
   --red:#E07050;--blue:#5B9BD5;--violet:#9B78C8;--teal:#3DBFA8;--amber:#C4722A;--green:#4A9B6F;
-  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;
+  --omega:#9B5ED4;--jewel:#E07050;--mg:#4A85C9;--massacre:#8B2020;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-tap-highlight-color:transparent}
@@ -45,8 +45,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .login-suggest-item:hover{background:var(--hover)}
 .login-suggest-item .ls-meta{color:var(--soft);font-size:12px;letter-spacing:.04em}
 
-/* Themed scrollbars — slim translucent-gold thumb on a transparent track, to
-   match the dark green + gold theme instead of the default grey OS bar. */
+/* Themed scrollbars */
 *{scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.42) transparent}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
@@ -54,7 +53,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 ::-webkit-scrollbar-thumb:hover{background-color:rgba(201,168,76,.6);background-clip:padding-box}
 ::-webkit-scrollbar-corner{background:transparent}
 
-/* Locations search results — section headers + "jump to area" rows in the list */
+/* Locations search results */
 .lsec{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);padding:10px 16px 4px}
 .larea{display:flex;align-items:center;gap:8px;padding:10px 16px;cursor:pointer;border-bottom:1px solid var(--bd);color:var(--ink-d);font-size:14px}
 .larea:hover{background:var(--hover)}
@@ -62,15 +61,12 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
 .larea .larea-name{font-weight:500}
 .larea .larea-sub{margin-left:auto;color:var(--soft);font-size:12px;white-space:nowrap}
 
-/* Locations detail: when a location is open, the detail fills the panel below
-   AND the search bar (both list and search row hidden), and the close button is a boxed
-   X sitting next to the "Go To" button — our own Maps-style action row. */
+/* Locations detail */
 #tab-locs.detail-open .llist{display:none}
 #tab-locs.detail-open .srow{display:none}
 #tab-locs.detail-open .detail{flex:1 1 auto;max-height:none;border-top:none}
 
-/* Boxed X close button — same pill design as the gold "Go To" button, so the
-   two read as a matched pair. Applies to the Locations + Log detail panels. */
+/* Boxed X close button */
 #detail .detail-close,#log-detail .detail-close{
   display:inline-flex;align-items:center;justify-content:center;
   width:30px;height:30px;padding:0;font-size:0;flex-shrink:0;
@@ -85,8 +81,7 @@ body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--ink);hei
   background:rgba(201,168,76,.2);border-color:var(--gold)
 }
 
-/* "Are you here?" proximity card (Find Me, when standing at a location).
-   Floats top-centre over the map; gold-edged to match the theme. */
+/* Proximity card */
 .at-loc-card{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1200;display:flex;align-items:center;gap:13px;max-width:430px;width:calc(100% - 28px);background:rgba(13,36,22,.96);backdrop-filter:blur(10px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.55);animation:atLocIn .25s ease}
 @keyframes atLocIn{from{opacity:0}to{opacity:1}}
 .at-loc-card-pin{font-size:22px;line-height:1;flex-shrink:0}

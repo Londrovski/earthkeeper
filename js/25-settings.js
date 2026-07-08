@@ -1,23 +1,12 @@
-// ═══════════════════════════════════════════════════════════════════════════
+// ==========================================================================
 // 25-settings.js — design tokens from Supabase app_settings.
-//
-// Fetches the app_settings table at boot and applies values as CSS custom
-// properties on :root, exposes window.SETTINGS, refreshes the JS colour
-// constants (GOLD / TYPE_COLORS / TOOL_COLORS), and re-styles the map so a DB
-// colour change reaches everything. base.css :root holds the same values as
-// fallback defaults, so there is no flash and the site still works if this
-// fetch fails. Loaded right after 01-config.js (needs SB_REST / SB_HEADERS /
-// cssVar / the colour constants).
-//
-// To change a colour etc: edit the row in Supabase app_settings — no code edit,
-// no redeploy. Refresh the site and the new value applies.
-// ═══════════════════════════════════════════════════════════════════════════
+// ==========================================================================
 
 window.SETTINGS={}
 
 const SETTINGS_CSS_MAP={
   colors:{forest:'--forest',forestM:'--forest-m',gold:'--gold',goldL:'--gold-l',goldD:'--gold-d',
-    red:'--red',blue:'--blue',violet:'--violet',teal:'--teal',amber:'--amber',green:'--green'},
+    red:'--red',blue:'--blue',violet:'--violet',teal:'--teal',amber:'--amber',green:'--green',massacre:'--massacre'},
   tools:{omega:'--omega',jewel:'--jewel',mg:'--mg'}
 }
 
@@ -46,8 +35,6 @@ async function loadSettings(){
   }catch(e){ if(window.dbgLog)window.dbgLog('loadSettings failed: '+e.message,'warn') }
 }
 
-// Re-read CSS vars (now overridden from app_settings) into the JS colour
-// constants used by the map and list renderers.
 function refreshColorTokens(){
   if(typeof cssVar!=='function')return
   GOLD=cssVar('--gold',GOLD)
@@ -58,6 +45,7 @@ function refreshColorTokens(){
     TYPE_COLORS.prison=cssVar('--amber',TYPE_COLORS.prison)
     TYPE_COLORS.university=cssVar('--violet',TYPE_COLORS.university)
     TYPE_COLORS.gp=cssVar('--green',TYPE_COLORS.gp)
+    TYPE_COLORS.massacre=cssVar('--massacre',TYPE_COLORS.massacre)
   }
   if(typeof TOOL_COLORS==='object'){
     TOOL_COLORS.omega=cssVar('--omega',TOOL_COLORS.omega)
@@ -66,9 +54,6 @@ function refreshColorTokens(){
   }
 }
 
-// Best-effort: re-apply paint properties so a DB colour change reaches the
-// already-built map. Fully guarded — if anything is missing it's a no-op,
-// never an error, and the map keeps its current colours.
 function restyleMap(){
   try{
     if(typeof map==='undefined'||!map||typeof map.getLayer!=='function')return
@@ -82,6 +67,7 @@ function restyleMap(){
        ['==',['get','type'],'hospice'],TYPE_COLORS.hospice,
        ['==',['get','type'],'prison'],TYPE_COLORS.prison,
        ['==',['get','type'],'gp'],TYPE_COLORS.gp,
+       ['==',['get','type'],'massacre'],TYPE_COLORS.massacre,
        TYPE_COLORS.university])
     const toolStroke=['case',
       ['==',['get','tool'],'omega'],TOOL_COLORS.omega,
