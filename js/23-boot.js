@@ -3,6 +3,8 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 async function bootApp(){
+  document.body.classList.remove('country-uk','country-au')
+  document.body.classList.add('country-'+getCountry().toLowerCase())
   if(window.dbgLog)window.dbgLog('bootApp() starting','info')
   initMap()
   setMsg('Loading progress...')
