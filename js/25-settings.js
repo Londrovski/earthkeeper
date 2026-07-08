@@ -47,6 +47,10 @@ function refreshColorTokens(){
     TYPE_COLORS.university=cssVar('--violet',TYPE_COLORS.university)
     TYPE_COLORS.gp=cssVar('--green',TYPE_COLORS.gp)
     TYPE_COLORS.massacre=cssVar('--massacre',TYPE_COLORS.massacre)
+    // Per-country overrides from place_types always win (e.g. AU hospital = purple).
+    if(window.PLACE_TYPES&&PLACE_TYPES.length){
+      PLACE_TYPES.forEach(function(r){TYPE_COLORS[r.type]=cssVar(r.color_var,TYPE_COLORS[r.type])})
+    }
   }
   if(typeof TOOL_COLORS==='object'){
     TOOL_COLORS.omega=cssVar('--omega',TOOL_COLORS.omega)
@@ -70,6 +74,7 @@ function restyleMap(){
        ['==',['get','type'],'nursery'],TYPE_COLORS.nursery,
        ['==',['get','type'],'gp'],TYPE_COLORS.gp,
        ['==',['get','type'],'massacre'],TYPE_COLORS.massacre,
+       ['==',['get','type'],'university'],TYPE_COLORS.university,
        TYPE_COLORS.university])
     const toolStroke=['case',
       ['==',['get','tool'],'omega'],TOOL_COLORS.omega,
