@@ -16,7 +16,7 @@ async function sbLocations(region,types){
   while(true){
     const url=SB_REST+'/'+TABLES.locations+'?select='+sel
       +'&region=eq.'+region
-      +'&type=in.('+types.join(',')+')'
+      +'&type=in.('+types.join(',')+')'\
       +'&order=id.asc&limit='+page+'&offset='+offset
     const res=await fetch(url,{headers:SB_HEADERS,cache:'no-store'})
     if(!res.ok)throw new Error('locations '+region+' '+res.status)
@@ -34,9 +34,10 @@ async function sbLocations(region,types){
 }
 
 async function fetchRegion(region,includeSchoolsGps){
-  const types=includeSchoolsGps
-    ?['hospital','university','hospice','prison','school','gp','massacre']
+  const base=getCountry()==='AU'
+    ?['hospital','university','hospice','nursery','massacre']
     :['hospital','university','hospice','prison','massacre']
+  const types=includeSchoolsGps?[...base,'school','gp']:base
   try{
     return await sbLocations(region,types)
   }catch(e){
@@ -60,7 +61,8 @@ async function loadAll(){
     if(!placesFilter.hospital)placesFilter.hospital=true
     if(!placesFilter.hospice)placesFilter.hospice=true
     if(!placesFilter.university)placesFilter.university=true
-    if(!placesFilter.prison)placesFilter.prison=true
+    if(getCountry()==='AU'){if(!placesFilter.nursery)placesFilter.nursery=true}
+    else{if(!placesFilter.prison)placesFilter.prison=true}
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
     if(window.dbgLog)window.dbgLog('loadAll() OK, '+locations.length+' locations','ok')
