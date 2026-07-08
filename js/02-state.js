@@ -17,7 +17,7 @@ let map=null
 let mapReady=false
 let locationMarker=null
 
-let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,gp:false,massacre:false}
+let placesFilter={hospital:true,school:false,university:true,hospice:true,prison:true,nursery:true,gp:false,massacre:false}
 let showFilter='all'
 let activeTools=new Set()
 let groupTypes=new Set(['school','gp'])
