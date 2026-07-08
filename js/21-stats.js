@@ -26,24 +26,16 @@ function statLine(total,totalLabel,cleared,clearedLabel,pct){
 }
 
 function updateStats(){
-  const rows=[
-    ['hospital','pg-h','pg-ht'],
-    ['hospice','pg-ho','pg-hot'],
-    ['prison','pg-pr','pg-prt'],
-    ['nursery','pg-nu','pg-nut'],
-    ['university','pg-u','pg-ut'],
-    ['school','pg-s','pg-st'],
-    ['gp','pg-gp','pg-gpt'],
-    ['massacre','pg-ma','pg-mat']
-  ]
-  for(const[type,pgId,pgTxt]of rows){
-    const pgEl=$(pgId),pgTxtEl=$(pgTxt)
-    if(!pgEl||!pgTxtEl)continue
-    const tot=locations.filter(l=>l.type===type).length
-    const cl=locations.filter(l=>l.type===type&&isEffectivelyCleared(l)).length
+  // Progress rows are rendered per-country from place_types (28-place-types.js),
+  // each with ids pg-<type> (fill) and pg-<type>t (count).
+  ;(window.PLACE_TYPES||[]).forEach(function(r){
+    const pgEl=$('pg-'+r.type),pgTxtEl=$('pg-'+r.type+'t')
+    if(!pgEl||!pgTxtEl)return
+    const tot=locations.filter(l=>l.type===r.type).length
+    const cl=locations.filter(l=>l.type===r.type&&isEffectivelyCleared(l)).length
     pgEl.style.width=(tot?Math.round(cl/tot*100):0)+'%'
     pgTxtEl.textContent=tot?cl+'/'+tot:'-'
-  }
+  })
 
   const visLocs=locations.filter(l=>placesFilter[l.type])
   const total=visLocs.length
