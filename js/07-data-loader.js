@@ -58,11 +58,12 @@ async function loadAll(){
       results.push(...batch)
     }
     locations=results.flat()
+    // Re-enable primary types if they got toggled off before a region reload
     if(!placesFilter.hospital)placesFilter.hospital=true
     if(!placesFilter.hospice)placesFilter.hospice=true
     if(!placesFilter.university)placesFilter.university=true
-    if(getCountry()==='AU'){if(!placesFilter.nursery)placesFilter.nursery=true}
-    else{if(!placesFilter.prison)placesFilter.prison=true}
+    if(!placesFilter.massacre)placesFilter.massacre=true
+    if(getCountry()!=='AU'&&!placesFilter.prison)placesFilter.prison=true
     hideLoader();refreshMapData();renderList();updateStats()
     fitBounds(locations.filter(l=>placesFilter[l.type]))
     if(window.dbgLog)window.dbgLog('loadAll() OK, '+locations.length+' locations','ok')
