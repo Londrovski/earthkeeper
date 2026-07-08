@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 28-place-types.js — per-country place set (chips, legend, progress rows,
-// group buttons) rendered from the Supabase `place_types` config table.
+// group buttons, type colours) rendered from the Supabase `place_types` table.
 // Falls back to a baked-in copy if the fetch fails, so the UI never breaks.
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -18,12 +18,12 @@ const PLACE_TYPES_FALLBACK={
     ['gp','GPs','GP Surgery','--green',6,0,1,1]
   ],
   AU:[
-    ['hospital','Hospitals','Hospital','--red',1,1,0,0],
+    ['hospital','Hospitals','Hospital','--violet',1,1,0,0],
     ['hospice','Hospices','Hospice','--teal',2,1,0,0],
     ['massacre','Massacres','Massacre','--massacre',3,1,0,0],
-    ['university','Unis','University','--violet',4,1,0,0],
+    ['university','Unis','University','--red',4,1,0,0],
     ['school','Schools','School','--blue',5,0,1,1],
-    ['nursery','Nurseries','Nursery','--amber',6,0,0,0]
+    ['nursery','Nurseries','Nursery','--amber',6,0,1,0]
   ]
 }
 
@@ -54,16 +54,37 @@ async function loadPlaceTypes(){
   PLACE_TYPES.forEach(function(r){placesFilter[r.type]=!!r.default_on})
   groupTypes=new Set(PLACE_TYPES.filter(function(r){return r.is_group}).map(function(r){return r.type}))
 
-  // Keep type colours in sync with the config (map + legend read TYPE_COLORS / CSS vars).
+  // Type colours (map dots read TYPE_COLORS; chips/labels read the injected CSS).
   if(typeof TYPE_COLORS==='object'){
     PLACE_TYPES.forEach(function(r){TYPE_COLORS[r.type]=cssVar(r.color_var,TYPE_COLORS[r.type])})
   }
 
+  buildTypeColorStyle()
   buildPlaceChips()
   buildLegend()
   buildProgressRows()
   buildGroupButtons()
+  try{ if(typeof restyleMap==='function')restyleMap() }catch(e){}
   if(window.dbgLog)window.dbgLog('place_types loaded ('+country+'): '+PLACE_TYPES.map(function(r){return r.type}).join(','),'ok')
+}
+
+// Inject per-country type colours so chips / detail labels / group buttons follow
+// the config (lets the same type differ by country, e.g. AU hospital = purple).
+function buildTypeColorStyle(){
+  let css=''
+  PLACE_TYPES.forEach(function(r){
+    const c='var('+r.color_var+')'
+    css+='.chip.'+r.type+'{border-color:'+c+';color:'+c+'}'
+      +'.chip.'+r.type+'.on{background:'+c+';color:#fff}'
+      +'.detail-type.'+r.type+'{color:'+c+'}'
+      +'.gtype-btn.'+r.type+'{border-color:'+c+';color:'+c+'}'
+      +'.gtype-btn.'+r.type+'.on{background:'+c+';color:#fff}'
+      +'.dd-type-chip.'+r.type+'{border-color:'+c+';color:'+c+'}'
+      +'.dd-type-chip.'+r.type+'.on{background:'+c+';color:#fff}'
+  })
+  let el=document.getElementById('pt-type-colors')
+  if(!el){el=document.createElement('style');el.id='pt-type-colors';document.head.appendChild(el)}
+  el.textContent=css
 }
 
 function buildPlaceChips(){
