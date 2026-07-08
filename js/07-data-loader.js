@@ -16,7 +16,7 @@ async function sbLocations(region,types){
   while(true){
     const url=SB_REST+'/'+TABLES.locations+'?select='+sel
       +'&region=eq.'+region
-      +'&type=in.('+types.join(',')+')'\
+      +'&type=in.('+types.join(',')+')'
       +'&order=id.asc&limit='+page+'&offset='+offset
     const res=await fetch(url,{headers:SB_HEADERS,cache:'no-store'})
     if(!res.ok)throw new Error('locations '+region+' '+res.status)
