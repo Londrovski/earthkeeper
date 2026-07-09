@@ -143,10 +143,18 @@ async function loadDistricts(){
 
 function buildDistrictMap(){
   districtMap={}
-  districts.forEach(f=>{districtMap[f.properties.code]={name:f.properties.name,code:f.properties.code,fid:f.id,schools:[],gps:[]}})
+  // Bucket by every configured group type, not just school/gp. `groupTypes`
+  // (the on/off toggles) is deliberately NOT used here — the map holds all of
+  // them and the renderers filter on display.
+  const gTypes=districtGroupTypes()
+  districts.forEach(f=>{
+    const d={name:f.properties.name,code:f.properties.code,fid:f.id,byType:{}}
+    gTypes.forEach(t=>{d.byType[t]=[]})
+    districtMap[f.properties.code]=d
+  })
   locations.forEach(loc=>{
-    if(!loc.districtCode||!districtMap[loc.districtCode])return
-    if(loc.type==='school')districtMap[loc.districtCode].schools.push(loc)
-    if(loc.type==='gp')districtMap[loc.districtCode].gps.push(loc)
+    if(!loc.districtCode)return
+    const d=districtMap[loc.districtCode]
+    if(d&&d.byType[loc.type])d.byType[loc.type].push(loc)
   })
 }

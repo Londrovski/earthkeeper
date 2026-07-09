@@ -30,12 +30,12 @@ function renderLog(){
     const key=kv[0],p=kv[1]
     const parts=key.split(':'),code=parts[0],gtype=parts[1]
     const dName=(districtMap[code]&&districtMap[code].name)||p.name||code
-    entries.push({id:key,kind:'group',name:dName+' — '+(gtype==='school'?'Schools':'GPs'),type:gtype,tool:p.tool,ew:null,date:p.date,user:p.user||'',isGroup:true})
+    entries.push({id:key,kind:'group',name:dName+' — '+ptLabel(gtype),type:gtype,tool:p.tool,ew:null,date:p.date,user:p.user||'',isGroup:true})
   })
 
   if(logScope==='my'&&currentUser){
     // My Clearings = the user's own INDIVIDUAL clearings only (any type, incl
-    // schools/GPs). Group/district clearings are excluded — they're completed
+    // the group types). Group/district clearings are excluded — they're completed
     // by a group of people, so attributing them to one person is unfair/confusing.
     entries=entries.filter(e=>e.kind==='loc'&&e.user===currentUser)
   }

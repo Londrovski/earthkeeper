@@ -46,14 +46,13 @@ function updateDistrictStates(){
   if(!mapReady||!districts.length||!map.getSource('districts-src'))return
   districts.forEach(function(f){
     const code=f.properties.code
-    const hasSchools=districtMap[code]&&districtMap[code].schools.length>0
-    const hasGps=districtMap[code]&&districtMap[code].gps.length>0
-    const hasAny=hasSchools||hasGps
+    const d=districtMap[code]
     const selected=code===selectedDistrictCode
-    if(!hasAny){try{map.setFeatureState({source:'districts-src',id:f.id},{cleared:0,selected})}catch(e){};return}
-    const schoolDone=!hasSchools||!!groupProgress[code+':school']
-    const gpDone=!hasGps||!!groupProgress[code+':gp']
-    const cleared=schoolDone&&gpDone?2:((!!groupProgress[code+':school']||!!groupProgress[code+':gp'])?1:0)
+    // Only types that actually have locations here count toward the fill state.
+    const present=districtGroupTypes().filter(function(t){return dLocs(d,t).length>0})
+    if(!present.length){try{map.setFeatureState({source:'districts-src',id:f.id},{cleared:0,selected})}catch(e){};return}
+    const done=present.filter(function(t){return !!groupProgress[code+':'+t]}).length
+    const cleared=done===present.length?2:(done>0?1:0)
     try{map.setFeatureState({source:'districts-src',id:f.id},{cleared,selected})}catch(e){}
   })
 }

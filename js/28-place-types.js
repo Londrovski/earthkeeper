@@ -23,7 +23,7 @@ const PLACE_TYPES_FALLBACK={
     ['massacre','Massacres','Massacre','--massacre',3,1,0,0],
     ['university','Unis','University','--red',4,1,0,0],
     ['school','Schools','School','--blue',5,0,1,1],
-    ['nursery','Nurseries','Nursery','--amber',6,0,1,0]
+    ['nursery','Nurseries','Nursery','--amber',6,0,1,1]
   ]
 }
 
@@ -117,3 +117,22 @@ function buildGroupButtons(){
       +'<span class="chip-dot" style="background:var('+r.color_var+');display:inline-block;margin-right:4px"></span>'+r.label+'</button>'
   }).join('')
 }
+
+// ── Group-type helpers ─────────────────────────────────────────────────────
+// The Groups tab rolls up by district for every place type flagged `is_group`
+// in the config (UK: school + gp; AU: school + nursery). Everything downstream
+// — districtMap buckets, list bars, detail chips, stats, log labels — reads
+// these rather than hardcoding type names.
+function districtGroupTypes(){
+  return (window.PLACE_TYPES||[]).filter(function(r){return r.is_group}).map(function(r){return r.type})
+}
+// Locations of one group type inside a districtMap entry.
+function dLocs(d,t){return (d&&d.byType&&d.byType[t])||[]}
+function ptLabel(t){return (window.PT_BY_TYPE&&PT_BY_TYPE[t]&&PT_BY_TYPE[t].label)||t}
+function ptSingular(t){return (window.PT_BY_TYPE&&PT_BY_TYPE[t]&&PT_BY_TYPE[t].singular)||t}
+function ptColor(t){
+  const r=window.PT_BY_TYPE&&PT_BY_TYPE[t]
+  return 'var('+(r&&r.color_var||'--blue')+')'
+}
+// Short prefix for district-list badges: gp -> "GP", school -> "S", nursery -> "N".
+function ptBadge(t){return t.length<=2?t.toUpperCase():t.charAt(0).toUpperCase()}

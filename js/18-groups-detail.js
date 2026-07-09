@@ -9,6 +9,9 @@
 //   3. Tool selector    — dropdown + optional EW chips
 //   4. Confirm summary + primary button ("Mark cleared")
 //   5. Unmark + inline slide-down confirm
+//
+// Every per-type value (label, colour, plural) comes from the place_types
+// config via ptLabel/ptSingular/ptColor — no hardcoded school/gp branches.
 // ═══════════════════════════════════════════════════════════════════════════
 
 let _ddState=null
@@ -22,10 +25,8 @@ function renderDistrictDetail(code){
   const typeEl=$('dd-type');if(typeEl)typeEl.textContent=code
   updateDistrictStats(code)
 
-  const availableTypes=['school','gp'].filter(function(t){
-    const list=t==='school'?d.schools:d.gps
-    return list.length>0
-  })
+  // Every configured group type that actually has locations in this district.
+  const availableTypes=districtGroupTypes().filter(function(t){return dLocs(d,t).length>0})
 
   _ddState={
     code:code,
@@ -52,7 +53,7 @@ function fitMapToDistrict(code){
   const{bottomOffset}=getVisibleMapBounds()
   const pad={top:60,bottom:bottomOffset+80,left:40,right:40}
   const d=districtMap[code]
-  const locs=d?[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]:[]
+  const locs=districtActiveLocs(d)
   if(locs.length){fitBounds(locs,pad);return}
   const feat=districts.find(f=>f.properties.code===code)
   if(!feat||!mapReady)return
@@ -83,7 +84,7 @@ function buildDdContent(d,code){
   if(!st.availableTypes.length){
     const empty=document.createElement('div')
     empty.className='empty'
-    empty.textContent='No schools or GPs loaded for this district yet.'
+    empty.textContent='No '+districtGroupTypes().map(ptLabel).join(' or ').toLowerCase()+' loaded for this district yet.'
     wrap.appendChild(empty)
     return wrap
   }
@@ -114,13 +115,13 @@ function buildDdStats(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-stats'
   _ddState.availableTypes.forEach(function(t){
-    const list=t==='school'?d.schools:d.gps
+    const list=dLocs(d,t)
     const tot=list.length
     const grp=groupProgress[code+':'+t]
     const eff=grp?tot:list.filter(l=>progress[l.id]).length
     const pct=tot?Math.round(eff/tot*100):0
-    const col=t==='school'?'var(--blue)':'var(--green)'
-    const label=t==='school'?'Schools':'GPs'
+    const col=ptColor(t)
+    const label=ptLabel(t)
     const row=document.createElement('div')
     row.className='dd-stat-row'
     row.innerHTML=
@@ -139,7 +140,7 @@ function buildDdTypeChips(d,code){
   const wrap=document.createElement('div')
   wrap.className='dd-type-chips'
   _ddState.availableTypes.forEach(function(t){
-    const list=t==='school'?d.schools:d.gps
+    const list=dLocs(d,t)
     const tot=list.length
     const grp=groupProgress[code+':'+t]
     const done=!!grp
@@ -148,10 +149,10 @@ function buildDdTypeChips(d,code){
     chip.type='button'
     chip.className='dd-type-chip '+t+(done?' done':'')+(_ddState.selectedTypes.has(t)?' on':'')
     chip.innerHTML=
-      (t==='school'?'Schools':'GPs')+
+      ptLabel(t)+
       (done
         ?' <span class="dd-type-chip-count">✓ done</span>'
-        :' <span class="dd-type-chip-count">('+remaining+' left)</span>')
+        :' <span class="dd-type-chip-count">('+remaining.toLocaleString()+' left)</span>')
     if(done){chip.disabled=true}
     else{chip.onclick=function(){toggleDdType(t)}}
     wrap.appendChild(chip)
@@ -207,15 +208,15 @@ function buildDdToolSelector(){
 function buildDdConfirmSummary(d,code){
   const st=_ddState
   const parts=[]
-  const counts={school:d.schools.length,gp:d.gps.length}
   st.selectedTypes.forEach(function(t){
-    parts.push(counts[t]+' '+(t==='school'?(counts[t]===1?'school':'schools'):(counts[t]===1?'GP':'GPs')))
+    const n=dLocs(d,t).length
+    parts.push(n.toLocaleString()+' '+(n===1?ptSingular(t):ptLabel(t)))
   })
   const el=document.createElement('div')
   el.className='dd-confirm-summary'
   if(!parts.length){
     el.classList.add('muted')
-    el.textContent='Select Schools or GPs above to continue'
+    el.textContent='Select '+_ddState.availableTypes.map(ptLabel).join(' or ')+' above to continue'
     return el
   }
   const toolName=TOOL_NAMES_FULL[st.tool]||st.tool
@@ -253,12 +254,12 @@ function buildDdUnmarkSection(d,code){
   if(!clearedTypes.length)return wrap
   if(_ddState.unmarkConfirm&&clearedTypes.indexOf(_ddState.unmarkConfirm)>=0){
     const gtype=_ddState.unmarkConfirm
-    const typeLabel=gtype==='school'?'schools':'GPs'
-    const count=(gtype==='school'?d.schools.length:d.gps.length)
+    const typeLabel=ptLabel(gtype)
+    const count=dLocs(d,gtype).length
     const confirm=document.createElement('div')
     confirm.className='dd-inline-confirm'
     confirm.innerHTML=
-      '<div class="dd-inline-confirm-text">Remove your group clearing for <strong>'+count+' '+typeLabel+'</strong> in '+d.name+'?</div>'+
+      '<div class="dd-inline-confirm-text">Remove your group clearing for <strong>'+count.toLocaleString()+' '+typeLabel+'</strong> in '+d.name+'?</div>'+
       '<div class="dd-inline-confirm-btns">'+
         '<button type="button" class="dd-inline-confirm-no" data-act="no">Cancel</button>'+
         '<button type="button" class="dd-inline-confirm-yes" data-act="yes">Remove</button>'+
@@ -272,7 +273,7 @@ function buildDdUnmarkSection(d,code){
     const btn=document.createElement('button')
     btn.type='button'
     btn.className='dd-btn-unmark'
-    btn.textContent='Unmark '+(t==='school'?'Schools':'GPs')
+    btn.textContent='Unmark '+ptLabel(t)
     btn.onclick=function(){_ddState.unmarkConfirm=t;reRenderDd()}
     wrap.appendChild(btn)
   })
@@ -285,7 +286,7 @@ function buildDdFullyClearedView(d,code){
   const lines=_ddState.availableTypes.map(function(t){
     const g=groupProgress[code+':'+t]
     const dt=g?new Date(g.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):''
-    const label=t==='school'?'Schools':'GPs'
+    const label=ptLabel(t)
     return label+' · <strong>'+(TOOL_NAMES_FULL[g.tool]||g.tool)+'</strong> · '+dt+(g.user?' · '+g.user:'')
   }).join('<br>')
   wrap.innerHTML=

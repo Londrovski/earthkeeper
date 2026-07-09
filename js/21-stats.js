@@ -54,21 +54,20 @@ function updateStats(){
 }
 
 function updateGroupsStats(){
-  const allGroupLocs=Object.values(districtMap).flatMap(d=>[...d.schools,...d.gps])
+  const gTypes=districtGroupTypes()
+  const allGroupLocs=Object.values(districtMap).flatMap(d=>gTypes.flatMap(t=>dLocs(d,t)))
   const totalLocs=allGroupLocs.length
   const clearedLocs=allGroupLocs.filter(l=>isEffectivelyCleared(l)).length
   const pct=totalLocs?Math.round(clearedLocs/totalLocs*100):0
 
   const relevantCodes=Object.keys(districtMap).filter(code=>{
-    const d=districtMap[code];return d.schools.length>0||d.gps.length>0
+    const d=districtMap[code];return gTypes.some(t=>dLocs(d,t).length>0)
   })
   const totalDistricts=relevantCodes.length
+  // A district counts as cleared when every group type it actually holds is cleared.
   const clearedDistricts=relevantCodes.filter(code=>{
     const d=districtMap[code]
-    const hasSchools=d.schools.length>0,hasGps=d.gps.length>0
-    const schoolDone=!hasSchools||!!groupProgress[code+':school']
-    const gpDone=!hasGps||!!groupProgress[code+':gp']
-    return schoolDone&&gpDone
+    return gTypes.every(t=>!dLocs(d,t).length||!!groupProgress[code+':'+t])
   }).length
 
   if(isMobile())updateMobileInnerStats('groups-mob-stats',

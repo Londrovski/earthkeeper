@@ -15,33 +15,42 @@ function renderDistrictList(){
     return
   }
   entries.sort((a,b)=>a.name.localeCompare(b.name))
+  const gTypes=districtGroupTypes().filter(t=>groupTypes.has(t))
   el.innerHTML=entries.map(function(d){
     const isSel=d.code===selectedDistrictCode
-    let bars=''
-    if(groupTypes.has('school')&&d.schools.length){
-      const grp=groupProgress[d.code+':school'],tot=d.schools.length
-      const eff=grp?tot:d.schools.filter(l=>progress[l.id]).length
-      bars+='<div style="margin-bottom:3px"><div class="ditem-bar-label"><span style="color:var(--blue)">Schools</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--blue);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
-    }
-    if(groupTypes.has('gp')&&d.gps.length){
-      const grp=groupProgress[d.code+':gp'],tot=d.gps.length
-      const eff=grp?tot:d.gps.filter(l=>progress[l.id]).length
-      bars+='<div><div class="ditem-bar-label"><span style="color:var(--green)">GPs</span><span>'+eff+' / '+tot+'</span></div><div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:var(--green);width:'+Math.round(eff/tot*100)+'%"></div></div></div>'
-    }
+    let bars='',badges=''
+    gTypes.forEach(function(t,i){
+      const list=dLocs(d,t)
+      if(!list.length)return
+      const grp=groupProgress[d.code+':'+t],tot=list.length
+      const eff=grp?tot:list.filter(l=>progress[l.id]).length
+      const col=ptColor(t)
+      bars+='<div'+(i<gTypes.length-1?' style="margin-bottom:3px"':'')+'>'
+        +'<div class="ditem-bar-label"><span style="color:'+col+'">'+ptLabel(t)+'</span><span>'+eff+' / '+tot+'</span></div>'
+        +'<div class="ditem-bar-track"><div class="ditem-bar-fill" style="background:'+col+';width:'+Math.round(eff/tot*100)+'%"></div></div>'
+        +'</div>'
+      if(grp){
+        const tc=toolColor(grp.tool)
+        badges+='<span class="dbadge" style="color:'+tc+';border-color:'+tc+'66;background:'+tc+'14;margin-left:4px">'
+          +ptBadge(t)+':'+TOOL_NAMES[grp.tool]+'</span>'
+      }
+    })
     if(!bars)return ''
-    const sg=groupProgress[d.code+':school'],gg=groupProgress[d.code+':gp']
-    const badges=
-      (sg?'<span class="dbadge" style="color:'+toolColor(sg.tool)+';border-color:'+toolColor(sg.tool)+'66;background:'+toolColor(sg.tool)+'14;margin-left:4px">S:'+TOOL_NAMES[sg.tool]+'</span>':'')+
-      (gg?'<span class="dbadge" style="color:'+toolColor(gg.tool)+';border-color:'+toolColor(gg.tool)+'66;background:'+toolColor(gg.tool)+'14;margin-left:4px">GP:'+TOOL_NAMES[gg.tool]+'</span>':'')
     return '<div class="ditem '+(isSel?'sel':'')+'" data-code="'+d.code+'" onclick="selectDistrict(this.dataset.code)"><div class="ditem-name"><span>'+d.name+'</span><span>'+badges+'</span></div>'+bars+'</div>'
   }).filter(Boolean).join('')
+}
+
+// Locations in a district for the currently-enabled group types.
+function districtActiveLocs(d){
+  if(!d)return []
+  return districtGroupTypes().filter(t=>groupTypes.has(t)).reduce(function(acc,t){return acc.concat(dLocs(d,t))},[])
 }
 
 function selectDistrict(code){
   selectedDistrictCode=code
   renderDistrictList();updateDistrictStates();updateDistrictStats(code)
   const d=districtMap[code];if(!d)return
-  const allLocs=[...(groupTypes.has('school')?d.schools:[]),...(groupTypes.has('gp')?d.gps:[])]
+  const allLocs=districtActiveLocs(d)
   const{bottomOffset}=getVisibleMapBounds()
   const fitPad=isMobile()?{top:60,bottom:bottomOffset+80,left:40,right:40}:null
   if(allLocs.length){
