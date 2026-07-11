@@ -1,6 +1,6 @@
 # 🌍 Earthkeeper
 
-Energy healing location tracker for the UK. Maps every hospital, school and university — mark each one as cleared as you go.
+Energy healing location tracker — UK and Australia. Maps every hospital, school and university — mark each one as cleared as you go.
 
 ## Stack
 

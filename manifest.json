@@ -1,7 +1,7 @@
 {
   "name": "Earthkeeper",
   "short_name": "Earthkeeper",
-  "description": "Energy clearing location tracker for the UK",
+  "description": "Energy clearing location tracker",
   "start_url": "https://londrovski.github.io/earthkeeper/",
   "scope": "https://londrovski.github.io/earthkeeper/",
   "display": "standalone",
